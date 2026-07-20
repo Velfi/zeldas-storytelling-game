@@ -37,6 +37,10 @@ jobs:
         with:
           release: dev-2026-05
 
+      - uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
+
       - name: Install native dependencies
         shell: pwsh
         run: |
