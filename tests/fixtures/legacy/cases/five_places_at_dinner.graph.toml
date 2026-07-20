@@ -1,0 +1,246 @@
+version = "GraphMode v1"
+case_id = "five_places_at_dinner"
+revision = 0
+
+[[scenes]]
+id = "scene_opening_felix"
+source = "felix"
+entry = "opening_felix_line"
+summary = "Felix looks toward Imogen's portrait. 'She said there would be an announcement after dessert. With Imogen, an announcement meant somebody's chair was about to move.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_felix_line"
+scene = "scene_opening_felix"
+kind = "line"
+speaker = "felix"
+text = "Felix looks toward Imogen's portrait. 'She said there would be an announcement after dessert. With Imogen, an announcement meant somebody's chair was about to move.'"
+next = "opening_felix_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_felix_end"
+scene = "scene_opening_felix"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_felix"
+source = "felix"
+entry = "account_felix_line"
+summary = "'After Ambrose, every Marigold record is treated like a confession.' Felix studies the corrected chart rather than the table. 'The patron sat beneath the Saye portrait.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_felix_line"
+scene = "scene_account_felix"
+kind = "line"
+speaker = "felix"
+text = "'After Ambrose, every Marigold record is treated like a confession.' Felix studies the corrected chart rather than the table. 'The patron sat beneath the Saye portrait.'"
+next = "account_felix_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_felix_end"
+scene = "scene_account_felix"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_felix"
+source = "felix"
+entry = "approach_felix_line"
+summary = "He points to the final card, not its pale rectangular shadow. 'Ask the caterer. The settings were fixed before service.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_felix_line"
+scene = "scene_approach_felix"
+kind = "line"
+speaker = "felix"
+text = "He points to the final card, not its pale rectangular shadow. 'Ask the caterer. The settings were fixed before service.'"
+next = "approach_felix_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_felix_end"
+scene = "scene_approach_felix"
+kind = "end"
+ui = "unchanged"
+position = [[680.0, 120.0]]
+
+[[scenes]]
+id = "scene_opening_alma"
+source = "alma"
+entry = "opening_alma_line"
+summary = "Alma touches the unused place card. 'She promised we would speak as family tonight. I was tired of being introduced as a beneficiary.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_alma_line"
+scene = "scene_opening_alma"
+kind = "line"
+speaker = "alma"
+text = "Alma touches the unused place card. 'She promised we would speak as family tonight. I was tired of being introduced as a beneficiary.'"
+next = "opening_alma_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_alma_end"
+scene = "scene_opening_alma"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_alma"
+source = "alma"
+entry = "account_alma_line"
+summary = "Alma presses a family letter flat beneath her palm. 'Imogen seated me as a beneficiary. I moved beside her because I intended to speak as family.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_alma_line"
+scene = "scene_account_alma"
+kind = "line"
+speaker = "alma"
+text = "Alma presses a family letter flat beneath her palm. 'Imogen seated me as a beneficiary. I moved beside her because I intended to speak as family.'"
+next = "account_alma_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_alma_end"
+scene = "scene_account_alma"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_alma"
+source = "alma"
+entry = "approach_alma_line"
+summary = "'I changed two names, not two glasses. The condensation was already on the cloth.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_alma_line"
+scene = "scene_approach_alma"
+kind = "line"
+speaker = "alma"
+text = "'I changed two names, not two glasses. The condensation was already on the cloth.'"
+next = "approach_alma_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_alma_end"
+scene = "scene_approach_alma"
+kind = "end"
+ui = "unchanged"
+position = [[680.0, 120.0]]
+
+[[scenes]]
+id = "scene_opening_ren"
+source = "ren"
+entry = "opening_ren_line"
+summary = "Ren counts backward through the courses. 'She changed nothing on my menu, but twice asked when the room would be empty. That was not a question about food.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_ren_line"
+scene = "scene_opening_ren"
+kind = "line"
+speaker = "ren"
+text = "Ren counts backward through the courses. 'She changed nothing on my menu, but twice asked when the room would be empty. That was not a question about food.'"
+next = "opening_ren_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_ren_end"
+scene = "scene_opening_ren"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_ren"
+source = "ren"
+entry = "account_ren_line"
+summary = "Ren counts the service in courses. 'I poured five, set five, and went back for the fish. Nobody from my staff returned.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_ren_line"
+scene = "scene_account_ren"
+kind = "line"
+speaker = "ren"
+text = "Ren counts the service in courses. 'I poured five, set five, and went back for the fish. Nobody from my staff returned.'"
+next = "account_ren_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_ren_end"
+scene = "scene_account_ren"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_ren"
+source = "ren"
+entry = "approach_ren_line"
+summary = "A thumbnail finds the cut on one foil capsule. 'That vial was not in my kit when I opened it.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_ren_line"
+scene = "scene_approach_ren"
+kind = "line"
+speaker = "ren"
+text = "A thumbnail finds the cut on one foil capsule. 'That vial was not in my kit when I opened it.'"
+next = "approach_ren_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_ren_end"
+scene = "scene_approach_ren"
+kind = "end"
+ui = "unchanged"
+position = [[680.0, 120.0]]

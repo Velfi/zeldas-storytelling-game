@@ -1,0 +1,1265 @@
+version = "MurderScript v1"
+id = "the_torn_appointment"
+title = "The Torn Appointment"
+introduction = "Edgar Vale lies dead in the moon garden. His household waits in the dining room, each guarding a different part of the evening."
+action_point_limit = 12
+reveal_location = "dining_room"
+city_start = "police_station"
+city_destination = "vale_house"
+tutorial = "basic_controls"
+seed = 20260717
+
+[[city_locations]]
+id = "vale_house"
+display_name = "VALE HOUSE"
+level_spawn = "spawn_front_gate"
+city_site = "westhaven_heights"
+
+[[tutorial_lessons]]
+id = "station_move"
+capability = "move"
+prompt = "MOVE"
+
+[[tutorial_lessons]]
+id = "station_look"
+capability = "look"
+prompt = "LOOK AROUND"
+
+[[tutorial_lessons]]
+id = "station_briefing"
+capability = "briefing"
+prompt = "RECEIVE BRIEFING"
+
+[[characters]]
+id = "edgar"
+display_name = "Edgar Vale"
+role = "victim"
+description = "A formidable financier whose household ran by his rules."
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = []
+
+[[characters]]
+id = "miriam"
+display_name = "Miriam Vale"
+role = "suspect"
+description = "Edgar's composed spouse, immaculate even beside a cold dinner."
+private_secret = "embezzlement"
+motive = "Edgar discovered her embezzlement."
+initial_disposition = 1
+initial_claims = ["claim_miriam_dinner", "claim_miriam_summons_denial"]
+
+[[characters]]
+id = "daniel"
+display_name = "Daniel Cross"
+role = "suspect"
+description = "The family solicitor, polished and watchful."
+private_secret = "affair with Miriam"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_daniel_alibi"]
+
+[[characters]]
+id = "elsie"
+display_name = "Elsie Ward"
+role = "suspect"
+description = "Vale House's housekeeper, brisk in manner and wary of questions."
+private_secret = "stole Edgar's cash"
+motive = ""
+initial_disposition = -1
+initial_claims = ["claim_elsie_study"]
+
+[[locations]]
+id = "dining_room"
+display_name = "DINING ROOM"
+description = "Dinner has gone cold beneath the silver covers. Two places preserve the small disorder of people who left in a hurry; the others have been cleared."
+connections = ["hall", "garden", "pantry"]
+characters = ["miriam", "daniel"]
+pois = []
+search_actions = ["dialogue"]
+
+[[locations]]
+id = "hall"
+display_name = "GALLERY HALL"
+description = "A narrow gallery links the public rooms, carrying every footstep through the house."
+connections = ["dining_room", "study", "pantry"]
+characters = []
+pois = []
+search_actions = ["observe"]
+
+[[locations]]
+id = "study"
+display_name = "EDGAR'S STUDY"
+description = "The books stand in severe order. One corner of the rug has drifted out of square, and lamp oil sharpens the air beneath old paper and bronze."
+connections = ["hall", "garden"]
+characters = ["elsie"]
+pois = ["statuette", "study_desk", "ledger", "memo_stub", "shutter_crank"]
+search_actions = ["search", "examine"]
+
+[[locations]]
+id = "garden"
+display_name = "MOON GARDEN"
+description = "Edgar lies beneath the shuttered study window. Rain beads on the gravel, but the moon thyme around him has already released its bruised sweetness."
+connections = ["study", "dining_room", "pantry"]
+characters = []
+pois = ["cane", "edgar_watch"]
+search_actions = ["observe", "examine"]
+
+[[locations]]
+id = "pantry"
+display_name = "EAST SERVICE ROOMS"
+description = "Miriam's private sitting room shares this narrow wing with the kitchen and scullery. Ash, soap, and lamp oil mingle where private comfort meets household work."
+connections = ["hall", "dining_room", "garden"]
+characters = []
+pois = ["cloth", "burned_note"]
+search_actions = ["search"]
+
+[[pois]]
+id = "statuette"
+display_name = "Bronze Statuette"
+kind = "object"
+location = "study"
+owner = "edgar"
+description = "A heavy bronze figure, polished recently enough to leave oil in its recesses."
+relevant_state = "blood remains in base seam"
+examination_action = "examine"
+
+[[pois]]
+id = "study_desk"
+display_name = "Edgar's Locked Desk"
+kind = "object"
+location = "study"
+owner = "edgar"
+description = "A private writing desk with a locked center drawer. Through the narrow gap, the spine of a ledger and a torn memo pad are just visible."
+relevant_state = "locked"
+examination_action = "unlock"
+
+[[pois]]
+id = "memo_stub"
+display_name = "Torn Memo Stub"
+kind = "object"
+location = "study"
+owner = "edgar"
+description = "A ragged stub remains in Edgar's memo pad: 'Miriam—study, 8:20—'"
+relevant_state = "torn lower edge; Edgar's red-pencil handwriting"
+examination_action = "examine"
+
+[[pois]]
+id = "burned_note"
+display_name = "Burned Note Fragment"
+kind = "object"
+location = "pantry"
+owner = "miriam"
+description = "A partly burned fragment curls against the metal wastebin: '—bring the account books. We settle this tonight. —E.'"
+relevant_state = "scorched face; torn edge preserved"
+examination_action = "examine"
+
+[[pois]]
+id = "ledger"
+display_name = "Private Ledger"
+kind = "object"
+location = "study"
+owner = "edgar"
+description = "Several household expenses have no receipts. Edgar ringed the corresponding transfers in red pencil; the same initials recur in the receiving column: M.V."
+relevant_state = "open to marked entries"
+examination_action = "examine"
+
+[[pois]]
+id = "cane"
+display_name = "Edgar's Cane"
+kind = "object"
+location = "garden"
+owner = "edgar"
+description = "Edgar's cane has been tucked beneath his left hand, its handle turned neatly toward his palm."
+relevant_state = "Edgar was right-handed"
+examination_action = "examine"
+
+[[pois]]
+id = "edgar_watch"
+display_name = "Edgar's Wristwatch"
+kind = "object"
+location = "garden"
+owner = "edgar"
+description = "The watch remains fastened around Edgar's wrist. Blood is trapped beneath its edge-crushed crystal, with a fresh bronze fleck embedded beside the hands stopped at 8:24."
+relevant_state = "blood and a bronze fleck trapped in edge-crushed watch; stopped at 8:24"
+examination_action = "examine"
+
+[[pois]]
+id = "cloth"
+display_name = "Polishing Cloth"
+kind = "object"
+location = "pantry"
+owner = ""
+description = "The damp cloth smells sharply of lamp oil. Rust-colored moisture stains its folds."
+relevant_state = "damp"
+examination_action = "examine"
+
+[[pois]]
+id = "shutter_crank"
+display_name = "Shutter Crank"
+kind = "mechanism"
+location = "study"
+owner = ""
+description = "A resistant brass crank inside the study operates the storm shutter."
+relevant_state = "operable from inside the study"
+examination_action = "observe"
+
+[[events]]
+id = "e1"
+time = "20:15"
+actor = "shutter_crank"
+action = "alter"
+target = "shutter_crank"
+source = "study"
+destination = "study"
+tool = ""
+effects = ["shutter_closed"]
+witnesses = []
+
+[[events]]
+id = "e2"
+time = "20:24"
+actor = "miriam"
+action = "kill"
+target = "edgar"
+source = "study"
+destination = "study"
+tool = "statuette"
+effects = ["edgar_dead"]
+witnesses = []
+
+[[events]]
+id = "e3"
+time = "20:25"
+actor = "miriam"
+action = "clean"
+target = "statuette"
+source = "study"
+destination = "study"
+tool = "cloth"
+effects = ["weapon_cleaned"]
+witnesses = []
+
+[[events]]
+id = "e4"
+time = "20:27"
+actor = "miriam"
+action = "move_body"
+target = "edgar"
+source = "study"
+destination = "garden"
+tool = ""
+effects = ["body_in_garden"]
+witnesses = []
+
+[[events]]
+id = "e5"
+time = "20:29"
+actor = "miriam"
+action = "place"
+target = "cane"
+source = "garden"
+destination = "garden"
+tool = ""
+effects = ["fall_staged"]
+witnesses = []
+
+[[events]]
+id = "e6"
+time = "20:30"
+actor = "miriam"
+action = "alter"
+target = "burned_note"
+source = "pantry"
+destination = "pantry"
+tool = ""
+effects = ["summons_fragment_partly_burned"]
+witnesses = []
+
+[[events]]
+id = "e7"
+time = "20:31"
+actor = "miriam"
+action = "hide"
+target = "burned_note"
+source = "pantry"
+destination = "pantry"
+tool = ""
+effects = ["summons_fragment_left_in_wastebin"]
+witnesses = []
+
+[[events]]
+id = "e8"
+time = "20:33"
+actor = "miriam"
+action = "move"
+target = "miriam"
+source = "pantry"
+destination = "dining_room"
+tool = ""
+effects = ["miriam_returned_to_dinner"]
+witnesses = ["daniel"]
+
+[[claims]]
+id = "claim_miriam_dinner"
+speaker = "miriam"
+proposition = "Miriam remained at dinner."
+true = false
+protects = "murder"
+response = "I never left Daniel's sight."
+
+[[claims]]
+id = "claim_miriam_summons_denial"
+speaker = "miriam"
+proposition = "Miriam denied that Edgar summoned her during dinner."
+true = false
+protects = "murder"
+response = "Edgar never summoned me. I did not enter his study during dinner."
+
+[[claims]]
+id = "claim_daniel_alibi"
+speaker = "daniel"
+proposition = "Miriam remained at dinner."
+true = false
+protects = "affair"
+response = "She was with me throughout."
+
+[[claims]]
+id = "claim_elsie_study"
+speaker = "elsie"
+proposition = "Elsie never entered the study."
+true = false
+protects = "theft"
+response = "No. If Mr Vale wanted something brought in, he rang. He did not ring."
+
+[[clues]]
+id = "clue_ledger"
+source = "ledger"
+discovery_action = "examine"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Trace Edgar's red-circled household transfers. Compare the receiving initials against the missing receipts and his final pencil note."
+proposition = "Edgar marked unreceipted household payments to M.V. and wrote: 'Tonight. No more excuses.'"
+blocks = ["motive_embezzlement"]
+topics = ["embezzlement", "concealed_household_crime"]
+essential = true
+
+[[clues]]
+id = "clue_daniel"
+source = "daniel"
+discovery_action = "dialogue"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Ask why Daniel guards monogrammed stationery inside his coat, then test his polished dinner account against what it says."
+proposition = "Miriam's intimate note arranged a gallery meeting after the fish; Daniel waited there alone and admits the affair was the reason for his false alibi."
+blocks = ["claim_daniel_alibi"]
+topics = ["affair", "alibi_timing"]
+essential = true
+
+[[clues]]
+id = "clue_appointment_stub"
+source = "memo_stub"
+discovery_action = "observe"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Examine the ragged paper trapped beneath Edgar's memo-pad binding. Recover what remains without damaging the torn edge."
+proposition = "Edgar's memo-pad stub names Miriam, the study, and 8:20; its lower half has been torn away."
+blocks = ["fact_miriam_summoned"]
+topics = ["appointment_note", "miriam_near_study", "death_timing"]
+essential = true
+
+[[clues]]
+id = "clue_elsie"
+source = "elsie"
+discovery_action = "dialogue"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Press Elsie on the hidden catch and the exact cash-box amount. Distinguish knowing the house from knowing this drawer."
+proposition = "Elsie produces Edgar's missing cash and says she saw Miriam enter the study just after the fish course."
+blocks = ["fact_miriam_corridor"]
+topics = ["theft", "concealed_household_crime", "miriam_near_study"]
+essential = true
+
+[[clues]]
+id = "clue_cloth"
+source = "cloth"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "Unfold the damp polishing cloth. Identify the sharp odor and the rust-colored moisture caught inside its folds."
+proposition = "A lamp-oil polishing cloth bears rust-colored moisture in its folds."
+blocks = ["action_clean"]
+topics = ["staged_scene", "death_timing"]
+essential = true
+
+[[clues]]
+id = "clue_clock"
+source = "edgar_watch"
+discovery_action = "examine"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "Examine Edgar's crushed watch without disturbing the blood caught beneath its crystal. Check the fracture, hands, and embedded debris."
+proposition = "Blood is trapped beneath Edgar's crushed watch crystal, with a fresh bronze fleck beside the hands stopped at 8:24."
+blocks = ["time_2015_2025"]
+topics = ["death_timing"]
+essential = true
+
+[[clues]]
+id = "clue_cane"
+source = "cane"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "Compare the hand in which Edgar's cane was placed with the wear on its grip and the calluses on his palms."
+proposition = "Edgar's cane was arranged beneath the wrong hand after his death."
+blocks = ["action_stage"]
+topics = ["staged_scene", "body_movement"]
+essential = true
+
+[[clues]]
+id = "clue_statuette"
+source = "statuette"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Lift the shifted rug and rotate the freshly polished bronze. Compare what the cleaning missed with the shape of Edgar's wound."
+proposition = "Blood beneath the study rug places the attack there, and the statuette's bloodied base matches Edgar's wound."
+blocks = ["object_statuette", "place_study"]
+topics = ["staged_scene", "death_timing"]
+essential = true
+
+[[clues]]
+id = "clue_drag"
+source = "garden"
+discovery_action = "observe"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "Inspect the bruised moon thyme between the study terrace and Edgar before the rain erases its shape."
+proposition = "Flattened thyme forms a broad trail between the study terrace and Edgar's body."
+blocks = ["action_move_body"]
+topics = ["staged_scene"]
+essential = true
+
+[[clues]]
+id = "clue_dinner_settings"
+source = "dining_room"
+discovery_action = "reconstruct"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "Reconstruct the abandoned fish course from the shifted chairs, wine trail, missing napkin, and plates already cleared."
+proposition = "At the 8:20 fish course, Miriam's wine trails from a pushed-back chair and Daniel's napkin is missing."
+blocks = ["fact_dinner_abandoned"]
+topics = ["alibi_timing"]
+essential = true
+
+[[clues]]
+id = "clue_burned_fragment"
+source = "burned_note"
+discovery_action = "observe"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = ["clue_appointment_stub"]
+description = "Recover the singed paper from the cold ash without damaging its ragged edge. Read what the fire left behind."
+proposition = "A scorched note fragment bearing Edgar's initial and instructions about the account books was found in Miriam's sitting-room wastebin."
+blocks = ["claim_miriam_summons_denial", "proof_destroyed_summons"]
+topics = ["appointment_note", "destroyed_evidence"]
+essential = true
+
+[[dialogue_approaches]]
+id = "approach_miriam_alibi"
+character = "miriam"
+prompt = "Who was at dinner when Edgar failed to appear?"
+response = "Miriam says Edgar often chose work over courtesy, then places Daniel opposite her from soup through fish. She offers the alibi while appearing merely to describe the table."
+clue = ""
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_claims = ["claim_miriam_dinner"]
+unlock_topics = []
+
+[[dialogue_approaches]]
+id = "approach_miriam_edgar"
+character = "miriam"
+prompt = "What was Edgar like when the household failed to run to time?"
+response = "Miriam recalls that Edgar never raised his voice; he reset the offending clock and made everyone live by the correction. Her account reveals a marriage conducted through small punishments and also how fluently she learned his methods of control."
+clue = ""
+requires_clues = []
+requires_claims = ["claim_miriam_dinner"]
+requires_topics = []
+unlock_claims = []
+unlock_topics = ["edgar_controlled_by_correction"]
+
+[[dialogue_approaches]]
+id = "approach_miriam_summons_denial"
+character = "miriam"
+prompt = "Did Edgar ever send for you while he worked through dinner?"
+response = "Miriam narrows the question to tonight and denies that Edgar sent for her. Her careful distinction leaves no room for accident: she claims she had no reason to enter his study."
+clue = ""
+requires_clues = []
+requires_claims = ["claim_miriam_dinner"]
+requires_topics = []
+unlock_claims = ["claim_miriam_summons_denial"]
+unlock_topics = ["appointment_denial"]
+
+[[dialogue_approaches]]
+id = "approach_miriam_accounts"
+character = "miriam"
+prompt = "Your initials recur beside transfers with no receipts. What was Edgar recording?"
+response = "Miriam calls the transfers household advances and Edgar's red circles another means of control. Pressed on what they purchased, she names possibility—a room, a journey, one unaccounted-for hour—then insists missing receipts do not turn ordinary expenses into theft."
+clue = ""
+requires_clues = ["clue_ledger"]
+requires_claims = []
+requires_topics = ["embezzlement"]
+unlock_claims = []
+unlock_topics = ["accounts_challenged"]
+
+[[dialogue_approaches]]
+id = "approach_miriam_statuette_blood"
+character = "miriam"
+prompt = "Why is fresh polish sitting over something dark in the statuette's base seam?"
+response = "Miriam reaches to turn the blood-dark seam away and is stopped from touching it. She insists that proximity to Edgar's desk cannot establish possession or guilt."
+clue = ""
+requires_clues = []
+requires_claims = []
+requires_topics = ["statuette_blood_found"]
+unlock_claims = []
+unlock_topics = ["weapon_cleaning_questioned"]
+
+[[dialogue_approaches]]
+id = "approach_miriam_garden_route"
+character = "miriam"
+prompt = "You were precise about the doors standing open. Why does the trail begin at the study terrace?"
+response = "Miriam corrects the detective's wording rather than addressing the route. She said the doors stood open, not that she opened them; when pressed on how Edgar crossed the terrace, she makes his habits carry the answer."
+clue = ""
+requires_clues = ["clue_drag"]
+requires_claims = []
+requires_topics = ["body_movement"]
+unlock_claims = []
+unlock_topics = ["miriam_garden_wording"]
+
+[[dialogue_approaches]]
+id = "approach_elsie_desk_catch"
+character = "elsie"
+prompt = "How did you know about the desk's hidden release catch?"
+response = "Elsie studies the opened drawer. 'Mr Vale showed me once, when the key went missing. I remembered because he kept the household cash there.'"
+clue = ""
+requires_clues = []
+requires_claims = []
+requires_topics = ["desk_catch_found"]
+unlock_claims = []
+unlock_topics = ["cash_box_attention"]
+
+[[dialogue_approaches]]
+id = "approach_miriam_burned_fragment"
+character = "miriam"
+prompt = "This survived in your sitting-room wastebin. Which part do you dispute: Edgar's hand, the account books, or the fire?"
+response = "Miriam objects to the search before studying the scorch marks rather than the words. She disputes who placed or burned the fragment, but does not deny recognizing Edgar's hand."
+clue = ""
+requires_clues = ["clue_appointment_stub", "clue_burned_fragment"]
+requires_claims = ["claim_miriam_dinner"]
+requires_topics = []
+unlock_claims = []
+unlock_topics = ["destroyed_evidence"]
+
+[[dialogue_approaches]]
+id = "approach_miriam_joined_appointment"
+character = "miriam"
+prompt = "Read the joined note aloud. Then repeat what Edgar never did."
+response = "Miriam dismisses the joined appointment as scraps and accusation, then retreats into the exact wording of her denial. For the first time, precision traps her and she leaves the note crooked."
+clue = ""
+requires_clues = ["clue_appointment_stub", "clue_burned_fragment"]
+requires_claims = ["claim_miriam_summons_denial"]
+requires_topics = ["appointment_denial", "unique_knowledge"]
+unlock_claims = []
+unlock_topics = ["appointment_contradiction"]
+
+[[dialogue_approaches]]
+id = "approach_miriam_other_lies"
+character = "miriam"
+prompt = "Daniel has withdrawn your alibi. Elsie has admitted what she saw. Which lie would you like me to believe first?"
+response = "Miriam tries to turn two confessed liars into reasonable doubt. Daniel's confession leaves her chair unobserved during the death window; Elsie's confession places her at Edgar's door. The detective separates the secrets their lies protected from Miriam's still-unexplained absence."
+clue = ""
+requires_clues = ["clue_daniel", "clue_elsie"]
+requires_claims = ["claim_miriam_dinner"]
+requires_topics = ["affair_admitted", "theft_explained"]
+unlock_claims = []
+unlock_topics = ["other_lies_separated"]
+
+[[dialogue_approaches]]
+id = "approach_daniel_memo_habit"
+character = "daniel"
+prompt = "Why would Edgar keep the torn root of an appointment?"
+response = "Daniel recognizes Edgar's habit of writing an exact time, tearing out the message, and retaining the stub as leverage. He notes that Edgar scheduled confrontations like contracts—and that anyone summoned would know he had kept a record."
+clue = ""
+requires_clues = ["clue_appointment_stub"]
+requires_claims = []
+requires_topics = []
+unlock_claims = []
+unlock_topics = ["edgar_kept_appointment_stubs"]
+
+[[dialogue_approaches]]
+id = "approach_daniel_alibi"
+character = "daniel"
+prompt = "Give me your own account of dinner."
+response = "Daniel volunteers a separate account, places Miriam opposite him from soup through fish, and insists he would have noticed an empty chair. He resists the suggestion that he was watching her."
+clue = ""
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_claims = ["claim_daniel_alibi"]
+unlock_topics = []
+
+[[dialogue_approaches]]
+id = "approach_daniel_edgar"
+character = "daniel"
+prompt = "What kind of client was Edgar Vale?"
+response = "Daniel describes a client who retained every draft, favor, and indiscretion until gratitude became debt. Edgar preferred leverage to trust, giving Daniel both a plausible professional grievance and a precise understanding of how Edgar documented confrontations."
+clue = ""
+requires_clues = []
+requires_claims = ["claim_daniel_alibi"]
+requires_topics = []
+unlock_claims = []
+unlock_topics = ["edgar_kept_leverage"]
+
+[[dialogue_approaches]]
+id = "approach_daniel_affair"
+character = "daniel"
+prompt = "Your account says you watched the table. Your hand says there is something in your pocket. Which should I believe?"
+response = "Miriam's exact note asks Daniel to meet after the fish because she cannot endure another evening opposite him pretending not to look. Daniel admits waiting alone in the gallery and lying to conceal their affair; his presence near the study first deepens suspicion, then breaks Miriam's alibi."
+clue = "clue_daniel"
+requires_clues = []
+requires_claims = ["claim_daniel_alibi"]
+requires_topics = []
+unlock_claims = []
+unlock_topics = ["affair_admitted"]
+
+[[dialogue_approaches]]
+id = "approach_daniel_impact"
+character = "daniel"
+prompt = "While you waited in the gallery, what did you hear?"
+response = "Daniel first blames the settling house, then admits hearing one heavy blow through the study door. He returned to dinner because he required himself to believe it was the shutter."
+clue = ""
+requires_clues = ["clue_daniel"]
+requires_claims = []
+requires_topics = ["affair"]
+unlock_claims = []
+unlock_topics = ["fatal_impact"]
+
+[[dialogue_approaches]]
+id = "approach_daniel_cane"
+character = "daniel"
+prompt = "Look at where the cane was placed. Which hand did Edgar actually use?"
+response = "Daniel answers right without hesitation: Edgar signed, struck matches, and used the cane with the same hand. He recognizes that the garden pose was arranged, then dryly observes that familiarity with a client is not yet an alibi."
+clue = ""
+requires_clues = ["clue_cane"]
+requires_claims = []
+requires_topics = ["staged_scene"]
+unlock_claims = []
+unlock_topics = ["daniel_confirms_handedness"]
+
+[[dialogue_approaches]]
+id = "approach_daniel_failed_followup"
+character = "daniel"
+prompt = "What is in your inner pocket?"
+response = "Daniel covers the pocket and invokes the limits of the detective's authority. Even when Miriam's monogram is identified, he coolly calls it evidence of nothing more than a stationer."
+clue = ""
+requires_clues = []
+requires_claims = ["claim_daniel_alibi"]
+requires_topics = ["failed_daniel_affair"]
+unlock_claims = []
+unlock_topics = ["private_note_seen"]
+
+[[dialogue_approaches]]
+id = "approach_daniel_withdrawal"
+character = "daniel"
+prompt = "You said Miriam never left the table. Do you still stand by that?"
+response = "Daniel withdraws Miriam's alibi in front of her. He admits that his first account was false and tells Miriam she never explained what, exactly, he was protecting her from."
+clue = ""
+requires_clues = ["clue_daniel"]
+requires_claims = ["claim_daniel_alibi"]
+requires_topics = ["affair_admitted", "miriam_alibi_broken"]
+unlock_claims = []
+unlock_topics = ["alibi_withdrawn"]
+
+[[dialogue_approaches]]
+id = "approach_elsie_denial"
+character = "elsie"
+prompt = "Your work took you through the house. Did it take you into the study?"
+response = "Elsie resents the assumption hidden inside the question. She says Edgar rang when he wanted service in the study, and that he did not ring tonight."
+clue = ""
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_claims = ["claim_elsie_study"]
+unlock_topics = []
+
+[[dialogue_approaches]]
+id = "approach_elsie_edgar"
+character = "elsie"
+prompt = "What did the people who worked here think of Mr Vale?"
+response = "Elsie says Edgar paid exactly on time and mistook correctness for kindness. One bell meant service; two meant someone would be blamed. The study bell remained silent tonight, reinforcing her account while revealing how fear organized the house."
+clue = ""
+requires_clues = []
+requires_claims = ["claim_elsie_study"]
+requires_topics = []
+unlock_claims = []
+unlock_topics = ["edgar_household_power"]
+
+[[dialogue_approaches]]
+id = "approach_elsie_routine"
+character = "elsie"
+prompt = "Take me through your evening in order."
+response = "Elsie accounts for fish, coffee, and silver as a chain of duties. She remembers work more readily than people because, unlike people, duties stay where they are put."
+clue = ""
+requires_clues = []
+requires_claims = ["claim_elsie_study"]
+requires_topics = []
+unlock_claims = []
+unlock_topics = ["kitchen_routine"]
+
+[[dialogue_approaches]]
+id = "approach_elsie_theft"
+character = "elsie"
+prompt = "You found the hidden catch before I did. Start with the cash."
+response = "Elsie admits taking sixteen pounds before dinner. Only after confessing her own wrong does she reveal that, just after the fish, she saw Miriam enter the study unseen."
+clue = "clue_elsie"
+requires_clues = []
+requires_claims = ["claim_elsie_study"]
+requires_topics = ["kitchen_routine", "cash_box_attention"]
+unlock_claims = []
+unlock_topics = ["miriam_sighting"]
+
+[[dialogue_approaches]]
+id = "approach_elsie_explanation"
+character = "elsie"
+prompt = "Sixteen pounds. Why that amount?"
+response = "Elsie lays out two fives and six ones, accounting for all sixteen pounds. It was enough for a room beyond Edgar's bells, if she could decide to become the sort of woman who kept it."
+clue = ""
+requires_clues = ["clue_elsie"]
+requires_claims = ["claim_elsie_study"]
+requires_topics = ["theft"]
+unlock_claims = []
+unlock_topics = ["theft_explained"]
+
+[[dialogue_approaches]]
+id = "approach_elsie_cloth"
+character = "elsie"
+prompt = "A used polishing cloth was hidden with clean supplies. Who would make that mistake?"
+response = "Elsie says clean cloths belong in the cupboard and used ones go straight to the scullery. Whoever wedged this one behind the bottles knew where the household polish was kept, but not how the household work was done."
+clue = ""
+requires_clues = ["clue_cloth"]
+requires_claims = []
+requires_topics = ["staged_scene"]
+unlock_claims = []
+unlock_topics = ["cloth_hidden_by_nonservant"]
+
+[[dialogue_approaches]]
+id = "approach_elsie_burned_paper"
+character = "elsie"
+prompt = "Miriam had a grate. Why is this fragment only singed in the wastebin?"
+response = "Elsie says Miriam ordinarily burned private papers cleanly in the sitting-room grate and checked the ash herself. This fragment was singed over a smaller flame and dropped unfinished—the work of someone interrupted or suddenly short of time."
+clue = ""
+requires_clues = ["clue_burned_fragment"]
+requires_claims = []
+requires_topics = []
+unlock_claims = []
+unlock_topics = ["fragment_burned_in_haste"]
+
+[[dialogue_approaches]]
+id = "approach_elsie_failed_followup"
+character = "elsie"
+prompt = "What did Edgar keep in that drawer?"
+response = "Elsie answers too precisely—household money, receipts beneath—and her finger finds the hidden catch before she stops herself. She falls back on knowing how the house is kept."
+clue = ""
+requires_clues = []
+requires_claims = ["claim_elsie_study"]
+requires_topics = ["failed_elsie_theft"]
+unlock_claims = []
+unlock_topics = ["cash_box_attention", "elsie_desk_help"]
+
+[[dialogue_approaches]]
+id = "approach_elsie_return"
+character = "elsie"
+prompt = "Putting the notes back will not make your first account true. Why return now?"
+response = "Elsie admits that restitution cannot repair her first account. She returned because Miriam knows she was seen—and because she feared the detective would believe the mistress of the house before the housekeeper."
+clue = ""
+requires_clues = []
+requires_claims = ["claim_elsie_study"]
+requires_topics = ["late_case_changes"]
+unlock_clues = ["clue_elsie"]
+unlock_claims = []
+unlock_topics = ["miriam_sighting", "theft_explained"]
+
+[[contradictions]]
+id = "contra_appointment"
+claim = "claim_miriam_summons_denial"
+fact = "clue_burned_fragment"
+conclusion = "Miriam received Edgar's 8:20 summons, despite denying that he sent for her."
+explanation = "The memo-pad stub in Edgar's locked desk and the scorched fragment recovered from the metal wastebin in Miriam's sitting room share one irregular tear. Rejoined, they show that she possessed the missing half of the summons she denied receiving."
+
+[[deductions]]
+id = "ded_miriam_motive"
+proposition = "Edgar's discovery of Miriam's embezzlement gave her a financial motive."
+category = "who"
+supports = ["miriam:motive"]
+unlock_questions = []
+unlock_topics = ["motive_established"]
+unlock_investigations = []
+
+[[deductions]]
+id = "ded_study_murder"
+proposition = "Edgar was killed in the study, not the garden."
+category = "where_when"
+unlock_questions = ["q_cane_weapon"]
+unlock_topics = ["murder_scene"]
+unlock_investigations = []
+
+[[deductions]]
+id = "ded_body_moved"
+proposition = "Edgar's body was moved to the garden after death."
+category = "what"
+unlock_questions = []
+unlock_topics = ["body_movement"]
+unlock_investigations = []
+
+[[deductions]]
+id = "ded_statuette_weapon"
+proposition = "The bronze statuette, not Edgar's cane, caused the fatal wound."
+category = "what"
+supports = ["miriam:means"]
+unlock_questions = []
+unlock_topics = ["weapon"]
+unlock_investigations = []
+
+[[deductions]]
+id = "ded_scene_staged"
+proposition = "The cane was placed to stage a garden fall."
+category = "concealment"
+unlock_questions = []
+unlock_topics = ["staging"]
+unlock_investigations = []
+
+[[deductions]]
+id = "ded_daniel_affair"
+proposition = "Daniel's false alibi concealed his affair with Miriam."
+category = "concealment"
+unlock_questions = ["q_miriam_study_meeting"]
+unlock_topics = ["affair_explained"]
+unlock_investigations = []
+
+[[deductions]]
+id = "ded_daniel_excluded"
+proposition = "Daniel's false alibi does not place him at the murder scene."
+category = "who"
+unlock_questions = []
+unlock_topics = []
+unlock_investigations = []
+
+[[deductions]]
+id = "ded_elsie_theft"
+proposition = "Elsie entered the study to steal cash, not to kill Edgar."
+category = "who"
+unlock_questions = []
+unlock_topics = ["theft_explained"]
+unlock_investigations = []
+
+[[deductions]]
+id = "ded_miriam_seen_study"
+proposition = "Elsie saw Miriam enter the study shortly after the fish course."
+category = "where_when"
+supports = ["miriam:opportunity"]
+unlock_questions = []
+unlock_topics = ["miriam_sighting"]
+unlock_investigations = []
+
+[[deductions]]
+id = "ded_miriam_denial_disproved"
+proposition = "Miriam's denial is disproved by the joined 8:20 appointment note."
+category = "contradiction"
+supports = ["miriam:opportunity"]
+unlock_questions = []
+unlock_topics = ["decisive_proof"]
+unlock_investigations = []
+
+[[deductions]]
+id = "ded_fragment_in_miriam_wastebin"
+proposition = "The missing half of Edgar's summons was recovered, partly burned, from the metal wastebin in Miriam's sitting room."
+category = "who"
+unlock_questions = []
+unlock_topics = ["unique_knowledge"]
+unlock_investigations = []
+
+[[deductions]]
+id = "ded_death_time"
+proposition = "The fatal blow fell at 8:24; Edgar did not survive beyond it."
+category = "where_when"
+unlock_questions = ["q_miriam_alibi"]
+unlock_topics = ["death_time_established"]
+unlock_investigations = []
+
+[[deductions]]
+id = "ded_miriam_alibi_broken"
+proposition = "Miriam was away from the dining table during Edgar's death window."
+category = "who"
+supports = ["miriam:opportunity"]
+unlock_questions = ["q_fragment_source"]
+unlock_topics = ["miriam_alibi_broken"]
+unlock_investigations = []
+
+[[questions]]
+id = "q_miriam_motive"
+prompt = "What confrontation was Edgar preparing for Miriam?"
+hypothesis = "Follow Edgar's red pencil from the missing money toward the meeting he planned."
+category = "who"
+requires_clues = ["clue_ledger"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = false
+
+[[questions]]
+id = "q_garden_murder"
+prompt = "Why does Edgar's garden hold a body but so little blood?"
+hypothesis = "A body may rest far from where it bled. Compare its outdoor route with traces inside."
+category = "where_when"
+requires_clues = ["clue_drag"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = false
+
+[[questions]]
+id = "q_cane_weapon"
+prompt = "Did the cane kill Edgar—or merely arrange him?"
+hypothesis = "The garden pose and the wound disagree. Compare the object placed with the object marked."
+category = "what"
+requires_clues = ["clue_clock"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = false
+
+[[questions]]
+id = "q_daniel_lie"
+prompt = "What was Daniel's polished alibi actually protecting?"
+hypothesis = "A false alibi may expose a different secret. Test Daniel's words against what he guards."
+category = "who"
+requires_clues = []
+requires_claims = ["claim_daniel_alibi"]
+requires_deductions = []
+requires_questions = []
+required_for_final = false
+
+[[questions]]
+id = "q_when_death"
+prompt = "What fixed Edgar's broken watch at 8:24?"
+hypothesis = "A stopped watch needs a cause. Let the damage authenticate the time."
+category = "where_when"
+requires_clues = ["clue_clock", "clue_appointment_stub", "clue_statuette"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = false
+
+[[questions]]
+id = "q_miriam_alibi"
+prompt = "Can two empty places give each other an alibi?"
+hypothesis = "An absent witness cannot protect another absence. Make the accounts share one course."
+category = "who"
+requires_clues = ["clue_clock", "clue_dinner_settings"]
+requires_claims = ["claim_miriam_dinner", "claim_daniel_alibi"]
+requires_deductions = ["ded_death_time"]
+requires_questions = []
+required_for_final = false
+
+[[questions]]
+id = "q_fragment_source"
+prompt = "Do the burned fragment and memo stub share one tear?"
+hypothesis = "Fire changes a page's surface, not the history of its torn edge."
+category = "where_when"
+requires_clues = ["clue_appointment_stub", "clue_burned_fragment"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = false
+
+[[questions]]
+id = "q_elsie_study"
+prompt = "What did Elsie's denial buy her silence about?"
+hypothesis = "Elsie's hidden wrong may explain both where she went and what she feared reporting."
+category = "who"
+requires_clues = []
+requires_claims = ["claim_elsie_study"]
+requires_deductions = []
+requires_questions = []
+required_for_final = false
+
+[[questions]]
+id = "q_miriam_study_meeting"
+prompt = "What exact sentence did Miriam choose to deny?"
+hypothesis = "Test Miriam's exact denial against Edgar's wording and where the missing half survived."
+category = "contradiction"
+requires_clues = ["clue_appointment_stub"]
+requires_claims = ["claim_miriam_summons_denial"]
+requires_deductions = []
+requires_questions = []
+required_for_final = false
+
+[[demonstrations]]
+id = "demo_miriam_motive"
+question = "q_miriam_motive"
+mode = "comparison"
+resolution = "substantiated"
+prompt = "Combine two recorded observations that bear on Edgar's plans for the evening."
+result = "The unreceipted payments lead to M.V.; Edgar's 8:20 memo leads to Miriam and the study. He was not merely auditing the loss—he had scheduled the confrontation."
+slot_labels = ["OBSERVATION", "OBSERVATION"]
+slot_types = ["observation", "observation"]
+accepted_routes = ["clue_ledger", "clue_appointment_stub", "clue_ledger", "clue_burned_fragment"]
+route_firsts = [0, 2]
+route_counts = [2, 2]
+result_deductions = ["ded_miriam_motive"]
+
+[[demonstrations]]
+id = "demo_garden_murder"
+question = "q_garden_murder"
+mode = "physical"
+resolution = "eliminated"
+prompt = "Combine two recorded observations about the physical scene."
+result = "Blood fixes the attack beneath the study rug; crushed thyme carries the body to the garden. The garden is where Edgar was displayed, not where he died."
+slot_labels = ["OBSERVATION", "OBSERVATION"]
+slot_types = ["observation", "observation"]
+accepted_routes = ["clue_statuette", "clue_drag"]
+route_firsts = [0]
+route_counts = [2]
+result_deductions = ["ded_study_murder", "ded_body_moved"]
+
+[[demonstrations]]
+id = "demo_cane_weapon"
+question = "q_cane_weapon"
+mode = "comparison"
+resolution = "eliminated"
+prompt = "Compare the object placed in Edgar's hand with the object that matches his injury."
+result = "The cane was arranged beneath Edgar's wrong hand to sell a fall. It is scenery; the bloodied statuette base is the weapon."
+slot_labels = ["OBSERVATION", "OBSERVATION"]
+slot_types = ["observation", "observation"]
+accepted_routes = ["clue_cane", "clue_statuette"]
+route_firsts = [0]
+route_counts = [2]
+result_deductions = ["ded_statuette_weapon", "ded_scene_staged"]
+
+[[demonstrations]]
+id = "demo_daniel_lie"
+question = "q_daniel_lie"
+mode = "confrontation"
+resolution = "explained"
+prompt = "Combine Daniel's statement with testimony bearing on it."
+result = "Daniel's false alibi concealed the gallery meeting and his affair. His lie is shame, not murder—but it leaves Miriam's chair unwatched."
+slot_labels = ["STATEMENT", "TESTIMONY"]
+slot_types = ["statement", "testimony"]
+accepted_routes = ["claim_daniel_alibi", "clue_daniel"]
+route_firsts = [0]
+route_counts = [2]
+result_deductions = ["ded_daniel_affair", "ded_daniel_excluded"]
+
+[[demonstrations]]
+id = "demo_when_death"
+question = "q_when_death"
+mode = "timeline"
+resolution = "eliminated"
+prompt = "Combine three recorded observations about the timing of the attack."
+result = "Blood beneath the crystal and bronze in its fracture make 8:24 the time of the statuette strike. Edgar's memo records Miriam in the study at 8:20: appointment, then blow, four minutes apart."
+slot_labels = ["OBSERVATION", "OBSERVATION", "OBSERVATION"]
+slot_types = ["observation", "observation", "observation"]
+accepted_routes = ["clue_clock", "clue_statuette", "clue_appointment_stub"]
+route_firsts = [0]
+route_counts = [3]
+result_deductions = ["ded_death_time"]
+
+[[demonstrations]]
+id = "demo_miriam_alibi"
+question = "q_miriam_alibi"
+mode = "timeline"
+resolution = "eliminated"
+prompt = "Combine one statement with two observations about dinner and time."
+result = "Miriam's wine trail and Daniel's missing napkin mark two departures during the fatal course. Two empty places cannot witness each other; his alibi fails."
+slot_labels = ["STATEMENT", "OBSERVATION", "OBSERVATION"]
+slot_types = ["statement", "observation", "observation"]
+accepted_routes = ["claim_daniel_alibi", "clue_dinner_settings", "clue_clock", "claim_miriam_dinner", "clue_dinner_settings", "clue_clock"]
+route_firsts = [0, 3]
+route_counts = [3, 3]
+result_deductions = ["ded_miriam_alibi_broken"]
+
+[[demonstrations]]
+id = "demo_fragment_source"
+question = "q_fragment_source"
+mode = "physical"
+resolution = "substantiated"
+prompt = "Compare the two recorded paper observations."
+result = "The irregular edges meet exactly. The half missing from Edgar's 8:20 summons survived in Miriam's wastebin; the fire damaged the words but left the edge that proves its route."
+slot_labels = ["OBSERVATION", "OBSERVATION"]
+slot_types = ["observation", "observation"]
+accepted_routes = ["clue_appointment_stub", "clue_burned_fragment"]
+route_firsts = [0]
+route_counts = [2]
+result_deductions = ["ded_fragment_in_miriam_wastebin"]
+
+[[demonstrations]]
+id = "demo_elsie_study"
+question = "q_elsie_study"
+mode = "confrontation"
+resolution = "explained"
+prompt = "Combine Elsie's statement with later testimony bearing on it."
+result = "Elsie entered before dinner for the cash, then lied to hide the theft. Confessing her own wrong buys the missing sightline: Miriam entered shortly after the fish."
+slot_labels = ["STATEMENT", "TESTIMONY"]
+slot_types = ["statement", "testimony"]
+accepted_routes = ["claim_elsie_study", "clue_elsie"]
+route_firsts = [0]
+route_counts = [2]
+result_deductions = ["ded_elsie_theft", "ded_miriam_seen_study"]
+
+[[demonstrations]]
+id = "demo_miriam_study_meeting"
+question = "q_miriam_study_meeting"
+mode = "comparison"
+resolution = "eliminated"
+prompt = "Combine one statement with two observations about the appointment."
+result = "Joined, the scraps summon Miriam to Edgar's study at 8:20. Her half survived in her wastebin, so the sentence she tried to burn now answers the sentence she chose to deny."
+slot_labels = ["STATEMENT", "OBSERVATION", "OBSERVATION"]
+slot_types = ["statement", "observation", "observation"]
+accepted_routes = ["claim_miriam_summons_denial", "clue_burned_fragment", "clue_appointment_stub"]
+route_firsts = [0]
+route_counts = [3]
+result_deductions = ["ded_miriam_denial_disproved"]
+
+[[endings]]
+id = "case_closed"
+trigger = "outcome.airtight"
+outcome = "airtight"
+title = "THE APPOINTMENT KEPT"
+subtitle = "Vale House · The truth survives the fire"
+summary = "The rejoined appointment note silences the room. Miriam denied the summons, yet its missing half was found burned in her sitting-room wastebin; the weapon, body route, and staged cane complete the account."
+epilogue = "Before dawn, Daniel surrenders Miriam's folded note without another objection. Elsie counts sixteen pounds back into Edgar's drawer. Miriam leaves the torn appointment crooked on the table when the constable takes her away—the one detail in Vale House she can no longer correct."
+canonical_timeline = "At 8:15 the study shutter closed automatically, cutting off the dining room's view of the window and garden. At 8:20 Edgar summoned Miriam to the study over the missing household accounts. Daniel waited alone in the gallery for the meeting she had promised him. At 8:24 Miriam struck Edgar with the bronze statuette, cleaned it with lamp oil, moved his body through the terrace door, and staged a garden fall with his cane. Elsie saw Miriam enter but kept silent because Miriam had seen her crossing the gallery with sixteen stolen pounds still in her apron. Miriam tried to burn her half of the summons, then returned to dinner at 8:33; Daniel lied that she had never left. The surviving fragment joins Edgar's memo stub and proves the denial that none of their other lies could protect."
+tone = "success"
+primary_label = "REVEAL CANONICAL ACCOUNT"
+primary_action = "reveal"
+secondary_label = "RETURN TO CAMPAIGN"
+secondary_action = "campaign"
+
+[[endings]]
+id = "case_referred"
+trigger = "outcome.correct_but_unproven"
+outcome = "correct_but_unproven"
+title = "THE RIGHT NAME, WITHOUT THE PROOF"
+subtitle = "Vale House · The accusation goes forward"
+summary = "You name Miriam, and the physical sequence is credible, but a material gap remains—in the decisive contradiction, a competing lie, or the sequence itself."
+epilogue = "The inspector records Miriam as the principal suspect and seals Vale House, but will not arrest on a reconstruction with one joint still loose. Daniel is ordered to submit a formal statement. Elsie is told not to leave the district. At the foot of the stairs, Miriam asks whether 'principal suspect' is an accusation or merely a phrase the inspector plans to regret. No one answers quickly enough."
+tone = "warning"
+primary_label = "RETRY THE CASE"
+primary_action = "restart"
+secondary_label = "RETURN TO CAMPAIGN"
+secondary_action = "campaign"
+
+[[endings]]
+id = "case_incomplete"
+trigger = "outcome.plausible_incomplete"
+outcome = "plausible_incomplete"
+title = "A THEORY THE HOUSE CAN STILL RESIST"
+subtitle = "Vale House · Major questions remain"
+summary = "Your accusation points toward Miriam, but the reconstruction leaves gaps large enough for the room to contest what happened."
+epilogue = "Miriam asks the constable to record every unsupported step. She corrects 'murder room' to 'study' and 'weapon' to 'ornament' until the accusation sounds like an inventory. Daniel asks to review every sentence before signing it. Elsie watches to see whose account is written down. Vale House is sealed; inside it, Miriam has recovered the power to arrange the story."
+tone = "warning"
+primary_label = "RETRY THE CASE"
+primary_action = "restart"
+secondary_label = "RETURN TO CAMPAIGN"
+secondary_action = "campaign"
+
+[[endings]]
+id = "wrong_accusation"
+trigger = "outcome.wrong_accusation"
+outcome = "wrong_accusation"
+title = "THE WRONG PERSON LEAVES IN IRONS"
+subtitle = "Vale House · The reconstruction breaks"
+summary = "The sequence you established cannot be reconciled with the person you accuse. By forcing the evidence toward the wrong name, you give the true killer room to escape."
+epilogue = "By morning, contradictions force the accused person's release. While the station corrects its error, Miriam leaves Vale House with one case and no forwarding address. Daniel and Elsie become convenient explanations for every inconsistency; Edgar's death becomes doubt. The person who arranged the garden has been given time to arrange an escape."
+tone = "failure"
+primary_label = "RETRY THE CASE"
+primary_action = "restart"
+secondary_label = "RETURN TO CAMPAIGN"
+secondary_action = "campaign"
+
+[[endings]]
+id = "case_unresolved"
+trigger = "outcome.unresolved"
+outcome = "unresolved"
+title = "NO ACCUSATION"
+subtitle = "Vale House · The inquiry is suspended"
+summary = "Without a coherent accusation, the final confrontation ends in silence."
+epilogue = "The evidence is boxed without anyone being asked to answer for its shape. Daniel retrieves his coat with one hand over his inner pocket. Elsie checks the silver twice and says nothing. Miriam straightens Edgar's unused place setting after the officers depart. In the archive, Edgar's missing half hour waits for someone willing to give it a name."
+tone = "neutral"
+primary_label = "RETRY THE CASE"
+primary_action = "restart"
+secondary_label = "RETURN TO CAMPAIGN"
+secondary_action = "campaign"
+
+[[endings]]
+id = "night_overtakes_the_inquiry"
+trigger = "out_of_time"
+title = "THE CLOCK RUNS OUT"
+subtitle = "Vale House · No final reconstruction"
+summary = "The investigation clock reaches zero before you can prepare a complete account of Edgar Vale's death."
+epilogue = "At dawn the order to hold the household expires. Daniel drives away with one hand over his inner pocket, his formal statement still unsigned. Elsie leaves by the service gate after checking the silver one last time. Miriam watches the police boxes close and thanks the constable for his care. The witnesses can be found again; this exact pressure cannot."
+tone = "failure"
+primary_label = "RETRY THE CASE"
+primary_action = "restart"
+secondary_label = "RETURN TO CAMPAIGN"
+secondary_action = "campaign"
+
+[solution]
+culprit = "miriam"
+motive = "clue_ledger"
+decisive_contradiction = "contra_appointment"
+weapon_block = "object_statuette"
+murder_place_block = "place_study"
+death_time_block = "time_2015_2025"
+body_movement_block = "action_move_body"
+staging_block = "action_stage"
+cleaning_block = "action_clean"
+alibi_block = "claim_daniel_alibi"
+murder_events = ["e2"]
+cover_up_events = ["e3", "e4", "e5", "e6", "e7", "e8"]
+false_alibi = ["claim_miriam_dinner", "claim_daniel_alibi"]
+exclusions = ["daniel", "elsie"]

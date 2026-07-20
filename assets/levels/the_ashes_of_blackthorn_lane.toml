@@ -1,0 +1,471 @@
+version = "LevelFormat v1"
+id = "the_ashes_of_blackthorn_lane_lot"
+name = "Blackthorn Lane Cartography Office"
+width = 42
+height = 22
+content_offset = [[4, 4]]
+story_limit = 3
+default_snap = 0.5
+fine_snap = 0.25
+angle_snap = 15.0
+
+[[stories]]
+id = "ground"
+name = "Ground Floor"
+base_elevation = 0.0
+floor_height = 3.5
+
+[[foundations]]
+id = "foundation_street_office"
+kind = "slab"
+points = [[0.0, 0.0], [6.5, 0.0], [6.5, 8.0], [0.0, 8.0]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "street_office"
+name = "Street Office"
+story = 0
+points = [[0.0, 0.0], [6.5, 0.0], [6.5, 8.0], [0.0, 8.0]]
+platform_height = 0.0
+floor_material = "core:dining"
+wall_material = "core:dining"
+ceiling_style = "flat"
+exterior = false
+
+[[roofs]]
+id = "roof_street_office"
+room_id = "street_office"
+story = 0
+style = "hip"
+pitch = 28.0
+overhang = 0.4
+ridge_angle = 90.0
+
+[[foundations]]
+id = "foundation_upstairs_workroom"
+kind = "slab"
+points = [[7.0, 0.0], [13.5, 0.0], [13.5, 8.0], [7.0, 8.0]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "upstairs_workroom"
+name = "Upstairs Workroom"
+story = 0
+points = [[7.0, 0.0], [13.5, 0.0], [13.5, 8.0], [7.0, 8.0]]
+platform_height = 0.0
+floor_material = "core:study"
+wall_material = "core:study"
+ceiling_style = "flat"
+exterior = false
+
+[[roofs]]
+id = "roof_upstairs_workroom"
+room_id = "upstairs_workroom"
+story = 0
+style = "gable"
+pitch = 28.0
+overhang = 0.4
+ridge_angle = 90.0
+
+[[foundations]]
+id = "foundation_print_room"
+kind = "slab"
+points = [[14.0, 0.0], [20.5, 0.0], [20.5, 8.0], [14.0, 8.0]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "print_room"
+name = "Print Room"
+story = 0
+points = [[14.0, 0.0], [20.5, 0.0], [20.5, 8.0], [14.0, 8.0]]
+platform_height = 0.0
+floor_material = "core:dining"
+wall_material = "core:dining"
+ceiling_style = "flat"
+exterior = false
+
+[[roofs]]
+id = "roof_print_room"
+room_id = "print_room"
+story = 0
+style = "hip"
+pitch = 28.0
+overhang = 0.4
+ridge_angle = 90.0
+
+[[foundations]]
+id = "foundation_rear_courtyard"
+kind = "slab"
+points = [[21.0, 0.0], [27.5, 0.0], [27.5, 8.0], [21.0, 8.0]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "rear_courtyard"
+name = "Rear Courtyard"
+story = 0
+points = [[21.0, 0.0], [27.5, 0.0], [27.5, 8.0], [21.0, 8.0]]
+platform_height = 0.0
+floor_material = "core:study"
+wall_material = "core:study"
+ceiling_style = "flat"
+exterior = false
+
+[[roofs]]
+id = "roof_rear_courtyard"
+room_id = "rear_courtyard"
+story = 0
+style = "gable"
+pitch = 28.0
+overhang = 0.4
+ridge_angle = 90.0
+
+[[foundations]]
+id = "foundation_survey_store"
+kind = "slab"
+points = [[28.0, 0.0], [34.5, 0.0], [34.5, 8.0], [28.0, 8.0]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "survey_store"
+name = "Survey Store"
+story = 0
+points = [[28.0, 0.0], [34.5, 0.0], [34.5, 8.0], [28.0, 8.0]]
+platform_height = 0.0
+floor_material = "core:dining"
+wall_material = "core:dining"
+ceiling_style = "flat"
+exterior = false
+
+[[roofs]]
+id = "roof_survey_store"
+room_id = "survey_store"
+story = 0
+style = "hip"
+pitch = 28.0
+overhang = 0.4
+ridge_angle = 90.0
+
+[[markers]]
+id = "spawn_player"
+reference = ""
+kind = "player_spawn"
+story = 0
+position = [[2.0, 4.0]]
+radius = 0.4
+facing = 0.0
+
+[[markers]]
+id = "return_to_city"
+reference = ""
+destination = "city:the_ashes_of_blackthorn_lane_venue"
+kind = "transition"
+story = 0
+position = [[1.0, 1.0]]
+radius = 1.0
+
+[[markers]]
+id = "spawn_cora_fen"
+reference = "cora_fen"
+kind = "character_spawn"
+story = 0
+position = [[9.0, 5.0]]
+radius = 0.5
+
+[[markers]]
+id = "spawn_milo_venn"
+reference = "milo_venn"
+kind = "character_spawn"
+story = 0
+position = [[16.0, 5.0]]
+radius = 0.5
+
+[[markers]]
+id = "spawn_inez_ward"
+reference = "inez_ward"
+kind = "character_spawn"
+story = 0
+position = [[23.0, 5.0]]
+radius = 0.5
+
+[[markers]]
+id = "clue_marker_1"
+reference = "mechanical_footprints"
+kind = "clue"
+story = 0
+position = [[4.0, 2.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_2"
+reference = "carved_boot_sole"
+kind = "clue"
+story = 0
+position = [[11.0, 2.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_3"
+reference = "survey_site_clay"
+kind = "clue"
+story = 0
+position = [[18.0, 2.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_4"
+reference = "undisturbed_window_sill"
+kind = "clue"
+story = 0
+position = [[25.0, 2.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_5"
+reference = "operable_transom"
+kind = "clue"
+story = 0
+position = [[32.0, 2.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_6"
+reference = "burned_tracing_linen"
+kind = "clue"
+story = 0
+position = [[4.0, 4.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_7"
+reference = "drawing_board_impressions"
+kind = "clue"
+story = 0
+position = [[11.0, 4.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_8"
+reference = "map_sales_ledger"
+kind = "clue"
+story = 0
+position = [[18.0, 4.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_9"
+reference = "archaeological_field_note"
+kind = "clue"
+story = 0
+position = [[25.0, 4.0]]
+radius = 0.7
+
+# BEGIN GENERATED ROOM FURNISHINGS
+
+[[objects]]
+id = "furnish_street_office_1_desk"
+catalog_id = "core:desk"
+story = 0
+position = [[1.82, 2.24]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_street_office_2_chair_desk"
+catalog_id = "core:chair_desk"
+story = 0
+position = [[1.82, 3.84]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_street_office_3_computer_screen"
+catalog_id = "core:computer_screen"
+support_id = "furnish_street_office_1_desk"
+elevation = 0.74
+story = 0
+position = [[1.82, 2.24]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_street_office_4_bookcase_closed"
+catalog_id = "core:bookcase_closed"
+story = 0
+position = [[5.33, 1.92]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_street_office_5_floor_lamp_round"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[5.33, 6.24]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_upstairs_workroom_1_table_round"
+catalog_id = "core:table_round"
+story = 0
+position = [[10.25, 3.84]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_upstairs_workroom_2_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[10.25, 2.00]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_upstairs_workroom_3_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[10.25, 5.76]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_upstairs_workroom_4_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[8.62, 3.84]]
+rotation = 270.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_upstairs_workroom_5_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[11.88, 3.84]]
+rotation = 90.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_print_room_1_desk"
+catalog_id = "core:desk"
+story = 0
+position = [[15.43, 1.92]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_print_room_2_chair_desk"
+catalog_id = "core:chair_desk"
+story = 0
+position = [[15.43, 3.84]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_print_room_3_bathroom_cabinet"
+catalog_id = "core:bathroom_cabinet"
+story = 0
+position = [[19.07, 1.76]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_print_room_4_cardboard_box_closed"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[19.07, 5.60]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_print_room_5_trashcan"
+catalog_id = "core:trashcan"
+story = 0
+position = [[17.25, 6.08]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_rear_courtyard_1_yard_bench"
+catalog_id = "core:yard_bench"
+story = 0
+position = [[23.27, 2.56]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_rear_courtyard_2_nature_bush"
+catalog_id = "core:nature_bush"
+story = 0
+position = [[22.17, 6.08]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_rear_courtyard_3_nature_flowers"
+catalog_id = "core:nature_flowers"
+story = 0
+position = [[24.38, 6.24]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_rear_courtyard_4_nature_grass"
+catalog_id = "core:nature_grass"
+story = 0
+position = [[26.20, 5.76]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_rear_courtyard_5_stylized_tree_1"
+catalog_id = "core:stylized_tree_1"
+story = 0
+position = [[26.33, 1.92]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_survey_store_1_bookcase_closed_wide"
+catalog_id = "core:bookcase_closed_wide"
+story = 0
+position = [[29.17, 1.92]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_survey_store_2_bookcase_open_low"
+catalog_id = "core:bookcase_open_low"
+story = 0
+position = [[31.25, 1.44]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_survey_store_3_cardboard_box_closed"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[33.07, 1.92]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_survey_store_4_cardboard_box_open"
+catalog_id = "core:cardboard_box_open"
+story = 0
+position = [[33.07, 5.76]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_survey_store_5_trashcan"
+catalog_id = "core:trashcan"
+story = 0
+position = [[29.17, 6.00]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+# END GENERATED ROOM FURNISHINGS

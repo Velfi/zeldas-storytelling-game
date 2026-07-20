@@ -1,0 +1,1526 @@
+version = "InteractiveStory v1"
+id = "the_sleeper_across_the_city"
+title = "The Sleeper Across the City"
+creator = "Chicago conversion tool"
+description = "Hugo Quill is dead in a locked sleeping compartment aboard a private train circling the city."
+content_version = "1.0.0"
+default_space = "marigold_excursion_train"
+revision = 0
+
+[[capabilities]]
+id = "mystery"
+version = "1"
+
+[[entities]]
+id = "hugo"
+kind = "character"
+display_name = "Hugo Quill"
+description = "Hugo Quill boarded intending to settle his foundation affairs before the train returned to the city. He traded seats and compartments impulsively, leaving each companion with a different expectation of their promised ten minutes."
+space_id = ""
+target_kind = "entity"
+target_id = ""
+tags = ["victim"]
+roles = []
+
+[[entities]]
+id = "vivian"
+kind = "character"
+display_name = "Vivian Rohe"
+description = "Board member who speaks with timetable certainty and mistakes official records for personal observation."
+space_id = "marigold_excursion_train"
+target_kind = "marker"
+target_id = "spawn_vivian"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "eamon"
+kind = "character"
+display_name = "Eamon Price"
+description = "Journalist who turns every answer over like a source and knows exactly which detail was never verified."
+space_id = "marigold_excursion_train"
+target_kind = "marker"
+target_id = "spawn_eamon"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "leila"
+kind = "character"
+display_name = "Leila Hart"
+description = "Singer who remembers time as rhythm, landmarks, and the physical habits that distinguish one person from another."
+space_id = "marigold_excursion_train"
+target_kind = "marker"
+target_id = "spawn_leila"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "observation_lounge"
+kind = "location"
+display_name = "OBSERVATION LOUNGE"
+description = "Observation Lounge preserves one part of the evening chronology."
+space_id = "marigold_excursion_train"
+target_kind = "room"
+target_id = "observation_lounge"
+tags = []
+roles = []
+
+[[entities]]
+id = "dining_car"
+kind = "location"
+display_name = "DINING CAR"
+description = "Dining Car preserves one part of the evening chronology."
+space_id = "marigold_excursion_train"
+target_kind = "room"
+target_id = "dining_car"
+tags = []
+roles = []
+
+[[entities]]
+id = "sleeping_compartment"
+kind = "location"
+display_name = "SLEEPING COMPARTMENT"
+description = "Sleeping Compartment preserves one part of the evening chronology."
+space_id = "marigold_excursion_train"
+target_kind = "room"
+target_id = "sleeping_compartment"
+tags = []
+roles = []
+
+[[entities]]
+id = "attendant_vestibule"
+kind = "location"
+display_name = "ATTENDANT VESTIBULE"
+description = "Attendant Vestibule preserves one part of the evening chronology."
+space_id = "marigold_excursion_train"
+target_kind = "room"
+target_id = "attendant_vestibule"
+tags = []
+roles = []
+
+[[entities]]
+id = "baggage_car"
+kind = "location"
+display_name = "BAGGAGE CAR"
+description = "Baggage Car preserves one part of the evening chronology."
+space_id = "marigold_excursion_train"
+target_kind = "room"
+target_id = "baggage_car"
+tags = []
+roles = []
+
+[[entities]]
+id = "baggage_trace"
+kind = "trace"
+display_name = "Baggage Dust and Rope Fiber"
+description = "Dust and rope mark the true murder site."
+space_id = "marigold_excursion_train"
+target_kind = "marker"
+target_id = "interact_baggage_trace"
+tags = []
+roles = []
+
+[[entities]]
+id = "wheel_grease"
+kind = "trace"
+display_name = "Luggage-Chair Grease"
+description = "Wheel grease on Hugo matches the luggage chair."
+space_id = "marigold_excursion_train"
+target_kind = "marker"
+target_id = "interact_wheel_grease"
+tags = []
+roles = []
+
+[[entities]]
+id = "transfer_blood"
+kind = "trace"
+display_name = "Compartment Transfer Blood"
+description = "The compartment blood is transfer, not attack spatter."
+space_id = "marigold_excursion_train"
+target_kind = "marker"
+target_id = "interact_transfer_blood"
+tags = []
+roles = []
+
+[[entities]]
+id = "service_catch"
+kind = "mechanism"
+display_name = "Rail Service Catch"
+description = "The catch locks a door from the corridor."
+space_id = "marigold_excursion_train"
+target_kind = "marker"
+target_id = "interact_service_catch"
+tags = []
+roles = []
+
+[[entities]]
+id = "ticket_sleeves"
+kind = "object"
+display_name = "Exchanged Ticket Sleeves"
+description = "Tickets and tags prove the room exchange."
+space_id = "marigold_excursion_train"
+target_kind = "marker"
+target_id = "interact_ticket_sleeves"
+tags = []
+roles = []
+
+[[entities]]
+id = "robe_sighting"
+kind = "scene"
+display_name = "Robe Sighting"
+description = "The witness saw Hugo's robe, not his face."
+space_id = "marigold_excursion_train"
+target_kind = "marker"
+target_id = "interact_robe_sighting"
+tags = []
+roles = []
+
+[[entities]]
+id = "eamon_identity"
+kind = "object"
+display_name = "Eamon's Hidden Booking"
+description = "The booking explains the exchange."
+space_id = "marigold_excursion_train"
+target_kind = "marker"
+target_id = "interact_eamon_identity"
+tags = []
+roles = []
+
+[[entities]]
+id = "leila_note"
+kind = "object"
+display_name = "Leila's Meeting Note"
+description = "The note fixes her private meeting time."
+space_id = "marigold_excursion_train"
+target_kind = "marker"
+target_id = "interact_leila_note"
+tags = []
+roles = []
+
+[[entities]]
+id = "vivian_room_testimony"
+kind = "scene"
+display_name = "Vivian's Compartment Number"
+description = "Vivian names the registered rather than actual room."
+space_id = "marigold_excursion_train"
+target_kind = "marker"
+target_id = "interact_vivian_room_testimony"
+tags = []
+roles = []
+
+[[propositions]]
+id = "vivian_room_claim"
+text = "Vivian followed Hugo personally and did not rely on the registered room."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "claim_eamon_secret"
+text = "Eamon Price denies travel under another passenger's booking."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "claim_leila_secret"
+text = "Leila Hart denies a private meeting with Hugo."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_baggage_trace"
+text = "Dust and rope mark the true murder site."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_wheel_grease"
+text = "Wheel grease on Hugo matches the luggage chair."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_transfer_blood"
+text = "The compartment blood is transfer, not attack spatter."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_service_catch"
+text = "The catch locks a door from the corridor."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_ticket_sleeves"
+text = "Tickets and tags prove the room exchange."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_robe_sighting"
+text = "The witness saw Hugo's robe, not his face."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_eamon_identity"
+text = "The booking explains the exchange."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_leila_note"
+text = "The note fixes her private meeting time."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_vivian_room_testimony"
+text = "Vivian names the registered rather than actual room."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "deduce_room_exchange"
+text = "Hugo and Eamon exchanged compartments."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "deduce_luggage_route"
+text = "A luggage chair moved Hugo through the vestibule."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "deduce_robe_deception"
+text = "The corridor witness identified a robe, not Hugo."
+canonical_truth = "undetermined"
+
+[[events]]
+id = "event_1"
+subject = "vivian"
+action = "place"
+object = "robe_sighting"
+location = "observation_lounge"
+fictional_time = "22:10"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[events]]
+id = "event_2"
+subject = "vivian"
+action = "move_body"
+object = "hugo"
+location = "observation_lounge"
+fictional_time = "22:18"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[events]]
+id = "event_3"
+subject = "vivian"
+action = "kill"
+object = "hugo"
+location = "baggage_car"
+fictional_time = "22:25"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[events]]
+id = "event_4"
+subject = "vivian"
+action = "move_body"
+object = "hugo"
+location = "baggage_car"
+fictional_time = "22:35"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[events]]
+id = "event_5"
+subject = "vivian"
+action = "alter"
+object = "service_catch"
+location = "attendant_vestibule"
+fictional_time = "22:38"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[conditions]]
+id = "condition.always"
+kind = "always"
+children = []
+variable = ""
+entity = ""
+other_entity = ""
+proposition = ""
+objective = ""
+event = ""
+content = ""
+text = ""
+space_a = ""
+target_a = ""
+space_b = ""
+target_b = ""
+distance = 0
+value_kind = "boolean"
+boolean_value = false
+integer_value = 0
+text_value = ""
+comparison = 0
+objective_status = 0
+stance = "uncertain"
+
+[[scenes]]
+id = "scene_opening_vivian"
+display_name = "Vivian folds the timetable. 'Hugo promised each of us ten minutes before Union Depot. He treated a railway circuit as though it were a board agenda.'"
+entry_node = "opening_vivian_line"
+bound_entity = "vivian"
+summary = "Vivian folds the timetable. 'Hugo promised each of us ten minutes before Union Depot. He treated a railway circuit as though it were a board agenda.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_vivian"
+display_name = "'First the club, then the gallery, then Halcyon. You make institutions answer for every private arrangement.' Vivian answers with timetable confidence. 'Compartment four.'"
+entry_node = "account_vivian_line"
+bound_entity = "vivian"
+summary = "'First the club, then the gallery, then Halcyon. You make institutions answer for every private arrangement.' Vivian answers with timetable confidence. 'Compartment four.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_vivian"
+display_name = "'I saw the blue robe enter and the attendant lock the corridor. His name was printed beside it; there was no reason to inspect the face.'"
+entry_node = "approach_vivian_line"
+bound_entity = "vivian"
+summary = "'I saw the blue robe enter and the attendant lock the corridor. His name was printed beside it; there was no reason to inspect the face.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_opening_eamon"
+display_name = "Eamon turns a ticket sleeve over. 'He offered me a room exchange, then asked what proof I had brought. He expected publication more than danger.'"
+entry_node = "opening_eamon_line"
+bound_entity = "eamon"
+summary = "Eamon turns a ticket sleeve over. 'He offered me a room exchange, then asked what proof I had brought. He expected publication more than danger.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_eamon"
+display_name = "Eamon turns both ticket sleeves face down. 'Hugo offered an exchange when he recognized me. He preferred my compartment; I preferred his anonymity.'"
+entry_node = "account_eamon_line"
+bound_entity = "eamon"
+summary = "Eamon turns both ticket sleeves face down. 'Hugo offered an exchange when he recognized me. He preferred my compartment; I preferred his anonymity.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_eamon"
+display_name = "'The conductor changed the rooms, not the tags. Anyone reading the register afterward would follow the wrong man.'"
+entry_node = "approach_eamon_line"
+bound_entity = "eamon"
+summary = "'The conductor changed the rooms, not the tags. Anyone reading the register afterward would follow the wrong man.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_opening_leila"
+display_name = "Leila taps the lounge rhythm once. 'He asked me to sing at the foundation benefit again. I said no. We parted before Union Depot, without the quarrel he seemed to want.'"
+entry_node = "opening_leila_line"
+bound_entity = "leila"
+summary = "Leila taps the lounge rhythm once. 'He asked me to sing at the foundation benefit again. I said no. We parted before Union Depot, without the quarrel he seemed to want.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_leila"
+display_name = "Leila taps the rhythm against her glass before answering. 'In the lounge, before the train passed Union Depot. He asked for ten quiet minutes.'"
+entry_node = "account_leila_line"
+bound_entity = "leila"
+summary = "Leila taps the rhythm against her glass before answering. 'In the lounge, before the train passed Union Depot. He asked for ten quiet minutes.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_leila"
+display_name = "'Later I saw his robe in the corridor. I did not see his hands, his face, or the way he walked.'"
+entry_node = "approach_leila_line"
+bound_entity = "leila"
+summary = "'Later I saw his robe in the corridor. I did not see his hands, his face, or the way he walked.'"
+return_to = "investigation"
+
+[[nodes]]
+id = "opening_vivian_line"
+scene = "scene_opening_vivian"
+kind = "line"
+line_id = "opening_vivian_line"
+speaker = "vivian"
+text = "Vivian folds the timetable. 'Hugo promised each of us ten minutes before Union Depot. He treated a railway circuit as though it were a board agenda.'"
+next = "opening_vivian_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_vivian_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_vivian_end"
+scene = "scene_opening_vivian"
+kind = "end"
+line_id = "opening_vivian_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_vivian_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_vivian_line"
+scene = "scene_account_vivian"
+kind = "line"
+line_id = "account_vivian_line"
+speaker = "vivian"
+text = "'First the club, then the gallery, then Halcyon. You make institutions answer for every private arrangement.' Vivian answers with timetable confidence. 'Compartment four.'"
+next = "account_vivian_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_vivian_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_vivian_end"
+scene = "scene_account_vivian"
+kind = "end"
+line_id = "account_vivian_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_vivian_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_vivian_line"
+scene = "scene_approach_vivian"
+kind = "line"
+line_id = "approach_vivian_line"
+speaker = "vivian"
+text = "'I saw the blue robe enter and the attendant lock the corridor. His name was printed beside it; there was no reason to inspect the face.'"
+next = "approach_vivian_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_vivian_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_vivian_end"
+scene = "scene_approach_vivian"
+kind = "end"
+line_id = "approach_vivian_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_vivian_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_eamon_line"
+scene = "scene_opening_eamon"
+kind = "line"
+line_id = "opening_eamon_line"
+speaker = "eamon"
+text = "Eamon turns a ticket sleeve over. 'He offered me a room exchange, then asked what proof I had brought. He expected publication more than danger.'"
+next = "opening_eamon_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_eamon_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_eamon_end"
+scene = "scene_opening_eamon"
+kind = "end"
+line_id = "opening_eamon_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_eamon_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_eamon_line"
+scene = "scene_account_eamon"
+kind = "line"
+line_id = "account_eamon_line"
+speaker = "eamon"
+text = "Eamon turns both ticket sleeves face down. 'Hugo offered an exchange when he recognized me. He preferred my compartment; I preferred his anonymity.'"
+next = "account_eamon_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_eamon_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_eamon_end"
+scene = "scene_account_eamon"
+kind = "end"
+line_id = "account_eamon_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_eamon_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_eamon_line"
+scene = "scene_approach_eamon"
+kind = "line"
+line_id = "approach_eamon_line"
+speaker = "eamon"
+text = "'The conductor changed the rooms, not the tags. Anyone reading the register afterward would follow the wrong man.'"
+next = "approach_eamon_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_eamon_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_eamon_end"
+scene = "scene_approach_eamon"
+kind = "end"
+line_id = "approach_eamon_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_eamon_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_leila_line"
+scene = "scene_opening_leila"
+kind = "line"
+line_id = "opening_leila_line"
+speaker = "leila"
+text = "Leila taps the lounge rhythm once. 'He asked me to sing at the foundation benefit again. I said no. We parted before Union Depot, without the quarrel he seemed to want.'"
+next = "opening_leila_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_leila_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_leila_end"
+scene = "scene_opening_leila"
+kind = "end"
+line_id = "opening_leila_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_leila_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_leila_line"
+scene = "scene_account_leila"
+kind = "line"
+line_id = "account_leila_line"
+speaker = "leila"
+text = "Leila taps the rhythm against her glass before answering. 'In the lounge, before the train passed Union Depot. He asked for ten quiet minutes.'"
+next = "account_leila_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_leila_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_leila_end"
+scene = "scene_account_leila"
+kind = "end"
+line_id = "account_leila_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_leila_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_leila_line"
+scene = "scene_approach_leila"
+kind = "line"
+line_id = "approach_leila_line"
+speaker = "leila"
+text = "'Later I saw his robe in the corridor. I did not see his hands, his face, or the way he walked.'"
+next = "approach_leila_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_leila_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_leila_end"
+scene = "scene_approach_leila"
+kind = "end"
+line_id = "approach_leila_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_leila_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[mystery]
+action_budget = 12
+seed = 20260718
+tutorial = ""
+city_start = "marigold_excursion_train"
+city_destination = "marigold_excursion_train"
+reveal_location = "observation_lounge"
+
+[[mystery.characters]]
+entity = "hugo"
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = []
+
+[[mystery.characters]]
+entity = "vivian"
+private_secret = "concealed a shell charity"
+motive = "concealed a shell charity"
+initial_disposition = 0
+initial_claims = ["vivian_room_claim"]
+
+[[mystery.characters]]
+entity = "eamon"
+private_secret = "travel under another passenger's booking"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_eamon_secret"]
+
+[[mystery.characters]]
+entity = "leila"
+private_secret = "a private meeting with Hugo"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_leila_secret"]
+
+[[mystery.locations]]
+entity = "observation_lounge"
+connections = ["dining_car"]
+characters = ["vivian"]
+pois = ["robe_sighting", "leila_note"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "dining_car"
+connections = ["observation_lounge", "sleeping_compartment"]
+characters = ["eamon"]
+pois = ["ticket_sleeves", "eamon_identity"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "sleeping_compartment"
+connections = ["dining_car", "attendant_vestibule"]
+characters = ["leila"]
+pois = ["wheel_grease", "transfer_blood"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "attendant_vestibule"
+connections = ["sleeping_compartment", "baggage_car"]
+characters = []
+pois = ["service_catch", "vivian_room_testimony"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "baggage_car"
+connections = ["attendant_vestibule"]
+characters = []
+pois = ["baggage_trace"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.pois]]
+entity = "baggage_trace"
+location = "baggage_car"
+owner = ""
+relevant_state = "Dust and rope mark the true murder site."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "wheel_grease"
+location = "sleeping_compartment"
+owner = ""
+relevant_state = "Wheel grease on Hugo matches the luggage chair."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "transfer_blood"
+location = "sleeping_compartment"
+owner = ""
+relevant_state = "The compartment blood is transfer, not attack spatter."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "service_catch"
+location = "attendant_vestibule"
+owner = ""
+relevant_state = "The catch locks a door from the corridor."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "ticket_sleeves"
+location = "dining_car"
+owner = ""
+relevant_state = "Tickets and tags prove the room exchange."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "robe_sighting"
+location = "observation_lounge"
+owner = ""
+relevant_state = "The witness saw Hugo's robe, not his face."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "eamon_identity"
+location = "dining_car"
+owner = ""
+relevant_state = "The booking explains the exchange."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "leila_note"
+location = "observation_lounge"
+owner = ""
+relevant_state = "The note fixes her private meeting time."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "vivian_room_testimony"
+location = "attendant_vestibule"
+owner = ""
+relevant_state = "Vivian names the registered rather than actual room."
+examination_action = "examine"
+
+[[mystery.events]]
+event = "event_1"
+destination = "observation_lounge"
+tool = ""
+effects = ["place_complete"]
+
+[[mystery.events]]
+event = "event_2"
+destination = "baggage_car"
+tool = "wheel_grease"
+effects = ["move_body_complete"]
+
+[[mystery.events]]
+event = "event_3"
+destination = "baggage_car"
+tool = "baggage_trace"
+effects = ["kill_complete"]
+
+[[mystery.events]]
+event = "event_4"
+destination = "sleeping_compartment"
+tool = "wheel_grease"
+effects = ["move_body_complete"]
+
+[[mystery.events]]
+event = "event_5"
+destination = "sleeping_compartment"
+tool = ""
+effects = ["alter_complete"]
+
+[[mystery.clues]]
+id = "clue_baggage_trace"
+source = "baggage_trace"
+description = "Dust and rope mark the true murder site."
+proposition = "clue_baggage_trace"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["weapon_rope"]
+topics = ["marigold_reconstruction"]
+
+[[mystery.clues]]
+id = "clue_wheel_grease"
+source = "wheel_grease"
+description = "Wheel grease on Hugo matches the luggage chair."
+proposition = "clue_wheel_grease"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["place_baggage_car"]
+topics = ["marigold_reconstruction"]
+
+[[mystery.clues]]
+id = "clue_transfer_blood"
+source = "transfer_blood"
+description = "The compartment blood is transfer, not attack spatter."
+proposition = "clue_transfer_blood"
+skill = "Observation"
+check_kind = "white"
+difficulty = 3
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["time_after_lounge"]
+topics = ["marigold_reconstruction"]
+
+[[mystery.clues]]
+id = "clue_service_catch"
+source = "service_catch"
+description = "The catch locks a door from the corridor."
+proposition = "clue_service_catch"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["route_luggage_chair"]
+topics = ["marigold_reconstruction"]
+
+[[mystery.clues]]
+id = "clue_ticket_sleeves"
+source = "ticket_sleeves"
+description = "Tickets and tags prove the room exchange."
+proposition = "clue_ticket_sleeves"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["staged_robe"]
+topics = ["marigold_reconstruction"]
+
+[[mystery.clues]]
+id = "clue_robe_sighting"
+source = "robe_sighting"
+description = "The witness saw Hugo's robe, not his face."
+proposition = "clue_robe_sighting"
+skill = "Observation"
+check_kind = "white"
+difficulty = 3
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["service_catch_coverup"]
+topics = ["marigold_reconstruction"]
+
+[[mystery.clues]]
+id = "clue_eamon_identity"
+source = "eamon"
+description = "The booking explains the exchange."
+proposition = "clue_eamon_identity"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["exclude_eamon"]
+topics = ["marigold_reconstruction"]
+
+[[mystery.clues]]
+id = "clue_leila_note"
+source = "leila"
+description = "The note fixes her private meeting time."
+proposition = "clue_leila_note"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["exclude_leila"]
+topics = ["marigold_reconstruction"]
+
+[[mystery.clues]]
+id = "clue_vivian_room_testimony"
+source = "vivian"
+description = "Vivian names the registered rather than actual room."
+proposition = "clue_vivian_room_testimony"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 3
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["weapon_rope", "place_baggage_car", "time_after_lounge", "route_luggage_chair", "staged_robe", "service_catch_coverup", "false_compartment_alibi", "vivian_room_claim"]
+topics = ["marigold_reconstruction"]
+
+[[mystery.claims]]
+id = "vivian_room_claim"
+speaker = "vivian"
+proposition = "vivian_room_claim"
+protects = "murder"
+response = "Vivian followed Hugo personally and did not rely on the registered room."
+canonical_truth = false
+
+[[mystery.claims]]
+id = "claim_eamon_secret"
+speaker = "eamon"
+proposition = "claim_eamon_secret"
+protects = "travel under another passenger's booking"
+response = "Eamon Price denies travel under another passenger's booking."
+canonical_truth = false
+
+[[mystery.claims]]
+id = "claim_leila_secret"
+speaker = "leila"
+proposition = "claim_leila_secret"
+protects = "a private meeting with Hugo"
+response = "Leila Hart denies a private meeting with Hugo."
+canonical_truth = false
+
+[[mystery.contradictions]]
+id = "decisive_contradiction"
+claim = "vivian_room_claim"
+fact = "clue_vivian_room_testimony"
+conclusion = ""
+explanation = "The physical reconstruction contradicts Vivian Rohe's account."
+
+[[mystery.deductions]]
+id = "deduce_room_exchange"
+proposition = "deduce_room_exchange"
+category = "where_when"
+supports = []
+unlock_questions = []
+unlock_topics = ["marigold_reconstruction"]
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "deduce_luggage_route"
+proposition = "deduce_luggage_route"
+category = "concealment"
+supports = []
+unlock_questions = []
+unlock_topics = ["marigold_reconstruction"]
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "deduce_robe_deception"
+proposition = "deduce_robe_deception"
+category = "contradiction"
+supports = []
+unlock_questions = []
+unlock_topics = ["marigold_reconstruction"]
+unlock_investigations = []
+
+[[mystery.questions]]
+id = "question_1"
+prompt = "What does the evidence prove about: Hugo and Eamon exchanged compartments."
+hypothesis = "Hugo and Eamon exchanged compartments."
+category = "where_when"
+requires_clues = ["clue_baggage_trace", "clue_wheel_grease"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_2"
+prompt = "What does the evidence prove about: A luggage chair moved Hugo through the vestibule."
+hypothesis = "A luggage chair moved Hugo through the vestibule."
+category = "concealment"
+requires_clues = ["clue_transfer_blood", "clue_service_catch"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_3"
+prompt = "What does the evidence prove about: The corridor witness identified a robe, not Hugo."
+hypothesis = "The corridor witness identified a robe, not Hugo."
+category = "contradiction"
+requires_clues = ["clue_ticket_sleeves", "clue_robe_sighting"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.demonstrations]]
+id = "demonstration_1"
+question = "question_1"
+mode = "physical"
+resolution = "substantiated"
+result = "Hugo and Eamon exchanged compartments."
+prompt = "Pair the two observations that establish: Hugo and Eamon exchanged compartments."
+slot_labels = ["First fact", "Corroborating fact"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_baggage_trace", "clue_wheel_grease"]
+route_firsts = []
+route_counts = []
+result_deductions = ["deduce_room_exchange"]
+
+[[mystery.demonstrations]]
+id = "demonstration_2"
+question = "question_2"
+mode = "timeline"
+resolution = "substantiated"
+result = "A luggage chair moved Hugo through the vestibule."
+prompt = "Pair the two observations that establish: A luggage chair moved Hugo through the vestibule."
+slot_labels = ["First fact", "Corroborating fact"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_transfer_blood", "clue_service_catch"]
+route_firsts = []
+route_counts = []
+result_deductions = ["deduce_luggage_route"]
+
+[[mystery.demonstrations]]
+id = "demonstration_3"
+question = "question_3"
+mode = "confrontation"
+resolution = "substantiated"
+result = "The corridor witness identified a robe, not Hugo."
+prompt = "Pair the two observations that establish: The corridor witness identified a robe, not Hugo."
+slot_labels = ["First fact", "Corroborating fact"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_ticket_sleeves", "clue_robe_sighting"]
+route_firsts = []
+route_counts = []
+result_deductions = ["deduce_robe_deception"]
+
+[[mystery.dialogue]]
+node = "opening_vivian"
+character = "vivian"
+prompt = "Tell me about Hugo Quill. What did they want tonight?"
+response = "Vivian folds the timetable. 'Hugo promised each of us ten minutes before Union Depot. He treated a railway circuit as though it were a board agenda.'"
+clue = ""
+interaction = ""
+requires = ["vivian_room_claim"]
+unlocks = ["account_ready_vivian"]
+
+[[mystery.dialogue]]
+node = "account_vivian"
+character = "vivian"
+prompt = "Which compartment did you follow Hugo to?"
+response = "'First the club, then the gallery, then Halcyon. You make institutions answer for every private arrangement.' Vivian answers with timetable confidence. 'Compartment four.'"
+clue = ""
+interaction = ""
+requires = ["vivian_room_claim", "account_ready_vivian"]
+unlocks = ["followup_vivian"]
+
+[[mystery.dialogue]]
+node = "approach_vivian"
+character = "vivian"
+prompt = "Then account for the baggage dust and rope fiber."
+response = "'I saw the blue robe enter and the attendant lock the corridor. His name was printed beside it; there was no reason to inspect the face.'"
+clue = "clue_vivian_room_testimony"
+interaction = ""
+requires = ["clue_baggage_trace", "vivian_room_claim", "followup_vivian"]
+unlocks = ["clue_vivian_room_testimony", "marigold_reconstruction"]
+
+[[mystery.dialogue]]
+node = "opening_eamon"
+character = "eamon"
+prompt = "Tell me about Hugo Quill. What did they want tonight?"
+response = "Eamon turns a ticket sleeve over. 'He offered me a room exchange, then asked what proof I had brought. He expected publication more than danger.'"
+clue = ""
+interaction = ""
+requires = ["claim_eamon_secret"]
+unlocks = ["account_ready_eamon"]
+
+[[mystery.dialogue]]
+node = "account_eamon"
+character = "eamon"
+prompt = "Why were you travelling under Hugo's booking?"
+response = "Eamon turns both ticket sleeves face down. 'Hugo offered an exchange when he recognized me. He preferred my compartment; I preferred his anonymity.'"
+clue = ""
+interaction = ""
+requires = ["claim_eamon_secret", "account_ready_eamon"]
+unlocks = ["followup_eamon"]
+
+[[mystery.dialogue]]
+node = "approach_eamon"
+character = "eamon"
+prompt = "Then account for the compartment transfer blood."
+response = "'The conductor changed the rooms, not the tags. Anyone reading the register afterward would follow the wrong man.'"
+clue = "clue_eamon_identity"
+interaction = ""
+requires = ["clue_transfer_blood", "claim_eamon_secret", "followup_eamon"]
+unlocks = ["clue_eamon_identity", "marigold_reconstruction"]
+
+[[mystery.dialogue]]
+node = "opening_leila"
+character = "leila"
+prompt = "Tell me about Hugo Quill. What did they want tonight?"
+response = "Leila taps the lounge rhythm once. 'He asked me to sing at the foundation benefit again. I said no. We parted before Union Depot, without the quarrel he seemed to want.'"
+clue = ""
+interaction = ""
+requires = ["claim_leila_secret"]
+unlocks = ["account_ready_leila"]
+
+[[mystery.dialogue]]
+node = "account_leila"
+character = "leila"
+prompt = "When did you last see Hugo himself?"
+response = "Leila taps the rhythm against her glass before answering. 'In the lounge, before the train passed Union Depot. He asked for ten quiet minutes.'"
+clue = ""
+interaction = ""
+requires = ["claim_leila_secret", "account_ready_leila"]
+unlocks = ["followup_leila"]
+
+[[mystery.dialogue]]
+node = "approach_leila"
+character = "leila"
+prompt = "Then account for the exchanged ticket sleeves."
+response = "'Later I saw his robe in the corridor. I did not see his hands, his face, or the way he walked.'"
+clue = "clue_leila_note"
+interaction = ""
+requires = ["clue_ticket_sleeves", "claim_leila_secret", "followup_leila"]
+unlocks = ["clue_leila_note", "marigold_reconstruction"]
+
+[[mystery.city_labels]]
+id = "marigold_excursion_train"
+display_name = "MARIGOLD EXCURSION TRAIN"
+level_spawn = "spawn_player"
+city_site = "depot_ward_venue"
+
+[mystery.solution]
+culprit = "vivian"
+motive = "clue_vivian_room_testimony"
+decisive_contradiction = "decisive_contradiction"
+weapon_block = "weapon_rope"
+murder_place_block = "place_baggage_car"
+death_time_block = "time_after_lounge"
+body_movement_block = "route_luggage_chair"
+staging_block = "staged_robe"
+cleaning_block = "service_catch_coverup"
+alibi_block = "false_compartment_alibi"
+requirements = ["weapon_rope", "place_baggage_car", "time_after_lounge", "route_luggage_chair", "staged_robe", "service_catch_coverup", "false_compartment_alibi"]
+murder_events = ["event_1"]
+cover_up_events = ["event_2", "event_3", "event_4", "event_5"]
+false_alibis = ["vivian_room_claim"]
+exclusions = ["eamon", "leila"]

@@ -1,0 +1,636 @@
+version = "MurderScript v1"
+id = "the_violinist_without_a_shadow"
+title = "The Violinist Without a Shadow"
+introduction = "Mara Quill seemed to vanish from a watched courtyard while her violin continued to play."
+action_point_limit = 12
+reveal_location = "courtyard"
+city_destination = "the_violinist_without_a_shadow_venue"
+seed = 20261030
+
+[[city_locations]]
+id = "the_violinist_without_a_shadow_venue"
+display_name = "QUILL ARTS CENTRE"
+level_spawn = "spawn_player"
+city_site = "civic_loop_venue"
+
+[[characters]]
+id = "mara_quill"
+display_name = "Mara Quill"
+role = "victim"
+description = "Mara Quill was preparing to abandon the centre's gala program and play an unannounced work of her own. She repeated difficult passages without pause, but always stopped when the courtyard bell sounded."
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = []
+
+[[characters]]
+id = "dorian_kest"
+display_name = "Dorian Kest"
+role = "suspect"
+description = "Director who shapes recollection like a performance, supplying graceful detail where direct observation is missing."
+private_secret = ""
+motive = "Conceals the crime's material mechanism."
+initial_disposition = 0
+initial_claims = ["claim_dorian_kest"]
+
+[[characters]]
+id = "sel_vale"
+display_name = "Sel Vale"
+role = "suspect"
+description = "Rival violinist who hears repetition, breath, and sabotage more clearly than she understands anyone's motive."
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_sel_vale"]
+
+[[characters]]
+id = "pavel_orr"
+display_name = "Pavel Orr"
+role = "suspect"
+description = "Booking manager who thinks in rooms, fees, and vacancies, concealing petty fraud rather than violence."
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_pavel_orr"]
+
+[[locations]]
+id = "courtyard"
+display_name = "COURTYARD"
+description = "Courtyard is a connected, spatially testable part of the case."
+connections = ["practice_room"]
+characters = []
+pois = ["shadowless_sighting", "music_stand_weight"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "practice_room"
+display_name = "PRACTICE ROOM"
+description = "Practice Room is a connected, spatially testable part of the case."
+connections = ["courtyard", "recital_hall"]
+characters = ["mara_quill"]
+pois = ["angled_glass_panels", "sabotaged_strings"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "recital_hall"
+display_name = "RECITAL HALL"
+description = "Recital Hall is a connected, spatially testable part of the case."
+connections = ["practice_room", "director_s_office"]
+characters = ["dorian_kest"]
+pois = ["repeated_musical_phrase", "room_booking_log"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "director_s_office"
+display_name = "DIRECTOR'S OFFICE"
+description = "Director's Office is a connected, spatially testable part of the case."
+connections = ["recital_hall", "glass_passage"]
+characters = ["sel_vale"]
+pois = ["bell_in_playback", "stolen_violin"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "glass_passage"
+display_name = "GLASS PASSAGE"
+description = "Glass Passage is a connected, spatially testable part of the case."
+connections = ["director_s_office"]
+characters = []
+pois = ["dressed_mannequin"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[pois]]
+id = "shadowless_sighting"
+display_name = "Shadowless Sighting"
+kind = "object"
+location = "courtyard"
+owner = ""
+description = "The courtyard figure casts no shadow because it is a reflection."
+relevant_state = "The courtyard figure casts no shadow because it is a reflection."
+examination_action = "examine"
+
+[[pois]]
+id = "angled_glass_panels"
+display_name = "Angled Glass Panels"
+kind = "mechanism"
+location = "practice_room"
+owner = ""
+description = "Sightline testing reveals the recital hall in the angled glass."
+relevant_state = "Sightline testing reveals the recital hall in the angled glass."
+examination_action = "examine"
+
+[[pois]]
+id = "repeated_musical_phrase"
+display_name = "Repeated Musical Phrase"
+kind = "mechanism"
+location = "recital_hall"
+owner = ""
+description = "The repeated phrase is acoustically identical on each pass."
+relevant_state = "The repeated phrase is acoustically identical on each pass."
+examination_action = "examine"
+
+[[pois]]
+id = "bell_in_playback"
+display_name = "Bell in Playback"
+kind = "object"
+location = "director_s_office"
+owner = ""
+description = "The playback contains a bell that rang earlier."
+relevant_state = "The playback contains a bell that rang earlier."
+examination_action = "examine"
+
+[[pois]]
+id = "dressed_mannequin"
+display_name = "Dressed Mannequin"
+kind = "mechanism"
+location = "glass_passage"
+owner = ""
+description = "Mannequin fibers and Mara's scarf remain in the glass passage."
+relevant_state = "Mannequin fibers and Mara's scarf remain in the glass passage."
+examination_action = "examine"
+
+[[pois]]
+id = "music_stand_weight"
+display_name = "Music Stand Weight"
+kind = "object"
+location = "courtyard"
+owner = ""
+description = "Blood remains inside the stand weight's adjustment collar."
+relevant_state = "Blood remains inside the stand weight's adjustment collar."
+examination_action = "examine"
+
+[[pois]]
+id = "sabotaged_strings"
+display_name = "Sabotaged Strings"
+kind = "object"
+location = "practice_room"
+owner = ""
+description = "Sel's sabotaged strings explain her concealed visit."
+relevant_state = "Sel's sabotaged strings explain her concealed visit."
+examination_action = "examine"
+
+[[pois]]
+id = "room_booking_log"
+display_name = "Room Booking Log"
+kind = "object"
+location = "recital_hall"
+owner = ""
+description = "Pavel's rentals explain the falsified room log."
+relevant_state = "Pavel's rentals explain the falsified room log."
+examination_action = "examine"
+
+[[pois]]
+id = "stolen_violin"
+display_name = "Stolen Violin"
+kind = "object"
+location = "director_s_office"
+owner = ""
+description = "Dorian described the reflection turning toward a window it could not see."
+relevant_state = "Dorian described the reflection turning toward a window it could not see."
+examination_action = "examine"
+
+[[events]]
+id = "crime_event"
+time = "20:20"
+actor = "dorian_kest"
+action = "kill"
+target = "mara_quill"
+source = "courtyard"
+destination = "courtyard"
+tool = "music_stand_weight"
+effects = ["victim_dead"]
+witnesses = []
+
+[[events]]
+id = "cover_event"
+time = "20:30"
+actor = "dorian_kest"
+action = "alter"
+target = "angled_glass_panels"
+source = "courtyard"
+destination = "practice_room"
+tool = ""
+effects = ["scene_staged"]
+witnesses = []
+
+[[claims]]
+id = "claim_dorian_kest"
+speaker = "dorian_kest"
+proposition = "Dorian Kest claims no knowledge of the concealed mechanism."
+true = false
+protects = ""
+response = "Dorian Kest maintains the account until the physical reconstruction."
+
+[[claims]]
+id = "claim_sel_vale"
+speaker = "sel_vale"
+proposition = "Sel Vale gives an incomplete but innocent account."
+true = true
+protects = ""
+response = "Sel Vale maintains the account until the physical reconstruction."
+
+[[claims]]
+id = "claim_pavel_orr"
+speaker = "pavel_orr"
+proposition = "Pavel Orr gives an incomplete but innocent account."
+true = true
+protects = ""
+response = "Pavel Orr maintains the account until the physical reconstruction."
+
+[[clues]]
+id = "clue_1"
+source = "shadowless_sighting"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "The courtyard figure casts no shadow because it is a reflection."
+proposition = "The courtyard figure casts no shadow because it is a reflection."
+blocks = ["weapon"]
+topics = ["mechanism"]
+essential = true
+
+[[clues]]
+id = "clue_2"
+source = "angled_glass_panels"
+discovery_action = "examine"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "Sightline testing reveals the recital hall in the angled glass."
+proposition = "Sightline testing reveals the recital hall in the angled glass."
+blocks = ["murder_place"]
+topics = ["mechanism"]
+essential = true
+
+[[clues]]
+id = "clue_3"
+source = "repeated_musical_phrase"
+discovery_action = "examine"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "The repeated phrase is acoustically identical on each pass."
+proposition = "The repeated phrase is acoustically identical on each pass."
+blocks = ["death_time"]
+topics = ["mechanism"]
+essential = true
+
+[[clues]]
+id = "clue_4"
+source = "bell_in_playback"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "The playback contains a bell that rang earlier."
+proposition = "The playback contains a bell that rang earlier."
+blocks = ["body_movement"]
+topics = ["mechanism"]
+essential = true
+
+[[clues]]
+id = "clue_5"
+source = "dressed_mannequin"
+discovery_action = "examine"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "Mannequin fibers and Mara's scarf remain in the glass passage."
+proposition = "Mannequin fibers and Mara's scarf remain in the glass passage."
+blocks = ["staging"]
+topics = ["mechanism"]
+essential = true
+
+[[clues]]
+id = "clue_6"
+source = "music_stand_weight"
+discovery_action = "examine"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "Blood remains inside the stand weight's adjustment collar."
+proposition = "Blood remains inside the stand weight's adjustment collar."
+blocks = ["cleaning"]
+topics = ["mechanism"]
+essential = true
+
+[[clues]]
+id = "clue_7"
+source = "sel_vale"
+discovery_action = "dialogue"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "Sel's sabotaged strings explain her concealed visit."
+proposition = "Sel's sabotaged strings explain her concealed visit."
+blocks = ["alibi"]
+topics = ["mechanism"]
+essential = true
+
+[[clues]]
+id = "clue_8"
+source = "pavel_orr"
+discovery_action = "dialogue"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "Pavel's rentals explain the falsified room log."
+proposition = "Pavel's rentals explain the falsified room log."
+blocks = []
+topics = ["mechanism"]
+essential = true
+
+[[clues]]
+id = "clue_9"
+source = "dorian_kest"
+discovery_action = "dialogue"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "Dorian described the reflection turning toward a window it could not see."
+proposition = "Dorian described the reflection turning toward a window it could not see."
+blocks = ["claim_dorian_kest"]
+topics = ["mechanism"]
+essential = true
+
+[[dialogue_approaches]]
+id = "opening_dorian_kest"
+character = "dorian_kest"
+prompt = "Tell me about Mara Quill. What did they want tonight?"
+response = "Dorian watches the empty stand. 'Mara meant to replace the gala program without permission. She wanted the audience to hear her, not the centre.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_dorian_kest"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_dorian_kest"]
+
+[[dialogue_approaches]]
+id = "account_dorian_kest"
+character = "dorian_kest"
+prompt = "Which way did Mara turn in the courtyard?"
+response = "Dorian conducts the memory with two fingers. 'Toward the west window when the bell sounded. She always sought the light.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_dorian_kest"]
+requires_topics = ["account_ready_dorian_kest"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_dorian_kest"]
+
+[[dialogue_approaches]]
+id = "approach_dorian_kest"
+character = "dorian_kest"
+prompt = "Then account for the shadowless sighting."
+response = "The reflected recital hall has no west window. His hand falls still before the phrase ends."
+clue = "clue_9"
+requires_clues = ["clue_1"]
+requires_claims = ["claim_dorian_kest"]
+requires_topics = ["followup_dorian_kest"]
+unlock_clues = ["clue_9"]
+unlock_claims = []
+unlock_topics = ["mechanism"]
+
+[[dialogue_approaches]]
+id = "opening_sel_vale"
+character = "sel_vale"
+prompt = "Tell me about Mara Quill. What did they want tonight?"
+response = "Sel names the abandoned piece. 'She played it to prove she no longer needed anyone here. I left during the same eight bars she had repeated all afternoon.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_sel_vale"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_sel_vale"]
+
+[[dialogue_approaches]]
+id = "account_sel_vale"
+character = "sel_vale"
+prompt = "Why were Mara's strings cut?"
+response = "Sel names each string before admitting the fourth. 'I nicked the E string. I wanted her embarrassed, not silent.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_sel_vale"]
+requires_topics = ["account_ready_sel_vale"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_sel_vale"]
+
+[[dialogue_approaches]]
+id = "approach_sel_vale"
+character = "sel_vale"
+prompt = "Then account for the repeated musical phrase."
+response = "'When I left, she was repeating the same eight bars. Later they returned without a breath between them.'"
+clue = "clue_7"
+requires_clues = ["clue_3"]
+requires_claims = ["claim_sel_vale"]
+requires_topics = ["followup_sel_vale"]
+unlock_clues = ["clue_7"]
+unlock_claims = []
+unlock_topics = ["mechanism"]
+
+[[dialogue_approaches]]
+id = "opening_pavel_orr"
+character = "pavel_orr"
+prompt = "Tell me about Mara Quill. What did they want tonight?"
+response = "Pavel checks the booking book. 'Mara asked who had reserved the hall after seven. I told her nobody, which was not quite the same as saying it was free.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_pavel_orr"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_pavel_orr"]
+
+[[dialogue_approaches]]
+id = "account_pavel_orr"
+character = "pavel_orr"
+prompt = "Why did you falsify the room booking?"
+response = "Pavel searches the schedule as though a free room might still save him. 'I rented the hall privately and kept the fee.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_pavel_orr"]
+requires_topics = ["account_ready_pavel_orr"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_pavel_orr"]
+
+[[dialogue_approaches]]
+id = "approach_pavel_orr"
+character = "pavel_orr"
+prompt = "Then account for the dressed mannequin."
+response = "'The recital room was empty by seven. If music came from it afterward, no player made it.'"
+clue = "clue_8"
+requires_clues = ["clue_5"]
+requires_claims = ["claim_pavel_orr"]
+requires_topics = ["followup_pavel_orr"]
+unlock_clues = ["clue_8"]
+unlock_claims = []
+unlock_topics = ["mechanism"]
+
+[[contradictions]]
+id = "decisive_contradiction"
+claim = "claim_dorian_kest"
+fact = "clue_9"
+conclusion = "dorian_kest had knowledge only the culprit could possess."
+explanation = "Dorian recorded Mara, killed her with a stand weight, then used playback, a scarf-clad mannequin, and angled reflections to preserve a false continuous sighting."
+
+[[deductions]]
+id = "deduction_1"
+proposition = "The courtyard figure casts no shadow because it is a reflection."
+category = "what"
+unlock_questions = []
+unlock_topics = []
+unlock_investigations = []
+
+[[questions]]
+id = "question_1"
+prompt = "What does this physical comparison establish?"
+hypothesis = "The courtyard figure casts no shadow because it is a reflection."
+category = "what"
+requires_clues = ["clue_1", "clue_2"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_1"
+question = "question_1"
+mode = "comparison"
+resolution = "substantiated"
+result = "Dorian recorded Mara, killed her with a stand weight, then used playback, a scarf-clad mannequin, and angled reflections to preserve a false continuous sighting."
+prompt = "Combine the two observations and test the authored mechanism."
+slot_labels = ["Evidence A", "Evidence B"]
+slot_types = ["observation", "observation"]
+accepted_pieces = ["clue_1", "clue_2"]
+result_deductions = ["deduction_1"]
+
+[[deductions]]
+id = "deduction_2"
+proposition = "The repeated phrase is acoustically identical on each pass."
+category = "where_when"
+unlock_questions = []
+unlock_topics = []
+unlock_investigations = []
+
+[[questions]]
+id = "question_2"
+prompt = "What does this physical comparison establish?"
+hypothesis = "The repeated phrase is acoustically identical on each pass."
+category = "where_when"
+requires_clues = ["clue_3", "clue_4"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_2"
+question = "question_2"
+mode = "physical"
+resolution = "substantiated"
+result = "Dorian recorded Mara, killed her with a stand weight, then used playback, a scarf-clad mannequin, and angled reflections to preserve a false continuous sighting."
+prompt = "Combine the two observations and test the authored mechanism."
+slot_labels = ["Evidence A", "Evidence B"]
+slot_types = ["observation", "observation"]
+accepted_pieces = ["clue_3", "clue_4"]
+result_deductions = ["deduction_2"]
+
+[[deductions]]
+id = "deduction_3"
+proposition = "Mannequin fibers and Mara's scarf remain in the glass passage."
+category = "concealment"
+unlock_questions = []
+unlock_topics = []
+unlock_investigations = []
+
+[[questions]]
+id = "question_3"
+prompt = "What does this physical comparison establish?"
+hypothesis = "Mannequin fibers and Mara's scarf remain in the glass passage."
+category = "concealment"
+requires_clues = ["clue_5", "clue_6"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_3"
+question = "question_3"
+mode = "timeline"
+resolution = "substantiated"
+result = "Dorian recorded Mara, killed her with a stand weight, then used playback, a scarf-clad mannequin, and angled reflections to preserve a false continuous sighting."
+prompt = "Combine the two observations and test the authored mechanism."
+slot_labels = ["Evidence A", "Evidence B"]
+slot_types = ["observation", "observation"]
+accepted_pieces = ["clue_5", "clue_6"]
+result_deductions = ["deduction_3"]
+
+[[deductions]]
+id = "deduction_4"
+proposition = "Sel's sabotaged strings explain her concealed visit."
+category = "contradiction"
+unlock_questions = []
+unlock_topics = []
+unlock_investigations = []
+
+[[questions]]
+id = "question_4"
+prompt = "What does this physical comparison establish?"
+hypothesis = "Sel's sabotaged strings explain her concealed visit."
+category = "contradiction"
+requires_clues = ["clue_7", "clue_8"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_4"
+question = "question_4"
+mode = "confrontation"
+resolution = "substantiated"
+result = "Dorian recorded Mara, killed her with a stand weight, then used playback, a scarf-clad mannequin, and angled reflections to preserve a false continuous sighting."
+prompt = "Combine the two observations and test the authored mechanism."
+slot_labels = ["Evidence A", "Evidence B"]
+slot_types = ["testimony", "testimony"]
+accepted_pieces = ["clue_7", "clue_8"]
+result_deductions = ["deduction_4"]
+
+[solution]
+culprit = "dorian_kest"
+motive = "clue_9"
+decisive_contradiction = "decisive_contradiction"
+weapon_block = "weapon"
+murder_place_block = "murder_place"
+death_time_block = "death_time"
+body_movement_block = "body_movement"
+staging_block = "staging"
+cleaning_block = "cleaning"
+alibi_block = "alibi"
+murder_events = ["crime_event"]
+cover_up_events = ["cover_event"]
+false_alibi = ["claim_dorian_kest"]
+exclusions = ["sel_vale", "pavel_orr"]

@@ -1,0 +1,471 @@
+version = "LevelFormat v1"
+id = "the_empty_carriage_lot"
+name = "Corbin Transit Depot"
+width = 42
+height = 22
+content_offset = [[4, 4]]
+story_limit = 3
+default_snap = 0.5
+fine_snap = 0.25
+angle_snap = 15.0
+
+[[stories]]
+id = "ground"
+name = "Ground Floor"
+base_elevation = 0.0
+floor_height = 3.5
+
+[[foundations]]
+id = "foundation_inspection_carriage"
+kind = "slab"
+points = [[0.0, 0.0], [6.5, 0.0], [6.5, 8.0], [0.0, 8.0]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "inspection_carriage"
+name = "Inspection Carriage"
+story = 0
+points = [[0.0, 0.0], [6.5, 0.0], [6.5, 8.0], [0.0, 8.0]]
+platform_height = 0.0
+floor_material = "core:dining"
+wall_material = "core:dining"
+ceiling_style = "flat"
+exterior = false
+
+[[roofs]]
+id = "roof_inspection_carriage"
+room_id = "inspection_carriage"
+story = 0
+style = "hip"
+pitch = 28.0
+overhang = 0.4
+ridge_angle = 90.0
+
+[[foundations]]
+id = "foundation_maintenance_pit"
+kind = "slab"
+points = [[7.0, 0.0], [13.5, 0.0], [13.5, 8.0], [7.0, 8.0]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "maintenance_pit"
+name = "Maintenance Pit"
+story = 0
+points = [[7.0, 0.0], [13.5, 0.0], [13.5, 8.0], [7.0, 8.0]]
+platform_height = 0.0
+floor_material = "core:study"
+wall_material = "core:study"
+ceiling_style = "flat"
+exterior = false
+
+[[roofs]]
+id = "roof_maintenance_pit"
+room_id = "maintenance_pit"
+story = 0
+style = "gable"
+pitch = 28.0
+overhang = 0.4
+ridge_angle = 90.0
+
+[[foundations]]
+id = "foundation_switch_booth"
+kind = "slab"
+points = [[14.0, 0.0], [20.5, 0.0], [20.5, 8.0], [14.0, 8.0]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "switch_booth"
+name = "Switch Booth"
+story = 0
+points = [[14.0, 0.0], [20.5, 0.0], [20.5, 8.0], [14.0, 8.0]]
+platform_height = 0.0
+floor_material = "core:dining"
+wall_material = "core:dining"
+ceiling_style = "flat"
+exterior = false
+
+[[roofs]]
+id = "roof_switch_booth"
+room_id = "switch_booth"
+story = 0
+style = "hip"
+pitch = 28.0
+overhang = 0.4
+ridge_angle = 90.0
+
+[[foundations]]
+id = "foundation_tool_bay"
+kind = "slab"
+points = [[21.0, 0.0], [27.5, 0.0], [27.5, 8.0], [21.0, 8.0]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "tool_bay"
+name = "Tool Bay"
+story = 0
+points = [[21.0, 0.0], [27.5, 0.0], [27.5, 8.0], [21.0, 8.0]]
+platform_height = 0.0
+floor_material = "core:study"
+wall_material = "core:study"
+ceiling_style = "flat"
+exterior = false
+
+[[roofs]]
+id = "roof_tool_bay"
+room_id = "tool_bay"
+story = 0
+style = "gable"
+pitch = 28.0
+overhang = 0.4
+ridge_angle = 90.0
+
+[[foundations]]
+id = "foundation_wash_track"
+kind = "slab"
+points = [[28.0, 0.0], [34.5, 0.0], [34.5, 8.0], [28.0, 8.0]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "wash_track"
+name = "Wash Track"
+story = 0
+points = [[28.0, 0.0], [34.5, 0.0], [34.5, 8.0], [28.0, 8.0]]
+platform_height = 0.0
+floor_material = "core:dining"
+wall_material = "core:dining"
+ceiling_style = "flat"
+exterior = false
+
+[[roofs]]
+id = "roof_wash_track"
+room_id = "wash_track"
+story = 0
+style = "hip"
+pitch = 28.0
+overhang = 0.4
+ridge_angle = 90.0
+
+[[markers]]
+id = "spawn_player"
+reference = ""
+kind = "player_spawn"
+story = 0
+position = [[2.0, 4.0]]
+radius = 0.4
+facing = 0.0
+
+[[markers]]
+id = "return_to_city"
+reference = ""
+destination = "city:the_empty_carriage_venue"
+kind = "transition"
+story = 0
+position = [[1.0, 1.0]]
+radius = 1.0
+
+[[markers]]
+id = "spawn_galen_shore"
+reference = "galen_shore"
+kind = "character_spawn"
+story = 0
+position = [[9.0, 5.0]]
+radius = 0.5
+
+[[markers]]
+id = "spawn_tari_noll"
+reference = "tari_noll"
+kind = "character_spawn"
+story = 0
+position = [[16.0, 5.0]]
+radius = 0.5
+
+[[markers]]
+id = "spawn_esme_park"
+reference = "esme_park"
+kind = "character_spawn"
+story = 0
+position = [[23.0, 5.0]]
+radius = 0.5
+
+[[markers]]
+id = "clue_marker_1"
+reference = "cleaned_brake_shoe"
+kind = "clue"
+story = 0
+position = [[4.0, 2.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_2"
+reference = "greased_floor_hatch"
+kind = "clue"
+story = 0
+position = [[11.0, 2.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_3"
+reference = "wheeled_pit_cradle"
+kind = "clue"
+story = 0
+position = [[18.0, 2.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_4"
+reference = "rail_chalk_marks"
+kind = "clue"
+story = 0
+position = [[25.0, 2.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_5"
+reference = "fixed_depot_camera"
+kind = "clue"
+story = 0
+position = [[32.0, 2.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_6"
+reference = "manual_switch_contacts"
+kind = "clue"
+story = 0
+position = [[4.0, 4.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_7"
+reference = "altered_driver_log"
+kind = "clue"
+story = 0
+position = [[11.0, 4.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_8"
+reference = "inspection_photographs"
+kind = "clue"
+story = 0
+position = [[18.0, 4.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_9"
+reference = "concealed_broken_bolt"
+kind = "clue"
+story = 0
+position = [[25.0, 4.0]]
+radius = 0.7
+
+# BEGIN GENERATED ROOM FURNISHINGS
+
+[[objects]]
+id = "furnish_inspection_carriage_1_desk"
+catalog_id = "core:desk"
+story = 0
+position = [[1.43, 1.92]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_inspection_carriage_2_chair_desk"
+catalog_id = "core:chair_desk"
+story = 0
+position = [[1.43, 3.84]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_inspection_carriage_3_bathroom_cabinet"
+catalog_id = "core:bathroom_cabinet"
+story = 0
+position = [[5.07, 1.76]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_inspection_carriage_4_cardboard_box_closed"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[5.07, 5.60]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_inspection_carriage_5_trashcan"
+catalog_id = "core:trashcan"
+story = 0
+position = [[3.25, 6.08]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_maintenance_pit_1_table_round"
+catalog_id = "core:table_round"
+story = 0
+position = [[10.25, 3.84]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_maintenance_pit_2_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[10.25, 2.00]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_maintenance_pit_3_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[10.25, 5.76]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_maintenance_pit_4_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[8.62, 3.84]]
+rotation = 270.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_maintenance_pit_5_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[11.88, 3.84]]
+rotation = 90.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_switch_booth_1_desk"
+catalog_id = "core:desk"
+story = 0
+position = [[15.82, 2.24]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_switch_booth_2_chair_desk"
+catalog_id = "core:chair_desk"
+story = 0
+position = [[15.82, 3.84]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_switch_booth_3_computer_screen"
+catalog_id = "core:computer_screen"
+support_id = "furnish_switch_booth_1_desk"
+elevation = 0.74
+story = 0
+position = [[15.82, 2.24]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_switch_booth_4_bookcase_closed"
+catalog_id = "core:bookcase_closed"
+story = 0
+position = [[19.33, 1.92]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_switch_booth_5_floor_lamp_round"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[19.33, 6.24]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_tool_bay_1_desk"
+catalog_id = "core:desk"
+story = 0
+position = [[22.43, 1.92]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_tool_bay_2_chair_desk"
+catalog_id = "core:chair_desk"
+story = 0
+position = [[22.43, 3.84]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_tool_bay_3_bathroom_cabinet"
+catalog_id = "core:bathroom_cabinet"
+story = 0
+position = [[26.07, 1.76]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_tool_bay_4_cardboard_box_closed"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[26.07, 5.60]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_tool_bay_5_trashcan"
+catalog_id = "core:trashcan"
+story = 0
+position = [[24.25, 6.08]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_wash_track_1_desk"
+catalog_id = "core:desk"
+story = 0
+position = [[29.43, 1.92]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_wash_track_2_chair_desk"
+catalog_id = "core:chair_desk"
+story = 0
+position = [[29.43, 3.84]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_wash_track_3_bathroom_cabinet"
+catalog_id = "core:bathroom_cabinet"
+story = 0
+position = [[33.07, 1.76]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_wash_track_4_cardboard_box_closed"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[33.07, 5.60]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_wash_track_5_trashcan"
+catalog_id = "core:trashcan"
+story = 0
+position = [[31.25, 6.08]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+# END GENERATED ROOM FURNISHINGS

@@ -1,0 +1,1307 @@
+version = "InteractiveStory v1"
+id = "the_last_garden_prize"
+title = "The Last Garden Prize"
+creator = "Chicago conversion tool"
+description = "Bellwether caretaker Ada Reed finds Mara Voss inside the locked conservatory before the garden prizes are announced. Ada has kept the neighbors outside; a damaged plant cart suggests the exhibition was rearranged after closing."
+content_version = "1.0.0"
+default_space = "bellwether_community_house"
+revision = 0
+
+[[capabilities]]
+id = "mystery"
+version = "1"
+
+[[entities]]
+id = "mara_voss"
+kind = "character"
+display_name = "Mara Voss"
+description = "Mara Voss planned to announce both the garden prize and the end of a grant partnership. She watered every entry herself after judging, a small ritual the exhibitors knew well enough to use as a clock."
+space_id = ""
+target_kind = "entity"
+target_id = ""
+tags = ["victim"]
+roles = []
+
+[[entities]]
+id = "jon_bell"
+kind = "character"
+display_name = "Jon Bell"
+description = "Garden steward who speaks through rules of care and exhibition procedure, invoking neighbors as witnesses."
+space_id = "bellwether_community_house"
+target_kind = "marker"
+target_id = "character_jon_bell"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "nadia_price"
+kind = "character"
+display_name = "Nadia Price"
+description = "Grower who reads conflict in plants, soil, and who carried what through the loading garden."
+space_id = "bellwether_community_house"
+target_kind = "marker"
+target_id = "character_nadia_price"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "eli_ward"
+kind = "character"
+display_name = "Eli Ward"
+description = "Collector candid about horticultural theft and exact about cultivars, tools, and damaged equipment."
+space_id = "bellwether_community_house"
+target_kind = "marker"
+target_id = "character_eli_ward"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "community_hall"
+kind = "location"
+display_name = "COMMUNITY HALL"
+description = "A spatially distinct part of Bellwether Community House."
+space_id = "bellwether_community_house"
+target_kind = "room"
+target_id = "community_hall"
+tags = []
+roles = []
+
+[[entities]]
+id = "conservatory"
+kind = "location"
+display_name = "CONSERVATORY"
+description = "A spatially distinct part of Bellwether Community House."
+space_id = "bellwether_community_house"
+target_kind = "room"
+target_id = "conservatory"
+tags = []
+roles = []
+
+[[entities]]
+id = "loading_garden"
+kind = "location"
+display_name = "LOADING GARDEN"
+description = "A spatially distinct part of Bellwether Community House."
+space_id = "bellwether_community_house"
+target_kind = "room"
+target_id = "loading_garden"
+tags = []
+roles = []
+
+[[entities]]
+id = "potting_shed"
+kind = "location"
+display_name = "POTTING SHED"
+description = "A spatially distinct part of Bellwether Community House."
+space_id = "bellwether_community_house"
+target_kind = "room"
+target_id = "potting_shed"
+tags = []
+roles = []
+
+[[entities]]
+id = "exhibition_lawn"
+kind = "location"
+display_name = "EXHIBITION LAWN"
+description = "A spatially distinct part of Bellwether Community House."
+space_id = "bellwether_community_house"
+target_kind = "room"
+target_id = "exhibition_lawn"
+tags = []
+roles = []
+
+[[entities]]
+id = "hose_guide"
+kind = "object"
+display_name = "Cast-Iron Hose Guide"
+description = "Retains a protected blood trace."
+space_id = "bellwether_community_house"
+target_kind = "marker"
+target_id = "clue_hose_guide"
+tags = []
+roles = []
+
+[[entities]]
+id = "cart_latch"
+kind = "object"
+display_name = "Bent Plant-Cart Latch"
+description = "Records the concealment route."
+space_id = "bellwether_community_house"
+target_kind = "marker"
+target_id = "clue_cart_latch"
+tags = []
+roles = []
+
+[[entities]]
+id = "watering_record"
+kind = "object"
+display_name = "Orchid Watering Record"
+description = "Anchors the decisive reconstruction."
+space_id = "bellwether_community_house"
+target_kind = "marker"
+target_id = "clue_watering_record"
+tags = []
+roles = []
+
+[[entities]]
+id = "motive_record"
+kind = "object"
+display_name = "Motive Record"
+description = "Missing grant money."
+space_id = "bellwether_community_house"
+target_kind = "marker"
+target_id = "clue_motive_record"
+tags = []
+roles = []
+
+[[propositions]]
+id = "claim_culprit"
+text = "I left before anyone watered the orchid."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "claim_innocent_one"
+text = "I never left the public room."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "claim_innocent_two"
+text = "I did nothing improper tonight."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_weapon"
+text = "The physical injury matches the recovered object."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_route"
+text = "The route trace proves the body and scene were moved."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_decisive"
+text = "Jon's alibi requires him to have left before an action he signed and a cart movement Nadia witnessed."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_motive"
+text = "The victim documented missing grant money."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_innocent_one"
+text = "The first innocent's lie protects a private relationship, not murder."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_innocent_two"
+text = "The second innocent's lie protects unrelated misconduct, not murder."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_timeline"
+text = "Travel time fixes the narrow opportunity window."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_scene"
+text = "Residue at the true scene disproves the staged discovery place."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "deduction_solution"
+text = "Jon killed Mara in the loading garden, moved her by cart, and staged the locked conservatory."
+canonical_truth = "undetermined"
+
+[[events]]
+id = "event_murder"
+subject = "jon_bell"
+action = "kill"
+object = "mara_voss"
+location = "loading_garden"
+fictional_time = "20:10"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[events]]
+id = "event_move"
+subject = "jon_bell"
+action = "move_body"
+object = "mara_voss"
+location = "loading_garden"
+fictional_time = "20:16"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[events]]
+id = "event_stage"
+subject = "jon_bell"
+action = "alter"
+object = "watering_record"
+location = "conservatory"
+fictional_time = "20:21"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[conditions]]
+id = "condition.always"
+kind = "always"
+children = []
+variable = ""
+entity = ""
+other_entity = ""
+proposition = ""
+objective = ""
+event = ""
+content = ""
+text = ""
+space_a = ""
+target_a = ""
+space_b = ""
+target_b = ""
+distance = 0
+value_kind = "boolean"
+boolean_value = false
+integer_value = 0
+text_value = ""
+comparison = 0
+objective_status = 0
+stance = "uncertain"
+
+[[scenes]]
+id = "scene_opening_jon_bell"
+display_name = "Jon removes a dead leaf from Mara's prize card. 'She meant to announce the grant decision after judging. Until then she wanted every plant treated as though it had won.'"
+entry_node = "opening_jon_bell_line"
+bound_entity = "jon_bell"
+summary = "Jon removes a dead leaf from Mara's prize card. 'She meant to announce the grant decision after judging. Until then she wanted every plant treated as though it had won.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_jon_bell"
+display_name = "Jon checks the ribbon card before the soil. 'Mara kept the conservatory locked. Nobody watered after six.'"
+entry_node = "account_jon_bell_line"
+bound_entity = "jon_bell"
+summary = "Jon checks the ribbon card before the soil. 'Mara kept the conservatory locked. Nobody watered after six.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_jon_bell"
+display_name = "'Nadia can confirm it.' The watering sheet records Jon's own initials at six twenty."
+entry_node = "approach_jon_bell_line"
+bound_entity = "jon_bell"
+summary = "'Nadia can confirm it.' The watering sheet records Jon's own initials at six twenty."
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_opening_nadia_price"
+display_name = "Nadia rubs soil from her sleeve. 'Mara was ending our partnership. She still asked me to help with the final watering; that was how she made a wound look like a duty.'"
+entry_node = "opening_nadia_price_line"
+bound_entity = "nadia_price"
+summary = "Nadia rubs soil from her sleeve. 'Mara was ending our partnership. She still asked me to help with the final watering; that was how she made a wound look like a duty.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_nadia_price"
+display_name = "Nadia pinches a dead leaf from her sleeve. 'She was ending our partnership. I asked her not to announce it beside the prize bench.'"
+entry_node = "account_nadia_price_line"
+bound_entity = "nadia_price"
+summary = "Nadia pinches a dead leaf from her sleeve. 'She was ending our partnership. I asked her not to announce it beside the prize bench.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_nadia_price"
+display_name = "'I left through the community hall. Jon was bringing the plant cart in against the one-way latch.'"
+entry_node = "approach_nadia_price_line"
+bound_entity = "nadia_price"
+summary = "'I left through the community hall. Jon was bringing the plant cart in against the one-way latch.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_opening_eli_ward"
+display_name = "Eli names Mara's newest cultivar. 'She could recognize another grower's cutting at ten paces. Tonight she said some prizes belonged to the people who did the work.'"
+entry_node = "opening_eli_ward_line"
+bound_entity = "eli_ward"
+summary = "Eli names Mara's newest cultivar. 'She could recognize another grower's cutting at ten paces. Tonight she said some prizes belonged to the people who did the work.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_eli_ward"
+display_name = "Eli names the missing cultivars before the tools. 'Cuttings. Mara refused to register them under my name.'"
+entry_node = "account_eli_ward_line"
+bound_entity = "eli_ward"
+summary = "Eli names the missing cultivars before the tools. 'Cuttings. Mara refused to register them under my name.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_eli_ward"
+display_name = "'Petty theft, yes. The cart latch was already bent when I passed it.'"
+entry_node = "approach_eli_ward_line"
+bound_entity = "eli_ward"
+summary = "'Petty theft, yes. The cart latch was already bent when I passed it.'"
+return_to = "investigation"
+
+[[nodes]]
+id = "opening_jon_bell_line"
+scene = "scene_opening_jon_bell"
+kind = "line"
+line_id = "opening_jon_bell_line"
+speaker = "jon_bell"
+text = "Jon removes a dead leaf from Mara's prize card. 'She meant to announce the grant decision after judging. Until then she wanted every plant treated as though it had won.'"
+next = "opening_jon_bell_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_jon_bell_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_jon_bell_end"
+scene = "scene_opening_jon_bell"
+kind = "end"
+line_id = "opening_jon_bell_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_jon_bell_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_jon_bell_line"
+scene = "scene_account_jon_bell"
+kind = "line"
+line_id = "account_jon_bell_line"
+speaker = "jon_bell"
+text = "Jon checks the ribbon card before the soil. 'Mara kept the conservatory locked. Nobody watered after six.'"
+next = "account_jon_bell_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_jon_bell_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_jon_bell_end"
+scene = "scene_account_jon_bell"
+kind = "end"
+line_id = "account_jon_bell_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_jon_bell_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_jon_bell_line"
+scene = "scene_approach_jon_bell"
+kind = "line"
+line_id = "approach_jon_bell_line"
+speaker = "jon_bell"
+text = "'Nadia can confirm it.' The watering sheet records Jon's own initials at six twenty."
+next = "approach_jon_bell_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_jon_bell_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_jon_bell_end"
+scene = "scene_approach_jon_bell"
+kind = "end"
+line_id = "approach_jon_bell_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_jon_bell_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_nadia_price_line"
+scene = "scene_opening_nadia_price"
+kind = "line"
+line_id = "opening_nadia_price_line"
+speaker = "nadia_price"
+text = "Nadia rubs soil from her sleeve. 'Mara was ending our partnership. She still asked me to help with the final watering; that was how she made a wound look like a duty.'"
+next = "opening_nadia_price_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_nadia_price_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_nadia_price_end"
+scene = "scene_opening_nadia_price"
+kind = "end"
+line_id = "opening_nadia_price_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_nadia_price_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_nadia_price_line"
+scene = "scene_account_nadia_price"
+kind = "line"
+line_id = "account_nadia_price_line"
+speaker = "nadia_price"
+text = "Nadia pinches a dead leaf from her sleeve. 'She was ending our partnership. I asked her not to announce it beside the prize bench.'"
+next = "account_nadia_price_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_nadia_price_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_nadia_price_end"
+scene = "scene_account_nadia_price"
+kind = "end"
+line_id = "account_nadia_price_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_nadia_price_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_nadia_price_line"
+scene = "scene_approach_nadia_price"
+kind = "line"
+line_id = "approach_nadia_price_line"
+speaker = "nadia_price"
+text = "'I left through the community hall. Jon was bringing the plant cart in against the one-way latch.'"
+next = "approach_nadia_price_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_nadia_price_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_nadia_price_end"
+scene = "scene_approach_nadia_price"
+kind = "end"
+line_id = "approach_nadia_price_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_nadia_price_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_eli_ward_line"
+scene = "scene_opening_eli_ward"
+kind = "line"
+line_id = "opening_eli_ward_line"
+speaker = "eli_ward"
+text = "Eli names Mara's newest cultivar. 'She could recognize another grower's cutting at ten paces. Tonight she said some prizes belonged to the people who did the work.'"
+next = "opening_eli_ward_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_eli_ward_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_eli_ward_end"
+scene = "scene_opening_eli_ward"
+kind = "end"
+line_id = "opening_eli_ward_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_eli_ward_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_eli_ward_line"
+scene = "scene_account_eli_ward"
+kind = "line"
+line_id = "account_eli_ward_line"
+speaker = "eli_ward"
+text = "Eli names the missing cultivars before the tools. 'Cuttings. Mara refused to register them under my name.'"
+next = "account_eli_ward_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_eli_ward_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_eli_ward_end"
+scene = "scene_account_eli_ward"
+kind = "end"
+line_id = "account_eli_ward_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_eli_ward_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_eli_ward_line"
+scene = "scene_approach_eli_ward"
+kind = "line"
+line_id = "approach_eli_ward_line"
+speaker = "eli_ward"
+text = "'Petty theft, yes. The cart latch was already bent when I passed it.'"
+next = "approach_eli_ward_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_eli_ward_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_eli_ward_end"
+scene = "scene_approach_eli_ward"
+kind = "end"
+line_id = "approach_eli_ward_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_eli_ward_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[mystery]
+action_budget = 12
+seed = 20261001
+tutorial = ""
+city_start = "bellwether_community_house"
+city_destination = "bellwether_community_house"
+reveal_location = "community_hall"
+
+[[mystery.characters]]
+entity = "mara_voss"
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = []
+
+[[mystery.characters]]
+entity = "jon_bell"
+private_secret = "culprit"
+motive = "missing grant money"
+initial_disposition = 0
+initial_claims = ["claim_culprit"]
+
+[[mystery.characters]]
+entity = "nadia_price"
+private_secret = "private relationship"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_innocent_one"]
+
+[[mystery.characters]]
+entity = "eli_ward"
+private_secret = "unrelated misconduct"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_innocent_two"]
+
+[[mystery.locations]]
+entity = "community_hall"
+connections = ["conservatory"]
+characters = ["jon_bell"]
+pois = []
+search_actions = ["observe", "search", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "conservatory"
+connections = ["community_hall", "loading_garden"]
+characters = ["nadia_price"]
+pois = ["cart_latch"]
+search_actions = ["observe", "search", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "loading_garden"
+connections = ["conservatory", "potting_shed"]
+characters = []
+pois = ["hose_guide"]
+search_actions = ["observe", "search", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "potting_shed"
+connections = ["loading_garden", "exhibition_lawn"]
+characters = ["eli_ward"]
+pois = []
+search_actions = ["observe", "search", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "exhibition_lawn"
+connections = ["potting_shed"]
+characters = []
+pois = ["watering_record", "motive_record"]
+search_actions = ["observe", "search", "examine", "dialogue"]
+
+[[mystery.pois]]
+entity = "hose_guide"
+location = "loading_garden"
+owner = "jon_bell"
+relevant_state = "retains a protected blood trace"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "cart_latch"
+location = "conservatory"
+owner = "jon_bell"
+relevant_state = "records the concealment route"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "watering_record"
+location = "exhibition_lawn"
+owner = "jon_bell"
+relevant_state = "anchors the decisive reconstruction"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "motive_record"
+location = "exhibition_lawn"
+owner = "mara_voss"
+relevant_state = "missing grant money"
+examination_action = "examine"
+
+[[mystery.events]]
+event = "event_murder"
+destination = "loading_garden"
+tool = "hose_guide"
+effects = ["victim_dead"]
+
+[[mystery.events]]
+event = "event_move"
+destination = "conservatory"
+tool = "cart_latch"
+effects = ["body_moved"]
+
+[[mystery.events]]
+event = "event_stage"
+destination = "conservatory"
+tool = ""
+effects = ["scene_staged"]
+
+[[mystery.clues]]
+id = "clue_weapon"
+source = "hose_guide"
+description = "The physical injury matches the recovered object."
+proposition = "clue_weapon"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["weapon", "murder_place", "death_time", "cleaning"]
+topics = ["weapon", "case_truth"]
+
+[[mystery.clues]]
+id = "clue_route"
+source = "cart_latch"
+description = "The route trace proves the body and scene were moved."
+proposition = "clue_route"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["body_movement", "staging"]
+topics = ["route", "case_truth"]
+
+[[mystery.clues]]
+id = "clue_decisive"
+source = "jon_bell"
+description = "Jon's alibi requires him to have left before an action he signed and a cart movement Nadia witnessed."
+proposition = "clue_decisive"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["alibi", "claim_culprit"]
+topics = ["decisive", "case_truth"]
+
+[[mystery.clues]]
+id = "clue_motive"
+source = "motive_record"
+description = "The victim documented missing grant money."
+proposition = "clue_motive"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["motive"]
+topics = ["motive", "case_truth"]
+
+[[mystery.clues]]
+id = "clue_innocent_one"
+source = "nadia_price"
+description = "The first innocent's lie protects a private relationship, not murder."
+proposition = "clue_innocent_one"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["exclusion_one"]
+topics = ["innocent", "case_truth"]
+
+[[mystery.clues]]
+id = "clue_innocent_two"
+source = "eli_ward"
+description = "The second innocent's lie protects unrelated misconduct, not murder."
+proposition = "clue_innocent_two"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["exclusion_two"]
+topics = ["innocent", "case_truth"]
+
+[[mystery.clues]]
+id = "clue_timeline"
+source = "cart_latch"
+description = "Travel time fixes the narrow opportunity window."
+proposition = "clue_timeline"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = false
+prerequisites = []
+blocks = ["timeline"]
+topics = ["route", "case_truth"]
+
+[[mystery.clues]]
+id = "clue_scene"
+source = "hose_guide"
+description = "Residue at the true scene disproves the staged discovery place."
+proposition = "clue_scene"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = false
+prerequisites = []
+blocks = ["scene"]
+topics = ["weapon", "case_truth"]
+
+[[mystery.claims]]
+id = "claim_culprit"
+speaker = "jon_bell"
+proposition = "claim_culprit"
+protects = "murder"
+response = "I left before anyone watered the orchid."
+canonical_truth = false
+
+[[mystery.claims]]
+id = "claim_innocent_one"
+speaker = "nadia_price"
+proposition = "claim_innocent_one"
+protects = "private relationship"
+response = "I remained where everyone could see me."
+canonical_truth = false
+
+[[mystery.claims]]
+id = "claim_innocent_two"
+speaker = "eli_ward"
+proposition = "claim_innocent_two"
+protects = "unrelated misconduct"
+response = "There is nothing else to explain."
+canonical_truth = false
+
+[[mystery.contradictions]]
+id = "decisive_contradiction"
+claim = "claim_culprit"
+fact = "clue_decisive"
+conclusion = ""
+explanation = "Jon's own initials place him inside after his claimed departure; the one-way latch explains why he had to bring the cart through the garden."
+
+[[mystery.deductions]]
+id = "deduction_solution"
+proposition = "deduction_solution"
+category = "contradiction"
+supports = []
+unlock_questions = []
+unlock_topics = ["solution_ready"]
+unlock_investigations = []
+
+[[mystery.questions]]
+id = "question_solution"
+prompt = "WHO, HOW, WHERE, WHEN, AND WHY?"
+hypothesis = "Jon killed Mara in the loading garden, moved her by cart, and staged the locked conservatory."
+category = "who"
+requires_clues = ["clue_weapon", "clue_route", "clue_decisive", "clue_motive"]
+requires_claims = ["claim_culprit"]
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.demonstrations]]
+id = "demonstration_solution"
+question = "question_solution"
+mode = "timeline"
+resolution = "substantiated"
+result = "Jon's own initials place him inside after his claimed departure; the one-way latch explains why he had to bring the cart through the garden."
+prompt = "Put Jon's departure beside the watering sheet and Nadia's account of the one-way latch."
+slot_labels = ["DECISIVE TESTIMONY", "CULPRIT'S ACCOUNT"]
+slot_types = ["testimony", "statement"]
+accepted = ["clue_decisive", "claim_culprit"]
+route_firsts = []
+route_counts = []
+result_deductions = ["deduction_solution"]
+
+[[mystery.dialogue]]
+node = "opening_jon_bell"
+character = "jon_bell"
+prompt = "Tell me about Mara Voss. What did they want tonight?"
+response = "Jon removes a dead leaf from Mara's prize card. 'She meant to announce the grant decision after judging. Until then she wanted every plant treated as though it had won.'"
+clue = ""
+interaction = ""
+requires = ["claim_culprit"]
+unlocks = ["account_ready_jon_bell"]
+
+[[mystery.dialogue]]
+node = "account_jon_bell"
+character = "jon_bell"
+prompt = "Who watered the prize orchid after closing?"
+response = "Jon checks the ribbon card before the soil. 'Mara kept the conservatory locked. Nobody watered after six.'"
+clue = ""
+interaction = ""
+requires = ["claim_culprit", "account_ready_jon_bell"]
+unlocks = ["followup_jon_bell"]
+
+[[mystery.dialogue]]
+node = "approach_jon_bell"
+character = "jon_bell"
+prompt = "Put Jon's departure beside the watering sheet and Nadia's account of the one-way latch."
+response = "'Nadia can confirm it.' The watering sheet records Jon's own initials at six twenty."
+clue = "clue_decisive"
+interaction = ""
+requires = ["clue_weapon", "clue_route", "clue_innocent_one", "claim_culprit", "followup_jon_bell"]
+unlocks = ["clue_decisive", "case_truth"]
+
+[[mystery.dialogue]]
+node = "opening_nadia_price"
+character = "nadia_price"
+prompt = "Tell me about Mara Voss. What did they want tonight?"
+response = "Nadia rubs soil from her sleeve. 'Mara was ending our partnership. She still asked me to help with the final watering; that was how she made a wound look like a duty.'"
+clue = ""
+interaction = ""
+requires = ["claim_innocent_one"]
+unlocks = ["account_ready_nadia_price"]
+
+[[mystery.dialogue]]
+node = "account_nadia_price"
+character = "nadia_price"
+prompt = "Why were you in the loading garden with Mara?"
+response = "Nadia pinches a dead leaf from her sleeve. 'She was ending our partnership. I asked her not to announce it beside the prize bench.'"
+clue = ""
+interaction = ""
+requires = ["claim_innocent_one", "account_ready_nadia_price"]
+unlocks = ["followup_nadia_price"]
+
+[[mystery.dialogue]]
+node = "approach_nadia_price"
+character = "nadia_price"
+prompt = "The bent plant-cart latch conflicts with that route. What happened there?"
+response = "'I left through the community hall. Jon was bringing the plant cart in against the one-way latch.'"
+clue = "clue_innocent_one"
+interaction = ""
+requires = ["clue_route", "claim_innocent_one", "followup_nadia_price"]
+unlocks = ["clue_innocent_one", "case_truth"]
+
+[[mystery.dialogue]]
+node = "opening_eli_ward"
+character = "eli_ward"
+prompt = "Tell me about Mara Voss. What did they want tonight?"
+response = "Eli names Mara's newest cultivar. 'She could recognize another grower's cutting at ten paces. Tonight she said some prizes belonged to the people who did the work.'"
+clue = ""
+interaction = ""
+requires = ["claim_innocent_two"]
+unlocks = ["account_ready_eli_ward"]
+
+[[mystery.dialogue]]
+node = "account_eli_ward"
+character = "eli_ward"
+prompt = "What did you remove from the potting shed?"
+response = "Eli names the missing cultivars before the tools. 'Cuttings. Mara refused to register them under my name.'"
+clue = ""
+interaction = ""
+requires = ["claim_innocent_two", "account_ready_eli_ward"]
+unlocks = ["followup_eli_ward"]
+
+[[mystery.dialogue]]
+node = "approach_eli_ward"
+character = "eli_ward"
+prompt = "The trace on the cast-iron hose guide changes that account. What did you actually see?"
+response = "'Petty theft, yes. The cart latch was already bent when I passed it.'"
+clue = "clue_innocent_two"
+interaction = ""
+requires = ["clue_scene", "claim_innocent_two", "followup_eli_ward"]
+unlocks = ["clue_innocent_two", "case_truth"]
+
+[[mystery.city_labels]]
+id = "bellwether_community_house"
+display_name = "BELLWETHER COMMUNITY HOUSE"
+level_spawn = "spawn"
+city_site = "blackthorn_lane"
+
+[mystery.solution]
+culprit = "jon_bell"
+motive = "clue_motive"
+decisive_contradiction = "decisive_contradiction"
+weapon_block = "weapon"
+murder_place_block = "murder_place"
+death_time_block = "death_time"
+body_movement_block = "body_movement"
+staging_block = "staging"
+cleaning_block = "cleaning"
+alibi_block = "alibi"
+requirements = ["weapon", "murder_place", "death_time", "body_movement", "staging", "cleaning", "alibi"]
+murder_events = ["event_murder"]
+cover_up_events = ["event_move", "event_stage"]
+false_alibis = ["claim_culprit"]
+exclusions = ["nadia_price", "eli_ward"]

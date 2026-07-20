@@ -1,0 +1,276 @@
+version = "GraphMode v1"
+case_id = "the_ashes_of_blackthorn_lane"
+revision = 0
+
+[[scenes]]
+id = "final_confrontation"
+source = "cora_fen"
+entry = "reconstruction"
+summary = "Cora killed Arun with a brass divider, stamped prints with a carved sole on a survey staff, burned a linen decoy, and returned the key through the transom."
+return_to = "board"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "reconstruction"
+scene = "final_confrontation"
+kind = "line"
+speaker = "detective"
+text = "Cora killed Arun with a brass divider, stamped prints with a carved sole on a survey staff, burned a linen decoy, and returned the key through the transom."
+next = "answer"
+
+[[nodes]]
+id = "answer"
+scene = "final_confrontation"
+kind = "line"
+speaker = "cora_fen"
+text = "The physical reconstruction leaves no honest alternative."
+next = "end"
+
+[[nodes]]
+id = "end"
+scene = "final_confrontation"
+kind = "end"
+
+[[scenes]]
+id = "scene_opening_cora_fen"
+source = "cora_fen"
+entry = "opening_cora_fen_line"
+summary = "Cora traces a boundary on the desk. 'Arun meant to publish revised figures tomorrow. He called it a correction; half the lane would call it an accusation.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_cora_fen_line"
+scene = "scene_opening_cora_fen"
+kind = "line"
+speaker = "cora_fen"
+text = "Cora traces a boundary on the desk. 'Arun meant to publish revised figures tomorrow. He called it a correction; half the lane would call it an accusation.'"
+next = "opening_cora_fen_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_cora_fen_end"
+scene = "scene_opening_cora_fen"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_cora_fen"
+source = "cora_fen"
+entry = "account_cora_fen_line"
+summary = "Cora draws an invisible boundary with one finger. 'Because Arun visited my site. Clay crosses a line more easily than a person.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_cora_fen_line"
+scene = "scene_account_cora_fen"
+kind = "line"
+speaker = "cora_fen"
+text = "Cora draws an invisible boundary with one finger. 'Because Arun visited my site. Clay crosses a line more easily than a person.'"
+next = "account_cora_fen_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_cora_fen_end"
+scene = "scene_account_cora_fen"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_cora_fen"
+source = "cora_fen"
+entry = "approach_cora_fen_line"
+summary = "'The prints lead inward. Unless you can make them return, they prove he admitted someone else.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_cora_fen_line"
+scene = "scene_approach_cora_fen"
+kind = "line"
+speaker = "cora_fen"
+text = "'The prints lead inward. Unless you can make them return, they prove he admitted someone else.'"
+next = "approach_cora_fen_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_cora_fen_end"
+scene = "scene_approach_cora_fen"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_opening_milo_venn"
+source = "milo_venn"
+entry = "opening_milo_venn_line"
+summary = "Milo closes the sales ledger. 'Arun wanted his share and my customer names. Generosity ended wherever attribution began.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_milo_venn_line"
+scene = "scene_opening_milo_venn"
+kind = "line"
+speaker = "milo_venn"
+text = "Milo closes the sales ledger. 'Arun wanted his share and my customer names. Generosity ended wherever attribution began.'"
+next = "opening_milo_venn_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_milo_venn_end"
+scene = "scene_opening_milo_venn"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_milo_venn"
+source = "milo_venn"
+entry = "account_milo_venn_line"
+summary = "Milo opens the ledger at the first duplicate. 'I sold impressions after hours. Arun knew; he took half.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_milo_venn_line"
+scene = "scene_account_milo_venn"
+kind = "line"
+speaker = "milo_venn"
+text = "Milo opens the ledger at the first duplicate. 'I sold impressions after hours. Arun knew; he took half.'"
+next = "account_milo_venn_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_milo_venn_end"
+scene = "scene_account_milo_venn"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_milo_venn"
+source = "milo_venn"
+entry = "approach_milo_venn_line"
+summary = "'I came for the original plate. The ash upstairs is linen, not paper. Even I can tell stock from cloth.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_milo_venn_line"
+scene = "scene_approach_milo_venn"
+kind = "line"
+speaker = "milo_venn"
+text = "'I came for the original plate. The ash upstairs is linen, not paper. Even I can tell stock from cloth.'"
+next = "approach_milo_venn_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_milo_venn_end"
+scene = "scene_approach_milo_venn"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_opening_inez_ward"
+source = "inez_ward"
+entry = "opening_inez_ward_line"
+summary = "Inez brushes dried soil from her note. 'He asked whether an old wall proved an old boundary. I left at six fifteen, after telling him history is rarely that obedient.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_inez_ward_line"
+scene = "scene_opening_inez_ward"
+kind = "line"
+speaker = "inez_ward"
+text = "Inez brushes dried soil from her note. 'He asked whether an old wall proved an old boundary. I left at six fifteen, after telling him history is rarely that obedient.'"
+next = "opening_inez_ward_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_inez_ward_end"
+scene = "scene_opening_inez_ward"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_inez_ward"
+source = "inez_ward"
+entry = "account_inez_ward_line"
+summary = "Inez dates her answer by soil layer. 'A field note at six fifteen, before the rain reached Blackthorn Lane.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_inez_ward_line"
+scene = "scene_account_inez_ward"
+kind = "line"
+speaker = "inez_ward"
+text = "Inez dates her answer by soil layer. 'A field note at six fifteen, before the rain reached Blackthorn Lane.'"
+next = "account_inez_ward_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_inez_ward_end"
+scene = "scene_account_inez_ward"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_inez_ward"
+source = "inez_ward"
+entry = "approach_inez_ward_line"
+summary = "'The sill was dry then. If a body crossed it later, the dust would not still be continuous.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_inez_ward_line"
+scene = "scene_approach_inez_ward"
+kind = "line"
+speaker = "inez_ward"
+text = "'The sill was dry then. If a body crossed it later, the dust would not still be continuous.'"
+next = "approach_inez_ward_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_inez_ward_end"
+scene = "scene_approach_inez_ward"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]

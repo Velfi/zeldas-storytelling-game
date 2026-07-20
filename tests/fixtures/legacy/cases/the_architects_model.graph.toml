@@ -1,0 +1,246 @@
+version = "GraphMode v1"
+case_id = "the_architects_model"
+revision = 0
+
+[[scenes]]
+id = "scene_opening_julian"
+source = "julian"
+entry = "opening_julian_line"
+summary = "Julian surveys the model. 'Amara arrived to stop occupancy. She saw danger in unfinished work and insult in anyone asking for another week.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_julian_line"
+scene = "scene_opening_julian"
+kind = "line"
+speaker = "julian"
+text = "Julian surveys the model. 'Amara arrived to stop occupancy. She saw danger in unfinished work and insult in anyone asking for another week.'"
+next = "opening_julian_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_julian_end"
+scene = "scene_opening_julian"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_julian"
+source = "julian"
+entry = "account_julian_line"
+summary = "Julian traces it across the model without hesitation. 'Here, across the north edge. Amara climbed it despite the warning.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_julian_line"
+scene = "scene_account_julian"
+kind = "line"
+speaker = "julian"
+text = "Julian traces it across the model without hesitation. 'Here, across the north edge. Amara climbed it despite the warning.'"
+next = "account_julian_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_julian_end"
+scene = "scene_account_julian"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_julian"
+source = "julian"
+entry = "approach_julian_line"
+summary = "Julian taps the miniature barrier twice. In the current site photographs behind him, the north edge is open concrete."
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_julian_line"
+scene = "scene_approach_julian"
+kind = "line"
+speaker = "julian"
+text = "Julian taps the miniature barrier twice. In the current site photographs behind him, the north edge is open concrete."
+next = "approach_julian_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_julian_end"
+scene = "scene_approach_julian"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_opening_nell"
+source = "nell"
+entry = "opening_nell_line"
+summary = "Nell separates two report copies. 'Amara wanted the edge closed before morning. She asked me for the unsigned inspection because she already knew the official file was incomplete.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_nell_line"
+scene = "scene_opening_nell"
+kind = "line"
+speaker = "nell"
+text = "Nell separates two report copies. 'Amara wanted the edge closed before morning. She asked me for the unsigned inspection because she already knew the official file was incomplete.'"
+next = "opening_nell_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_nell_end"
+scene = "scene_opening_nell"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_nell"
+source = "nell"
+entry = "account_nell_line"
+summary = "Nell separates design failure from criminal act. 'No guardrail, no signed inspection, no authority to occupy the floor.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_nell_line"
+scene = "scene_account_nell"
+kind = "line"
+speaker = "nell"
+text = "Nell separates design failure from criminal act. 'No guardrail, no signed inspection, no authority to occupy the floor.'"
+next = "account_nell_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_nell_end"
+scene = "scene_account_nell"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_nell"
+source = "nell"
+entry = "approach_nell_line"
+summary = "'Helena's recording taught you to distrust a corrected sequence. Read the inspection revisions: Julian added his barrier after my report.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_nell_line"
+scene = "scene_approach_nell"
+kind = "line"
+speaker = "nell"
+text = "'Helena's recording taught you to distrust a corrected sequence. Read the inspection revisions: Julian added his barrier after my report.'"
+next = "approach_nell_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_nell_end"
+scene = "scene_approach_nell"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_opening_rafi"
+source = "rafi"
+entry = "opening_rafi_line"
+summary = "Rafi gives the model version. 'She photographed the floor, then asked for yesterday's digital model. Amara never trusted a miniature without the site beside it.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_rafi_line"
+scene = "scene_opening_rafi"
+kind = "line"
+speaker = "rafi"
+text = "Rafi gives the model version. 'She photographed the floor, then asked for yesterday's digital model. Amara never trusted a miniature without the site beside it.'"
+next = "opening_rafi_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_rafi_end"
+scene = "scene_opening_rafi"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_rafi"
+source = "rafi"
+entry = "account_rafi_line"
+summary = "Rafi answers in version numbers. 'I mirrored the model before Julian revoked access. Theft of work, not alteration of site.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_rafi_line"
+scene = "scene_account_rafi"
+kind = "line"
+speaker = "rafi"
+text = "Rafi answers in version numbers. 'I mirrored the model before Julian revoked access. Theft of work, not alteration of site.'"
+next = "account_rafi_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_rafi_end"
+scene = "scene_account_rafi"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_rafi"
+source = "rafi"
+entry = "approach_rafi_line"
+summary = "'Conrad's bottle was a material clock. Here the adhesive is yours: newer cure, newer file, same attempt to date the scene falsely.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_rafi_line"
+scene = "scene_approach_rafi"
+kind = "line"
+speaker = "rafi"
+text = "'Conrad's bottle was a material clock. Here the adhesive is yours: newer cure, newer file, same attempt to date the scene falsely.'"
+next = "approach_rafi_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_rafi_end"
+scene = "scene_approach_rafi"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]

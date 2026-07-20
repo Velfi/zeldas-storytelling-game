@@ -1,0 +1,252 @@
+version = "GraphMode v1"
+case_id = "the_last_performance_at_bellwether_hall"
+revision = 0
+
+[[scenes]]
+id = "scene_opening_marcus_vale"
+source = "marcus_vale"
+entry = "opening_marcus_vale_line"
+summary = "Marcus checks the rehearsal list. 'Celia wanted the final run exact before she made her speech for the hall. She had changed one backdrop and told nobody why.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_marcus_vale_line"
+scene = "scene_opening_marcus_vale"
+kind = "line"
+speaker = "marcus_vale"
+text = "Marcus checks the rehearsal list. 'Celia wanted the final run exact before she made her speech for the hall. She had changed one backdrop and told nobody why.'"
+next = "opening_marcus_vale_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_marcus_vale_end"
+scene = "scene_opening_marcus_vale"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+
+[[scenes]]
+id = "scene_account_marcus_vale"
+source = "marcus_vale"
+entry = "account_marcus_vale_line"
+summary = "'Jon's arrest made everyone in Bellwether eager to see guilt backstage.' Marcus answers in stage positions. 'I was in the fly gallery and could not see the landing zone.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_marcus_vale_line"
+scene = "scene_account_marcus_vale"
+kind = "line"
+speaker = "marcus_vale"
+text = "'Jon's arrest made everyone in Bellwether eager to see guilt backstage.' Marcus answers in stage positions. 'I was in the fly gallery and could not see the landing zone.'"
+next = "account_marcus_vale_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_marcus_vale_end"
+scene = "scene_account_marcus_vale"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_marcus_vale"
+source = "marcus_vale"
+entry = "approach_marcus_vale_line"
+summary = "You begin to unroll the backdrop from stage left. Marcus stops you. 'Not that way. You'll put the fall mark six feet downstage.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_marcus_vale_line"
+scene = "scene_approach_marcus_vale"
+kind = "line"
+speaker = "marcus_vale"
+text = "You begin to unroll the backdrop from stage left. Marcus stops you. 'Not that way. You'll put the fall mark six feet downstage.'"
+next = "approach_marcus_vale_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_marcus_vale_end"
+scene = "scene_approach_marcus_vale"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+
+[[scenes]]
+id = "scene_opening_ruth_anwar"
+source = "ruth_anwar"
+entry = "opening_ruth_anwar_line"
+summary = "Ruth removes a pin from her cuff. 'Celia and I were leaving after the performance. She asked me to pack only what we could carry without help.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_ruth_anwar_line"
+scene = "scene_opening_ruth_anwar"
+kind = "line"
+speaker = "ruth_anwar"
+text = "Ruth removes a pin from her cuff. 'Celia and I were leaving after the performance. She asked me to pack only what we could carry without help.'"
+next = "opening_ruth_anwar_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_ruth_anwar_end"
+scene = "scene_opening_ruth_anwar"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+
+[[scenes]]
+id = "scene_account_ruth_anwar"
+source = "ruth_anwar"
+entry = "account_ruth_anwar_line"
+summary = "Ruth removes one pin at a time from her cuff. 'Celia and I were leaving Bellwether together. I went for our letters.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_ruth_anwar_line"
+scene = "scene_account_ruth_anwar"
+kind = "line"
+speaker = "ruth_anwar"
+text = "Ruth removes one pin at a time from her cuff. 'Celia and I were leaving Bellwether together. I went for our letters.'"
+next = "account_ruth_anwar_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_ruth_anwar_end"
+scene = "scene_account_ruth_anwar"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_ruth_anwar"
+source = "ruth_anwar"
+entry = "approach_ruth_anwar_line"
+summary = "'Marcus had already sent the blue backdrop to the dock, though it was not on the rehearsal list.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_ruth_anwar_line"
+scene = "scene_approach_ruth_anwar"
+kind = "line"
+speaker = "ruth_anwar"
+text = "'Marcus had already sent the blue backdrop to the dock, though it was not on the rehearsal list.'"
+next = "approach_ruth_anwar_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_ruth_anwar_end"
+scene = "scene_approach_ruth_anwar"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+
+[[scenes]]
+id = "scene_opening_theo_marsh"
+source = "theo_marsh"
+entry = "opening_theo_marsh_line"
+summary = "Theo taps the cue sequence. 'Celia checked every call herself. At the interval she said one cue in the book had become a lie.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_theo_marsh_line"
+scene = "scene_opening_theo_marsh"
+kind = "line"
+speaker = "theo_marsh"
+text = "Theo taps the cue sequence. 'Celia checked every call herself. At the interval she said one cue in the book had become a lie.'"
+next = "opening_theo_marsh_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_theo_marsh_end"
+scene = "scene_opening_theo_marsh"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+
+[[scenes]]
+id = "scene_account_theo_marsh"
+source = "theo_marsh"
+entry = "account_theo_marsh_line"
+summary = "Theo drums the sequence on the prompt desk. 'I sold a private lighting rehearsal and erased my call.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_theo_marsh_line"
+scene = "scene_account_theo_marsh"
+kind = "line"
+speaker = "theo_marsh"
+text = "Theo drums the sequence on the prompt desk. 'I sold a private lighting rehearsal and erased my call.'"
+next = "account_theo_marsh_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_theo_marsh_end"
+scene = "scene_account_theo_marsh"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_theo_marsh"
+source = "theo_marsh"
+entry = "approach_theo_marsh_line"
+summary = "'The false drop cue uses Marcus's abbreviation. He has corrected me for writing it that way all season.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_theo_marsh_line"
+scene = "scene_approach_theo_marsh"
+kind = "line"
+speaker = "theo_marsh"
+text = "'The false drop cue uses Marcus's abbreviation. He has corrected me for writing it that way all season.'"
+next = "approach_theo_marsh_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_theo_marsh_end"
+scene = "scene_approach_theo_marsh"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+

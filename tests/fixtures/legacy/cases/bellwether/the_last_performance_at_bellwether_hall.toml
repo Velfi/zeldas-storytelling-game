@@ -1,0 +1,491 @@
+version = "MurderScript v1"
+id = "the_last_performance_at_bellwether_hall"
+title = "The Last Performance at Bellwether Hall"
+introduction = "Ada Reed calls from Bellwether Hall: Celia North vanished during the final rehearsal and fell from a rolled backdrop on a cue nobody admits giving. After the garden investigation, Ada is watching who rushes to accuse whom."
+action_point_limit = 12
+reveal_location = "auditorium"
+city_start = "bellwether_hall"
+city_destination = "bellwether_hall"
+seed = 20261002
+
+[[city_locations]]
+id = "bellwether_hall"
+display_name = "BELLWETHER HALL"
+level_spawn = "spawn"
+city_site = "blackthorn_lane"
+
+[[characters]]
+id = "celia_north"
+display_name = "Celia North"
+role = "victim"
+description = "Celia North meant the hall's last rehearsal to become a public argument for saving it. She checked every cloth and cue herself, and had privately arranged to leave Bellwether after the final performance."
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = []
+
+[[characters]]
+id = "marcus_vale"
+display_name = "Marcus Vale"
+role = "suspect"
+description = "Stage manager who controls accounts through positions, cues, and what each person could see."
+private_secret = "culprit"
+motive = "dangerous embezzlement"
+initial_disposition = 0
+initial_claims = ["claim_culprit"]
+
+[[characters]]
+id = "ruth_anwar"
+display_name = "Ruth Anwar"
+role = "suspect"
+description = "Costumer whose private plans emerge through garments, pins, and objects removed before departure."
+private_secret = "private relationship"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_innocent_one"]
+
+[[characters]]
+id = "theo_marsh"
+display_name = "Theo Marsh"
+role = "suspect"
+description = "Prompt operator who remembers events as rhythms, abbreviations, and sequences of calls."
+private_secret = "unrelated misconduct"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_innocent_two"]
+
+[[locations]]
+id = "auditorium"
+display_name = "AUDITORIUM"
+description = "A spatially distinct part of Bellwether Hall."
+connections = ["stage"]
+characters = ["marcus_vale"]
+pois = []
+search_actions = ["observe", "search", "examine", "dialogue"]
+
+[[locations]]
+id = "stage"
+display_name = "STAGE"
+description = "A spatially distinct part of Bellwether Hall."
+connections = ["auditorium", "scene_dock"]
+characters = ["ruth_anwar"]
+pois = ["rolled_backdrop"]
+search_actions = ["observe", "search", "examine", "dialogue"]
+
+[[locations]]
+id = "scene_dock"
+display_name = "SCENE DOCK"
+description = "A spatially distinct part of Bellwether Hall."
+connections = ["stage", "dressing_room"]
+characters = []
+pois = ["stage_brace"]
+search_actions = ["observe", "search", "examine", "dialogue"]
+
+[[locations]]
+id = "dressing_room"
+display_name = "DRESSING ROOM"
+description = "A spatially distinct part of Bellwether Hall."
+connections = ["scene_dock", "fly_gallery"]
+characters = ["theo_marsh"]
+pois = []
+search_actions = ["observe", "search", "examine", "dialogue"]
+
+[[locations]]
+id = "fly_gallery"
+display_name = "FLY GALLERY"
+description = "A spatially distinct part of Bellwether Hall."
+connections = ["dressing_room"]
+characters = []
+pois = ["cue_log", "motive_record"]
+search_actions = ["observe", "search", "examine", "dialogue"]
+
+[[pois]]
+id = "stage_brace"
+display_name = "Bloodied Stage Brace"
+kind = "object"
+location = "scene_dock"
+owner = "marcus_vale"
+description = "Retains a protected blood trace."
+relevant_state = "retains a protected blood trace"
+examination_action = "examine"
+
+[[pois]]
+id = "rolled_backdrop"
+display_name = "Rolled Backdrop"
+kind = "object"
+location = "stage"
+owner = "marcus_vale"
+description = "Records the concealment route."
+relevant_state = "records the concealment route"
+examination_action = "examine"
+
+[[pois]]
+id = "cue_log"
+display_name = "Edited Cue Log"
+kind = "object"
+location = "fly_gallery"
+owner = "marcus_vale"
+description = "Anchors the decisive reconstruction."
+relevant_state = "anchors the decisive reconstruction"
+examination_action = "examine"
+
+[[pois]]
+id = "motive_record"
+display_name = "Motive Record"
+kind = "object"
+location = "fly_gallery"
+owner = "celia_north"
+description = "Dangerous embezzlement."
+relevant_state = "dangerous embezzlement"
+examination_action = "examine"
+
+[[events]]
+id = "event_murder"
+time = "20:10"
+actor = "marcus_vale"
+action = "kill"
+target = "celia_north"
+source = "scene_dock"
+destination = "scene_dock"
+tool = "stage_brace"
+effects = ["victim_dead"]
+witnesses = []
+
+[[events]]
+id = "event_move"
+time = "20:16"
+actor = "marcus_vale"
+action = "move_body"
+target = "celia_north"
+source = "scene_dock"
+destination = "stage"
+tool = "rolled_backdrop"
+effects = ["body_moved"]
+witnesses = []
+
+[[events]]
+id = "event_stage"
+time = "20:21"
+actor = "marcus_vale"
+action = "alter"
+target = "cue_log"
+source = "stage"
+destination = "stage"
+tool = ""
+effects = ["scene_staged"]
+witnesses = []
+
+[[claims]]
+id = "claim_culprit"
+speaker = "marcus_vale"
+proposition = "I could not see where the body landed."
+true = false
+protects = "murder"
+response = "I could not see where the body landed."
+
+[[claims]]
+id = "claim_innocent_one"
+speaker = "ruth_anwar"
+proposition = "I never left the public room."
+true = false
+protects = "private relationship"
+response = "I remained where everyone could see me."
+
+[[claims]]
+id = "claim_innocent_two"
+speaker = "theo_marsh"
+proposition = "I did nothing improper tonight."
+true = false
+protects = "unrelated misconduct"
+response = "There is nothing else to explain."
+
+[[clues]]
+id = "clue_weapon"
+source = "stage_brace"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "The physical injury matches the recovered object."
+proposition = "The physical injury matches the recovered object."
+blocks = ["weapon", "murder_place", "death_time", "cleaning"]
+topics = ["weapon", "case_truth"]
+essential = true
+
+[[clues]]
+id = "clue_route"
+source = "rolled_backdrop"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "The route trace proves the body and scene were moved."
+proposition = "The route trace proves the body and scene were moved."
+blocks = ["body_movement", "staging"]
+topics = ["route", "case_truth"]
+essential = true
+
+[[clues]]
+id = "clue_decisive"
+source = "marcus_vale"
+discovery_action = "dialogue"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "The cue edit and the packed backdrop form one mechanism that Marcus's claimed lack of sight cannot explain away."
+proposition = "The cue edit and the packed backdrop form one mechanism that Marcus's claimed lack of sight cannot explain away."
+blocks = ["alibi", "claim_culprit"]
+topics = ["decisive", "case_truth"]
+essential = true
+
+[[clues]]
+id = "clue_motive"
+source = "motive_record"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "The victim documented dangerous embezzlement."
+proposition = "The victim documented dangerous embezzlement."
+blocks = ["motive"]
+topics = ["motive", "case_truth"]
+essential = true
+
+[[clues]]
+id = "clue_innocent_one"
+source = "ruth_anwar"
+discovery_action = "dialogue"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "The first innocent's lie protects a private relationship, not murder."
+proposition = "The first innocent's lie protects a private relationship, not murder."
+blocks = ["exclusion_one"]
+topics = ["innocent", "case_truth"]
+essential = true
+
+[[clues]]
+id = "clue_innocent_two"
+source = "theo_marsh"
+discovery_action = "dialogue"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "The second innocent's lie protects unrelated misconduct, not murder."
+proposition = "The second innocent's lie protects unrelated misconduct, not murder."
+blocks = ["exclusion_two"]
+topics = ["innocent", "case_truth"]
+essential = true
+
+[[clues]]
+id = "clue_timeline"
+source = "rolled_backdrop"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "Travel time fixes the narrow opportunity window."
+proposition = "Travel time fixes the narrow opportunity window."
+blocks = ["timeline"]
+topics = ["route", "case_truth"]
+essential = false
+
+[[clues]]
+id = "clue_scene"
+source = "stage_brace"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "Residue at the true scene disproves the staged discovery place."
+proposition = "Residue at the true scene disproves the staged discovery place."
+blocks = ["scene"]
+topics = ["weapon", "case_truth"]
+essential = false
+
+[[dialogue_approaches]]
+id = "opening_marcus_vale"
+character = "marcus_vale"
+prompt = "Tell me about Celia North. What did they want tonight?"
+response = "Marcus checks the rehearsal list. 'Celia wanted the final run exact before she made her speech for the hall. She had changed one backdrop and told nobody why.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_culprit"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_marcus_vale"]
+
+[[dialogue_approaches]]
+id = "account_marcus_vale"
+character = "marcus_vale"
+prompt = "Who called the backdrop cue?"
+response = "'Jon's arrest made everyone in Bellwether eager to see guilt backstage.' Marcus answers in stage positions. 'I was in the fly gallery and could not see the landing zone.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_culprit"]
+requires_topics = ["account_ready_marcus_vale"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_marcus_vale"]
+
+[[dialogue_approaches]]
+id = "approach_marcus_vale"
+character = "marcus_vale"
+prompt = "Reconstruct the false cue with the edited log and the way the backdrop was rolled."
+response = "You begin to unroll the backdrop from stage left. Marcus stops you. 'Not that way. You'll put the fall mark six feet downstage.'"
+clue = "clue_decisive"
+requires_clues = ["clue_weapon", "clue_route", "clue_innocent_two"]
+requires_claims = ["claim_culprit"]
+requires_topics = ["followup_marcus_vale"]
+unlock_clues = ["clue_decisive"]
+unlock_claims = []
+unlock_topics = ["case_truth"]
+
+[[dialogue_approaches]]
+id = "opening_ruth_anwar"
+character = "ruth_anwar"
+prompt = "Tell me about Celia North. What did they want tonight?"
+response = "Ruth removes a pin from her cuff. 'Celia and I were leaving after the performance. She asked me to pack only what we could carry without help.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_innocent_one"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_ruth_anwar"]
+
+[[dialogue_approaches]]
+id = "account_ruth_anwar"
+character = "ruth_anwar"
+prompt = "Why did you enter Celia's dressing room?"
+response = "Ruth removes one pin at a time from her cuff. 'Celia and I were leaving Bellwether together. I went for our letters.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_innocent_one"]
+requires_topics = ["account_ready_ruth_anwar"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_ruth_anwar"]
+
+[[dialogue_approaches]]
+id = "approach_ruth_anwar"
+character = "ruth_anwar"
+prompt = "The rolled backdrop conflicts with that route. What happened there?"
+response = "'Marcus had already sent the blue backdrop to the dock, though it was not on the rehearsal list.'"
+clue = "clue_innocent_one"
+requires_clues = ["clue_route"]
+requires_claims = ["claim_innocent_one"]
+requires_topics = ["followup_ruth_anwar"]
+unlock_clues = ["clue_innocent_one"]
+unlock_claims = []
+unlock_topics = ["case_truth"]
+
+[[dialogue_approaches]]
+id = "opening_theo_marsh"
+character = "theo_marsh"
+prompt = "Tell me about Celia North. What did they want tonight?"
+response = "Theo taps the cue sequence. 'Celia checked every call herself. At the interval she said one cue in the book had become a lie.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_innocent_two"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_theo_marsh"]
+
+[[dialogue_approaches]]
+id = "account_theo_marsh"
+character = "theo_marsh"
+prompt = "Why is your name missing from the cue log?"
+response = "Theo drums the sequence on the prompt desk. 'I sold a private lighting rehearsal and erased my call.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_innocent_two"]
+requires_topics = ["account_ready_theo_marsh"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_theo_marsh"]
+
+[[dialogue_approaches]]
+id = "approach_theo_marsh"
+character = "theo_marsh"
+prompt = "The trace on the bloodied stage brace changes that account. What did you actually see?"
+response = "'The false drop cue uses Marcus's abbreviation. He has corrected me for writing it that way all season.'"
+clue = "clue_innocent_two"
+requires_clues = ["clue_scene"]
+requires_claims = ["claim_innocent_two"]
+requires_topics = ["followup_theo_marsh"]
+unlock_clues = ["clue_innocent_two"]
+unlock_claims = []
+unlock_topics = ["case_truth"]
+
+[[contradictions]]
+id = "decisive_contradiction"
+claim = "claim_culprit"
+fact = "clue_decisive"
+conclusion = "The cue edit and the packed backdrop form one mechanism that Marcus's claimed lack of sight cannot explain away."
+explanation = "The edited abbreviation triggers a drop at the landing mark created by the roll; Marcus's sightline is irrelevant because he prepared both conditions."
+
+[[deductions]]
+id = "deduction_solution"
+proposition = "Marcus killed Celia in the scene dock, carried her in a backdrop, and released her on a false cue."
+category = "contradiction"
+unlock_questions = []
+unlock_topics = ["solution_ready"]
+unlock_investigations = []
+
+[[questions]]
+id = "question_solution"
+prompt = "WHO, HOW, WHERE, WHEN, AND WHY?"
+hypothesis = "Marcus killed Celia in the scene dock, carried her in a backdrop, and released her on a false cue."
+category = "who"
+requires_clues = ["clue_weapon", "clue_route", "clue_decisive", "clue_motive"]
+requires_claims = ["claim_culprit"]
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_solution"
+question = "question_solution"
+mode = "physical"
+resolution = "substantiated"
+prompt = "Reconstruct the false cue with the edited log and the way the backdrop was rolled."
+result = "The edited abbreviation triggers a drop at the landing mark created by the roll; Marcus's sightline is irrelevant because he prepared both conditions."
+slot_labels = ["DECISIVE TESTIMONY", "CULPRIT'S ACCOUNT"]
+slot_types = ["testimony", "statement"]
+accepted_pieces = ["clue_decisive", "claim_culprit"]
+result_deductions = ["deduction_solution"]
+
+[solution]
+culprit = "marcus_vale"
+motive = "clue_motive"
+decisive_contradiction = "decisive_contradiction"
+weapon_block = "weapon"
+murder_place_block = "murder_place"
+death_time_block = "death_time"
+body_movement_block = "body_movement"
+staging_block = "staging"
+cleaning_block = "cleaning"
+alibi_block = "alibi"
+murder_events = ["event_murder"]
+cover_up_events = ["event_move", "event_stage"]
+false_alibi = ["claim_culprit"]
+exclusions = ["ruth_anwar", "theo_marsh"]

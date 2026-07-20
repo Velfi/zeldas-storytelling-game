@@ -1,0 +1,1618 @@
+version = "InteractiveStory v1"
+id = "the_red_fog_of_south_quay"
+title = "The Red Fog of South Quay"
+creator = "Chicago conversion tool"
+description = "A rust-red fog covers South Quay while Tomas Rell dies inside a locked pumping station."
+content_version = "1.0.0"
+default_space = "the_red_fog_of_south_quay_lot"
+revision = 0
+
+[[capabilities]]
+id = "mystery"
+version = "1"
+
+[[entities]]
+id = "tomas_rell"
+kind = "character"
+display_name = "Tomas Rell"
+description = "Tomas Rell intended to shut the pumping station until its safety records were corrected. He trusted living sentinels more than alarm panels and fed the yard birds before every night inspection."
+space_id = ""
+target_kind = "entity"
+target_id = ""
+tags = ["victim"]
+roles = []
+
+[[entities]]
+id = "asha_venn"
+kind = "character"
+display_name = "Asha Venn"
+description = "Safety engineer who invokes thresholds and worst cases while steering attention toward the most spectacular hazard."
+space_id = "the_red_fog_of_south_quay_lot"
+target_kind = "marker"
+target_id = "spawn_asha_venn"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "kerr_moss"
+kind = "character"
+display_name = "Kerr Moss"
+description = "Control technician who reconstructs failures switch by switch and protects the one intervention that could cost his job."
+space_id = "the_red_fog_of_south_quay_lot"
+target_kind = "marker"
+target_id = "spawn_kerr_moss"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "lena_pike"
+kind = "character"
+display_name = "Lena Pike"
+description = "Wildlife rescuer who remembers incidents by individual animals and trusts living sentinels over instruments."
+space_id = "the_red_fog_of_south_quay_lot"
+target_kind = "marker"
+target_id = "spawn_lena_pike"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "pumping_station"
+kind = "location"
+display_name = "PUMPING STATION"
+description = "Pumping Station is a connected, spatially testable part of the case."
+space_id = "the_red_fog_of_south_quay_lot"
+target_kind = "room"
+target_id = "pumping_station"
+tags = []
+roles = []
+
+[[entities]]
+id = "control_room"
+kind = "location"
+display_name = "CONTROL ROOM"
+description = "Control Room is a connected, spatially testable part of the case."
+space_id = "the_red_fog_of_south_quay_lot"
+target_kind = "room"
+target_id = "control_room"
+tags = []
+roles = []
+
+[[entities]]
+id = "pipe_gallery"
+kind = "location"
+display_name = "PIPE GALLERY"
+description = "Pipe Gallery is a connected, spatially testable part of the case."
+space_id = "the_red_fog_of_south_quay_lot"
+target_kind = "room"
+target_id = "pipe_gallery"
+tags = []
+roles = []
+
+[[entities]]
+id = "quay_yard"
+kind = "location"
+display_name = "QUAY YARD"
+description = "Quay Yard is a connected, spatially testable part of the case."
+space_id = "the_red_fog_of_south_quay_lot"
+target_kind = "room"
+target_id = "quay_yard"
+tags = []
+roles = []
+
+[[entities]]
+id = "wildlife_shed"
+kind = "location"
+display_name = "WILDLIFE SHED"
+description = "Wildlife Shed is a connected, spatially testable part of the case."
+space_id = "the_red_fog_of_south_quay_lot"
+target_kind = "room"
+target_id = "wildlife_shed"
+tags = []
+roles = []
+
+[[entities]]
+id = "inert_red_dust"
+kind = "object"
+display_name = "Inert Red Dust"
+description = "The red dust is inert iron oxide and absent from Tomas's lungs."
+space_id = "the_red_fog_of_south_quay_lot"
+target_kind = "marker"
+target_id = "clue_marker_1"
+tags = []
+roles = []
+
+[[entities]]
+id = "maintenance_vent_residue"
+kind = "mechanism"
+display_name = "Maintenance Vent Residue"
+description = "Lethal residue concentrates around the maintenance vent."
+space_id = "the_red_fog_of_south_quay_lot"
+target_kind = "marker"
+target_id = "clue_marker_2"
+tags = []
+roles = []
+
+[[entities]]
+id = "industrial_fan_array"
+kind = "mechanism"
+display_name = "Industrial Fan Array"
+description = "Fan positions push the yard fog away from the victim."
+space_id = "the_red_fog_of_south_quay_lot"
+target_kind = "marker"
+target_id = "clue_marker_3"
+tags = []
+roles = []
+
+[[entities]]
+id = "replacement_valve"
+kind = "object"
+display_name = "Replacement Valve"
+description = "A corroded valve was recently replaced and retained by Asha."
+space_id = "the_red_fog_of_south_quay_lot"
+target_kind = "marker"
+target_id = "clue_marker_4"
+tags = []
+roles = []
+
+[[entities]]
+id = "remote_control_log"
+kind = "mechanism"
+display_name = "Remote Control Log"
+description = "Remote logs show a deliberate manual sequence."
+space_id = "the_red_fog_of_south_quay_lot"
+target_kind = "marker"
+target_id = "clue_marker_5"
+tags = []
+roles = []
+
+[[entities]]
+id = "healthy_caged_birds"
+kind = "object"
+display_name = "Healthy Caged Birds"
+description = "Caged birds remained healthy throughout the red fog."
+space_id = "the_red_fog_of_south_quay_lot"
+target_kind = "marker"
+target_id = "clue_marker_6"
+tags = []
+roles = []
+
+[[entities]]
+id = "shutdown_damage"
+kind = "object"
+display_name = "Shutdown Damage"
+description = "Kerr's shutdown damage explains his false control-room statement."
+space_id = "the_red_fog_of_south_quay_lot"
+target_kind = "marker"
+target_id = "clue_marker_7"
+tags = []
+roles = []
+
+[[entities]]
+id = "animal_rescue_route"
+kind = "object"
+display_name = "Animal Rescue Route"
+description = "Lena's rescue route explains her trespass and the missing animals."
+space_id = "the_red_fog_of_south_quay_lot"
+target_kind = "marker"
+target_id = "clue_marker_8"
+tags = []
+roles = []
+
+[[entities]]
+id = "undetected_gas_warning"
+kind = "object"
+display_name = "Undetected Gas Warning"
+description = "Asha warned of a gas that yard instruments never detected."
+space_id = "the_red_fog_of_south_quay_lot"
+target_kind = "marker"
+target_id = "clue_marker_9"
+tags = []
+roles = []
+
+[[propositions]]
+id = "claim_asha_venn"
+text = "Asha Venn claims no knowledge of the concealed mechanism."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "claim_kerr_moss"
+text = "Kerr Moss gives an incomplete but innocent account."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "claim_lena_pike"
+text = "Lena Pike gives an incomplete but innocent account."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_1"
+text = "The red dust is inert iron oxide and absent from Tomas's lungs."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_2"
+text = "Lethal residue concentrates around the maintenance vent."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_3"
+text = "Fan positions push the yard fog away from the victim."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_4"
+text = "A corroded valve was recently replaced and retained by Asha."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_5"
+text = "Remote logs show a deliberate manual sequence."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_6"
+text = "Caged birds remained healthy throughout the red fog."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_7"
+text = "Kerr's shutdown damage explains his false control-room statement."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_8"
+text = "Lena's rescue route explains her trespass and the missing animals."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_9"
+text = "Asha warned of a gas that yard instruments never detected."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "deduction_1"
+text = "The red dust is inert iron oxide and absent from Tomas's lungs."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "deduction_2"
+text = "Fan positions push the yard fog away from the victim."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "deduction_3"
+text = "Remote logs show a deliberate manual sequence."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "deduction_4"
+text = "Kerr's shutdown damage explains his false control-room statement."
+canonical_truth = "undetermined"
+
+[[events]]
+id = "crime_event"
+subject = "asha_venn"
+action = "kill"
+object = "tomas_rell"
+location = "pumping_station"
+fictional_time = "20:20"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[events]]
+id = "cover_event"
+subject = "asha_venn"
+action = "alter"
+object = "maintenance_vent_residue"
+location = "pumping_station"
+fictional_time = "20:30"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[conditions]]
+id = "condition.always"
+kind = "always"
+children = []
+variable = ""
+entity = ""
+other_entity = ""
+proposition = ""
+objective = ""
+event = ""
+content = ""
+text = ""
+space_a = ""
+target_a = ""
+space_b = ""
+target_b = ""
+distance = 0
+value_kind = "boolean"
+boolean_value = false
+integer_value = 0
+text_value = ""
+comparison = 0
+objective_status = 0
+stance = "uncertain"
+
+[[scenes]]
+id = "final_confrontation"
+display_name = "Asha released lethal gas through a maintenance line, locked the station remotely, and used harmless iron dust in the yard blower as a spectacular distraction."
+entry_node = "reconstruction"
+bound_entity = "asha_venn"
+summary = "Asha released lethal gas through a maintenance line, locked the station remotely, and used harmless iron dust in the yard blower as a spectacular distraction."
+return_to = "board"
+
+[[scenes]]
+id = "scene_opening_asha_venn"
+display_name = "Asha reads Tomas's shutdown notice twice. 'He intended to close the station over incomplete safety records. He thought caution belonged to him alone.'"
+entry_node = "opening_asha_venn_line"
+bound_entity = "asha_venn"
+summary = "Asha reads Tomas's shutdown notice twice. 'He intended to close the station over incomplete safety records. He thought caution belonged to him alone.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_asha_venn"
+display_name = "Asha answers in alarm thresholds. 'The instruments were below range. Tomas was inside; I chose caution.'"
+entry_node = "account_asha_venn_line"
+bound_entity = "asha_venn"
+summary = "Asha answers in alarm thresholds. 'The instruments were below range. Tomas was inside; I chose caution.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_asha_venn"
+display_name = "'Red cloud, sealed station, dead operator—what else would you call it?' She never mentions the clean air around the birds."
+entry_node = "approach_asha_venn_line"
+bound_entity = "asha_venn"
+summary = "'Red cloud, sealed station, dead operator—what else would you call it?' She never mentions the clean air around the birds."
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_opening_kerr_moss"
+display_name = "Kerr inventories the panel lights. 'Tomas wanted my signature on the shutdown. I refused until I could test the relay, and he went inside without me.'"
+entry_node = "opening_kerr_moss_line"
+bound_entity = "kerr_moss"
+summary = "Kerr inventories the panel lights. 'Tomas wanted my signature on the shutdown. I refused until I could test the relay, and he went inside without me.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_kerr_moss"
+display_name = "Kerr inventories each switch before reaching the burned contact. 'I forced the west relay after the controls froze.'"
+entry_node = "account_kerr_moss_line"
+bound_entity = "kerr_moss"
+summary = "Kerr inventories each switch before reaching the burned contact. 'I forced the west relay after the controls froze.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_kerr_moss"
+display_name = "'That is why I lied about entering the room. It does not explain a remote sequence logged before I arrived.'"
+entry_node = "approach_kerr_moss_line"
+bound_entity = "kerr_moss"
+summary = "'That is why I lied about entering the room. It does not explain a remote sequence logged before I arrived.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_opening_lena_pike"
+display_name = "Lena counts the occupied cages. 'He fed the birds before entering the station. Tomas trusted an animal breathing normally more than any green lamp.'"
+entry_node = "opening_lena_pike_line"
+bound_entity = "lena_pike"
+summary = "Lena counts the occupied cages. 'He fed the birds before entering the station. Tomas trusted an animal breathing normally more than any green lamp.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_lena_pike"
+display_name = "Lena counts cages, then animals. 'Three gulls, two fox kits, one terrified dog. I moved them before the fog reached the yard.'"
+entry_node = "account_lena_pike_line"
+bound_entity = "lena_pike"
+summary = "Lena counts cages, then animals. 'Three gulls, two fox kits, one terrified dog. I moved them before the fog reached the yard.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_lena_pike"
+display_name = "'The birds left behind stayed healthy. Whatever killed Tomas was not drifting through that yard.'"
+entry_node = "approach_lena_pike_line"
+bound_entity = "lena_pike"
+summary = "'The birds left behind stayed healthy. Whatever killed Tomas was not drifting through that yard.'"
+return_to = "investigation"
+
+[[nodes]]
+id = "reconstruction"
+scene = "final_confrontation"
+kind = "line"
+line_id = "reconstruction"
+speaker = "detective"
+text = "Asha released lethal gas through a maintenance line, locked the station remotely, and used harmless iron dust in the yard blower as a spectacular distraction."
+next = "answer"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = ""
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "reconstruction"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "answer"
+scene = "final_confrontation"
+kind = "line"
+line_id = "answer"
+speaker = "asha_venn"
+text = "The physical reconstruction leaves no honest alternative."
+next = "end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = ""
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "answer"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "end"
+scene = "final_confrontation"
+kind = "end"
+line_id = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = ""
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_asha_venn_line"
+scene = "scene_opening_asha_venn"
+kind = "line"
+line_id = "opening_asha_venn_line"
+speaker = "asha_venn"
+text = "Asha reads Tomas's shutdown notice twice. 'He intended to close the station over incomplete safety records. He thought caution belonged to him alone.'"
+next = "opening_asha_venn_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_asha_venn_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_asha_venn_end"
+scene = "scene_opening_asha_venn"
+kind = "end"
+line_id = "opening_asha_venn_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_asha_venn_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_asha_venn_line"
+scene = "scene_account_asha_venn"
+kind = "line"
+line_id = "account_asha_venn_line"
+speaker = "asha_venn"
+text = "Asha answers in alarm thresholds. 'The instruments were below range. Tomas was inside; I chose caution.'"
+next = "account_asha_venn_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_asha_venn_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_asha_venn_end"
+scene = "scene_account_asha_venn"
+kind = "end"
+line_id = "account_asha_venn_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_asha_venn_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_asha_venn_line"
+scene = "scene_approach_asha_venn"
+kind = "line"
+line_id = "approach_asha_venn_line"
+speaker = "asha_venn"
+text = "'Red cloud, sealed station, dead operator—what else would you call it?' She never mentions the clean air around the birds."
+next = "approach_asha_venn_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_asha_venn_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_asha_venn_end"
+scene = "scene_approach_asha_venn"
+kind = "end"
+line_id = "approach_asha_venn_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_asha_venn_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_kerr_moss_line"
+scene = "scene_opening_kerr_moss"
+kind = "line"
+line_id = "opening_kerr_moss_line"
+speaker = "kerr_moss"
+text = "Kerr inventories the panel lights. 'Tomas wanted my signature on the shutdown. I refused until I could test the relay, and he went inside without me.'"
+next = "opening_kerr_moss_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_kerr_moss_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_kerr_moss_end"
+scene = "scene_opening_kerr_moss"
+kind = "end"
+line_id = "opening_kerr_moss_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_kerr_moss_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_kerr_moss_line"
+scene = "scene_account_kerr_moss"
+kind = "line"
+line_id = "account_kerr_moss_line"
+speaker = "kerr_moss"
+text = "Kerr inventories each switch before reaching the burned contact. 'I forced the west relay after the controls froze.'"
+next = "account_kerr_moss_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_kerr_moss_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_kerr_moss_end"
+scene = "scene_account_kerr_moss"
+kind = "end"
+line_id = "account_kerr_moss_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_kerr_moss_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_kerr_moss_line"
+scene = "scene_approach_kerr_moss"
+kind = "line"
+line_id = "approach_kerr_moss_line"
+speaker = "kerr_moss"
+text = "'That is why I lied about entering the room. It does not explain a remote sequence logged before I arrived.'"
+next = "approach_kerr_moss_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_kerr_moss_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_kerr_moss_end"
+scene = "scene_approach_kerr_moss"
+kind = "end"
+line_id = "approach_kerr_moss_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_kerr_moss_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_lena_pike_line"
+scene = "scene_opening_lena_pike"
+kind = "line"
+line_id = "opening_lena_pike_line"
+speaker = "lena_pike"
+text = "Lena counts the occupied cages. 'He fed the birds before entering the station. Tomas trusted an animal breathing normally more than any green lamp.'"
+next = "opening_lena_pike_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_lena_pike_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_lena_pike_end"
+scene = "scene_opening_lena_pike"
+kind = "end"
+line_id = "opening_lena_pike_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_lena_pike_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_lena_pike_line"
+scene = "scene_account_lena_pike"
+kind = "line"
+line_id = "account_lena_pike_line"
+speaker = "lena_pike"
+text = "Lena counts cages, then animals. 'Three gulls, two fox kits, one terrified dog. I moved them before the fog reached the yard.'"
+next = "account_lena_pike_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_lena_pike_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_lena_pike_end"
+scene = "scene_account_lena_pike"
+kind = "end"
+line_id = "account_lena_pike_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_lena_pike_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_lena_pike_line"
+scene = "scene_approach_lena_pike"
+kind = "line"
+line_id = "approach_lena_pike_line"
+speaker = "lena_pike"
+text = "'The birds left behind stayed healthy. Whatever killed Tomas was not drifting through that yard.'"
+next = "approach_lena_pike_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_lena_pike_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_lena_pike_end"
+scene = "scene_approach_lena_pike"
+kind = "end"
+line_id = "approach_lena_pike_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_lena_pike_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[mystery]
+action_budget = 12
+seed = 20261025
+tutorial = ""
+city_start = ""
+city_destination = "the_red_fog_of_south_quay_venue"
+reveal_location = "pumping_station"
+
+[[mystery.characters]]
+entity = "tomas_rell"
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = []
+
+[[mystery.characters]]
+entity = "asha_venn"
+private_secret = ""
+motive = "Conceals the crime's material mechanism."
+initial_disposition = 0
+initial_claims = ["claim_asha_venn"]
+
+[[mystery.characters]]
+entity = "kerr_moss"
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_kerr_moss"]
+
+[[mystery.characters]]
+entity = "lena_pike"
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_lena_pike"]
+
+[[mystery.locations]]
+entity = "pumping_station"
+connections = ["control_room"]
+characters = []
+pois = ["inert_red_dust", "healthy_caged_birds"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "control_room"
+connections = ["pumping_station", "pipe_gallery"]
+characters = ["tomas_rell"]
+pois = ["maintenance_vent_residue", "shutdown_damage"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "pipe_gallery"
+connections = ["control_room", "quay_yard"]
+characters = ["asha_venn"]
+pois = ["industrial_fan_array", "animal_rescue_route"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "quay_yard"
+connections = ["pipe_gallery", "wildlife_shed"]
+characters = ["kerr_moss"]
+pois = ["replacement_valve", "undetected_gas_warning"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "wildlife_shed"
+connections = ["quay_yard"]
+characters = []
+pois = ["remote_control_log"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.pois]]
+entity = "inert_red_dust"
+location = "pumping_station"
+owner = ""
+relevant_state = "The red dust is inert iron oxide and absent from Tomas's lungs."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "maintenance_vent_residue"
+location = "control_room"
+owner = ""
+relevant_state = "Lethal residue concentrates around the maintenance vent."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "industrial_fan_array"
+location = "pipe_gallery"
+owner = ""
+relevant_state = "Fan positions push the yard fog away from the victim."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "replacement_valve"
+location = "quay_yard"
+owner = ""
+relevant_state = "A corroded valve was recently replaced and retained by Asha."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "remote_control_log"
+location = "wildlife_shed"
+owner = ""
+relevant_state = "Remote logs show a deliberate manual sequence."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "healthy_caged_birds"
+location = "pumping_station"
+owner = ""
+relevant_state = "Caged birds remained healthy throughout the red fog."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "shutdown_damage"
+location = "control_room"
+owner = ""
+relevant_state = "Kerr's shutdown damage explains his false control-room statement."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "animal_rescue_route"
+location = "pipe_gallery"
+owner = ""
+relevant_state = "Lena's rescue route explains her trespass and the missing animals."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "undetected_gas_warning"
+location = "quay_yard"
+owner = ""
+relevant_state = "Asha warned of a gas that yard instruments never detected."
+examination_action = "examine"
+
+[[mystery.events]]
+event = "crime_event"
+destination = "pumping_station"
+tool = "maintenance_gas_line"
+effects = ["victim_dead"]
+
+[[mystery.events]]
+event = "cover_event"
+destination = "control_room"
+tool = ""
+effects = ["scene_staged"]
+
+[[mystery.clues]]
+id = "clue_1"
+source = "inert_red_dust"
+description = "The red dust is inert iron oxide and absent from Tomas's lungs."
+proposition = "clue_1"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["weapon"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_2"
+source = "maintenance_vent_residue"
+description = "Lethal residue concentrates around the maintenance vent."
+proposition = "clue_2"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["murder_place"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_3"
+source = "industrial_fan_array"
+description = "Fan positions push the yard fog away from the victim."
+proposition = "clue_3"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["death_time"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_4"
+source = "replacement_valve"
+description = "A corroded valve was recently replaced and retained by Asha."
+proposition = "clue_4"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["body_movement"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_5"
+source = "remote_control_log"
+description = "Remote logs show a deliberate manual sequence."
+proposition = "clue_5"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["staging"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_6"
+source = "healthy_caged_birds"
+description = "Caged birds remained healthy throughout the red fog."
+proposition = "clue_6"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["cleaning"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_7"
+source = "kerr_moss"
+description = "Kerr's shutdown damage explains his false control-room statement."
+proposition = "clue_7"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["alibi"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_8"
+source = "lena_pike"
+description = "Lena's rescue route explains her trespass and the missing animals."
+proposition = "clue_8"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = []
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_9"
+source = "asha_venn"
+description = "Asha warned of a gas that yard instruments never detected."
+proposition = "clue_9"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["claim_asha_venn"]
+topics = ["mechanism"]
+
+[[mystery.claims]]
+id = "claim_asha_venn"
+speaker = "asha_venn"
+proposition = "claim_asha_venn"
+protects = ""
+response = "Asha Venn maintains the account until the physical reconstruction."
+canonical_truth = false
+
+[[mystery.claims]]
+id = "claim_kerr_moss"
+speaker = "kerr_moss"
+proposition = "claim_kerr_moss"
+protects = ""
+response = "Kerr Moss maintains the account until the physical reconstruction."
+canonical_truth = true
+
+[[mystery.claims]]
+id = "claim_lena_pike"
+speaker = "lena_pike"
+proposition = "claim_lena_pike"
+protects = ""
+response = "Lena Pike maintains the account until the physical reconstruction."
+canonical_truth = true
+
+[[mystery.contradictions]]
+id = "decisive_contradiction"
+claim = "claim_asha_venn"
+fact = "clue_9"
+conclusion = ""
+explanation = "Asha released lethal gas through a maintenance line, locked the station remotely, and used harmless iron dust in the yard blower as a spectacular distraction."
+
+[[mystery.deductions]]
+id = "deduction_1"
+proposition = "deduction_1"
+category = "what"
+supports = []
+unlock_questions = []
+unlock_topics = []
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "deduction_2"
+proposition = "deduction_2"
+category = "where_when"
+supports = []
+unlock_questions = []
+unlock_topics = []
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "deduction_3"
+proposition = "deduction_3"
+category = "concealment"
+supports = []
+unlock_questions = []
+unlock_topics = []
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "deduction_4"
+proposition = "deduction_4"
+category = "contradiction"
+supports = []
+unlock_questions = []
+unlock_topics = []
+unlock_investigations = []
+
+[[mystery.questions]]
+id = "question_1"
+prompt = "What does this physical comparison establish?"
+hypothesis = "The red dust is inert iron oxide and absent from Tomas's lungs."
+category = "what"
+requires_clues = ["clue_1", "clue_2"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_2"
+prompt = "What does this physical comparison establish?"
+hypothesis = "Fan positions push the yard fog away from the victim."
+category = "where_when"
+requires_clues = ["clue_3", "clue_4"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_3"
+prompt = "What does this physical comparison establish?"
+hypothesis = "Remote logs show a deliberate manual sequence."
+category = "concealment"
+requires_clues = ["clue_5", "clue_6"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_4"
+prompt = "What does this physical comparison establish?"
+hypothesis = "Kerr's shutdown damage explains his false control-room statement."
+category = "contradiction"
+requires_clues = ["clue_7", "clue_8"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.demonstrations]]
+id = "demonstration_1"
+question = "question_1"
+mode = "comparison"
+resolution = "substantiated"
+result = "Asha released lethal gas through a maintenance line, locked the station remotely, and used harmless iron dust in the yard blower as a spectacular distraction."
+prompt = "Combine the two observations and test the authored mechanism."
+slot_labels = ["Evidence A", "Evidence B"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_1", "clue_2"]
+route_firsts = []
+route_counts = []
+result_deductions = ["deduction_1"]
+
+[[mystery.demonstrations]]
+id = "demonstration_2"
+question = "question_2"
+mode = "physical"
+resolution = "substantiated"
+result = "Asha released lethal gas through a maintenance line, locked the station remotely, and used harmless iron dust in the yard blower as a spectacular distraction."
+prompt = "Combine the two observations and test the authored mechanism."
+slot_labels = ["Evidence A", "Evidence B"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_3", "clue_4"]
+route_firsts = []
+route_counts = []
+result_deductions = ["deduction_2"]
+
+[[mystery.demonstrations]]
+id = "demonstration_3"
+question = "question_3"
+mode = "timeline"
+resolution = "substantiated"
+result = "Asha released lethal gas through a maintenance line, locked the station remotely, and used harmless iron dust in the yard blower as a spectacular distraction."
+prompt = "Combine the two observations and test the authored mechanism."
+slot_labels = ["Evidence A", "Evidence B"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_5", "clue_6"]
+route_firsts = []
+route_counts = []
+result_deductions = ["deduction_3"]
+
+[[mystery.demonstrations]]
+id = "demonstration_4"
+question = "question_4"
+mode = "confrontation"
+resolution = "substantiated"
+result = "Asha released lethal gas through a maintenance line, locked the station remotely, and used harmless iron dust in the yard blower as a spectacular distraction."
+prompt = "Combine the two observations and test the authored mechanism."
+slot_labels = ["Evidence A", "Evidence B"]
+slot_types = ["testimony", "testimony"]
+accepted = ["clue_7", "clue_8"]
+route_firsts = []
+route_counts = []
+result_deductions = ["deduction_4"]
+
+[[mystery.dialogue]]
+node = "opening_asha_venn"
+character = "asha_venn"
+prompt = "Tell me about Tomas Rell. What did they want tonight?"
+response = "Asha reads Tomas's shutdown notice twice. 'He intended to close the station over incomplete safety records. He thought caution belonged to him alone.'"
+clue = ""
+interaction = ""
+requires = ["claim_asha_venn"]
+unlocks = ["account_ready_asha_venn"]
+
+[[mystery.dialogue]]
+node = "account_asha_venn"
+character = "asha_venn"
+prompt = "Why did you warn of gas the yard instruments never detected?"
+response = "Asha answers in alarm thresholds. 'The instruments were below range. Tomas was inside; I chose caution.'"
+clue = ""
+interaction = ""
+requires = ["claim_asha_venn", "account_ready_asha_venn"]
+unlocks = ["followup_asha_venn"]
+
+[[mystery.dialogue]]
+node = "approach_asha_venn"
+character = "asha_venn"
+prompt = "Then account for the inert red dust."
+response = "'Red cloud, sealed station, dead operator—what else would you call it?' She never mentions the clean air around the birds."
+clue = "clue_9"
+interaction = ""
+requires = ["clue_1", "claim_asha_venn", "followup_asha_venn"]
+unlocks = ["clue_9", "mechanism"]
+
+[[mystery.dialogue]]
+node = "opening_kerr_moss"
+character = "kerr_moss"
+prompt = "Tell me about Tomas Rell. What did they want tonight?"
+response = "Kerr inventories the panel lights. 'Tomas wanted my signature on the shutdown. I refused until I could test the relay, and he went inside without me.'"
+clue = ""
+interaction = ""
+requires = ["claim_kerr_moss"]
+unlocks = ["account_ready_kerr_moss"]
+
+[[mystery.dialogue]]
+node = "account_kerr_moss"
+character = "kerr_moss"
+prompt = "What did you damage during shutdown?"
+response = "Kerr inventories each switch before reaching the burned contact. 'I forced the west relay after the controls froze.'"
+clue = ""
+interaction = ""
+requires = ["claim_kerr_moss", "account_ready_kerr_moss"]
+unlocks = ["followup_kerr_moss"]
+
+[[mystery.dialogue]]
+node = "approach_kerr_moss"
+character = "kerr_moss"
+prompt = "Then account for the industrial fan array."
+response = "'That is why I lied about entering the room. It does not explain a remote sequence logged before I arrived.'"
+clue = "clue_7"
+interaction = ""
+requires = ["clue_3", "claim_kerr_moss", "followup_kerr_moss"]
+unlocks = ["clue_7", "mechanism"]
+
+[[mystery.dialogue]]
+node = "opening_lena_pike"
+character = "lena_pike"
+prompt = "Tell me about Tomas Rell. What did they want tonight?"
+response = "Lena counts the occupied cages. 'He fed the birds before entering the station. Tomas trusted an animal breathing normally more than any green lamp.'"
+clue = ""
+interaction = ""
+requires = ["claim_lena_pike"]
+unlocks = ["account_ready_lena_pike"]
+
+[[mystery.dialogue]]
+node = "account_lena_pike"
+character = "lena_pike"
+prompt = "Why were the wildlife cages empty?"
+response = "Lena counts cages, then animals. 'Three gulls, two fox kits, one terrified dog. I moved them before the fog reached the yard.'"
+clue = ""
+interaction = ""
+requires = ["claim_lena_pike", "account_ready_lena_pike"]
+unlocks = ["followup_lena_pike"]
+
+[[mystery.dialogue]]
+node = "approach_lena_pike"
+character = "lena_pike"
+prompt = "Then account for the remote control log."
+response = "'The birds left behind stayed healthy. Whatever killed Tomas was not drifting through that yard.'"
+clue = "clue_8"
+interaction = ""
+requires = ["clue_5", "claim_lena_pike", "followup_lena_pike"]
+unlocks = ["clue_8", "mechanism"]
+
+[[mystery.city_labels]]
+id = "the_red_fog_of_south_quay_venue"
+display_name = "SOUTH QUAY PUMPING STATION"
+level_spawn = "spawn_player"
+city_site = "south_quay_venue"
+
+[mystery.solution]
+culprit = "asha_venn"
+motive = "clue_9"
+decisive_contradiction = "decisive_contradiction"
+weapon_block = "weapon"
+murder_place_block = "murder_place"
+death_time_block = "death_time"
+body_movement_block = "body_movement"
+staging_block = "staging"
+cleaning_block = "cleaning"
+alibi_block = "alibi"
+requirements = ["weapon", "murder_place", "death_time", "body_movement", "staging", "cleaning", "alibi"]
+murder_events = ["crime_event"]
+cover_up_events = ["cover_event"]
+false_alibis = ["claim_asha_venn"]
+exclusions = ["kerr_moss", "lena_pike"]

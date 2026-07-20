@@ -1,0 +1,247 @@
+version = "LevelFormat v1"
+id = "bellwether_hall"
+name = "Bellwether Hall"
+width = 42
+height = 24
+story_limit = 3
+default_snap = 0.5
+fine_snap = 0.25
+angle_snap = 15.0
+
+[[stories]]
+id = "ground"
+name = "Ground Floor"
+base_elevation = 0
+
+[[foundations]]
+id = "foundation"
+kind = "slab"
+points = [[1, 1], [41, 1], [41, 23], [1, 23]]
+elevation = 0
+depth = 0.25
+
+[[rooms]]
+id = "auditorium"
+name = "Auditorium"
+story = 0
+points = [[1, 1], [9, 1], [9, 23], [1, 23]]
+platform_height = 0
+floor_material = "core:gallery"
+wall_material = "core:structure"
+ceiling_style = "flat"
+exterior = false
+
+[[rooms]]
+id = "stage"
+name = "Stage"
+story = 0
+points = [[9, 1], [17, 1], [17, 23], [9, 23]]
+platform_height = 0
+floor_material = "core:gallery"
+wall_material = "core:structure"
+ceiling_style = "flat"
+exterior = false
+
+[[rooms]]
+id = "scene_dock"
+name = "Scene Dock"
+story = 0
+points = [[17, 1], [25, 1], [25, 23], [17, 23]]
+platform_height = 0
+floor_material = "core:gallery"
+wall_material = "core:structure"
+ceiling_style = "flat"
+exterior = false
+
+[[rooms]]
+id = "dressing_room"
+name = "Dressing Room"
+story = 0
+points = [[25, 1], [33, 1], [33, 23], [25, 23]]
+platform_height = 0
+floor_material = "core:gallery"
+wall_material = "core:structure"
+ceiling_style = "flat"
+exterior = false
+
+[[rooms]]
+id = "fly_gallery"
+name = "Fly Gallery"
+story = 0
+points = [[33, 1], [41, 1], [41, 23], [33, 23]]
+platform_height = 0
+floor_material = "core:gallery"
+wall_material = "core:structure"
+ceiling_style = "flat"
+exterior = false
+
+[[paths]]
+id = "outer_walls"
+story = 0
+kind = "wall"
+points = [[1, 1], [41, 1], [41, 23], [1, 23], [1, 1]]
+material = "structure"
+width = 0.35
+
+[[paths]]
+id = "divider_1"
+story = 0
+kind = "wall"
+points = [[9, 1], [9, 23]]
+material = "structure"
+width = 0.30
+
+[[openings]]
+id = "door_1"
+host_path = "divider_1"
+kind = "door"
+material = "oak"
+segment = 0
+position = 0.50
+width = 1.40
+height = 2.10
+
+[[paths]]
+id = "divider_2"
+story = 0
+kind = "wall"
+points = [[17, 1], [17, 23]]
+material = "structure"
+width = 0.30
+
+[[openings]]
+id = "door_2"
+host_path = "divider_2"
+kind = "door"
+material = "oak"
+segment = 0
+position = 0.50
+width = 1.40
+height = 2.10
+
+[[paths]]
+id = "divider_3"
+story = 0
+kind = "wall"
+points = [[25, 1], [25, 23]]
+material = "structure"
+width = 0.30
+
+[[openings]]
+id = "door_3"
+host_path = "divider_3"
+kind = "door"
+material = "oak"
+segment = 0
+position = 0.50
+width = 1.40
+height = 2.10
+
+[[paths]]
+id = "divider_4"
+story = 0
+kind = "wall"
+points = [[33, 1], [33, 23]]
+material = "structure"
+width = 0.30
+
+[[openings]]
+id = "door_4"
+host_path = "divider_4"
+kind = "door"
+material = "oak"
+segment = 0
+position = 0.50
+width = 1.40
+height = 2.10
+
+[[markers]]
+id = "spawn"
+kind = "player_spawn"
+story = 0
+position = [[3, 12]]
+elevation = 0
+reference = ""
+destination = ""
+radius = 1.0
+
+[[markers]]
+id = "character_marcus_vale"
+kind = "character_spawn"
+story = 0
+position = [[5, 8]]
+elevation = 0
+reference = "marcus_vale"
+destination = ""
+radius = 1.0
+
+[[markers]]
+id = "character_ruth_anwar"
+kind = "character_spawn"
+story = 0
+position = [[13, 8]]
+elevation = 0
+reference = "ruth_anwar"
+destination = ""
+radius = 1.0
+
+[[markers]]
+id = "character_theo_marsh"
+kind = "character_spawn"
+story = 0
+position = [[21, 8]]
+elevation = 0
+reference = "theo_marsh"
+destination = ""
+radius = 1.0
+
+[[markers]]
+id = "clue_stage_brace"
+kind = "clue"
+story = 0
+position = [[13, 16]]
+elevation = 0
+reference = "stage_brace"
+destination = ""
+radius = 1.0
+
+[[markers]]
+id = "clue_rolled_backdrop"
+kind = "clue"
+story = 0
+position = [[20, 16]]
+elevation = 0
+reference = "rolled_backdrop"
+destination = ""
+radius = 1.0
+
+[[markers]]
+id = "clue_cue_log"
+kind = "clue"
+story = 0
+position = [[27, 16]]
+elevation = 0
+reference = "cue_log"
+destination = ""
+radius = 1.0
+
+[[markers]]
+id = "clue_motive_record"
+kind = "clue"
+story = 0
+position = [[34, 16]]
+elevation = 0
+reference = "motive_record"
+destination = ""
+radius = 1.0
+
+[[markers]]
+id = "return_city"
+kind = "transition"
+story = 0
+position = [[39, 12]]
+elevation = 0
+reference = ""
+destination = "city:bellwether_hall"
+radius = 1.0
+

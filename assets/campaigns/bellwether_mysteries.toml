@@ -1,0 +1,178 @@
+version = "MysteryCampaign v2"
+id = "bellwether_mysteries"
+title = "BELLWETHER MYSTERIES"
+creator = "Zelda H."
+description = "Four community mysteries in a persistent neighborhood, from the garden exhibition to the waterfront finale."
+content_version = "1.0.0"
+thumbnail = "assets/campaigns/heroes/bellwether-mysteries.png"
+
+[[variables]]
+id = "neighborhood_trust"
+display_name = "Neighborhood trust"
+description = "Bellwether remembers each investigation resolved without sacrificing an innocent neighbor."
+kind = 1
+default_integer = 0
+
+[[variables]]
+id = "shared_cases"
+display_name = "Shared history"
+description = "Cases whose people and consequences now belong to Bellwether's common memory."
+kind = 1
+default_integer = 0
+
+[[effects]]
+kind = 2
+variable_id = "neighborhood_trust"
+integer_value = 1
+
+[[effects]]
+kind = 2
+variable_id = "shared_cases"
+integer_value = 1
+
+[[effects]]
+kind = 2
+variable_id = "neighborhood_trust"
+integer_value = 1
+
+[[effects]]
+kind = 2
+variable_id = "shared_cases"
+integer_value = 1
+
+[[effects]]
+kind = 2
+variable_id = "neighborhood_trust"
+integer_value = 1
+
+[[effects]]
+kind = 2
+variable_id = "shared_cases"
+integer_value = 1
+
+[[effects]]
+kind = 2
+variable_id = "neighborhood_trust"
+integer_value = 1
+
+[[effects]]
+kind = 2
+variable_id = "shared_cases"
+integer_value = 1
+
+[[conditions]]
+kind = 0
+first_child = 0
+child_count = 0
+variable_id = ""
+case_id = ""
+enum_value = ""
+boolean_value = false
+integer_value = 0
+comparison = 5
+outcome = 0
+
+[[conditions]]
+kind = 6
+first_child = 0
+child_count = 0
+variable_id = "neighborhood_trust"
+case_id = ""
+enum_value = ""
+boolean_value = false
+integer_value = 1
+comparison = 5
+outcome = 0
+
+[[conditions]]
+kind = 6
+first_child = 0
+child_count = 0
+variable_id = "neighborhood_trust"
+case_id = ""
+enum_value = ""
+boolean_value = false
+integer_value = 1
+comparison = 5
+outcome = 0
+
+[[conditions]]
+kind = 6
+first_child = 0
+child_count = 0
+variable_id = "neighborhood_trust"
+case_id = ""
+enum_value = ""
+boolean_value = false
+integer_value = 3
+comparison = 5
+outcome = 0
+
+[[cases]]
+id = "the_last_garden_prize"
+title = "The Last Garden Prize"
+story_path = "assets/stories/mysteries/bellwether/the_last_garden_prize.story.toml"
+level_path = "assets/levels/bellwether/the_last_garden_prize.toml"
+content_version = "1.0.0"
+condition_root = 0
+required = true
+optional = false
+presentation = 2
+locked_message = "Bellwether will not open another private grief until the earlier accusation is sound."
+replay_mode = 1
+invalid_policy = 0
+effect_outcomes = [0, 1, 2, 3, 4]
+effect_firsts = [0, 0, 1, 1, 1]
+effect_counts = [2, 2, 1, 1, 1]
+
+[[cases]]
+id = "the_last_performance_at_bellwether_hall"
+title = "The Last Performance at Bellwether Hall"
+story_path = "assets/stories/mysteries/bellwether/the_last_performance_at_bellwether_hall.story.toml"
+level_path = "assets/levels/bellwether/the_last_performance_at_bellwether_hall.toml"
+content_version = "1.0.0"
+condition_root = 1
+required = true
+optional = false
+presentation = 2
+locked_message = "Bellwether will not open another private grief until the earlier accusation is sound."
+replay_mode = 1
+invalid_policy = 0
+effect_outcomes = [0, 1, 2, 3, 4]
+effect_firsts = [2, 2, 3, 3, 3]
+effect_counts = [2, 2, 1, 1, 1]
+
+[[cases]]
+id = "a_recipe_for_silence"
+title = "A Recipe for Silence"
+story_path = "assets/stories/mysteries/bellwether/a_recipe_for_silence.story.toml"
+level_path = "assets/levels/bellwether/a_recipe_for_silence.toml"
+content_version = "1.0.0"
+condition_root = 2
+required = true
+optional = false
+presentation = 2
+locked_message = "Bellwether will not open another private grief until the earlier accusation is sound."
+replay_mode = 1
+invalid_policy = 0
+effect_outcomes = [0, 1, 2, 3, 4]
+effect_firsts = [4, 4, 5, 5, 5]
+effect_counts = [2, 2, 1, 1, 1]
+
+[[cases]]
+id = "death_on_the_promenade"
+title = "Death on the Promenade"
+story_path = "assets/stories/mysteries/bellwether/death_on_the_promenade.story.toml"
+level_path = "assets/levels/bellwether/death_on_the_promenade.toml"
+content_version = "1.0.0"
+condition_root = 3
+required = true
+optional = false
+presentation = 2
+locked_message = "Bellwether will not open another private grief until the earlier accusation is sound."
+replay_mode = 1
+invalid_policy = 0
+effect_outcomes = [0, 1, 2, 3, 4]
+effect_firsts = [6, 6, 7, 7, 7]
+effect_counts = [2, 2, 1, 1, 1]
+

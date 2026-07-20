@@ -1,0 +1,276 @@
+version = "GraphMode v1"
+case_id = "the_empty_carriage"
+revision = 0
+
+[[scenes]]
+id = "final_confrontation"
+source = "galen_shore"
+entry = "reconstruction"
+summary = "Galen killed Mae with a brake shoe, lowered her through the hatch on a pit cradle, and moved the carriage out and back during the outage."
+return_to = "board"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "reconstruction"
+scene = "final_confrontation"
+kind = "line"
+speaker = "detective"
+text = "Galen killed Mae with a brake shoe, lowered her through the hatch on a pit cradle, and moved the carriage out and back during the outage."
+next = "answer"
+
+[[nodes]]
+id = "answer"
+scene = "final_confrontation"
+kind = "line"
+speaker = "galen_shore"
+text = "The physical reconstruction leaves no honest alternative."
+next = "end"
+
+[[nodes]]
+id = "end"
+scene = "final_confrontation"
+kind = "end"
+
+[[scenes]]
+id = "scene_opening_galen_shore"
+source = "galen_shore"
+entry = "opening_galen_shore_line"
+summary = "Galen studies Mae's pencilled defect list. 'She came to close the carriage, not inspect it. Once Mae wrote a question mark, somebody lost a shift.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_galen_shore_line"
+scene = "scene_opening_galen_shore"
+kind = "line"
+speaker = "galen_shore"
+text = "Galen studies Mae's pencilled defect list. 'She came to close the carriage, not inspect it. Once Mae wrote a question mark, somebody lost a shift.'"
+next = "opening_galen_shore_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_galen_shore_end"
+scene = "scene_opening_galen_shore"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_galen_shore"
+source = "galen_shore"
+entry = "account_galen_shore_line"
+summary = "Galen rubs black grease from his cuff. 'Everyone in the bay knew the hatch was temperamental.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_galen_shore_line"
+scene = "scene_account_galen_shore"
+kind = "line"
+speaker = "galen_shore"
+text = "Galen rubs black grease from his cuff. 'Everyone in the bay knew the hatch was temperamental.'"
+next = "account_galen_shore_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_galen_shore_end"
+scene = "scene_account_galen_shore"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_galen_shore"
+source = "galen_shore"
+entry = "approach_galen_shore_line"
+summary = "'Broken is your word. I said it needed persuasion.' Galen glances at the still-fastened hatch."
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_galen_shore_line"
+scene = "scene_approach_galen_shore"
+kind = "line"
+speaker = "galen_shore"
+text = "'Broken is your word. I said it needed persuasion.' Galen glances at the still-fastened hatch."
+next = "approach_galen_shore_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_galen_shore_end"
+scene = "scene_approach_galen_shore"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_opening_tari_noll"
+source = "tari_noll"
+entry = "opening_tari_noll_line"
+summary = "Tari gives the movement number first. 'Mae asked whether the carriage had travelled off-book. I told her to read the log. I last saw her climb aboard alone.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_tari_noll_line"
+scene = "scene_opening_tari_noll"
+kind = "line"
+speaker = "tari_noll"
+text = "Tari gives the movement number first. 'Mae asked whether the carriage had travelled off-book. I told her to read the log. I last saw her climb aboard alone.'"
+next = "opening_tari_noll_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_tari_noll_end"
+scene = "scene_opening_tari_noll"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_tari_noll"
+source = "tari_noll"
+entry = "account_tari_noll_line"
+summary = "Tari reads the movement numbers back without looking up. 'I borrowed the carriage Tuesday. No authority, no spotter, no accident.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_tari_noll_line"
+scene = "scene_account_tari_noll"
+kind = "line"
+speaker = "tari_noll"
+text = "Tari reads the movement numbers back without looking up. 'I borrowed the carriage Tuesday. No authority, no spotter, no accident.'"
+next = "account_tari_noll_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_tari_noll_end"
+scene = "scene_account_tari_noll"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_tari_noll"
+source = "tari_noll"
+entry = "approach_tari_noll_line"
+summary = "'I changed Tuesday to save my post. Tonight's switch contacts are not mine.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_tari_noll_line"
+scene = "scene_approach_tari_noll"
+kind = "line"
+speaker = "tari_noll"
+text = "'I changed Tuesday to save my post. Tonight's switch contacts are not mine.'"
+next = "approach_tari_noll_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_tari_noll_end"
+scene = "scene_approach_tari_noll"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_opening_esme_park"
+source = "esme_park"
+entry = "opening_esme_park_line"
+summary = "Esme aligns two photographs. 'Mae distrusted fleet numbers after the repaint. She asked me to preserve every scratch before maintenance touched the car.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_esme_park_line"
+scene = "scene_opening_esme_park"
+kind = "line"
+speaker = "esme_park"
+text = "Esme aligns two photographs. 'Mae distrusted fleet numbers after the repaint. She asked me to preserve every scratch before maintenance touched the car.'"
+next = "opening_esme_park_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_esme_park_end"
+scene = "scene_opening_esme_park"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_esme_park"
+source = "esme_park"
+entry = "account_esme_park_line"
+summary = "Esme lays the prints edge to edge. 'The camera cannot read a car number, so I use scars in the glass.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_esme_park_line"
+scene = "scene_account_esme_park"
+kind = "line"
+speaker = "esme_park"
+text = "Esme lays the prints edge to edge. 'The camera cannot read a car number, so I use scars in the glass.'"
+next = "account_esme_park_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_esme_park_end"
+scene = "scene_account_esme_park"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_esme_park"
+source = "esme_park"
+entry = "approach_esme_park_line"
+summary = "Her pencil stops at one window. 'This scratch left frame and returned. The carriage moved.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_esme_park_line"
+scene = "scene_approach_esme_park"
+kind = "line"
+speaker = "esme_park"
+text = "Her pencil stops at one window. 'This scratch left frame and returned. The carriage moved.'"
+next = "approach_esme_park_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_esme_park_end"
+scene = "scene_approach_esme_park"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]

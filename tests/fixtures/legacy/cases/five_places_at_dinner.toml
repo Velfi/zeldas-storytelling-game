@@ -1,0 +1,631 @@
+version = "MurderScript v1"
+id = "five_places_at_dinner"
+title = "Five Places at Dinner"
+introduction = "Imogen Saye has died at a foundation dinner where a last-minute place-card exchange changed the target."
+action_point_limit = 12
+reveal_location = "reception_room"
+city_start = "saye_foundation_gallery"
+city_destination = "saye_foundation_gallery"
+tutorial = ""
+seed = 20260718
+
+[[city_locations]]
+id = "saye_foundation_gallery"
+display_name = "SAYE FOUNDATION GALLERY"
+level_spawn = "spawn_player"
+city_site = "old_market_venue"
+
+[[characters]]
+id = "imogen"
+display_name = "Imogen Saye"
+role = "victim"
+description = "Imogen Saye intended to announce a change in the foundation leadership after dinner. She habitually altered place cards herself when conversation mattered more than rank, so nobody agrees whether the final seating was accident, kindness, or warning."
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = []
+
+[[characters]]
+id = "felix"
+display_name = "Felix Dorr"
+role = "suspect"
+description = "Curator who treats arrangements as fixed facts and quietly substitutes authority for memory."
+private_secret = "sold collection pieces and replaced them with copies"
+motive = "sold collection pieces and replaced them with copies"
+initial_disposition = 0
+initial_claims = ["felix_seat_claim"]
+
+[[characters]]
+id = "alma"
+display_name = "Alma Voss"
+role = "suspect"
+description = "Beneficiary determined to be recognized as family, especially when etiquette says she is merely a guest."
+private_secret = "a hidden family relationship"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_alma_secret"]
+
+[[characters]]
+id = "ren"
+display_name = "Ren Park"
+role = "suspect"
+description = "Caterer who reconstructs events through courses, counts, seals, and the chain of service."
+private_secret = "unlicensed deliveries"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_ren_secret"]
+
+[[locations]]
+id = "reception_room"
+display_name = "RECEPTION ROOM"
+description = "Reception Room preserves one part of the evening chronology."
+connections = ["dining_room"]
+characters = ["felix"]
+pois = ["seating_chart", "felix_seat_testimony"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "dining_room"
+display_name = "DINING ROOM"
+description = "Dining Room preserves one part of the evening chronology."
+connections = ["reception_room", "serving_pantry"]
+characters = ["alma"]
+pois = ["poisoned_rim", "condensation_rings", "place_cards"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "serving_pantry"
+display_name = "SERVING PANTRY"
+description = "Serving Pantry preserves one part of the evening chronology."
+connections = ["dining_room", "terrace"]
+characters = ["ren"]
+pois = ["planted_poison", "ren_invoices"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "terrace"
+display_name = "TERRACE"
+description = "Terrace preserves one part of the evening chronology."
+connections = ["serving_pantry", "collection_gallery"]
+characters = []
+pois = ["family_letter"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "collection_gallery"
+display_name = "COLLECTION GALLERY"
+description = "Collection Gallery preserves one part of the evening chronology."
+connections = ["terrace"]
+characters = []
+pois = ["gallery_reflection"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[pois]]
+id = "poisoned_rim"
+display_name = "Poisoned Glass Rim"
+kind = "trace"
+location = "dining_room"
+owner = ""
+description = "Poison sits beneath one rim, not in the shared wine."
+relevant_state = "Poison sits beneath one rim, not in the shared wine."
+examination_action = "examine"
+
+[[pois]]
+id = "condensation_rings"
+display_name = "Condensation Rings"
+kind = "trace"
+location = "dining_room"
+owner = ""
+description = "Two glasses moved after pouring."
+relevant_state = "Two glasses moved after pouring."
+examination_action = "examine"
+
+[[pois]]
+id = "place_cards"
+display_name = "Place Cards"
+kind = "object"
+location = "dining_room"
+owner = ""
+description = "Alma's fingerprints preserve the first arrangement."
+relevant_state = "Alma's fingerprints preserve the first arrangement."
+examination_action = "examine"
+
+[[pois]]
+id = "seating_chart"
+display_name = "Corrected Seating Chart"
+kind = "object"
+location = "reception_room"
+owner = ""
+description = "A fresh correction is concealed beneath the frame."
+relevant_state = "A fresh correction is concealed beneath the frame."
+examination_action = "examine"
+
+[[pois]]
+id = "gallery_reflection"
+display_name = "Gallery Reflection"
+kind = "scene"
+location = "collection_gallery"
+owner = ""
+description = "Framed art preserves the original table arrangement."
+relevant_state = "Framed art preserves the original table arrangement."
+examination_action = "examine"
+
+[[pois]]
+id = "planted_poison"
+display_name = "Poison in Caterer's Kit"
+kind = "object"
+location = "serving_pantry"
+owner = ""
+description = "The vial was added after service began."
+relevant_state = "The vial was added after service began."
+examination_action = "examine"
+
+[[pois]]
+id = "family_letter"
+display_name = "Alma's Family Letter"
+kind = "object"
+location = "terrace"
+owner = ""
+description = "The letter explains her place-card exchange."
+relevant_state = "The letter explains her place-card exchange."
+examination_action = "examine"
+
+[[pois]]
+id = "ren_invoices"
+display_name = "Ren's Delivery Invoices"
+kind = "object"
+location = "serving_pantry"
+owner = ""
+description = "The invoices explain the unlicensed side business."
+relevant_state = "The invoices explain the unlicensed side business."
+examination_action = "examine"
+
+[[pois]]
+id = "felix_seat_testimony"
+display_name = "Felix's Seat Description"
+kind = "scene"
+location = "reception_room"
+owner = ""
+description = "Felix describes Imogen drinking at a seat he claims was never hers."
+relevant_state = "Felix describes Imogen drinking at a seat he claims was never hers."
+examination_action = "examine"
+
+[[events]]
+id = "event_1"
+time = "19:05"
+actor = "felix"
+action = "place"
+target = "poisoned_rim"
+source = "dining_room"
+destination = "dining_room"
+tool = ""
+effects = ["place_complete"]
+witnesses = []
+
+[[events]]
+id = "event_2"
+time = "19:12"
+actor = "alma"
+action = "alter"
+target = "place_cards"
+source = "dining_room"
+destination = "dining_room"
+tool = ""
+effects = ["alter_complete"]
+witnesses = []
+
+[[events]]
+id = "event_3"
+time = "19:16"
+actor = "felix"
+action = "alter"
+target = "condensation_rings"
+source = "dining_room"
+destination = "dining_room"
+tool = ""
+effects = ["alter_complete"]
+witnesses = []
+
+[[events]]
+id = "event_4"
+time = "19:34"
+actor = "felix"
+action = "hide"
+target = "planted_poison"
+source = "collection_gallery"
+destination = "serving_pantry"
+tool = ""
+effects = ["hide_complete"]
+witnesses = []
+
+[[claims]]
+id = "felix_seat_claim"
+speaker = "felix"
+proposition = "Felix never knew Imogen's original seat."
+true = false
+protects = "murder"
+response = "Felix never knew Imogen's original seat."
+
+[[claims]]
+id = "claim_alma_secret"
+speaker = "alma"
+proposition = "Alma Voss denies a hidden family relationship."
+true = false
+protects = "a hidden family relationship"
+response = "Alma Voss denies a hidden family relationship."
+
+[[claims]]
+id = "claim_ren_secret"
+speaker = "ren"
+proposition = "Ren Park denies unlicensed deliveries."
+true = false
+protects = "unlicensed deliveries"
+response = "Ren Park denies unlicensed deliveries."
+
+[[clues]]
+id = "clue_poisoned_rim"
+source = "poisoned_rim"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "Poison sits beneath one rim, not in the shared wine."
+proposition = "Poison sits beneath one rim, not in the shared wine."
+blocks = ["weapon_poison"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[clues]]
+id = "clue_condensation_rings"
+source = "condensation_rings"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Two glasses moved after pouring."
+proposition = "Two glasses moved after pouring."
+blocks = ["place_dining_room"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[clues]]
+id = "clue_place_cards"
+source = "place_cards"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 3
+cost = 1
+prerequisites = []
+description = "Alma's fingerprints preserve the first arrangement."
+proposition = "Alma's fingerprints preserve the first arrangement."
+blocks = ["time_after_service"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[clues]]
+id = "clue_seating_chart"
+source = "seating_chart"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "A fresh correction is concealed beneath the frame."
+proposition = "A fresh correction is concealed beneath the frame."
+blocks = ["route_glass_swap"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[clues]]
+id = "clue_gallery_reflection"
+source = "gallery_reflection"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Framed art preserves the original table arrangement."
+proposition = "Framed art preserves the original table arrangement."
+blocks = ["staged_pantry"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[clues]]
+id = "clue_planted_poison"
+source = "planted_poison"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 3
+cost = 1
+prerequisites = []
+description = "The vial was added after service began."
+proposition = "The vial was added after service began."
+blocks = ["chart_coverup"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[clues]]
+id = "clue_family_letter"
+source = "alma"
+discovery_action = "dialogue"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "The letter explains her place-card exchange."
+proposition = "The letter explains her place-card exchange."
+blocks = ["exclude_alma"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[clues]]
+id = "clue_ren_invoices"
+source = "ren"
+discovery_action = "dialogue"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "The invoices explain the unlicensed side business."
+proposition = "The invoices explain the unlicensed side business."
+blocks = ["exclude_ren"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[clues]]
+id = "clue_felix_seat_testimony"
+source = "felix"
+discovery_action = "dialogue"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 3
+cost = 1
+prerequisites = []
+description = "Felix describes Imogen drinking at a seat he claims was never hers."
+proposition = "Felix describes Imogen drinking at a seat he claims was never hers."
+blocks = ["weapon_poison", "place_dining_room", "time_after_service", "route_glass_swap", "staged_pantry", "chart_coverup", "false_seating_alibi", "felix_seat_claim"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[dialogue_approaches]]
+id = "opening_felix"
+character = "felix"
+prompt = "Tell me about Imogen Saye. What did they want tonight?"
+response = "Felix looks toward Imogen's portrait. 'She said there would be an announcement after dessert. With Imogen, an announcement meant somebody's chair was about to move.'"
+clue = ""
+requires_clues = []
+requires_claims = ["felix_seat_claim"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_felix"]
+
+[[dialogue_approaches]]
+id = "account_felix"
+character = "felix"
+prompt = "Which place was meant for Imogen?"
+response = "'After Ambrose, every Marigold record is treated like a confession.' Felix studies the corrected chart rather than the table. 'The patron sat beneath the Saye portrait.'"
+clue = ""
+requires_clues = []
+requires_claims = ["felix_seat_claim"]
+requires_topics = ["account_ready_felix"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_felix"]
+
+[[dialogue_approaches]]
+id = "approach_felix"
+character = "felix"
+prompt = "Then account for the poisoned glass rim."
+response = "He points to the final card, not its pale rectangular shadow. 'Ask the caterer. The settings were fixed before service.'"
+clue = "clue_felix_seat_testimony"
+requires_clues = ["clue_poisoned_rim"]
+requires_claims = ["felix_seat_claim"]
+requires_topics = ["followup_felix"]
+unlock_clues = ["clue_felix_seat_testimony"]
+unlock_claims = []
+unlock_topics = ["marigold_reconstruction"]
+
+[[dialogue_approaches]]
+id = "opening_alma"
+character = "alma"
+prompt = "Tell me about Imogen Saye. What did they want tonight?"
+response = "Alma touches the unused place card. 'She promised we would speak as family tonight. I was tired of being introduced as a beneficiary.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_alma_secret"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_alma"]
+
+[[dialogue_approaches]]
+id = "account_alma"
+character = "alma"
+prompt = "Why did you exchange the place cards?"
+response = "Alma presses a family letter flat beneath her palm. 'Imogen seated me as a beneficiary. I moved beside her because I intended to speak as family.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_alma_secret"]
+requires_topics = ["account_ready_alma"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_alma"]
+
+[[dialogue_approaches]]
+id = "approach_alma"
+character = "alma"
+prompt = "Then account for the place cards."
+response = "'I changed two names, not two glasses. The condensation was already on the cloth.'"
+clue = "clue_family_letter"
+requires_clues = ["clue_place_cards"]
+requires_claims = ["claim_alma_secret"]
+requires_topics = ["followup_alma"]
+unlock_clues = ["clue_family_letter"]
+unlock_claims = []
+unlock_topics = ["marigold_reconstruction"]
+
+[[dialogue_approaches]]
+id = "opening_ren"
+character = "ren"
+prompt = "Tell me about Imogen Saye. What did they want tonight?"
+response = "Ren counts backward through the courses. 'She changed nothing on my menu, but twice asked when the room would be empty. That was not a question about food.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_ren_secret"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_ren"]
+
+[[dialogue_approaches]]
+id = "account_ren"
+character = "ren"
+prompt = "Who handled the glasses after you poured?"
+response = "Ren counts the service in courses. 'I poured five, set five, and went back for the fish. Nobody from my staff returned.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_ren_secret"]
+requires_topics = ["account_ready_ren"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_ren"]
+
+[[dialogue_approaches]]
+id = "approach_ren"
+character = "ren"
+prompt = "Then account for the gallery reflection."
+response = "A thumbnail finds the cut on one foil capsule. 'That vial was not in my kit when I opened it.'"
+clue = "clue_ren_invoices"
+requires_clues = ["clue_gallery_reflection"]
+requires_claims = ["claim_ren_secret"]
+requires_topics = ["followup_ren"]
+unlock_clues = ["clue_ren_invoices"]
+unlock_claims = []
+unlock_topics = ["marigold_reconstruction"]
+
+[[contradictions]]
+id = "decisive_contradiction"
+claim = "felix_seat_claim"
+fact = "clue_felix_seat_testimony"
+conclusion = "Felix Dorr possesses knowledge available only to the culprit."
+explanation = "The physical reconstruction contradicts Felix Dorr's account."
+
+[[deductions]]
+id = "deduce_original_seating"
+proposition = "The cards record an arrangement different from the glasses."
+category = "where_when"
+unlock_questions = []
+unlock_topics = ["marigold_reconstruction"]
+unlock_investigations = []
+
+[[deductions]]
+id = "deduce_targeted_glass"
+proposition = "Poison was applied to one glass before the swap."
+category = "what"
+unlock_questions = []
+unlock_topics = ["marigold_reconstruction"]
+unlock_investigations = []
+
+[[deductions]]
+id = "deduce_chart_forgery"
+proposition = "Felix corrected the chart after seeing the changed table."
+category = "contradiction"
+unlock_questions = []
+unlock_topics = ["marigold_reconstruction"]
+unlock_investigations = []
+
+[[questions]]
+id = "question_1"
+prompt = "What does the evidence prove about: The cards record an arrangement different from the glasses."
+hypothesis = "The cards record an arrangement different from the glasses."
+category = "where_when"
+requires_clues = ["clue_poisoned_rim", "clue_condensation_rings"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_1"
+question = "question_1"
+mode = "physical"
+resolution = "substantiated"
+result = "The cards record an arrangement different from the glasses."
+prompt = "Pair the two observations that establish: The cards record an arrangement different from the glasses."
+slot_labels = ["First fact", "Corroborating fact"]
+slot_types = ["observation", "observation"]
+accepted_pieces = ["clue_poisoned_rim", "clue_condensation_rings"]
+result_deductions = ["deduce_original_seating"]
+
+[[questions]]
+id = "question_2"
+prompt = "What does the evidence prove about: Poison was applied to one glass before the swap."
+hypothesis = "Poison was applied to one glass before the swap."
+category = "what"
+requires_clues = ["clue_place_cards", "clue_seating_chart"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_2"
+question = "question_2"
+mode = "timeline"
+resolution = "substantiated"
+result = "Poison was applied to one glass before the swap."
+prompt = "Pair the two observations that establish: Poison was applied to one glass before the swap."
+slot_labels = ["First fact", "Corroborating fact"]
+slot_types = ["observation", "observation"]
+accepted_pieces = ["clue_place_cards", "clue_seating_chart"]
+result_deductions = ["deduce_targeted_glass"]
+
+[[questions]]
+id = "question_3"
+prompt = "What does the evidence prove about: Felix corrected the chart after seeing the changed table."
+hypothesis = "Felix corrected the chart after seeing the changed table."
+category = "contradiction"
+requires_clues = ["clue_gallery_reflection", "clue_planted_poison"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_3"
+question = "question_3"
+mode = "confrontation"
+resolution = "substantiated"
+result = "Felix corrected the chart after seeing the changed table."
+prompt = "Pair the two observations that establish: Felix corrected the chart after seeing the changed table."
+slot_labels = ["First fact", "Corroborating fact"]
+slot_types = ["observation", "observation"]
+accepted_pieces = ["clue_gallery_reflection", "clue_planted_poison"]
+result_deductions = ["deduce_chart_forgery"]
+
+[solution]
+culprit = "felix"
+motive = "clue_felix_seat_testimony"
+decisive_contradiction = "decisive_contradiction"
+weapon_block = "weapon_poison"
+murder_place_block = "place_dining_room"
+death_time_block = "time_after_service"
+body_movement_block = "route_glass_swap"
+staging_block = "staged_pantry"
+cleaning_block = "chart_coverup"
+alibi_block = "false_seating_alibi"
+murder_events = ["event_1"]
+cover_up_events = ["event_2", "event_3", "event_4"]
+false_alibi = ["felix_seat_claim"]
+exclusions = ["alma", "ren"]

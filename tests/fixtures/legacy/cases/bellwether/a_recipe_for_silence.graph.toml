@@ -1,0 +1,252 @@
+version = "GraphMode v1"
+case_id = "a_recipe_for_silence"
+revision = 0
+
+[[scenes]]
+id = "scene_opening_adrian_moss"
+source = "adrian_moss"
+entry = "opening_adrian_moss_line"
+summary = "Adrian polishes an already clean spoon. 'Livia promised to explain her decision before naming the winner. She believed disappointment should be served privately.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_adrian_moss_line"
+scene = "scene_opening_adrian_moss"
+kind = "line"
+speaker = "adrian_moss"
+text = "Adrian polishes an already clean spoon. 'Livia promised to explain her decision before naming the winner. She believed disappointment should be served privately.'"
+next = "opening_adrian_moss_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_adrian_moss_end"
+scene = "scene_opening_adrian_moss"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+
+[[scenes]]
+id = "scene_account_adrian_moss"
+source = "adrian_moss"
+entry = "account_adrian_moss_line"
+summary = "'You cleared Ruth and Theo by listening past their shame. Try the same courtesy here.' Adrian wipes an already clean spoon. 'Everyone saw Livia fall after the broth.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_adrian_moss_line"
+scene = "scene_account_adrian_moss"
+kind = "line"
+speaker = "adrian_moss"
+text = "'You cleared Ruth and Theo by listening past their shame. Try the same courtesy here.' Adrian wipes an already clean spoon. 'Everyone saw Livia fall after the broth.'"
+next = "account_adrian_moss_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_adrian_moss_end"
+scene = "scene_account_adrian_moss"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_adrian_moss"
+source = "adrian_moss"
+entry = "approach_adrian_moss_line"
+summary = "You leave the covered dishes in place. Adrian points past the broth bowl. 'Test the herb course if you like. That is where you'll find it.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_adrian_moss_line"
+scene = "scene_approach_adrian_moss"
+kind = "line"
+speaker = "adrian_moss"
+text = "You leave the covered dishes in place. Adrian points past the broth bowl. 'Test the herb course if you like. That is where you'll find it.'"
+next = "approach_adrian_moss_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_adrian_moss_end"
+scene = "scene_approach_adrian_moss"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+
+[[scenes]]
+id = "scene_opening_tessa_bloom"
+source = "tessa_bloom"
+entry = "opening_tessa_bloom_line"
+summary = "Tessa sorts leaves by scent. 'Livia asked who had taught me the broth. She was not judging flavor by then; she was tracing ownership.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_tessa_bloom_line"
+scene = "scene_opening_tessa_bloom"
+kind = "line"
+speaker = "tessa_bloom"
+text = "Tessa sorts leaves by scent. 'Livia asked who had taught me the broth. She was not judging flavor by then; she was tracing ownership.'"
+next = "opening_tessa_bloom_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_tessa_bloom_end"
+scene = "scene_opening_tessa_bloom"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+
+[[scenes]]
+id = "scene_account_tessa_bloom"
+source = "tessa_bloom"
+entry = "account_tessa_bloom_line"
+summary = "Tessa sorts the leaves by scent. 'Because Gabe's seal was on my jar, and people here remember his last scandal.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_tessa_bloom_line"
+scene = "scene_account_tessa_bloom"
+kind = "line"
+speaker = "tessa_bloom"
+text = "Tessa sorts the leaves by scent. 'Because Gabe's seal was on my jar, and people here remember his last scandal.'"
+next = "account_tessa_bloom_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_tessa_bloom_end"
+scene = "scene_account_tessa_bloom"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_tessa_bloom"
+source = "tessa_bloom"
+entry = "approach_tessa_bloom_line"
+summary = "'The herbs were harmless. Someone wanted the swap noticed more than they wanted it to work.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_tessa_bloom_line"
+scene = "scene_approach_tessa_bloom"
+kind = "line"
+speaker = "tessa_bloom"
+text = "'The herbs were harmless. Someone wanted the swap noticed more than they wanted it to work.'"
+next = "approach_tessa_bloom_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_tessa_bloom_end"
+scene = "scene_approach_tessa_bloom"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+
+[[scenes]]
+id = "scene_opening_gabe_noor"
+source = "gabe_noor"
+entry = "opening_gabe_noor_line"
+summary = "Gabe counts the tasting spoons. 'Livia rinsed her own engraved one between courses. She said shared tools made for shared excuses.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_gabe_noor_line"
+scene = "scene_opening_gabe_noor"
+kind = "line"
+speaker = "gabe_noor"
+text = "Gabe counts the tasting spoons. 'Livia rinsed her own engraved one between courses. She said shared tools made for shared excuses.'"
+next = "opening_gabe_noor_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_gabe_noor_end"
+scene = "scene_opening_gabe_noor"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+
+[[scenes]]
+id = "scene_account_gabe_noor"
+source = "gabe_noor"
+entry = "account_gabe_noor_line"
+summary = "Gabe counts spoons into their rack. 'I was meeting Tessa. We used the steam as cover because Bellwether notices everything.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_gabe_noor_line"
+scene = "scene_account_gabe_noor"
+kind = "line"
+speaker = "gabe_noor"
+text = "Gabe counts spoons into their rack. 'I was meeting Tessa. We used the steam as cover because Bellwether notices everything.'"
+next = "account_gabe_noor_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_gabe_noor_end"
+scene = "scene_account_gabe_noor"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_gabe_noor"
+source = "gabe_noor"
+entry = "approach_gabe_noor_line"
+summary = "'Adrian washed one engraved spoon separately, then carried it back himself.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_gabe_noor_line"
+scene = "scene_approach_gabe_noor"
+kind = "line"
+speaker = "gabe_noor"
+text = "'Adrian washed one engraved spoon separately, then carried it back himself.'"
+next = "approach_gabe_noor_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_gabe_noor_end"
+scene = "scene_approach_gabe_noor"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+

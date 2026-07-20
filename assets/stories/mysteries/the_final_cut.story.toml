@@ -1,0 +1,1481 @@
+version = "InteractiveStory v1"
+id = "the_final_cut"
+title = "The Final Cut"
+creator = "Chicago conversion tool"
+description = "Leon Pike is dead in a private screening room. Vera Sloane's altered workprint is the clock."
+content_version = "1.0.0"
+default_space = "the_final_cut_lot"
+revision = 0
+
+[[capabilities]]
+id = "mystery"
+version = "1"
+
+[[entities]]
+id = "leon"
+kind = "character"
+display_name = "Leon Pike"
+description = "Leon Pike came to the screening determined to restore a sequence the studio wanted removed. He argued in images, then waited through the entire reel before asking anyone for an answer."
+space_id = ""
+target_kind = "entity"
+target_id = ""
+tags = ["victim"]
+roles = []
+
+[[entities]]
+id = "vera"
+kind = "character"
+display_name = "Vera Sloane"
+description = "Editor who reconstructs memory as shots and cuts, adding visual precision where sound evidence fails."
+space_id = "the_final_cut_lot"
+target_kind = "marker"
+target_id = "spawn_vera"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "iris"
+kind = "character"
+display_name = "Iris Chen"
+description = "Film archivist who identifies evidence through edge codes, frame ranges, and custody."
+space_id = "the_final_cut_lot"
+target_kind = "marker"
+target_id = "spawn_iris"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "mal"
+kind = "character"
+display_name = "Mal Reed"
+description = "Projectionist whose concealed screenings make him evasive about logs but exact about acoustics."
+space_id = "the_final_cut_lot"
+target_kind = "marker"
+target_id = "spawn_mal"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "screening_room"
+kind = "location"
+display_name = "SCREENING ROOM"
+description = "Screening Room preserves physical evidence in the staged chronology."
+space_id = "the_final_cut_lot"
+target_kind = "room"
+target_id = "screening_room"
+tags = []
+roles = []
+
+[[entities]]
+id = "projection_booth"
+kind = "location"
+display_name = "PROJECTION BOOTH"
+description = "Projection Booth preserves physical evidence in the staged chronology."
+space_id = "the_final_cut_lot"
+target_kind = "room"
+target_id = "projection_booth"
+tags = []
+roles = []
+
+[[entities]]
+id = "editing_suite"
+kind = "location"
+display_name = "EDITING SUITE"
+description = "Editing Suite preserves physical evidence in the staged chronology."
+space_id = "the_final_cut_lot"
+target_kind = "room"
+target_id = "editing_suite"
+tags = []
+roles = []
+
+[[entities]]
+id = "film_vault"
+kind = "location"
+display_name = "FILM VAULT"
+description = "Film Vault preserves physical evidence in the staged chronology."
+space_id = "the_final_cut_lot"
+target_kind = "room"
+target_id = "film_vault"
+tags = []
+roles = []
+
+[[entities]]
+id = "studio_corridor"
+kind = "location"
+display_name = "STUDIO CORRIDOR"
+description = "Studio Corridor preserves physical evidence in the staged chronology."
+space_id = "the_final_cut_lot"
+target_kind = "room"
+target_id = "studio_corridor"
+tags = []
+roles = []
+
+[[entities]]
+id = "projector"
+kind = "object"
+display_name = "Film Projector"
+description = "Film Projector is preserved as an inspectable part of the crime scene."
+space_id = "the_final_cut_lot"
+target_kind = "marker"
+target_id = "marker_projector"
+tags = []
+roles = []
+
+[[entities]]
+id = "seat_blood"
+kind = "object"
+display_name = "Blood Beneath Moved Seat"
+description = "Blood Beneath Moved Seat is preserved as an inspectable part of the crime scene."
+space_id = "the_final_cut_lot"
+target_kind = "marker"
+target_id = "marker_seat_blood"
+tags = []
+roles = []
+
+[[entities]]
+id = "workprint"
+kind = "object"
+display_name = "Freshly Spliced Workprint"
+description = "Freshly Spliced Workprint is preserved as an inspectable part of the crime scene."
+space_id = "the_final_cut_lot"
+target_kind = "marker"
+target_id = "marker_workprint"
+tags = []
+roles = []
+
+[[entities]]
+id = "film_dust"
+kind = "object"
+display_name = "Film Dust in Editing Bin"
+description = "Film Dust in Editing Bin is preserved as an inspectable part of the crime scene."
+space_id = "the_final_cut_lot"
+target_kind = "marker"
+target_id = "marker_film_dust"
+tags = []
+roles = []
+
+[[entities]]
+id = "vault_log"
+kind = "object"
+display_name = "Vault Checkout Log"
+description = "Vault Checkout Log is preserved as an inspectable part of the crime scene."
+space_id = "the_final_cut_lot"
+target_kind = "marker"
+target_id = "marker_vault_log"
+tags = []
+roles = []
+
+[[entities]]
+id = "removed_frames"
+kind = "object"
+display_name = "Mislabeled Reel of Removed Frames"
+description = "Mislabeled Reel of Removed Frames is preserved as an inspectable part of the crime scene."
+space_id = "the_final_cut_lot"
+target_kind = "marker"
+target_id = "marker_removed_frames"
+tags = []
+roles = []
+
+[[entities]]
+id = "booth_door"
+kind = "object"
+display_name = "Sound-insulating Booth Door"
+description = "Sound-insulating Booth Door is preserved as an inspectable part of the crime scene."
+space_id = "the_final_cut_lot"
+target_kind = "marker"
+target_id = "marker_booth_door"
+tags = []
+roles = []
+
+[[propositions]]
+id = "claim_culprit_account"
+text = "Vera heard Leon answer while the projector ran."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "claim_iris_secret"
+text = "Iris Chen conceals unrelated misconduct."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "claim_mal_secret"
+text = "Mal Reed conceals unrelated misconduct."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_1"
+text = "Projector noise makes the claimed conversation unintelligible."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_2"
+text = "Leon's blood lies beneath a seat moved before the alleged death time."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_3"
+text = "The workprint has a fresh splice and missing frames."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_4"
+text = "Film dust from the missing section remains in Vera's editing bin."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_5"
+text = "The vault checkout contradicts Vera's account."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_6"
+text = "Iris copied footage but lacked the murder opportunity."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_7"
+text = "Mal's illicit club explains his false booth log."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_8"
+text = "Vera describes an image absent from her claimed version."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_9"
+text = "The removed frames are inside a reel Vera alone handled."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "ded_1"
+text = "The projector made the alleged conversation impossible."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "ded_2"
+text = "The altered film created a false time of death."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "ded_3"
+text = "Vera edited the workprint after killing Leon."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "ded_4"
+text = "Vera's knowledge of the absent image proves the staging."
+canonical_truth = "undetermined"
+
+[[events]]
+id = "crime"
+subject = "vera"
+action = "kill"
+object = "leon"
+location = "screening_room"
+fictional_time = "20:10"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[events]]
+id = "staging"
+subject = "vera"
+action = "alter"
+object = "leon"
+location = "screening_room"
+fictional_time = "20:25"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[conditions]]
+id = "condition.always"
+kind = "always"
+children = []
+variable = ""
+entity = ""
+other_entity = ""
+proposition = ""
+objective = ""
+event = ""
+content = ""
+text = ""
+space_a = ""
+target_a = ""
+space_b = ""
+target_b = ""
+distance = 0
+value_kind = "boolean"
+boolean_value = false
+integer_value = 0
+text_value = ""
+comparison = 0
+objective_status = 0
+stance = "uncertain"
+
+[[scenes]]
+id = "scene_opening_vera"
+display_name = "Vera looks toward the dead projector beam. 'Leon wanted the orchard restored to the final cut. He said we would watch the whole reel before either of us defended ourselves.'"
+entry_node = "opening_vera_line"
+bound_entity = "vera"
+summary = "Vera looks toward the dead projector beam. 'Leon wanted the orchard restored to the final cut. He said we would watch the whole reel before either of us defended ourselves.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_vera"
+display_name = "Vera frames the answer like a cut. 'His door opened. His silhouette crossed the beam. Then he answered.'"
+entry_node = "account_vera_line"
+bound_entity = "vera"
+summary = "Vera frames the answer like a cut. 'His door opened. His silhouette crossed the beam. Then he answered.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_vera"
+display_name = "'The orchard burned white behind him.' Vera looks toward the reel can, then away."
+entry_node = "approach_vera_line"
+bound_entity = "vera"
+summary = "'The orchard burned white behind him.' Vera looks toward the reel can, then away."
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_opening_iris"
+display_name = "Iris names the reel by edge code. 'Leon asked me to verify which version entered the vault. He was worried about an alteration, not a screening.'"
+entry_node = "opening_iris_line"
+bound_entity = "iris"
+summary = "Iris names the reel by edge code. 'Leon asked me to verify which version entered the vault. He was worried about an alteration, not a screening.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_iris"
+display_name = "Iris names edge codes instead of titles. 'Reel three, frames twelve hundred through eighteen hundred. Insurance reference, nothing more.'"
+entry_node = "account_iris_line"
+bound_entity = "iris"
+summary = "Iris names edge codes instead of titles. 'Reel three, frames twelve hundred through eighteen hundred. Insurance reference, nothing more.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_iris"
+display_name = "'Vera's missing orchard shot was outside my copy. My dust is absent from her fresh splice.'"
+entry_node = "approach_iris_line"
+bound_entity = "iris"
+summary = "'Vera's missing orchard shot was outside my copy. My dust is absent from her fresh splice.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_opening_mal"
+display_name = "Mal keeps his voice low. 'Leon stayed after the private audience left. He asked me to run the projector at full speed and keep the booth shut.'"
+entry_node = "opening_mal_line"
+bound_entity = "mal"
+summary = "Mal keeps his voice low. 'Leon stayed after the private audience left. He asked me to run the projector at full speed and keep the booth shut.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_mal"
+display_name = "Mal lowers his voice although the booth door is shut. 'I ran a private screening after hours and wrote Leon's name over mine.'"
+entry_node = "account_mal_line"
+bound_entity = "mal"
+summary = "Mal lowers his voice although the booth door is shut. 'I ran a private screening after hours and wrote Leon's name over mine.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_mal"
+display_name = "'The door kills conversation at full projector speed. Whatever Vera heard, it was not an answer from inside.'"
+entry_node = "approach_mal_line"
+bound_entity = "mal"
+summary = "'The door kills conversation at full projector speed. Whatever Vera heard, it was not an answer from inside.'"
+return_to = "investigation"
+
+[[nodes]]
+id = "opening_vera_line"
+scene = "scene_opening_vera"
+kind = "line"
+line_id = "opening_vera_line"
+speaker = "vera"
+text = "Vera looks toward the dead projector beam. 'Leon wanted the orchard restored to the final cut. He said we would watch the whole reel before either of us defended ourselves.'"
+next = "opening_vera_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_vera_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_vera_end"
+scene = "scene_opening_vera"
+kind = "end"
+line_id = "opening_vera_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_vera_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_vera_line"
+scene = "scene_account_vera"
+kind = "line"
+line_id = "account_vera_line"
+speaker = "vera"
+text = "Vera frames the answer like a cut. 'His door opened. His silhouette crossed the beam. Then he answered.'"
+next = "account_vera_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_vera_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_vera_end"
+scene = "scene_account_vera"
+kind = "end"
+line_id = "account_vera_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_vera_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_vera_line"
+scene = "scene_approach_vera"
+kind = "line"
+line_id = "approach_vera_line"
+speaker = "vera"
+text = "'The orchard burned white behind him.' Vera looks toward the reel can, then away."
+next = "approach_vera_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_vera_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_vera_end"
+scene = "scene_approach_vera"
+kind = "end"
+line_id = "approach_vera_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_vera_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_iris_line"
+scene = "scene_opening_iris"
+kind = "line"
+line_id = "opening_iris_line"
+speaker = "iris"
+text = "Iris names the reel by edge code. 'Leon asked me to verify which version entered the vault. He was worried about an alteration, not a screening.'"
+next = "opening_iris_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_iris_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_iris_end"
+scene = "scene_opening_iris"
+kind = "end"
+line_id = "opening_iris_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_iris_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_iris_line"
+scene = "scene_account_iris"
+kind = "line"
+line_id = "account_iris_line"
+speaker = "iris"
+text = "Iris names edge codes instead of titles. 'Reel three, frames twelve hundred through eighteen hundred. Insurance reference, nothing more.'"
+next = "account_iris_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_iris_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_iris_end"
+scene = "scene_account_iris"
+kind = "end"
+line_id = "account_iris_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_iris_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_iris_line"
+scene = "scene_approach_iris"
+kind = "line"
+line_id = "approach_iris_line"
+speaker = "iris"
+text = "'Vera's missing orchard shot was outside my copy. My dust is absent from her fresh splice.'"
+next = "approach_iris_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_iris_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_iris_end"
+scene = "scene_approach_iris"
+kind = "end"
+line_id = "approach_iris_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_iris_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_mal_line"
+scene = "scene_opening_mal"
+kind = "line"
+line_id = "opening_mal_line"
+speaker = "mal"
+text = "Mal keeps his voice low. 'Leon stayed after the private audience left. He asked me to run the projector at full speed and keep the booth shut.'"
+next = "opening_mal_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_mal_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_mal_end"
+scene = "scene_opening_mal"
+kind = "end"
+line_id = "opening_mal_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_mal_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_mal_line"
+scene = "scene_account_mal"
+kind = "line"
+line_id = "account_mal_line"
+speaker = "mal"
+text = "Mal lowers his voice although the booth door is shut. 'I ran a private screening after hours and wrote Leon's name over mine.'"
+next = "account_mal_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_mal_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_mal_end"
+scene = "scene_account_mal"
+kind = "end"
+line_id = "account_mal_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_mal_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_mal_line"
+scene = "scene_approach_mal"
+kind = "line"
+line_id = "approach_mal_line"
+speaker = "mal"
+text = "'The door kills conversation at full projector speed. Whatever Vera heard, it was not an answer from inside.'"
+next = "approach_mal_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_mal_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_mal_end"
+scene = "scene_approach_mal"
+kind = "end"
+line_id = "approach_mal_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_mal_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[mystery]
+action_budget = 14
+seed = 20310405
+tutorial = ""
+city_start = ""
+city_destination = "sloane_picture_house"
+reveal_location = "screening_room"
+
+[[mystery.characters]]
+entity = "leon"
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = []
+
+[[mystery.characters]]
+entity = "vera"
+private_secret = "murder and staging"
+motive = "Exposure would destroy a celebrated career."
+initial_disposition = -1
+initial_claims = ["claim_culprit_account"]
+
+[[mystery.characters]]
+entity = "iris"
+private_secret = "a separate professional offense"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_iris_secret"]
+
+[[mystery.characters]]
+entity = "mal"
+private_secret = "a separate professional offense"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_mal_secret"]
+
+[[mystery.locations]]
+entity = "screening_room"
+connections = ["projection_booth"]
+characters = []
+pois = ["projector", "seat_blood"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "projection_booth"
+connections = ["screening_room", "editing_suite"]
+characters = ["vera"]
+pois = ["workprint", "booth_door"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "editing_suite"
+connections = ["projection_booth", "film_vault"]
+characters = ["iris"]
+pois = ["film_dust"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "film_vault"
+connections = ["editing_suite", "studio_corridor"]
+characters = ["mal"]
+pois = ["vault_log", "removed_frames"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "studio_corridor"
+connections = ["film_vault"]
+characters = []
+pois = []
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.pois]]
+entity = "projector"
+location = "screening_room"
+owner = ""
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "seat_blood"
+location = "screening_room"
+owner = ""
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "workprint"
+location = "projection_booth"
+owner = ""
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "film_dust"
+location = "editing_suite"
+owner = ""
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "vault_log"
+location = "film_vault"
+owner = ""
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "removed_frames"
+location = "film_vault"
+owner = ""
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "booth_door"
+location = "projection_booth"
+owner = ""
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[mystery.events]]
+event = "crime"
+destination = "screening_room"
+tool = "workprint"
+effects = ["victim_dead"]
+
+[[mystery.events]]
+event = "staging"
+destination = "studio_corridor"
+tool = ""
+effects = ["false_scene"]
+
+[[mystery.clues]]
+id = "clue_1"
+source = "projector"
+description = "Projector noise makes the claimed conversation unintelligible."
+proposition = "clue_1"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["weapon"]
+topics = ["case_evidence", "weapon"]
+
+[[mystery.clues]]
+id = "clue_2"
+source = "seat_blood"
+description = "Leon's blood lies beneath a seat moved before the alleged death time."
+proposition = "clue_2"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["murder_place"]
+topics = ["case_evidence", "murder_place"]
+
+[[mystery.clues]]
+id = "clue_3"
+source = "workprint"
+description = "The workprint has a fresh splice and missing frames."
+proposition = "clue_3"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["death_time"]
+topics = ["case_evidence", "death_time"]
+
+[[mystery.clues]]
+id = "clue_4"
+source = "film_dust"
+description = "Film dust from the missing section remains in Vera's editing bin."
+proposition = "clue_4"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["body_movement"]
+topics = ["case_evidence", "body_movement"]
+
+[[mystery.clues]]
+id = "clue_5"
+source = "vault_log"
+description = "The vault checkout contradicts Vera's account."
+proposition = "clue_5"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["staging"]
+topics = ["case_evidence", "staging"]
+
+[[mystery.clues]]
+id = "clue_6"
+source = "removed_frames"
+description = "Iris copied footage but lacked the murder opportunity."
+proposition = "clue_6"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["cleaning"]
+topics = ["case_evidence", "cleaning"]
+
+[[mystery.clues]]
+id = "clue_7"
+source = "iris"
+description = "Mal's illicit club explains his false booth log."
+proposition = "clue_7"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["alibi"]
+topics = ["case_evidence", "alibi"]
+
+[[mystery.clues]]
+id = "clue_8"
+source = "mal"
+description = "Vera describes an image absent from her claimed version."
+proposition = "clue_8"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["culprit_knowledge"]
+topics = ["case_evidence", "culprit_knowledge"]
+
+[[mystery.clues]]
+id = "clue_9"
+source = "vera"
+description = "The removed frames are inside a reel Vera alone handled."
+proposition = "clue_9"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["motive", "claim_culprit_account"]
+topics = ["case_evidence", "motive"]
+
+[[mystery.claims]]
+id = "claim_culprit_account"
+speaker = "vera"
+proposition = "claim_culprit_account"
+protects = "murder"
+response = "Vera heard Leon answer while the projector ran."
+canonical_truth = false
+
+[[mystery.claims]]
+id = "claim_iris_secret"
+speaker = "iris"
+proposition = "claim_iris_secret"
+protects = "iris_secret"
+response = "I hid something, but it was not murder."
+canonical_truth = false
+
+[[mystery.claims]]
+id = "claim_mal_secret"
+speaker = "mal"
+proposition = "claim_mal_secret"
+protects = "mal_secret"
+response = "I hid something, but it was not murder."
+canonical_truth = false
+
+[[mystery.contradictions]]
+id = "decisive_contradiction"
+claim = "claim_culprit_account"
+fact = "clue_9"
+conclusion = ""
+explanation = "The culprit commits to knowledge available only to the person who staged the scene."
+
+[[mystery.deductions]]
+id = "ded_1"
+proposition = "ded_1"
+category = "where_when"
+supports = []
+unlock_questions = []
+unlock_topics = ["finding_1"]
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "ded_2"
+proposition = "ded_2"
+category = "what"
+supports = []
+unlock_questions = []
+unlock_topics = ["finding_2"]
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "ded_3"
+proposition = "ded_3"
+category = "concealment"
+supports = []
+unlock_questions = []
+unlock_topics = ["finding_3"]
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "ded_4"
+proposition = "ded_4"
+category = "contradiction"
+supports = []
+unlock_questions = []
+unlock_topics = ["finding_4"]
+unlock_investigations = []
+
+[[mystery.questions]]
+id = "question_1"
+prompt = "Where did the murder occur?"
+hypothesis = "The projector made the alleged conversation impossible."
+category = "where_when"
+requires_clues = ["clue_1", "clue_2"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_2"
+prompt = "How was the false scene constructed?"
+hypothesis = "The altered film created a false time of death."
+category = "what"
+requires_clues = ["clue_3", "clue_4"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_3"
+prompt = "What created the false chronology?"
+hypothesis = "Vera edited the workprint after killing Leon."
+category = "concealment"
+requires_clues = ["clue_5", "clue_6"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_4"
+prompt = "What unique knowledge proves the culprit staged it?"
+hypothesis = "Vera's knowledge of the absent image proves the staging."
+category = "contradiction"
+requires_clues = ["clue_8", "clue_9"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.demonstrations]]
+id = "demonstration_1"
+question = "question_1"
+mode = "physical"
+resolution = "substantiated"
+result = "The projector made the alleged conversation impossible."
+prompt = "Place the two established pieces together."
+slot_labels = ["FIRST FACT", "SECOND FACT"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_1", "clue_2"]
+route_firsts = []
+route_counts = []
+result_deductions = ["ded_1"]
+
+[[mystery.demonstrations]]
+id = "demonstration_2"
+question = "question_2"
+mode = "comparison"
+resolution = "substantiated"
+result = "The altered film created a false time of death."
+prompt = "Place the two established pieces together."
+slot_labels = ["FIRST FACT", "SECOND FACT"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_3", "clue_4"]
+route_firsts = []
+route_counts = []
+result_deductions = ["ded_2"]
+
+[[mystery.demonstrations]]
+id = "demonstration_3"
+question = "question_3"
+mode = "timeline"
+resolution = "substantiated"
+result = "Vera edited the workprint after killing Leon."
+prompt = "Place the two established pieces together."
+slot_labels = ["FIRST FACT", "SECOND FACT"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_5", "clue_6"]
+route_firsts = []
+route_counts = []
+result_deductions = ["ded_3"]
+
+[[mystery.demonstrations]]
+id = "demonstration_4"
+question = "question_4"
+mode = "confrontation"
+resolution = "substantiated"
+result = "Vera's knowledge of the absent image proves the staging."
+prompt = "Place the two established pieces together."
+slot_labels = ["FIRST FACT", "SECOND FACT"]
+slot_types = ["testimony", "testimony"]
+accepted = ["clue_8", "clue_9"]
+route_firsts = []
+route_counts = []
+result_deductions = ["ded_4"]
+
+[[mystery.dialogue]]
+node = "opening_vera"
+character = "vera"
+prompt = "Tell me about Leon Pike. What did they want tonight?"
+response = "Vera looks toward the dead projector beam. 'Leon wanted the orchard restored to the final cut. He said we would watch the whole reel before either of us defended ourselves.'"
+clue = ""
+interaction = ""
+requires = ["claim_culprit_account"]
+unlocks = ["account_ready_vera"]
+
+[[mystery.dialogue]]
+node = "account_vera"
+character = "vera"
+prompt = "You could not hear Leon over the projector. What did you actually hear?"
+response = "Vera frames the answer like a cut. 'His door opened. His silhouette crossed the beam. Then he answered.'"
+clue = ""
+interaction = ""
+requires = ["claim_culprit_account", "account_ready_vera"]
+unlocks = ["followup_vera"]
+
+[[mystery.dialogue]]
+node = "approach_vera"
+character = "vera"
+prompt = "Then account for the film projector."
+response = "'The orchard burned white behind him.' Vera looks toward the reel can, then away."
+clue = "clue_9"
+interaction = ""
+requires = ["clue_1", "claim_culprit_account", "followup_vera"]
+unlocks = ["clue_9", "case_evidence"]
+
+[[mystery.dialogue]]
+node = "opening_iris"
+character = "iris"
+prompt = "Tell me about Leon Pike. What did they want tonight?"
+response = "Iris names the reel by edge code. 'Leon asked me to verify which version entered the vault. He was worried about an alteration, not a screening.'"
+clue = ""
+interaction = ""
+requires = ["claim_iris_secret"]
+unlocks = ["account_ready_iris"]
+
+[[mystery.dialogue]]
+node = "account_iris"
+character = "iris"
+prompt = "Which footage did you copy?"
+response = "Iris names edge codes instead of titles. 'Reel three, frames twelve hundred through eighteen hundred. Insurance reference, nothing more.'"
+clue = ""
+interaction = ""
+requires = ["claim_iris_secret", "account_ready_iris"]
+unlocks = ["followup_iris"]
+
+[[mystery.dialogue]]
+node = "approach_iris"
+character = "iris"
+prompt = "Then account for the freshly spliced workprint."
+response = "'Vera's missing orchard shot was outside my copy. My dust is absent from her fresh splice.'"
+clue = "clue_7"
+interaction = ""
+requires = ["clue_3", "claim_iris_secret", "followup_iris"]
+unlocks = ["clue_7", "case_evidence"]
+
+[[mystery.dialogue]]
+node = "opening_mal"
+character = "mal"
+prompt = "Tell me about Leon Pike. What did they want tonight?"
+response = "Mal keeps his voice low. 'Leon stayed after the private audience left. He asked me to run the projector at full speed and keep the booth shut.'"
+clue = ""
+interaction = ""
+requires = ["claim_mal_secret"]
+unlocks = ["account_ready_mal"]
+
+[[mystery.dialogue]]
+node = "account_mal"
+character = "mal"
+prompt = "Why is the booth log false?"
+response = "Mal lowers his voice although the booth door is shut. 'I ran a private screening after hours and wrote Leon's name over mine.'"
+clue = ""
+interaction = ""
+requires = ["claim_mal_secret", "account_ready_mal"]
+unlocks = ["followup_mal"]
+
+[[mystery.dialogue]]
+node = "approach_mal"
+character = "mal"
+prompt = "Then account for the vault checkout log."
+response = "'The door kills conversation at full projector speed. Whatever Vera heard, it was not an answer from inside.'"
+clue = "clue_8"
+interaction = ""
+requires = ["clue_5", "claim_mal_secret", "followup_mal"]
+unlocks = ["clue_8", "case_evidence"]
+
+[[mystery.city_labels]]
+id = "sloane_picture_house"
+display_name = "THE FINAL CUT"
+level_spawn = "spawn_player"
+city_site = "old_market_venue"
+
+[mystery.solution]
+culprit = "vera"
+motive = "clue_9"
+decisive_contradiction = "decisive_contradiction"
+weapon_block = "weapon"
+murder_place_block = "murder_place"
+death_time_block = "death_time"
+body_movement_block = "body_movement"
+staging_block = "staging"
+cleaning_block = "cleaning"
+alibi_block = "alibi"
+requirements = ["weapon", "murder_place", "death_time", "body_movement", "staging", "cleaning", "alibi"]
+murder_events = ["crime"]
+cover_up_events = ["staging"]
+false_alibis = ["claim_culprit_account"]
+exclusions = ["iris", "mal"]

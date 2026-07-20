@@ -1,0 +1,47 @@
+# Build outputs and packaged releases
+/build/
+/tmp/
+
+# Compiled native artifacts
+*.o
+*.obj
+*.a
+*.lib
+*.dylib
+*.dll
+*.so
+*.so.*
+*.exe
+*.pdb
+
+# Generated editor and game state
+.torn-appointment/
+*.autosave.toml
+
+# Python caches and test output
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local environments and secrets
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+
+# IDE and operating-system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs and crash dumps
+*.log
+*.dmp
+*.crash

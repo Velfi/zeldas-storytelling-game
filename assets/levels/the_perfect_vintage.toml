@@ -1,0 +1,482 @@
+version = "LevelFormat v1"
+id = "the_perfect_vintage_lot"
+name = "The Perfect Vintage Investigation Lot"
+width = 42
+height = 26
+content_offset = [[5, 5]]
+story_limit = 2
+default_snap = 0.5
+fine_snap = 0.25
+angle_snap = 15.0
+
+[[stories]]
+id = "ground"
+name = "Ground Floor"
+base_elevation = 0.0
+floor_height = 3.5
+
+[[foundations]]
+id = "foundation_dining_room"
+kind = "slab"
+points = [[0, 0], [7, 0], [7, 8], [0, 8]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "dining_room"
+name = "Dining Room"
+story = 0
+points = [[0, 0], [7, 0], [7, 8], [0, 8]]
+platform_height = 0.0
+floor_material = "core:dining"
+wall_material = "core:dining"
+ceiling_style = "flat"
+exterior = false
+
+[[foundations]]
+id = "foundation_tasting_room"
+kind = "slab"
+points = [[7, 0], [14, 0], [14, 8], [7, 8]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "tasting_room"
+name = "Tasting Room"
+story = 0
+points = [[7, 0], [14, 0], [14, 8], [7, 8]]
+platform_height = 0.0
+floor_material = "core:study"
+wall_material = "core:study"
+ceiling_style = "flat"
+exterior = false
+
+[[foundations]]
+id = "foundation_main_cellar"
+kind = "slab"
+points = [[14, 0], [21, 0], [21, 8], [14, 8]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "main_cellar"
+name = "Main Cellar"
+story = 0
+points = [[14, 0], [21, 0], [21, 8], [14, 8]]
+platform_height = 0.0
+floor_material = "core:gallery"
+wall_material = "core:gallery"
+ceiling_style = "flat"
+exterior = false
+
+[[foundations]]
+id = "foundation_service_cellar"
+kind = "slab"
+points = [[21, 0], [28, 0], [28, 8], [21, 8]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "service_cellar"
+name = "Service Cellar"
+story = 0
+points = [[21, 0], [28, 0], [28, 8], [21, 8]]
+platform_height = 0.0
+floor_material = "core:pantry"
+wall_material = "core:pantry"
+ceiling_style = "flat"
+exterior = false
+
+[[foundations]]
+id = "foundation_loading_court"
+kind = "slab"
+points = [[28, 0], [35, 0], [35, 8], [28, 8]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "loading_court"
+name = "Loading Court"
+story = 0
+points = [[28, 0], [35, 0], [35, 8], [28, 8]]
+platform_height = 0.0
+floor_material = "core:structure"
+wall_material = "core:structure"
+ceiling_style = "flat"
+exterior = false
+
+[[paths]]
+id = "outer_shell"
+story = 0
+kind = "wall"
+points = [[0, 0], [35, 0], [35, 8], [0, 8], [0, 0]]
+material = "structure"
+width = 0.35
+
+[[paths]]
+id = "partition_1"
+story = 0
+kind = "wall"
+points = [[7, 0], [7, 8]]
+material = "structure"
+width = 0.25
+
+[[paths]]
+id = "partition_2"
+story = 0
+kind = "wall"
+points = [[14, 0], [14, 8]]
+material = "structure"
+width = 0.25
+
+[[paths]]
+id = "partition_3"
+story = 0
+kind = "wall"
+points = [[21, 0], [21, 8]]
+material = "structure"
+width = 0.25
+
+[[paths]]
+id = "partition_4"
+story = 0
+kind = "wall"
+points = [[28, 0], [28, 8]]
+material = "structure"
+width = 0.25
+
+[[markers]]
+id = "spawn_player"
+kind = "player_spawn"
+story = 0
+position = [[2.0, 4.0]]
+radius = 0.4
+facing = 0.0
+reference = ""
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "marker_bottle_cradle"
+kind = "clue"
+story = 0
+position = [[8.5, 2.0]]
+radius = 0.55
+facing = 0.0
+reference = "bottle_cradle"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "marker_carpet"
+kind = "clue"
+story = 0
+position = [[10.5, 3.5]]
+radius = 0.55
+facing = 0.0
+reference = "carpet"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "marker_bottle_lift"
+kind = "clue"
+story = 0
+position = [[22.5, 5.0]]
+radius = 0.55
+facing = 0.0
+reference = "bottle_lift"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "marker_rare_bottle"
+kind = "clue"
+story = 0
+position = [[17.5, 2.0]]
+radius = 0.55
+facing = 0.0
+reference = "rare_bottle"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "marker_collapsed_rack"
+kind = "clue"
+story = 0
+position = [[15.5, 3.5]]
+radius = 0.55
+facing = 0.0
+reference = "collapsed_rack"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "marker_inventory"
+kind = "clue"
+story = 0
+position = [[24.5, 5.0]]
+radius = 0.55
+facing = 0.0
+reference = "inventory"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "marker_repair_tools"
+kind = "clue"
+story = 0
+position = [[29.5, 2.0]]
+radius = 0.55
+facing = 0.0
+reference = "repair_tools"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "spawn_conrad"
+kind = "character_spawn"
+story = 0
+position = [[8, 5.5]]
+radius = 0.6
+facing = 180.0
+reference = "conrad"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "spawn_pia"
+kind = "character_spawn"
+story = 0
+position = [[15, 5.5]]
+radius = 0.6
+facing = 180.0
+reference = "pia"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "spawn_luca"
+kind = "character_spawn"
+story = 0
+position = [[22, 5.5]]
+radius = 0.6
+facing = 180.0
+reference = "luca"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "return_to_city"
+kind = "transition"
+story = 0
+position = [[1.0, 1.0]]
+radius = 0.8
+facing = 180.0
+reference = ""
+destination = "city:police_station"
+camera_height = 1.6
+
+# BEGIN GENERATED ROOM FURNISHINGS
+
+[[objects]]
+id = "furnish_dining_room_1_table_round"
+catalog_id = "core:table_round"
+story = 0
+position = [[3.50, 3.84]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_dining_room_2_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[3.50, 2.00]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_dining_room_3_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[3.50, 5.76]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_dining_room_4_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[1.75, 3.84]]
+rotation = 270.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_dining_room_5_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[5.25, 3.84]]
+rotation = 90.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_tasting_room_1_table_round"
+catalog_id = "core:table_round"
+story = 0
+position = [[10.50, 3.84]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_tasting_room_2_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[10.50, 2.00]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_tasting_room_3_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[10.50, 5.76]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_tasting_room_4_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[8.75, 3.84]]
+rotation = 270.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_tasting_room_5_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[12.25, 3.84]]
+rotation = 90.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_main_cellar_1_desk"
+catalog_id = "core:desk"
+story = 0
+position = [[15.54, 1.92]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_main_cellar_2_chair_desk"
+catalog_id = "core:chair_desk"
+story = 0
+position = [[15.54, 3.84]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_main_cellar_3_bathroom_cabinet"
+catalog_id = "core:bathroom_cabinet"
+story = 0
+position = [[19.46, 1.76]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_main_cellar_4_cardboard_box_closed"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[19.46, 5.60]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_main_cellar_5_trashcan"
+catalog_id = "core:trashcan"
+story = 0
+position = [[17.50, 6.08]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_service_cellar_1_kitchen_cabinet"
+catalog_id = "core:kitchen_cabinet"
+story = 0
+position = [[22.26, 1.76]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_service_cellar_2_kitchen_cabinet_upper_double"
+catalog_id = "core:kitchen_cabinet_upper_double"
+story = 0
+position = [[24.50, 1.44]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_service_cellar_3_kitchen_cabinet_upper"
+catalog_id = "core:kitchen_cabinet_upper"
+story = 0
+position = [[26.60, 1.44]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_service_cellar_4_stool_bar"
+catalog_id = "core:stool_bar"
+story = 0
+position = [[24.36, 5.20]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_service_cellar_5_trashcan"
+catalog_id = "core:trashcan"
+story = 0
+position = [[26.74, 6.00]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_loading_court_1_yard_bench"
+catalog_id = "core:yard_bench"
+story = 0
+position = [[30.45, 2.56]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_loading_court_2_nature_bush"
+catalog_id = "core:nature_bush"
+story = 0
+position = [[29.26, 6.08]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_loading_court_3_nature_flowers"
+catalog_id = "core:nature_flowers"
+story = 0
+position = [[31.64, 6.24]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_loading_court_4_nature_grass"
+catalog_id = "core:nature_grass"
+story = 0
+position = [[33.60, 5.76]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_loading_court_5_stylized_tree_1"
+catalog_id = "core:stylized_tree_1"
+story = 0
+position = [[33.74, 1.92]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+# END GENERATED ROOM FURNISHINGS

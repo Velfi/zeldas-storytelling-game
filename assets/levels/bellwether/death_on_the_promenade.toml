@@ -1,0 +1,247 @@
+version = "LevelFormat v1"
+id = "bellwether_waterfront"
+name = "Bellwether Waterfront"
+width = 42
+height = 24
+story_limit = 3
+default_snap = 0.5
+fine_snap = 0.25
+angle_snap = 15.0
+
+[[stories]]
+id = "ground"
+name = "Ground Floor"
+base_elevation = 0
+
+[[foundations]]
+id = "foundation"
+kind = "slab"
+points = [[1, 1], [41, 1], [41, 23], [1, 23]]
+elevation = 0
+depth = 0.25
+
+[[rooms]]
+id = "bandstand"
+name = "Bandstand"
+story = 0
+points = [[1, 1], [9, 1], [9, 23], [1, 23]]
+platform_height = 0
+floor_material = "core:gallery"
+wall_material = "core:structure"
+ceiling_style = "flat"
+exterior = false
+
+[[rooms]]
+id = "market_arcade"
+name = "Market Arcade"
+story = 0
+points = [[9, 1], [17, 1], [17, 23], [9, 23]]
+platform_height = 0
+floor_material = "core:gallery"
+wall_material = "core:structure"
+ceiling_style = "flat"
+exterior = false
+
+[[rooms]]
+id = "preservation_booth"
+name = "Preservation Booth"
+story = 0
+points = [[17, 1], [25, 1], [25, 23], [17, 23]]
+platform_height = 0
+floor_material = "core:gallery"
+wall_material = "core:structure"
+ceiling_style = "flat"
+exterior = false
+
+[[rooms]]
+id = "service_alley"
+name = "Service Alley"
+story = 0
+points = [[25, 1], [33, 1], [33, 23], [25, 23]]
+platform_height = 0
+floor_material = "core:gallery"
+wall_material = "core:structure"
+ceiling_style = "flat"
+exterior = false
+
+[[rooms]]
+id = "lower_promenade"
+name = "Lower Promenade"
+story = 0
+points = [[33, 1], [41, 1], [41, 23], [33, 23]]
+platform_height = 0
+floor_material = "core:gallery"
+wall_material = "core:structure"
+ceiling_style = "flat"
+exterior = false
+
+[[paths]]
+id = "outer_walls"
+story = 0
+kind = "wall"
+points = [[1, 1], [41, 1], [41, 23], [1, 23], [1, 1]]
+material = "structure"
+width = 0.35
+
+[[paths]]
+id = "divider_1"
+story = 0
+kind = "wall"
+points = [[9, 1], [9, 23]]
+material = "structure"
+width = 0.30
+
+[[openings]]
+id = "door_1"
+host_path = "divider_1"
+kind = "door"
+material = "oak"
+segment = 0
+position = 0.50
+width = 1.40
+height = 2.10
+
+[[paths]]
+id = "divider_2"
+story = 0
+kind = "wall"
+points = [[17, 1], [17, 23]]
+material = "structure"
+width = 0.30
+
+[[openings]]
+id = "door_2"
+host_path = "divider_2"
+kind = "door"
+material = "oak"
+segment = 0
+position = 0.50
+width = 1.40
+height = 2.10
+
+[[paths]]
+id = "divider_3"
+story = 0
+kind = "wall"
+points = [[25, 1], [25, 23]]
+material = "structure"
+width = 0.30
+
+[[openings]]
+id = "door_3"
+host_path = "divider_3"
+kind = "door"
+material = "oak"
+segment = 0
+position = 0.50
+width = 1.40
+height = 2.10
+
+[[paths]]
+id = "divider_4"
+story = 0
+kind = "wall"
+points = [[33, 1], [33, 23]]
+material = "structure"
+width = 0.30
+
+[[openings]]
+id = "door_4"
+host_path = "divider_4"
+kind = "door"
+material = "oak"
+segment = 0
+position = 0.50
+width = 1.40
+height = 2.10
+
+[[markers]]
+id = "spawn"
+kind = "player_spawn"
+story = 0
+position = [[3, 12]]
+elevation = 0
+reference = ""
+destination = ""
+radius = 1.0
+
+[[markers]]
+id = "character_sabine_cross"
+kind = "character_spawn"
+story = 0
+position = [[5, 8]]
+elevation = 0
+reference = "sabine_cross"
+destination = ""
+radius = 1.0
+
+[[markers]]
+id = "character_dario_finch"
+kind = "character_spawn"
+story = 0
+position = [[13, 8]]
+elevation = 0
+reference = "dario_finch"
+destination = ""
+radius = 1.0
+
+[[markers]]
+id = "character_mei_rowan"
+kind = "character_spawn"
+story = 0
+position = [[21, 8]]
+elevation = 0
+reference = "mei_rowan"
+destination = ""
+radius = 1.0
+
+[[markers]]
+id = "clue_survey_weight"
+kind = "clue"
+story = 0
+position = [[13, 16]]
+elevation = 0
+reference = "survey_weight"
+destination = ""
+radius = 1.0
+
+[[markers]]
+id = "clue_bright_coat"
+kind = "clue"
+story = 0
+position = [[20, 16]]
+elevation = 0
+reference = "bright_coat"
+destination = ""
+radius = 1.0
+
+[[markers]]
+id = "clue_wristband_photo"
+kind = "clue"
+story = 0
+position = [[27, 16]]
+elevation = 0
+reference = "wristband_photo"
+destination = ""
+radius = 1.0
+
+[[markers]]
+id = "clue_motive_record"
+kind = "clue"
+story = 0
+position = [[34, 16]]
+elevation = 0
+reference = "motive_record"
+destination = ""
+radius = 1.0
+
+[[markers]]
+id = "return_city"
+kind = "transition"
+story = 0
+position = [[39, 12]]
+elevation = 0
+reference = ""
+destination = "city:bellwether_waterfront"
+radius = 1.0
+

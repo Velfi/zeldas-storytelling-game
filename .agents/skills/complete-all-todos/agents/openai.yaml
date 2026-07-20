@@ -1,0 +1,4 @@
+interface:
+  display_name: "Complete All Todos"
+  short_description: "Finish every todo with coordinated subagents"
+  default_prompt: "Use $complete-all-todos to complete every actionable todo in ./docs/todo."

@@ -1,0 +1,12 @@
+Foliage models in this directory were converted from these two packs:
+
+- Ultimate Nature Pack by Quaternius
+- Textured Stylized Trees - May 2020 by Quaternius
+
+LowPoly Models by @Quaternius
+https://www.patreon.com/quaternius
+
+License: CC0 1.0 Universal (CC0 1.0), Public Domain Dedication
+https://creativecommons.org/publicdomain/zero/1.0/
+
+The source packs' original License.txt files contain the same notice.

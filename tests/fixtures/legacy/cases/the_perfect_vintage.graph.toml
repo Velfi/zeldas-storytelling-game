@@ -1,0 +1,246 @@
+version = "GraphMode v1"
+case_id = "the_perfect_vintage"
+revision = 0
+
+[[scenes]]
+id = "scene_opening_conrad"
+source = "conrad"
+entry = "opening_conrad_line"
+summary = "Conrad straightens Elise's glass. 'She wanted a complete inventory before the hero bottle was opened. Elise could forgive a poor vintage, never a false label.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_conrad_line"
+scene = "scene_opening_conrad"
+kind = "line"
+speaker = "conrad"
+text = "Conrad straightens Elise's glass. 'She wanted a complete inventory before the hero bottle was opened. Elise could forgive a poor vintage, never a false label.'"
+next = "opening_conrad_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_conrad_end"
+scene = "scene_opening_conrad"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_conrad"
+source = "conrad"
+entry = "account_conrad_line"
+summary = "Conrad corrects the vocabulary first. 'Not warm—disturbed. The bloom on the glass was wrong for that rack.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_conrad_line"
+scene = "scene_account_conrad"
+kind = "line"
+speaker = "conrad"
+text = "Conrad corrects the vocabulary first. 'Not warm—disturbed. The bloom on the glass was wrong for that rack.'"
+next = "account_conrad_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_conrad_end"
+scene = "scene_account_conrad"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_conrad"
+source = "conrad"
+entry = "approach_conrad_line"
+summary = "'Condensation tells any competent cellarman when a bottle moved.' His hand remains several inches from the untouched glass."
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_conrad_line"
+scene = "scene_approach_conrad"
+kind = "line"
+speaker = "conrad"
+text = "'Condensation tells any competent cellarman when a bottle moved.' His hand remains several inches from the untouched glass."
+next = "approach_conrad_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_conrad_end"
+scene = "scene_approach_conrad"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_opening_pia"
+source = "pia"
+entry = "opening_pia_line"
+summary = "Pia recites the promised bottle. 'Elise asked for my private invoices. She knew stock had moved and meant to decide whether that was theft before dinner ended.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_pia_line"
+scene = "scene_opening_pia"
+kind = "line"
+speaker = "pia"
+text = "Pia recites the promised bottle. 'Elise asked for my private invoices. She knew stock had moved and meant to decide whether that was theft before dinner ended.'"
+next = "opening_pia_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_pia_end"
+scene = "scene_opening_pia"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_pia"
+source = "pia"
+entry = "account_pia_line"
+summary = "Pia recites producers and vintages without looking at the book. 'Six ordinary cases under private invoice. Never the hero bottle.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_pia_line"
+scene = "scene_account_pia"
+kind = "line"
+speaker = "pia"
+text = "Pia recites producers and vintages without looking at the book. 'Six ordinary cases under private invoice. Never the hero bottle.'"
+next = "account_pia_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_pia_end"
+scene = "scene_account_pia"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_pia"
+source = "pia"
+entry = "approach_pia_line"
+summary = "'My discrepancy is money. The fresh ring beneath that bottle is staging.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_pia_line"
+scene = "scene_approach_pia"
+kind = "line"
+speaker = "pia"
+text = "'My discrepancy is money. The fresh ring beneath that bottle is staging.'"
+next = "approach_pia_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_pia_end"
+scene = "scene_approach_pia"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_opening_luca"
+source = "luca"
+entry = "opening_luca_line"
+summary = "Luca tests the rack with both hands. 'She asked whether the third bay was safe. I said it would stand tonight. That answer is mine, however badly it ages.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_luca_line"
+scene = "scene_opening_luca"
+kind = "line"
+speaker = "luca"
+text = "Luca tests the rack with both hands. 'She asked whether the third bay was safe. I said it would stand tonight. That answer is mine, however badly it ages.'"
+next = "opening_luca_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_luca_end"
+scene = "scene_opening_luca"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_luca"
+source = "luca"
+entry = "account_luca_line"
+summary = "Luca measures the rack with his hands. 'I braced the third bay with the wrong screws. Cheap work, but standing work.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_luca_line"
+scene = "scene_account_luca"
+kind = "line"
+speaker = "luca"
+text = "Luca measures the rack with his hands. 'I braced the third bay with the wrong screws. Cheap work, but standing work.'"
+next = "account_luca_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_luca_end"
+scene = "scene_account_luca"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_luca"
+source = "luca"
+entry = "approach_luca_line"
+summary = "'Someone backed them out before the collapse. Elise's first wound did not come from timber.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_luca_line"
+scene = "scene_approach_luca"
+kind = "line"
+speaker = "luca"
+text = "'Someone backed them out before the collapse. Elise's first wound did not come from timber.'"
+next = "approach_luca_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_luca_end"
+scene = "scene_approach_luca"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]

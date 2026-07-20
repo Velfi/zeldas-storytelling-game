@@ -1,0 +1,252 @@
+version = "GraphMode v1"
+case_id = "death_on_the_promenade"
+revision = 0
+
+[[scenes]]
+id = "scene_opening_sabine_cross"
+source = "sabine_cross"
+entry = "opening_sabine_cross_line"
+summary = "Sabine folds the festival map. 'Owen meant to challenge the survey from the bandstand. He wanted the neighborhood watching when the boundary moved back.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_sabine_cross_line"
+scene = "scene_opening_sabine_cross"
+kind = "line"
+speaker = "sabine_cross"
+text = "Sabine folds the festival map. 'Owen meant to challenge the survey from the bandstand. He wanted the neighborhood watching when the boundary moved back.'"
+next = "opening_sabine_cross_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_sabine_cross_end"
+scene = "scene_opening_sabine_cross"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+
+[[scenes]]
+id = "scene_account_sabine_cross"
+source = "sabine_cross"
+entry = "account_sabine_cross_line"
+summary = "'Three deaths have taught Bellwether to distrust its own neighbors.' Sabine consults the festival map. 'By nine the lower ramp was awash.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_sabine_cross_line"
+scene = "scene_account_sabine_cross"
+kind = "line"
+speaker = "sabine_cross"
+text = "'Three deaths have taught Bellwether to distrust its own neighbors.' Sabine consults the festival map. 'By nine the lower ramp was awash.'"
+next = "account_sabine_cross_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_sabine_cross_end"
+scene = "scene_account_sabine_cross"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_sabine_cross"
+source = "sabine_cross"
+entry = "approach_sabine_cross_line"
+summary = "You place the nine-twelve wristband photograph beside the tide chart. Sabine studies the bright coat and says nothing."
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_sabine_cross_line"
+scene = "scene_approach_sabine_cross"
+kind = "line"
+speaker = "sabine_cross"
+text = "You place the nine-twelve wristband photograph beside the tide chart. Sabine studies the bright coat and says nothing."
+next = "approach_sabine_cross_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_sabine_cross_end"
+scene = "scene_approach_sabine_cross"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+
+[[scenes]]
+id = "scene_opening_dario_finch"
+source = "dario_finch"
+entry = "opening_dario_finch_line"
+summary = "Dario creases the notice again. 'Owen offered me until nine to admit the survey was wrong. After that he would make the argument public.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_dario_finch_line"
+scene = "scene_opening_dario_finch"
+kind = "line"
+speaker = "dario_finch"
+text = "Dario creases the notice again. 'Owen offered me until nine to admit the survey was wrong. After that he would make the argument public.'"
+next = "opening_dario_finch_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_dario_finch_end"
+scene = "scene_opening_dario_finch"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+
+[[scenes]]
+id = "scene_account_dario_finch"
+source = "dario_finch"
+entry = "account_dario_finch_line"
+summary = "Dario folds the redevelopment notice along an old crease. 'He knew the survey was forged. I asked for time before the neighborhood saw it.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_dario_finch_line"
+scene = "scene_account_dario_finch"
+kind = "line"
+speaker = "dario_finch"
+text = "Dario folds the redevelopment notice along an old crease. 'He knew the survey was forged. I asked for time before the neighborhood saw it.'"
+next = "account_dario_finch_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_dario_finch_end"
+scene = "scene_account_dario_finch"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_dario_finch"
+source = "dario_finch"
+entry = "approach_dario_finch_line"
+summary = "'I left him alive with Sabine. She said she could correct the boundary record.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_dario_finch_line"
+scene = "scene_approach_dario_finch"
+kind = "line"
+speaker = "dario_finch"
+text = "'I left him alive with Sabine. She said she could correct the boundary record.'"
+next = "approach_dario_finch_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_dario_finch_end"
+scene = "scene_approach_dario_finch"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+
+[[scenes]]
+id = "scene_opening_mei_rowan"
+source = "mei_rowan"
+entry = "opening_mei_rowan_line"
+summary = "Mei watches the promenade above. 'Owen walked the route twice before every meeting. The old ankle injury shortened his right step; everyone here knew the rhythm.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_mei_rowan_line"
+scene = "scene_opening_mei_rowan"
+kind = "line"
+speaker = "mei_rowan"
+text = "Mei watches the promenade above. 'Owen walked the route twice before every meeting. The old ankle injury shortened his right step; everyone here knew the rhythm.'"
+next = "opening_mei_rowan_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_mei_rowan_end"
+scene = "scene_opening_mei_rowan"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+
+[[scenes]]
+id = "scene_account_mei_rowan"
+source = "mei_rowan"
+entry = "account_mei_rowan_line"
+summary = "Mei lists each facade before admitting the missing folder. 'I took evidence of my unauthorized repairs. Owen used it to threaten the board.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_mei_rowan_line"
+scene = "scene_account_mei_rowan"
+kind = "line"
+speaker = "mei_rowan"
+text = "Mei lists each facade before admitting the missing folder. 'I took evidence of my unauthorized repairs. Owen used it to threaten the board.'"
+next = "account_mei_rowan_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_mei_rowan_end"
+scene = "scene_account_mei_rowan"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_mei_rowan"
+source = "mei_rowan"
+entry = "approach_mei_rowan_line"
+summary = "'From the booth I saw the coat cross twice. The second walk was shorter, and the left arm never swung.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_mei_rowan_line"
+scene = "scene_approach_mei_rowan"
+kind = "line"
+speaker = "mei_rowan"
+text = "'From the booth I saw the coat cross twice. The second walk was shorter, and the left arm never swung.'"
+next = "approach_mei_rowan_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_mei_rowan_end"
+scene = "scene_approach_mei_rowan"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+

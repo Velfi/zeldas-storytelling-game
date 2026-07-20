@@ -1,0 +1,631 @@
+version = "MurderScript v1"
+id = "the_guest_in_suite_808"
+title = "The Guest in Suite 808"
+introduction = "A gala guest registered as Lucien Grey is dead in Suite 808, but the body and the room assignment tell different stories."
+action_point_limit = 12
+reveal_location = "suite_808"
+city_start = "halcyon_hotel"
+city_destination = "halcyon_hotel"
+tutorial = ""
+seed = 20260718
+
+[[city_locations]]
+id = "halcyon_hotel"
+display_name = "HALCYON HOTEL"
+level_spawn = "spawn_player"
+city_site = "east_bank_venue"
+
+[[characters]]
+id = "lucien"
+display_name = "Lucien Grey"
+role = "victim"
+description = "Lucien Grey came to Halcyon seeking letters he said could free someone from an old obligation. He borrowed names as readily as rooms, but always signed for tea in his own slanted hand."
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = []
+
+[[characters]]
+id = "estelle"
+display_name = "Estelle Rook"
+role = "suspect"
+description = "Hotel owner who corrects names and architectural terms before she answers uncomfortable questions."
+private_secret = "protected her family's coerced hotel purchase"
+motive = "protected her family's coerced hotel purchase"
+initial_disposition = 0
+initial_claims = ["estelle_door_claim"]
+
+[[characters]]
+id = "nico"
+display_name = "Nico Grey"
+role = "suspect"
+description = "Debtor accustomed to borrowed identities, watching doors and listeners before offering the truth."
+private_secret = "creditor trouble and an identity loan"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_nico_secret"]
+
+[[characters]]
+id = "priya"
+display_name = "Priya Sen"
+role = "suspect"
+description = "Archivist who protects living people through precise distinctions between custody, consent, and concealment."
+private_secret = "removed letters to protect a living subject"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_priya_secret"]
+
+[[locations]]
+id = "suite_808"
+display_name = "SUITE 808"
+description = "Suite 808 preserves one part of the evening chronology."
+connections = ["suite_810"]
+characters = ["estelle"]
+pois = ["door_flakes", "gala_coat"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "suite_810"
+display_name = "SUITE 810"
+description = "Suite 810 preserves one part of the evening chronology."
+connections = ["suite_808", "eighth_floor_corridor"]
+characters = ["nico"]
+pois = ["suite_810_blood", "bookend", "signature", "door_defect"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "eighth_floor_corridor"
+display_name = "EIGHTH-FLOOR CORRIDOR"
+description = "Eighth-Floor Corridor preserves one part of the evening chronology."
+connections = ["suite_810", "service_lift"]
+characters = ["priya"]
+pois = ["key_log"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "service_lift"
+display_name = "SERVICE LIFT"
+description = "Service Lift preserves one part of the evening chronology."
+connections = ["eighth_floor_corridor", "hotel_archive"]
+characters = []
+pois = []
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "hotel_archive"
+display_name = "HOTEL ARCHIVE"
+description = "Hotel Archive preserves one part of the evening chronology."
+connections = ["service_lift"]
+characters = []
+pois = ["debt_papers", "archive_packet"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[pois]]
+id = "suite_810_blood"
+display_name = "Blood in Suite 810"
+kind = "trace"
+location = "suite_810"
+owner = ""
+description = "The blood identifies the true murder room."
+relevant_state = "The blood identifies the true murder room."
+examination_action = "examine"
+
+[[pois]]
+id = "bookend"
+display_name = "Bloodied Marble Bookend"
+kind = "object"
+location = "suite_810"
+owner = ""
+description = "Blood remains in the felt base."
+relevant_state = "Blood remains in the felt base."
+examination_action = "examine"
+
+[[pois]]
+id = "door_flakes"
+display_name = "Connecting-Door Paint Flakes"
+kind = "trace"
+location = "suite_808"
+owner = ""
+description = "Paint from the concealed door clings to the sleeve."
+relevant_state = "Paint from the concealed door clings to the sleeve."
+examination_action = "examine"
+
+[[pois]]
+id = "key_log"
+display_name = "Hotel Key Log"
+kind = "object"
+location = "eighth_floor_corridor"
+owner = ""
+description = "The log records keys, not people."
+relevant_state = "The log records keys, not people."
+examination_action = "examine"
+
+[[pois]]
+id = "gala_coat"
+display_name = "Nico's Gala Coat"
+kind = "object"
+location = "suite_808"
+owner = ""
+description = "The coat fits Nico and holds his claim ticket."
+relevant_state = "The coat fits Nico and holds his claim ticket."
+examination_action = "examine"
+
+[[pois]]
+id = "signature"
+display_name = "Room-Service Signature"
+kind = "object"
+location = "suite_810"
+owner = ""
+description = "Lucien used Nico's name earlier."
+relevant_state = "Lucien used Nico's name earlier."
+examination_action = "examine"
+
+[[pois]]
+id = "debt_papers"
+display_name = "Nico's Debt Papers"
+kind = "object"
+location = "hotel_archive"
+owner = ""
+description = "The debt explains the identity loan."
+relevant_state = "The debt explains the identity loan."
+examination_action = "examine"
+
+[[pois]]
+id = "archive_packet"
+display_name = "Priya's Archive Packet"
+kind = "object"
+location = "hotel_archive"
+owner = ""
+description = "The packet explains the removed letters."
+relevant_state = "The packet explains the removed letters."
+examination_action = "examine"
+
+[[pois]]
+id = "door_defect"
+display_name = "Sticking Door Defect"
+kind = "mechanism"
+location = "suite_810"
+owner = ""
+description = "Estelle knows the concealed door sticks at floor level."
+relevant_state = "Estelle knows the concealed door sticks at floor level."
+examination_action = "examine"
+
+[[events]]
+id = "event_1"
+time = "21:05"
+actor = "estelle"
+action = "attack"
+target = "lucien"
+source = "suite_810"
+destination = "suite_810"
+tool = "bookend"
+effects = ["attack_complete"]
+witnesses = []
+
+[[events]]
+id = "event_2"
+time = "21:06"
+actor = "estelle"
+action = "kill"
+target = "lucien"
+source = "suite_810"
+destination = "suite_810"
+tool = "bookend"
+effects = ["kill_complete"]
+witnesses = []
+
+[[events]]
+id = "event_3"
+time = "21:12"
+actor = "estelle"
+action = "move_body"
+target = "lucien"
+source = "suite_810"
+destination = "suite_808"
+tool = "door_defect"
+effects = ["move_body_complete"]
+witnesses = []
+
+[[events]]
+id = "event_4"
+time = "21:18"
+actor = "estelle"
+action = "place"
+target = "gala_coat"
+source = "suite_808"
+destination = "suite_808"
+tool = ""
+effects = ["place_complete"]
+witnesses = []
+
+[[claims]]
+id = "estelle_door_claim"
+speaker = "estelle"
+proposition = "Estelle never entered either suite and cannot know the hidden door defect."
+true = false
+protects = "murder"
+response = "Estelle never entered either suite and cannot know the hidden door defect."
+
+[[claims]]
+id = "claim_nico_secret"
+speaker = "nico"
+proposition = "Nico Grey denies creditor trouble and an identity loan."
+true = false
+protects = "creditor trouble and an identity loan"
+response = "Nico Grey denies creditor trouble and an identity loan."
+
+[[claims]]
+id = "claim_priya_secret"
+speaker = "priya"
+proposition = "Priya Sen denies removed letters to protect a living subject."
+true = false
+protects = "removed letters to protect a living subject"
+response = "Priya Sen denies removed letters to protect a living subject."
+
+[[clues]]
+id = "clue_suite_810_blood"
+source = "suite_810_blood"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "The blood identifies the true murder room."
+proposition = "The blood identifies the true murder room."
+blocks = ["weapon_bookend"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[clues]]
+id = "clue_bookend"
+source = "bookend"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Blood remains in the felt base."
+proposition = "Blood remains in the felt base."
+blocks = ["place_suite_810"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[clues]]
+id = "clue_door_flakes"
+source = "door_flakes"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 3
+cost = 1
+prerequisites = []
+description = "Paint from the concealed door clings to the sleeve."
+proposition = "Paint from the concealed door clings to the sleeve."
+blocks = ["time_during_gala"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[clues]]
+id = "clue_key_log"
+source = "key_log"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "The log records keys, not people."
+proposition = "The log records keys, not people."
+blocks = ["route_connecting_door"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[clues]]
+id = "clue_gala_coat"
+source = "gala_coat"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "The coat fits Nico and holds his claim ticket."
+proposition = "The coat fits Nico and holds his claim ticket."
+blocks = ["staged_identity"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[clues]]
+id = "clue_signature"
+source = "signature"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 3
+cost = 1
+prerequisites = []
+description = "Lucien used Nico's name earlier."
+proposition = "Lucien used Nico's name earlier."
+blocks = ["key_log_coverup"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[clues]]
+id = "clue_debt_papers"
+source = "nico"
+discovery_action = "dialogue"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "The debt explains the identity loan."
+proposition = "The debt explains the identity loan."
+blocks = ["exclude_nico"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[clues]]
+id = "clue_archive_packet"
+source = "priya"
+discovery_action = "dialogue"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "The packet explains the removed letters."
+proposition = "The packet explains the removed letters."
+blocks = ["exclude_priya"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[clues]]
+id = "clue_door_defect"
+source = "estelle"
+discovery_action = "dialogue"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 3
+cost = 1
+prerequisites = []
+description = "Estelle knows the concealed door sticks at floor level."
+proposition = "Estelle knows the concealed door sticks at floor level."
+blocks = ["weapon_bookend", "place_suite_810", "time_during_gala", "route_connecting_door", "staged_identity", "key_log_coverup", "false_register_alibi", "estelle_door_claim"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[dialogue_approaches]]
+id = "opening_estelle"
+character = "estelle"
+prompt = "Tell me about Lucien Grey. What did they want tonight?"
+response = "Estelle corrects the name on the register. 'Lucien arrived as Nico Grey and asked for the old purchase file. He wanted privacy, but he wanted an audience for what came after.'"
+clue = ""
+requires_clues = []
+requires_claims = ["estelle_door_claim"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_estelle"]
+
+[[dialogue_approaches]]
+id = "account_estelle"
+character = "estelle"
+prompt = "How did you know the connecting door sticks at the floor?"
+response = "'The Marigold Club may survive public theories; a hotel does not.' Estelle corrects you at once. 'There is no guest door between 808 and 810. There is a sealed service opening.'"
+clue = ""
+requires_clues = []
+requires_claims = ["estelle_door_claim"]
+requires_topics = ["account_ready_estelle"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_estelle"]
+
+[[dialogue_approaches]]
+id = "approach_estelle"
+character = "estelle"
+prompt = "Then account for the blood in suite 810."
+response = "'Old hotels settle. Every owner knows that.' Estelle's shoe presses flat against the threshold before she looks down."
+clue = "clue_door_defect"
+requires_clues = ["clue_suite_810_blood"]
+requires_claims = ["estelle_door_claim"]
+requires_topics = ["followup_estelle"]
+unlock_clues = ["clue_door_defect"]
+unlock_claims = []
+unlock_topics = ["marigold_reconstruction"]
+
+[[dialogue_approaches]]
+id = "opening_nico"
+character = "nico"
+prompt = "Tell me about Lucien Grey. What did they want tonight?"
+response = "Nico watches the lift doors. 'Lucien borrowed my booking because he said one night under my name would settle both our debts. I last saw him take the key to 810.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_nico_secret"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_nico"]
+
+[[dialogue_approaches]]
+id = "account_nico"
+character = "nico"
+prompt = "Why was Lucien using your name?"
+response = "Nico checks the corridor before lowering his voice. 'My creditors watch registrations. Lucien needed a room; I needed not to be found in one.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_nico_secret"]
+requires_topics = ["account_ready_nico"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_nico"]
+
+[[dialogue_approaches]]
+id = "approach_nico"
+character = "nico"
+prompt = "Then account for the connecting-door paint flakes."
+response = "He produces the claim ticket from his own coat. 'He borrowed the name. He did not borrow this.'"
+clue = "clue_debt_papers"
+requires_clues = ["clue_door_flakes"]
+requires_claims = ["claim_nico_secret"]
+requires_topics = ["followup_nico"]
+unlock_clues = ["clue_debt_papers"]
+unlock_claims = []
+unlock_topics = ["marigold_reconstruction"]
+
+[[dialogue_approaches]]
+id = "opening_priya"
+character = "priya"
+prompt = "Tell me about Lucien Grey. What did they want tonight?"
+response = "Priya keeps a finger on the archive packet. 'He wanted a letter whose writer is still alive. I told him records do not become harmless merely because they are old.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_priya_secret"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_priya"]
+
+[[dialogue_approaches]]
+id = "account_priya"
+character = "priya"
+prompt = "Which letters did you remove from the archive?"
+response = "Priya keeps the packet ordered by accession number. 'The ones naming a living woman who never consented to become evidence.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_priya_secret"]
+requires_topics = ["account_ready_priya"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_priya"]
+
+[[dialogue_approaches]]
+id = "approach_priya"
+character = "priya"
+prompt = "Then account for the nico's gala coat."
+response = "'Lucien asked for the purchase file. Estelle heard him. I left him in 810 with it.'"
+clue = "clue_archive_packet"
+requires_clues = ["clue_gala_coat"]
+requires_claims = ["claim_priya_secret"]
+requires_topics = ["followup_priya"]
+unlock_clues = ["clue_archive_packet"]
+unlock_claims = []
+unlock_topics = ["marigold_reconstruction"]
+
+[[contradictions]]
+id = "decisive_contradiction"
+claim = "estelle_door_claim"
+fact = "clue_door_defect"
+conclusion = "Estelle Rook possesses knowledge available only to the culprit."
+explanation = "The physical reconstruction contradicts Estelle Rook's account."
+
+[[deductions]]
+id = "deduce_true_identity"
+proposition = "The dead man was Lucien using Nico's identity."
+category = "who"
+unlock_questions = []
+unlock_topics = ["marigold_reconstruction"]
+unlock_investigations = []
+
+[[deductions]]
+id = "deduce_suite_transfer"
+proposition = "The body crossed from 810 through the connecting door."
+category = "concealment"
+unlock_questions = []
+unlock_topics = ["marigold_reconstruction"]
+unlock_investigations = []
+
+[[deductions]]
+id = "deduce_door_knowledge"
+proposition = "Estelle knew a defect hidden from the corridor."
+category = "contradiction"
+unlock_questions = []
+unlock_topics = ["marigold_reconstruction"]
+unlock_investigations = []
+
+[[questions]]
+id = "question_1"
+prompt = "What does the evidence prove about: The dead man was Lucien using Nico's identity."
+hypothesis = "The dead man was Lucien using Nico's identity."
+category = "who"
+requires_clues = ["clue_suite_810_blood", "clue_bookend"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_1"
+question = "question_1"
+mode = "physical"
+resolution = "substantiated"
+result = "The dead man was Lucien using Nico's identity."
+prompt = "Pair the two observations that establish: The dead man was Lucien using Nico's identity."
+slot_labels = ["First fact", "Corroborating fact"]
+slot_types = ["observation", "observation"]
+accepted_pieces = ["clue_suite_810_blood", "clue_bookend"]
+result_deductions = ["deduce_true_identity"]
+
+[[questions]]
+id = "question_2"
+prompt = "What does the evidence prove about: The body crossed from 810 through the connecting door."
+hypothesis = "The body crossed from 810 through the connecting door."
+category = "concealment"
+requires_clues = ["clue_door_flakes", "clue_key_log"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_2"
+question = "question_2"
+mode = "timeline"
+resolution = "substantiated"
+result = "The body crossed from 810 through the connecting door."
+prompt = "Pair the two observations that establish: The body crossed from 810 through the connecting door."
+slot_labels = ["First fact", "Corroborating fact"]
+slot_types = ["observation", "observation"]
+accepted_pieces = ["clue_door_flakes", "clue_key_log"]
+result_deductions = ["deduce_suite_transfer"]
+
+[[questions]]
+id = "question_3"
+prompt = "What does the evidence prove about: Estelle knew a defect hidden from the corridor."
+hypothesis = "Estelle knew a defect hidden from the corridor."
+category = "contradiction"
+requires_clues = ["clue_gala_coat", "clue_signature"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_3"
+question = "question_3"
+mode = "confrontation"
+resolution = "substantiated"
+result = "Estelle knew a defect hidden from the corridor."
+prompt = "Pair the two observations that establish: Estelle knew a defect hidden from the corridor."
+slot_labels = ["First fact", "Corroborating fact"]
+slot_types = ["observation", "observation"]
+accepted_pieces = ["clue_gala_coat", "clue_signature"]
+result_deductions = ["deduce_door_knowledge"]
+
+[solution]
+culprit = "estelle"
+motive = "clue_door_defect"
+decisive_contradiction = "decisive_contradiction"
+weapon_block = "weapon_bookend"
+murder_place_block = "place_suite_810"
+death_time_block = "time_during_gala"
+body_movement_block = "route_connecting_door"
+staging_block = "staged_identity"
+cleaning_block = "key_log_coverup"
+alibi_block = "false_register_alibi"
+murder_events = ["event_1"]
+cover_up_events = ["event_2", "event_3", "event_4"]
+false_alibi = ["estelle_door_claim"]
+exclusions = ["nico", "priya"]

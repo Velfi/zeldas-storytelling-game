@@ -1,0 +1,775 @@
+version = "ChicagoScenario v1"
+story_path = "assets/stories/mysteries/the_torn_appointment.story.toml"
+level_path = "assets/levels/vale_house.toml"
+
+[[scenarios]]
+id = "opening_invites_separate_accounts"
+description = "The threshold scene introduces three competing voices; each private introduction establishes a distinct interview angle without asking the player to repeat the next selectable question."
+
+[[scenarios.steps]]
+action = "start"
+value = "scene_arrival"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "expect"
+state = "beat"
+value = "arrival_detective_space"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "expect"
+state = "active"
+equals = false
+
+[[scenarios.steps]]
+action = "start"
+value = "scene_intro_miriam"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "expect"
+state = "beat"
+value = "intro_miriam_leave"
+[[scenarios.steps]]
+action = "advance"
+
+[[scenarios.steps]]
+action = "start"
+value = "scene_intro_daniel"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "expect"
+state = "beat"
+value = "intro_daniel_leave"
+[[scenarios.steps]]
+action = "advance"
+
+[[scenarios.steps]]
+action = "start"
+value = "scene_intro_elsie"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "expect"
+state = "beat"
+value = "intro_elsie_leave"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "expect"
+state = "active"
+equals = false
+
+[[scenarios]]
+id = "miriam_alibi_records_claim"
+description = "Miriam's opening alibi scene records its authored claim and returns cleanly."
+
+[[scenarios.steps]]
+action = "start"
+value = "scene_approach_miriam_alibi"
+
+[[scenarios.steps]]
+action = "expect"
+state = "beat"
+value = "approach_miriam_alibi_response"
+
+[[scenarios.steps]]
+action = "advance"
+
+[[scenarios.steps]]
+action = "expect"
+state = "beat"
+value = "approach_miriam_alibi_after"
+
+[[scenarios.steps]]
+action = "advance"
+
+[[scenarios.steps]]
+action = "expect"
+state = "beat"
+value = "approach_miriam_alibi_detective"
+
+[[scenarios.steps]]
+action = "advance"
+
+[[scenarios.steps]]
+action = "expect"
+state = "beat"
+value = "approach_miriam_alibi_reply"
+
+[[scenarios.steps]]
+action = "advance"
+
+[[scenarios.steps]]
+action = "expect"
+state = "active"
+equals = false
+
+[[scenarios]]
+id = "elsie_theft_has_human_cost"
+description = "Elsie's follow-up accounts for the stolen notes, names the freedom they represented, and preserves her unresolved choice to return them."
+
+[[scenarios.steps]]
+action = "start"
+value = "scene_approach_elsie_explanation"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "expect"
+state = "beat"
+value = "approach_elsie_explanation_room"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "expect"
+state = "beat"
+value = "approach_elsie_explanation_reply"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "expect"
+state = "active"
+equals = false
+
+[[scenarios]]
+id = "daniel_note_breaks_the_table_alibi"
+description = "Daniel's pocketed note supplies exact romantic wording, puts him alone near the study, and turns his polished dinner account into a confessed lie."
+
+[[scenarios.steps]]
+action = "start"
+value = "scene_approach_daniel_affair"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "expect"
+state = "beat"
+value = "approach_daniel_affair_reason"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "expect"
+state = "beat"
+value = "approach_daniel_affair_edgar"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "expect"
+state = "active"
+equals = false
+
+[[scenarios]]
+id = "physical_clues_receive_social_followup"
+description = "The drag trail, staged cane, and hidden cloth each lead to a complete optional suspect reaction."
+
+[[scenarios.steps]]
+action = "know"
+state = "clue"
+value = "clue_drag"
+[[scenarios.steps]]
+action = "know"
+state = "topic"
+value = "body_movement"
+[[scenarios.steps]]
+action = "start"
+value = "scene_approach_miriam_garden_route"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "expect"
+state = "active"
+equals = false
+
+[[scenarios.steps]]
+action = "know"
+state = "clue"
+value = "clue_cane"
+[[scenarios.steps]]
+action = "know"
+state = "topic"
+value = "staged_scene"
+[[scenarios.steps]]
+action = "start"
+value = "scene_approach_daniel_cane"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "expect"
+state = "active"
+equals = false
+
+[[scenarios.steps]]
+action = "know"
+state = "clue"
+value = "clue_cloth"
+[[scenarios.steps]]
+action = "start"
+value = "scene_approach_elsie_cloth"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "expect"
+state = "active"
+equals = false
+
+[[scenarios]]
+id = "torn_fragments_build_suspense_before_proof"
+description = "Each half of the appointment supports an optional character scene before the rejoined note traps Miriam against the exact wording of her denial."
+
+[[scenarios.steps]]
+action = "know"
+state = "clue"
+value = "clue_appointment_stub"
+[[scenarios.steps]]
+action = "start"
+value = "scene_approach_daniel_memo_habit"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "expect"
+state = "active"
+equals = false
+[[scenarios.steps]]
+action = "expect"
+state = "topic"
+value = "edgar_kept_appointment_stubs"
+
+[[scenarios.steps]]
+action = "know"
+state = "clue"
+value = "clue_burned_fragment"
+[[scenarios.steps]]
+action = "start"
+value = "scene_approach_elsie_burned_paper"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "expect"
+state = "active"
+equals = false
+[[scenarios.steps]]
+action = "expect"
+state = "topic"
+value = "fragment_burned_in_haste"
+
+[[scenarios.steps]]
+action = "know"
+state = "claim"
+value = "claim_miriam_summons_denial"
+[[scenarios.steps]]
+action = "know"
+state = "topic"
+value = "unique_knowledge"
+[[scenarios.steps]]
+action = "know"
+state = "topic"
+value = "appointment_denial"
+[[scenarios.steps]]
+action = "start"
+value = "scene_approach_miriam_joined_appointment"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "expect"
+state = "beat"
+value = "approach_miriam_joined_crooked"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "expect"
+state = "active"
+equals = false
+
+[[scenarios]]
+id = "other_lies_collide_before_finale"
+description = "After Daniel and Elsie explain their separate crimes, Miriam can no longer use either lie as an alibi during an ensemble confrontation."
+
+[[scenarios.steps]]
+action = "know"
+state = "clue"
+value = "clue_daniel"
+[[scenarios.steps]]
+action = "know"
+state = "clue"
+value = "clue_elsie"
+[[scenarios.steps]]
+action = "know"
+state = "claim"
+value = "claim_miriam_dinner"
+[[scenarios.steps]]
+action = "know"
+state = "topic"
+value = "affair_admitted"
+[[scenarios.steps]]
+action = "know"
+state = "topic"
+value = "theft_explained"
+[[scenarios.steps]]
+action = "start"
+value = "scene_approach_miriam_other_lies"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "expect"
+state = "active"
+equals = false
+[[scenarios.steps]]
+action = "expect"
+state = "topic"
+value = "other_lies_separated"
+
+[[scenarios]]
+id = "household_remembers_edgar_differently"
+description = "After their first formal accounts, all three suspects offer optional recollections that characterize Edgar and expose their own biases."
+
+[[scenarios.steps]]
+action = "know"
+state = "claim"
+value = "claim_miriam_dinner"
+[[scenarios.steps]]
+action = "start"
+value = "scene_approach_miriam_edgar"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "expect"
+state = "topic"
+value = "edgar_controlled_by_correction"
+
+[[scenarios.steps]]
+action = "know"
+state = "claim"
+value = "claim_daniel_alibi"
+[[scenarios.steps]]
+action = "start"
+value = "scene_approach_daniel_edgar"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "expect"
+state = "topic"
+value = "edgar_kept_leverage"
+
+[[scenarios.steps]]
+action = "know"
+state = "claim"
+value = "claim_elsie_study"
+[[scenarios.steps]]
+action = "start"
+value = "scene_approach_elsie_edgar"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "advance"
+[[scenarios.steps]]
+action = "expect"
+state = "active"
+equals = false
+[[scenarios.steps]]
+action = "expect"
+state = "topic"
+value = "edgar_household_power"
+
+[[scenarios]]
+id = "vale_house_case_closed"
+description = "A supported accusation of Miriam reaches the airtight case-closed ending."
+[[scenarios.steps]]
+action = "investigate"
+value = "clue_ledger"
+[[scenarios.steps]]
+action = "investigate"
+value = "clue_appointment_stub"
+[[scenarios.steps]]
+action = "investigate"
+value = "clue_clock"
+[[scenarios.steps]]
+action = "investigate"
+value = "clue_statuette"
+[[scenarios.steps]]
+action = "investigate"
+value = "clue_cane"
+[[scenarios.steps]]
+action = "investigate"
+value = "clue_cloth"
+[[scenarios.steps]]
+action = "investigate"
+value = "clue_dinner_settings"
+[[scenarios.steps]]
+action = "expect"
+state = "ap"
+integer = 5
+[[scenarios.steps]]
+action = "know"
+state = "claim"
+value = "claim_miriam_dinner"
+[[scenarios.steps]]
+action = "know"
+state = "claim"
+value = "claim_daniel_alibi"
+[[scenarios.steps]]
+action = "demonstrate"
+value = "q_miriam_motive"
+[[scenarios.steps]]
+action = "demonstrate"
+value = "q_cane_weapon"
+[[scenarios.steps]]
+action = "demonstrate"
+value = "q_when_death"
+[[scenarios.steps]]
+action = "demonstrate"
+value = "q_miriam_alibi"
+[[scenarios.steps]]
+action = "accuse"
+value = "miriam"
+[[scenarios.steps]]
+action = "support"
+state = "motive"
+value = "ded_miriam_motive"
+[[scenarios.steps]]
+action = "support"
+state = "means"
+value = "ded_statuette_weapon"
+[[scenarios.steps]]
+action = "support"
+state = "opportunity"
+value = "ded_miriam_alibi_broken"
+[[scenarios.steps]]
+action = "reveal"
+[[scenarios.steps]]
+action = "expect"
+state = "outcome"
+value = "airtight"
+[[scenarios.steps]]
+action = "expect"
+state = "ending"
+value = "case_closed"
+
+[[scenarios]]
+id = "vale_house_case_referred"
+description = "Miriam is named with one supported pillar, reaching the correct-but-unproven ending."
+[[scenarios.steps]]
+action = "investigate"
+value = "clue_ledger"
+[[scenarios.steps]]
+action = "investigate"
+value = "clue_appointment_stub"
+[[scenarios.steps]]
+action = "demonstrate"
+value = "q_miriam_motive"
+[[scenarios.steps]]
+action = "accuse"
+value = "miriam"
+[[scenarios.steps]]
+action = "support"
+state = "motive"
+value = "ded_miriam_motive"
+[[scenarios.steps]]
+action = "reveal"
+[[scenarios.steps]]
+action = "expect"
+state = "outcome"
+value = "correct_but_unproven"
+[[scenarios.steps]]
+action = "expect"
+state = "ending"
+value = "case_referred"
+
+[[scenarios]]
+id = "vale_house_complete_investigation_fits_clock"
+description = "A curious player can gather every authored clue, solve every question, and still reach an airtight reveal inside the twelve-tick budget."
+
+[[scenarios.steps]]
+action = "investigate"
+value = "clue_ledger"
+[[scenarios.steps]]
+action = "investigate"
+value = "clue_daniel"
+[[scenarios.steps]]
+action = "investigate"
+value = "clue_appointment_stub"
+[[scenarios.steps]]
+action = "investigate"
+value = "clue_elsie"
+[[scenarios.steps]]
+action = "investigate"
+value = "clue_cloth"
+[[scenarios.steps]]
+action = "investigate"
+value = "clue_clock"
+[[scenarios.steps]]
+action = "investigate"
+value = "clue_cane"
+[[scenarios.steps]]
+action = "investigate"
+value = "clue_statuette"
+[[scenarios.steps]]
+action = "investigate"
+value = "clue_drag"
+[[scenarios.steps]]
+action = "investigate"
+value = "clue_dinner_settings"
+[[scenarios.steps]]
+action = "investigate"
+value = "clue_burned_fragment"
+[[scenarios.steps]]
+action = "expect"
+state = "ap"
+integer = 1
+
+[[scenarios.steps]]
+action = "know"
+state = "claim"
+value = "claim_miriam_dinner"
+[[scenarios.steps]]
+action = "know"
+state = "claim"
+value = "claim_miriam_summons_denial"
+[[scenarios.steps]]
+action = "know"
+state = "claim"
+value = "claim_daniel_alibi"
+[[scenarios.steps]]
+action = "know"
+state = "claim"
+value = "claim_elsie_study"
+
+[[scenarios.steps]]
+action = "demonstrate"
+value = "q_miriam_motive"
+[[scenarios.steps]]
+action = "demonstrate"
+value = "q_garden_murder"
+[[scenarios.steps]]
+action = "demonstrate"
+value = "q_cane_weapon"
+[[scenarios.steps]]
+action = "demonstrate"
+value = "q_daniel_lie"
+[[scenarios.steps]]
+action = "demonstrate"
+value = "q_when_death"
+[[scenarios.steps]]
+action = "demonstrate"
+value = "q_miriam_alibi"
+[[scenarios.steps]]
+action = "demonstrate"
+value = "q_fragment_source"
+[[scenarios.steps]]
+action = "demonstrate"
+value = "q_elsie_study"
+[[scenarios.steps]]
+action = "demonstrate"
+value = "q_miriam_study_meeting"
+
+[[scenarios.steps]]
+action = "accuse"
+value = "miriam"
+[[scenarios.steps]]
+action = "support"
+state = "motive"
+value = "ded_miriam_motive"
+[[scenarios.steps]]
+action = "support"
+state = "means"
+value = "ded_statuette_weapon"
+[[scenarios.steps]]
+action = "support"
+state = "opportunity"
+value = "ded_miriam_denial_disproved"
+[[scenarios.steps]]
+action = "reveal"
+[[scenarios.steps]]
+action = "expect"
+state = "outcome"
+value = "airtight"
+[[scenarios.steps]]
+action = "expect"
+state = "ending"
+value = "case_closed"
+
+[[scenarios]]
+id = "vale_house_case_incomplete"
+description = "Miriam is named without supported pillars, reaching the plausible-incomplete ending."
+[[scenarios.steps]]
+action = "accuse"
+value = "miriam"
+[[scenarios.steps]]
+action = "reveal"
+[[scenarios.steps]]
+action = "expect"
+state = "outcome"
+value = "plausible_incomplete"
+[[scenarios.steps]]
+action = "expect"
+state = "ending"
+value = "case_incomplete"
+
+[[scenarios]]
+id = "vale_house_wrong_accusation"
+description = "Accusing Daniel reaches the wrong-accusation ending."
+[[scenarios.steps]]
+action = "accuse"
+value = "daniel"
+[[scenarios.steps]]
+action = "reveal"
+[[scenarios.steps]]
+action = "expect"
+state = "outcome"
+value = "wrong_accusation"
+[[scenarios.steps]]
+action = "expect"
+state = "ending"
+value = "wrong_accusation"
+
+[[scenarios]]
+id = "vale_house_case_unresolved"
+description = "Declining to accuse anyone reaches the unresolved ending."
+[[scenarios.steps]]
+action = "reveal"
+[[scenarios.steps]]
+action = "expect"
+state = "outcome"
+value = "unresolved"
+[[scenarios.steps]]
+action = "expect"
+state = "ending"
+value = "case_unresolved"
+
+[[scenarios]]
+id = "vale_house_clock_runs_out"
+description = "A terminal investigation timeout reaches the authored out-of-time ending."
+[[scenarios.steps]]
+action = "timeout"
+[[scenarios.steps]]
+action = "expect"
+state = "ending"
+value = "night_overtakes_the_inquiry"
+
+[[scenarios]]
+id = "desk_key_recovery"
+description = "The first body examination foregrounds the tidy cane and clean gravel as unresolved oddities before the desk-key search reaches its end effect."
+
+[[scenarios.steps]]
+action = "start"
+value = "scene_recover_desk_key"
+
+[[scenarios.steps]]
+action = "advance"
+
+[[scenarios.steps]]
+action = "advance"
+
+[[scenarios.steps]]
+action = "advance"
+
+[[scenarios.steps]]
+action = "advance"
+
+[[scenarios.steps]]
+action = "advance"
+
+[[scenarios.steps]]
+action = "expect"
+state = "active"
+equals = false

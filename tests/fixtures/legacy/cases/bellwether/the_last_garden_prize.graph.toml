@@ -1,0 +1,252 @@
+version = "GraphMode v1"
+case_id = "the_last_garden_prize"
+revision = 0
+
+[[scenes]]
+id = "scene_opening_jon_bell"
+source = "jon_bell"
+entry = "opening_jon_bell_line"
+summary = "Jon removes a dead leaf from Mara's prize card. 'She meant to announce the grant decision after judging. Until then she wanted every plant treated as though it had won.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_jon_bell_line"
+scene = "scene_opening_jon_bell"
+kind = "line"
+speaker = "jon_bell"
+text = "Jon removes a dead leaf from Mara's prize card. 'She meant to announce the grant decision after judging. Until then she wanted every plant treated as though it had won.'"
+next = "opening_jon_bell_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_jon_bell_end"
+scene = "scene_opening_jon_bell"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+
+[[scenes]]
+id = "scene_account_jon_bell"
+source = "jon_bell"
+entry = "account_jon_bell_line"
+summary = "Jon checks the ribbon card before the soil. 'Mara kept the conservatory locked. Nobody watered after six.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_jon_bell_line"
+scene = "scene_account_jon_bell"
+kind = "line"
+speaker = "jon_bell"
+text = "Jon checks the ribbon card before the soil. 'Mara kept the conservatory locked. Nobody watered after six.'"
+next = "account_jon_bell_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_jon_bell_end"
+scene = "scene_account_jon_bell"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_jon_bell"
+source = "jon_bell"
+entry = "approach_jon_bell_line"
+summary = "'Nadia can confirm it.' The watering sheet records Jon's own initials at six twenty."
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_jon_bell_line"
+scene = "scene_approach_jon_bell"
+kind = "line"
+speaker = "jon_bell"
+text = "'Nadia can confirm it.' The watering sheet records Jon's own initials at six twenty."
+next = "approach_jon_bell_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_jon_bell_end"
+scene = "scene_approach_jon_bell"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+
+[[scenes]]
+id = "scene_opening_nadia_price"
+source = "nadia_price"
+entry = "opening_nadia_price_line"
+summary = "Nadia rubs soil from her sleeve. 'Mara was ending our partnership. She still asked me to help with the final watering; that was how she made a wound look like a duty.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_nadia_price_line"
+scene = "scene_opening_nadia_price"
+kind = "line"
+speaker = "nadia_price"
+text = "Nadia rubs soil from her sleeve. 'Mara was ending our partnership. She still asked me to help with the final watering; that was how she made a wound look like a duty.'"
+next = "opening_nadia_price_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_nadia_price_end"
+scene = "scene_opening_nadia_price"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+
+[[scenes]]
+id = "scene_account_nadia_price"
+source = "nadia_price"
+entry = "account_nadia_price_line"
+summary = "Nadia pinches a dead leaf from her sleeve. 'She was ending our partnership. I asked her not to announce it beside the prize bench.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_nadia_price_line"
+scene = "scene_account_nadia_price"
+kind = "line"
+speaker = "nadia_price"
+text = "Nadia pinches a dead leaf from her sleeve. 'She was ending our partnership. I asked her not to announce it beside the prize bench.'"
+next = "account_nadia_price_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_nadia_price_end"
+scene = "scene_account_nadia_price"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_nadia_price"
+source = "nadia_price"
+entry = "approach_nadia_price_line"
+summary = "'I left through the community hall. Jon was bringing the plant cart in against the one-way latch.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_nadia_price_line"
+scene = "scene_approach_nadia_price"
+kind = "line"
+speaker = "nadia_price"
+text = "'I left through the community hall. Jon was bringing the plant cart in against the one-way latch.'"
+next = "approach_nadia_price_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_nadia_price_end"
+scene = "scene_approach_nadia_price"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+
+[[scenes]]
+id = "scene_opening_eli_ward"
+source = "eli_ward"
+entry = "opening_eli_ward_line"
+summary = "Eli names Mara's newest cultivar. 'She could recognize another grower's cutting at ten paces. Tonight she said some prizes belonged to the people who did the work.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_eli_ward_line"
+scene = "scene_opening_eli_ward"
+kind = "line"
+speaker = "eli_ward"
+text = "Eli names Mara's newest cultivar. 'She could recognize another grower's cutting at ten paces. Tonight she said some prizes belonged to the people who did the work.'"
+next = "opening_eli_ward_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_eli_ward_end"
+scene = "scene_opening_eli_ward"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+
+[[scenes]]
+id = "scene_account_eli_ward"
+source = "eli_ward"
+entry = "account_eli_ward_line"
+summary = "Eli names the missing cultivars before the tools. 'Cuttings. Mara refused to register them under my name.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_eli_ward_line"
+scene = "scene_account_eli_ward"
+kind = "line"
+speaker = "eli_ward"
+text = "Eli names the missing cultivars before the tools. 'Cuttings. Mara refused to register them under my name.'"
+next = "account_eli_ward_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_eli_ward_end"
+scene = "scene_account_eli_ward"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_eli_ward"
+source = "eli_ward"
+entry = "approach_eli_ward_line"
+summary = "'Petty theft, yes. The cart latch was already bent when I passed it.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_eli_ward_line"
+scene = "scene_approach_eli_ward"
+kind = "line"
+speaker = "eli_ward"
+text = "'Petty theft, yes. The cart latch was already bent when I passed it.'"
+next = "approach_eli_ward_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_eli_ward_end"
+scene = "scene_approach_eli_ward"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+

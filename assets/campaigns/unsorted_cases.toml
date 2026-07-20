@@ -1,0 +1,17 @@
+version = "MysteryCampaign v2"
+id = "unsorted_cases"
+title = "UNSORTED CASES"
+creator = "Zelda H."
+description = "Standalone mysteries that are not part of an authored campaign."
+content_version = "1.0.0"
+thumbnail = "assets/ui/campaigns/unsorted-cases-hero.png"
+
+[[cases]]
+id = "the_torn_appointment"
+title = "The Torn Appointment"
+story_path = "assets/stories/mysteries/the_torn_appointment.story.toml"
+level_path = "assets/levels/vale_house.toml"
+content_version = "1.0.0"
+required = true
+optional = false
+hidden_until_unlocked = false

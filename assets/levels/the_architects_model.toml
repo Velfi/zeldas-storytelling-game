@@ -1,0 +1,470 @@
+version = "LevelFormat v1"
+id = "the_architects_model_lot"
+name = "The Architect's Model Investigation Lot"
+width = 42
+height = 26
+content_offset = [[5, 5]]
+story_limit = 2
+default_snap = 0.5
+fine_snap = 0.25
+angle_snap = 15.0
+
+[[stories]]
+id = "ground"
+name = "Ground Floor"
+base_elevation = 0.0
+floor_height = 3.5
+
+[[foundations]]
+id = "foundation_design_studio"
+kind = "slab"
+points = [[0, 0], [7, 0], [7, 8], [0, 8]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "design_studio"
+name = "Design Studio"
+story = 0
+points = [[0, 0], [7, 0], [7, 8], [0, 8]]
+platform_height = 0.0
+floor_material = "core:dining"
+wall_material = "core:dining"
+ceiling_style = "flat"
+exterior = false
+
+[[foundations]]
+id = "foundation_model_room"
+kind = "slab"
+points = [[7, 0], [14, 0], [14, 8], [7, 8]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "model_room"
+name = "Model Room"
+story = 0
+points = [[7, 0], [14, 0], [14, 8], [7, 8]]
+platform_height = 0.0
+floor_material = "core:study"
+wall_material = "core:study"
+ceiling_style = "flat"
+exterior = false
+
+[[foundations]]
+id = "foundation_show_apartment"
+kind = "slab"
+points = [[14, 0], [21, 0], [21, 8], [14, 8]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "show_apartment"
+name = "Show Apartment"
+story = 0
+points = [[14, 0], [21, 0], [21, 8], [14, 8]]
+platform_height = 0.0
+floor_material = "core:gallery"
+wall_material = "core:gallery"
+ceiling_style = "flat"
+exterior = false
+
+[[foundations]]
+id = "foundation_construction_floor"
+kind = "slab"
+points = [[21, 0], [28, 0], [28, 8], [21, 8]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "construction_floor"
+name = "Construction Floor"
+story = 0
+points = [[21, 0], [28, 0], [28, 8], [21, 8]]
+platform_height = 0.0
+floor_material = "core:pantry"
+wall_material = "core:pantry"
+ceiling_style = "flat"
+exterior = false
+
+[[foundations]]
+id = "foundation_service_lift"
+kind = "slab"
+points = [[28, 0], [35, 0], [35, 8], [28, 8]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "service_lift"
+name = "Service Lift"
+story = 0
+points = [[28, 0], [35, 0], [35, 8], [28, 8]]
+platform_height = 0.0
+floor_material = "core:structure"
+wall_material = "core:structure"
+ceiling_style = "flat"
+exterior = false
+
+[[paths]]
+id = "outer_shell"
+story = 0
+kind = "wall"
+points = [[0, 0], [35, 0], [35, 8], [0, 8], [0, 0]]
+material = "structure"
+width = 0.35
+
+[[paths]]
+id = "partition_1"
+story = 0
+kind = "wall"
+points = [[7, 0], [7, 8]]
+material = "structure"
+width = 0.25
+
+[[paths]]
+id = "partition_2"
+story = 0
+kind = "wall"
+points = [[14, 0], [14, 8]]
+material = "structure"
+width = 0.25
+
+[[paths]]
+id = "partition_3"
+story = 0
+kind = "wall"
+points = [[21, 0], [21, 8]]
+material = "structure"
+width = 0.25
+
+[[paths]]
+id = "partition_4"
+story = 0
+kind = "wall"
+points = [[28, 0], [28, 8]]
+material = "structure"
+width = 0.25
+
+[[markers]]
+id = "spawn_player"
+kind = "player_spawn"
+story = 0
+position = [[2.0, 4.0]]
+radius = 0.4
+facing = 0.0
+reference = ""
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "marker_plaster"
+kind = "clue"
+story = 0
+position = [[15.5, 2.0]]
+radius = 0.55
+facing = 0.0
+reference = "plaster"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "marker_stone_sample"
+kind = "clue"
+story = 0
+position = [[17.5, 3.5]]
+radius = 0.55
+facing = 0.0
+reference = "stone_sample"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "marker_lift_padding"
+kind = "clue"
+story = 0
+position = [[29.5, 5.0]]
+radius = 0.55
+facing = 0.0
+reference = "lift_padding"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "marker_fall_edge"
+kind = "clue"
+story = 0
+position = [[24.5, 2.0]]
+radius = 0.55
+facing = 0.0
+reference = "fall_edge"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "marker_model_barrier"
+kind = "clue"
+story = 0
+position = [[8.5, 3.5]]
+radius = 0.55
+facing = 0.0
+reference = "model_barrier"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "marker_site_photos"
+kind = "clue"
+story = 0
+position = [[3.5, 5.0]]
+radius = 0.55
+facing = 0.0
+reference = "site_photos"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "marker_safety_report"
+kind = "clue"
+story = 0
+position = [[22.5, 2.0]]
+radius = 0.55
+facing = 0.0
+reference = "safety_report"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "spawn_julian"
+kind = "character_spawn"
+story = 0
+position = [[8, 5.5]]
+radius = 0.6
+facing = 180.0
+reference = "julian"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "spawn_nell"
+kind = "character_spawn"
+story = 0
+position = [[15, 5.5]]
+radius = 0.6
+facing = 180.0
+reference = "nell"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "spawn_rafi"
+kind = "character_spawn"
+story = 0
+position = [[22, 5.5]]
+radius = 0.6
+facing = 180.0
+reference = "rafi"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "return_to_city"
+kind = "transition"
+story = 0
+position = [[1.0, 1.0]]
+radius = 0.8
+facing = 180.0
+reference = ""
+destination = "city:police_station"
+camera_height = 1.6
+
+# BEGIN GENERATED ROOM FURNISHINGS
+
+[[objects]]
+id = "furnish_design_studio_1_desk"
+catalog_id = "core:desk"
+story = 0
+position = [[1.96, 2.24]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_design_studio_2_chair_desk"
+catalog_id = "core:chair_desk"
+story = 0
+position = [[1.96, 3.84]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_design_studio_3_computer_screen"
+catalog_id = "core:computer_screen"
+support_id = "furnish_design_studio_1_desk"
+elevation = 0.74
+story = 0
+position = [[1.96, 2.24]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_design_studio_4_bookcase_closed"
+catalog_id = "core:bookcase_closed"
+story = 0
+position = [[5.74, 1.92]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_design_studio_5_floor_lamp_round"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[5.74, 6.24]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_model_room_1_table_round"
+catalog_id = "core:table_round"
+story = 0
+position = [[10.50, 3.84]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_model_room_2_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[10.50, 2.00]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_model_room_3_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[10.50, 5.76]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_model_room_4_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[8.75, 3.84]]
+rotation = 270.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_model_room_5_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[12.25, 3.84]]
+rotation = 90.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_show_apartment_1_bed_single"
+catalog_id = "core:bed_single"
+story = 0
+position = [[15.96, 2.72]]
+rotation = 90.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_show_apartment_2_side_table"
+catalog_id = "core:side_table"
+story = 0
+position = [[15.96, 5.76]]
+rotation = 90.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_show_apartment_3_table_lamp_square"
+catalog_id = "core:table_lamp_square"
+support_id = "furnish_show_apartment_2_side_table"
+elevation = 0.62
+story = 0
+position = [[15.96, 5.76]]
+rotation = 90.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_show_apartment_4_lounge_chair"
+catalog_id = "core:lounge_chair"
+story = 0
+position = [[19.46, 5.76]]
+rotation = 225.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_show_apartment_5_rug_rectangle"
+catalog_id = "core:rug_rectangle"
+story = 0
+position = [[17.85, 3.84]]
+rotation = 90.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_construction_floor_1_desk"
+catalog_id = "core:desk"
+story = 0
+position = [[22.54, 1.92]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_construction_floor_2_chair_desk"
+catalog_id = "core:chair_desk"
+story = 0
+position = [[22.54, 3.84]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_construction_floor_3_bathroom_cabinet"
+catalog_id = "core:bathroom_cabinet"
+story = 0
+position = [[26.46, 1.76]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_construction_floor_4_cardboard_box_closed"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[26.46, 5.60]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_construction_floor_5_trashcan"
+catalog_id = "core:trashcan"
+story = 0
+position = [[24.50, 6.08]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_service_lift_1_bench_cushion"
+catalog_id = "core:bench_cushion"
+story = 0
+position = [[29.96, 1.92]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_service_lift_2_coat_rack"
+catalog_id = "core:coat_rack"
+story = 0
+position = [[33.46, 1.92]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_service_lift_3_plant_small2"
+catalog_id = "core:plant_small2"
+story = 0
+position = [[33.46, 6.08]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+# END GENERATED ROOM FURNISHINGS

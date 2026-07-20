@@ -1,0 +1,2390 @@
+version = "EditorCatalog v1"
+
+[[materials]]
+id = "core:dining"
+category = "interior"
+floor = "assets/materials/floor-coverings/interior/01-walnut-herringbone.png"
+wall = "assets/materials/wall-coverings/interior/02-ivory-art-deco.png"
+floor_repeat_m = 5.0
+wall_repeat_m = 2.0
+
+[[materials]]
+id = "core:study"
+category = "interior"
+floor = "assets/materials/floor-coverings/interior/02-honey-oak-planks.png"
+wall = "assets/materials/wall-coverings/interior/01-forest-herringbone.png"
+
+[[materials]]
+id = "core:european-english-arts-crafts"
+category = "european"
+floor = "assets/materials/floor-coverings/european/21-european-english-smoked-oak-herringbone.png"
+wall = "assets/materials/wall-coverings/european/25-european-english-arts-crafts-acanthus.png"
+floor_repeat_m = 3.0
+wall_repeat_m = 1.5
+
+[[materials]]
+id = "core:european-french-toile-versailles"
+category = "european"
+floor = "assets/materials/floor-coverings/european/22-european-french-versailles-parquet.png"
+wall = "assets/materials/wall-coverings/european/26-european-french-indigo-toile.png"
+floor_repeat_m = 4.0
+wall_repeat_m = 1.8
+
+[[materials]]
+id = "core:european-italian-fresco-terrazzo"
+category = "european"
+floor = "assets/materials/floor-coverings/european/23-european-italian-terracotta-terrazzo.png"
+wall = "assets/materials/wall-coverings/european/27-european-italian-vine-fresco.png"
+floor_repeat_m = 2.5
+wall_repeat_m = 2.0
+
+[[materials]]
+id = "core:european-dutch-delft-brick"
+category = "european"
+floor = "assets/materials/floor-coverings/european/24-european-dutch-interior-brick.png"
+wall = "assets/materials/wall-coverings/european/28-european-dutch-delft-corners.png"
+floor_repeat_m = 3.0
+wall_repeat_m = 1.5
+
+[[materials]]
+id = "core:european-portuguese-azulejo-cork"
+category = "european"
+floor = "assets/materials/floor-coverings/european/25-european-portuguese-cork-tile.png"
+wall = "assets/materials/wall-coverings/european/29-european-portuguese-azulejo-quatrefoil.png"
+floor_repeat_m = 3.0
+wall_repeat_m = 1.5
+
+[[materials]]
+id = "core:european-belgian-linen-bluestone"
+category = "european"
+floor = "assets/materials/floor-coverings/european/26-european-belgian-bluestone.png"
+wall = "assets/materials/wall-coverings/european/30-european-belgian-flax-linen.png"
+floor_repeat_m = 4.0
+wall_repeat_m = 1.0
+
+[[materials]]
+id = "core:european-scandinavian-limewash-pine"
+category = "european"
+floor = "assets/materials/floor-coverings/european/27-european-scandinavian-soaped-pine.png"
+wall = "assets/materials/wall-coverings/european/31-european-scandinavian-blue-limewash.png"
+floor_repeat_m = 4.0
+wall_repeat_m = 2.5
+
+[[materials]]
+id = "core:european-viennese-secession-beech"
+category = "european"
+floor = "assets/materials/floor-coverings/european/28-european-viennese-waxed-beech.png"
+wall = "assets/materials/wall-coverings/european/32-european-viennese-secession-ginkgo.png"
+floor_repeat_m = 3.5
+wall_repeat_m = 1.5
+
+[[materials]]
+id = "core:european-spanish-moorish-encaustic"
+category = "european"
+floor = "assets/materials/floor-coverings/european/29-european-spanish-encaustic-star.png"
+wall = "assets/materials/wall-coverings/european/33-european-spanish-moorish-star-lattice.png"
+floor_repeat_m = 2.0
+wall_repeat_m = 1.8
+
+[[materials]]
+id = "core:european-greek-neoclassical-marble"
+category = "european"
+floor = "assets/materials/floor-coverings/european/30-european-greek-blue-gray-marble.png"
+wall = "assets/materials/wall-coverings/european/34-european-greek-neoclassical-stripe.png"
+floor_repeat_m = 3.0
+wall_repeat_m = 1.8
+
+[[materials]]
+id = "core:japanese-washi-tatami"
+category = "japanese"
+floor = "assets/materials/floor-coverings/japanese/21-traditional-bordered-tatami.png"
+wall = "assets/materials/wall-coverings/japanese/25-ivory-washi-fiber.png"
+floor_repeat_m = 3.6
+wall_repeat_m = 2.0
+
+[[materials]]
+id = "core:japanese-seigaiha-tatami"
+category = "japanese"
+floor = "assets/materials/floor-coverings/japanese/22-sage-borderless-tatami.png"
+wall = "assets/materials/wall-coverings/japanese/26-indigo-seigaiha-karakami.png"
+floor_repeat_m = 3.6
+wall_repeat_m = 1.2
+
+[[materials]]
+id = "core:japanese-asanoha-hinoki"
+category = "japanese"
+floor = "assets/materials/floor-coverings/japanese/23-pale-hinoki-planks.png"
+wall = "assets/materials/wall-coverings/japanese/27-ochre-asanoha-karakami.png"
+floor_repeat_m = 4.0
+wall_repeat_m = 1.2
+
+[[materials]]
+id = "core:japanese-ginkgo-ichimatsu"
+category = "japanese"
+floor = "assets/materials/floor-coverings/japanese/24-dark-walnut-ichimatsu.png"
+wall = "assets/materials/wall-coverings/japanese/28-sage-ginkgo-washi.png"
+floor_repeat_m = 3.0
+wall_repeat_m = 1.5
+
+[[materials]]
+id = "core:japanese-shikkui-cedar"
+category = "japanese"
+floor = "assets/materials/floor-coverings/japanese/25-weathered-cedar-planks.png"
+wall = "assets/materials/wall-coverings/japanese/29-off-white-shikkui-plaster.png"
+floor_repeat_m = 4.0
+wall_repeat_m = 2.5
+
+[[materials]]
+id = "core:japanese-tsuchikabe-stone"
+category = "japanese"
+floor = "assets/materials/floor-coverings/japanese/26-charcoal-doma-stone.png"
+wall = "assets/materials/wall-coverings/japanese/30-beige-tsuchikabe-clay.png"
+floor_repeat_m = 3.0
+wall_repeat_m = 2.5
+
+[[materials]]
+id = "core:japanese-smoked-cedar-pebble"
+category = "japanese"
+floor = "assets/materials/floor-coverings/japanese/27-gray-river-stone-mosaic.png"
+wall = "assets/materials/wall-coverings/japanese/31-smoked-cedar-slats.png"
+floor_repeat_m = 2.0
+wall_repeat_m = 2.0
+
+[[materials]]
+id = "core:japanese-hinoki-doma"
+category = "japanese"
+floor = "assets/materials/floor-coverings/japanese/28-ochre-earthen-doma.png"
+wall = "assets/materials/wall-coverings/japanese/32-natural-hinoki-panels.png"
+floor_repeat_m = 3.0
+wall_repeat_m = 2.0
+
+[[materials]]
+id = "core:japanese-shippo-ichimatsu"
+category = "japanese"
+floor = "assets/materials/floor-coverings/japanese/29-blue-gray-ichimatsu-tile.png"
+wall = "assets/materials/wall-coverings/japanese/33-terracotta-shippo-tile.png"
+floor_repeat_m = 2.0
+wall_repeat_m = 1.5
+
+[[materials]]
+id = "core:japanese-grasscloth-rush"
+category = "japanese"
+floor = "assets/materials/floor-coverings/japanese/30-golden-rush-herringbone.png"
+wall = "assets/materials/wall-coverings/japanese/34-charcoal-indigo-grasscloth.png"
+floor_repeat_m = 2.5
+wall_repeat_m = 2.0
+
+[[materials]]
+id = "core:1940s_muted_floral_linoleum"
+category = "1940s"
+floor = "assets/materials/floor-coverings/1940s/01-brown-battleship-linoleum.png"
+wall = "assets/materials/wall-coverings/1940s/01-muted-floral.png"
+
+[[materials]]
+id = "core:1940s_streamline_lino"
+category = "1940s"
+floor = "assets/materials/floor-coverings/1940s/02-green-cream-lino-tile.png"
+wall = "assets/materials/wall-coverings/1940s/02-streamline-fan.png"
+
+[[materials]]
+id = "core:1940s_victory_diamond"
+category = "1940s"
+floor = "assets/materials/floor-coverings/1940s/03-red-cream-lino-diamond.png"
+wall = "assets/materials/wall-coverings/1940s/03-victory-stripe.png"
+
+[[materials]]
+id = "core:1940s_kitchen_oak"
+category = "1940s"
+floor = "assets/materials/floor-coverings/1940s/04-oak-strip.png"
+wall = "assets/materials/wall-coverings/1940s/04-kitchen-cherry.png"
+
+[[materials]]
+id = "core:1940s_atomic_parquet"
+category = "1940s"
+floor = "assets/materials/floor-coverings/1940s/05-dark-parquet.png"
+wall = "assets/materials/wall-coverings/1940s/05-atomic-starburst.png"
+
+[[materials]]
+id = "core:1940s_maple_terrazzo"
+category = "1940s"
+floor = "assets/materials/floor-coverings/1940s/06-gray-terrazzo.png"
+wall = "assets/materials/wall-coverings/1940s/06-maple-leaf.png"
+
+[[materials]]
+id = "core:1940s_blue_hex"
+category = "1940s"
+floor = "assets/materials/floor-coverings/1940s/07-ivory-black-hex-tile.png"
+wall = "assets/materials/wall-coverings/1940s/07-blue-ditsy.png"
+
+[[materials]]
+id = "core:1940s_club_russet"
+category = "1940s"
+floor = "assets/materials/floor-coverings/1940s/08-russet-wool-carpet.png"
+wall = "assets/materials/wall-coverings/1940s/08-club-diamond.png"
+
+[[materials]]
+id = "core:1940s_hotel_tile"
+category = "1940s"
+floor = "assets/materials/floor-coverings/1940s/09-navy-hotel-carpet.png"
+wall = "assets/materials/wall-coverings/1940s/09-hospital-green-tile.png"
+
+[[materials]]
+id = "core:1940s_utility_rubber"
+category = "1940s"
+floor = "assets/materials/floor-coverings/1940s/10-black-rubber-coin.png"
+wall = "assets/materials/wall-coverings/1940s/10-cream-painted-plaster.png"
+
+[[materials]]
+id = "core:1950s_atomic_confetti"
+category = "1950s"
+floor = "assets/materials/floor-coverings/1950s/01-turquoise-confetti-linoleum.png"
+wall = "assets/materials/wall-coverings/1950s/01-atomic-starburst.png"
+
+[[materials]]
+id = "core:1950s_boomerang_vct"
+category = "1950s"
+floor = "assets/materials/floor-coverings/1950s/02-coral-cream-vct.png"
+wall = "assets/materials/wall-coverings/1950s/02-boomerang-scatter.png"
+
+[[materials]]
+id = "core:1950s_kidney_vinyl"
+category = "1950s"
+floor = "assets/materials/floor-coverings/1950s/03-aqua-boomerang-vinyl.png"
+wall = "assets/materials/wall-coverings/1950s/03-kidney-abstract.png"
+
+[[materials]]
+id = "core:1950s_mint_cork"
+category = "1950s"
+floor = "assets/materials/floor-coverings/1950s/04-honey-cork-tile.png"
+wall = "assets/materials/wall-coverings/1950s/04-mint-pinstripe.png"
+
+[[materials]]
+id = "core:1950s_olive_terrazzo"
+category = "1950s"
+floor = "assets/materials/floor-coverings/1950s/05-cream-terrazzo.png"
+wall = "assets/materials/wall-coverings/1950s/05-olive-leaf-sprig.png"
+
+[[materials]]
+id = "core:1950s_blue_moss"
+category = "1950s"
+floor = "assets/materials/floor-coverings/1950s/06-moss-wool-carpet.png"
+wall = "assets/materials/wall-coverings/1950s/06-blue-diamond-trellis.png"
+
+[[materials]]
+id = "core:1950s_kitchen_parquet"
+category = "1950s"
+floor = "assets/materials/floor-coverings/1950s/07-oak-basketweave-parquet.png"
+wall = "assets/materials/wall-coverings/1950s/07-kitchen-coffee-novelty.png"
+
+[[materials]]
+id = "core:1950s_grasscloth_rubber"
+category = "1950s"
+floor = "assets/materials/floor-coverings/1950s/08-gray-cream-rubber-tile.png"
+wall = "assets/materials/wall-coverings/1950s/08-wheat-grasscloth.png"
+
+[[materials]]
+id = "core:1950s_daisy_asphalt"
+category = "1950s"
+floor = "assets/materials/floor-coverings/1950s/09-tobacco-asphalt-tile.png"
+wall = "assets/materials/wall-coverings/1950s/09-butter-daisy.png"
+
+[[materials]]
+id = "core:1950s_orange_broadloom"
+category = "1950s"
+floor = "assets/materials/floor-coverings/1950s/10-burgundy-hotel-broadloom.png"
+wall = "assets/materials/wall-coverings/1950s/10-orange-rounded-geometry.png"
+
+[[materials]]
+id = "core:sixties_mod_floral"
+category = "1960s"
+floor = "assets/materials/floor-coverings/1960s/01-warm-terrazzo.png"
+wall = "assets/materials/wall-coverings/1960s/01-avocado-mod-floral.png"
+
+[[materials]]
+id = "core:sixties_atomic"
+category = "1960s"
+floor = "assets/materials/floor-coverings/1960s/02-avocado-vinyl-check.png"
+wall = "assets/materials/wall-coverings/1960s/02-atomic-boomerang.png"
+
+[[materials]]
+id = "core:sixties_op_art"
+category = "1960s"
+floor = "assets/materials/floor-coverings/1960s/03-teak-finger-parquet.png"
+wall = "assets/materials/wall-coverings/1960s/03-op-art-rounded-squares.png"
+
+[[materials]]
+id = "core:sixties_scandinavian"
+category = "1960s"
+floor = "assets/materials/floor-coverings/1960s/04-burnt-orange-broadloom.png"
+wall = "assets/materials/wall-coverings/1960s/04-scandinavian-leaves.png"
+
+[[materials]]
+id = "core:sixties_natural"
+category = "1960s"
+floor = "assets/materials/floor-coverings/1960s/05-turquoise-speckle-linoleum.png"
+wall = "assets/materials/wall-coverings/1960s/05-tobacco-grasscloth.png"
+
+[[materials]]
+id = "core:sixties_rec_room"
+category = "1960s"
+floor = "assets/materials/floor-coverings/1960s/06-amber-cork-tile.png"
+wall = "assets/materials/wall-coverings/1960s/06-walnut-paneling.png"
+
+[[materials]]
+id = "core:sixties_teal_trellis"
+category = "1960s"
+floor = "assets/materials/floor-coverings/1960s/07-rounded-diamond-vinyl.png"
+wall = "assets/materials/wall-coverings/1960s/07-teal-gold-trellis.png"
+
+[[materials]]
+id = "core:sixties_psychedelic"
+category = "1960s"
+floor = "assets/materials/floor-coverings/1960s/08-olive-loop-carpet.png"
+wall = "assets/materials/wall-coverings/1960s/08-plum-psychedelic-paisley.png"
+
+[[materials]]
+id = "core:sixties_aqua_pinstripe"
+category = "1960s"
+floor = "assets/materials/floor-coverings/1960s/09-smoke-slate-vct.png"
+wall = "assets/materials/wall-coverings/1960s/09-aqua-gold-pinstripe.png"
+
+[[materials]]
+id = "core:sixties_pebble"
+category = "1960s"
+floor = "assets/materials/floor-coverings/1960s/10-cream-chip-vinyl.png"
+wall = "assets/materials/wall-coverings/1960s/10-abstract-pebble.png"
+
+[[materials]]
+id = "core:1970s-avocado-arches"
+category = "1970s"
+floor = "assets/materials/floor-coverings/1970s/11-avocado-low-pile-carpet.png"
+wall = "assets/materials/wall-coverings/1970s/15-avocado-orange-arches.png"
+
+[[materials]]
+id = "core:1970s-harvest-daisy"
+category = "1970s"
+floor = "assets/materials/floor-coverings/1970s/12-burnt-orange-shag.png"
+wall = "assets/materials/wall-coverings/1970s/16-harvest-daisy-medallion.png"
+
+[[materials]]
+id = "core:1970s-op-wave-cork"
+category = "1970s"
+floor = "assets/materials/floor-coverings/1970s/13-cork-checker-tile.png"
+wall = "assets/materials/wall-coverings/1970s/17-cocoa-cream-op-waves.png"
+
+[[materials]]
+id = "core:1970s-teal-parquet"
+category = "1970s"
+floor = "assets/materials/floor-coverings/1970s/14-dark-walnut-basketweave.png"
+wall = "assets/materials/wall-coverings/1970s/18-teal-gold-starburst.png"
+
+[[materials]]
+id = "core:1970s-tulip-terrazzo"
+category = "1970s"
+floor = "assets/materials/floor-coverings/1970s/15-harvest-terrazzo-vinyl.png"
+wall = "assets/materials/wall-coverings/1970s/19-rust-plum-tulip-ogee.png"
+
+[[materials]]
+id = "core:1970s-bamboo-linoleum"
+category = "1970s"
+floor = "assets/materials/floor-coverings/1970s/16-russet-linoleum-grid.png"
+wall = "assets/materials/wall-coverings/1970s/20-olive-bamboo-lattice.png"
+
+[[materials]]
+id = "core:1970s-sun-floral"
+category = "1970s"
+floor = "assets/materials/floor-coverings/1970s/17-cream-olive-floral-vinyl.png"
+wall = "assets/materials/wall-coverings/1970s/21-chocolate-orange-sun-disc.png"
+
+[[materials]]
+id = "core:1970s-ribbon-loop"
+category = "1970s"
+floor = "assets/materials/floor-coverings/1970s/18-slate-blue-loop-carpet.png"
+wall = "assets/materials/wall-coverings/1970s/22-teal-olive-ribbon-stripe.png"
+
+[[materials]]
+id = "core:1970s-brutalist-russet"
+category = "1970s"
+floor = "assets/materials/floor-coverings/1970s/19-russet-concentric-carpet.png"
+wall = "assets/materials/wall-coverings/1970s/23-mustard-brutalist-blocks.png"
+
+[[materials]]
+id = "core:1970s-mauve-mosaic"
+category = "1970s"
+floor = "assets/materials/floor-coverings/1970s/20-cream-chocolate-mosaic.png"
+wall = "assets/materials/wall-coverings/1970s/24-smoky-mauve-brass-fan.png"
+
+[[materials]]
+id = "core:gothic-oxblood-trefoil"
+category = "gothic"
+floor = "assets/materials/floor-coverings/gothic/11-black-ivory-quatrefoil-marble.png"
+wall = "assets/materials/wall-coverings/gothic/11-oxblood-trefoil-flock.png"
+
+[[materials]]
+id = "core:gothic-forest-quatrefoil"
+category = "gothic"
+floor = "assets/materials/floor-coverings/gothic/12-walnut-pointed-parquet.png"
+wall = "assets/materials/wall-coverings/gothic/12-forest-gold-quatrefoil.png"
+
+[[materials]]
+id = "core:gothic-charcoal-lancet"
+category = "gothic"
+floor = "assets/materials/floor-coverings/gothic/13-burgundy-lancet-encaustic.png"
+wall = "assets/materials/wall-coverings/gothic/13-charcoal-lancet-tracery.png"
+
+[[materials]]
+id = "core:gothic-midnight-thistle"
+category = "gothic"
+floor = "assets/materials/floor-coverings/gothic/14-cathedral-gray-flagstone.png"
+wall = "assets/materials/wall-coverings/gothic/14-midnight-thistle-damask.png"
+
+[[materials]]
+id = "core:gothic-aubergine-arabesque"
+category = "gothic"
+floor = "assets/materials/floor-coverings/gothic/15-green-quatrefoil-carpet.png"
+wall = "assets/materials/wall-coverings/gothic/15-aubergine-bat-arabesque.png"
+
+[[materials]]
+id = "core:gothic-parchment-rose"
+category = "gothic"
+floor = "assets/materials/floor-coverings/gothic/16-oxblood-gothic-cross-tile.png"
+wall = "assets/materials/wall-coverings/gothic/16-parchment-rose-tracery.png"
+
+[[materials]]
+id = "core:gothic-teal-ogee"
+category = "gothic"
+floor = "assets/materials/floor-coverings/gothic/17-black-slate-brass-diamond.png"
+wall = "assets/materials/wall-coverings/gothic/17-teal-copper-ogee.png"
+
+[[materials]]
+id = "core:gothic-plum-thorn"
+category = "gothic"
+floor = "assets/materials/floor-coverings/gothic/18-plum-thorn-carpet.png"
+wall = "assets/materials/wall-coverings/gothic/18-smoky-plum-thorn-damask.png"
+
+[[materials]]
+id = "core:gothic-umber-tudor"
+category = "gothic"
+floor = "assets/materials/floor-coverings/gothic/19-limestone-rose-mosaic.png"
+wall = "assets/materials/wall-coverings/gothic/19-umber-tudor-leather.png"
+
+[[materials]]
+id = "core:gothic-ash-arcade"
+category = "gothic"
+floor = "assets/materials/floor-coverings/gothic/20-fumed-oak-planks.png"
+wall = "assets/materials/wall-coverings/gothic/20-ash-arcade-plaster.png"
+
+[[materials]]
+id = "core:slate_plaster"
+category = "interior"
+floor = "assets/materials/floor-coverings/interior/03-slate-flagstone.png"
+wall = "assets/materials/wall-coverings/interior/03-blue-gray-plaster.png"
+
+[[materials]]
+id = "core:ochre_encaustic"
+category = "interior"
+floor = "assets/materials/floor-coverings/interior/04-encaustic-star-tile.png"
+wall = "assets/materials/wall-coverings/interior/04-ochre-wheat.png"
+
+[[materials]]
+id = "core:rose_green"
+category = "interior"
+floor = "assets/materials/floor-coverings/interior/05-bottle-green-carpet.png"
+wall = "assets/materials/wall-coverings/interior/05-rose-damask.png"
+
+[[materials]]
+id = "core:teal_burgundy"
+category = "interior"
+floor = "assets/materials/floor-coverings/interior/06-burgundy-runner-carpet.png"
+wall = "assets/materials/wall-coverings/interior/06-teal-ceramic-tile.png"
+
+[[materials]]
+id = "core:deco_marble"
+category = "interior"
+floor = "assets/materials/floor-coverings/interior/07-marble-checkerboard.png"
+wall = "assets/materials/wall-coverings/interior/07-charcoal-brass-fan.png"
+
+[[materials]]
+id = "core:burgundy_terracotta"
+category = "interior"
+floor = "assets/materials/floor-coverings/interior/08-terracotta-hex.png"
+wall = "assets/materials/wall-coverings/interior/08-burgundy-lattice.png"
+
+[[materials]]
+id = "core:limestone_concrete"
+category = "interior"
+floor = "assets/materials/floor-coverings/interior/09-weathered-concrete.png"
+wall = "assets/materials/wall-coverings/interior/09-limestone-plaster.png"
+
+[[materials]]
+id = "core:sage_travertine"
+category = "interior"
+floor = "assets/materials/floor-coverings/interior/10-travertine-slabs.png"
+wall = "assets/materials/wall-coverings/interior/10-sage-stripe.png"
+
+[[objects]]
+id = "core:plant"
+category = "landscaping"
+model = "assets/kenney_furniture-kit/Models/GLTF format/pottedPlant.glb"
+footprint_radius = 0.34
+placement = "indoor_or_outdoor"
+front_direction = "none"
+dimensions = [0.255, 0.536, 0.291]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = []
+styles = ["stylized", "contemporary", "naturalistic"]
+affordances = ["landscape", "soften_space"]
+[[objects]]
+id = "core:dining_table"
+category = "tables"
+model = "assets/kenney_furniture-kit/Models/GLTF format/tableCloth.glb"
+footprint_radius = 1.05
+surface_height = 0.76
+placement = "indoor"
+front_direction = "+z"
+dimensions = [0.841, 0.327, 0.447]
+clearance_front = 0.80
+clearance_back = 0.05
+clearance_left = 0.10
+clearance_right = 0.10
+surfaces = ["top"]
+styles = ["stylized", "contemporary"]
+affordances = ["support_objects", "work_surface"]
+[[objects]]
+id = "core:chair"
+category = "seating"
+model = "assets/kenney_furniture-kit/Models/GLTF format/chairCushion.glb"
+footprint_radius = 0.45
+placement = "indoor"
+front_direction = "+z"
+dimensions = [0.200, 0.460, 0.200]
+clearance_front = 0.65
+clearance_back = 0.10
+clearance_left = 0.15
+clearance_right = 0.15
+surfaces = []
+styles = ["stylized", "contemporary"]
+affordances = ["sit", "conversation", "rest"]
+[[objects]]
+id = "core:sofa"
+category = "seating"
+model = "assets/kenney_furniture-kit/Models/GLTF format/loungeSofa.glb"
+footprint_radius = 1.10
+placement = "indoor"
+front_direction = "+z"
+dimensions = [0.980, 0.460, 0.410]
+clearance_front = 0.65
+clearance_back = 0.10
+clearance_left = 0.15
+clearance_right = 0.15
+surfaces = []
+styles = ["stylized", "contemporary"]
+affordances = ["sit", "conversation", "rest"]
+[[objects]]
+id = "core:coffee_table"
+category = "tables"
+model = "assets/kenney_furniture-kit/Models/GLTF format/tableCoffee.glb"
+footprint_radius = 0.75
+surface_height = 0.46
+placement = "indoor"
+front_direction = "+z"
+dimensions = [0.661, 0.230, 0.400]
+clearance_front = 0.80
+clearance_back = 0.05
+clearance_left = 0.10
+clearance_right = 0.10
+surfaces = ["top"]
+styles = ["stylized", "contemporary"]
+affordances = ["support_objects", "work_surface"]
+[[objects]]
+id = "core:bookcase"
+category = "storage"
+model = "assets/kenney_furniture-kit/Models/GLTF format/bookcaseOpen.glb"
+footprint_radius = 0.60
+placement = "indoor"
+front_direction = "+z"
+dimensions = [0.400, 0.880, 0.250]
+clearance_front = 0.80
+clearance_back = 0.05
+clearance_left = 0.08
+clearance_right = 0.08
+surfaces = []
+styles = ["stylized", "contemporary"]
+affordances = ["store"]
+[[objects]]
+id = "core:desk"
+category = "tables"
+model = "assets/kenney_furniture-kit/Models/GLTF format/desk.glb"
+footprint_radius = 0.80
+surface_height = 0.74
+placement = "indoor"
+front_direction = "+z"
+dimensions = [0.734, 0.384, 0.556]
+clearance_front = 0.80
+clearance_back = 0.05
+clearance_left = 0.10
+clearance_right = 0.10
+surfaces = ["top"]
+styles = ["stylized", "contemporary"]
+affordances = ["support_objects", "work_surface"]
+[[objects]]
+id = "core:bed"
+category = "bedroom"
+model = "assets/kenney_furniture-kit/Models/GLTF format/bedDouble.glb"
+footprint_radius = 1.15
+placement = "indoor"
+front_direction = "+z"
+dimensions = [1.623, 0.505, 1.912]
+clearance_front = 0.75
+clearance_back = 0.10
+clearance_left = 0.45
+clearance_right = 0.45
+surfaces = []
+styles = ["stylized", "contemporary"]
+affordances = ["sleep", "rest"]
+[[objects]]
+id = "core:side_table"
+category = "tables"
+model = "assets/kenney_furniture-kit/Models/GLTF format/sideTableDrawers.glb"
+footprint_radius = 0.45
+surface_height = 0.62
+placement = "indoor"
+front_direction = "+z"
+dimensions = [0.534, 0.384, 0.386]
+clearance_front = 0.80
+clearance_back = 0.05
+clearance_left = 0.10
+clearance_right = 0.10
+surfaces = ["top"]
+styles = ["stylized", "contemporary"]
+affordances = ["support_objects", "work_surface"]
+[[objects]]
+id = "core:floor_lamp"
+category = "lighting"
+model = "assets/kenney_furniture-kit/Models/GLTF format/lampSquareFloor.glb"
+footprint_radius = 0.30
+placement = "indoor"
+emits_light = true
+light_kind = "point"
+light_height = 1.35
+light_range = 4.2
+light_intensity = 0.9
+light_color = [255, 210, 150, 255]
+front_direction = "+z"
+dimensions = [0.120, 0.860, 0.120]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = ["floor"]
+styles = ["stylized", "contemporary"]
+affordances = ["illuminate", "accent"]
+[[objects]]
+id = "core:floor_lamp_round"
+category = "lighting"
+model = "assets/kenney_furniture-kit/Models/GLTF format/lampRoundFloor.glb"
+footprint_radius = 0.30
+placement = "indoor"
+emits_light = true
+light_height = 1.35
+light_range = 4.2
+light_intensity = 0.9
+light_color = [255, 214, 158, 255]
+front_direction = "+z"
+dimensions = [0.152, 0.860, 0.176]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = ["floor"]
+styles = ["stylized", "contemporary"]
+affordances = ["illuminate", "accent"]
+[[objects]]
+id = "core:table_lamp_square"
+category = "lighting"
+model = "assets/kenney_furniture-kit/Models/GLTF format/lampSquareTable.glb"
+footprint_radius = 0.20
+placement = "indoor"
+emits_light = true
+light_height = 0.48
+light_range = 3.2
+light_intensity = 0.65
+light_color = [255, 205, 142, 255]
+front_direction = "+z"
+dimensions = [0.120, 0.290, 0.120]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = ["support_surface"]
+styles = ["stylized", "contemporary"]
+affordances = ["illuminate", "accent"]
+[[objects]]
+id = "core:table_lamp_round"
+category = "lighting"
+model = "assets/kenney_furniture-kit/Models/GLTF format/lampRoundTable.glb"
+footprint_radius = 0.20
+placement = "indoor"
+emits_light = true
+light_height = 0.48
+light_range = 3.2
+light_intensity = 0.65
+light_color = [255, 210, 150, 255]
+front_direction = "+z"
+dimensions = [0.152, 0.314, 0.176]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = ["support_surface"]
+styles = ["stylized", "contemporary"]
+affordances = ["illuminate", "accent"]
+[[objects]]
+id = "core:ceiling_lamp_square"
+category = "lighting"
+model = "assets/kenney_furniture-kit/Models/GLTF format/lampSquareCeiling.glb"
+footprint_radius = 0.28
+default_elevation = 2.25
+placement = "indoor"
+emits_light = true
+light_kind = "area"
+light_height = -0.18
+light_range = 5.0
+light_intensity = 1.1
+light_color = [255, 230, 190, 255]
+front_direction = "+z"
+dimensions = [0.120, 0.230, 0.120]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = ["ceiling"]
+styles = ["stylized", "contemporary"]
+affordances = ["illuminate", "accent"]
+[[objects]]
+id = "core:wall_lamp"
+category = "lighting"
+model = "assets/kenney_furniture-kit/Models/GLTF format/lampWall.glb"
+footprint_radius = 0.18
+default_elevation = 1.55
+placement = "indoor"
+emits_light = true
+light_height = 0.0
+light_range = 3.6
+light_intensity = 0.75
+light_color = [255, 205, 140, 255]
+front_direction = "+z"
+dimensions = [0.391, 0.160, 0.259]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = ["wall"]
+styles = ["stylized", "contemporary"]
+affordances = ["illuminate", "accent"]
+[[objects]]
+id = "core:ceiling_fan"
+category = "lighting"
+model = "assets/kenney_furniture-kit/Models/GLTF format/ceilingFan.glb"
+footprint_radius = 0.75
+default_elevation = 2.25
+placement = "indoor"
+emits_light = true
+light_kind = "area"
+light_height = -0.18
+light_range = 4.5
+light_intensity = 0.85
+light_color = [255, 225, 180, 255]
+front_direction = "+z"
+dimensions = [0.455, 0.134, 0.525]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = ["ceiling"]
+styles = ["stylized", "contemporary"]
+affordances = ["illuminate", "accent"]
+[[objects]]
+id = "core:tree_small"
+category = "landscaping"
+model = "assets/kenney_city-kit-suburban_20/Models/GLB format/tree-small.glb"
+footprint_radius = 0.8
+placement = "outdoor"
+front_direction = "none"
+dimensions = [1.995, 1.696, 1.995]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = []
+styles = ["stylized", "contemporary", "outdoor", "naturalistic"]
+affordances = ["landscape", "soften_space"]
+[[objects]]
+id = "core:tree_large"
+category = "landscaping"
+model = "assets/kenney_city-kit-suburban_20/Models/GLB format/tree-large.glb"
+footprint_radius = 1.15
+placement = "outdoor"
+front_direction = "none"
+dimensions = [1.999, 1.767, 1.999]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = []
+styles = ["stylized", "contemporary", "outdoor", "naturalistic"]
+affordances = ["landscape", "soften_space"]
+[[objects]]
+id = "core:yard_fence"
+category = "landscaping"
+model = "assets/kenney_city-kit-suburban_20/Models/GLB format/fence.glb"
+footprint_radius = 0.55
+placement = "outdoor"
+front_direction = "none"
+dimensions = [2.000, 2.000, 2.000]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = []
+styles = ["stylized", "contemporary", "outdoor", "naturalistic"]
+affordances = ["landscape", "soften_space"]
+[[objects]]
+id = "core:yard_bench"
+category = "seating"
+model = "assets/kenney_furniture-kit/Models/GLTF format/bench.glb"
+footprint_radius = 0.9
+placement = "outdoor"
+front_direction = "+z"
+dimensions = [0.400, 0.470, 0.200]
+clearance_front = 0.65
+clearance_back = 0.10
+clearance_left = 0.15
+clearance_right = 0.15
+surfaces = []
+styles = ["stylized", "contemporary", "outdoor"]
+affordances = ["sit", "conversation", "rest"]
+[[objects]]
+id = "core:nature_common_tree"
+category = "foliage"
+model = "assets/foliage/nature_common_tree.glb"
+footprint_radius = 1.0
+placement = "outdoor"
+front_direction = "none"
+dimensions = [1.889, 2.773, 2.481]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = []
+styles = ["stylized", "contemporary", "outdoor", "naturalistic"]
+affordances = ["landscape", "soften_space"]
+[[objects]]
+id = "core:nature_birch_tree"
+category = "foliage"
+model = "assets/foliage/nature_birch_tree.glb"
+footprint_radius = 0.85
+placement = "outdoor"
+front_direction = "none"
+dimensions = [1.469, 1.693, 4.031]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = []
+styles = ["stylized", "contemporary", "outdoor", "naturalistic"]
+affordances = ["landscape", "soften_space"]
+[[objects]]
+id = "core:nature_pine_tree"
+category = "foliage"
+model = "assets/foliage/nature_pine_tree.glb"
+footprint_radius = 0.9
+placement = "outdoor"
+front_direction = "none"
+dimensions = [2.164, 1.954, 3.304]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = []
+styles = ["stylized", "contemporary", "outdoor", "naturalistic"]
+affordances = ["landscape", "soften_space"]
+[[objects]]
+id = "core:nature_willow"
+category = "foliage"
+model = "assets/foliage/nature_willow.glb"
+footprint_radius = 1.2
+placement = "outdoor"
+front_direction = "none"
+dimensions = [1.450, 2.554, 2.846]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = []
+styles = ["stylized", "contemporary", "outdoor", "naturalistic"]
+affordances = ["landscape", "soften_space"]
+[[objects]]
+id = "core:nature_palm"
+category = "foliage"
+model = "assets/foliage/nature_palm.glb"
+footprint_radius = 0.8
+placement = "outdoor"
+front_direction = "none"
+dimensions = [2.321, 3.178, 2.909]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = []
+styles = ["stylized", "contemporary", "outdoor", "naturalistic"]
+affordances = ["landscape", "soften_space"]
+[[objects]]
+id = "core:nature_bush"
+category = "foliage"
+model = "assets/foliage/nature_bush.glb"
+footprint_radius = 0.55
+placement = "outdoor"
+front_direction = "none"
+dimensions = [1.328, 1.690, 1.242]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = []
+styles = ["stylized", "contemporary", "outdoor", "naturalistic"]
+affordances = ["landscape", "soften_space"]
+[[objects]]
+id = "core:nature_berry_bush"
+category = "foliage"
+model = "assets/foliage/nature_berry_bush.glb"
+footprint_radius = 0.55
+placement = "outdoor"
+front_direction = "none"
+dimensions = [1.392, 1.719, 1.276]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = []
+styles = ["stylized", "contemporary", "outdoor", "naturalistic"]
+affordances = ["landscape", "soften_space"]
+[[objects]]
+id = "core:nature_cactus"
+category = "foliage"
+model = "assets/foliage/nature_cactus.glb"
+footprint_radius = 0.5
+placement = "outdoor"
+front_direction = "none"
+dimensions = [0.477, 1.117, 1.669]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = []
+styles = ["stylized", "contemporary", "outdoor", "naturalistic"]
+affordances = ["landscape", "soften_space"]
+[[objects]]
+id = "core:nature_flowers"
+category = "foliage"
+model = "assets/foliage/nature_flowers.glb"
+footprint_radius = 0.45
+placement = "outdoor"
+front_direction = "none"
+dimensions = [0.489, 0.614, 0.829]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = []
+styles = ["stylized", "contemporary", "outdoor", "naturalistic"]
+affordances = ["landscape", "soften_space"]
+[[objects]]
+id = "core:nature_grass"
+category = "foliage"
+model = "assets/foliage/nature_grass.glb"
+footprint_radius = 0.4
+placement = "outdoor"
+front_direction = "none"
+dimensions = [0.374, 0.327, 1.013]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = []
+styles = ["stylized", "contemporary", "outdoor", "naturalistic"]
+affordances = ["landscape", "soften_space"]
+[[objects]]
+id = "core:stylized_tree_1"
+category = "foliage"
+model = "assets/foliage/stylized_tree_1.glb"
+footprint_radius = 1.0
+placement = "outdoor"
+front_direction = "none"
+dimensions = [4.138, 5.544, 4.130]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = []
+styles = ["stylized", "contemporary", "outdoor", "naturalistic"]
+affordances = ["landscape", "soften_space"]
+[[objects]]
+id = "core:stylized_tree_4"
+category = "foliage"
+model = "assets/foliage/stylized_tree_4.glb"
+footprint_radius = 1.0
+placement = "outdoor"
+front_direction = "none"
+dimensions = [6.271, 5.335, 5.462]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = []
+styles = ["stylized", "contemporary", "outdoor", "naturalistic"]
+affordances = ["landscape", "soften_space"]
+[[objects]]
+id = "core:stylized_birch_1"
+category = "foliage"
+model = "assets/foliage/stylized_birch_1.glb"
+footprint_radius = 0.85
+placement = "outdoor"
+front_direction = "none"
+dimensions = [4.893, 9.477, 4.462]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = []
+styles = ["stylized", "contemporary", "outdoor", "naturalistic"]
+affordances = ["landscape", "soften_space"]
+[[objects]]
+id = "core:stylized_birch_5"
+category = "foliage"
+model = "assets/foliage/stylized_birch_5.glb"
+footprint_radius = 0.85
+placement = "outdoor"
+front_direction = "none"
+dimensions = [6.349, 9.085, 3.927]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = []
+styles = ["stylized", "contemporary", "outdoor", "naturalistic"]
+affordances = ["landscape", "soften_space"]
+[[objects]]
+id = "core:stylized_pine_1"
+category = "foliage"
+model = "assets/foliage/stylized_pine_1.glb"
+footprint_radius = 0.9
+placement = "outdoor"
+front_direction = "none"
+dimensions = [7.735, 7.582, 6.764]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = []
+styles = ["stylized", "contemporary", "outdoor", "naturalistic"]
+affordances = ["landscape", "soften_space"]
+[[objects]]
+id = "core:stylized_pine_3"
+category = "foliage"
+model = "assets/foliage/stylized_pine_3.glb"
+footprint_radius = 0.9
+placement = "outdoor"
+front_direction = "none"
+dimensions = [6.883, 8.098, 7.294]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = []
+styles = ["stylized", "contemporary", "outdoor", "naturalistic"]
+affordances = ["landscape", "soften_space"]
+[[objects]]
+id = "core:stylized_dead_tree"
+category = "foliage"
+model = "assets/foliage/stylized_dead_tree.glb"
+footprint_radius = 0.8
+placement = "outdoor"
+front_direction = "none"
+dimensions = [2.443, 5.171, 1.519]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = []
+styles = ["stylized", "contemporary", "outdoor", "naturalistic"]
+affordances = ["landscape", "soften_space"]
+[[objects]]
+id = "core:stylized_dead_birch"
+category = "foliage"
+model = "assets/foliage/stylized_dead_birch.glb"
+footprint_radius = 0.75
+placement = "outdoor"
+front_direction = "none"
+dimensions = [3.858, 9.374, 3.059]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = []
+styles = ["stylized", "contemporary", "outdoor", "naturalistic"]
+affordances = ["landscape", "soften_space"]
+[[objects]]
+id = "core:coir_doormat"
+category = "rugs"
+model = "assets/rugs/coir_doormat.glb"
+footprint_radius = 0.82
+placement = "indoor"
+front_direction = "none"
+dimensions = [1.400, 0.055, 0.820]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = ["floor"]
+styles = ["stylized", "contemporary", "textile"]
+affordances = ["define_zone", "soften_floor", "decorate"]
+[[objects]]
+id = "core:persian_runner"
+category = "rugs"
+model = "assets/rugs/persian_runner.glb"
+footprint_radius = 1.31
+placement = "indoor"
+front_direction = "none"
+dimensions = [2.500, 0.035, 0.780]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = ["floor"]
+styles = ["stylized", "contemporary", "textile"]
+affordances = ["define_zone", "soften_floor", "decorate"]
+[[objects]]
+id = "core:braided_round_rug"
+category = "rugs"
+model = "assets/rugs/braided_round_rug.glb"
+footprint_radius = 0.78
+placement = "indoor"
+front_direction = "none"
+dimensions = [1.550, 0.035, 1.550]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = ["floor"]
+styles = ["stylized", "contemporary", "textile"]
+affordances = ["define_zone", "soften_floor", "decorate"]
+[[objects]]
+id = "core:geometric_kilim"
+category = "rugs"
+model = "assets/rugs/geometric_kilim.glb"
+footprint_radius = 1.07
+placement = "indoor"
+front_direction = "none"
+dimensions = [1.800, 0.028, 1.150]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = ["floor"]
+styles = ["stylized", "contemporary", "textile"]
+affordances = ["define_zone", "soften_floor", "decorate"]
+[[objects]]
+id = "core:cream_shag_rug"
+category = "rugs"
+model = "assets/rugs/cream_shag_rug.glb"
+footprint_radius = 0.94
+placement = "indoor"
+front_direction = "none"
+dimensions = [1.720, 0.065, 1.350]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = ["floor"]
+styles = ["stylized", "contemporary", "textile"]
+affordances = ["define_zone", "soften_floor", "decorate"]
+[[objects]]
+id = "core:rubber_utility_mat"
+category = "rugs"
+model = "assets/rugs/rubber_utility_mat.glb"
+footprint_radius = 0.82
+placement = "indoor_or_outdoor"
+front_direction = "none"
+dimensions = [1.350, 0.045, 0.900]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = ["floor"]
+styles = ["stylized", "contemporary", "textile"]
+affordances = ["define_zone", "soften_floor", "decorate"]
+[[objects]]
+id = "core:bamboo_slat_mat"
+category = "rugs"
+model = "assets/rugs/bamboo_slat_mat.glb"
+footprint_radius = 0.89
+placement = "indoor"
+front_direction = "none"
+dimensions = [1.500, 0.040, 0.950]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = ["floor"]
+styles = ["stylized", "contemporary", "textile"]
+affordances = ["define_zone", "soften_floor", "decorate"]
+[[objects]]
+id = "core:patchwork_rug"
+category = "rugs"
+model = "assets/rugs/patchwork_rug.glb"
+footprint_radius = 0.99
+placement = "indoor"
+front_direction = "none"
+dimensions = [1.650, 0.040, 1.100]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = ["floor"]
+styles = ["stylized", "contemporary", "textile"]
+affordances = ["define_zone", "soften_floor", "decorate"]
+[[objects]]
+id = "core:study_rug_unfolded"
+category = "mystery_props"
+model = "assets/rugs/study_rug_unfolded.glb"
+footprint_radius = 1.42
+placement = "indoor"
+front_direction = "none"
+dimensions = [2.450, 0.045, 1.420]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = ["floor"]
+styles = ["stylized", "contemporary", "textile", "narrative"]
+affordances = ["define_zone", "soften_floor", "decorate", "stage_evidence"]
+
+[[objects]]
+id = "core:vale_wall_art"
+category = "wall_art"
+model = "assets/models/mysteries/shared-interactive-prop-families/shared-interactive-prop-families/display-frame.glb"
+footprint_radius = 0.55
+placement = "wall"
+front_direction = "+z"
+dimensions = [1.000, 1.200, 0.100]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = ["wall"]
+styles = ["period", "narrative"]
+affordances = ["decorate"]
+
+[[objects]]
+id = "core:evidence_statuette"
+category = "mystery_props"
+model = "assets/models/bronze-statuette.glb"
+footprint_radius = 0.30
+placement = "surface"
+front_direction = "+z"
+dimensions = [0.30, 0.52, 0.30]
+surfaces = ["furniture"]
+styles = ["narrative"]
+affordances = ["stage_evidence"]
+
+[[objects]]
+id = "core:evidence_cane"
+category = "mystery_props"
+model = "assets/models/edgars-cane.glb"
+footprint_radius = 0.84
+placement = "floor"
+front_direction = "+z"
+dimensions = [1.68, 0.08, 0.12]
+surfaces = ["floor"]
+styles = ["narrative"]
+affordances = ["stage_evidence"]
+
+[[objects]]
+id = "core:evidence_ledger"
+category = "mystery_props"
+model = "assets/models/private-ledger.glb"
+footprint_radius = 0.30
+placement = "surface"
+front_direction = "+z"
+dimensions = [0.42, 0.05, 0.30]
+surfaces = ["furniture"]
+styles = ["narrative"]
+affordances = ["stage_evidence"]
+
+[[objects]]
+id = "core:evidence_cloth"
+category = "mystery_props"
+model = "assets/models/polishing-cloth.glb"
+footprint_radius = 0.35
+placement = "floor"
+front_direction = "+z"
+dimensions = [0.65, 0.05, 0.48]
+surfaces = ["floor", "furniture"]
+styles = ["narrative"]
+affordances = ["stage_evidence"]
+
+[[objects]]
+id = "core:evidence_watch"
+category = "mystery_props"
+model = "assets/models/stopped-watch-824.glb"
+footprint_radius = 0.18
+placement = "surface"
+front_direction = "+z"
+dimensions = [0.28, 0.05, 0.18]
+surfaces = ["furniture"]
+styles = ["narrative"]
+affordances = ["stage_evidence"]
+
+[[objects]]
+id = "core:evidence_wastebin"
+category = "mystery_props"
+model = "assets/models/miriam-metal-wastebin.glb"
+footprint_radius = 0.30
+placement = "floor"
+front_direction = "+z"
+dimensions = [0.48, 0.62, 0.48]
+surfaces = ["floor"]
+styles = ["narrative"]
+affordances = ["stage_evidence"]
+[[objects]]
+id = "core:study_rug_folded"
+category = "mystery_props"
+model = "assets/rugs/study_rug_folded.glb"
+footprint_radius = 0.57
+placement = "indoor"
+front_direction = "none"
+dimensions = [0.910, 0.154, 0.746]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = ["floor"]
+styles = ["stylized", "contemporary", "textile", "narrative"]
+affordances = ["define_zone", "soften_floor", "decorate", "stage_evidence"]
+[[objects]]
+id = "core:kitchen_fridge"
+category = "kitchen"
+model = "assets/kenney_furniture-kit/Models/GLTF format/kitchenFridgeLarge.glb"
+footprint_radius = 0.62
+placement = "indoor"
+front_direction = "+z"
+dimensions = [0.793, 1.323, 0.386]
+clearance_front = 0.80
+clearance_back = 0.05
+clearance_left = 0.08
+clearance_right = 0.08
+surfaces = []
+styles = ["stylized", "contemporary"]
+affordances = ["store"]
+[[objects]]
+id = "core:kitchen_stove"
+category = "kitchen"
+model = "assets/kenney_furniture-kit/Models/GLTF format/kitchenStoveElectric.glb"
+footprint_radius = 0.55
+surface_height = 0.86
+placement = "indoor"
+front_direction = "+z"
+dimensions = [0.430, 0.450, 0.450]
+clearance_front = 0.80
+clearance_back = 0.05
+clearance_left = 0.10
+clearance_right = 0.10
+surfaces = ["top"]
+styles = ["stylized", "contemporary"]
+affordances = ["support_objects", "work_surface"]
+[[objects]]
+id = "core:kitchen_sink"
+category = "kitchen"
+model = "assets/kenney_furniture-kit/Models/GLTF format/kitchenSink.glb"
+footprint_radius = 0.55
+surface_height = 0.86
+placement = "indoor"
+front_direction = "+z"
+dimensions = [0.430, 0.490, 0.480]
+clearance_front = 0.80
+clearance_back = 0.05
+clearance_left = 0.10
+clearance_right = 0.10
+surfaces = ["top"]
+styles = ["stylized", "contemporary"]
+affordances = ["support_objects", "work_surface"]
+[[objects]]
+id = "core:kitchen_cabinet"
+category = "kitchen"
+model = "assets/kenney_furniture-kit/Models/GLTF format/kitchenCabinetDrawer.glb"
+footprint_radius = 0.50
+surface_height = 0.86
+placement = "indoor"
+front_direction = "+z"
+dimensions = [0.430, 0.450, 0.480]
+clearance_front = 0.80
+clearance_back = 0.05
+clearance_left = 0.08
+clearance_right = 0.08
+surfaces = ["top"]
+styles = ["stylized", "contemporary"]
+affordances = ["store"]
+[[objects]]
+id = "core:kitchen_coffee_machine"
+category = "kitchen"
+model = "assets/kenney_furniture-kit/Models/GLTF format/kitchenCoffeeMachine.glb"
+footprint_radius = 0.18
+placement = "indoor"
+front_direction = "+z"
+dimensions = [0.274, 0.303, 0.330]
+clearance_front = 0.05
+clearance_back = 0.05
+clearance_left = 0.05
+clearance_right = 0.05
+surfaces = []
+styles = ["stylized", "contemporary"]
+affordances = ["decorate"]
+[[objects]]
+id = "core:bathtub"
+category = "bathroom"
+model = "assets/kenney_furniture-kit/Models/GLTF format/bathtub.glb"
+footprint_radius = 0.92
+placement = "indoor"
+front_direction = "+z"
+dimensions = [1.190, 0.420, 0.560]
+clearance_front = 0.75
+clearance_back = 0.05
+clearance_left = 0.08
+clearance_right = 0.08
+surfaces = []
+styles = ["stylized", "contemporary"]
+affordances = ["store"]
+[[objects]]
+id = "core:bathroom_sink"
+category = "bathroom"
+model = "assets/kenney_furniture-kit/Models/GLTF format/bathroomSinkSquare.glb"
+footprint_radius = 0.42
+surface_height = 0.82
+placement = "indoor"
+front_direction = "+z"
+dimensions = [0.430, 0.580, 0.300]
+clearance_front = 0.75
+clearance_back = 0.05
+clearance_left = 0.08
+clearance_right = 0.08
+surfaces = ["top"]
+styles = ["stylized", "contemporary"]
+affordances = ["store", "support_objects"]
+[[objects]]
+id = "core:bathroom_mirror"
+category = "bathroom"
+model = "assets/kenney_furniture-kit/Models/GLTF format/bathroomMirror.glb"
+footprint_radius = 0.18
+default_elevation = 1.15
+placement = "indoor"
+front_direction = "+z"
+dimensions = [0.301, 0.435, 0.144]
+clearance_front = 0.75
+clearance_back = 0.05
+clearance_left = 0.08
+clearance_right = 0.08
+surfaces = []
+styles = ["stylized", "contemporary"]
+affordances = ["store"]
+[[objects]]
+id = "core:toilet"
+category = "bathroom"
+model = "assets/kenney_furniture-kit/Models/GLTF format/toiletSquare.glb"
+footprint_radius = 0.48
+placement = "indoor"
+front_direction = "+z"
+dimensions = [0.547, 0.451, 0.485]
+clearance_front = 0.75
+clearance_back = 0.05
+clearance_left = 0.08
+clearance_right = 0.08
+surfaces = []
+styles = ["stylized", "contemporary"]
+affordances = ["store"]
+[[objects]]
+id = "core:washer"
+category = "utility"
+model = "assets/kenney_furniture-kit/Models/GLTF format/washer.glb"
+footprint_radius = 0.52
+surface_height = 0.82
+placement = "indoor"
+front_direction = "+z"
+dimensions = [0.390, 0.500, 0.480]
+clearance_front = 0.80
+clearance_back = 0.05
+clearance_left = 0.08
+clearance_right = 0.08
+surfaces = ["top"]
+styles = ["stylized", "contemporary"]
+affordances = ["store"]
+[[objects]]
+id = "core:dryer"
+category = "utility"
+model = "assets/kenney_furniture-kit/Models/GLTF format/dryer.glb"
+footprint_radius = 0.52
+surface_height = 0.82
+placement = "indoor"
+front_direction = "+z"
+dimensions = [0.390, 0.600, 0.380]
+clearance_front = 0.80
+clearance_back = 0.05
+clearance_left = 0.08
+clearance_right = 0.08
+surfaces = ["top"]
+styles = ["stylized", "contemporary"]
+affordances = ["store"]
+[[objects]]
+id = "core:coat_rack"
+category = "storage"
+model = "assets/kenney_furniture-kit/Models/GLTF format/coatRackStanding.glb"
+footprint_radius = 0.35
+placement = "indoor"
+front_direction = "+z"
+dimensions = [0.273, 0.770, 0.273]
+clearance_front = 0.75
+clearance_back = 0.05
+clearance_left = 0.08
+clearance_right = 0.08
+surfaces = []
+styles = ["stylized", "contemporary"]
+affordances = ["store"]
+[[objects]]
+id = "core:kitchen_island"
+category = "kitchen"
+model = "assets/kenney_furniture-kit/Models/GLTF format/kitchenBar.glb"
+footprint_radius = 0.78
+surface_height = 0.92
+placement = "indoor"
+front_direction = "+z"
+dimensions = [0.430, 0.420, 0.210]
+clearance_front = 0.80
+clearance_back = 0.05
+clearance_left = 0.10
+clearance_right = 0.10
+surfaces = ["top"]
+styles = ["stylized", "contemporary"]
+affordances = ["support_objects", "work_surface"]
+[[objects]]
+id = "core:bar_stool"
+category = "seating"
+model = "assets/kenney_furniture-kit/Models/GLTF format/stoolBarSquare.glb"
+footprint_radius = 0.32
+placement = "indoor"
+front_direction = "+z"
+# Kenney models are authored at half-world scale. This resolves to a compact
+# 0.42 m square, 0.82 m high counter stool at runtime.
+dimensions = [0.210, 0.410, 0.210]
+clearance_front = 0.80
+clearance_back = 0.05
+clearance_left = 0.08
+clearance_right = 0.08
+surfaces = []
+styles = ["stylized", "contemporary"]
+affordances = ["store"]
+
+# BEGIN GENERATED KENNEY FURNITURE ASSETS
+
+[[objects]]
+id = "core:bathroom_cabinet"
+category = "bathroom"
+model = "assets/kenney_furniture-kit/Models/GLTF format/bathroomCabinet.glb"
+footprint_radius = 0.55
+surface_height = 0.82
+placement = "indoor"
+
+[[objects]]
+id = "core:bathroom_cabinet_drawer"
+category = "bathroom"
+model = "assets/kenney_furniture-kit/Models/GLTF format/bathroomCabinetDrawer.glb"
+footprint_radius = 0.55
+surface_height = 0.82
+placement = "indoor"
+
+[[objects]]
+id = "core:kenney_bathroom_sink"
+category = "bathroom"
+model = "assets/kenney_furniture-kit/Models/GLTF format/bathroomSink.glb"
+footprint_radius = 0.55
+surface_height = 0.82
+placement = "indoor"
+
+[[objects]]
+id = "core:bear"
+category = "decor"
+model = "assets/kenney_furniture-kit/Models/GLTF format/bear.glb"
+footprint_radius = 0.35
+placement = "indoor"
+
+[[objects]]
+id = "core:bed_bunk"
+category = "bedroom"
+model = "assets/kenney_furniture-kit/Models/GLTF format/bedBunk.glb"
+footprint_radius = 0.65
+placement = "indoor"
+
+[[objects]]
+id = "core:bed_single"
+category = "bedroom"
+model = "assets/kenney_furniture-kit/Models/GLTF format/bedSingle.glb"
+footprint_radius = 0.65
+placement = "indoor"
+
+[[objects]]
+id = "core:bench_cushion"
+category = "seating"
+model = "assets/kenney_furniture-kit/Models/GLTF format/benchCushion.glb"
+footprint_radius = 0.50
+placement = "indoor"
+
+[[objects]]
+id = "core:bench_cushion_low"
+category = "seating"
+model = "assets/kenney_furniture-kit/Models/GLTF format/benchCushionLow.glb"
+footprint_radius = 0.50
+placement = "indoor"
+
+[[objects]]
+id = "core:bookcase_closed"
+category = "storage"
+model = "assets/kenney_furniture-kit/Models/GLTF format/bookcaseClosed.glb"
+footprint_radius = 0.55
+placement = "indoor"
+
+[[objects]]
+id = "core:bookcase_closed_doors"
+category = "storage"
+model = "assets/kenney_furniture-kit/Models/GLTF format/bookcaseClosedDoors.glb"
+footprint_radius = 0.55
+placement = "indoor"
+
+[[objects]]
+id = "core:bookcase_closed_wide"
+category = "storage"
+model = "assets/kenney_furniture-kit/Models/GLTF format/bookcaseClosedWide.glb"
+footprint_radius = 0.55
+placement = "indoor"
+
+[[objects]]
+id = "core:bookcase_open_low"
+category = "storage"
+model = "assets/kenney_furniture-kit/Models/GLTF format/bookcaseOpenLow.glb"
+footprint_radius = 0.55
+placement = "indoor"
+
+[[objects]]
+id = "core:books"
+category = "decor"
+model = "assets/kenney_furniture-kit/Models/GLTF format/books.glb"
+footprint_radius = 0.28
+placement = "indoor"
+
+[[objects]]
+id = "core:cabinet_bed"
+category = "bedroom"
+model = "assets/kenney_furniture-kit/Models/GLTF format/cabinetBed.glb"
+footprint_radius = 0.65
+surface_height = 0.82
+placement = "indoor"
+
+[[objects]]
+id = "core:cabinet_bed_drawer"
+category = "bedroom"
+model = "assets/kenney_furniture-kit/Models/GLTF format/cabinetBedDrawer.glb"
+footprint_radius = 0.65
+surface_height = 0.82
+placement = "indoor"
+
+[[objects]]
+id = "core:cabinet_bed_drawer_table"
+category = "bedroom"
+model = "assets/kenney_furniture-kit/Models/GLTF format/cabinetBedDrawerTable.glb"
+footprint_radius = 0.65
+surface_height = 0.82
+placement = "indoor"
+
+[[objects]]
+id = "core:cabinet_television"
+category = "decor"
+model = "assets/kenney_furniture-kit/Models/GLTF format/cabinetTelevision.glb"
+footprint_radius = 0.35
+placement = "indoor"
+
+[[objects]]
+id = "core:cabinet_television_doors"
+category = "decor"
+model = "assets/kenney_furniture-kit/Models/GLTF format/cabinetTelevisionDoors.glb"
+footprint_radius = 0.35
+placement = "indoor"
+
+[[objects]]
+id = "core:cardboard_box_closed"
+category = "storage"
+model = "assets/kenney_furniture-kit/Models/GLTF format/cardboardBoxClosed.glb"
+footprint_radius = 0.55
+placement = "indoor"
+
+[[objects]]
+id = "core:cardboard_box_open"
+category = "storage"
+model = "assets/kenney_furniture-kit/Models/GLTF format/cardboardBoxOpen.glb"
+footprint_radius = 0.55
+placement = "indoor"
+
+[[objects]]
+id = "core:kenney_chair"
+category = "seating"
+model = "assets/kenney_furniture-kit/Models/GLTF format/chair.glb"
+footprint_radius = 0.50
+placement = "indoor"
+
+[[objects]]
+id = "core:chair_desk"
+category = "seating"
+model = "assets/kenney_furniture-kit/Models/GLTF format/chairDesk.glb"
+footprint_radius = 0.50
+placement = "indoor"
+
+[[objects]]
+id = "core:chair_modern_cushion"
+category = "seating"
+model = "assets/kenney_furniture-kit/Models/GLTF format/chairModernCushion.glb"
+footprint_radius = 0.50
+placement = "indoor"
+
+[[objects]]
+id = "core:chair_modern_frame_cushion"
+category = "seating"
+model = "assets/kenney_furniture-kit/Models/GLTF format/chairModernFrameCushion.glb"
+footprint_radius = 0.50
+placement = "indoor"
+
+[[objects]]
+id = "core:chair_rounded"
+category = "seating"
+model = "assets/kenney_furniture-kit/Models/GLTF format/chairRounded.glb"
+footprint_radius = 0.50
+placement = "indoor"
+front_direction = "+z"
+# Resolve the half-scale source mesh to a full-size 0.52 x 1.00 x 0.52 m chair.
+dimensions = [0.260, 0.500, 0.260]
+
+[[objects]]
+id = "core:kenney_coat_rack"
+category = "decor"
+model = "assets/kenney_furniture-kit/Models/GLTF format/coatRack.glb"
+footprint_radius = 0.35
+placement = "indoor"
+
+[[objects]]
+id = "core:computer_keyboard"
+category = "office"
+model = "assets/kenney_furniture-kit/Models/GLTF format/computerKeyboard.glb"
+footprint_radius = 0.25
+placement = "indoor"
+
+[[objects]]
+id = "core:computer_mouse"
+category = "office"
+model = "assets/kenney_furniture-kit/Models/GLTF format/computerMouse.glb"
+footprint_radius = 0.25
+placement = "indoor"
+
+[[objects]]
+id = "core:computer_screen"
+category = "office"
+model = "assets/kenney_furniture-kit/Models/GLTF format/computerScreen.glb"
+footprint_radius = 0.25
+placement = "indoor"
+
+[[objects]]
+id = "core:desk_corner"
+category = "tables"
+model = "assets/kenney_furniture-kit/Models/GLTF format/deskCorner.glb"
+footprint_radius = 0.70
+surface_height = 0.74
+placement = "indoor"
+
+[[objects]]
+id = "core:doorway"
+category = "architecture"
+model = "assets/kenney_furniture-kit/Models/GLTF format/doorway.glb"
+footprint_radius = 1.00
+placement = "indoor"
+
+[[objects]]
+id = "core:doorway_front"
+category = "architecture"
+model = "assets/kenney_furniture-kit/Models/GLTF format/doorwayFront.glb"
+footprint_radius = 1.00
+placement = "indoor"
+
+[[objects]]
+id = "core:doorway_open"
+category = "architecture"
+model = "assets/kenney_furniture-kit/Models/GLTF format/doorwayOpen.glb"
+footprint_radius = 1.00
+placement = "indoor"
+
+[[objects]]
+id = "core:floor_corner"
+category = "architecture"
+model = "assets/kenney_furniture-kit/Models/GLTF format/floorCorner.glb"
+footprint_radius = 1.00
+placement = "indoor"
+
+[[objects]]
+id = "core:floor_corner_round"
+category = "architecture"
+model = "assets/kenney_furniture-kit/Models/GLTF format/floorCornerRound.glb"
+footprint_radius = 1.00
+placement = "indoor"
+
+[[objects]]
+id = "core:floor_full"
+category = "architecture"
+model = "assets/kenney_furniture-kit/Models/GLTF format/floorFull.glb"
+footprint_radius = 1.00
+placement = "indoor"
+
+[[objects]]
+id = "core:floor_half"
+category = "architecture"
+model = "assets/kenney_furniture-kit/Models/GLTF format/floorHalf.glb"
+footprint_radius = 1.00
+placement = "indoor"
+
+[[objects]]
+id = "core:hood_large"
+category = "kitchen"
+model = "assets/kenney_furniture-kit/Models/GLTF format/hoodLarge.glb"
+footprint_radius = 0.50
+placement = "indoor"
+
+[[objects]]
+id = "core:hood_modern"
+category = "kitchen"
+model = "assets/kenney_furniture-kit/Models/GLTF format/hoodModern.glb"
+footprint_radius = 0.50
+placement = "indoor"
+
+[[objects]]
+id = "core:kitchen_bar_end"
+category = "kitchen"
+model = "assets/kenney_furniture-kit/Models/GLTF format/kitchenBarEnd.glb"
+footprint_radius = 0.50
+placement = "indoor"
+
+[[objects]]
+id = "core:kitchen_blender"
+category = "kitchen"
+model = "assets/kenney_furniture-kit/Models/GLTF format/kitchenBlender.glb"
+footprint_radius = 0.50
+placement = "indoor"
+
+[[objects]]
+id = "core:kenney_kitchen_cabinet"
+category = "kitchen"
+model = "assets/kenney_furniture-kit/Models/GLTF format/kitchenCabinet.glb"
+footprint_radius = 0.50
+surface_height = 0.82
+placement = "indoor"
+
+[[objects]]
+id = "core:kitchen_cabinet_corner_inner"
+category = "kitchen"
+model = "assets/kenney_furniture-kit/Models/GLTF format/kitchenCabinetCornerInner.glb"
+footprint_radius = 0.50
+surface_height = 0.82
+placement = "indoor"
+
+[[objects]]
+id = "core:kitchen_cabinet_corner_round"
+category = "kitchen"
+model = "assets/kenney_furniture-kit/Models/GLTF format/kitchenCabinetCornerRound.glb"
+footprint_radius = 0.50
+surface_height = 0.82
+placement = "indoor"
+
+[[objects]]
+id = "core:kitchen_cabinet_upper"
+category = "kitchen"
+model = "assets/kenney_furniture-kit/Models/GLTF format/kitchenCabinetUpper.glb"
+footprint_radius = 0.50
+surface_height = 0.82
+placement = "indoor"
+
+[[objects]]
+id = "core:kitchen_cabinet_upper_corner"
+category = "kitchen"
+model = "assets/kenney_furniture-kit/Models/GLTF format/kitchenCabinetUpperCorner.glb"
+footprint_radius = 0.50
+surface_height = 0.82
+placement = "indoor"
+
+[[objects]]
+id = "core:kitchen_cabinet_upper_double"
+category = "kitchen"
+model = "assets/kenney_furniture-kit/Models/GLTF format/kitchenCabinetUpperDouble.glb"
+footprint_radius = 0.50
+surface_height = 0.82
+placement = "indoor"
+
+[[objects]]
+id = "core:kitchen_cabinet_upper_low"
+category = "kitchen"
+model = "assets/kenney_furniture-kit/Models/GLTF format/kitchenCabinetUpperLow.glb"
+footprint_radius = 0.50
+surface_height = 0.82
+placement = "indoor"
+
+[[objects]]
+id = "core:kenney_kitchen_fridge"
+category = "kitchen"
+model = "assets/kenney_furniture-kit/Models/GLTF format/kitchenFridge.glb"
+footprint_radius = 0.50
+placement = "indoor"
+
+[[objects]]
+id = "core:kitchen_fridge_built_in"
+category = "kitchen"
+model = "assets/kenney_furniture-kit/Models/GLTF format/kitchenFridgeBuiltIn.glb"
+footprint_radius = 0.50
+placement = "indoor"
+
+[[objects]]
+id = "core:kitchen_fridge_small"
+category = "kitchen"
+model = "assets/kenney_furniture-kit/Models/GLTF format/kitchenFridgeSmall.glb"
+footprint_radius = 0.50
+placement = "indoor"
+
+[[objects]]
+id = "core:kitchen_microwave"
+category = "kitchen"
+model = "assets/kenney_furniture-kit/Models/GLTF format/kitchenMicrowave.glb"
+footprint_radius = 0.50
+placement = "indoor"
+
+[[objects]]
+id = "core:kenney_kitchen_stove"
+category = "kitchen"
+model = "assets/kenney_furniture-kit/Models/GLTF format/kitchenStove.glb"
+footprint_radius = 0.50
+placement = "indoor"
+
+[[objects]]
+id = "core:laptop"
+category = "office"
+model = "assets/kenney_furniture-kit/Models/GLTF format/laptop.glb"
+footprint_radius = 0.25
+placement = "indoor"
+
+[[objects]]
+id = "core:lounge_chair"
+category = "seating"
+model = "assets/kenney_furniture-kit/Models/GLTF format/loungeChair.glb"
+footprint_radius = 0.50
+placement = "indoor"
+
+[[objects]]
+id = "core:lounge_chair_relax"
+category = "seating"
+model = "assets/kenney_furniture-kit/Models/GLTF format/loungeChairRelax.glb"
+footprint_radius = 0.50
+placement = "indoor"
+
+[[objects]]
+id = "core:lounge_design_chair"
+category = "seating"
+model = "assets/kenney_furniture-kit/Models/GLTF format/loungeDesignChair.glb"
+footprint_radius = 0.50
+placement = "indoor"
+
+[[objects]]
+id = "core:lounge_design_sofa"
+category = "seating"
+model = "assets/kenney_furniture-kit/Models/GLTF format/loungeDesignSofa.glb"
+footprint_radius = 0.50
+placement = "indoor"
+
+[[objects]]
+id = "core:lounge_design_sofa_corner"
+category = "seating"
+model = "assets/kenney_furniture-kit/Models/GLTF format/loungeDesignSofaCorner.glb"
+footprint_radius = 0.50
+placement = "indoor"
+
+[[objects]]
+id = "core:lounge_sofa_corner"
+category = "seating"
+model = "assets/kenney_furniture-kit/Models/GLTF format/loungeSofaCorner.glb"
+footprint_radius = 0.50
+placement = "indoor"
+
+[[objects]]
+id = "core:lounge_sofa_long"
+category = "seating"
+model = "assets/kenney_furniture-kit/Models/GLTF format/loungeSofaLong.glb"
+footprint_radius = 0.50
+placement = "indoor"
+
+[[objects]]
+id = "core:lounge_sofa_ottoman"
+category = "seating"
+model = "assets/kenney_furniture-kit/Models/GLTF format/loungeSofaOttoman.glb"
+footprint_radius = 0.50
+placement = "indoor"
+
+[[objects]]
+id = "core:paneling"
+category = "architecture"
+model = "assets/kenney_furniture-kit/Models/GLTF format/paneling.glb"
+footprint_radius = 1.00
+placement = "indoor"
+
+[[objects]]
+id = "core:pillow"
+category = "bedroom"
+model = "assets/kenney_furniture-kit/Models/GLTF format/pillow.glb"
+footprint_radius = 0.28
+placement = "indoor"
+
+[[objects]]
+id = "core:pillow_blue"
+category = "bedroom"
+model = "assets/kenney_furniture-kit/Models/GLTF format/pillowBlue.glb"
+footprint_radius = 0.28
+placement = "indoor"
+
+[[objects]]
+id = "core:pillow_blue_long"
+category = "bedroom"
+model = "assets/kenney_furniture-kit/Models/GLTF format/pillowBlueLong.glb"
+footprint_radius = 0.28
+placement = "indoor"
+
+[[objects]]
+id = "core:pillow_long"
+category = "bedroom"
+model = "assets/kenney_furniture-kit/Models/GLTF format/pillowLong.glb"
+footprint_radius = 0.28
+placement = "indoor"
+
+[[objects]]
+id = "core:plant_small1"
+category = "landscaping"
+model = "assets/kenney_furniture-kit/Models/GLTF format/plantSmall1.glb"
+footprint_radius = 0.30
+placement = "indoor_or_outdoor"
+
+[[objects]]
+id = "core:plant_small2"
+category = "landscaping"
+model = "assets/kenney_furniture-kit/Models/GLTF format/plantSmall2.glb"
+footprint_radius = 0.30
+placement = "indoor_or_outdoor"
+
+[[objects]]
+id = "core:plant_small3"
+category = "landscaping"
+model = "assets/kenney_furniture-kit/Models/GLTF format/plantSmall3.glb"
+footprint_radius = 0.30
+placement = "indoor_or_outdoor"
+
+[[objects]]
+id = "core:radio"
+category = "electronics"
+model = "assets/kenney_furniture-kit/Models/GLTF format/radio.glb"
+footprint_radius = 0.28
+placement = "indoor"
+
+[[objects]]
+id = "core:rug_doormat"
+category = "rugs"
+model = "assets/kenney_furniture-kit/Models/GLTF format/rugDoormat.glb"
+footprint_radius = 0.75
+placement = "indoor"
+
+[[objects]]
+id = "core:rug_rectangle"
+category = "rugs"
+model = "assets/kenney_furniture-kit/Models/GLTF format/rugRectangle.glb"
+footprint_radius = 0.75
+placement = "indoor"
+
+[[objects]]
+id = "core:rug_round"
+category = "rugs"
+model = "assets/kenney_furniture-kit/Models/GLTF format/rugRound.glb"
+footprint_radius = 0.75
+placement = "indoor"
+
+[[objects]]
+id = "core:rug_rounded"
+category = "rugs"
+model = "assets/kenney_furniture-kit/Models/GLTF format/rugRounded.glb"
+footprint_radius = 0.75
+placement = "indoor"
+
+[[objects]]
+id = "core:rug_square"
+category = "rugs"
+model = "assets/kenney_furniture-kit/Models/GLTF format/rugSquare.glb"
+footprint_radius = 0.75
+placement = "indoor"
+
+[[objects]]
+id = "core:shower"
+category = "bathroom"
+model = "assets/kenney_furniture-kit/Models/GLTF format/shower.glb"
+footprint_radius = 0.55
+placement = "indoor"
+
+[[objects]]
+id = "core:shower_round"
+category = "bathroom"
+model = "assets/kenney_furniture-kit/Models/GLTF format/showerRound.glb"
+footprint_radius = 0.55
+placement = "indoor"
+
+[[objects]]
+id = "core:kenney_side_table"
+category = "tables"
+model = "assets/kenney_furniture-kit/Models/GLTF format/sideTable.glb"
+footprint_radius = 0.70
+surface_height = 0.74
+placement = "indoor"
+
+[[objects]]
+id = "core:speaker"
+category = "electronics"
+model = "assets/kenney_furniture-kit/Models/GLTF format/speaker.glb"
+footprint_radius = 0.28
+placement = "indoor"
+
+[[objects]]
+id = "core:speaker_small"
+category = "electronics"
+model = "assets/kenney_furniture-kit/Models/GLTF format/speakerSmall.glb"
+footprint_radius = 0.28
+placement = "indoor"
+
+[[objects]]
+id = "core:stairs"
+category = "architecture"
+model = "assets/kenney_furniture-kit/Models/GLTF format/stairs.glb"
+footprint_radius = 1.00
+placement = "indoor"
+
+[[objects]]
+id = "core:stairs_corner"
+category = "architecture"
+model = "assets/kenney_furniture-kit/Models/GLTF format/stairsCorner.glb"
+footprint_radius = 1.00
+placement = "indoor"
+
+[[objects]]
+id = "core:stairs_open"
+category = "architecture"
+model = "assets/kenney_furniture-kit/Models/GLTF format/stairsOpen.glb"
+footprint_radius = 1.00
+placement = "indoor"
+
+[[objects]]
+id = "core:stairs_open_single"
+category = "architecture"
+model = "assets/kenney_furniture-kit/Models/GLTF format/stairsOpenSingle.glb"
+footprint_radius = 1.00
+placement = "indoor"
+
+[[objects]]
+id = "core:stool_bar"
+category = "seating"
+model = "assets/kenney_furniture-kit/Models/GLTF format/stoolBar.glb"
+footprint_radius = 0.50
+placement = "indoor"
+
+[[objects]]
+id = "core:table"
+category = "tables"
+model = "assets/kenney_furniture-kit/Models/GLTF format/table.glb"
+footprint_radius = 0.70
+surface_height = 0.74
+placement = "indoor"
+
+[[objects]]
+id = "core:table_coffee_glass"
+category = "tables"
+model = "assets/kenney_furniture-kit/Models/GLTF format/tableCoffeeGlass.glb"
+footprint_radius = 0.70
+surface_height = 0.74
+placement = "indoor"
+
+[[objects]]
+id = "core:table_coffee_glass_square"
+category = "tables"
+model = "assets/kenney_furniture-kit/Models/GLTF format/tableCoffeeGlassSquare.glb"
+footprint_radius = 0.70
+surface_height = 0.74
+placement = "indoor"
+
+[[objects]]
+id = "core:table_coffee_square"
+category = "tables"
+model = "assets/kenney_furniture-kit/Models/GLTF format/tableCoffeeSquare.glb"
+footprint_radius = 0.70
+surface_height = 0.74
+placement = "indoor"
+
+[[objects]]
+id = "core:table_cross"
+category = "tables"
+model = "assets/kenney_furniture-kit/Models/GLTF format/tableCross.glb"
+footprint_radius = 0.70
+surface_height = 0.74
+placement = "indoor"
+
+[[objects]]
+id = "core:table_cross_cloth"
+category = "tables"
+model = "assets/kenney_furniture-kit/Models/GLTF format/tableCrossCloth.glb"
+footprint_radius = 0.70
+surface_height = 0.74
+placement = "indoor"
+
+[[objects]]
+id = "core:table_glass"
+category = "tables"
+model = "assets/kenney_furniture-kit/Models/GLTF format/tableGlass.glb"
+footprint_radius = 0.70
+surface_height = 0.74
+placement = "indoor"
+
+[[objects]]
+id = "core:table_round"
+category = "tables"
+model = "assets/kenney_furniture-kit/Models/GLTF format/tableRound.glb"
+footprint_radius = 0.70
+surface_height = 0.74
+placement = "indoor"
+
+[[objects]]
+id = "core:television_antenna"
+category = "electronics"
+model = "assets/kenney_furniture-kit/Models/GLTF format/televisionAntenna.glb"
+footprint_radius = 0.35
+placement = "indoor"
+
+[[objects]]
+id = "core:television_modern"
+category = "electronics"
+model = "assets/kenney_furniture-kit/Models/GLTF format/televisionModern.glb"
+footprint_radius = 0.35
+placement = "indoor"
+
+[[objects]]
+id = "core:television_vintage"
+category = "electronics"
+model = "assets/kenney_furniture-kit/Models/GLTF format/televisionVintage.glb"
+footprint_radius = 0.35
+placement = "indoor"
+
+[[objects]]
+id = "core:toaster"
+category = "kitchen"
+model = "assets/kenney_furniture-kit/Models/GLTF format/toaster.glb"
+footprint_radius = 0.28
+placement = "indoor"
+
+[[objects]]
+id = "core:kenney_toilet"
+category = "bathroom"
+model = "assets/kenney_furniture-kit/Models/GLTF format/toilet.glb"
+footprint_radius = 0.55
+placement = "indoor"
+
+[[objects]]
+id = "core:trashcan"
+category = "utility"
+model = "assets/kenney_furniture-kit/Models/GLTF format/trashcan.glb"
+footprint_radius = 0.50
+placement = "indoor"
+
+[[objects]]
+id = "core:wall"
+category = "architecture"
+model = "assets/kenney_furniture-kit/Models/GLTF format/wall.glb"
+footprint_radius = 1.00
+placement = "indoor"
+
+[[objects]]
+id = "core:wall_corner"
+category = "architecture"
+model = "assets/kenney_furniture-kit/Models/GLTF format/wallCorner.glb"
+footprint_radius = 1.00
+placement = "indoor"
+
+[[objects]]
+id = "core:wall_corner_rond"
+category = "architecture"
+model = "assets/kenney_furniture-kit/Models/GLTF format/wallCornerRond.glb"
+footprint_radius = 1.00
+placement = "indoor"
+
+[[objects]]
+id = "core:wall_doorway"
+category = "architecture"
+model = "assets/kenney_furniture-kit/Models/GLTF format/wallDoorway.glb"
+footprint_radius = 1.00
+placement = "indoor"
+
+[[objects]]
+id = "core:wall_doorway_wide"
+category = "architecture"
+model = "assets/kenney_furniture-kit/Models/GLTF format/wallDoorwayWide.glb"
+footprint_radius = 1.00
+placement = "indoor"
+
+[[objects]]
+id = "core:wall_half"
+category = "architecture"
+model = "assets/kenney_furniture-kit/Models/GLTF format/wallHalf.glb"
+footprint_radius = 1.00
+placement = "indoor"
+
+[[objects]]
+id = "core:wall_window"
+category = "architecture"
+model = "assets/kenney_furniture-kit/Models/GLTF format/wallWindow.glb"
+footprint_radius = 1.00
+placement = "indoor"
+
+[[objects]]
+id = "core:wall_window_slide"
+category = "architecture"
+model = "assets/kenney_furniture-kit/Models/GLTF format/wallWindowSlide.glb"
+footprint_radius = 1.00
+placement = "indoor"
+
+[[objects]]
+id = "core:washer_dryer_stacked"
+category = "utility"
+model = "assets/kenney_furniture-kit/Models/GLTF format/washerDryerStacked.glb"
+footprint_radius = 0.50
+placement = "indoor"
+
+# END GENERATED KENNEY FURNITURE ASSETS

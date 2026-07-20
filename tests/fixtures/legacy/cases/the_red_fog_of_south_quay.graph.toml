@@ -1,0 +1,276 @@
+version = "GraphMode v1"
+case_id = "the_red_fog_of_south_quay"
+revision = 0
+
+[[scenes]]
+id = "final_confrontation"
+source = "asha_venn"
+entry = "reconstruction"
+summary = "Asha released lethal gas through a maintenance line, locked the station remotely, and used harmless iron dust in the yard blower as a spectacular distraction."
+return_to = "board"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "reconstruction"
+scene = "final_confrontation"
+kind = "line"
+speaker = "detective"
+text = "Asha released lethal gas through a maintenance line, locked the station remotely, and used harmless iron dust in the yard blower as a spectacular distraction."
+next = "answer"
+
+[[nodes]]
+id = "answer"
+scene = "final_confrontation"
+kind = "line"
+speaker = "asha_venn"
+text = "The physical reconstruction leaves no honest alternative."
+next = "end"
+
+[[nodes]]
+id = "end"
+scene = "final_confrontation"
+kind = "end"
+
+[[scenes]]
+id = "scene_opening_asha_venn"
+source = "asha_venn"
+entry = "opening_asha_venn_line"
+summary = "Asha reads Tomas's shutdown notice twice. 'He intended to close the station over incomplete safety records. He thought caution belonged to him alone.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_asha_venn_line"
+scene = "scene_opening_asha_venn"
+kind = "line"
+speaker = "asha_venn"
+text = "Asha reads Tomas's shutdown notice twice. 'He intended to close the station over incomplete safety records. He thought caution belonged to him alone.'"
+next = "opening_asha_venn_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_asha_venn_end"
+scene = "scene_opening_asha_venn"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_asha_venn"
+source = "asha_venn"
+entry = "account_asha_venn_line"
+summary = "Asha answers in alarm thresholds. 'The instruments were below range. Tomas was inside; I chose caution.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_asha_venn_line"
+scene = "scene_account_asha_venn"
+kind = "line"
+speaker = "asha_venn"
+text = "Asha answers in alarm thresholds. 'The instruments were below range. Tomas was inside; I chose caution.'"
+next = "account_asha_venn_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_asha_venn_end"
+scene = "scene_account_asha_venn"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_asha_venn"
+source = "asha_venn"
+entry = "approach_asha_venn_line"
+summary = "'Red cloud, sealed station, dead operator—what else would you call it?' She never mentions the clean air around the birds."
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_asha_venn_line"
+scene = "scene_approach_asha_venn"
+kind = "line"
+speaker = "asha_venn"
+text = "'Red cloud, sealed station, dead operator—what else would you call it?' She never mentions the clean air around the birds."
+next = "approach_asha_venn_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_asha_venn_end"
+scene = "scene_approach_asha_venn"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_opening_kerr_moss"
+source = "kerr_moss"
+entry = "opening_kerr_moss_line"
+summary = "Kerr inventories the panel lights. 'Tomas wanted my signature on the shutdown. I refused until I could test the relay, and he went inside without me.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_kerr_moss_line"
+scene = "scene_opening_kerr_moss"
+kind = "line"
+speaker = "kerr_moss"
+text = "Kerr inventories the panel lights. 'Tomas wanted my signature on the shutdown. I refused until I could test the relay, and he went inside without me.'"
+next = "opening_kerr_moss_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_kerr_moss_end"
+scene = "scene_opening_kerr_moss"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_kerr_moss"
+source = "kerr_moss"
+entry = "account_kerr_moss_line"
+summary = "Kerr inventories each switch before reaching the burned contact. 'I forced the west relay after the controls froze.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_kerr_moss_line"
+scene = "scene_account_kerr_moss"
+kind = "line"
+speaker = "kerr_moss"
+text = "Kerr inventories each switch before reaching the burned contact. 'I forced the west relay after the controls froze.'"
+next = "account_kerr_moss_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_kerr_moss_end"
+scene = "scene_account_kerr_moss"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_kerr_moss"
+source = "kerr_moss"
+entry = "approach_kerr_moss_line"
+summary = "'That is why I lied about entering the room. It does not explain a remote sequence logged before I arrived.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_kerr_moss_line"
+scene = "scene_approach_kerr_moss"
+kind = "line"
+speaker = "kerr_moss"
+text = "'That is why I lied about entering the room. It does not explain a remote sequence logged before I arrived.'"
+next = "approach_kerr_moss_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_kerr_moss_end"
+scene = "scene_approach_kerr_moss"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_opening_lena_pike"
+source = "lena_pike"
+entry = "opening_lena_pike_line"
+summary = "Lena counts the occupied cages. 'He fed the birds before entering the station. Tomas trusted an animal breathing normally more than any green lamp.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_lena_pike_line"
+scene = "scene_opening_lena_pike"
+kind = "line"
+speaker = "lena_pike"
+text = "Lena counts the occupied cages. 'He fed the birds before entering the station. Tomas trusted an animal breathing normally more than any green lamp.'"
+next = "opening_lena_pike_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_lena_pike_end"
+scene = "scene_opening_lena_pike"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_lena_pike"
+source = "lena_pike"
+entry = "account_lena_pike_line"
+summary = "Lena counts cages, then animals. 'Three gulls, two fox kits, one terrified dog. I moved them before the fog reached the yard.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_lena_pike_line"
+scene = "scene_account_lena_pike"
+kind = "line"
+speaker = "lena_pike"
+text = "Lena counts cages, then animals. 'Three gulls, two fox kits, one terrified dog. I moved them before the fog reached the yard.'"
+next = "account_lena_pike_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_lena_pike_end"
+scene = "scene_account_lena_pike"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_lena_pike"
+source = "lena_pike"
+entry = "approach_lena_pike_line"
+summary = "'The birds left behind stayed healthy. Whatever killed Tomas was not drifting through that yard.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_lena_pike_line"
+scene = "scene_approach_lena_pike"
+kind = "line"
+speaker = "lena_pike"
+text = "'The birds left behind stayed healthy. Whatever killed Tomas was not drifting through that yard.'"
+next = "approach_lena_pike_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_lena_pike_end"
+scene = "scene_approach_lena_pike"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]

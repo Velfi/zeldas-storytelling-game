@@ -1,0 +1,177 @@
+version = "MysteryCampaign v2"
+id = "the_marigold_circle"
+title = "THE MARIGOLD CIRCLE"
+creator = "Zelda H."
+description = "Four closed-circle reconstructions following the Marigold Club and its foundation."
+content_version = "1.0.0"
+thumbnail = "assets/campaigns/heroes/the-marigold-circle.png"
+
+[[variables]]
+id = "foundation_pressure"
+display_name = "Foundation pressure"
+description = "Public scrutiny accumulating around the Marigold Club and Saye Foundation."
+kind = 1
+default_integer = 0
+
+[[variables]]
+id = "circle_history"
+display_name = "Circle history"
+description = "Resolved cases now informing how the Circle understands names, records, rooms, and testimony."
+kind = 1
+default_integer = 0
+
+[[effects]]
+kind = 2
+variable_id = "foundation_pressure"
+integer_value = 1
+
+[[effects]]
+kind = 2
+variable_id = "circle_history"
+integer_value = 1
+
+[[effects]]
+kind = 2
+variable_id = "foundation_pressure"
+integer_value = 1
+
+[[effects]]
+kind = 2
+variable_id = "circle_history"
+integer_value = 1
+
+[[effects]]
+kind = 2
+variable_id = "foundation_pressure"
+integer_value = 1
+
+[[effects]]
+kind = 2
+variable_id = "circle_history"
+integer_value = 1
+
+[[effects]]
+kind = 2
+variable_id = "foundation_pressure"
+integer_value = 1
+
+[[effects]]
+kind = 2
+variable_id = "circle_history"
+integer_value = 1
+
+[[conditions]]
+kind = 0
+first_child = 0
+child_count = 0
+variable_id = ""
+case_id = ""
+enum_value = ""
+boolean_value = false
+integer_value = 0
+comparison = 0
+outcome = 0
+
+[[conditions]]
+kind = 6
+first_child = 0
+child_count = 0
+variable_id = "circle_history"
+case_id = ""
+enum_value = ""
+boolean_value = false
+integer_value = 1
+comparison = 5
+outcome = 0
+
+[[conditions]]
+kind = 6
+first_child = 0
+child_count = 0
+variable_id = "circle_history"
+case_id = ""
+enum_value = ""
+boolean_value = false
+integer_value = 2
+comparison = 5
+outcome = 0
+
+[[conditions]]
+kind = 6
+first_child = 0
+child_count = 0
+variable_id = "circle_history"
+case_id = ""
+enum_value = ""
+boolean_value = false
+integer_value = 3
+comparison = 5
+outcome = 0
+
+[[cases]]
+id = "murder_in_the_marigold_rooms"
+title = "Murder in the Marigold Rooms"
+story_path = "assets/stories/mysteries/murder_in_the_marigold_rooms.story.toml"
+level_path = "assets/levels/marigold_club.toml"
+content_version = "1.0.0"
+condition_root = 0
+required = true
+optional = false
+presentation = 0
+locked_message = ""
+replay_mode = 0
+invalid_policy = 0
+effect_outcomes = [0, 1]
+effect_firsts = [0, 0]
+effect_counts = [2, 2]
+
+[[cases]]
+id = "five_places_at_dinner"
+title = "Five Places at Dinner"
+story_path = "assets/stories/mysteries/five_places_at_dinner.story.toml"
+level_path = "assets/levels/saye_foundation_gallery.toml"
+content_version = "1.0.0"
+condition_root = 1
+required = true
+optional = false
+presentation = 0
+locked_message = "Complete Murder in the Marigold Rooms to continue."
+replay_mode = 0
+invalid_policy = 0
+effect_outcomes = [0, 1]
+effect_firsts = [2, 2]
+effect_counts = [2, 2]
+
+[[cases]]
+id = "the_guest_in_suite_808"
+title = "The Guest in Suite 808"
+story_path = "assets/stories/mysteries/the_guest_in_suite_808.story.toml"
+level_path = "assets/levels/halcyon_hotel.toml"
+content_version = "1.0.0"
+condition_root = 2
+required = true
+optional = false
+presentation = 0
+locked_message = "Complete Five Places at Dinner to continue."
+replay_mode = 0
+invalid_policy = 0
+effect_outcomes = [0, 1]
+effect_firsts = [4, 4]
+effect_counts = [2, 2]
+
+[[cases]]
+id = "the_sleeper_across_the_city"
+title = "The Sleeper Across the City"
+story_path = "assets/stories/mysteries/the_sleeper_across_the_city.story.toml"
+level_path = "assets/levels/marigold_excursion_train.toml"
+content_version = "1.0.0"
+condition_root = 3
+required = true
+optional = false
+presentation = 0
+locked_message = "Complete The Guest in Suite 808 to continue."
+replay_mode = 0
+invalid_policy = 0
+effect_outcomes = [0, 1]
+effect_firsts = [6, 6]
+effect_counts = [2, 2]

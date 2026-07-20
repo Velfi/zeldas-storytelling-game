@@ -1,0 +1,1481 @@
+version = "InteractiveStory v1"
+id = "the_perfect_vintage"
+title = "The Perfect Vintage"
+creator = "Chicago conversion tool"
+description = "Elise Marr lies beneath a collapsed rack. Conrad Vey planted a warm rare bottle to date the discovery."
+content_version = "1.0.0"
+default_space = "the_perfect_vintage_lot"
+revision = 0
+
+[[capabilities]]
+id = "mystery"
+version = "1"
+
+[[entities]]
+id = "elise"
+kind = "character"
+display_name = "Elise Marr"
+description = "Elise Marr intended to disclose that the cellar's celebrated inventory no longer matched its bottles. She remembered promises by the wine shared over them, making her judgment personal as well as professional."
+space_id = ""
+target_kind = "entity"
+target_id = ""
+tags = ["victim"]
+roles = []
+
+[[entities]]
+id = "conrad"
+kind = "character"
+display_name = "Conrad Vey"
+description = "Cellar master who corrects sensory vocabulary and uses expertise to turn assumptions into authority."
+space_id = "the_perfect_vintage_lot"
+target_kind = "marker"
+target_id = "spawn_conrad"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "pia"
+kind = "character"
+display_name = "Pia Soren"
+description = "Broker with an exact memory for vintages and prices, concealing sales rather than violence."
+space_id = "the_perfect_vintage_lot"
+target_kind = "marker"
+target_id = "spawn_pia"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "luca"
+kind = "character"
+display_name = "Luca Penn"
+description = "Repairer who estimates every claim through load, fastener, and failure pattern."
+space_id = "the_perfect_vintage_lot"
+target_kind = "marker"
+target_id = "spawn_luca"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "dining_room"
+kind = "location"
+display_name = "DINING ROOM"
+description = "Dining Room preserves physical evidence in the staged chronology."
+space_id = "the_perfect_vintage_lot"
+target_kind = "room"
+target_id = "dining_room"
+tags = []
+roles = []
+
+[[entities]]
+id = "tasting_room"
+kind = "location"
+display_name = "TASTING ROOM"
+description = "Tasting Room preserves physical evidence in the staged chronology."
+space_id = "the_perfect_vintage_lot"
+target_kind = "room"
+target_id = "tasting_room"
+tags = []
+roles = []
+
+[[entities]]
+id = "main_cellar"
+kind = "location"
+display_name = "MAIN CELLAR"
+description = "Main Cellar preserves physical evidence in the staged chronology."
+space_id = "the_perfect_vintage_lot"
+target_kind = "room"
+target_id = "main_cellar"
+tags = []
+roles = []
+
+[[entities]]
+id = "service_cellar"
+kind = "location"
+display_name = "SERVICE CELLAR"
+description = "Service Cellar preserves physical evidence in the staged chronology."
+space_id = "the_perfect_vintage_lot"
+target_kind = "room"
+target_id = "service_cellar"
+tags = []
+roles = []
+
+[[entities]]
+id = "loading_court"
+kind = "location"
+display_name = "LOADING COURT"
+description = "Loading Court preserves physical evidence in the staged chronology."
+space_id = "the_perfect_vintage_lot"
+target_kind = "room"
+target_id = "loading_court"
+tags = []
+roles = []
+
+[[entities]]
+id = "bottle_cradle"
+kind = "object"
+display_name = "Bottle Cradle"
+description = "Bottle Cradle is preserved as an inspectable part of the crime scene."
+space_id = "the_perfect_vintage_lot"
+target_kind = "marker"
+target_id = "marker_bottle_cradle"
+tags = []
+roles = []
+
+[[entities]]
+id = "carpet"
+kind = "object"
+display_name = "Tasting-room Carpet"
+description = "Tasting-room Carpet is preserved as an inspectable part of the crime scene."
+space_id = "the_perfect_vintage_lot"
+target_kind = "marker"
+target_id = "marker_carpet"
+tags = []
+roles = []
+
+[[entities]]
+id = "bottle_lift"
+kind = "object"
+display_name = "Narrow Bottle Lift"
+description = "Narrow Bottle Lift is preserved as an inspectable part of the crime scene."
+space_id = "the_perfect_vintage_lot"
+target_kind = "marker"
+target_id = "marker_bottle_lift"
+tags = []
+roles = []
+
+[[entities]]
+id = "rare_bottle"
+kind = "object"
+display_name = "Rare Hero Bottle"
+description = "Rare Hero Bottle is preserved as an inspectable part of the crime scene."
+space_id = "the_perfect_vintage_lot"
+target_kind = "marker"
+target_id = "marker_rare_bottle"
+tags = []
+roles = []
+
+[[entities]]
+id = "collapsed_rack"
+kind = "object"
+display_name = "Collapsed Wine Rack"
+description = "Collapsed Wine Rack is preserved as an inspectable part of the crime scene."
+space_id = "the_perfect_vintage_lot"
+target_kind = "marker"
+target_id = "marker_collapsed_rack"
+tags = []
+roles = []
+
+[[entities]]
+id = "inventory"
+kind = "object"
+display_name = "Cellar Inventory Book"
+description = "Cellar Inventory Book is preserved as an inspectable part of the crime scene."
+space_id = "the_perfect_vintage_lot"
+target_kind = "marker"
+target_id = "marker_inventory"
+tags = []
+roles = []
+
+[[entities]]
+id = "repair_tools"
+kind = "object"
+display_name = "Rack Repair Tools"
+description = "Rack Repair Tools is preserved as an inspectable part of the crime scene."
+space_id = "the_perfect_vintage_lot"
+target_kind = "marker"
+target_id = "marker_repair_tools"
+tags = []
+roles = []
+
+[[propositions]]
+id = "claim_culprit_account"
+text = "Conrad says the rack collapse killed Elise in the main cellar."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "claim_pia_secret"
+text = "Pia Soren conceals unrelated misconduct."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "claim_luca_secret"
+text = "Luca Penn conceals unrelated misconduct."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_1"
+text = "Elise's head wound predates the rack injuries."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_2"
+text = "Blood remains inside the bottle-cradle joint."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_3"
+text = "Her coat carries tasting-room carpet fibers."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_4"
+text = "The bottle lift contains a torn coat thread."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_5"
+text = "Condensation shows the rare bottle entered recently."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_6"
+text = "Dust proves the rack was loosened before the collapse."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_7"
+text = "Pia's sales explain the inventory discrepancy."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_8"
+text = "Luca's poor repairs explain his hidden access."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_9"
+text = "Conrad calls the bottle warm before it is examined."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "ded_1"
+text = "Elise was killed in the tasting room."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "ded_2"
+text = "The bottle lift transferred her body."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "ded_3"
+text = "Condensation dates the planted rare bottle."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "ded_4"
+text = "Conrad's temperature knowledge proves the staging."
+canonical_truth = "undetermined"
+
+[[events]]
+id = "crime"
+subject = "conrad"
+action = "kill"
+object = "elise"
+location = "dining_room"
+fictional_time = "20:10"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[events]]
+id = "staging"
+subject = "conrad"
+action = "alter"
+object = "elise"
+location = "dining_room"
+fictional_time = "20:25"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[conditions]]
+id = "condition.always"
+kind = "always"
+children = []
+variable = ""
+entity = ""
+other_entity = ""
+proposition = ""
+objective = ""
+event = ""
+content = ""
+text = ""
+space_a = ""
+target_a = ""
+space_b = ""
+target_b = ""
+distance = 0
+value_kind = "boolean"
+boolean_value = false
+integer_value = 0
+text_value = ""
+comparison = 0
+objective_status = 0
+stance = "uncertain"
+
+[[scenes]]
+id = "scene_opening_conrad"
+display_name = "Conrad straightens Elise's glass. 'She wanted a complete inventory before the hero bottle was opened. Elise could forgive a poor vintage, never a false label.'"
+entry_node = "opening_conrad_line"
+bound_entity = "conrad"
+summary = "Conrad straightens Elise's glass. 'She wanted a complete inventory before the hero bottle was opened. Elise could forgive a poor vintage, never a false label.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_conrad"
+display_name = "Conrad corrects the vocabulary first. 'Not warm—disturbed. The bloom on the glass was wrong for that rack.'"
+entry_node = "account_conrad_line"
+bound_entity = "conrad"
+summary = "Conrad corrects the vocabulary first. 'Not warm—disturbed. The bloom on the glass was wrong for that rack.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_conrad"
+display_name = "'Condensation tells any competent cellarman when a bottle moved.' His hand remains several inches from the untouched glass."
+entry_node = "approach_conrad_line"
+bound_entity = "conrad"
+summary = "'Condensation tells any competent cellarman when a bottle moved.' His hand remains several inches from the untouched glass."
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_opening_pia"
+display_name = "Pia recites the promised bottle. 'Elise asked for my private invoices. She knew stock had moved and meant to decide whether that was theft before dinner ended.'"
+entry_node = "opening_pia_line"
+bound_entity = "pia"
+summary = "Pia recites the promised bottle. 'Elise asked for my private invoices. She knew stock had moved and meant to decide whether that was theft before dinner ended.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_pia"
+display_name = "Pia recites producers and vintages without looking at the book. 'Six ordinary cases under private invoice. Never the hero bottle.'"
+entry_node = "account_pia_line"
+bound_entity = "pia"
+summary = "Pia recites producers and vintages without looking at the book. 'Six ordinary cases under private invoice. Never the hero bottle.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_pia"
+display_name = "'My discrepancy is money. The fresh ring beneath that bottle is staging.'"
+entry_node = "approach_pia_line"
+bound_entity = "pia"
+summary = "'My discrepancy is money. The fresh ring beneath that bottle is staging.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_opening_luca"
+display_name = "Luca tests the rack with both hands. 'She asked whether the third bay was safe. I said it would stand tonight. That answer is mine, however badly it ages.'"
+entry_node = "opening_luca_line"
+bound_entity = "luca"
+summary = "Luca tests the rack with both hands. 'She asked whether the third bay was safe. I said it would stand tonight. That answer is mine, however badly it ages.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_luca"
+display_name = "Luca measures the rack with his hands. 'I braced the third bay with the wrong screws. Cheap work, but standing work.'"
+entry_node = "account_luca_line"
+bound_entity = "luca"
+summary = "Luca measures the rack with his hands. 'I braced the third bay with the wrong screws. Cheap work, but standing work.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_luca"
+display_name = "'Someone backed them out before the collapse. Elise's first wound did not come from timber.'"
+entry_node = "approach_luca_line"
+bound_entity = "luca"
+summary = "'Someone backed them out before the collapse. Elise's first wound did not come from timber.'"
+return_to = "investigation"
+
+[[nodes]]
+id = "opening_conrad_line"
+scene = "scene_opening_conrad"
+kind = "line"
+line_id = "opening_conrad_line"
+speaker = "conrad"
+text = "Conrad straightens Elise's glass. 'She wanted a complete inventory before the hero bottle was opened. Elise could forgive a poor vintage, never a false label.'"
+next = "opening_conrad_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_conrad_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_conrad_end"
+scene = "scene_opening_conrad"
+kind = "end"
+line_id = "opening_conrad_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_conrad_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_conrad_line"
+scene = "scene_account_conrad"
+kind = "line"
+line_id = "account_conrad_line"
+speaker = "conrad"
+text = "Conrad corrects the vocabulary first. 'Not warm—disturbed. The bloom on the glass was wrong for that rack.'"
+next = "account_conrad_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_conrad_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_conrad_end"
+scene = "scene_account_conrad"
+kind = "end"
+line_id = "account_conrad_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_conrad_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_conrad_line"
+scene = "scene_approach_conrad"
+kind = "line"
+line_id = "approach_conrad_line"
+speaker = "conrad"
+text = "'Condensation tells any competent cellarman when a bottle moved.' His hand remains several inches from the untouched glass."
+next = "approach_conrad_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_conrad_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_conrad_end"
+scene = "scene_approach_conrad"
+kind = "end"
+line_id = "approach_conrad_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_conrad_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_pia_line"
+scene = "scene_opening_pia"
+kind = "line"
+line_id = "opening_pia_line"
+speaker = "pia"
+text = "Pia recites the promised bottle. 'Elise asked for my private invoices. She knew stock had moved and meant to decide whether that was theft before dinner ended.'"
+next = "opening_pia_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_pia_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_pia_end"
+scene = "scene_opening_pia"
+kind = "end"
+line_id = "opening_pia_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_pia_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_pia_line"
+scene = "scene_account_pia"
+kind = "line"
+line_id = "account_pia_line"
+speaker = "pia"
+text = "Pia recites producers and vintages without looking at the book. 'Six ordinary cases under private invoice. Never the hero bottle.'"
+next = "account_pia_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_pia_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_pia_end"
+scene = "scene_account_pia"
+kind = "end"
+line_id = "account_pia_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_pia_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_pia_line"
+scene = "scene_approach_pia"
+kind = "line"
+line_id = "approach_pia_line"
+speaker = "pia"
+text = "'My discrepancy is money. The fresh ring beneath that bottle is staging.'"
+next = "approach_pia_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_pia_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_pia_end"
+scene = "scene_approach_pia"
+kind = "end"
+line_id = "approach_pia_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_pia_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_luca_line"
+scene = "scene_opening_luca"
+kind = "line"
+line_id = "opening_luca_line"
+speaker = "luca"
+text = "Luca tests the rack with both hands. 'She asked whether the third bay was safe. I said it would stand tonight. That answer is mine, however badly it ages.'"
+next = "opening_luca_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_luca_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_luca_end"
+scene = "scene_opening_luca"
+kind = "end"
+line_id = "opening_luca_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_luca_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_luca_line"
+scene = "scene_account_luca"
+kind = "line"
+line_id = "account_luca_line"
+speaker = "luca"
+text = "Luca measures the rack with his hands. 'I braced the third bay with the wrong screws. Cheap work, but standing work.'"
+next = "account_luca_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_luca_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_luca_end"
+scene = "scene_account_luca"
+kind = "end"
+line_id = "account_luca_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_luca_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_luca_line"
+scene = "scene_approach_luca"
+kind = "line"
+line_id = "approach_luca_line"
+speaker = "luca"
+text = "'Someone backed them out before the collapse. Elise's first wound did not come from timber.'"
+next = "approach_luca_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_luca_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_luca_end"
+scene = "scene_approach_luca"
+kind = "end"
+line_id = "approach_luca_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_luca_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[mystery]
+action_budget = 14
+seed = 20341088
+tutorial = ""
+city_start = ""
+city_destination = "vey_cellars"
+reveal_location = "dining_room"
+
+[[mystery.characters]]
+entity = "elise"
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = []
+
+[[mystery.characters]]
+entity = "conrad"
+private_secret = "murder and staging"
+motive = "Exposure would destroy a celebrated career."
+initial_disposition = -1
+initial_claims = ["claim_culprit_account"]
+
+[[mystery.characters]]
+entity = "pia"
+private_secret = "a separate professional offense"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_pia_secret"]
+
+[[mystery.characters]]
+entity = "luca"
+private_secret = "a separate professional offense"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_luca_secret"]
+
+[[mystery.locations]]
+entity = "dining_room"
+connections = ["tasting_room"]
+characters = []
+pois = []
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "tasting_room"
+connections = ["dining_room", "main_cellar"]
+characters = ["conrad"]
+pois = ["bottle_cradle", "carpet"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "main_cellar"
+connections = ["tasting_room", "service_cellar"]
+characters = ["pia"]
+pois = ["rare_bottle", "collapsed_rack"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "service_cellar"
+connections = ["main_cellar", "loading_court"]
+characters = ["luca"]
+pois = ["bottle_lift", "inventory"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "loading_court"
+connections = ["service_cellar"]
+characters = []
+pois = ["repair_tools"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.pois]]
+entity = "bottle_cradle"
+location = "tasting_room"
+owner = ""
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "carpet"
+location = "tasting_room"
+owner = ""
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "bottle_lift"
+location = "service_cellar"
+owner = ""
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "rare_bottle"
+location = "main_cellar"
+owner = ""
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "collapsed_rack"
+location = "main_cellar"
+owner = ""
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "inventory"
+location = "service_cellar"
+owner = ""
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "repair_tools"
+location = "loading_court"
+owner = ""
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[mystery.events]]
+event = "crime"
+destination = "dining_room"
+tool = "bottle_cradle"
+effects = ["victim_dead"]
+
+[[mystery.events]]
+event = "staging"
+destination = "loading_court"
+tool = ""
+effects = ["false_scene"]
+
+[[mystery.clues]]
+id = "clue_1"
+source = "bottle_cradle"
+description = "Elise's head wound predates the rack injuries."
+proposition = "clue_1"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["weapon"]
+topics = ["case_evidence", "weapon"]
+
+[[mystery.clues]]
+id = "clue_2"
+source = "carpet"
+description = "Blood remains inside the bottle-cradle joint."
+proposition = "clue_2"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["murder_place"]
+topics = ["case_evidence", "murder_place"]
+
+[[mystery.clues]]
+id = "clue_3"
+source = "bottle_lift"
+description = "Her coat carries tasting-room carpet fibers."
+proposition = "clue_3"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["death_time"]
+topics = ["case_evidence", "death_time"]
+
+[[mystery.clues]]
+id = "clue_4"
+source = "rare_bottle"
+description = "The bottle lift contains a torn coat thread."
+proposition = "clue_4"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["body_movement"]
+topics = ["case_evidence", "body_movement"]
+
+[[mystery.clues]]
+id = "clue_5"
+source = "collapsed_rack"
+description = "Condensation shows the rare bottle entered recently."
+proposition = "clue_5"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["staging"]
+topics = ["case_evidence", "staging"]
+
+[[mystery.clues]]
+id = "clue_6"
+source = "inventory"
+description = "Dust proves the rack was loosened before the collapse."
+proposition = "clue_6"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["cleaning"]
+topics = ["case_evidence", "cleaning"]
+
+[[mystery.clues]]
+id = "clue_7"
+source = "pia"
+description = "Pia's sales explain the inventory discrepancy."
+proposition = "clue_7"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["alibi"]
+topics = ["case_evidence", "alibi"]
+
+[[mystery.clues]]
+id = "clue_8"
+source = "luca"
+description = "Luca's poor repairs explain his hidden access."
+proposition = "clue_8"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["culprit_knowledge"]
+topics = ["case_evidence", "culprit_knowledge"]
+
+[[mystery.clues]]
+id = "clue_9"
+source = "conrad"
+description = "Conrad calls the bottle warm before it is examined."
+proposition = "clue_9"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["motive", "claim_culprit_account"]
+topics = ["case_evidence", "motive"]
+
+[[mystery.claims]]
+id = "claim_culprit_account"
+speaker = "conrad"
+proposition = "claim_culprit_account"
+protects = "murder"
+response = "Conrad says the rack collapse killed Elise in the main cellar."
+canonical_truth = false
+
+[[mystery.claims]]
+id = "claim_pia_secret"
+speaker = "pia"
+proposition = "claim_pia_secret"
+protects = "pia_secret"
+response = "I hid something, but it was not murder."
+canonical_truth = false
+
+[[mystery.claims]]
+id = "claim_luca_secret"
+speaker = "luca"
+proposition = "claim_luca_secret"
+protects = "luca_secret"
+response = "I hid something, but it was not murder."
+canonical_truth = false
+
+[[mystery.contradictions]]
+id = "decisive_contradiction"
+claim = "claim_culprit_account"
+fact = "clue_9"
+conclusion = ""
+explanation = "The culprit commits to knowledge available only to the person who staged the scene."
+
+[[mystery.deductions]]
+id = "ded_1"
+proposition = "ded_1"
+category = "where_when"
+supports = []
+unlock_questions = []
+unlock_topics = ["finding_1"]
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "ded_2"
+proposition = "ded_2"
+category = "what"
+supports = []
+unlock_questions = []
+unlock_topics = ["finding_2"]
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "ded_3"
+proposition = "ded_3"
+category = "concealment"
+supports = []
+unlock_questions = []
+unlock_topics = ["finding_3"]
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "ded_4"
+proposition = "ded_4"
+category = "contradiction"
+supports = []
+unlock_questions = []
+unlock_topics = ["finding_4"]
+unlock_investigations = []
+
+[[mystery.questions]]
+id = "question_1"
+prompt = "Where did the murder occur?"
+hypothesis = "Elise was killed in the tasting room."
+category = "where_when"
+requires_clues = ["clue_1", "clue_2"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_2"
+prompt = "How was the false scene constructed?"
+hypothesis = "The bottle lift transferred her body."
+category = "what"
+requires_clues = ["clue_3", "clue_4"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_3"
+prompt = "What created the false chronology?"
+hypothesis = "Condensation dates the planted rare bottle."
+category = "concealment"
+requires_clues = ["clue_5", "clue_6"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_4"
+prompt = "What unique knowledge proves the culprit staged it?"
+hypothesis = "Conrad's temperature knowledge proves the staging."
+category = "contradiction"
+requires_clues = ["clue_8", "clue_9"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.demonstrations]]
+id = "demonstration_1"
+question = "question_1"
+mode = "physical"
+resolution = "substantiated"
+result = "Elise was killed in the tasting room."
+prompt = "Place the two established pieces together."
+slot_labels = ["FIRST FACT", "SECOND FACT"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_1", "clue_2"]
+route_firsts = []
+route_counts = []
+result_deductions = ["ded_1"]
+
+[[mystery.demonstrations]]
+id = "demonstration_2"
+question = "question_2"
+mode = "comparison"
+resolution = "substantiated"
+result = "The bottle lift transferred her body."
+prompt = "Place the two established pieces together."
+slot_labels = ["FIRST FACT", "SECOND FACT"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_3", "clue_4"]
+route_firsts = []
+route_counts = []
+result_deductions = ["ded_2"]
+
+[[mystery.demonstrations]]
+id = "demonstration_3"
+question = "question_3"
+mode = "timeline"
+resolution = "substantiated"
+result = "Condensation dates the planted rare bottle."
+prompt = "Place the two established pieces together."
+slot_labels = ["FIRST FACT", "SECOND FACT"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_5", "clue_6"]
+route_firsts = []
+route_counts = []
+result_deductions = ["ded_3"]
+
+[[mystery.demonstrations]]
+id = "demonstration_4"
+question = "question_4"
+mode = "confrontation"
+resolution = "substantiated"
+result = "Conrad's temperature knowledge proves the staging."
+prompt = "Place the two established pieces together."
+slot_labels = ["FIRST FACT", "SECOND FACT"]
+slot_types = ["testimony", "testimony"]
+accepted = ["clue_8", "clue_9"]
+route_firsts = []
+route_counts = []
+result_deductions = ["ded_4"]
+
+[[mystery.dialogue]]
+node = "opening_conrad"
+character = "conrad"
+prompt = "Tell me about Elise Marr. What did they want tonight?"
+response = "Conrad straightens Elise's glass. 'She wanted a complete inventory before the hero bottle was opened. Elise could forgive a poor vintage, never a false label.'"
+clue = ""
+interaction = ""
+requires = ["claim_culprit_account"]
+unlocks = ["account_ready_conrad"]
+
+[[mystery.dialogue]]
+node = "account_conrad"
+character = "conrad"
+prompt = "Why did you call the rare bottle warm before anyone touched it?"
+response = "Conrad corrects the vocabulary first. 'Not warm—disturbed. The bloom on the glass was wrong for that rack.'"
+clue = ""
+interaction = ""
+requires = ["claim_culprit_account", "account_ready_conrad"]
+unlocks = ["followup_conrad"]
+
+[[mystery.dialogue]]
+node = "approach_conrad"
+character = "conrad"
+prompt = "Then account for the bottle cradle."
+response = "'Condensation tells any competent cellarman when a bottle moved.' His hand remains several inches from the untouched glass."
+clue = "clue_9"
+interaction = ""
+requires = ["clue_1", "claim_culprit_account", "followup_conrad"]
+unlocks = ["clue_9", "case_evidence"]
+
+[[mystery.dialogue]]
+node = "opening_pia"
+character = "pia"
+prompt = "Tell me about Elise Marr. What did they want tonight?"
+response = "Pia recites the promised bottle. 'Elise asked for my private invoices. She knew stock had moved and meant to decide whether that was theft before dinner ended.'"
+clue = ""
+interaction = ""
+requires = ["claim_pia_secret"]
+unlocks = ["account_ready_pia"]
+
+[[mystery.dialogue]]
+node = "account_pia"
+character = "pia"
+prompt = "Which bottles did you sell outside the inventory?"
+response = "Pia recites producers and vintages without looking at the book. 'Six ordinary cases under private invoice. Never the hero bottle.'"
+clue = ""
+interaction = ""
+requires = ["claim_pia_secret", "account_ready_pia"]
+unlocks = ["followup_pia"]
+
+[[mystery.dialogue]]
+node = "approach_pia"
+character = "pia"
+prompt = "Then account for the narrow bottle lift."
+response = "'My discrepancy is money. The fresh ring beneath that bottle is staging.'"
+clue = "clue_7"
+interaction = ""
+requires = ["clue_3", "claim_pia_secret", "followup_pia"]
+unlocks = ["clue_7", "case_evidence"]
+
+[[mystery.dialogue]]
+node = "opening_luca"
+character = "luca"
+prompt = "Tell me about Elise Marr. What did they want tonight?"
+response = "Luca tests the rack with both hands. 'She asked whether the third bay was safe. I said it would stand tonight. That answer is mine, however badly it ages.'"
+clue = ""
+interaction = ""
+requires = ["claim_luca_secret"]
+unlocks = ["account_ready_luca"]
+
+[[mystery.dialogue]]
+node = "account_luca"
+character = "luca"
+prompt = "What repairs did you conceal?"
+response = "Luca measures the rack with his hands. 'I braced the third bay with the wrong screws. Cheap work, but standing work.'"
+clue = ""
+interaction = ""
+requires = ["claim_luca_secret", "account_ready_luca"]
+unlocks = ["followup_luca"]
+
+[[mystery.dialogue]]
+node = "approach_luca"
+character = "luca"
+prompt = "Then account for the collapsed wine rack."
+response = "'Someone backed them out before the collapse. Elise's first wound did not come from timber.'"
+clue = "clue_8"
+interaction = ""
+requires = ["clue_5", "claim_luca_secret", "followup_luca"]
+unlocks = ["clue_8", "case_evidence"]
+
+[[mystery.city_labels]]
+id = "vey_cellars"
+display_name = "THE PERFECT VINTAGE"
+level_spawn = "spawn_player"
+city_site = "foundry_ward_venue"
+
+[mystery.solution]
+culprit = "conrad"
+motive = "clue_9"
+decisive_contradiction = "decisive_contradiction"
+weapon_block = "weapon"
+murder_place_block = "murder_place"
+death_time_block = "death_time"
+body_movement_block = "body_movement"
+staging_block = "staging"
+cleaning_block = "cleaning"
+alibi_block = "alibi"
+requirements = ["weapon", "murder_place", "death_time", "body_movement", "staging", "cleaning", "alibi"]
+murder_events = ["crime"]
+cover_up_events = ["staging"]
+false_alibis = ["claim_culprit_account"]
+exclusions = ["pia", "luca"]

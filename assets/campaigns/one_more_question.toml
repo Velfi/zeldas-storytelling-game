@@ -1,0 +1,134 @@
+version = "MysteryCampaign v2"
+id = "one_more_question"
+title = "ONE MORE QUESTION"
+creator = "Zelda H."
+description = "Four inverted mysteries. Three open files must all be solved before the sealed capstone opens."
+content_version = "1.0.0"
+thumbnail = "assets/campaigns/heroes/one-more-question.png"
+
+[[variables]]
+id = "proved_impossible_witness"
+display_name = "Impossible witness"
+description = "Learned to separate what a witness claims from what the room allowed them to perceive."
+kind = 0
+default_boolean = false
+
+[[variables]]
+id = "proved_recorded_sequence"
+display_name = "Recorded sequence"
+description = "Learned to compare a performed sequence with the chronology embedded in its recording."
+kind = 0
+default_boolean = false
+
+[[variables]]
+id = "proved_material_clock"
+display_name = "Material clock"
+description = "Learned to date staging through temperature, condensation, and disturbed material."
+kind = 0
+default_boolean = false
+
+[[effects]]
+kind = 0
+variable_id = "proved_impossible_witness"
+boolean_value = true
+
+[[effects]]
+kind = 0
+variable_id = "proved_recorded_sequence"
+boolean_value = true
+
+[[effects]]
+kind = 0
+variable_id = "proved_material_clock"
+boolean_value = true
+
+[[conditions]]
+kind = 0
+
+[[conditions]]
+kind = 2
+first_child = 2
+child_count = 3
+
+[[conditions]]
+kind = 5
+variable_id = "proved_impossible_witness"
+boolean_value = true
+
+[[conditions]]
+kind = 5
+variable_id = "proved_recorded_sequence"
+boolean_value = true
+
+[[conditions]]
+kind = 5
+variable_id = "proved_material_clock"
+boolean_value = true
+
+[[cases]]
+id = "the_final_cut"
+title = "The Final Cut"
+story_path = "assets/stories/mysteries/the_final_cut.story.toml"
+level_path = "assets/levels/the_final_cut.toml"
+content_version = "1.0.0"
+condition_root = 0
+required = true
+optional = false
+presentation = 0
+locked_message = ""
+replay_mode = 1
+invalid_policy = 0
+effect_outcomes = [0, 1]
+effect_firsts = [0, 0]
+effect_counts = [1, 1]
+
+[[cases]]
+id = "a_private_performance"
+title = "A Private Performance"
+story_path = "assets/stories/mysteries/a_private_performance.story.toml"
+level_path = "assets/levels/a_private_performance.toml"
+content_version = "1.0.0"
+condition_root = 0
+required = true
+optional = false
+presentation = 0
+locked_message = ""
+replay_mode = 1
+invalid_policy = 0
+effect_outcomes = [0, 1]
+effect_firsts = [1, 1]
+effect_counts = [1, 1]
+
+[[cases]]
+id = "the_perfect_vintage"
+title = "The Perfect Vintage"
+story_path = "assets/stories/mysteries/the_perfect_vintage.story.toml"
+level_path = "assets/levels/the_perfect_vintage.toml"
+content_version = "1.0.0"
+condition_root = 0
+required = true
+optional = false
+presentation = 0
+locked_message = ""
+replay_mode = 1
+invalid_policy = 0
+effect_outcomes = [0, 1]
+effect_firsts = [2, 2]
+effect_counts = [1, 1]
+
+[[cases]]
+id = "the_architects_model"
+title = "The Architect's Model"
+story_path = "assets/stories/mysteries/the_architects_model.story.toml"
+level_path = "assets/levels/the_architects_model.toml"
+content_version = "1.0.0"
+condition_root = 1
+required = true
+optional = false
+presentation = 1
+locked_message = "Prove all three open files—not merely close them—to unseal the Crest Tower case."
+replay_mode = 1
+invalid_policy = 0
+effect_outcomes = []
+effect_firsts = []
+effect_counts = []

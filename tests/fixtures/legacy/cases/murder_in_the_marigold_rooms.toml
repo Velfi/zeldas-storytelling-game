@@ -1,0 +1,631 @@
+version = "MurderScript v1"
+id = "murder_in_the_marigold_rooms"
+title = "Murder in the Marigold Rooms"
+introduction = "Ambrose Vane has been found stabbed in the club library after a private foundation dinner."
+action_point_limit = 12
+reveal_location = "dining_room"
+city_start = "marigold_club"
+city_destination = "marigold_club"
+tutorial = ""
+seed = 20260718
+
+[[city_locations]]
+id = "marigold_club"
+display_name = "MARIGOLD CLUB"
+level_spawn = "spawn_player"
+city_site = "old_market_venue"
+
+[[characters]]
+id = "ambrose"
+display_name = "Ambrose Vane"
+role = "victim"
+description = "Ambrose Vane expected the foundation accounts before dessert and had promised three different people a private decision. He was feared for making every favor feel like a debt; his empty chair leaves the club unsure which promises still bind."
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = []
+
+[[characters]]
+id = "clara"
+display_name = "Clara Wren"
+role = "suspect"
+description = "Foundation director who turns accusations into questions of procedure and precedent."
+private_secret = "diverted foundation funds"
+motive = "diverted foundation funds"
+initial_disposition = 0
+initial_claims = ["clara_phrase_claim"]
+
+[[characters]]
+id = "basil"
+display_name = "Basil Trent"
+role = "suspect"
+description = "Disinherited heir who masks fear with wounded entitlement and tests every claim against property."
+private_secret = "a secret property sale"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_basil_secret"]
+
+[[characters]]
+id = "sonia"
+display_name = "Sonia Pell"
+role = "suspect"
+description = "Club secretary who remembers the evening as files, bells, and exact administrative sequences."
+private_secret = "a forged personal loan"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_sonia_secret"]
+
+[[locations]]
+id = "dining_room"
+display_name = "DINING ROOM"
+description = "Dining Room preserves one part of the evening chronology."
+connections = ["library"]
+characters = ["clara"]
+pois = ["phonograph", "phrase_testimony"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "library"
+display_name = "LIBRARY"
+description = "Library preserves one part of the evening chronology."
+connections = ["dining_room", "conservatory"]
+characters = ["basil"]
+pois = ["library_blood", "stopped_clock", "recording"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "conservatory"
+display_name = "CONSERVATORY"
+description = "Conservatory preserves one part of the evening chronology."
+connections = ["library", "service_corridor"]
+characters = ["sonia"]
+pois = ["conservatory_trace"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "service_corridor"
+display_name = "SERVICE CORRIDOR"
+description = "Service Corridor preserves one part of the evening chronology."
+connections = ["conservatory", "cloakroom"]
+characters = []
+pois = ["trolley"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "cloakroom"
+display_name = "CLOAKROOM"
+description = "Cloakroom preserves one part of the evening chronology."
+connections = ["service_corridor"]
+characters = []
+pois = ["sale_papers", "loan_file"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[pois]]
+id = "conservatory_trace"
+display_name = "Conservatory Soil and Blood"
+kind = "trace"
+location = "conservatory"
+owner = ""
+description = "Soil and blood identify the true murder place."
+relevant_state = "Soil and blood identify the true murder place."
+examination_action = "examine"
+
+[[pois]]
+id = "trolley"
+display_name = "Damaged Linen Trolley"
+kind = "object"
+location = "service_corridor"
+owner = ""
+description = "Fibers and a damaged wheel trace the body route."
+relevant_state = "Fibers and a damaged wheel trace the body route."
+examination_action = "examine"
+
+[[pois]]
+id = "library_blood"
+display_name = "Library Blood Pattern"
+kind = "scene"
+location = "library"
+owner = ""
+description = "Transfer blood formed after the body was placed."
+relevant_state = "Transfer blood formed after the body was placed."
+examination_action = "examine"
+
+[[pois]]
+id = "stopped_clock"
+display_name = "Stopped Mantel Clock"
+kind = "object"
+location = "library"
+owner = ""
+description = "The hands were stopped deliberately before staging."
+relevant_state = "The hands were stopped deliberately before staging."
+examination_action = "examine"
+
+[[pois]]
+id = "recording"
+display_name = "Argument Recording"
+kind = "object"
+location = "library"
+owner = ""
+description = "The background service chime repeats identically."
+relevant_state = "The background service chime repeats identically."
+examination_action = "examine"
+
+[[pois]]
+id = "phonograph"
+display_name = "Phonograph Cabinet"
+kind = "object"
+location = "dining_room"
+owner = ""
+description = "The missing recording sleeve is hidden inside."
+relevant_state = "The missing recording sleeve is hidden inside."
+examination_action = "examine"
+
+[[pois]]
+id = "sale_papers"
+display_name = "Basil's Sale Papers"
+kind = "object"
+location = "cloakroom"
+owner = ""
+description = "The papers explain Basil's concealed meeting."
+relevant_state = "The papers explain Basil's concealed meeting."
+examination_action = "examine"
+
+[[pois]]
+id = "loan_file"
+display_name = "Sonia's Forged Loan"
+kind = "object"
+location = "cloakroom"
+owner = ""
+description = "The loan explains Sonia's access to Ambrose's papers."
+relevant_state = "The loan explains Sonia's access to Ambrose's papers."
+examination_action = "examine"
+
+[[pois]]
+id = "phrase_testimony"
+display_name = "Clara's Recorded Phrase"
+kind = "scene"
+location = "dining_room"
+owner = ""
+description = "Clara quotes words only audible on the clear recording."
+relevant_state = "Clara quotes words only audible on the clear recording."
+examination_action = "examine"
+
+[[events]]
+id = "event_1"
+time = "18:42"
+actor = "clara"
+action = "kill"
+target = "ambrose"
+source = "conservatory"
+destination = "conservatory"
+tool = "conservatory_trace"
+effects = ["kill_complete"]
+witnesses = []
+
+[[events]]
+id = "event_2"
+time = "18:47"
+actor = "clara"
+action = "move_body"
+target = "ambrose"
+source = "conservatory"
+destination = "library"
+tool = "trolley"
+effects = ["move_body_complete"]
+witnesses = []
+
+[[events]]
+id = "event_3"
+time = "18:52"
+actor = "clara"
+action = "alter"
+target = "stopped_clock"
+source = "library"
+destination = "library"
+tool = ""
+effects = ["alter_complete"]
+witnesses = []
+
+[[events]]
+id = "event_4"
+time = "19:20"
+actor = "clara"
+action = "place"
+target = "recording"
+source = "library"
+destination = "library"
+tool = "phonograph"
+effects = ["place_complete"]
+witnesses = []
+
+[[claims]]
+id = "clara_phrase_claim"
+speaker = "clara"
+proposition = "Clara never heard the clear recording."
+true = false
+protects = "murder"
+response = "Clara never heard the clear recording."
+
+[[claims]]
+id = "claim_basil_secret"
+speaker = "basil"
+proposition = "Basil Trent denies a secret property sale."
+true = false
+protects = "a secret property sale"
+response = "Basil Trent denies a secret property sale."
+
+[[claims]]
+id = "claim_sonia_secret"
+speaker = "sonia"
+proposition = "Sonia Pell denies a forged personal loan."
+true = false
+protects = "a forged personal loan"
+response = "Sonia Pell denies a forged personal loan."
+
+[[clues]]
+id = "clue_conservatory_trace"
+source = "conservatory_trace"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "Soil and blood identify the true murder place."
+proposition = "Soil and blood identify the true murder place."
+blocks = ["weapon_knife"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[clues]]
+id = "clue_trolley"
+source = "trolley"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Fibers and a damaged wheel trace the body route."
+proposition = "Fibers and a damaged wheel trace the body route."
+blocks = ["place_conservatory"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[clues]]
+id = "clue_library_blood"
+source = "library_blood"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 3
+cost = 1
+prerequisites = []
+description = "Transfer blood formed after the body was placed."
+proposition = "Transfer blood formed after the body was placed."
+blocks = ["time_before_dinner"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[clues]]
+id = "clue_stopped_clock"
+source = "stopped_clock"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "The hands were stopped deliberately before staging."
+proposition = "The hands were stopped deliberately before staging."
+blocks = ["route_trolley"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[clues]]
+id = "clue_recording"
+source = "recording"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "The background service chime repeats identically."
+proposition = "The background service chime repeats identically."
+blocks = ["staged_library"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[clues]]
+id = "clue_phonograph"
+source = "phonograph"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 3
+cost = 1
+prerequisites = []
+description = "The missing recording sleeve is hidden inside."
+proposition = "The missing recording sleeve is hidden inside."
+blocks = ["recording_coverup"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[clues]]
+id = "clue_sale_papers"
+source = "basil"
+discovery_action = "dialogue"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "The papers explain Basil's concealed meeting."
+proposition = "The papers explain Basil's concealed meeting."
+blocks = ["exclude_basil"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[clues]]
+id = "clue_loan_file"
+source = "sonia"
+discovery_action = "dialogue"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "The loan explains Sonia's access to Ambrose's papers."
+proposition = "The loan explains Sonia's access to Ambrose's papers."
+blocks = ["exclude_sonia"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[clues]]
+id = "clue_phrase_testimony"
+source = "clara"
+discovery_action = "dialogue"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 3
+cost = 1
+prerequisites = []
+description = "Clara quotes words only audible on the clear recording."
+proposition = "Clara quotes words only audible on the clear recording."
+blocks = ["weapon_knife", "place_conservatory", "time_before_dinner", "route_trolley", "staged_library", "recording_coverup", "false_clock_alibi", "clara_phrase_claim"]
+topics = ["marigold_reconstruction"]
+essential = true
+
+[[dialogue_approaches]]
+id = "opening_clara"
+character = "clara"
+prompt = "Tell me about Ambrose Vane. What did they want tonight?"
+response = "Clara squares Ambrose's empty place with the table. 'He wanted the accounts before dessert. I told him the foundation could not be governed between courses.'"
+clue = ""
+requires_clues = []
+requires_claims = ["clara_phrase_claim"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_clara"]
+
+[[dialogue_approaches]]
+id = "account_clara"
+character = "clara"
+prompt = "You quoted the argument before I played the recording."
+response = "Clara closes the foundation ledger. 'Ambrose repeated himself. Anyone who worked beside him knew the speech.'"
+clue = ""
+requires_clues = []
+requires_claims = ["clara_phrase_claim"]
+requires_topics = ["account_ready_clara"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_clara"]
+
+[[dialogue_approaches]]
+id = "approach_clara"
+character = "clara"
+prompt = "Then account for the conservatory soil and blood."
+response = "Clara names the disputed phrase word for word, then stills. 'That is what he always said.'"
+clue = "clue_phrase_testimony"
+requires_clues = ["clue_conservatory_trace"]
+requires_claims = ["clara_phrase_claim"]
+requires_topics = ["followup_clara"]
+unlock_clues = ["clue_phrase_testimony"]
+unlock_claims = []
+unlock_topics = ["marigold_reconstruction"]
+
+[[dialogue_approaches]]
+id = "opening_basil"
+character = "basil"
+prompt = "Tell me about Ambrose Vane. What did they want tonight?"
+response = "Basil turns his signet inward. 'Ambrose asked what I meant to do without the west property. He enjoyed questions that already contained the humiliation.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_basil_secret"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_basil"]
+
+[[dialogue_approaches]]
+id = "account_basil"
+character = "basil"
+prompt = "Why did you meet Ambrose before dinner?"
+response = "Basil turns his signet ring inward. 'The west property was mine to sell. Ambrose preferred to call that theft.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_basil_secret"]
+requires_topics = ["account_ready_basil"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_basil"]
+
+[[dialogue_approaches]]
+id = "approach_basil"
+character = "basil"
+prompt = "Then account for the library blood pattern."
+response = "'I left the conservatory while he was alive. Check the soil on my shoes if you doubt the route.'"
+clue = "clue_sale_papers"
+requires_clues = ["clue_library_blood"]
+requires_claims = ["claim_basil_secret"]
+requires_topics = ["followup_basil"]
+unlock_clues = ["clue_sale_papers"]
+unlock_claims = []
+unlock_topics = ["marigold_reconstruction"]
+
+[[dialogue_approaches]]
+id = "opening_sonia"
+character = "sonia"
+prompt = "Tell me about Ambrose Vane. What did they want tonight?"
+response = "Sonia consults the bell sheet. 'He arrived at six thirty-eight, asked for three files, and rang twice for the dinner list. That was Ambrose in an impatient mood.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_sonia_secret"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_sonia"]
+
+[[dialogue_approaches]]
+id = "account_sonia"
+character = "sonia"
+prompt = "Why did you remove Ambrose's loan file?"
+response = "Sonia aligns the folder tabs by date. 'Because one signature is mine and the authorization is not.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_sonia_secret"]
+requires_topics = ["account_ready_sonia"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_sonia"]
+
+[[dialogue_approaches]]
+id = "approach_sonia"
+character = "sonia"
+prompt = "Then account for the argument recording."
+response = "'I went to the cloakroom for the file, not the library. The service bell rang while I was there.'"
+clue = "clue_loan_file"
+requires_clues = ["clue_recording"]
+requires_claims = ["claim_sonia_secret"]
+requires_topics = ["followup_sonia"]
+unlock_clues = ["clue_loan_file"]
+unlock_claims = []
+unlock_topics = ["marigold_reconstruction"]
+
+[[contradictions]]
+id = "decisive_contradiction"
+claim = "clara_phrase_claim"
+fact = "clue_phrase_testimony"
+conclusion = "Clara Wren possesses knowledge available only to the culprit."
+explanation = "The physical reconstruction contradicts Clara Wren's account."
+
+[[deductions]]
+id = "deduce_true_room"
+proposition = "Ambrose was killed in the conservatory."
+category = "where_when"
+unlock_questions = []
+unlock_topics = ["marigold_reconstruction"]
+unlock_investigations = []
+
+[[deductions]]
+id = "deduce_body_route"
+proposition = "The linen trolley moved the body to the library."
+category = "concealment"
+unlock_questions = []
+unlock_topics = ["marigold_reconstruction"]
+unlock_investigations = []
+
+[[deductions]]
+id = "deduce_false_time"
+proposition = "The clock and recorded argument created a false time of death."
+category = "contradiction"
+unlock_questions = []
+unlock_topics = ["marigold_reconstruction"]
+unlock_investigations = []
+
+[[questions]]
+id = "question_1"
+prompt = "What does the evidence prove about: Ambrose was killed in the conservatory."
+hypothesis = "Ambrose was killed in the conservatory."
+category = "where_when"
+requires_clues = ["clue_conservatory_trace", "clue_trolley"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_1"
+question = "question_1"
+mode = "physical"
+resolution = "substantiated"
+result = "Ambrose was killed in the conservatory."
+prompt = "Pair the two observations that establish: Ambrose was killed in the conservatory."
+slot_labels = ["First fact", "Corroborating fact"]
+slot_types = ["observation", "observation"]
+accepted_pieces = ["clue_conservatory_trace", "clue_trolley"]
+result_deductions = ["deduce_true_room"]
+
+[[questions]]
+id = "question_2"
+prompt = "What does the evidence prove about: The linen trolley moved the body to the library."
+hypothesis = "The linen trolley moved the body to the library."
+category = "concealment"
+requires_clues = ["clue_library_blood", "clue_stopped_clock"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_2"
+question = "question_2"
+mode = "timeline"
+resolution = "substantiated"
+result = "The linen trolley moved the body to the library."
+prompt = "Pair the two observations that establish: The linen trolley moved the body to the library."
+slot_labels = ["First fact", "Corroborating fact"]
+slot_types = ["observation", "observation"]
+accepted_pieces = ["clue_library_blood", "clue_stopped_clock"]
+result_deductions = ["deduce_body_route"]
+
+[[questions]]
+id = "question_3"
+prompt = "What does the evidence prove about: The clock and recorded argument created a false time of death."
+hypothesis = "The clock and recorded argument created a false time of death."
+category = "contradiction"
+requires_clues = ["clue_recording", "clue_phonograph"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_3"
+question = "question_3"
+mode = "confrontation"
+resolution = "substantiated"
+result = "The clock and recorded argument created a false time of death."
+prompt = "Pair the two observations that establish: The clock and recorded argument created a false time of death."
+slot_labels = ["First fact", "Corroborating fact"]
+slot_types = ["observation", "observation"]
+accepted_pieces = ["clue_recording", "clue_phonograph"]
+result_deductions = ["deduce_false_time"]
+
+[solution]
+culprit = "clara"
+motive = "clue_phrase_testimony"
+decisive_contradiction = "decisive_contradiction"
+weapon_block = "weapon_knife"
+murder_place_block = "place_conservatory"
+death_time_block = "time_before_dinner"
+body_movement_block = "route_trolley"
+staging_block = "staged_library"
+cleaning_block = "recording_coverup"
+alibi_block = "false_clock_alibi"
+murder_events = ["event_1"]
+cover_up_events = ["event_2", "event_3", "event_4"]
+false_alibi = ["clara_phrase_claim"]
+exclusions = ["basil", "sonia"]

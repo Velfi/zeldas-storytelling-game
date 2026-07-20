@@ -1,0 +1,246 @@
+version = "GraphMode v1"
+case_id = "the_sleeper_across_the_city"
+revision = 0
+
+[[scenes]]
+id = "scene_opening_vivian"
+source = "vivian"
+entry = "opening_vivian_line"
+summary = "Vivian folds the timetable. 'Hugo promised each of us ten minutes before Union Depot. He treated a railway circuit as though it were a board agenda.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_vivian_line"
+scene = "scene_opening_vivian"
+kind = "line"
+speaker = "vivian"
+text = "Vivian folds the timetable. 'Hugo promised each of us ten minutes before Union Depot. He treated a railway circuit as though it were a board agenda.'"
+next = "opening_vivian_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_vivian_end"
+scene = "scene_opening_vivian"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_vivian"
+source = "vivian"
+entry = "account_vivian_line"
+summary = "'First the club, then the gallery, then Halcyon. You make institutions answer for every private arrangement.' Vivian answers with timetable confidence. 'Compartment four.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_vivian_line"
+scene = "scene_account_vivian"
+kind = "line"
+speaker = "vivian"
+text = "'First the club, then the gallery, then Halcyon. You make institutions answer for every private arrangement.' Vivian answers with timetable confidence. 'Compartment four.'"
+next = "account_vivian_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_vivian_end"
+scene = "scene_account_vivian"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_vivian"
+source = "vivian"
+entry = "approach_vivian_line"
+summary = "'I saw the blue robe enter and the attendant lock the corridor. His name was printed beside it; there was no reason to inspect the face.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_vivian_line"
+scene = "scene_approach_vivian"
+kind = "line"
+speaker = "vivian"
+text = "'I saw the blue robe enter and the attendant lock the corridor. His name was printed beside it; there was no reason to inspect the face.'"
+next = "approach_vivian_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_vivian_end"
+scene = "scene_approach_vivian"
+kind = "end"
+ui = "unchanged"
+position = [[680.0, 120.0]]
+
+[[scenes]]
+id = "scene_opening_eamon"
+source = "eamon"
+entry = "opening_eamon_line"
+summary = "Eamon turns a ticket sleeve over. 'He offered me a room exchange, then asked what proof I had brought. He expected publication more than danger.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_eamon_line"
+scene = "scene_opening_eamon"
+kind = "line"
+speaker = "eamon"
+text = "Eamon turns a ticket sleeve over. 'He offered me a room exchange, then asked what proof I had brought. He expected publication more than danger.'"
+next = "opening_eamon_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_eamon_end"
+scene = "scene_opening_eamon"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_eamon"
+source = "eamon"
+entry = "account_eamon_line"
+summary = "Eamon turns both ticket sleeves face down. 'Hugo offered an exchange when he recognized me. He preferred my compartment; I preferred his anonymity.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_eamon_line"
+scene = "scene_account_eamon"
+kind = "line"
+speaker = "eamon"
+text = "Eamon turns both ticket sleeves face down. 'Hugo offered an exchange when he recognized me. He preferred my compartment; I preferred his anonymity.'"
+next = "account_eamon_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_eamon_end"
+scene = "scene_account_eamon"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_eamon"
+source = "eamon"
+entry = "approach_eamon_line"
+summary = "'The conductor changed the rooms, not the tags. Anyone reading the register afterward would follow the wrong man.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_eamon_line"
+scene = "scene_approach_eamon"
+kind = "line"
+speaker = "eamon"
+text = "'The conductor changed the rooms, not the tags. Anyone reading the register afterward would follow the wrong man.'"
+next = "approach_eamon_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_eamon_end"
+scene = "scene_approach_eamon"
+kind = "end"
+ui = "unchanged"
+position = [[680.0, 120.0]]
+
+[[scenes]]
+id = "scene_opening_leila"
+source = "leila"
+entry = "opening_leila_line"
+summary = "Leila taps the lounge rhythm once. 'He asked me to sing at the foundation benefit again. I said no. We parted before Union Depot, without the quarrel he seemed to want.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_leila_line"
+scene = "scene_opening_leila"
+kind = "line"
+speaker = "leila"
+text = "Leila taps the lounge rhythm once. 'He asked me to sing at the foundation benefit again. I said no. We parted before Union Depot, without the quarrel he seemed to want.'"
+next = "opening_leila_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_leila_end"
+scene = "scene_opening_leila"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_leila"
+source = "leila"
+entry = "account_leila_line"
+summary = "Leila taps the rhythm against her glass before answering. 'In the lounge, before the train passed Union Depot. He asked for ten quiet minutes.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_leila_line"
+scene = "scene_account_leila"
+kind = "line"
+speaker = "leila"
+text = "Leila taps the rhythm against her glass before answering. 'In the lounge, before the train passed Union Depot. He asked for ten quiet minutes.'"
+next = "account_leila_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_leila_end"
+scene = "scene_account_leila"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_leila"
+source = "leila"
+entry = "approach_leila_line"
+summary = "'Later I saw his robe in the corridor. I did not see his hands, his face, or the way he walked.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_leila_line"
+scene = "scene_approach_leila"
+kind = "line"
+speaker = "leila"
+text = "'Later I saw his robe in the corridor. I did not see his hands, his face, or the way he walked.'"
+next = "approach_leila_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_leila_end"
+scene = "scene_approach_leila"
+kind = "end"
+ui = "unchanged"
+position = [[680.0, 120.0]]

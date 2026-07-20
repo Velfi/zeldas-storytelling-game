@@ -1,0 +1,4 @@
+interface:
+  display_name: "Interior Design"
+  short_description: "Furnish and dress authored 3D rooms"
+  default_prompt: "Use $interior-design to furnish and dress a specific 3D room in this project."

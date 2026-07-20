@@ -1,0 +1,246 @@
+version = "GraphMode v1"
+case_id = "a_private_performance"
+revision = 0
+
+[[scenes]]
+id = "scene_opening_helena"
+source = "helena"
+entry = "opening_helena_line"
+summary = "Helena marks an absent downbeat. 'Simon intended to end my residency after rehearsal. He promised to let the orchestra finish before he said it publicly.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_helena_line"
+scene = "scene_opening_helena"
+kind = "line"
+speaker = "helena"
+text = "Helena marks an absent downbeat. 'Simon intended to end my residency after rehearsal. He promised to let the orchestra finish before he said it publicly.'"
+next = "opening_helena_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_helena_end"
+scene = "scene_opening_helena"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_helena"
+source = "helena"
+entry = "account_helena_line"
+summary = "Helena supplies the cue before the question ends. 'Bar sixty-two. Simon objected, and I stopped the orchestra.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_helena_line"
+scene = "scene_account_helena"
+kind = "line"
+speaker = "helena"
+text = "Helena supplies the cue before the question ends. 'Bar sixty-two. Simon objected, and I stopped the orchestra.'"
+next = "account_helena_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_helena_end"
+scene = "scene_account_helena"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_helena"
+source = "helena"
+entry = "approach_helena_line"
+summary = "'Then Oren dropped his mute—' She corrects herself too late; the mute fell after the source recording."
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_helena_line"
+scene = "scene_approach_helena"
+kind = "line"
+speaker = "helena"
+text = "'Then Oren dropped his mute—' She corrects herself too late; the mute fell after the source recording."
+next = "approach_helena_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_helena_end"
+scene = "scene_approach_helena"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_opening_oren"
+source = "oren"
+entry = "opening_oren_line"
+summary = "Oren raises one finger for a rest. 'Simon asked for the revised contracts in private. He expected an argument, so he scheduled it between movements.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_oren_line"
+scene = "scene_opening_oren"
+kind = "line"
+speaker = "oren"
+text = "Oren raises one finger for a rest. 'Simon asked for the revised contracts in private. He expected an argument, so he scheduled it between movements.'"
+next = "opening_oren_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_oren_end"
+scene = "scene_opening_oren"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_oren"
+source = "oren"
+entry = "account_oren_line"
+summary = "Oren marks the rest with one raised finger. 'Not on stage. I was renegotiating Simon's contract in the instrument store.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_oren_line"
+scene = "scene_account_oren"
+kind = "line"
+speaker = "oren"
+text = "Oren marks the rest with one raised finger. 'Not on stage. I was renegotiating Simon's contract in the instrument store.'"
+next = "account_oren_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_oren_end"
+scene = "scene_account_oren"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_oren"
+source = "oren"
+entry = "approach_oren_line"
+summary = "'I hid the meeting because it was disloyal. The playback kept perfect time while we argued.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_oren_line"
+scene = "scene_approach_oren"
+kind = "line"
+speaker = "oren"
+text = "'I hid the meeting because it was disloyal. The playback kept perfect time while we argued.'"
+next = "approach_oren_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_oren_end"
+scene = "scene_approach_oren"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_opening_mina"
+source = "mina"
+entry = "opening_mina_line"
+summary = "Mina studies the room tone. 'Simon asked me to preserve a clean recording. He thought somebody would later dispute what was said in the hall.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_mina_line"
+scene = "scene_opening_mina"
+kind = "line"
+speaker = "mina"
+text = "Mina studies the room tone. 'Simon asked me to preserve a clean recording. He thought somebody would later dispute what was said in the hall.'"
+next = "opening_mina_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_mina_end"
+scene = "scene_opening_mina"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_mina"
+source = "mina"
+entry = "account_mina_line"
+summary = "Mina enlarges the waveform until the room tone becomes visible. 'A clean voice pasted over dirty hall air. Amateur join, excellent source.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_mina_line"
+scene = "scene_account_mina"
+kind = "line"
+speaker = "mina"
+text = "Mina enlarges the waveform until the room tone becomes visible. 'A clean voice pasted over dirty hall air. Amateur join, excellent source.'"
+next = "account_mina_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_mina_end"
+scene = "scene_account_mina"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_mina"
+source = "mina"
+entry = "approach_mina_line"
+summary = "'I deleted my piracy log. I did not place the false interruption cue in Helena's score.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_mina_line"
+scene = "scene_approach_mina"
+kind = "line"
+speaker = "mina"
+text = "'I deleted my piracy log. I did not place the false interruption cue in Helena's score.'"
+next = "approach_mina_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_mina_end"
+scene = "scene_approach_mina"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]

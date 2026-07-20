@@ -1,0 +1,192 @@
+version = "LevelFormat v1"
+id = "window_test_gallery"
+name = "Window Test Gallery"
+width = 40
+height = 24
+story_limit = 1
+default_snap = 0.5
+fine_snap = 0.25
+angle_snap = 15.0
+
+[[stories]]
+id = "ground"
+name = "Ground"
+base_elevation = 0.0
+floor_height = 3.5
+
+[[foundations]]
+id = "gallery_slab"
+kind = "slab"
+story = 0
+points = [[2, 10], [38, 10], [38, 19], [2, 19]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "window_gallery"
+name = "Window Test Gallery"
+story = 0
+points = [[2, 10], [38, 10], [38, 19], [2, 19]]
+platform_height = 0.0
+floor_material = "core:gallery"
+wall_material = "core:gallery"
+ceiling_style = "flat"
+exterior = false
+
+[[paths]]
+id = "gallery_shell"
+story = 0
+kind = "wall"
+points = [[2, 10], [38, 10], [38, 19], [2, 19], [2, 10]]
+material = "structure"
+width = 0.46
+
+# One south-facing elevation presents every native style in a single view.
+# Sizes deliberately exercise single/multiple lights, tall sashes, and a
+# high-sill clerestory without turning this QA level into runtime-only data.
+[[openings]]
+id = "test_fixed"
+host_path = "gallery_shell"
+kind = "window"
+material = "painted"
+door_style = "hinged"
+style = "fixed"
+flipped = false
+hinge_right = false
+interaction = "none"
+interaction_prompt = ""
+interaction_range = 1.8
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.105
+width = 1.6
+height = 1.4
+sill_height = 0.72
+
+[[openings]]
+id = "test_casement"
+host_path = "gallery_shell"
+kind = "window"
+material = "painted"
+door_style = "hinged"
+style = "casement"
+flipped = false
+hinge_right = true
+interaction = "none"
+interaction_prompt = ""
+interaction_range = 1.8
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.275
+width = 1.2
+height = 1.7
+sill_height = 0.55
+
+[[openings]]
+id = "test_awning"
+host_path = "gallery_shell"
+kind = "window"
+material = "painted"
+door_style = "hinged"
+style = "awning"
+flipped = false
+hinge_right = false
+interaction = "none"
+interaction_prompt = ""
+interaction_range = 1.8
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.445
+width = 2.8
+height = 0.9
+sill_height = 1.25
+
+[[openings]]
+id = "test_picture"
+host_path = "gallery_shell"
+kind = "window"
+material = "painted"
+door_style = "hinged"
+style = "picture"
+flipped = false
+hinge_right = false
+interaction = "none"
+interaction_prompt = ""
+interaction_range = 1.8
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.650
+width = 3.6
+height = 1.8
+sill_height = 0.45
+
+[[openings]]
+id = "test_double_hung"
+host_path = "gallery_shell"
+kind = "window"
+material = "painted"
+door_style = "hinged"
+style = "double_hung"
+flipped = false
+hinge_right = false
+interaction = "none"
+interaction_prompt = ""
+interaction_range = 1.8
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.885
+width = 1.6
+height = 1.7
+sill_height = 0.55
+
+[[lights]]
+id = "gallery_fill_west"
+kind = "area"
+story = 0
+position = [[11, 13]]
+elevation = 2.7
+range = 14.0
+intensity = 1.6
+facing = 180
+cone_angle = 90
+color = [255, 238, 210, 255]
+
+[[lights]]
+id = "gallery_fill_east"
+kind = "area"
+story = 0
+position = [[29, 13]]
+elevation = 2.7
+range = 14.0
+intensity = 1.6
+facing = 180
+cone_angle = 90
+color = [255, 238, 210, 255]
+
+[[markers]]
+id = "spawn_window_gallery"
+kind = "player_spawn"
+story = 0
+position = [[20, 14]]
+radius = 0.75
+facing = 270
+camera_height = 2.0
+
+[[markers]]
+id = "camera_window_gallery"
+kind = "camera"
+story = 0
+position = [[20, 5]]
+radius = 1.0
+facing = 90
+camera_height = 4.0

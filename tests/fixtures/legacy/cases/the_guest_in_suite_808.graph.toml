@@ -1,0 +1,246 @@
+version = "GraphMode v1"
+case_id = "the_guest_in_suite_808"
+revision = 0
+
+[[scenes]]
+id = "scene_opening_estelle"
+source = "estelle"
+entry = "opening_estelle_line"
+summary = "Estelle corrects the name on the register. 'Lucien arrived as Nico Grey and asked for the old purchase file. He wanted privacy, but he wanted an audience for what came after.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_estelle_line"
+scene = "scene_opening_estelle"
+kind = "line"
+speaker = "estelle"
+text = "Estelle corrects the name on the register. 'Lucien arrived as Nico Grey and asked for the old purchase file. He wanted privacy, but he wanted an audience for what came after.'"
+next = "opening_estelle_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_estelle_end"
+scene = "scene_opening_estelle"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_estelle"
+source = "estelle"
+entry = "account_estelle_line"
+summary = "'The Marigold Club may survive public theories; a hotel does not.' Estelle corrects you at once. 'There is no guest door between 808 and 810. There is a sealed service opening.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_estelle_line"
+scene = "scene_account_estelle"
+kind = "line"
+speaker = "estelle"
+text = "'The Marigold Club may survive public theories; a hotel does not.' Estelle corrects you at once. 'There is no guest door between 808 and 810. There is a sealed service opening.'"
+next = "account_estelle_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_estelle_end"
+scene = "scene_account_estelle"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_estelle"
+source = "estelle"
+entry = "approach_estelle_line"
+summary = "'Old hotels settle. Every owner knows that.' Estelle's shoe presses flat against the threshold before she looks down."
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_estelle_line"
+scene = "scene_approach_estelle"
+kind = "line"
+speaker = "estelle"
+text = "'Old hotels settle. Every owner knows that.' Estelle's shoe presses flat against the threshold before she looks down."
+next = "approach_estelle_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_estelle_end"
+scene = "scene_approach_estelle"
+kind = "end"
+ui = "unchanged"
+position = [[680.0, 120.0]]
+
+[[scenes]]
+id = "scene_opening_nico"
+source = "nico"
+entry = "opening_nico_line"
+summary = "Nico watches the lift doors. 'Lucien borrowed my booking because he said one night under my name would settle both our debts. I last saw him take the key to 810.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_nico_line"
+scene = "scene_opening_nico"
+kind = "line"
+speaker = "nico"
+text = "Nico watches the lift doors. 'Lucien borrowed my booking because he said one night under my name would settle both our debts. I last saw him take the key to 810.'"
+next = "opening_nico_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_nico_end"
+scene = "scene_opening_nico"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_nico"
+source = "nico"
+entry = "account_nico_line"
+summary = "Nico checks the corridor before lowering his voice. 'My creditors watch registrations. Lucien needed a room; I needed not to be found in one.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_nico_line"
+scene = "scene_account_nico"
+kind = "line"
+speaker = "nico"
+text = "Nico checks the corridor before lowering his voice. 'My creditors watch registrations. Lucien needed a room; I needed not to be found in one.'"
+next = "account_nico_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_nico_end"
+scene = "scene_account_nico"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_nico"
+source = "nico"
+entry = "approach_nico_line"
+summary = "He produces the claim ticket from his own coat. 'He borrowed the name. He did not borrow this.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_nico_line"
+scene = "scene_approach_nico"
+kind = "line"
+speaker = "nico"
+text = "He produces the claim ticket from his own coat. 'He borrowed the name. He did not borrow this.'"
+next = "approach_nico_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_nico_end"
+scene = "scene_approach_nico"
+kind = "end"
+ui = "unchanged"
+position = [[680.0, 120.0]]
+
+[[scenes]]
+id = "scene_opening_priya"
+source = "priya"
+entry = "opening_priya_line"
+summary = "Priya keeps a finger on the archive packet. 'He wanted a letter whose writer is still alive. I told him records do not become harmless merely because they are old.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_priya_line"
+scene = "scene_opening_priya"
+kind = "line"
+speaker = "priya"
+text = "Priya keeps a finger on the archive packet. 'He wanted a letter whose writer is still alive. I told him records do not become harmless merely because they are old.'"
+next = "opening_priya_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_priya_end"
+scene = "scene_opening_priya"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_priya"
+source = "priya"
+entry = "account_priya_line"
+summary = "Priya keeps the packet ordered by accession number. 'The ones naming a living woman who never consented to become evidence.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_priya_line"
+scene = "scene_account_priya"
+kind = "line"
+speaker = "priya"
+text = "Priya keeps the packet ordered by accession number. 'The ones naming a living woman who never consented to become evidence.'"
+next = "account_priya_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_priya_end"
+scene = "scene_account_priya"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_priya"
+source = "priya"
+entry = "approach_priya_line"
+summary = "'Lucien asked for the purchase file. Estelle heard him. I left him in 810 with it.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_priya_line"
+scene = "scene_approach_priya"
+kind = "line"
+speaker = "priya"
+text = "'Lucien asked for the purchase file. Estelle heard him. I left him in 810 with it.'"
+next = "approach_priya_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_priya_end"
+scene = "scene_approach_priya"
+kind = "end"
+ui = "unchanged"
+position = [[680.0, 120.0]]

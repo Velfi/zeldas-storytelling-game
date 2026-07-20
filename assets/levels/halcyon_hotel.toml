@@ -1,0 +1,380 @@
+version = "LevelFormat v1"
+id = "halcyon_hotel"
+name = "Halcyon Hotel Investigation Lot"
+width = 40
+height = 28
+content_offset = [[4, 4]]
+story_limit = 3
+default_snap = 0.5
+fine_snap = 0.25
+angle_snap = 15.0
+
+[[stories]]
+id = "ground"
+name = "Ground Floor"
+base_elevation = 0.0
+floor_height = 3.5
+
+[[foundations]]
+id = "main_foundation"
+kind = "slab"
+points = [[0, 0], [30, 0], [30, 12], [0, 12]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "suite_808"
+name = "Suite 808"
+story = 0
+points = [[0, 0], [6, 0], [6, 12], [0, 12]]
+platform_height = 0.0
+floor_material = "core:dining"
+wall_material = "core:dining"
+ceiling_style = "coffered"
+exterior = false
+
+[[rooms]]
+id = "suite_810"
+name = "Suite 810"
+story = 0
+points = [[6, 0], [12, 0], [12, 12], [6, 12]]
+platform_height = 0.0
+floor_material = "core:study"
+wall_material = "core:study"
+ceiling_style = "coffered"
+exterior = false
+
+[[rooms]]
+id = "eighth_floor_corridor"
+name = "Eighth-Floor Corridor"
+story = 0
+points = [[12, 0], [18, 0], [18, 12], [12, 12]]
+platform_height = 0.0
+floor_material = "core:dining"
+wall_material = "core:dining"
+ceiling_style = "coffered"
+exterior = false
+
+[[rooms]]
+id = "service_lift"
+name = "Service Lift"
+story = 0
+points = [[18, 0], [24, 0], [24, 12], [18, 12]]
+platform_height = 0.0
+floor_material = "core:study"
+wall_material = "core:study"
+ceiling_style = "coffered"
+exterior = false
+
+[[rooms]]
+id = "hotel_archive"
+name = "Hotel Archive"
+story = 0
+points = [[24, 0], [30, 0], [30, 12], [24, 12]]
+platform_height = 0.0
+floor_material = "core:dining"
+wall_material = "core:dining"
+ceiling_style = "coffered"
+exterior = false
+
+[[markers]]
+id = "spawn_player"
+reference = ""
+kind = "player_spawn"
+story = 0
+position = [[3.0, 2.0]]
+radius = 0.4
+facing = 90.0
+
+[[markers]]
+id = "transition_to_city"
+reference = ""
+destination = "city:halcyon_hotel"
+kind = "transition"
+story = 0
+position = [[3.0, 0.75]]
+radius = 0.8
+
+[[markers]]
+id = "spawn_estelle"
+reference = "estelle"
+kind = "character_spawn"
+story = 0
+position = [[3.0, 6.0]]
+radius = 0.5
+facing = 90.0
+
+[[markers]]
+id = "spawn_nico"
+reference = "nico"
+kind = "character_spawn"
+story = 0
+position = [[9.0, 6.0]]
+radius = 0.5
+facing = 90.0
+
+[[markers]]
+id = "spawn_priya"
+reference = "priya"
+kind = "character_spawn"
+story = 0
+position = [[15.0, 6.0]]
+radius = 0.5
+facing = 90.0
+
+[[markers]]
+id = "interact_suite_810_blood"
+reference = "suite_810_blood"
+kind = "interaction"
+story = 0
+position = [[2.0, 3.0]]
+radius = 0.65
+facing = 90.0
+
+[[markers]]
+id = "interact_bookend"
+reference = "bookend"
+kind = "interaction"
+story = 0
+position = [[8.0, 3.0]]
+radius = 0.65
+facing = 90.0
+
+[[markers]]
+id = "interact_door_flakes"
+reference = "door_flakes"
+kind = "interaction"
+story = 0
+position = [[14.0, 3.0]]
+radius = 0.65
+facing = 90.0
+
+[[markers]]
+id = "interact_key_log"
+reference = "key_log"
+kind = "interaction"
+story = 0
+position = [[20.0, 3.0]]
+radius = 0.65
+facing = 90.0
+
+[[markers]]
+id = "interact_gala_coat"
+reference = "gala_coat"
+kind = "interaction"
+story = 0
+position = [[26.0, 3.0]]
+radius = 0.65
+facing = 90.0
+
+[[markers]]
+id = "interact_signature"
+reference = "signature"
+kind = "interaction"
+story = 0
+position = [[2.0, 9.0]]
+radius = 0.65
+facing = 90.0
+
+[[markers]]
+id = "interact_debt_papers"
+reference = "debt_papers"
+kind = "interaction"
+story = 0
+position = [[8.0, 9.0]]
+radius = 0.65
+facing = 90.0
+
+[[markers]]
+id = "interact_archive_packet"
+reference = "archive_packet"
+kind = "interaction"
+story = 0
+position = [[14.0, 9.0]]
+radius = 0.65
+facing = 90.0
+
+[[markers]]
+id = "interact_door_defect"
+reference = "door_defect"
+kind = "interaction"
+story = 0
+position = [[20.0, 9.0]]
+radius = 0.65
+facing = 90.0
+
+# BEGIN GENERATED ROOM FURNISHINGS
+
+[[objects]]
+id = "furnish_suite_808_1_bed_single"
+catalog_id = "core:bed_single"
+story = 0
+position = [[1.68, 4.08]]
+rotation = 90.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_suite_808_2_side_table"
+catalog_id = "core:side_table"
+story = 0
+position = [[1.68, 8.64]]
+rotation = 90.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_suite_808_3_table_lamp_square"
+catalog_id = "core:table_lamp_square"
+support_id = "furnish_suite_808_2_side_table"
+elevation = 0.62
+story = 0
+position = [[1.68, 8.64]]
+rotation = 90.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_suite_808_4_lounge_chair"
+catalog_id = "core:lounge_chair"
+story = 0
+position = [[4.68, 8.64]]
+rotation = 225.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_suite_808_5_rug_rectangle"
+catalog_id = "core:rug_rectangle"
+story = 0
+position = [[3.30, 5.76]]
+rotation = 90.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_suite_810_1_bed_single"
+catalog_id = "core:bed_single"
+story = 0
+position = [[7.68, 4.08]]
+rotation = 90.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_suite_810_2_side_table"
+catalog_id = "core:side_table"
+story = 0
+position = [[7.68, 8.64]]
+rotation = 90.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_suite_810_3_table_lamp_square"
+catalog_id = "core:table_lamp_square"
+support_id = "furnish_suite_810_2_side_table"
+elevation = 0.62
+story = 0
+position = [[7.68, 8.64]]
+rotation = 90.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_suite_810_4_lounge_chair"
+catalog_id = "core:lounge_chair"
+story = 0
+position = [[10.68, 8.64]]
+rotation = 225.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_suite_810_5_rug_rectangle"
+catalog_id = "core:rug_rectangle"
+story = 0
+position = [[9.30, 5.76]]
+rotation = 90.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_eighth_floor_corridor_1_bench_cushion"
+catalog_id = "core:bench_cushion"
+story = 0
+position = [[13.68, 2.88]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_eighth_floor_corridor_2_coat_rack"
+catalog_id = "core:coat_rack"
+story = 0
+position = [[16.68, 2.88]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_eighth_floor_corridor_3_plant_small2"
+catalog_id = "core:plant_small2"
+story = 0
+position = [[16.68, 9.12]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_service_lift_1_bench_cushion"
+catalog_id = "core:bench_cushion"
+story = 0
+position = [[19.68, 2.88]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_service_lift_2_coat_rack"
+catalog_id = "core:coat_rack"
+story = 0
+position = [[22.68, 2.88]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_service_lift_3_plant_small2"
+catalog_id = "core:plant_small2"
+story = 0
+position = [[22.68, 9.12]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_hotel_archive_1_bookcase_closed_wide"
+catalog_id = "core:bookcase_closed_wide"
+story = 0
+position = [[25.08, 2.88]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_hotel_archive_2_bookcase_open_low"
+catalog_id = "core:bookcase_open_low"
+story = 0
+position = [[27.00, 2.16]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_hotel_archive_3_cardboard_box_closed"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[28.68, 2.88]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_hotel_archive_4_cardboard_box_open"
+catalog_id = "core:cardboard_box_open"
+story = 0
+position = [[28.68, 8.64]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_hotel_archive_5_trashcan"
+catalog_id = "core:trashcan"
+story = 0
+position = [[25.08, 9.00]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+# END GENERATED ROOM FURNISHINGS

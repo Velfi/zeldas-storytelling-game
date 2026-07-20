@@ -1,0 +1,491 @@
+version = "MurderScript v1"
+id = "death_on_the_promenade"
+title = "Death on the Promenade"
+introduction = "Ada Reed recognizes Owen Lark below the promenade even though witnesses watched his bright coat cross the festival above. She asks the neighborhood to remember the person, not the coat; the tide and wristbands disagree about when he arrived."
+action_point_limit = 12
+reveal_location = "bandstand"
+city_start = "bellwether_waterfront"
+city_destination = "bellwether_waterfront"
+seed = 20261004
+
+[[city_locations]]
+id = "bellwether_waterfront"
+display_name = "BELLWETHER WATERFRONT"
+level_spawn = "spawn"
+city_site = "south_quay_venue"
+
+[[characters]]
+id = "owen_lark"
+display_name = "Owen Lark"
+role = "victim"
+description = "Owen Lark was due to challenge the redevelopment survey from the bandstand. His bright coat made him easy to follow, while his familiar uneven stride made him difficult for a neighbor to mistake."
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = []
+
+[[characters]]
+id = "sabine_cross"
+display_name = "Sabine Cross"
+role = "suspect"
+description = "Surveyor who cites maps, tide tables, and official boundaries to make observation sound inevitable."
+private_secret = "culprit"
+motive = "a forged redevelopment survey"
+initial_disposition = 0
+initial_claims = ["claim_culprit"]
+
+[[characters]]
+id = "dario_finch"
+display_name = "Dario Finch"
+role = "suspect"
+description = "Developer caught between exposure and restitution, carrying every argument in folded notices and deadlines."
+private_secret = "private relationship"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_innocent_one"]
+
+[[characters]]
+id = "mei_rowan"
+display_name = "Mei Rowan"
+role = "suspect"
+description = "Preservation officer who notices repeated movement through facade details and bodily asymmetry."
+private_secret = "unrelated misconduct"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_innocent_two"]
+
+[[locations]]
+id = "bandstand"
+display_name = "BANDSTAND"
+description = "A spatially distinct part of Bellwether Waterfront."
+connections = ["market_arcade"]
+characters = ["sabine_cross"]
+pois = []
+search_actions = ["observe", "search", "examine", "dialogue"]
+
+[[locations]]
+id = "market_arcade"
+display_name = "MARKET ARCADE"
+description = "A spatially distinct part of Bellwether Waterfront."
+connections = ["bandstand", "preservation_booth"]
+characters = ["dario_finch"]
+pois = ["bright_coat"]
+search_actions = ["observe", "search", "examine", "dialogue"]
+
+[[locations]]
+id = "preservation_booth"
+display_name = "PRESERVATION BOOTH"
+description = "A spatially distinct part of Bellwether Waterfront."
+connections = ["market_arcade", "service_alley"]
+characters = []
+pois = ["survey_weight"]
+search_actions = ["observe", "search", "examine", "dialogue"]
+
+[[locations]]
+id = "service_alley"
+display_name = "SERVICE ALLEY"
+description = "A spatially distinct part of Bellwether Waterfront."
+connections = ["preservation_booth", "lower_promenade"]
+characters = ["mei_rowan"]
+pois = []
+search_actions = ["observe", "search", "examine", "dialogue"]
+
+[[locations]]
+id = "lower_promenade"
+display_name = "LOWER PROMENADE"
+description = "A spatially distinct part of Bellwether Waterfront."
+connections = ["service_alley"]
+characters = []
+pois = ["wristband_photo", "motive_record"]
+search_actions = ["observe", "search", "examine", "dialogue"]
+
+[[pois]]
+id = "survey_weight"
+display_name = "Survey Weight"
+kind = "object"
+location = "preservation_booth"
+owner = "sabine_cross"
+description = "Retains a protected blood trace."
+relevant_state = "retains a protected blood trace"
+examination_action = "examine"
+
+[[pois]]
+id = "bright_coat"
+display_name = "Owen's Bright Coat"
+kind = "object"
+location = "market_arcade"
+owner = "sabine_cross"
+description = "Records the concealment route."
+relevant_state = "records the concealment route"
+examination_action = "examine"
+
+[[pois]]
+id = "wristband_photo"
+display_name = "Festival Wristband Photograph"
+kind = "object"
+location = "lower_promenade"
+owner = "sabine_cross"
+description = "Anchors the decisive reconstruction."
+relevant_state = "anchors the decisive reconstruction"
+examination_action = "examine"
+
+[[pois]]
+id = "motive_record"
+display_name = "Motive Record"
+kind = "object"
+location = "lower_promenade"
+owner = "owen_lark"
+description = "A forged redevelopment survey."
+relevant_state = "a forged redevelopment survey"
+examination_action = "examine"
+
+[[events]]
+id = "event_murder"
+time = "20:10"
+actor = "sabine_cross"
+action = "kill"
+target = "owen_lark"
+source = "preservation_booth"
+destination = "preservation_booth"
+tool = "survey_weight"
+effects = ["victim_dead"]
+witnesses = []
+
+[[events]]
+id = "event_move"
+time = "20:16"
+actor = "sabine_cross"
+action = "move_body"
+target = "owen_lark"
+source = "preservation_booth"
+destination = "market_arcade"
+tool = "bright_coat"
+effects = ["body_moved"]
+witnesses = []
+
+[[events]]
+id = "event_stage"
+time = "20:21"
+actor = "sabine_cross"
+action = "alter"
+target = "wristband_photo"
+source = "market_arcade"
+destination = "market_arcade"
+tool = ""
+effects = ["scene_staged"]
+witnesses = []
+
+[[claims]]
+id = "claim_culprit"
+speaker = "sabine_cross"
+proposition = "The tide had already reached Owen when I arrived."
+true = false
+protects = "murder"
+response = "The tide had already reached Owen when I arrived."
+
+[[claims]]
+id = "claim_innocent_one"
+speaker = "dario_finch"
+proposition = "I never left the public room."
+true = false
+protects = "private relationship"
+response = "I remained where everyone could see me."
+
+[[claims]]
+id = "claim_innocent_two"
+speaker = "mei_rowan"
+proposition = "I did nothing improper tonight."
+true = false
+protects = "unrelated misconduct"
+response = "There is nothing else to explain."
+
+[[clues]]
+id = "clue_weapon"
+source = "survey_weight"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "The physical injury matches the recovered object."
+proposition = "The physical injury matches the recovered object."
+blocks = ["weapon", "murder_place", "death_time", "cleaning"]
+topics = ["weapon", "case_truth"]
+essential = true
+
+[[clues]]
+id = "clue_route"
+source = "bright_coat"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "The route trace proves the body and scene were moved."
+proposition = "The route trace proves the body and scene were moved."
+blocks = ["body_movement", "staging"]
+topics = ["route", "case_truth"]
+essential = true
+
+[[clues]]
+id = "clue_decisive"
+source = "sabine_cross"
+discovery_action = "dialogue"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "The tide and photograph make Sabine's arrival story physically impossible and identify the later crossing as an impersonation."
+proposition = "The tide and photograph make Sabine's arrival story physically impossible and identify the later crossing as an impersonation."
+blocks = ["alibi", "claim_culprit"]
+topics = ["decisive", "case_truth"]
+essential = true
+
+[[clues]]
+id = "clue_motive"
+source = "motive_record"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "The victim documented a forged redevelopment survey."
+proposition = "The victim documented a forged redevelopment survey."
+blocks = ["motive"]
+topics = ["motive", "case_truth"]
+essential = true
+
+[[clues]]
+id = "clue_innocent_one"
+source = "dario_finch"
+discovery_action = "dialogue"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "The first innocent's lie protects a private relationship, not murder."
+proposition = "The first innocent's lie protects a private relationship, not murder."
+blocks = ["exclusion_one"]
+topics = ["innocent", "case_truth"]
+essential = true
+
+[[clues]]
+id = "clue_innocent_two"
+source = "mei_rowan"
+discovery_action = "dialogue"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "The second innocent's lie protects unrelated misconduct, not murder."
+proposition = "The second innocent's lie protects unrelated misconduct, not murder."
+blocks = ["exclusion_two"]
+topics = ["innocent", "case_truth"]
+essential = true
+
+[[clues]]
+id = "clue_timeline"
+source = "bright_coat"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "Travel time fixes the narrow opportunity window."
+proposition = "Travel time fixes the narrow opportunity window."
+blocks = ["timeline"]
+topics = ["route", "case_truth"]
+essential = false
+
+[[clues]]
+id = "clue_scene"
+source = "survey_weight"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+prerequisites = []
+description = "Residue at the true scene disproves the staged discovery place."
+proposition = "Residue at the true scene disproves the staged discovery place."
+blocks = ["scene"]
+topics = ["weapon", "case_truth"]
+essential = false
+
+[[dialogue_approaches]]
+id = "opening_sabine_cross"
+character = "sabine_cross"
+prompt = "Tell me about Owen Lark. What did they want tonight?"
+response = "Sabine folds the festival map. 'Owen meant to challenge the survey from the bandstand. He wanted the neighborhood watching when the boundary moved back.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_culprit"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_sabine_cross"]
+
+[[dialogue_approaches]]
+id = "account_sabine_cross"
+character = "sabine_cross"
+prompt = "When did the tide reach Owen?"
+response = "'Three deaths have taught Bellwether to distrust its own neighbors.' Sabine consults the festival map. 'By nine the lower ramp was awash.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_culprit"]
+requires_topics = ["account_ready_sabine_cross"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_sabine_cross"]
+
+[[dialogue_approaches]]
+id = "approach_sabine_cross"
+character = "sabine_cross"
+prompt = "Build the promenade chronology from the tide line, the wristband photograph, and Mei's two sightings."
+response = "You place the nine-twelve wristband photograph beside the tide chart. Sabine studies the bright coat and says nothing."
+clue = "clue_decisive"
+requires_clues = ["clue_weapon", "clue_route", "clue_innocent_two"]
+requires_claims = ["claim_culprit"]
+requires_topics = ["followup_sabine_cross"]
+unlock_clues = ["clue_decisive"]
+unlock_claims = []
+unlock_topics = ["case_truth"]
+
+[[dialogue_approaches]]
+id = "opening_dario_finch"
+character = "dario_finch"
+prompt = "Tell me about Owen Lark. What did they want tonight?"
+response = "Dario creases the notice again. 'Owen offered me until nine to admit the survey was wrong. After that he would make the argument public.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_innocent_one"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_dario_finch"]
+
+[[dialogue_approaches]]
+id = "account_dario_finch"
+character = "dario_finch"
+prompt = "Why did you meet Owen in the service alley?"
+response = "Dario folds the redevelopment notice along an old crease. 'He knew the survey was forged. I asked for time before the neighborhood saw it.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_innocent_one"]
+requires_topics = ["account_ready_dario_finch"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_dario_finch"]
+
+[[dialogue_approaches]]
+id = "approach_dario_finch"
+character = "dario_finch"
+prompt = "The owen's bright coat conflicts with that route. What happened there?"
+response = "'I left him alive with Sabine. She said she could correct the boundary record.'"
+clue = "clue_innocent_one"
+requires_clues = ["clue_route"]
+requires_claims = ["claim_innocent_one"]
+requires_topics = ["followup_dario_finch"]
+unlock_clues = ["clue_innocent_one"]
+unlock_claims = []
+unlock_topics = ["case_truth"]
+
+[[dialogue_approaches]]
+id = "opening_mei_rowan"
+character = "mei_rowan"
+prompt = "Tell me about Owen Lark. What did they want tonight?"
+response = "Mei watches the promenade above. 'Owen walked the route twice before every meeting. The old ankle injury shortened his right step; everyone here knew the rhythm.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_innocent_two"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_mei_rowan"]
+
+[[dialogue_approaches]]
+id = "account_mei_rowan"
+character = "mei_rowan"
+prompt = "Why did you remove the preservation files?"
+response = "Mei lists each facade before admitting the missing folder. 'I took evidence of my unauthorized repairs. Owen used it to threaten the board.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_innocent_two"]
+requires_topics = ["account_ready_mei_rowan"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_mei_rowan"]
+
+[[dialogue_approaches]]
+id = "approach_mei_rowan"
+character = "mei_rowan"
+prompt = "The trace on the survey weight changes that account. What did you actually see?"
+response = "'From the booth I saw the coat cross twice. The second walk was shorter, and the left arm never swung.'"
+clue = "clue_innocent_two"
+requires_clues = ["clue_scene"]
+requires_claims = ["claim_innocent_two"]
+requires_topics = ["followup_mei_rowan"]
+unlock_clues = ["clue_innocent_two"]
+unlock_claims = []
+unlock_topics = ["case_truth"]
+
+[[contradictions]]
+id = "decisive_contradiction"
+claim = "claim_culprit"
+fact = "clue_decisive"
+conclusion = "The tide and photograph make Sabine's arrival story physically impossible and identify the later crossing as an impersonation."
+explanation = "Owen was already below the rising tide while his coat crossed above it; the photographed walker is Sabine, whose shortened stride and still left arm match Mei's second sighting."
+
+[[deductions]]
+id = "deduction_solution"
+proposition = "Sabine killed Owen in the service alley, moved him down the ramp, and impersonated him in his coat."
+category = "contradiction"
+unlock_questions = []
+unlock_topics = ["solution_ready"]
+unlock_investigations = []
+
+[[questions]]
+id = "question_solution"
+prompt = "WHO, HOW, WHERE, WHEN, AND WHY?"
+hypothesis = "Sabine killed Owen in the service alley, moved him down the ramp, and impersonated him in his coat."
+category = "who"
+requires_clues = ["clue_weapon", "clue_route", "clue_decisive", "clue_motive"]
+requires_claims = ["claim_culprit"]
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_solution"
+question = "question_solution"
+mode = "timeline"
+resolution = "substantiated"
+prompt = "Build the promenade chronology from the tide line, the wristband photograph, and Mei's two sightings."
+result = "Owen was already below the rising tide while his coat crossed above it; the photographed walker is Sabine, whose shortened stride and still left arm match Mei's second sighting."
+slot_labels = ["DECISIVE TESTIMONY", "CULPRIT'S ACCOUNT"]
+slot_types = ["testimony", "statement"]
+accepted_pieces = ["clue_decisive", "claim_culprit"]
+result_deductions = ["deduction_solution"]
+
+[solution]
+culprit = "sabine_cross"
+motive = "clue_motive"
+decisive_contradiction = "decisive_contradiction"
+weapon_block = "weapon"
+murder_place_block = "murder_place"
+death_time_block = "death_time"
+body_movement_block = "body_movement"
+staging_block = "staging"
+cleaning_block = "cleaning"
+alibi_block = "alibi"
+murder_events = ["event_murder"]
+cover_up_events = ["event_move", "event_stage"]
+false_alibi = ["claim_culprit"]
+exclusions = ["dario_finch", "mei_rowan"]

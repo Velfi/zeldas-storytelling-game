@@ -1,0 +1,13 @@
+{
+  "author": "Chicago Story Studio",
+  "description": "A non-mystery spatial story proving the general InteractiveStory core.",
+  "content_version": "1.0.0",
+  "story": "assets/stories/the_lantern_visit.story.toml",
+  "level": "assets/levels/vale_house.toml",
+  "acknowledge_incomplete_validation": true,
+  "include": [],
+  "exclude": [
+    "**/__pycache__/**",
+    "assets/sound-effects/**"
+  ]
+}

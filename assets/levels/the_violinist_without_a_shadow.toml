@@ -1,0 +1,455 @@
+version = "LevelFormat v1"
+id = "the_violinist_without_a_shadow_lot"
+name = "Quill Arts Centre"
+width = 42
+height = 22
+content_offset = [[4, 4]]
+story_limit = 3
+default_snap = 0.5
+fine_snap = 0.25
+angle_snap = 15.0
+
+[[stories]]
+id = "ground"
+name = "Ground Floor"
+base_elevation = 0.0
+floor_height = 3.5
+
+[[foundations]]
+id = "foundation_courtyard"
+kind = "slab"
+points = [[0.0, 0.0], [6.5, 0.0], [6.5, 8.0], [0.0, 8.0]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "courtyard"
+name = "Courtyard"
+story = 0
+points = [[0.0, 0.0], [6.5, 0.0], [6.5, 8.0], [0.0, 8.0]]
+platform_height = 0.0
+floor_material = "core:dining"
+wall_material = "core:dining"
+ceiling_style = "flat"
+exterior = false
+
+[[roofs]]
+id = "roof_courtyard"
+room_id = "courtyard"
+story = 0
+style = "hip"
+pitch = 28.0
+overhang = 0.4
+ridge_angle = 90.0
+
+[[foundations]]
+id = "foundation_practice_room"
+kind = "slab"
+points = [[7.0, 0.0], [13.5, 0.0], [13.5, 8.0], [7.0, 8.0]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "practice_room"
+name = "Practice Room"
+story = 0
+points = [[7.0, 0.0], [13.5, 0.0], [13.5, 8.0], [7.0, 8.0]]
+platform_height = 0.0
+floor_material = "core:study"
+wall_material = "core:study"
+ceiling_style = "flat"
+exterior = false
+
+[[roofs]]
+id = "roof_practice_room"
+room_id = "practice_room"
+story = 0
+style = "gable"
+pitch = 28.0
+overhang = 0.4
+ridge_angle = 90.0
+
+[[foundations]]
+id = "foundation_recital_hall"
+kind = "slab"
+points = [[14.0, 0.0], [20.5, 0.0], [20.5, 8.0], [14.0, 8.0]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "recital_hall"
+name = "Recital Hall"
+story = 0
+points = [[14.0, 0.0], [20.5, 0.0], [20.5, 8.0], [14.0, 8.0]]
+platform_height = 0.0
+floor_material = "core:dining"
+wall_material = "core:dining"
+ceiling_style = "flat"
+exterior = false
+
+[[roofs]]
+id = "roof_recital_hall"
+room_id = "recital_hall"
+story = 0
+style = "hip"
+pitch = 28.0
+overhang = 0.4
+ridge_angle = 90.0
+
+[[foundations]]
+id = "foundation_director_s_office"
+kind = "slab"
+points = [[21.0, 0.0], [27.5, 0.0], [27.5, 8.0], [21.0, 8.0]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "director_s_office"
+name = "Director's Office"
+story = 0
+points = [[21.0, 0.0], [27.5, 0.0], [27.5, 8.0], [21.0, 8.0]]
+platform_height = 0.0
+floor_material = "core:study"
+wall_material = "core:study"
+ceiling_style = "flat"
+exterior = false
+
+[[roofs]]
+id = "roof_director_s_office"
+room_id = "director_s_office"
+story = 0
+style = "gable"
+pitch = 28.0
+overhang = 0.4
+ridge_angle = 90.0
+
+[[foundations]]
+id = "foundation_glass_passage"
+kind = "slab"
+points = [[28.0, 0.0], [34.5, 0.0], [34.5, 8.0], [28.0, 8.0]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "glass_passage"
+name = "Glass Passage"
+story = 0
+points = [[28.0, 0.0], [34.5, 0.0], [34.5, 8.0], [28.0, 8.0]]
+platform_height = 0.0
+floor_material = "core:dining"
+wall_material = "core:dining"
+ceiling_style = "flat"
+exterior = false
+
+[[roofs]]
+id = "roof_glass_passage"
+room_id = "glass_passage"
+story = 0
+style = "hip"
+pitch = 28.0
+overhang = 0.4
+ridge_angle = 90.0
+
+[[markers]]
+id = "spawn_player"
+reference = ""
+kind = "player_spawn"
+story = 0
+position = [[2.0, 4.0]]
+radius = 0.4
+facing = 0.0
+
+[[markers]]
+id = "return_to_city"
+reference = ""
+destination = "city:the_violinist_without_a_shadow_venue"
+kind = "transition"
+story = 0
+position = [[1.0, 1.0]]
+radius = 1.0
+
+[[markers]]
+id = "spawn_dorian_kest"
+reference = "dorian_kest"
+kind = "character_spawn"
+story = 0
+position = [[9.0, 5.0]]
+radius = 0.5
+
+[[markers]]
+id = "spawn_sel_vale"
+reference = "sel_vale"
+kind = "character_spawn"
+story = 0
+position = [[16.0, 5.0]]
+radius = 0.5
+
+[[markers]]
+id = "spawn_pavel_orr"
+reference = "pavel_orr"
+kind = "character_spawn"
+story = 0
+position = [[23.0, 5.0]]
+radius = 0.5
+
+[[markers]]
+id = "clue_marker_1"
+reference = "shadowless_sighting"
+kind = "clue"
+story = 0
+position = [[4.0, 2.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_2"
+reference = "angled_glass_panels"
+kind = "clue"
+story = 0
+position = [[11.0, 2.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_3"
+reference = "repeated_musical_phrase"
+kind = "clue"
+story = 0
+position = [[18.0, 2.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_4"
+reference = "bell_in_playback"
+kind = "clue"
+story = 0
+position = [[25.0, 2.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_5"
+reference = "dressed_mannequin"
+kind = "clue"
+story = 0
+position = [[32.0, 2.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_6"
+reference = "music_stand_weight"
+kind = "clue"
+story = 0
+position = [[4.0, 4.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_7"
+reference = "sabotaged_strings"
+kind = "clue"
+story = 0
+position = [[11.0, 4.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_8"
+reference = "room_booking_log"
+kind = "clue"
+story = 0
+position = [[18.0, 4.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_9"
+reference = "stolen_violin"
+kind = "clue"
+story = 0
+position = [[25.0, 4.0]]
+radius = 0.7
+
+# BEGIN GENERATED ROOM FURNISHINGS
+
+[[objects]]
+id = "furnish_courtyard_1_yard_bench"
+catalog_id = "core:yard_bench"
+story = 0
+position = [[2.27, 2.56]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_courtyard_2_nature_bush"
+catalog_id = "core:nature_bush"
+story = 0
+position = [[1.17, 6.08]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_courtyard_3_nature_flowers"
+catalog_id = "core:nature_flowers"
+story = 0
+position = [[3.38, 6.24]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_courtyard_4_nature_grass"
+catalog_id = "core:nature_grass"
+story = 0
+position = [[5.20, 5.76]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_courtyard_5_stylized_tree_1"
+catalog_id = "core:stylized_tree_1"
+story = 0
+position = [[5.33, 1.92]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_practice_room_1_lounge_design_sofa"
+catalog_id = "core:lounge_design_sofa"
+story = 0
+position = [[8.62, 2.40]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_practice_room_2_lounge_design_chair"
+catalog_id = "core:lounge_design_chair"
+story = 0
+position = [[11.88, 2.40]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_practice_room_3_table_coffee_square"
+catalog_id = "core:table_coffee_square"
+story = 0
+position = [[10.25, 4.40]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_practice_room_4_floor_lamp"
+catalog_id = "core:floor_lamp"
+story = 0
+position = [[12.33, 6.08]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_practice_room_5_plant"
+catalog_id = "core:plant"
+story = 0
+position = [[8.17, 6.24]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_recital_hall_1_table_round"
+catalog_id = "core:table_round"
+story = 0
+position = [[17.25, 3.84]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_recital_hall_2_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[17.25, 2.00]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_recital_hall_3_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[17.25, 5.76]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_recital_hall_4_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[15.62, 3.84]]
+rotation = 270.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_recital_hall_5_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[18.88, 3.84]]
+rotation = 90.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_director_s_office_1_desk"
+catalog_id = "core:desk"
+story = 0
+position = [[22.82, 2.24]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_director_s_office_2_chair_desk"
+catalog_id = "core:chair_desk"
+story = 0
+position = [[22.82, 3.84]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_director_s_office_3_computer_screen"
+catalog_id = "core:computer_screen"
+support_id = "furnish_director_s_office_1_desk"
+elevation = 0.74
+story = 0
+position = [[22.82, 2.24]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_director_s_office_4_bookcase_closed"
+catalog_id = "core:bookcase_closed"
+story = 0
+position = [[26.33, 1.92]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_director_s_office_5_floor_lamp_round"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[26.33, 6.24]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_glass_passage_1_bench_cushion"
+catalog_id = "core:bench_cushion"
+story = 0
+position = [[29.82, 1.92]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_glass_passage_2_coat_rack"
+catalog_id = "core:coat_rack"
+story = 0
+position = [[33.07, 1.92]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_glass_passage_3_plant_small2"
+catalog_id = "core:plant_small2"
+story = 0
+position = [[33.07, 6.08]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+# END GENERATED ROOM FURNISHINGS

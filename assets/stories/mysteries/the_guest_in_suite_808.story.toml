@@ -1,0 +1,1510 @@
+version = "InteractiveStory v1"
+id = "the_guest_in_suite_808"
+title = "The Guest in Suite 808"
+creator = "Chicago conversion tool"
+description = "A gala guest registered as Lucien Grey is dead in Suite 808, but the body and the room assignment tell different stories."
+content_version = "1.0.0"
+default_space = "halcyon_hotel"
+revision = 0
+
+[[capabilities]]
+id = "mystery"
+version = "1"
+
+[[entities]]
+id = "lucien"
+kind = "character"
+display_name = "Lucien Grey"
+description = "Lucien Grey came to Halcyon seeking letters he said could free someone from an old obligation. He borrowed names as readily as rooms, but always signed for tea in his own slanted hand."
+space_id = ""
+target_kind = "entity"
+target_id = ""
+tags = ["victim"]
+roles = []
+
+[[entities]]
+id = "estelle"
+kind = "character"
+display_name = "Estelle Rook"
+description = "Hotel owner who corrects names and architectural terms before she answers uncomfortable questions."
+space_id = "halcyon_hotel"
+target_kind = "marker"
+target_id = "spawn_estelle"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "nico"
+kind = "character"
+display_name = "Nico Grey"
+description = "Debtor accustomed to borrowed identities, watching doors and listeners before offering the truth."
+space_id = "halcyon_hotel"
+target_kind = "marker"
+target_id = "spawn_nico"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "priya"
+kind = "character"
+display_name = "Priya Sen"
+description = "Archivist who protects living people through precise distinctions between custody, consent, and concealment."
+space_id = "halcyon_hotel"
+target_kind = "marker"
+target_id = "spawn_priya"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "suite_808"
+kind = "location"
+display_name = "SUITE 808"
+description = "Suite 808 preserves one part of the evening chronology."
+space_id = "halcyon_hotel"
+target_kind = "room"
+target_id = "suite_808"
+tags = []
+roles = []
+
+[[entities]]
+id = "suite_810"
+kind = "location"
+display_name = "SUITE 810"
+description = "Suite 810 preserves one part of the evening chronology."
+space_id = "halcyon_hotel"
+target_kind = "room"
+target_id = "suite_810"
+tags = []
+roles = []
+
+[[entities]]
+id = "eighth_floor_corridor"
+kind = "location"
+display_name = "EIGHTH-FLOOR CORRIDOR"
+description = "Eighth-Floor Corridor preserves one part of the evening chronology."
+space_id = "halcyon_hotel"
+target_kind = "room"
+target_id = "eighth_floor_corridor"
+tags = []
+roles = []
+
+[[entities]]
+id = "service_lift"
+kind = "location"
+display_name = "SERVICE LIFT"
+description = "Service Lift preserves one part of the evening chronology."
+space_id = "halcyon_hotel"
+target_kind = "room"
+target_id = "service_lift"
+tags = []
+roles = []
+
+[[entities]]
+id = "hotel_archive"
+kind = "location"
+display_name = "HOTEL ARCHIVE"
+description = "Hotel Archive preserves one part of the evening chronology."
+space_id = "halcyon_hotel"
+target_kind = "room"
+target_id = "hotel_archive"
+tags = []
+roles = []
+
+[[entities]]
+id = "suite_810_blood"
+kind = "trace"
+display_name = "Blood in Suite 810"
+description = "The blood identifies the true murder room."
+space_id = "halcyon_hotel"
+target_kind = "marker"
+target_id = "interact_suite_810_blood"
+tags = []
+roles = []
+
+[[entities]]
+id = "bookend"
+kind = "object"
+display_name = "Bloodied Marble Bookend"
+description = "Blood remains in the felt base."
+space_id = "halcyon_hotel"
+target_kind = "marker"
+target_id = "interact_bookend"
+tags = []
+roles = []
+
+[[entities]]
+id = "door_flakes"
+kind = "trace"
+display_name = "Connecting-Door Paint Flakes"
+description = "Paint from the concealed door clings to the sleeve."
+space_id = "halcyon_hotel"
+target_kind = "marker"
+target_id = "interact_door_flakes"
+tags = []
+roles = []
+
+[[entities]]
+id = "key_log"
+kind = "object"
+display_name = "Hotel Key Log"
+description = "The log records keys, not people."
+space_id = "halcyon_hotel"
+target_kind = "marker"
+target_id = "interact_key_log"
+tags = []
+roles = []
+
+[[entities]]
+id = "gala_coat"
+kind = "object"
+display_name = "Nico's Gala Coat"
+description = "The coat fits Nico and holds his claim ticket."
+space_id = "halcyon_hotel"
+target_kind = "marker"
+target_id = "interact_gala_coat"
+tags = []
+roles = []
+
+[[entities]]
+id = "signature"
+kind = "object"
+display_name = "Room-Service Signature"
+description = "Lucien used Nico's name earlier."
+space_id = "halcyon_hotel"
+target_kind = "marker"
+target_id = "interact_signature"
+tags = []
+roles = []
+
+[[entities]]
+id = "debt_papers"
+kind = "object"
+display_name = "Nico's Debt Papers"
+description = "The debt explains the identity loan."
+space_id = "halcyon_hotel"
+target_kind = "marker"
+target_id = "interact_debt_papers"
+tags = []
+roles = []
+
+[[entities]]
+id = "archive_packet"
+kind = "object"
+display_name = "Priya's Archive Packet"
+description = "The packet explains the removed letters."
+space_id = "halcyon_hotel"
+target_kind = "marker"
+target_id = "interact_archive_packet"
+tags = []
+roles = []
+
+[[entities]]
+id = "door_defect"
+kind = "mechanism"
+display_name = "Sticking Door Defect"
+description = "Estelle knows the concealed door sticks at floor level."
+space_id = "halcyon_hotel"
+target_kind = "marker"
+target_id = "interact_door_defect"
+tags = []
+roles = []
+
+[[propositions]]
+id = "estelle_door_claim"
+text = "Estelle never entered either suite and cannot know the hidden door defect."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "claim_nico_secret"
+text = "Nico Grey denies creditor trouble and an identity loan."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "claim_priya_secret"
+text = "Priya Sen denies removed letters to protect a living subject."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_suite_810_blood"
+text = "The blood identifies the true murder room."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_bookend"
+text = "Blood remains in the felt base."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_door_flakes"
+text = "Paint from the concealed door clings to the sleeve."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_key_log"
+text = "The log records keys, not people."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_gala_coat"
+text = "The coat fits Nico and holds his claim ticket."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_signature"
+text = "Lucien used Nico's name earlier."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_debt_papers"
+text = "The debt explains the identity loan."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_archive_packet"
+text = "The packet explains the removed letters."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_door_defect"
+text = "Estelle knows the concealed door sticks at floor level."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "deduce_true_identity"
+text = "The dead man was Lucien using Nico's identity."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "deduce_suite_transfer"
+text = "The body crossed from 810 through the connecting door."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "deduce_door_knowledge"
+text = "Estelle knew a defect hidden from the corridor."
+canonical_truth = "undetermined"
+
+[[events]]
+id = "event_1"
+subject = "estelle"
+action = "attack"
+object = "lucien"
+location = "suite_810"
+fictional_time = "21:05"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[events]]
+id = "event_2"
+subject = "estelle"
+action = "kill"
+object = "lucien"
+location = "suite_810"
+fictional_time = "21:06"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[events]]
+id = "event_3"
+subject = "estelle"
+action = "move_body"
+object = "lucien"
+location = "suite_810"
+fictional_time = "21:12"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[events]]
+id = "event_4"
+subject = "estelle"
+action = "place"
+object = "gala_coat"
+location = "suite_808"
+fictional_time = "21:18"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[conditions]]
+id = "condition.always"
+kind = "always"
+children = []
+variable = ""
+entity = ""
+other_entity = ""
+proposition = ""
+objective = ""
+event = ""
+content = ""
+text = ""
+space_a = ""
+target_a = ""
+space_b = ""
+target_b = ""
+distance = 0
+value_kind = "boolean"
+boolean_value = false
+integer_value = 0
+text_value = ""
+comparison = 0
+objective_status = 0
+stance = "uncertain"
+
+[[scenes]]
+id = "scene_opening_estelle"
+display_name = "Estelle corrects the name on the register. 'Lucien arrived as Nico Grey and asked for the old purchase file. He wanted privacy, but he wanted an audience for what came after.'"
+entry_node = "opening_estelle_line"
+bound_entity = "estelle"
+summary = "Estelle corrects the name on the register. 'Lucien arrived as Nico Grey and asked for the old purchase file. He wanted privacy, but he wanted an audience for what came after.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_estelle"
+display_name = "'The Marigold Club may survive public theories; a hotel does not.' Estelle corrects you at once. 'There is no guest door between 808 and 810. There is a sealed service opening.'"
+entry_node = "account_estelle_line"
+bound_entity = "estelle"
+summary = "'The Marigold Club may survive public theories; a hotel does not.' Estelle corrects you at once. 'There is no guest door between 808 and 810. There is a sealed service opening.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_estelle"
+display_name = "'Old hotels settle. Every owner knows that.' Estelle's shoe presses flat against the threshold before she looks down."
+entry_node = "approach_estelle_line"
+bound_entity = "estelle"
+summary = "'Old hotels settle. Every owner knows that.' Estelle's shoe presses flat against the threshold before she looks down."
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_opening_nico"
+display_name = "Nico watches the lift doors. 'Lucien borrowed my booking because he said one night under my name would settle both our debts. I last saw him take the key to 810.'"
+entry_node = "opening_nico_line"
+bound_entity = "nico"
+summary = "Nico watches the lift doors. 'Lucien borrowed my booking because he said one night under my name would settle both our debts. I last saw him take the key to 810.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_nico"
+display_name = "Nico checks the corridor before lowering his voice. 'My creditors watch registrations. Lucien needed a room; I needed not to be found in one.'"
+entry_node = "account_nico_line"
+bound_entity = "nico"
+summary = "Nico checks the corridor before lowering his voice. 'My creditors watch registrations. Lucien needed a room; I needed not to be found in one.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_nico"
+display_name = "He produces the claim ticket from his own coat. 'He borrowed the name. He did not borrow this.'"
+entry_node = "approach_nico_line"
+bound_entity = "nico"
+summary = "He produces the claim ticket from his own coat. 'He borrowed the name. He did not borrow this.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_opening_priya"
+display_name = "Priya keeps a finger on the archive packet. 'He wanted a letter whose writer is still alive. I told him records do not become harmless merely because they are old.'"
+entry_node = "opening_priya_line"
+bound_entity = "priya"
+summary = "Priya keeps a finger on the archive packet. 'He wanted a letter whose writer is still alive. I told him records do not become harmless merely because they are old.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_priya"
+display_name = "Priya keeps the packet ordered by accession number. 'The ones naming a living woman who never consented to become evidence.'"
+entry_node = "account_priya_line"
+bound_entity = "priya"
+summary = "Priya keeps the packet ordered by accession number. 'The ones naming a living woman who never consented to become evidence.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_priya"
+display_name = "'Lucien asked for the purchase file. Estelle heard him. I left him in 810 with it.'"
+entry_node = "approach_priya_line"
+bound_entity = "priya"
+summary = "'Lucien asked for the purchase file. Estelle heard him. I left him in 810 with it.'"
+return_to = "investigation"
+
+[[nodes]]
+id = "opening_estelle_line"
+scene = "scene_opening_estelle"
+kind = "line"
+line_id = "opening_estelle_line"
+speaker = "estelle"
+text = "Estelle corrects the name on the register. 'Lucien arrived as Nico Grey and asked for the old purchase file. He wanted privacy, but he wanted an audience for what came after.'"
+next = "opening_estelle_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_estelle_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_estelle_end"
+scene = "scene_opening_estelle"
+kind = "end"
+line_id = "opening_estelle_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_estelle_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_estelle_line"
+scene = "scene_account_estelle"
+kind = "line"
+line_id = "account_estelle_line"
+speaker = "estelle"
+text = "'The Marigold Club may survive public theories; a hotel does not.' Estelle corrects you at once. 'There is no guest door between 808 and 810. There is a sealed service opening.'"
+next = "account_estelle_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_estelle_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_estelle_end"
+scene = "scene_account_estelle"
+kind = "end"
+line_id = "account_estelle_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_estelle_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_estelle_line"
+scene = "scene_approach_estelle"
+kind = "line"
+line_id = "approach_estelle_line"
+speaker = "estelle"
+text = "'Old hotels settle. Every owner knows that.' Estelle's shoe presses flat against the threshold before she looks down."
+next = "approach_estelle_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_estelle_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_estelle_end"
+scene = "scene_approach_estelle"
+kind = "end"
+line_id = "approach_estelle_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_estelle_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_nico_line"
+scene = "scene_opening_nico"
+kind = "line"
+line_id = "opening_nico_line"
+speaker = "nico"
+text = "Nico watches the lift doors. 'Lucien borrowed my booking because he said one night under my name would settle both our debts. I last saw him take the key to 810.'"
+next = "opening_nico_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_nico_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_nico_end"
+scene = "scene_opening_nico"
+kind = "end"
+line_id = "opening_nico_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_nico_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_nico_line"
+scene = "scene_account_nico"
+kind = "line"
+line_id = "account_nico_line"
+speaker = "nico"
+text = "Nico checks the corridor before lowering his voice. 'My creditors watch registrations. Lucien needed a room; I needed not to be found in one.'"
+next = "account_nico_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_nico_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_nico_end"
+scene = "scene_account_nico"
+kind = "end"
+line_id = "account_nico_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_nico_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_nico_line"
+scene = "scene_approach_nico"
+kind = "line"
+line_id = "approach_nico_line"
+speaker = "nico"
+text = "He produces the claim ticket from his own coat. 'He borrowed the name. He did not borrow this.'"
+next = "approach_nico_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_nico_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_nico_end"
+scene = "scene_approach_nico"
+kind = "end"
+line_id = "approach_nico_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_nico_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_priya_line"
+scene = "scene_opening_priya"
+kind = "line"
+line_id = "opening_priya_line"
+speaker = "priya"
+text = "Priya keeps a finger on the archive packet. 'He wanted a letter whose writer is still alive. I told him records do not become harmless merely because they are old.'"
+next = "opening_priya_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_priya_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_priya_end"
+scene = "scene_opening_priya"
+kind = "end"
+line_id = "opening_priya_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_priya_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_priya_line"
+scene = "scene_account_priya"
+kind = "line"
+line_id = "account_priya_line"
+speaker = "priya"
+text = "Priya keeps the packet ordered by accession number. 'The ones naming a living woman who never consented to become evidence.'"
+next = "account_priya_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_priya_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_priya_end"
+scene = "scene_account_priya"
+kind = "end"
+line_id = "account_priya_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_priya_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_priya_line"
+scene = "scene_approach_priya"
+kind = "line"
+line_id = "approach_priya_line"
+speaker = "priya"
+text = "'Lucien asked for the purchase file. Estelle heard him. I left him in 810 with it.'"
+next = "approach_priya_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_priya_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_priya_end"
+scene = "scene_approach_priya"
+kind = "end"
+line_id = "approach_priya_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_priya_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[mystery]
+action_budget = 12
+seed = 20260718
+tutorial = ""
+city_start = "halcyon_hotel"
+city_destination = "halcyon_hotel"
+reveal_location = "suite_808"
+
+[[mystery.characters]]
+entity = "lucien"
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = []
+
+[[mystery.characters]]
+entity = "estelle"
+private_secret = "protected her family's coerced hotel purchase"
+motive = "protected her family's coerced hotel purchase"
+initial_disposition = 0
+initial_claims = ["estelle_door_claim"]
+
+[[mystery.characters]]
+entity = "nico"
+private_secret = "creditor trouble and an identity loan"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_nico_secret"]
+
+[[mystery.characters]]
+entity = "priya"
+private_secret = "removed letters to protect a living subject"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_priya_secret"]
+
+[[mystery.locations]]
+entity = "suite_808"
+connections = ["suite_810"]
+characters = ["estelle"]
+pois = ["door_flakes", "gala_coat"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "suite_810"
+connections = ["suite_808", "eighth_floor_corridor"]
+characters = ["nico"]
+pois = ["suite_810_blood", "bookend", "signature", "door_defect"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "eighth_floor_corridor"
+connections = ["suite_810", "service_lift"]
+characters = ["priya"]
+pois = ["key_log"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "service_lift"
+connections = ["eighth_floor_corridor", "hotel_archive"]
+characters = []
+pois = []
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "hotel_archive"
+connections = ["service_lift"]
+characters = []
+pois = ["debt_papers", "archive_packet"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.pois]]
+entity = "suite_810_blood"
+location = "suite_810"
+owner = ""
+relevant_state = "The blood identifies the true murder room."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "bookend"
+location = "suite_810"
+owner = ""
+relevant_state = "Blood remains in the felt base."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "door_flakes"
+location = "suite_808"
+owner = ""
+relevant_state = "Paint from the concealed door clings to the sleeve."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "key_log"
+location = "eighth_floor_corridor"
+owner = ""
+relevant_state = "The log records keys, not people."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "gala_coat"
+location = "suite_808"
+owner = ""
+relevant_state = "The coat fits Nico and holds his claim ticket."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "signature"
+location = "suite_810"
+owner = ""
+relevant_state = "Lucien used Nico's name earlier."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "debt_papers"
+location = "hotel_archive"
+owner = ""
+relevant_state = "The debt explains the identity loan."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "archive_packet"
+location = "hotel_archive"
+owner = ""
+relevant_state = "The packet explains the removed letters."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "door_defect"
+location = "suite_810"
+owner = ""
+relevant_state = "Estelle knows the concealed door sticks at floor level."
+examination_action = "examine"
+
+[[mystery.events]]
+event = "event_1"
+destination = "suite_810"
+tool = "bookend"
+effects = ["attack_complete"]
+
+[[mystery.events]]
+event = "event_2"
+destination = "suite_810"
+tool = "bookend"
+effects = ["kill_complete"]
+
+[[mystery.events]]
+event = "event_3"
+destination = "suite_808"
+tool = "door_defect"
+effects = ["move_body_complete"]
+
+[[mystery.events]]
+event = "event_4"
+destination = "suite_808"
+tool = ""
+effects = ["place_complete"]
+
+[[mystery.clues]]
+id = "clue_suite_810_blood"
+source = "suite_810_blood"
+description = "The blood identifies the true murder room."
+proposition = "clue_suite_810_blood"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["weapon_bookend"]
+topics = ["marigold_reconstruction"]
+
+[[mystery.clues]]
+id = "clue_bookend"
+source = "bookend"
+description = "Blood remains in the felt base."
+proposition = "clue_bookend"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["place_suite_810"]
+topics = ["marigold_reconstruction"]
+
+[[mystery.clues]]
+id = "clue_door_flakes"
+source = "door_flakes"
+description = "Paint from the concealed door clings to the sleeve."
+proposition = "clue_door_flakes"
+skill = "Observation"
+check_kind = "white"
+difficulty = 3
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["time_during_gala"]
+topics = ["marigold_reconstruction"]
+
+[[mystery.clues]]
+id = "clue_key_log"
+source = "key_log"
+description = "The log records keys, not people."
+proposition = "clue_key_log"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["route_connecting_door"]
+topics = ["marigold_reconstruction"]
+
+[[mystery.clues]]
+id = "clue_gala_coat"
+source = "gala_coat"
+description = "The coat fits Nico and holds his claim ticket."
+proposition = "clue_gala_coat"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["staged_identity"]
+topics = ["marigold_reconstruction"]
+
+[[mystery.clues]]
+id = "clue_signature"
+source = "signature"
+description = "Lucien used Nico's name earlier."
+proposition = "clue_signature"
+skill = "Observation"
+check_kind = "white"
+difficulty = 3
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["key_log_coverup"]
+topics = ["marigold_reconstruction"]
+
+[[mystery.clues]]
+id = "clue_debt_papers"
+source = "nico"
+description = "The debt explains the identity loan."
+proposition = "clue_debt_papers"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["exclude_nico"]
+topics = ["marigold_reconstruction"]
+
+[[mystery.clues]]
+id = "clue_archive_packet"
+source = "priya"
+description = "The packet explains the removed letters."
+proposition = "clue_archive_packet"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["exclude_priya"]
+topics = ["marigold_reconstruction"]
+
+[[mystery.clues]]
+id = "clue_door_defect"
+source = "estelle"
+description = "Estelle knows the concealed door sticks at floor level."
+proposition = "clue_door_defect"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 3
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["weapon_bookend", "place_suite_810", "time_during_gala", "route_connecting_door", "staged_identity", "key_log_coverup", "false_register_alibi", "estelle_door_claim"]
+topics = ["marigold_reconstruction"]
+
+[[mystery.claims]]
+id = "estelle_door_claim"
+speaker = "estelle"
+proposition = "estelle_door_claim"
+protects = "murder"
+response = "Estelle never entered either suite and cannot know the hidden door defect."
+canonical_truth = false
+
+[[mystery.claims]]
+id = "claim_nico_secret"
+speaker = "nico"
+proposition = "claim_nico_secret"
+protects = "creditor trouble and an identity loan"
+response = "Nico Grey denies creditor trouble and an identity loan."
+canonical_truth = false
+
+[[mystery.claims]]
+id = "claim_priya_secret"
+speaker = "priya"
+proposition = "claim_priya_secret"
+protects = "removed letters to protect a living subject"
+response = "Priya Sen denies removed letters to protect a living subject."
+canonical_truth = false
+
+[[mystery.contradictions]]
+id = "decisive_contradiction"
+claim = "estelle_door_claim"
+fact = "clue_door_defect"
+conclusion = ""
+explanation = "The physical reconstruction contradicts Estelle Rook's account."
+
+[[mystery.deductions]]
+id = "deduce_true_identity"
+proposition = "deduce_true_identity"
+category = "who"
+supports = []
+unlock_questions = []
+unlock_topics = ["marigold_reconstruction"]
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "deduce_suite_transfer"
+proposition = "deduce_suite_transfer"
+category = "concealment"
+supports = []
+unlock_questions = []
+unlock_topics = ["marigold_reconstruction"]
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "deduce_door_knowledge"
+proposition = "deduce_door_knowledge"
+category = "contradiction"
+supports = []
+unlock_questions = []
+unlock_topics = ["marigold_reconstruction"]
+unlock_investigations = []
+
+[[mystery.questions]]
+id = "question_1"
+prompt = "What does the evidence prove about: The dead man was Lucien using Nico's identity."
+hypothesis = "The dead man was Lucien using Nico's identity."
+category = "who"
+requires_clues = ["clue_suite_810_blood", "clue_bookend"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_2"
+prompt = "What does the evidence prove about: The body crossed from 810 through the connecting door."
+hypothesis = "The body crossed from 810 through the connecting door."
+category = "concealment"
+requires_clues = ["clue_door_flakes", "clue_key_log"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_3"
+prompt = "What does the evidence prove about: Estelle knew a defect hidden from the corridor."
+hypothesis = "Estelle knew a defect hidden from the corridor."
+category = "contradiction"
+requires_clues = ["clue_gala_coat", "clue_signature"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.demonstrations]]
+id = "demonstration_1"
+question = "question_1"
+mode = "physical"
+resolution = "substantiated"
+result = "The dead man was Lucien using Nico's identity."
+prompt = "Pair the two observations that establish: The dead man was Lucien using Nico's identity."
+slot_labels = ["First fact", "Corroborating fact"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_suite_810_blood", "clue_bookend"]
+route_firsts = []
+route_counts = []
+result_deductions = ["deduce_true_identity"]
+
+[[mystery.demonstrations]]
+id = "demonstration_2"
+question = "question_2"
+mode = "timeline"
+resolution = "substantiated"
+result = "The body crossed from 810 through the connecting door."
+prompt = "Pair the two observations that establish: The body crossed from 810 through the connecting door."
+slot_labels = ["First fact", "Corroborating fact"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_door_flakes", "clue_key_log"]
+route_firsts = []
+route_counts = []
+result_deductions = ["deduce_suite_transfer"]
+
+[[mystery.demonstrations]]
+id = "demonstration_3"
+question = "question_3"
+mode = "confrontation"
+resolution = "substantiated"
+result = "Estelle knew a defect hidden from the corridor."
+prompt = "Pair the two observations that establish: Estelle knew a defect hidden from the corridor."
+slot_labels = ["First fact", "Corroborating fact"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_gala_coat", "clue_signature"]
+route_firsts = []
+route_counts = []
+result_deductions = ["deduce_door_knowledge"]
+
+[[mystery.dialogue]]
+node = "opening_estelle"
+character = "estelle"
+prompt = "Tell me about Lucien Grey. What did they want tonight?"
+response = "Estelle corrects the name on the register. 'Lucien arrived as Nico Grey and asked for the old purchase file. He wanted privacy, but he wanted an audience for what came after.'"
+clue = ""
+interaction = ""
+requires = ["estelle_door_claim"]
+unlocks = ["account_ready_estelle"]
+
+[[mystery.dialogue]]
+node = "account_estelle"
+character = "estelle"
+prompt = "How did you know the connecting door sticks at the floor?"
+response = "'The Marigold Club may survive public theories; a hotel does not.' Estelle corrects you at once. 'There is no guest door between 808 and 810. There is a sealed service opening.'"
+clue = ""
+interaction = ""
+requires = ["estelle_door_claim", "account_ready_estelle"]
+unlocks = ["followup_estelle"]
+
+[[mystery.dialogue]]
+node = "approach_estelle"
+character = "estelle"
+prompt = "Then account for the blood in suite 810."
+response = "'Old hotels settle. Every owner knows that.' Estelle's shoe presses flat against the threshold before she looks down."
+clue = "clue_door_defect"
+interaction = ""
+requires = ["clue_suite_810_blood", "estelle_door_claim", "followup_estelle"]
+unlocks = ["clue_door_defect", "marigold_reconstruction"]
+
+[[mystery.dialogue]]
+node = "opening_nico"
+character = "nico"
+prompt = "Tell me about Lucien Grey. What did they want tonight?"
+response = "Nico watches the lift doors. 'Lucien borrowed my booking because he said one night under my name would settle both our debts. I last saw him take the key to 810.'"
+clue = ""
+interaction = ""
+requires = ["claim_nico_secret"]
+unlocks = ["account_ready_nico"]
+
+[[mystery.dialogue]]
+node = "account_nico"
+character = "nico"
+prompt = "Why was Lucien using your name?"
+response = "Nico checks the corridor before lowering his voice. 'My creditors watch registrations. Lucien needed a room; I needed not to be found in one.'"
+clue = ""
+interaction = ""
+requires = ["claim_nico_secret", "account_ready_nico"]
+unlocks = ["followup_nico"]
+
+[[mystery.dialogue]]
+node = "approach_nico"
+character = "nico"
+prompt = "Then account for the connecting-door paint flakes."
+response = "He produces the claim ticket from his own coat. 'He borrowed the name. He did not borrow this.'"
+clue = "clue_debt_papers"
+interaction = ""
+requires = ["clue_door_flakes", "claim_nico_secret", "followup_nico"]
+unlocks = ["clue_debt_papers", "marigold_reconstruction"]
+
+[[mystery.dialogue]]
+node = "opening_priya"
+character = "priya"
+prompt = "Tell me about Lucien Grey. What did they want tonight?"
+response = "Priya keeps a finger on the archive packet. 'He wanted a letter whose writer is still alive. I told him records do not become harmless merely because they are old.'"
+clue = ""
+interaction = ""
+requires = ["claim_priya_secret"]
+unlocks = ["account_ready_priya"]
+
+[[mystery.dialogue]]
+node = "account_priya"
+character = "priya"
+prompt = "Which letters did you remove from the archive?"
+response = "Priya keeps the packet ordered by accession number. 'The ones naming a living woman who never consented to become evidence.'"
+clue = ""
+interaction = ""
+requires = ["claim_priya_secret", "account_ready_priya"]
+unlocks = ["followup_priya"]
+
+[[mystery.dialogue]]
+node = "approach_priya"
+character = "priya"
+prompt = "Then account for the nico's gala coat."
+response = "'Lucien asked for the purchase file. Estelle heard him. I left him in 810 with it.'"
+clue = "clue_archive_packet"
+interaction = ""
+requires = ["clue_gala_coat", "claim_priya_secret", "followup_priya"]
+unlocks = ["clue_archive_packet", "marigold_reconstruction"]
+
+[[mystery.city_labels]]
+id = "halcyon_hotel"
+display_name = "HALCYON HOTEL"
+level_spawn = "spawn_player"
+city_site = "east_bank_venue"
+
+[mystery.solution]
+culprit = "estelle"
+motive = "clue_door_defect"
+decisive_contradiction = "decisive_contradiction"
+weapon_block = "weapon_bookend"
+murder_place_block = "place_suite_810"
+death_time_block = "time_during_gala"
+body_movement_block = "route_connecting_door"
+staging_block = "staged_identity"
+cleaning_block = "key_log_coverup"
+alibi_block = "false_register_alibi"
+requirements = ["weapon_bookend", "place_suite_810", "time_during_gala", "route_connecting_door", "staged_identity", "key_log_coverup", "false_register_alibi"]
+murder_events = ["event_1"]
+cover_up_events = ["event_2", "event_3", "event_4"]
+false_alibis = ["estelle_door_claim"]
+exclusions = ["nico", "priya"]

@@ -1,0 +1,1307 @@
+version = "InteractiveStory v1"
+id = "death_on_the_promenade"
+title = "Death on the Promenade"
+creator = "Chicago conversion tool"
+description = "Ada Reed recognizes Owen Lark below the promenade even though witnesses watched his bright coat cross the festival above. She asks the neighborhood to remember the person, not the coat; the tide and wristbands disagree about when he arrived."
+content_version = "1.0.0"
+default_space = "bellwether_waterfront"
+revision = 0
+
+[[capabilities]]
+id = "mystery"
+version = "1"
+
+[[entities]]
+id = "owen_lark"
+kind = "character"
+display_name = "Owen Lark"
+description = "Owen Lark was due to challenge the redevelopment survey from the bandstand. His bright coat made him easy to follow, while his familiar uneven stride made him difficult for a neighbor to mistake."
+space_id = ""
+target_kind = "entity"
+target_id = ""
+tags = ["victim"]
+roles = []
+
+[[entities]]
+id = "sabine_cross"
+kind = "character"
+display_name = "Sabine Cross"
+description = "Surveyor who cites maps, tide tables, and official boundaries to make observation sound inevitable."
+space_id = "bellwether_waterfront"
+target_kind = "marker"
+target_id = "character_sabine_cross"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "dario_finch"
+kind = "character"
+display_name = "Dario Finch"
+description = "Developer caught between exposure and restitution, carrying every argument in folded notices and deadlines."
+space_id = "bellwether_waterfront"
+target_kind = "marker"
+target_id = "character_dario_finch"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "mei_rowan"
+kind = "character"
+display_name = "Mei Rowan"
+description = "Preservation officer who notices repeated movement through facade details and bodily asymmetry."
+space_id = "bellwether_waterfront"
+target_kind = "marker"
+target_id = "character_mei_rowan"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "bandstand"
+kind = "location"
+display_name = "BANDSTAND"
+description = "A spatially distinct part of Bellwether Waterfront."
+space_id = "bellwether_waterfront"
+target_kind = "room"
+target_id = "bandstand"
+tags = []
+roles = []
+
+[[entities]]
+id = "market_arcade"
+kind = "location"
+display_name = "MARKET ARCADE"
+description = "A spatially distinct part of Bellwether Waterfront."
+space_id = "bellwether_waterfront"
+target_kind = "room"
+target_id = "market_arcade"
+tags = []
+roles = []
+
+[[entities]]
+id = "preservation_booth"
+kind = "location"
+display_name = "PRESERVATION BOOTH"
+description = "A spatially distinct part of Bellwether Waterfront."
+space_id = "bellwether_waterfront"
+target_kind = "room"
+target_id = "preservation_booth"
+tags = []
+roles = []
+
+[[entities]]
+id = "service_alley"
+kind = "location"
+display_name = "SERVICE ALLEY"
+description = "A spatially distinct part of Bellwether Waterfront."
+space_id = "bellwether_waterfront"
+target_kind = "room"
+target_id = "service_alley"
+tags = []
+roles = []
+
+[[entities]]
+id = "lower_promenade"
+kind = "location"
+display_name = "LOWER PROMENADE"
+description = "A spatially distinct part of Bellwether Waterfront."
+space_id = "bellwether_waterfront"
+target_kind = "room"
+target_id = "lower_promenade"
+tags = []
+roles = []
+
+[[entities]]
+id = "survey_weight"
+kind = "object"
+display_name = "Survey Weight"
+description = "Retains a protected blood trace."
+space_id = "bellwether_waterfront"
+target_kind = "marker"
+target_id = "clue_survey_weight"
+tags = []
+roles = []
+
+[[entities]]
+id = "bright_coat"
+kind = "object"
+display_name = "Owen's Bright Coat"
+description = "Records the concealment route."
+space_id = "bellwether_waterfront"
+target_kind = "marker"
+target_id = "clue_bright_coat"
+tags = []
+roles = []
+
+[[entities]]
+id = "wristband_photo"
+kind = "object"
+display_name = "Festival Wristband Photograph"
+description = "Anchors the decisive reconstruction."
+space_id = "bellwether_waterfront"
+target_kind = "marker"
+target_id = "clue_wristband_photo"
+tags = []
+roles = []
+
+[[entities]]
+id = "motive_record"
+kind = "object"
+display_name = "Motive Record"
+description = "A forged redevelopment survey."
+space_id = "bellwether_waterfront"
+target_kind = "marker"
+target_id = "clue_motive_record"
+tags = []
+roles = []
+
+[[propositions]]
+id = "claim_culprit"
+text = "The tide had already reached Owen when I arrived."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "claim_innocent_one"
+text = "I never left the public room."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "claim_innocent_two"
+text = "I did nothing improper tonight."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_weapon"
+text = "The physical injury matches the recovered object."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_route"
+text = "The route trace proves the body and scene were moved."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_decisive"
+text = "The tide and photograph make Sabine's arrival story physically impossible and identify the later crossing as an impersonation."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_motive"
+text = "The victim documented a forged redevelopment survey."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_innocent_one"
+text = "The first innocent's lie protects a private relationship, not murder."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_innocent_two"
+text = "The second innocent's lie protects unrelated misconduct, not murder."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_timeline"
+text = "Travel time fixes the narrow opportunity window."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_scene"
+text = "Residue at the true scene disproves the staged discovery place."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "deduction_solution"
+text = "Sabine killed Owen in the service alley, moved him down the ramp, and impersonated him in his coat."
+canonical_truth = "undetermined"
+
+[[events]]
+id = "event_murder"
+subject = "sabine_cross"
+action = "kill"
+object = "owen_lark"
+location = "preservation_booth"
+fictional_time = "20:10"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[events]]
+id = "event_move"
+subject = "sabine_cross"
+action = "move_body"
+object = "owen_lark"
+location = "preservation_booth"
+fictional_time = "20:16"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[events]]
+id = "event_stage"
+subject = "sabine_cross"
+action = "alter"
+object = "wristband_photo"
+location = "market_arcade"
+fictional_time = "20:21"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[conditions]]
+id = "condition.always"
+kind = "always"
+children = []
+variable = ""
+entity = ""
+other_entity = ""
+proposition = ""
+objective = ""
+event = ""
+content = ""
+text = ""
+space_a = ""
+target_a = ""
+space_b = ""
+target_b = ""
+distance = 0
+value_kind = "boolean"
+boolean_value = false
+integer_value = 0
+text_value = ""
+comparison = 0
+objective_status = 0
+stance = "uncertain"
+
+[[scenes]]
+id = "scene_opening_sabine_cross"
+display_name = "Sabine folds the festival map. 'Owen meant to challenge the survey from the bandstand. He wanted the neighborhood watching when the boundary moved back.'"
+entry_node = "opening_sabine_cross_line"
+bound_entity = "sabine_cross"
+summary = "Sabine folds the festival map. 'Owen meant to challenge the survey from the bandstand. He wanted the neighborhood watching when the boundary moved back.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_sabine_cross"
+display_name = "'Three deaths have taught Bellwether to distrust its own neighbors.' Sabine consults the festival map. 'By nine the lower ramp was awash.'"
+entry_node = "account_sabine_cross_line"
+bound_entity = "sabine_cross"
+summary = "'Three deaths have taught Bellwether to distrust its own neighbors.' Sabine consults the festival map. 'By nine the lower ramp was awash.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_sabine_cross"
+display_name = "You place the nine-twelve wristband photograph beside the tide chart. Sabine studies the bright coat and says nothing."
+entry_node = "approach_sabine_cross_line"
+bound_entity = "sabine_cross"
+summary = "You place the nine-twelve wristband photograph beside the tide chart. Sabine studies the bright coat and says nothing."
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_opening_dario_finch"
+display_name = "Dario creases the notice again. 'Owen offered me until nine to admit the survey was wrong. After that he would make the argument public.'"
+entry_node = "opening_dario_finch_line"
+bound_entity = "dario_finch"
+summary = "Dario creases the notice again. 'Owen offered me until nine to admit the survey was wrong. After that he would make the argument public.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_dario_finch"
+display_name = "Dario folds the redevelopment notice along an old crease. 'He knew the survey was forged. I asked for time before the neighborhood saw it.'"
+entry_node = "account_dario_finch_line"
+bound_entity = "dario_finch"
+summary = "Dario folds the redevelopment notice along an old crease. 'He knew the survey was forged. I asked for time before the neighborhood saw it.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_dario_finch"
+display_name = "'I left him alive with Sabine. She said she could correct the boundary record.'"
+entry_node = "approach_dario_finch_line"
+bound_entity = "dario_finch"
+summary = "'I left him alive with Sabine. She said she could correct the boundary record.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_opening_mei_rowan"
+display_name = "Mei watches the promenade above. 'Owen walked the route twice before every meeting. The old ankle injury shortened his right step; everyone here knew the rhythm.'"
+entry_node = "opening_mei_rowan_line"
+bound_entity = "mei_rowan"
+summary = "Mei watches the promenade above. 'Owen walked the route twice before every meeting. The old ankle injury shortened his right step; everyone here knew the rhythm.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_mei_rowan"
+display_name = "Mei lists each facade before admitting the missing folder. 'I took evidence of my unauthorized repairs. Owen used it to threaten the board.'"
+entry_node = "account_mei_rowan_line"
+bound_entity = "mei_rowan"
+summary = "Mei lists each facade before admitting the missing folder. 'I took evidence of my unauthorized repairs. Owen used it to threaten the board.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_mei_rowan"
+display_name = "'From the booth I saw the coat cross twice. The second walk was shorter, and the left arm never swung.'"
+entry_node = "approach_mei_rowan_line"
+bound_entity = "mei_rowan"
+summary = "'From the booth I saw the coat cross twice. The second walk was shorter, and the left arm never swung.'"
+return_to = "investigation"
+
+[[nodes]]
+id = "opening_sabine_cross_line"
+scene = "scene_opening_sabine_cross"
+kind = "line"
+line_id = "opening_sabine_cross_line"
+speaker = "sabine_cross"
+text = "Sabine folds the festival map. 'Owen meant to challenge the survey from the bandstand. He wanted the neighborhood watching when the boundary moved back.'"
+next = "opening_sabine_cross_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_sabine_cross_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_sabine_cross_end"
+scene = "scene_opening_sabine_cross"
+kind = "end"
+line_id = "opening_sabine_cross_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_sabine_cross_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_sabine_cross_line"
+scene = "scene_account_sabine_cross"
+kind = "line"
+line_id = "account_sabine_cross_line"
+speaker = "sabine_cross"
+text = "'Three deaths have taught Bellwether to distrust its own neighbors.' Sabine consults the festival map. 'By nine the lower ramp was awash.'"
+next = "account_sabine_cross_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_sabine_cross_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_sabine_cross_end"
+scene = "scene_account_sabine_cross"
+kind = "end"
+line_id = "account_sabine_cross_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_sabine_cross_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_sabine_cross_line"
+scene = "scene_approach_sabine_cross"
+kind = "line"
+line_id = "approach_sabine_cross_line"
+speaker = "sabine_cross"
+text = "You place the nine-twelve wristband photograph beside the tide chart. Sabine studies the bright coat and says nothing."
+next = "approach_sabine_cross_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_sabine_cross_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_sabine_cross_end"
+scene = "scene_approach_sabine_cross"
+kind = "end"
+line_id = "approach_sabine_cross_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_sabine_cross_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_dario_finch_line"
+scene = "scene_opening_dario_finch"
+kind = "line"
+line_id = "opening_dario_finch_line"
+speaker = "dario_finch"
+text = "Dario creases the notice again. 'Owen offered me until nine to admit the survey was wrong. After that he would make the argument public.'"
+next = "opening_dario_finch_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_dario_finch_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_dario_finch_end"
+scene = "scene_opening_dario_finch"
+kind = "end"
+line_id = "opening_dario_finch_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_dario_finch_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_dario_finch_line"
+scene = "scene_account_dario_finch"
+kind = "line"
+line_id = "account_dario_finch_line"
+speaker = "dario_finch"
+text = "Dario folds the redevelopment notice along an old crease. 'He knew the survey was forged. I asked for time before the neighborhood saw it.'"
+next = "account_dario_finch_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_dario_finch_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_dario_finch_end"
+scene = "scene_account_dario_finch"
+kind = "end"
+line_id = "account_dario_finch_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_dario_finch_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_dario_finch_line"
+scene = "scene_approach_dario_finch"
+kind = "line"
+line_id = "approach_dario_finch_line"
+speaker = "dario_finch"
+text = "'I left him alive with Sabine. She said she could correct the boundary record.'"
+next = "approach_dario_finch_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_dario_finch_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_dario_finch_end"
+scene = "scene_approach_dario_finch"
+kind = "end"
+line_id = "approach_dario_finch_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_dario_finch_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_mei_rowan_line"
+scene = "scene_opening_mei_rowan"
+kind = "line"
+line_id = "opening_mei_rowan_line"
+speaker = "mei_rowan"
+text = "Mei watches the promenade above. 'Owen walked the route twice before every meeting. The old ankle injury shortened his right step; everyone here knew the rhythm.'"
+next = "opening_mei_rowan_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_mei_rowan_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_mei_rowan_end"
+scene = "scene_opening_mei_rowan"
+kind = "end"
+line_id = "opening_mei_rowan_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_mei_rowan_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_mei_rowan_line"
+scene = "scene_account_mei_rowan"
+kind = "line"
+line_id = "account_mei_rowan_line"
+speaker = "mei_rowan"
+text = "Mei lists each facade before admitting the missing folder. 'I took evidence of my unauthorized repairs. Owen used it to threaten the board.'"
+next = "account_mei_rowan_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_mei_rowan_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_mei_rowan_end"
+scene = "scene_account_mei_rowan"
+kind = "end"
+line_id = "account_mei_rowan_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_mei_rowan_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_mei_rowan_line"
+scene = "scene_approach_mei_rowan"
+kind = "line"
+line_id = "approach_mei_rowan_line"
+speaker = "mei_rowan"
+text = "'From the booth I saw the coat cross twice. The second walk was shorter, and the left arm never swung.'"
+next = "approach_mei_rowan_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_mei_rowan_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_mei_rowan_end"
+scene = "scene_approach_mei_rowan"
+kind = "end"
+line_id = "approach_mei_rowan_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_mei_rowan_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[mystery]
+action_budget = 12
+seed = 20261004
+tutorial = ""
+city_start = "bellwether_waterfront"
+city_destination = "bellwether_waterfront"
+reveal_location = "bandstand"
+
+[[mystery.characters]]
+entity = "owen_lark"
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = []
+
+[[mystery.characters]]
+entity = "sabine_cross"
+private_secret = "culprit"
+motive = "a forged redevelopment survey"
+initial_disposition = 0
+initial_claims = ["claim_culprit"]
+
+[[mystery.characters]]
+entity = "dario_finch"
+private_secret = "private relationship"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_innocent_one"]
+
+[[mystery.characters]]
+entity = "mei_rowan"
+private_secret = "unrelated misconduct"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_innocent_two"]
+
+[[mystery.locations]]
+entity = "bandstand"
+connections = ["market_arcade"]
+characters = ["sabine_cross"]
+pois = []
+search_actions = ["observe", "search", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "market_arcade"
+connections = ["bandstand", "preservation_booth"]
+characters = ["dario_finch"]
+pois = ["bright_coat"]
+search_actions = ["observe", "search", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "preservation_booth"
+connections = ["market_arcade", "service_alley"]
+characters = []
+pois = ["survey_weight"]
+search_actions = ["observe", "search", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "service_alley"
+connections = ["preservation_booth", "lower_promenade"]
+characters = ["mei_rowan"]
+pois = []
+search_actions = ["observe", "search", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "lower_promenade"
+connections = ["service_alley"]
+characters = []
+pois = ["wristband_photo", "motive_record"]
+search_actions = ["observe", "search", "examine", "dialogue"]
+
+[[mystery.pois]]
+entity = "survey_weight"
+location = "preservation_booth"
+owner = "sabine_cross"
+relevant_state = "retains a protected blood trace"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "bright_coat"
+location = "market_arcade"
+owner = "sabine_cross"
+relevant_state = "records the concealment route"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "wristband_photo"
+location = "lower_promenade"
+owner = "sabine_cross"
+relevant_state = "anchors the decisive reconstruction"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "motive_record"
+location = "lower_promenade"
+owner = "owen_lark"
+relevant_state = "a forged redevelopment survey"
+examination_action = "examine"
+
+[[mystery.events]]
+event = "event_murder"
+destination = "preservation_booth"
+tool = "survey_weight"
+effects = ["victim_dead"]
+
+[[mystery.events]]
+event = "event_move"
+destination = "market_arcade"
+tool = "bright_coat"
+effects = ["body_moved"]
+
+[[mystery.events]]
+event = "event_stage"
+destination = "market_arcade"
+tool = ""
+effects = ["scene_staged"]
+
+[[mystery.clues]]
+id = "clue_weapon"
+source = "survey_weight"
+description = "The physical injury matches the recovered object."
+proposition = "clue_weapon"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["weapon", "murder_place", "death_time", "cleaning"]
+topics = ["weapon", "case_truth"]
+
+[[mystery.clues]]
+id = "clue_route"
+source = "bright_coat"
+description = "The route trace proves the body and scene were moved."
+proposition = "clue_route"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["body_movement", "staging"]
+topics = ["route", "case_truth"]
+
+[[mystery.clues]]
+id = "clue_decisive"
+source = "sabine_cross"
+description = "The tide and photograph make Sabine's arrival story physically impossible and identify the later crossing as an impersonation."
+proposition = "clue_decisive"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["alibi", "claim_culprit"]
+topics = ["decisive", "case_truth"]
+
+[[mystery.clues]]
+id = "clue_motive"
+source = "motive_record"
+description = "The victim documented a forged redevelopment survey."
+proposition = "clue_motive"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["motive"]
+topics = ["motive", "case_truth"]
+
+[[mystery.clues]]
+id = "clue_innocent_one"
+source = "dario_finch"
+description = "The first innocent's lie protects a private relationship, not murder."
+proposition = "clue_innocent_one"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["exclusion_one"]
+topics = ["innocent", "case_truth"]
+
+[[mystery.clues]]
+id = "clue_innocent_two"
+source = "mei_rowan"
+description = "The second innocent's lie protects unrelated misconduct, not murder."
+proposition = "clue_innocent_two"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["exclusion_two"]
+topics = ["innocent", "case_truth"]
+
+[[mystery.clues]]
+id = "clue_timeline"
+source = "bright_coat"
+description = "Travel time fixes the narrow opportunity window."
+proposition = "clue_timeline"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = false
+prerequisites = []
+blocks = ["timeline"]
+topics = ["route", "case_truth"]
+
+[[mystery.clues]]
+id = "clue_scene"
+source = "survey_weight"
+description = "Residue at the true scene disproves the staged discovery place."
+proposition = "clue_scene"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = false
+prerequisites = []
+blocks = ["scene"]
+topics = ["weapon", "case_truth"]
+
+[[mystery.claims]]
+id = "claim_culprit"
+speaker = "sabine_cross"
+proposition = "claim_culprit"
+protects = "murder"
+response = "The tide had already reached Owen when I arrived."
+canonical_truth = false
+
+[[mystery.claims]]
+id = "claim_innocent_one"
+speaker = "dario_finch"
+proposition = "claim_innocent_one"
+protects = "private relationship"
+response = "I remained where everyone could see me."
+canonical_truth = false
+
+[[mystery.claims]]
+id = "claim_innocent_two"
+speaker = "mei_rowan"
+proposition = "claim_innocent_two"
+protects = "unrelated misconduct"
+response = "There is nothing else to explain."
+canonical_truth = false
+
+[[mystery.contradictions]]
+id = "decisive_contradiction"
+claim = "claim_culprit"
+fact = "clue_decisive"
+conclusion = ""
+explanation = "Owen was already below the rising tide while his coat crossed above it; the photographed walker is Sabine, whose shortened stride and still left arm match Mei's second sighting."
+
+[[mystery.deductions]]
+id = "deduction_solution"
+proposition = "deduction_solution"
+category = "contradiction"
+supports = []
+unlock_questions = []
+unlock_topics = ["solution_ready"]
+unlock_investigations = []
+
+[[mystery.questions]]
+id = "question_solution"
+prompt = "WHO, HOW, WHERE, WHEN, AND WHY?"
+hypothesis = "Sabine killed Owen in the service alley, moved him down the ramp, and impersonated him in his coat."
+category = "who"
+requires_clues = ["clue_weapon", "clue_route", "clue_decisive", "clue_motive"]
+requires_claims = ["claim_culprit"]
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.demonstrations]]
+id = "demonstration_solution"
+question = "question_solution"
+mode = "timeline"
+resolution = "substantiated"
+result = "Owen was already below the rising tide while his coat crossed above it; the photographed walker is Sabine, whose shortened stride and still left arm match Mei's second sighting."
+prompt = "Build the promenade chronology from the tide line, the wristband photograph, and Mei's two sightings."
+slot_labels = ["DECISIVE TESTIMONY", "CULPRIT'S ACCOUNT"]
+slot_types = ["testimony", "statement"]
+accepted = ["clue_decisive", "claim_culprit"]
+route_firsts = []
+route_counts = []
+result_deductions = ["deduction_solution"]
+
+[[mystery.dialogue]]
+node = "opening_sabine_cross"
+character = "sabine_cross"
+prompt = "Tell me about Owen Lark. What did they want tonight?"
+response = "Sabine folds the festival map. 'Owen meant to challenge the survey from the bandstand. He wanted the neighborhood watching when the boundary moved back.'"
+clue = ""
+interaction = ""
+requires = ["claim_culprit"]
+unlocks = ["account_ready_sabine_cross"]
+
+[[mystery.dialogue]]
+node = "account_sabine_cross"
+character = "sabine_cross"
+prompt = "When did the tide reach Owen?"
+response = "'Three deaths have taught Bellwether to distrust its own neighbors.' Sabine consults the festival map. 'By nine the lower ramp was awash.'"
+clue = ""
+interaction = ""
+requires = ["claim_culprit", "account_ready_sabine_cross"]
+unlocks = ["followup_sabine_cross"]
+
+[[mystery.dialogue]]
+node = "approach_sabine_cross"
+character = "sabine_cross"
+prompt = "Build the promenade chronology from the tide line, the wristband photograph, and Mei's two sightings."
+response = "You place the nine-twelve wristband photograph beside the tide chart. Sabine studies the bright coat and says nothing."
+clue = "clue_decisive"
+interaction = ""
+requires = ["clue_weapon", "clue_route", "clue_innocent_two", "claim_culprit", "followup_sabine_cross"]
+unlocks = ["clue_decisive", "case_truth"]
+
+[[mystery.dialogue]]
+node = "opening_dario_finch"
+character = "dario_finch"
+prompt = "Tell me about Owen Lark. What did they want tonight?"
+response = "Dario creases the notice again. 'Owen offered me until nine to admit the survey was wrong. After that he would make the argument public.'"
+clue = ""
+interaction = ""
+requires = ["claim_innocent_one"]
+unlocks = ["account_ready_dario_finch"]
+
+[[mystery.dialogue]]
+node = "account_dario_finch"
+character = "dario_finch"
+prompt = "Why did you meet Owen in the service alley?"
+response = "Dario folds the redevelopment notice along an old crease. 'He knew the survey was forged. I asked for time before the neighborhood saw it.'"
+clue = ""
+interaction = ""
+requires = ["claim_innocent_one", "account_ready_dario_finch"]
+unlocks = ["followup_dario_finch"]
+
+[[mystery.dialogue]]
+node = "approach_dario_finch"
+character = "dario_finch"
+prompt = "The owen's bright coat conflicts with that route. What happened there?"
+response = "'I left him alive with Sabine. She said she could correct the boundary record.'"
+clue = "clue_innocent_one"
+interaction = ""
+requires = ["clue_route", "claim_innocent_one", "followup_dario_finch"]
+unlocks = ["clue_innocent_one", "case_truth"]
+
+[[mystery.dialogue]]
+node = "opening_mei_rowan"
+character = "mei_rowan"
+prompt = "Tell me about Owen Lark. What did they want tonight?"
+response = "Mei watches the promenade above. 'Owen walked the route twice before every meeting. The old ankle injury shortened his right step; everyone here knew the rhythm.'"
+clue = ""
+interaction = ""
+requires = ["claim_innocent_two"]
+unlocks = ["account_ready_mei_rowan"]
+
+[[mystery.dialogue]]
+node = "account_mei_rowan"
+character = "mei_rowan"
+prompt = "Why did you remove the preservation files?"
+response = "Mei lists each facade before admitting the missing folder. 'I took evidence of my unauthorized repairs. Owen used it to threaten the board.'"
+clue = ""
+interaction = ""
+requires = ["claim_innocent_two", "account_ready_mei_rowan"]
+unlocks = ["followup_mei_rowan"]
+
+[[mystery.dialogue]]
+node = "approach_mei_rowan"
+character = "mei_rowan"
+prompt = "The trace on the survey weight changes that account. What did you actually see?"
+response = "'From the booth I saw the coat cross twice. The second walk was shorter, and the left arm never swung.'"
+clue = "clue_innocent_two"
+interaction = ""
+requires = ["clue_scene", "claim_innocent_two", "followup_mei_rowan"]
+unlocks = ["clue_innocent_two", "case_truth"]
+
+[[mystery.city_labels]]
+id = "bellwether_waterfront"
+display_name = "BELLWETHER WATERFRONT"
+level_spawn = "spawn"
+city_site = "south_quay_venue"
+
+[mystery.solution]
+culprit = "sabine_cross"
+motive = "clue_motive"
+decisive_contradiction = "decisive_contradiction"
+weapon_block = "weapon"
+murder_place_block = "murder_place"
+death_time_block = "death_time"
+body_movement_block = "body_movement"
+staging_block = "staging"
+cleaning_block = "cleaning"
+alibi_block = "alibi"
+requirements = ["weapon", "murder_place", "death_time", "body_movement", "staging", "cleaning", "alibi"]
+murder_events = ["event_murder"]
+cover_up_events = ["event_move", "event_stage"]
+false_alibis = ["claim_culprit"]
+exclusions = ["dario_finch", "mei_rowan"]

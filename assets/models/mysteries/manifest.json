@@ -1,0 +1,1942 @@
+{
+  "version": 1,
+  "source": "docs/mysteries/3d-prop-inventory.md",
+  "models": [
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Human body base",
+      "status": "Variant",
+      "notes": "Contemporary body variants; lying, fallen, seated/staged; removable coat and trace sockets",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/human-body-base.glb"
+    },
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Blood evidence",
+      "status": "Variant",
+      "notes": "Pool, transfer smear, impact spatter, wiped residue, blood inside a joint; decal plus optional shallow mesh",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/blood-evidence.glb"
+    },
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Trace evidence markers",
+      "status": "New",
+      "notes": "Soil, grit, clay, rosin, plaster, dust, grease, fibers, ash, condensation and residue patches",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/trace-evidence-markers.glb"
+    },
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Footprints and shoeprints",
+      "status": "New",
+      "notes": "Wet full print, stamped flat print, partial print, drag trace, boot tread impression",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/footprints-and-shoeprints.glb"
+    },
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Wheel and drag traces",
+      "status": "New",
+      "notes": "Narrow cart, trolley, luggage chair, instrument case, pit cradle, and body drag variants",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/wheel-and-drag-traces.glb"
+    },
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Generic document set",
+      "status": "Variant",
+      "notes": "Single sheet, folded letter, note, invoice, permit, report, contract, log, score and blueprint materials",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/generic-document-set.glb"
+    },
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Bound records",
+      "status": "Reuse/variant",
+      "notes": "Ledger, register, cue book, room log, casebook and menu covers",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/bound-records.glb"
+    },
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Folder and case-file set",
+      "status": "New",
+      "notes": "Open/closed folders, tabbed file, sealed OMQ capstone file, photo and evidence sleeves",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/folder-and-case-file-set.glb"
+    },
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Photograph set",
+      "status": "New",
+      "notes": "Loose print, instant print, framed photo, contact sheet; swappable image material",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/photograph-set.glb"
+    },
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Keys and access set",
+      "status": "New",
+      "notes": "House key, cabinet key, hotel key/fob, rail service key, key ring, claim token",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/keys-and-access-set.glb"
+    },
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Locks and latches",
+      "status": "New",
+      "notes": "Door lock, service latch, service catch, transom key return, broken bolt; open/closed states",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/locks-and-latches.glb"
+    },
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Glassware set",
+      "status": "New",
+      "notes": "Water, wine, tasting and whisky glasses; empty/full, condensation ring and rim-residue states",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/glassware-set.glb"
+    },
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Bottle set",
+      "status": "New",
+      "notes": "Wine, chemical, sanitizer and dye bottles; sealed/open, dusty/clean, chilled/condensed states",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/bottle-set.glb"
+    },
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Tableware set",
+      "status": "New",
+      "notes": "Plates, tasting bowls, serving bowls, engraved spoon, cutlery and place settings",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/tableware-set.glb"
+    },
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Labelled container set",
+      "status": "New",
+      "notes": "Herb jar, poison vial, sample jar, film can, evidence jar; removable lids and swappable labels",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/labelled-container-set.glb"
+    },
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Cart and trolley base",
+      "status": "New",
+      "notes": "Platform cart, plant cart, linen trolley, serving trolley; clean/damaged wheel variants",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/cart-and-trolley-base.glb"
+    },
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Storage crate set",
+      "status": "Reuse/variant",
+      "notes": "Cardboard boxes plus wood crates, archive boxes, instrument trunks and bottle cases",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/storage-crate-set.glb"
+    },
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Desk and task lighting",
+      "status": "Reuse",
+      "notes": "Existing table, floor, wall and ceiling lamps with campaign material variants",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/desk-and-task-lighting.glb"
+    },
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Clocks and timers",
+      "status": "New",
+      "notes": "Mantel clock, wall clock, kitchen timer, cue clock; running/stopped and adjustable hands",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/clocks-and-timers.glb"
+    },
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Audio recorder and speaker",
+      "status": "Variant",
+      "notes": "Contemporary-timeless recorder, portable speaker, playback controls and recording media",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/audio-recorder-and-speaker.glb"
+    },
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Camera and surveillance set",
+      "status": "New",
+      "notes": "Fixed security camera, handheld camera/phone proxy, monitor bank; adjustable aim",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/camera-and-surveillance-set.glb"
+    },
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Computer workstation",
+      "status": "Reuse/variant",
+      "notes": "Existing screen, keyboard, mouse and laptop; profession-specific screen materials",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/computer-workstation.glb"
+    },
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Display frame",
+      "status": "New",
+      "notes": "Seating chart, map, poster, program and photograph frames with removable backing",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/display-frame.glb"
+    },
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Coat and fabric evidence",
+      "status": "New",
+      "notes": "Empty hanging coat, robe, scarf, coat thread, torn fabric and folded cloth states",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/coat-and-fabric-evidence.glb"
+    },
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Ropes, cords and lines",
+      "status": "New",
+      "notes": "Rigging rope, cut safety line, survey cord and utility rope; intact/cut/coiled states",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/ropes-cords-and-lines.glb"
+    },
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Cleaning set",
+      "status": "New",
+      "notes": "Cloth, mop, bucket, sanitizer pump, spray bottle and cleaning caddy",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/cleaning-set.glb"
+    },
+    {
+      "campaign": "shared-interactive-prop-families",
+      "section": "shared-interactive-prop-families",
+      "name": "Tool and sample set",
+      "status": "New",
+      "notes": "Generic hand tools, adjustment key, sample blocks, tweezers and evidence dish",
+      "path": "shared-interactive-prop-families/shared-interactive-prop-families/tool-and-sample-set.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-garden-prize",
+      "name": "Silver garden prize cup",
+      "status": "New",
+      "notes": "False weapon; clean and handled states",
+      "path": "bellwether-mysteries/the-last-garden-prize/silver-garden-prize-cup.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-garden-prize",
+      "name": "Cast-iron hose guide",
+      "status": "New",
+      "notes": "True weapon; clean and blood-in-crevice states",
+      "path": "bellwether-mysteries/the-last-garden-prize/cast-iron-hose-guide.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-garden-prize",
+      "name": "Exhibition plant cart",
+      "status": "New",
+      "notes": "Movable; wheel-track footprint; bent latch",
+      "path": "bellwether-mysteries/the-last-garden-prize/exhibition-plant-cart.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-garden-prize",
+      "name": "Bent cart latch",
+      "status": "New",
+      "notes": "Separate inspectable part with coat thread socket",
+      "path": "bellwether-mysteries/the-last-garden-prize/bent-cart-latch.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-garden-prize",
+      "name": "Prize orchid and display pot",
+      "status": "Variant",
+      "notes": "Use foliage base; watered/unwatered soil states",
+      "path": "bellwether-mysteries/the-last-garden-prize/prize-orchid-and-display-pot.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-garden-prize",
+      "name": "Conservatory plant collection",
+      "status": "Reuse/variant",
+      "notes": "Existing plants plus flowering and specimen variants",
+      "path": "bellwether-mysteries/the-last-garden-prize/conservatory-plant-collection.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-garden-prize",
+      "name": "Potting bench",
+      "status": "Variant",
+      "notes": "Existing table with soil-resistant top and lower shelf",
+      "path": "bellwether-mysteries/the-last-garden-prize/potting-bench.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-garden-prize",
+      "name": "Soil bin",
+      "status": "New",
+      "notes": "Open/closed; hides hose guide",
+      "path": "bellwether-mysteries/the-last-garden-prize/soil-bin.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-garden-prize",
+      "name": "Soil and compost sacks",
+      "status": "New",
+      "notes": "Stacked, open and spilled variants",
+      "path": "bellwether-mysteries/the-last-garden-prize/soil-and-compost-sacks.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-garden-prize",
+      "name": "Watering can, hose and nozzle",
+      "status": "New",
+      "notes": "Hose may be spline geometry; wet/dry states",
+      "path": "bellwether-mysteries/the-last-garden-prize/watering-can-hose-and-nozzle.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-garden-prize",
+      "name": "Garden hand-tool set",
+      "status": "New",
+      "notes": "Trowel, fork, shears, dibber and labels",
+      "path": "bellwether-mysteries/the-last-garden-prize/garden-hand-tool-set.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-garden-prize",
+      "name": "Pesticide bottle and cabinet",
+      "status": "New",
+      "notes": "Supports Eli's separate wrongdoing",
+      "path": "bellwether-mysteries/the-last-garden-prize/pesticide-bottle-and-cabinet.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-garden-prize",
+      "name": "Conservatory entrance mat",
+      "status": "Reuse/variant",
+      "notes": "Existing rug; lifted state reveals wheel marks",
+      "path": "bellwether-mysteries/the-last-garden-prize/conservatory-entrance-mat.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-garden-prize",
+      "name": "Spare key and service-door latch",
+      "status": "New",
+      "notes": "Demonstration-ready moving latch",
+      "path": "bellwether-mysteries/the-last-garden-prize/spare-key-and-service-door-latch.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-garden-prize",
+      "name": "Exhibition tables, signs and ribbons",
+      "status": "Reuse/variant",
+      "notes": "Existing tables; new sign and ribbon meshes",
+      "path": "bellwether-mysteries/the-last-garden-prize/exhibition-tables-signs-and-ribbons.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-performance-at-bellwether-hall",
+      "name": "Stage brace",
+      "status": "New",
+      "notes": "True weapon; folding hinge and blood residue state",
+      "path": "bellwether-mysteries/the-last-performance-at-bellwether-hall/stage-brace.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-performance-at-bellwether-hall",
+      "name": "Rolled theatrical backdrop",
+      "status": "New",
+      "notes": "Rolled, partly unrolled and hung states; body-width crease",
+      "path": "bellwether-mysteries/the-last-performance-at-bellwether-hall/rolled-theatrical-backdrop.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-performance-at-bellwether-hall",
+      "name": "Fly-system rigging set",
+      "status": "Set piece",
+      "notes": "Battens, pulleys, counterweights, ropes and gallery rail",
+      "path": "bellwether-mysteries/the-last-performance-at-bellwether-hall/fly-system-rigging-set.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-performance-at-bellwether-hall",
+      "name": "Cut safety line",
+      "status": "New",
+      "notes": "Intact and cut variants with inspectable end",
+      "path": "bellwether-mysteries/the-last-performance-at-bellwether-hall/cut-safety-line.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-performance-at-bellwether-hall",
+      "name": "Lighting console",
+      "status": "New",
+      "notes": "Cue controls and editable cue-log screen",
+      "path": "bellwether-mysteries/the-last-performance-at-bellwether-hall/lighting-console.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-performance-at-bellwether-hall",
+      "name": "Stage lighting instruments",
+      "status": "New",
+      "notes": "Fresnel/profile fixtures, barn doors and clamps",
+      "path": "bellwether-mysteries/the-last-performance-at-bellwether-hall/stage-lighting-instruments.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-performance-at-bellwether-hall",
+      "name": "Cue-light unit",
+      "status": "New",
+      "notes": "Red/green emissive states",
+      "path": "bellwether-mysteries/the-last-performance-at-bellwether-hall/cue-light-unit.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-performance-at-bellwether-hall",
+      "name": "Rehearsal ladder",
+      "status": "Variant",
+      "notes": "Existing stairs insufficient; rolling theater ladder",
+      "path": "bellwether-mysteries/the-last-performance-at-bellwether-hall/rehearsal-ladder.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-performance-at-bellwether-hall",
+      "name": "Costume rack and hangers",
+      "status": "New",
+      "notes": "Movable garments; bead evidence socket",
+      "path": "bellwether-mysteries/the-last-performance-at-bellwether-hall/costume-rack-and-hangers.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-performance-at-bellwether-hall",
+      "name": "Costume bead and thread traces",
+      "status": "New",
+      "notes": "Inspectable hero bead plus small scatter",
+      "path": "bellwether-mysteries/the-last-performance-at-bellwether-hall/costume-bead-and-thread-traces.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-performance-at-bellwether-hall",
+      "name": "Script, cue book and stolen pages",
+      "status": "Variant",
+      "notes": "Shared document family",
+      "path": "bellwether-mysteries/the-last-performance-at-bellwether-hall/script-cue-book-and-stolen-pages.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-performance-at-bellwether-hall",
+      "name": "Prop crates and road cases",
+      "status": "Variant",
+      "notes": "Shared storage family",
+      "path": "bellwether-mysteries/the-last-performance-at-bellwether-hall/prop-crates-and-road-cases.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-performance-at-bellwether-hall",
+      "name": "Auditorium seating",
+      "status": "New",
+      "notes": "Modular rows, aisle-end and folded-seat states",
+      "path": "bellwether-mysteries/the-last-performance-at-bellwether-hall/auditorium-seating.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "the-last-performance-at-bellwether-hall",
+      "name": "Music stand / lectern",
+      "status": "New",
+      "notes": "Reusable in concert case",
+      "path": "bellwether-mysteries/the-last-performance-at-bellwether-hall/music-stand-lectern.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "a-recipe-for-silence",
+      "name": "Engraved tasting spoon",
+      "status": "New",
+      "notes": "Hero clue; clean, coated and dye-demo states",
+      "path": "bellwether-mysteries/a-recipe-for-silence/engraved-tasting-spoon.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "a-recipe-for-silence",
+      "name": "Tasting bowls and judging plates",
+      "status": "New",
+      "notes": "Reusable tableware family",
+      "path": "bellwether-mysteries/a-recipe-for-silence/tasting-bowls-and-judging-plates.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "a-recipe-for-silence",
+      "name": "Competition cookware",
+      "status": "New",
+      "notes": "Pots, pans, trays, mixing bowls and utensils",
+      "path": "bellwether-mysteries/a-recipe-for-silence/competition-cookware.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "a-recipe-for-silence",
+      "name": "Herb jars",
+      "status": "New",
+      "notes": "Dated and undated labels; swappable contents",
+      "path": "bellwether-mysteries/a-recipe-for-silence/herb-jars.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "a-recipe-for-silence",
+      "name": "Monkshood concentrate vial",
+      "status": "New",
+      "notes": "Small hero poison container",
+      "path": "bellwether-mysteries/a-recipe-for-silence/monkshood-concentrate-vial.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "a-recipe-for-silence",
+      "name": "Pantry sealing-wax set",
+      "status": "New",
+      "notes": "Wax stick, seal and broken jar seal",
+      "path": "bellwether-mysteries/a-recipe-for-silence/pantry-sealing-wax-set.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "a-recipe-for-silence",
+      "name": "Kitchen timer set",
+      "status": "New",
+      "notes": "Multiple readable timer faces",
+      "path": "bellwether-mysteries/a-recipe-for-silence/kitchen-timer-set.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "a-recipe-for-silence",
+      "name": "Prep workstation modules",
+      "status": "Variant",
+      "notes": "Existing kitchen cabinets and bars with stainless tops",
+      "path": "bellwether-mysteries/a-recipe-for-silence/prep-workstation-modules.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "a-recipe-for-silence",
+      "name": "Wash-station sink and sprayer",
+      "status": "Variant",
+      "notes": "Existing sink plus commercial sprayer and drainboard",
+      "path": "bellwether-mysteries/a-recipe-for-silence/wash-station-sink-and-sprayer.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "a-recipe-for-silence",
+      "name": "Sanitizer dispenser",
+      "status": "New",
+      "notes": "Interrupted/used level states",
+      "path": "bellwether-mysteries/a-recipe-for-silence/sanitizer-dispenser.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "a-recipe-for-silence",
+      "name": "Dish racks and bus tubs",
+      "status": "New",
+      "notes": "Spoon return path dressing",
+      "path": "bellwether-mysteries/a-recipe-for-silence/dish-racks-and-bus-tubs.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "a-recipe-for-silence",
+      "name": "Serving trolley",
+      "status": "Variant",
+      "notes": "Shared cart base",
+      "path": "bellwether-mysteries/a-recipe-for-silence/serving-trolley.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "a-recipe-for-silence",
+      "name": "Ingredient crates and sacks",
+      "status": "Variant",
+      "notes": "Shared storage family",
+      "path": "bellwether-mysteries/a-recipe-for-silence/ingredient-crates-and-sacks.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "a-recipe-for-silence",
+      "name": "Harmless dye bottle and demo tray",
+      "status": "New",
+      "notes": "Finale demonstration state",
+      "path": "bellwether-mysteries/a-recipe-for-silence/harmless-dye-bottle-and-demo-tray.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "a-recipe-for-silence",
+      "name": "Sponsor and contestant signs",
+      "status": "New",
+      "notes": "Swappable flat sign materials",
+      "path": "bellwether-mysteries/a-recipe-for-silence/sponsor-and-contestant-signs.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "death-on-the-promenade",
+      "name": "Survey weight",
+      "status": "New",
+      "notes": "True weapon; wipeable eyelet residue",
+      "path": "bellwether-mysteries/death-on-the-promenade/survey-weight.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "death-on-the-promenade",
+      "name": "Survey case",
+      "status": "New",
+      "notes": "Fiber source; open/closed states",
+      "path": "bellwether-mysteries/death-on-the-promenade/survey-case.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "death-on-the-promenade",
+      "name": "Survey tripod and instrument",
+      "status": "New",
+      "notes": "Reusable in Blackthorn cartography case",
+      "path": "bellwether-mysteries/death-on-the-promenade/survey-tripod-and-instrument.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "death-on-the-promenade",
+      "name": "Bright coat",
+      "status": "New",
+      "notes": "Wearable and empty hanging variants",
+      "path": "bellwether-mysteries/death-on-the-promenade/bright-coat.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "death-on-the-promenade",
+      "name": "Festival wristband",
+      "status": "New",
+      "notes": "Character-worn and photographic evidence variant",
+      "path": "bellwether-mysteries/death-on-the-promenade/festival-wristband.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "death-on-the-promenade",
+      "name": "Food-stall counter and canopy",
+      "status": "Variant",
+      "notes": "Existing city kit plus folding service modules",
+      "path": "bellwether-mysteries/death-on-the-promenade/food-stall-counter-and-canopy.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "death-on-the-promenade",
+      "name": "Cash till / point-of-sale terminal",
+      "status": "New",
+      "notes": "Readable transaction state",
+      "path": "bellwether-mysteries/death-on-the-promenade/cash-till-point-of-sale-terminal.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "death-on-the-promenade",
+      "name": "Preservation booth",
+      "status": "Variant",
+      "notes": "Reusable market-stall structure",
+      "path": "bellwether-mysteries/death-on-the-promenade/preservation-booth.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "death-on-the-promenade",
+      "name": "Festival banners and bunting",
+      "status": "New",
+      "notes": "Wind-capable or static variants",
+      "path": "bellwether-mysteries/death-on-the-promenade/festival-banners-and-bunting.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "death-on-the-promenade",
+      "name": "Crowd barriers and sign stands",
+      "status": "New",
+      "notes": "Modular festival dressing",
+      "path": "bellwether-mysteries/death-on-the-promenade/crowd-barriers-and-sign-stands.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "death-on-the-promenade",
+      "name": "Tide gauge / quay depth marker",
+      "status": "New",
+      "notes": "Readable water-level reference",
+      "path": "bellwether-mysteries/death-on-the-promenade/tide-gauge-quay-depth-marker.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "death-on-the-promenade",
+      "name": "Maintenance-ramp gate",
+      "status": "New",
+      "notes": "Open/closed fixture and drag-contact states",
+      "path": "bellwether-mysteries/death-on-the-promenade/maintenance-ramp-gate.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "death-on-the-promenade",
+      "name": "Permit folder and crowd counter",
+      "status": "Variant",
+      "notes": "Shared document and handheld counter",
+      "path": "bellwether-mysteries/death-on-the-promenade/permit-folder-and-crowd-counter.glb"
+    },
+    {
+      "campaign": "bellwether-mysteries",
+      "section": "death-on-the-promenade",
+      "name": "Handheld camera / phone proxy",
+      "status": "New",
+      "notes": "Provides photograph clue without brand specificity",
+      "path": "bellwether-mysteries/death-on-the-promenade/handheld-camera-phone-proxy.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-final-cut",
+      "name": "Film projector",
+      "status": "New",
+      "notes": "Running/stopped, open gate and projector-beam origin",
+      "path": "one-more-question/the-final-cut/film-projector.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-final-cut",
+      "name": "Projector reels",
+      "status": "New",
+      "notes": "Full, partial and empty winding states",
+      "path": "one-more-question/the-final-cut/projector-reels.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-final-cut",
+      "name": "Film cans and labels",
+      "status": "New",
+      "notes": "Swappable labels; one hides removed frames",
+      "path": "one-more-question/the-final-cut/film-cans-and-labels.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-final-cut",
+      "name": "Workprint film strip",
+      "status": "New",
+      "notes": "Fresh splice, missing-frame and loose-strip variants",
+      "path": "one-more-question/the-final-cut/workprint-film-strip.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-final-cut",
+      "name": "Editing bench",
+      "status": "New",
+      "notes": "Rewinds, viewer, bins and work surface",
+      "path": "one-more-question/the-final-cut/editing-bench.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-final-cut",
+      "name": "Film splicer and tape",
+      "status": "New",
+      "notes": "Hero workstation tools",
+      "path": "one-more-question/the-final-cut/film-splicer-and-tape.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-final-cut",
+      "name": "Editing waste bin",
+      "status": "Variant",
+      "notes": "Existing wastebin with film-dust contents",
+      "path": "one-more-question/the-final-cut/editing-waste-bin.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-final-cut",
+      "name": "Screening-room seats",
+      "status": "New",
+      "notes": "Modular row; one movable seat with blood below",
+      "path": "one-more-question/the-final-cut/screening-room-seats.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-final-cut",
+      "name": "Projection booth door",
+      "status": "Set piece",
+      "notes": "Sound-insulating door and inspectable threshold",
+      "path": "one-more-question/the-final-cut/projection-booth-door.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-final-cut",
+      "name": "Film-vault shelving",
+      "status": "Variant",
+      "notes": "Existing shelves with reel-sized bays",
+      "path": "one-more-question/the-final-cut/film-vault-shelving.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-final-cut",
+      "name": "Voice recorder / playback unit",
+      "status": "Variant",
+      "notes": "Shared audio family",
+      "path": "one-more-question/the-final-cut/voice-recorder-playback-unit.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-final-cut",
+      "name": "Studio case board",
+      "status": "New",
+      "notes": "Open episode files and sealed capstone display",
+      "path": "one-more-question/the-final-cut/studio-case-board.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "a-private-performance",
+      "name": "Heavy mechanical metronome",
+      "status": "New",
+      "notes": "True weapon; working pendulum and residue state",
+      "path": "one-more-question/a-private-performance/heavy-mechanical-metronome.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "a-private-performance",
+      "name": "Violin, bow and fitted case",
+      "status": "New",
+      "notes": "Reused by Blackthorn violin case",
+      "path": "one-more-question/a-private-performance/violin-bow-and-fitted-case.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "a-private-performance",
+      "name": "Double bass and wheeled case",
+      "status": "New",
+      "notes": "Case supports body movement and wheel trace",
+      "path": "one-more-question/a-private-performance/double-bass-and-wheeled-case.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "a-private-performance",
+      "name": "Music stands",
+      "status": "New",
+      "notes": "Folded, raised and fallen states",
+      "path": "one-more-question/a-private-performance/music-stands.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "a-private-performance",
+      "name": "Orchestral mute set",
+      "status": "New",
+      "notes": "Dropped mute is a timeline clue",
+      "path": "one-more-question/a-private-performance/orchestral-mute-set.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "a-private-performance",
+      "name": "Printed score and marked score",
+      "status": "Variant",
+      "notes": "Shared document family with page-open states",
+      "path": "one-more-question/a-private-performance/printed-score-and-marked-score.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "a-private-performance",
+      "name": "Rosin block and rosin dust",
+      "status": "New",
+      "notes": "Object plus trace decal",
+      "path": "one-more-question/a-private-performance/rosin-block-and-rosin-dust.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "a-private-performance",
+      "name": "Recording console",
+      "status": "New",
+      "notes": "Sliders, meters and editable display material",
+      "path": "one-more-question/a-private-performance/recording-console.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "a-private-performance",
+      "name": "Studio monitors and microphones",
+      "status": "Variant",
+      "notes": "Existing speakers plus new mic/stand set",
+      "path": "one-more-question/a-private-performance/studio-monitors-and-microphones.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "a-private-performance",
+      "name": "Waveform display",
+      "status": "Variant",
+      "notes": "Existing computer screen with authored material",
+      "path": "one-more-question/a-private-performance/waveform-display.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "a-private-performance",
+      "name": "Instrument racks",
+      "status": "New",
+      "notes": "Violin, bow and case storage modules",
+      "path": "one-more-question/a-private-performance/instrument-racks.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "a-private-performance",
+      "name": "Acoustic panels and diffusers",
+      "status": "New",
+      "notes": "Wall-mounted dressing with reusable modules",
+      "path": "one-more-question/a-private-performance/acoustic-panels-and-diffusers.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "a-private-performance",
+      "name": "Conductor's podium and music desk",
+      "status": "New",
+      "notes": "Reusable concert-hall set piece",
+      "path": "one-more-question/a-private-performance/conductor-s-podium-and-music-desk.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-perfect-vintage",
+      "name": "Modular wine rack",
+      "status": "New",
+      "notes": "Upright, loosened and collapsed states",
+      "path": "one-more-question/the-perfect-vintage/modular-wine-rack.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-perfect-vintage",
+      "name": "Wine-bottle family",
+      "status": "New",
+      "notes": "Shapes, colors, labels, dust and condensation states",
+      "path": "one-more-question/the-perfect-vintage/wine-bottle-family.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-perfect-vintage",
+      "name": "Rare hero bottle",
+      "status": "New",
+      "notes": "Warm, chilled and substituted-identical variants",
+      "path": "one-more-question/the-perfect-vintage/rare-hero-bottle.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-perfect-vintage",
+      "name": "Bottle cradle",
+      "status": "New",
+      "notes": "True weapon; moving joints and hidden residue",
+      "path": "one-more-question/the-perfect-vintage/bottle-cradle.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-perfect-vintage",
+      "name": "Narrow bottle lift",
+      "status": "Set piece",
+      "notes": "Platform, shaft doors and controls; body-transfer scale",
+      "path": "one-more-question/the-perfect-vintage/narrow-bottle-lift.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-perfect-vintage",
+      "name": "Wine glasses and tasting set",
+      "status": "New",
+      "notes": "Shared glassware family",
+      "path": "one-more-question/the-perfect-vintage/wine-glasses-and-tasting-set.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-perfect-vintage",
+      "name": "Decanter and funnel",
+      "status": "New",
+      "notes": "Cellar/tasting dressing",
+      "path": "one-more-question/the-perfect-vintage/decanter-and-funnel.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-perfect-vintage",
+      "name": "Bottle thermometer and cellar gauge",
+      "status": "New",
+      "notes": "Readable temperature cues",
+      "path": "one-more-question/the-perfect-vintage/bottle-thermometer-and-cellar-gauge.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-perfect-vintage",
+      "name": "Wine crates and straw packing",
+      "status": "Variant",
+      "notes": "Shared storage family",
+      "path": "one-more-question/the-perfect-vintage/wine-crates-and-straw-packing.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-perfect-vintage",
+      "name": "Cellar worktable",
+      "status": "Variant",
+      "notes": "Existing table with bottle tools",
+      "path": "one-more-question/the-perfect-vintage/cellar-worktable.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-perfect-vintage",
+      "name": "Rack fasteners and repair tools",
+      "status": "New",
+      "notes": "Loose hardware supports staged collapse",
+      "path": "one-more-question/the-perfect-vintage/rack-fasteners-and-repair-tools.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-perfect-vintage",
+      "name": "Carpet sample / tasting-room carpet",
+      "status": "Variant",
+      "notes": "Existing rug plus loose comparison swatch",
+      "path": "one-more-question/the-perfect-vintage/carpet-sample-tasting-room-carpet.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-perfect-vintage",
+      "name": "Cellar inventory book",
+      "status": "Variant",
+      "notes": "Shared ledger family",
+      "path": "one-more-question/the-perfect-vintage/cellar-inventory-book.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-architect-s-model",
+      "name": "Modular tower scale model",
+      "status": "Set piece",
+      "notes": "Floors, walls and removable barrier; comparison centerpiece",
+      "path": "one-more-question/the-architect-s-model/modular-tower-scale-model.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-architect-s-model",
+      "name": "Scale-model barrier",
+      "status": "New",
+      "notes": "Original/added states with visible adhesive",
+      "path": "one-more-question/the-architect-s-model/scale-model-barrier.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-architect-s-model",
+      "name": "Model-making tool set",
+      "status": "New",
+      "notes": "Knife, ruler, tweezers, glue and cutting mat",
+      "path": "one-more-question/the-architect-s-model/model-making-tool-set.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-architect-s-model",
+      "name": "Fresh and aged adhesive",
+      "status": "New",
+      "notes": "Tube plus trace states",
+      "path": "one-more-question/the-architect-s-model/fresh-and-aged-adhesive.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-architect-s-model",
+      "name": "Stone sample block",
+      "status": "New",
+      "notes": "True weapon; clean and porous blood states",
+      "path": "one-more-question/the-architect-s-model/stone-sample-block.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-architect-s-model",
+      "name": "Plaster and finish sample set",
+      "status": "New",
+      "notes": "Full-size and labelled comparison samples",
+      "path": "one-more-question/the-architect-s-model/plaster-and-finish-sample-set.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-architect-s-model",
+      "name": "Blueprint rolls and flat plans",
+      "status": "Variant",
+      "notes": "Shared document family",
+      "path": "one-more-question/the-architect-s-model/blueprint-rolls-and-flat-plans.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-architect-s-model",
+      "name": "Service-lift interior padding",
+      "status": "Set piece",
+      "notes": "Clean and fiber-bearing states",
+      "path": "one-more-question/the-architect-s-model/service-lift-interior-padding.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-architect-s-model",
+      "name": "Construction safety set",
+      "status": "New",
+      "notes": "Hard hats, cones, barriers, vest and warning signs",
+      "path": "one-more-question/the-architect-s-model/construction-safety-set.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-architect-s-model",
+      "name": "Material pallet",
+      "status": "Variant",
+      "notes": "Existing boxes plus tile, stone and plaster stacks",
+      "path": "one-more-question/the-architect-s-model/material-pallet.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-architect-s-model",
+      "name": "Survey laser / level",
+      "status": "New",
+      "notes": "Reuse survey tripod family where possible",
+      "path": "one-more-question/the-architect-s-model/survey-laser-level.glb"
+    },
+    {
+      "campaign": "one-more-question",
+      "section": "the-architect-s-model",
+      "name": "Site camera / inspection tablet",
+      "status": "Variant",
+      "notes": "Shared camera/computer family",
+      "path": "one-more-question/the-architect-s-model/site-camera-inspection-tablet.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "murder-in-the-marigold-rooms",
+      "name": "Murder knife / letter opener",
+      "status": "New",
+      "notes": "Hero weapon must be fixed during script authoring",
+      "path": "the-marigold-circle/murder-in-the-marigold-rooms/murder-knife-letter-opener.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "murder-in-the-marigold-rooms",
+      "name": "Linen trolley",
+      "status": "Variant",
+      "notes": "Shared cart base; damaged wheel and fiber states",
+      "path": "the-marigold-circle/murder-in-the-marigold-rooms/linen-trolley.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "murder-in-the-marigold-rooms",
+      "name": "Linen stacks and laundry bags",
+      "status": "New",
+      "notes": "Body concealment and corridor dressing",
+      "path": "the-marigold-circle/murder-in-the-marigold-rooms/linen-stacks-and-laundry-bags.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "murder-in-the-marigold-rooms",
+      "name": "Stopped mantel clock",
+      "status": "New",
+      "notes": "Movable hands and manual-stop state",
+      "path": "the-marigold-circle/murder-in-the-marigold-rooms/stopped-mantel-clock.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "murder-in-the-marigold-rooms",
+      "name": "Recording player",
+      "status": "New",
+      "notes": "Contemporary-timeless physical playback device",
+      "path": "the-marigold-circle/murder-in-the-marigold-rooms/recording-player.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "murder-in-the-marigold-rooms",
+      "name": "Recording media and sleeve",
+      "status": "New",
+      "notes": "Missing sleeve and labelled recording states",
+      "path": "the-marigold-circle/murder-in-the-marigold-rooms/recording-media-and-sleeve.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "murder-in-the-marigold-rooms",
+      "name": "Phonograph / media cabinet",
+      "status": "Variant",
+      "notes": "Existing cabinet with fitted player interior",
+      "path": "the-marigold-circle/murder-in-the-marigold-rooms/phonograph-media-cabinet.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "murder-in-the-marigold-rooms",
+      "name": "Conservatory planter and soil",
+      "status": "Variant",
+      "notes": "Existing plant/planter plus trace states",
+      "path": "the-marigold-circle/murder-in-the-marigold-rooms/conservatory-planter-and-soil.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "murder-in-the-marigold-rooms",
+      "name": "Formal dining table and chairs",
+      "status": "Reuse",
+      "notes": "Existing tables and chairs with Marigold materials",
+      "path": "the-marigold-circle/murder-in-the-marigold-rooms/formal-dining-table-and-chairs.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "murder-in-the-marigold-rooms",
+      "name": "Formal place-setting set",
+      "status": "New",
+      "notes": "Shared tableware and glassware families",
+      "path": "the-marigold-circle/murder-in-the-marigold-rooms/formal-place-setting-set.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "murder-in-the-marigold-rooms",
+      "name": "Cloakroom racks and claim tokens",
+      "status": "Variant",
+      "notes": "Existing coat rack plus new hangers/tokens",
+      "path": "the-marigold-circle/murder-in-the-marigold-rooms/cloakroom-racks-and-claim-tokens.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "murder-in-the-marigold-rooms",
+      "name": "Foundation papers, loan and sale files",
+      "status": "Variant",
+      "notes": "Shared document family",
+      "path": "the-marigold-circle/murder-in-the-marigold-rooms/foundation-papers-loan-and-sale-files.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "murder-in-the-marigold-rooms",
+      "name": "Service bell / audible chime",
+      "status": "New",
+      "notes": "Visual object tied to repeated background sound",
+      "path": "the-marigold-circle/murder-in-the-marigold-rooms/service-bell-audible-chime.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "five-places-at-dinner",
+      "name": "Five matched wine glasses",
+      "status": "New",
+      "notes": "Full/empty, moved, rim-poison and condensation states",
+      "path": "the-marigold-circle/five-places-at-dinner/five-matched-wine-glasses.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "five-places-at-dinner",
+      "name": "Place-card set",
+      "status": "New",
+      "notes": "Movable named cards with fingerprint overlays",
+      "path": "the-marigold-circle/five-places-at-dinner/place-card-set.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "five-places-at-dinner",
+      "name": "Framed seating chart",
+      "status": "New",
+      "notes": "Original/corrected layers and removable backing",
+      "path": "the-marigold-circle/five-places-at-dinner/framed-seating-chart.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "five-places-at-dinner",
+      "name": "Wine bottle and serving carafe",
+      "status": "New",
+      "notes": "Shared wine family",
+      "path": "the-marigold-circle/five-places-at-dinner/wine-bottle-and-serving-carafe.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "five-places-at-dinner",
+      "name": "Poison applicator / vial",
+      "status": "New",
+      "notes": "Small hero object",
+      "path": "the-marigold-circle/five-places-at-dinner/poison-applicator-vial.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "five-places-at-dinner",
+      "name": "Caterer's kit",
+      "status": "New",
+      "notes": "Knife roll, bottles, cloths and planted-poison socket",
+      "path": "the-marigold-circle/five-places-at-dinner/caterer-s-kit.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "five-places-at-dinner",
+      "name": "Serving trays and cloches",
+      "status": "New",
+      "notes": "Formal service dressing",
+      "path": "the-marigold-circle/five-places-at-dinner/serving-trays-and-cloches.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "five-places-at-dinner",
+      "name": "Formal five-place table setting",
+      "status": "New",
+      "notes": "Uses shared tableware family",
+      "path": "the-marigold-circle/five-places-at-dinner/formal-five-place-table-setting.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "five-places-at-dinner",
+      "name": "Gallery display plinths",
+      "status": "New",
+      "notes": "Reusable collection-gallery modules",
+      "path": "the-marigold-circle/five-places-at-dinner/gallery-display-plinths.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "five-places-at-dinner",
+      "name": "Art frames and sculptural placeholders",
+      "status": "Variant",
+      "notes": "Existing statuette plus new frames/plinth materials",
+      "path": "the-marigold-circle/five-places-at-dinner/art-frames-and-sculptural-placeholders.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "five-places-at-dinner",
+      "name": "Reflection-bearing framed artwork",
+      "status": "New",
+      "notes": "Provides preserved table-composition clue",
+      "path": "the-marigold-circle/five-places-at-dinner/reflection-bearing-framed-artwork.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "five-places-at-dinner",
+      "name": "Family letter and invoices",
+      "status": "Variant",
+      "notes": "Shared document family",
+      "path": "the-marigold-circle/five-places-at-dinner/family-letter-and-invoices.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "the-guest-in-suite-808",
+      "name": "Marble bookend pair",
+      "status": "New",
+      "notes": "True weapon; clean and blood-in-felt states",
+      "path": "the-marigold-circle/the-guest-in-suite-808/marble-bookend-pair.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "the-guest-in-suite-808",
+      "name": "Connecting suite door",
+      "status": "Set piece",
+      "notes": "Sticking lower edge, paint-transfer and open/closed states",
+      "path": "the-marigold-circle/the-guest-in-suite-808/connecting-suite-door.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "the-guest-in-suite-808",
+      "name": "Hotel key and key-log terminal",
+      "status": "New",
+      "notes": "Shared key set plus readable terminal",
+      "path": "the-marigold-circle/the-guest-in-suite-808/hotel-key-and-key-log-terminal.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "the-guest-in-suite-808",
+      "name": "Gala coat",
+      "status": "New",
+      "notes": "Wearable and staged-on-body variants",
+      "path": "the-marigold-circle/the-guest-in-suite-808/gala-coat.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "the-guest-in-suite-808",
+      "name": "Coat-check ticket and claim rack",
+      "status": "New",
+      "notes": "Token, ticket and numbered rack system",
+      "path": "the-marigold-circle/the-guest-in-suite-808/coat-check-ticket-and-claim-rack.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "the-guest-in-suite-808",
+      "name": "Room-service tray set",
+      "status": "New",
+      "notes": "Tray, dome, crockery, receipt and pen",
+      "path": "the-marigold-circle/the-guest-in-suite-808/room-service-tray-set.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "the-guest-in-suite-808",
+      "name": "Signature pad / register",
+      "status": "Variant",
+      "notes": "Shared document or computer family",
+      "path": "the-marigold-circle/the-guest-in-suite-808/signature-pad-register.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "the-guest-in-suite-808",
+      "name": "Historical letters and packet",
+      "status": "Variant",
+      "notes": "Shared document family with tied/open states",
+      "path": "the-marigold-circle/the-guest-in-suite-808/historical-letters-and-packet.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "the-guest-in-suite-808",
+      "name": "Dumbwaiter",
+      "status": "Set piece",
+      "notes": "Car, hatch and controls; not a body route",
+      "path": "the-marigold-circle/the-guest-in-suite-808/dumbwaiter.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "the-guest-in-suite-808",
+      "name": "Hotel luggage and bell cart",
+      "status": "New",
+      "notes": "Reusable travel props",
+      "path": "the-marigold-circle/the-guest-in-suite-808/hotel-luggage-and-bell-cart.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "the-guest-in-suite-808",
+      "name": "Suite furniture",
+      "status": "Reuse",
+      "notes": "Existing beds, desks, chairs, tables and lamps",
+      "path": "the-marigold-circle/the-guest-in-suite-808/suite-furniture.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "the-guest-in-suite-808",
+      "name": "Archive shelves and boxes",
+      "status": "Reuse/variant",
+      "notes": "Existing bookcases and boxes with hotel labels",
+      "path": "the-marigold-circle/the-guest-in-suite-808/archive-shelves-and-boxes.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "the-sleeper-across-the-city",
+      "name": "Sleeping carriage interior kit",
+      "status": "Set piece",
+      "notes": "Compartment shell, bunks, corridor and doors",
+      "path": "the-marigold-circle/the-sleeper-across-the-city/sleeping-carriage-interior-kit.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "the-sleeper-across-the-city",
+      "name": "Rail service catch",
+      "status": "New",
+      "notes": "Demonstration-ready lock mechanism",
+      "path": "the-marigold-circle/the-sleeper-across-the-city/rail-service-catch.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "the-sleeper-across-the-city",
+      "name": "Luggage chair",
+      "status": "New",
+      "notes": "Movable; wheel grease and body-transfer states",
+      "path": "the-marigold-circle/the-sleeper-across-the-city/luggage-chair.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "the-sleeper-across-the-city",
+      "name": "Robe",
+      "status": "New",
+      "notes": "Wearable and empty silhouette variants",
+      "path": "the-marigold-circle/the-sleeper-across-the-city/robe.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "the-sleeper-across-the-city",
+      "name": "Tickets, sleeves and luggage tags",
+      "status": "New",
+      "notes": "Movable identity and room-assignment set",
+      "path": "the-marigold-circle/the-sleeper-across-the-city/tickets-sleeves-and-luggage-tags.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "the-sleeper-across-the-city",
+      "name": "Suitcases, trunks and hat boxes",
+      "status": "New",
+      "notes": "Reusable hotel/rail luggage family",
+      "path": "the-marigold-circle/the-sleeper-across-the-city/suitcases-trunks-and-hat-boxes.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "the-sleeper-across-the-city",
+      "name": "Attendant's key ring and punch",
+      "status": "New",
+      "notes": "Rail-specific access set",
+      "path": "the-marigold-circle/the-sleeper-across-the-city/attendant-s-key-ring-and-punch.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "the-sleeper-across-the-city",
+      "name": "Rope coil and fiber trace",
+      "status": "New",
+      "notes": "Shared rope family",
+      "path": "the-marigold-circle/the-sleeper-across-the-city/rope-coil-and-fiber-trace.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "the-sleeper-across-the-city",
+      "name": "Compartment bedding",
+      "status": "New",
+      "notes": "Pillows, blankets and disturbed states",
+      "path": "the-marigold-circle/the-sleeper-across-the-city/compartment-bedding.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "the-sleeper-across-the-city",
+      "name": "Observation-lounge furnishings",
+      "status": "Reuse",
+      "notes": "Existing sofas, chairs, tables and lamps",
+      "path": "the-marigold-circle/the-sleeper-across-the-city/observation-lounge-furnishings.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "the-sleeper-across-the-city",
+      "name": "Dining-car place settings",
+      "status": "Reuse/new",
+      "notes": "Reuse shared Marigold tableware",
+      "path": "the-marigold-circle/the-sleeper-across-the-city/dining-car-place-settings.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "the-sleeper-across-the-city",
+      "name": "Baggage racks and shelving",
+      "status": "New",
+      "notes": "Carriage-specific modular storage",
+      "path": "the-marigold-circle/the-sleeper-across-the-city/baggage-racks-and-shelving.glb"
+    },
+    {
+      "campaign": "the-marigold-circle",
+      "section": "the-sleeper-across-the-city",
+      "name": "Window-view panels",
+      "status": "Set piece",
+      "notes": "Swappable City views to communicate train movement",
+      "path": "the-marigold-circle/the-sleeper-across-the-city/window-view-panels.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-ashes-of-blackthorn-lane",
+      "name": "Brass cartographer's divider",
+      "status": "New",
+      "notes": "True weapon and drawing tool; blood-joint state",
+      "path": "the-blackthorn-papers/the-ashes-of-blackthorn-lane/brass-cartographer-s-divider.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-ashes-of-blackthorn-lane",
+      "name": "Survey staff",
+      "status": "New",
+      "notes": "Socket accepts carved sole; demonstration-ready",
+      "path": "the-blackthorn-papers/the-ashes-of-blackthorn-lane/survey-staff.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-ashes-of-blackthorn-lane",
+      "name": "Carved boot sole",
+      "status": "New",
+      "notes": "Separate hero clue and mounted state",
+      "path": "the-blackthorn-papers/the-ashes-of-blackthorn-lane/carved-boot-sole.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-ashes-of-blackthorn-lane",
+      "name": "Wet stamped footprints",
+      "status": "New",
+      "notes": "Flat-pressure print sequence and partials",
+      "path": "the-blackthorn-papers/the-ashes-of-blackthorn-lane/wet-stamped-footprints.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-ashes-of-blackthorn-lane",
+      "name": "Workroom key",
+      "status": "New",
+      "notes": "Shared key set",
+      "path": "the-blackthorn-papers/the-ashes-of-blackthorn-lane/workroom-key.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-ashes-of-blackthorn-lane",
+      "name": "Operable transom",
+      "status": "Set piece",
+      "notes": "Key-return path; open/closed states",
+      "path": "the-blackthorn-papers/the-ashes-of-blackthorn-lane/operable-transom.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-ashes-of-blackthorn-lane",
+      "name": "Burned tracing-linen remains",
+      "status": "New",
+      "notes": "Decoy fragments and ash-fiber close state",
+      "path": "the-blackthorn-papers/the-ashes-of-blackthorn-lane/burned-tracing-linen-remains.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-ashes-of-blackthorn-lane",
+      "name": "Intact tracing linen and maps",
+      "status": "New",
+      "notes": "Rolled, flat, folded and burned-edge variants",
+      "path": "the-blackthorn-papers/the-ashes-of-blackthorn-lane/intact-tracing-linen-and-maps.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-ashes-of-blackthorn-lane",
+      "name": "Cartographer's drawing board",
+      "status": "New",
+      "notes": "Pressure-impression reveal material/state",
+      "path": "the-blackthorn-papers/the-ashes-of-blackthorn-lane/cartographer-s-drawing-board.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-ashes-of-blackthorn-lane",
+      "name": "Map weights and straightedges",
+      "status": "New",
+      "notes": "Professional table dressing",
+      "path": "the-blackthorn-papers/the-ashes-of-blackthorn-lane/map-weights-and-straightedges.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-ashes-of-blackthorn-lane",
+      "name": "Survey tripod and instrument",
+      "status": "Reuse/new",
+      "notes": "Share Bellwether survey set",
+      "path": "the-blackthorn-papers/the-ashes-of-blackthorn-lane/survey-tripod-and-instrument.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-ashes-of-blackthorn-lane",
+      "name": "Print press / large-format printer",
+      "status": "Set piece",
+      "notes": "Timeless hybrid print-room equipment",
+      "path": "the-blackthorn-papers/the-ashes-of-blackthorn-lane/print-press-large-format-printer.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-ashes-of-blackthorn-lane",
+      "name": "Map drawers / flat file",
+      "status": "New",
+      "notes": "Openable shallow drawers",
+      "path": "the-blackthorn-papers/the-ashes-of-blackthorn-lane/map-drawers-flat-file.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-ashes-of-blackthorn-lane",
+      "name": "Clay sample containers",
+      "status": "New",
+      "notes": "Shared labelled-container family",
+      "path": "the-blackthorn-papers/the-ashes-of-blackthorn-lane/clay-sample-containers.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-ashes-of-blackthorn-lane",
+      "name": "Sales ledger and field note",
+      "status": "Variant",
+      "notes": "Shared records and document family",
+      "path": "the-blackthorn-papers/the-ashes-of-blackthorn-lane/sales-ledger-and-field-note.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-violinist-without-a-shadow",
+      "name": "Violin, bow and case",
+      "status": "Reuse/new",
+      "notes": "Share OMQ orchestra family",
+      "path": "the-blackthorn-papers/the-violinist-without-a-shadow/violin-bow-and-case.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-violinist-without-a-shadow",
+      "name": "Music-stand weight",
+      "status": "New",
+      "notes": "True weapon; residue state",
+      "path": "the-blackthorn-papers/the-violinist-without-a-shadow/music-stand-weight.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-violinist-without-a-shadow",
+      "name": "Music stand",
+      "status": "Reuse/new",
+      "notes": "Share orchestra family",
+      "path": "the-blackthorn-papers/the-violinist-without-a-shadow/music-stand.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-violinist-without-a-shadow",
+      "name": "Articulated mannequin",
+      "status": "New",
+      "notes": "Dressed/undressed and movable states",
+      "path": "the-blackthorn-papers/the-violinist-without-a-shadow/articulated-mannequin.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-violinist-without-a-shadow",
+      "name": "Spare scarf",
+      "status": "New",
+      "notes": "Worn, draped and fiber-trace states",
+      "path": "the-blackthorn-papers/the-violinist-without-a-shadow/spare-scarf.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-violinist-without-a-shadow",
+      "name": "Playback recorder and speaker",
+      "status": "Variant",
+      "notes": "Shared audio family",
+      "path": "the-blackthorn-papers/the-violinist-without-a-shadow/playback-recorder-and-speaker.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-violinist-without-a-shadow",
+      "name": "Practice-room acoustic panels",
+      "status": "Reuse/new",
+      "notes": "Shared orchestra family",
+      "path": "the-blackthorn-papers/the-violinist-without-a-shadow/practice-room-acoustic-panels.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-violinist-without-a-shadow",
+      "name": "Replacement strings and packet",
+      "status": "New",
+      "notes": "Sabotaged/intact variants",
+      "path": "the-blackthorn-papers/the-violinist-without-a-shadow/replacement-strings-and-packet.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-violinist-without-a-shadow",
+      "name": "Room-booking log",
+      "status": "Variant",
+      "notes": "Shared ledger or computer material",
+      "path": "the-blackthorn-papers/the-violinist-without-a-shadow/room-booking-log.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-violinist-without-a-shadow",
+      "name": "Courtyard bell",
+      "status": "New",
+      "notes": "Visible time/audio landmark",
+      "path": "the-blackthorn-papers/the-violinist-without-a-shadow/courtyard-bell.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-violinist-without-a-shadow",
+      "name": "Angled glass passage panels",
+      "status": "Set piece",
+      "notes": "Reflection proxy with authored state/material",
+      "path": "the-blackthorn-papers/the-violinist-without-a-shadow/angled-glass-passage-panels.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-violinist-without-a-shadow",
+      "name": "Recital chairs and podium",
+      "status": "Reuse",
+      "notes": "Existing chairs plus concert podium",
+      "path": "the-blackthorn-papers/the-violinist-without-a-shadow/recital-chairs-and-podium.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-red-fog-of-south-quay",
+      "name": "Industrial yard blower",
+      "status": "Set piece",
+      "notes": "Running/stopped; accepts dust hopper",
+      "path": "the-blackthorn-papers/the-red-fog-of-south-quay/industrial-yard-blower.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-red-fog-of-south-quay",
+      "name": "Iron-oxide hopper and powder",
+      "status": "New",
+      "notes": "Fill states and residue decals",
+      "path": "the-blackthorn-papers/the-red-fog-of-south-quay/iron-oxide-hopper-and-powder.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-red-fog-of-south-quay",
+      "name": "Maintenance gas line",
+      "status": "Set piece",
+      "notes": "Modular pipe with vent endpoint",
+      "path": "the-blackthorn-papers/the-red-fog-of-south-quay/maintenance-gas-line.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-red-fog-of-south-quay",
+      "name": "Corroded and replacement valves",
+      "status": "New",
+      "notes": "Removed, fitted and retained variants",
+      "path": "the-blackthorn-papers/the-red-fog-of-south-quay/corroded-and-replacement-valves.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-red-fog-of-south-quay",
+      "name": "Remote control panel",
+      "status": "New",
+      "notes": "Authored manual sequence display",
+      "path": "the-blackthorn-papers/the-red-fog-of-south-quay/remote-control-panel.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-red-fog-of-south-quay",
+      "name": "Industrial fans",
+      "status": "New",
+      "notes": "Running/stopped blades and direction indicator",
+      "path": "the-blackthorn-papers/the-red-fog-of-south-quay/industrial-fans.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-red-fog-of-south-quay",
+      "name": "Vent grilles and duct modules",
+      "status": "New",
+      "notes": "Supports airflow demonstration",
+      "path": "the-blackthorn-papers/the-red-fog-of-south-quay/vent-grilles-and-duct-modules.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-red-fog-of-south-quay",
+      "name": "Gas detector / meter",
+      "status": "New",
+      "notes": "Readable safe/detected states",
+      "path": "the-blackthorn-papers/the-red-fog-of-south-quay/gas-detector-meter.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-red-fog-of-south-quay",
+      "name": "Evidence sample dishes",
+      "status": "New",
+      "notes": "Reusable laboratory container family",
+      "path": "the-blackthorn-papers/the-red-fog-of-south-quay/evidence-sample-dishes.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-red-fog-of-south-quay",
+      "name": "Smoke-test canister",
+      "status": "New",
+      "notes": "Finale airflow demonstration prop",
+      "path": "the-blackthorn-papers/the-red-fog-of-south-quay/smoke-test-canister.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-red-fog-of-south-quay",
+      "name": "Bird cages and perches",
+      "status": "New",
+      "notes": "Healthy-animal environmental proof",
+      "path": "the-blackthorn-papers/the-red-fog-of-south-quay/bird-cages-and-perches.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-red-fog-of-south-quay",
+      "name": "Animal carriers and rescue kit",
+      "status": "New",
+      "notes": "Explains Lena's trespass",
+      "path": "the-blackthorn-papers/the-red-fog-of-south-quay/animal-carriers-and-rescue-kit.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-red-fog-of-south-quay",
+      "name": "PPE set",
+      "status": "New",
+      "notes": "Respirator, goggles, gloves and hard case",
+      "path": "the-blackthorn-papers/the-red-fog-of-south-quay/ppe-set.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-red-fog-of-south-quay",
+      "name": "Pipe tools and shutdown kit",
+      "status": "New",
+      "notes": "Wrenches, lockout tags and damaged part",
+      "path": "the-blackthorn-papers/the-red-fog-of-south-quay/pipe-tools-and-shutdown-kit.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-red-fog-of-south-quay",
+      "name": "Industrial barrels and pallets",
+      "status": "Reuse/variant",
+      "notes": "Existing industrial kit dressing",
+      "path": "the-blackthorn-papers/the-red-fog-of-south-quay/industrial-barrels-and-pallets.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-empty-carriage",
+      "name": "Inspection rail carriage",
+      "status": "Set piece",
+      "notes": "Exterior and explorable interior; movable one-car-length state",
+      "path": "the-blackthorn-papers/the-empty-carriage/inspection-rail-carriage.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-empty-carriage",
+      "name": "Wash-track rail car",
+      "status": "Set piece",
+      "notes": "Distinct body-discovery car",
+      "path": "the-blackthorn-papers/the-empty-carriage/wash-track-rail-car.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-empty-carriage",
+      "name": "Brake shoe",
+      "status": "New",
+      "notes": "True weapon; clean and residue states",
+      "path": "the-blackthorn-papers/the-empty-carriage/brake-shoe.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-empty-carriage",
+      "name": "Floor hatch and hidden bolt",
+      "status": "Set piece",
+      "notes": "Open/closed, bolted/broken and grease-transfer states",
+      "path": "the-blackthorn-papers/the-empty-carriage/floor-hatch-and-hidden-bolt.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-empty-carriage",
+      "name": "Wheeled pit cradle",
+      "status": "New",
+      "notes": "Body-transfer capacity and wheel-trace state",
+      "path": "the-blackthorn-papers/the-empty-carriage/wheeled-pit-cradle.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-empty-carriage",
+      "name": "Maintenance pit modules",
+      "status": "Set piece",
+      "notes": "Rails, walkways, ladder, drainage and cradle path",
+      "path": "the-blackthorn-papers/the-empty-carriage/maintenance-pit-modules.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-empty-carriage",
+      "name": "Rail chalk marks",
+      "status": "New",
+      "notes": "Before/after wheel-position decals",
+      "path": "the-blackthorn-papers/the-empty-carriage/rail-chalk-marks.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-empty-carriage",
+      "name": "Fixed depot cameras",
+      "status": "New",
+      "notes": "Reuse shared surveillance family",
+      "path": "the-blackthorn-papers/the-empty-carriage/fixed-depot-cameras.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-empty-carriage",
+      "name": "Window scratch",
+      "status": "New",
+      "notes": "Swappable carriage-window material/decal states",
+      "path": "the-blackthorn-papers/the-empty-carriage/window-scratch.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-empty-carriage",
+      "name": "Switch-booth control board",
+      "status": "Set piece",
+      "notes": "Manual movement controls and contact indicators",
+      "path": "the-blackthorn-papers/the-empty-carriage/switch-booth-control-board.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-empty-carriage",
+      "name": "Brake grease and residue",
+      "status": "New",
+      "notes": "Shared trace family",
+      "path": "the-blackthorn-papers/the-empty-carriage/brake-grease-and-residue.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-empty-carriage",
+      "name": "Tool-bay rack and rail tools",
+      "status": "New",
+      "notes": "Brake tools, wrenches, jacks and inspection lamps",
+      "path": "the-blackthorn-papers/the-empty-carriage/tool-bay-rack-and-rail-tools.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-empty-carriage",
+      "name": "Wash-track brushes and nozzles",
+      "status": "Set piece",
+      "notes": "Static or simple running states",
+      "path": "the-blackthorn-papers/the-empty-carriage/wash-track-brushes-and-nozzles.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-empty-carriage",
+      "name": "Inspection photographs",
+      "status": "Variant",
+      "notes": "Shared photograph family",
+      "path": "the-blackthorn-papers/the-empty-carriage/inspection-photographs.glb"
+    },
+    {
+      "campaign": "the-blackthorn-papers",
+      "section": "the-empty-carriage",
+      "name": "Depot barriers and safety signs",
+      "status": "Reuse/variant",
+      "notes": "Share construction/industrial safety set",
+      "path": "the-blackthorn-papers/the-empty-carriage/depot-barriers-and-safety-signs.glb"
+    }
+  ]
+}

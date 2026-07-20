@@ -1,0 +1,408 @@
+version = "LevelFormat v1"
+id = "saye_foundation_gallery"
+name = "Saye Foundation Gallery Investigation Lot"
+width = 40
+height = 28
+content_offset = [[4, 4]]
+story_limit = 3
+default_snap = 0.5
+fine_snap = 0.25
+angle_snap = 15.0
+
+[[stories]]
+id = "ground"
+name = "Ground Floor"
+base_elevation = 0.0
+floor_height = 3.5
+
+[[foundations]]
+id = "main_foundation"
+kind = "slab"
+points = [[0, 0], [30, 0], [30, 12], [0, 12]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "reception_room"
+name = "Reception Room"
+story = 0
+points = [[0, 0], [6, 0], [6, 12], [0, 12]]
+platform_height = 0.0
+floor_material = "core:dining"
+wall_material = "core:dining"
+ceiling_style = "coffered"
+exterior = false
+
+[[rooms]]
+id = "dining_room"
+name = "Dining Room"
+story = 0
+points = [[6, 0], [12, 0], [12, 12], [6, 12]]
+platform_height = 0.0
+floor_material = "core:study"
+wall_material = "core:study"
+ceiling_style = "coffered"
+exterior = false
+
+[[rooms]]
+id = "serving_pantry"
+name = "Serving Pantry"
+story = 0
+points = [[12, 0], [18, 0], [18, 12], [12, 12]]
+platform_height = 0.0
+floor_material = "core:dining"
+wall_material = "core:dining"
+ceiling_style = "coffered"
+exterior = false
+
+[[rooms]]
+id = "terrace"
+name = "Terrace"
+story = 0
+points = [[18, 0], [24, 0], [24, 12], [18, 12]]
+platform_height = 0.0
+floor_material = "core:study"
+wall_material = "core:study"
+ceiling_style = "coffered"
+exterior = false
+
+[[rooms]]
+id = "collection_gallery"
+name = "Collection Gallery"
+story = 0
+points = [[24, 0], [30, 0], [30, 12], [24, 12]]
+platform_height = 0.0
+floor_material = "core:dining"
+wall_material = "core:dining"
+ceiling_style = "coffered"
+exterior = false
+
+[[markers]]
+id = "spawn_player"
+reference = ""
+kind = "player_spawn"
+story = 0
+position = [[3.0, 2.0]]
+radius = 0.4
+facing = 90.0
+
+[[markers]]
+id = "transition_to_city"
+reference = ""
+destination = "city:saye_foundation_gallery"
+kind = "transition"
+story = 0
+position = [[3.0, 0.75]]
+radius = 0.8
+
+[[markers]]
+id = "spawn_felix"
+reference = "felix"
+kind = "character_spawn"
+story = 0
+position = [[3.0, 6.0]]
+radius = 0.5
+facing = 90.0
+
+[[markers]]
+id = "spawn_alma"
+reference = "alma"
+kind = "character_spawn"
+story = 0
+position = [[9.0, 6.0]]
+radius = 0.5
+facing = 90.0
+
+[[markers]]
+id = "spawn_ren"
+reference = "ren"
+kind = "character_spawn"
+story = 0
+position = [[15.0, 6.0]]
+radius = 0.5
+facing = 90.0
+
+[[markers]]
+id = "interact_poisoned_rim"
+reference = "poisoned_rim"
+kind = "interaction"
+story = 0
+position = [[2.0, 3.0]]
+radius = 0.65
+facing = 90.0
+
+[[markers]]
+id = "interact_condensation_rings"
+reference = "condensation_rings"
+kind = "interaction"
+story = 0
+position = [[8.0, 3.0]]
+radius = 0.65
+facing = 90.0
+
+[[markers]]
+id = "interact_place_cards"
+reference = "place_cards"
+kind = "interaction"
+story = 0
+position = [[14.0, 3.0]]
+radius = 0.65
+facing = 90.0
+
+[[markers]]
+id = "interact_seating_chart"
+reference = "seating_chart"
+kind = "interaction"
+story = 0
+position = [[20.0, 3.0]]
+radius = 0.65
+facing = 90.0
+
+[[markers]]
+id = "interact_gallery_reflection"
+reference = "gallery_reflection"
+kind = "interaction"
+story = 0
+position = [[26.0, 3.0]]
+radius = 0.65
+facing = 90.0
+
+[[markers]]
+id = "interact_planted_poison"
+reference = "planted_poison"
+kind = "interaction"
+story = 0
+position = [[2.0, 9.0]]
+radius = 0.65
+facing = 90.0
+
+[[markers]]
+id = "interact_family_letter"
+reference = "family_letter"
+kind = "interaction"
+story = 0
+position = [[8.0, 9.0]]
+radius = 0.65
+facing = 90.0
+
+[[markers]]
+id = "interact_ren_invoices"
+reference = "ren_invoices"
+kind = "interaction"
+story = 0
+position = [[14.0, 9.0]]
+radius = 0.65
+facing = 90.0
+
+[[markers]]
+id = "interact_felix_seat_testimony"
+reference = "felix_seat_testimony"
+kind = "interaction"
+story = 0
+position = [[20.0, 9.0]]
+radius = 0.65
+facing = 90.0
+
+# BEGIN GENERATED ROOM FURNISHINGS
+
+[[objects]]
+id = "furnish_reception_room_1_lounge_design_sofa"
+catalog_id = "core:lounge_design_sofa"
+story = 0
+position = [[1.50, 3.60]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_reception_room_2_lounge_design_chair"
+catalog_id = "core:lounge_design_chair"
+story = 0
+position = [[4.50, 3.60]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_reception_room_3_table_coffee_square"
+catalog_id = "core:table_coffee_square"
+story = 0
+position = [[3.00, 6.60]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_reception_room_4_floor_lamp"
+catalog_id = "core:floor_lamp"
+story = 0
+position = [[4.92, 9.12]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_reception_room_5_plant"
+catalog_id = "core:plant"
+story = 0
+position = [[1.08, 9.36]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_dining_room_1_table_round"
+catalog_id = "core:table_round"
+story = 0
+position = [[9.00, 5.76]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_dining_room_2_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[9.00, 3.00]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_dining_room_3_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[9.00, 8.64]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_dining_room_4_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[7.50, 5.76]]
+rotation = 270.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_dining_room_5_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[10.50, 5.76]]
+rotation = 90.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_serving_pantry_1_kitchen_cabinet"
+catalog_id = "core:kitchen_cabinet"
+story = 0
+position = [[13.08, 2.64]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_serving_pantry_2_kitchen_cabinet_upper_double"
+catalog_id = "core:kitchen_cabinet_upper_double"
+story = 0
+position = [[15.00, 2.16]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_serving_pantry_3_kitchen_cabinet_upper"
+catalog_id = "core:kitchen_cabinet_upper"
+story = 0
+position = [[16.80, 2.16]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_serving_pantry_4_stool_bar"
+catalog_id = "core:stool_bar"
+story = 0
+position = [[14.88, 7.80]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_serving_pantry_5_trashcan"
+catalog_id = "core:trashcan"
+story = 0
+position = [[16.92, 9.00]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_terrace_1_yard_bench"
+catalog_id = "core:yard_bench"
+story = 0
+position = [[20.10, 3.84]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_terrace_2_nature_bush"
+catalog_id = "core:nature_bush"
+story = 0
+position = [[19.08, 9.12]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_terrace_3_nature_flowers"
+catalog_id = "core:nature_flowers"
+story = 0
+position = [[21.12, 9.36]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_terrace_4_nature_grass"
+catalog_id = "core:nature_grass"
+story = 0
+position = [[22.80, 8.64]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_terrace_5_stylized_tree_1"
+catalog_id = "core:stylized_tree_1"
+story = 0
+position = [[22.92, 2.88]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_collection_gallery_1_bookcase_closed_wide"
+catalog_id = "core:bookcase_closed_wide"
+story = 0
+position = [[25.08, 2.88]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_collection_gallery_2_bookcase_open_low"
+catalog_id = "core:bookcase_open_low"
+story = 0
+position = [[27.00, 2.16]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_collection_gallery_3_cardboard_box_closed"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[28.68, 2.88]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_collection_gallery_4_cardboard_box_open"
+catalog_id = "core:cardboard_box_open"
+story = 0
+position = [[28.68, 8.64]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_collection_gallery_5_trashcan"
+catalog_id = "core:trashcan"
+story = 0
+position = [[25.08, 9.00]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+# END GENERATED ROOM FURNISHINGS

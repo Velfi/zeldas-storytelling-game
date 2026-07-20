@@ -1,0 +1,1735 @@
+version = "InteractiveStory v1"
+id = "the_empty_carriage"
+title = "The Empty Carriage"
+creator = "Chicago conversion tool"
+description = "Mae Corbin entered a sealed inspection carriage and vanished. Her body was found beneath another car."
+content_version = "1.0.0"
+default_space = "the_empty_carriage_lot"
+revision = 0
+
+[[capabilities]]
+id = "mystery"
+version = "1"
+
+[[entities]]
+id = "mae_corbin"
+kind = "character"
+display_name = "Mae Corbin"
+description = "Mae Corbin planned to condemn the inspection carriage unless its unexplained movements were resolved that night. She checked defects with her own hands and left pencilled questions beside anything an official log made too tidy."
+space_id = ""
+target_kind = "entity"
+target_id = ""
+tags = ["victim"]
+roles = []
+
+[[entities]]
+id = "galen_shore"
+kind = "character"
+display_name = "Galen Shore"
+description = "Depot foreman who reduces responsibility to maintenance vocabulary and distinctions between broken and difficult."
+space_id = "the_empty_carriage_lot"
+target_kind = "marker"
+target_id = "spawn_galen_shore"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "tari_noll"
+kind = "character"
+display_name = "Tari Noll"
+description = "Driver who remembers movements as numbered operations and lies only where an unauthorized trip threatens his post."
+space_id = "the_empty_carriage_lot"
+target_kind = "marker"
+target_id = "spawn_tari_noll"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "esme_park"
+kind = "character"
+display_name = "Esme Park"
+description = "Inspector who distrusts labels and identifies rolling stock through scratches, alignments, and repeated photographs."
+space_id = "the_empty_carriage_lot"
+target_kind = "marker"
+target_id = "spawn_esme_park"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "inspection_carriage"
+kind = "location"
+display_name = "INSPECTION CARRIAGE"
+description = "Inspection Carriage is a connected, spatially testable part of the case."
+space_id = "the_empty_carriage_lot"
+target_kind = "room"
+target_id = "inspection_carriage"
+tags = []
+roles = []
+
+[[entities]]
+id = "maintenance_pit"
+kind = "location"
+display_name = "MAINTENANCE PIT"
+description = "Maintenance Pit is a connected, spatially testable part of the case."
+space_id = "the_empty_carriage_lot"
+target_kind = "room"
+target_id = "maintenance_pit"
+tags = []
+roles = []
+
+[[entities]]
+id = "switch_booth"
+kind = "location"
+display_name = "SWITCH BOOTH"
+description = "Switch Booth is a connected, spatially testable part of the case."
+space_id = "the_empty_carriage_lot"
+target_kind = "room"
+target_id = "switch_booth"
+tags = []
+roles = []
+
+[[entities]]
+id = "tool_bay"
+kind = "location"
+display_name = "TOOL BAY"
+description = "Tool Bay is a connected, spatially testable part of the case."
+space_id = "the_empty_carriage_lot"
+target_kind = "room"
+target_id = "tool_bay"
+tags = []
+roles = []
+
+[[entities]]
+id = "wash_track"
+kind = "location"
+display_name = "WASH TRACK"
+description = "Wash Track is a connected, spatially testable part of the case."
+space_id = "the_empty_carriage_lot"
+target_kind = "room"
+target_id = "wash_track"
+tags = []
+roles = []
+
+[[entities]]
+id = "cleaned_brake_shoe"
+kind = "object"
+display_name = "Cleaned Brake Shoe"
+description = "Mae's wound matches the cleaned brake shoe."
+space_id = "the_empty_carriage_lot"
+target_kind = "marker"
+target_id = "clue_marker_1"
+tags = []
+roles = []
+
+[[entities]]
+id = "greased_floor_hatch"
+kind = "mechanism"
+display_name = "Greased Floor Hatch"
+description = "Hatch grease on Mae's coat proves a downward route."
+space_id = "the_empty_carriage_lot"
+target_kind = "marker"
+target_id = "clue_marker_2"
+tags = []
+roles = []
+
+[[entities]]
+id = "wheeled_pit_cradle"
+kind = "mechanism"
+display_name = "Wheeled Pit Cradle"
+description = "The pit cradle carries Mae's fibers and fresh wash-track grit."
+space_id = "the_empty_carriage_lot"
+target_kind = "marker"
+target_id = "clue_marker_3"
+tags = []
+roles = []
+
+[[entities]]
+id = "rail_chalk_marks"
+kind = "object"
+display_name = "Rail Chalk Marks"
+description = "Rail chalk marks prove the carriage moved and returned."
+space_id = "the_empty_carriage_lot"
+target_kind = "marker"
+target_id = "clue_marker_4"
+tags = []
+roles = []
+
+[[entities]]
+id = "fixed_depot_camera"
+kind = "mechanism"
+display_name = "Fixed Depot Camera"
+description = "Camera framing hides car numbers but preserves a changed window scratch."
+space_id = "the_empty_carriage_lot"
+target_kind = "marker"
+target_id = "clue_marker_5"
+tags = []
+roles = []
+
+[[entities]]
+id = "manual_switch_contacts"
+kind = "object"
+display_name = "Manual Switch Contacts"
+description = "Switch contacts record a manual movement during the outage."
+space_id = "the_empty_carriage_lot"
+target_kind = "marker"
+target_id = "clue_marker_6"
+tags = []
+roles = []
+
+[[entities]]
+id = "altered_driver_log"
+kind = "object"
+display_name = "Altered Driver Log"
+description = "Tari's earlier unauthorized movement explains his altered log."
+space_id = "the_empty_carriage_lot"
+target_kind = "marker"
+target_id = "clue_marker_7"
+tags = []
+roles = []
+
+[[entities]]
+id = "inspection_photographs"
+kind = "object"
+display_name = "Inspection Photographs"
+description = "Esme's photographs preserve the original scratch position."
+space_id = "the_empty_carriage_lot"
+target_kind = "marker"
+target_id = "clue_marker_8"
+tags = []
+roles = []
+
+[[entities]]
+id = "concealed_broken_bolt"
+kind = "object"
+display_name = "Concealed Broken Bolt"
+description = "Galen knew the floor hatch's hidden bolt was broken before it was inspected."
+space_id = "the_empty_carriage_lot"
+target_kind = "marker"
+target_id = "clue_marker_9"
+tags = []
+roles = []
+
+[[propositions]]
+id = "claim_galen_shore"
+text = "Galen Shore claims no knowledge of the concealed mechanism."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "claim_tari_noll"
+text = "Tari Noll gives an incomplete but innocent account."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "claim_esme_park"
+text = "Esme Park gives an incomplete but innocent account."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_1"
+text = "Mae's wound matches the cleaned brake shoe."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_2"
+text = "Hatch grease on Mae's coat proves a downward route."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_3"
+text = "The pit cradle carries Mae's fibers and fresh wash-track grit."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_4"
+text = "Rail chalk marks prove the carriage moved and returned."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_5"
+text = "Camera framing hides car numbers but preserves a changed window scratch."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_6"
+text = "Switch contacts record a manual movement during the outage."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_7"
+text = "Tari's earlier unauthorized movement explains his altered log."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_8"
+text = "Esme's photographs preserve the original scratch position."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_9"
+text = "Galen knew the floor hatch's hidden bolt was broken before it was inspected."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "precedent_transfer"
+text = "The Blackthorn Lane transfer test separates a mark from the movement it appears to record."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "precedent_playback"
+text = "The Quill Arts playback test treats the repeated frame as a constructed sighting, then identifies the moving window scratch."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "precedent_distraction"
+text = "The South Quay distraction test separates the visible failure from the switch contacts and chalk marks that record the real operation."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "deduction_1"
+text = "Mae's wound matches the cleaned brake shoe."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "deduction_2"
+text = "The pit cradle carries Mae's fibers and fresh wash-track grit."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "deduction_3"
+text = "Camera framing hides car numbers but preserves a changed window scratch."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "deduction_4"
+text = "Tari's earlier unauthorized movement explains his altered log."
+canonical_truth = "undetermined"
+
+[[events]]
+id = "crime_event"
+subject = "galen_shore"
+action = "kill"
+object = "mae_corbin"
+location = "inspection_carriage"
+fictional_time = "20:20"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[events]]
+id = "cover_event"
+subject = "galen_shore"
+action = "alter"
+object = "greased_floor_hatch"
+location = "inspection_carriage"
+fictional_time = "20:30"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[conditions]]
+id = "condition.always"
+kind = "always"
+children = []
+variable = ""
+entity = ""
+other_entity = ""
+proposition = ""
+objective = ""
+event = ""
+content = ""
+text = ""
+space_a = ""
+target_a = ""
+space_b = ""
+target_b = ""
+distance = 0
+value_kind = "boolean"
+boolean_value = false
+integer_value = 0
+text_value = ""
+comparison = 0
+objective_status = 0
+stance = "uncertain"
+
+[[scenes]]
+id = "final_confrontation"
+display_name = "Galen killed Mae with a brake shoe, lowered her through the hatch on a pit cradle, and moved the carriage out and back during the outage."
+entry_node = "reconstruction"
+bound_entity = "galen_shore"
+summary = "Galen killed Mae with a brake shoe, lowered her through the hatch on a pit cradle, and moved the carriage out and back during the outage."
+return_to = "board"
+
+[[scenes]]
+id = "scene_opening_galen_shore"
+display_name = "Galen studies Mae's pencilled defect list. 'She came to close the carriage, not inspect it. Once Mae wrote a question mark, somebody lost a shift.'"
+entry_node = "opening_galen_shore_line"
+bound_entity = "galen_shore"
+summary = "Galen studies Mae's pencilled defect list. 'She came to close the carriage, not inspect it. Once Mae wrote a question mark, somebody lost a shift.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_galen_shore"
+display_name = "Galen rubs black grease from his cuff. 'Everyone in the bay knew the hatch was temperamental.'"
+entry_node = "account_galen_shore_line"
+bound_entity = "galen_shore"
+summary = "Galen rubs black grease from his cuff. 'Everyone in the bay knew the hatch was temperamental.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_galen_shore"
+display_name = "'Broken is your word. I said it needed persuasion.' Galen glances at the still-fastened hatch."
+entry_node = "approach_galen_shore_line"
+bound_entity = "galen_shore"
+summary = "'Broken is your word. I said it needed persuasion.' Galen glances at the still-fastened hatch."
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_opening_tari_noll"
+display_name = "Tari gives the movement number first. 'Mae asked whether the carriage had travelled off-book. I told her to read the log. I last saw her climb aboard alone.'"
+entry_node = "opening_tari_noll_line"
+bound_entity = "tari_noll"
+summary = "Tari gives the movement number first. 'Mae asked whether the carriage had travelled off-book. I told her to read the log. I last saw her climb aboard alone.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_tari_noll"
+display_name = "Tari reads the movement numbers back without looking up. 'I borrowed the carriage Tuesday. No authority, no spotter, no accident.'"
+entry_node = "account_tari_noll_line"
+bound_entity = "tari_noll"
+summary = "Tari reads the movement numbers back without looking up. 'I borrowed the carriage Tuesday. No authority, no spotter, no accident.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_tari_noll"
+display_name = "'I changed Tuesday to save my post. Tonight's switch contacts are not mine.'"
+entry_node = "approach_tari_noll_line"
+bound_entity = "tari_noll"
+summary = "'I changed Tuesday to save my post. Tonight's switch contacts are not mine.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_opening_esme_park"
+display_name = "Esme aligns two photographs. 'Mae distrusted fleet numbers after the repaint. She asked me to preserve every scratch before maintenance touched the car.'"
+entry_node = "opening_esme_park_line"
+bound_entity = "esme_park"
+summary = "Esme aligns two photographs. 'Mae distrusted fleet numbers after the repaint. She asked me to preserve every scratch before maintenance touched the car.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_esme_park"
+display_name = "Esme lays the prints edge to edge. 'The camera cannot read a car number, so I use scars in the glass.'"
+entry_node = "account_esme_park_line"
+bound_entity = "esme_park"
+summary = "Esme lays the prints edge to edge. 'The camera cannot read a car number, so I use scars in the glass.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_esme_park"
+display_name = "Her pencil stops at one window. 'This scratch left frame and returned. The carriage moved.'"
+entry_node = "approach_esme_park_line"
+bound_entity = "esme_park"
+summary = "Her pencil stops at one window. 'This scratch left frame and returned. The carriage moved.'"
+return_to = "investigation"
+
+[[nodes]]
+id = "reconstruction"
+scene = "final_confrontation"
+kind = "line"
+line_id = "reconstruction"
+speaker = "detective"
+text = "Galen killed Mae with a brake shoe, lowered her through the hatch on a pit cradle, and moved the carriage out and back during the outage."
+next = "answer"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = ""
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "reconstruction"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "answer"
+scene = "final_confrontation"
+kind = "line"
+line_id = "answer"
+speaker = "galen_shore"
+text = "The physical reconstruction leaves no honest alternative."
+next = "end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = ""
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "answer"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "end"
+scene = "final_confrontation"
+kind = "end"
+line_id = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = ""
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_galen_shore_line"
+scene = "scene_opening_galen_shore"
+kind = "line"
+line_id = "opening_galen_shore_line"
+speaker = "galen_shore"
+text = "Galen studies Mae's pencilled defect list. 'She came to close the carriage, not inspect it. Once Mae wrote a question mark, somebody lost a shift.'"
+next = "opening_galen_shore_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_galen_shore_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_galen_shore_end"
+scene = "scene_opening_galen_shore"
+kind = "end"
+line_id = "opening_galen_shore_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_galen_shore_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_galen_shore_line"
+scene = "scene_account_galen_shore"
+kind = "line"
+line_id = "account_galen_shore_line"
+speaker = "galen_shore"
+text = "Galen rubs black grease from his cuff. 'Everyone in the bay knew the hatch was temperamental.'"
+next = "account_galen_shore_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_galen_shore_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_galen_shore_end"
+scene = "scene_account_galen_shore"
+kind = "end"
+line_id = "account_galen_shore_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_galen_shore_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_galen_shore_line"
+scene = "scene_approach_galen_shore"
+kind = "line"
+line_id = "approach_galen_shore_line"
+speaker = "galen_shore"
+text = "'Broken is your word. I said it needed persuasion.' Galen glances at the still-fastened hatch."
+next = "approach_galen_shore_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_galen_shore_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_galen_shore_end"
+scene = "scene_approach_galen_shore"
+kind = "end"
+line_id = "approach_galen_shore_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_galen_shore_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_tari_noll_line"
+scene = "scene_opening_tari_noll"
+kind = "line"
+line_id = "opening_tari_noll_line"
+speaker = "tari_noll"
+text = "Tari gives the movement number first. 'Mae asked whether the carriage had travelled off-book. I told her to read the log. I last saw her climb aboard alone.'"
+next = "opening_tari_noll_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_tari_noll_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_tari_noll_end"
+scene = "scene_opening_tari_noll"
+kind = "end"
+line_id = "opening_tari_noll_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_tari_noll_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_tari_noll_line"
+scene = "scene_account_tari_noll"
+kind = "line"
+line_id = "account_tari_noll_line"
+speaker = "tari_noll"
+text = "Tari reads the movement numbers back without looking up. 'I borrowed the carriage Tuesday. No authority, no spotter, no accident.'"
+next = "account_tari_noll_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_tari_noll_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_tari_noll_end"
+scene = "scene_account_tari_noll"
+kind = "end"
+line_id = "account_tari_noll_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_tari_noll_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_tari_noll_line"
+scene = "scene_approach_tari_noll"
+kind = "line"
+line_id = "approach_tari_noll_line"
+speaker = "tari_noll"
+text = "'I changed Tuesday to save my post. Tonight's switch contacts are not mine.'"
+next = "approach_tari_noll_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_tari_noll_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_tari_noll_end"
+scene = "scene_approach_tari_noll"
+kind = "end"
+line_id = "approach_tari_noll_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_tari_noll_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_esme_park_line"
+scene = "scene_opening_esme_park"
+kind = "line"
+line_id = "opening_esme_park_line"
+speaker = "esme_park"
+text = "Esme aligns two photographs. 'Mae distrusted fleet numbers after the repaint. She asked me to preserve every scratch before maintenance touched the car.'"
+next = "opening_esme_park_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_esme_park_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_esme_park_end"
+scene = "scene_opening_esme_park"
+kind = "end"
+line_id = "opening_esme_park_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_esme_park_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_esme_park_line"
+scene = "scene_account_esme_park"
+kind = "line"
+line_id = "account_esme_park_line"
+speaker = "esme_park"
+text = "Esme lays the prints edge to edge. 'The camera cannot read a car number, so I use scars in the glass.'"
+next = "account_esme_park_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_esme_park_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_esme_park_end"
+scene = "scene_account_esme_park"
+kind = "end"
+line_id = "account_esme_park_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_esme_park_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_esme_park_line"
+scene = "scene_approach_esme_park"
+kind = "line"
+line_id = "approach_esme_park_line"
+speaker = "esme_park"
+text = "Her pencil stops at one window. 'This scratch left frame and returned. The carriage moved.'"
+next = "approach_esme_park_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_esme_park_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_esme_park_end"
+scene = "scene_approach_esme_park"
+kind = "end"
+line_id = "approach_esme_park_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_esme_park_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[mystery]
+action_budget = 12
+seed = 20261018
+tutorial = ""
+city_start = ""
+city_destination = "the_empty_carriage_venue"
+reveal_location = "inspection_carriage"
+
+[[mystery.characters]]
+entity = "mae_corbin"
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = []
+
+[[mystery.characters]]
+entity = "galen_shore"
+private_secret = ""
+motive = "Conceals the crime's material mechanism."
+initial_disposition = 0
+initial_claims = ["claim_galen_shore"]
+
+[[mystery.characters]]
+entity = "tari_noll"
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_tari_noll"]
+
+[[mystery.characters]]
+entity = "esme_park"
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_esme_park"]
+
+[[mystery.locations]]
+entity = "inspection_carriage"
+connections = ["maintenance_pit"]
+characters = []
+pois = ["cleaned_brake_shoe", "manual_switch_contacts"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "maintenance_pit"
+connections = ["inspection_carriage", "switch_booth"]
+characters = ["mae_corbin"]
+pois = ["greased_floor_hatch", "altered_driver_log"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "switch_booth"
+connections = ["maintenance_pit", "tool_bay"]
+characters = ["galen_shore"]
+pois = ["wheeled_pit_cradle", "inspection_photographs"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "tool_bay"
+connections = ["switch_booth", "wash_track"]
+characters = ["tari_noll"]
+pois = ["rail_chalk_marks", "concealed_broken_bolt"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "wash_track"
+connections = ["tool_bay"]
+characters = []
+pois = ["fixed_depot_camera"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.pois]]
+entity = "cleaned_brake_shoe"
+location = "inspection_carriage"
+owner = ""
+relevant_state = "Mae's wound matches the cleaned brake shoe."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "greased_floor_hatch"
+location = "maintenance_pit"
+owner = ""
+relevant_state = "Hatch grease on Mae's coat proves a downward route."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "wheeled_pit_cradle"
+location = "switch_booth"
+owner = ""
+relevant_state = "The pit cradle carries Mae's fibers and fresh wash-track grit."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "rail_chalk_marks"
+location = "tool_bay"
+owner = ""
+relevant_state = "Rail chalk marks prove the carriage moved and returned."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "fixed_depot_camera"
+location = "wash_track"
+owner = ""
+relevant_state = "Camera framing hides car numbers but preserves a changed window scratch."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "manual_switch_contacts"
+location = "inspection_carriage"
+owner = ""
+relevant_state = "Switch contacts record a manual movement during the outage."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "altered_driver_log"
+location = "maintenance_pit"
+owner = ""
+relevant_state = "Tari's earlier unauthorized movement explains his altered log."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "inspection_photographs"
+location = "switch_booth"
+owner = ""
+relevant_state = "Esme's photographs preserve the original scratch position."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "concealed_broken_bolt"
+location = "tool_bay"
+owner = ""
+relevant_state = "Galen knew the floor hatch's hidden bolt was broken before it was inspected."
+examination_action = "examine"
+
+[[mystery.events]]
+event = "crime_event"
+destination = "inspection_carriage"
+tool = "cleaned_brake_shoe"
+effects = ["victim_dead"]
+
+[[mystery.events]]
+event = "cover_event"
+destination = "maintenance_pit"
+tool = ""
+effects = ["scene_staged"]
+
+[[mystery.clues]]
+id = "clue_1"
+source = "cleaned_brake_shoe"
+description = "Mae's wound matches the cleaned brake shoe."
+proposition = "clue_1"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["weapon"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_2"
+source = "greased_floor_hatch"
+description = "Hatch grease on Mae's coat proves a downward route."
+proposition = "clue_2"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["murder_place"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_3"
+source = "wheeled_pit_cradle"
+description = "The pit cradle carries Mae's fibers and fresh wash-track grit."
+proposition = "clue_3"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["death_time"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_4"
+source = "rail_chalk_marks"
+description = "Rail chalk marks prove the carriage moved and returned."
+proposition = "clue_4"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["body_movement"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_5"
+source = "fixed_depot_camera"
+description = "Camera framing hides car numbers but preserves a changed window scratch."
+proposition = "clue_5"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["staging"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_6"
+source = "manual_switch_contacts"
+description = "Switch contacts record a manual movement during the outage."
+proposition = "clue_6"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["cleaning"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_7"
+source = "tari_noll"
+description = "Tari's earlier unauthorized movement explains his altered log."
+proposition = "clue_7"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["alibi"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_8"
+source = "esme_park"
+description = "Esme's photographs preserve the original scratch position."
+proposition = "clue_8"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = []
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_9"
+source = "galen_shore"
+description = "Galen knew the floor hatch's hidden bolt was broken before it was inspected."
+proposition = "clue_9"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["claim_galen_shore"]
+topics = ["mechanism"]
+
+[[mystery.claims]]
+id = "claim_galen_shore"
+speaker = "galen_shore"
+proposition = "claim_galen_shore"
+protects = ""
+response = "Galen Shore maintains the account until the physical reconstruction."
+canonical_truth = false
+
+[[mystery.claims]]
+id = "claim_tari_noll"
+speaker = "tari_noll"
+proposition = "claim_tari_noll"
+protects = ""
+response = "Tari Noll maintains the account until the physical reconstruction."
+canonical_truth = true
+
+[[mystery.claims]]
+id = "claim_esme_park"
+speaker = "esme_park"
+proposition = "claim_esme_park"
+protects = ""
+response = "Esme Park maintains the account until the physical reconstruction."
+canonical_truth = true
+
+[[mystery.contradictions]]
+id = "decisive_contradiction"
+claim = "claim_galen_shore"
+fact = "clue_9"
+conclusion = ""
+explanation = "Galen killed Mae with a brake shoe, lowered her through the hatch on a pit cradle, and moved the carriage out and back during the outage."
+
+[[mystery.deductions]]
+id = "precedent_transfer"
+proposition = "precedent_transfer"
+category = "concealment"
+supports = []
+unlock_questions = []
+unlock_topics = []
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "precedent_playback"
+proposition = "precedent_playback"
+category = "concealment"
+supports = []
+unlock_questions = []
+unlock_topics = []
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "precedent_distraction"
+proposition = "precedent_distraction"
+category = "concealment"
+supports = []
+unlock_questions = []
+unlock_topics = []
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "deduction_1"
+proposition = "deduction_1"
+category = "what"
+supports = []
+unlock_questions = []
+unlock_topics = []
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "deduction_2"
+proposition = "deduction_2"
+category = "where_when"
+supports = []
+unlock_questions = []
+unlock_topics = []
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "deduction_3"
+proposition = "deduction_3"
+category = "concealment"
+supports = []
+unlock_questions = []
+unlock_topics = []
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "deduction_4"
+proposition = "deduction_4"
+category = "contradiction"
+supports = []
+unlock_questions = []
+unlock_topics = []
+unlock_investigations = []
+
+[[mystery.questions]]
+id = "question_precedent_transfer"
+prompt = "Can the grease on Mae's coat record an applied trace rather than her own descent?"
+hypothesis = "The Blackthorn Lane transfer test separates a mark from the movement it appears to record."
+category = "concealment"
+requires_clues = ["clue_2", "clue_3"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_precedent_playback"
+prompt = "Can the fixed camera preserve continuity while the carriage itself changes position?"
+hypothesis = "The Quill Arts playback test treats the repeated frame as a constructed sighting, then identifies the moving window scratch."
+category = "concealment"
+requires_clues = ["clue_5", "clue_8"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_precedent_distraction"
+prompt = "Did the conspicuous outage conceal a quieter manual movement?"
+hypothesis = "The South Quay distraction test separates the visible failure from the switch contacts and chalk marks that record the real operation."
+category = "concealment"
+requires_clues = ["clue_4", "clue_6"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_1"
+prompt = "What does this physical comparison establish?"
+hypothesis = "Mae's wound matches the cleaned brake shoe."
+category = "what"
+requires_clues = ["clue_1", "clue_2"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_2"
+prompt = "What does this physical comparison establish?"
+hypothesis = "The pit cradle carries Mae's fibers and fresh wash-track grit."
+category = "where_when"
+requires_clues = ["clue_3", "clue_4"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_3"
+prompt = "What does this physical comparison establish?"
+hypothesis = "Camera framing hides car numbers but preserves a changed window scratch."
+category = "concealment"
+requires_clues = ["clue_5", "clue_6"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_4"
+prompt = "What does this physical comparison establish?"
+hypothesis = "Tari's earlier unauthorized movement explains his altered log."
+category = "contradiction"
+requires_clues = ["clue_7", "clue_8"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.demonstrations]]
+id = "demonstration_precedent_transfer"
+question = "question_precedent_transfer"
+mode = "comparison"
+resolution = "substantiated"
+result = "The Blackthorn Lane transfer test separates a mark from the movement it appears to record."
+prompt = "Apply the recovered transfer precedent to the carriage record."
+slot_labels = ["Carriage trace", "Precedent comparison"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_2", "clue_3"]
+route_firsts = []
+route_counts = []
+result_deductions = ["precedent_transfer"]
+
+[[mystery.demonstrations]]
+id = "demonstration_precedent_playback"
+question = "question_precedent_playback"
+mode = "comparison"
+resolution = "substantiated"
+result = "The Quill Arts playback test treats the repeated frame as a constructed sighting, then identifies the moving window scratch."
+prompt = "Apply the recovered playback precedent to the carriage record."
+slot_labels = ["Carriage trace", "Precedent comparison"]
+slot_types = ["observation", "testimony"]
+accepted = ["clue_5", "clue_8"]
+route_firsts = []
+route_counts = []
+result_deductions = ["precedent_playback"]
+
+[[mystery.demonstrations]]
+id = "demonstration_precedent_distraction"
+question = "question_precedent_distraction"
+mode = "comparison"
+resolution = "substantiated"
+result = "The South Quay distraction test separates the visible failure from the switch contacts and chalk marks that record the real operation."
+prompt = "Apply the recovered distraction precedent to the carriage record."
+slot_labels = ["Carriage trace", "Precedent comparison"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_4", "clue_6"]
+route_firsts = []
+route_counts = []
+result_deductions = ["precedent_distraction"]
+
+[[mystery.demonstrations]]
+id = "demonstration_1"
+question = "question_1"
+mode = "comparison"
+resolution = "substantiated"
+result = "Galen killed Mae with a brake shoe, lowered her through the hatch on a pit cradle, and moved the carriage out and back during the outage."
+prompt = "Combine the two observations and test the authored mechanism."
+slot_labels = ["Evidence A", "Evidence B"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_1", "clue_2"]
+route_firsts = []
+route_counts = []
+result_deductions = ["deduction_1"]
+
+[[mystery.demonstrations]]
+id = "demonstration_2"
+question = "question_2"
+mode = "physical"
+resolution = "substantiated"
+result = "Galen killed Mae with a brake shoe, lowered her through the hatch on a pit cradle, and moved the carriage out and back during the outage."
+prompt = "Combine the two observations and test the authored mechanism."
+slot_labels = ["Evidence A", "Evidence B"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_3", "clue_4"]
+route_firsts = []
+route_counts = []
+result_deductions = ["deduction_2"]
+
+[[mystery.demonstrations]]
+id = "demonstration_3"
+question = "question_3"
+mode = "timeline"
+resolution = "substantiated"
+result = "Galen killed Mae with a brake shoe, lowered her through the hatch on a pit cradle, and moved the carriage out and back during the outage."
+prompt = "Combine the two observations and test the authored mechanism."
+slot_labels = ["Evidence A", "Evidence B"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_5", "clue_6"]
+route_firsts = []
+route_counts = []
+result_deductions = ["deduction_3"]
+
+[[mystery.demonstrations]]
+id = "demonstration_4"
+question = "question_4"
+mode = "confrontation"
+resolution = "substantiated"
+result = "Galen killed Mae with a brake shoe, lowered her through the hatch on a pit cradle, and moved the carriage out and back during the outage."
+prompt = "Combine the two observations and test the authored mechanism."
+slot_labels = ["Evidence A", "Evidence B"]
+slot_types = ["testimony", "testimony"]
+accepted = ["clue_7", "clue_8"]
+route_firsts = []
+route_counts = []
+result_deductions = ["deduction_4"]
+
+[[mystery.dialogue]]
+node = "opening_galen_shore"
+character = "galen_shore"
+prompt = "Tell me about Mae Corbin. What did they want tonight?"
+response = "Galen studies Mae's pencilled defect list. 'She came to close the carriage, not inspect it. Once Mae wrote a question mark, somebody lost a shift.'"
+clue = ""
+interaction = ""
+requires = ["claim_galen_shore"]
+unlocks = ["account_ready_galen_shore"]
+
+[[mystery.dialogue]]
+node = "account_galen_shore"
+character = "galen_shore"
+prompt = "Who told you the hatch bolt was broken?"
+response = "Galen rubs black grease from his cuff. 'Everyone in the bay knew the hatch was temperamental.'"
+clue = ""
+interaction = ""
+requires = ["claim_galen_shore", "account_ready_galen_shore"]
+unlocks = ["followup_galen_shore"]
+
+[[mystery.dialogue]]
+node = "approach_galen_shore"
+character = "galen_shore"
+prompt = "Then account for the cleaned brake shoe."
+response = "'Broken is your word. I said it needed persuasion.' Galen glances at the still-fastened hatch."
+clue = "clue_9"
+interaction = ""
+requires = ["clue_1", "claim_galen_shore", "followup_galen_shore"]
+unlocks = ["clue_9", "mechanism"]
+
+[[mystery.dialogue]]
+node = "opening_tari_noll"
+character = "tari_noll"
+prompt = "Tell me about Mae Corbin. What did they want tonight?"
+response = "Tari gives the movement number first. 'Mae asked whether the carriage had travelled off-book. I told her to read the log. I last saw her climb aboard alone.'"
+clue = ""
+interaction = ""
+requires = ["claim_tari_noll"]
+unlocks = ["account_ready_tari_noll"]
+
+[[mystery.dialogue]]
+node = "account_tari_noll"
+character = "tari_noll"
+prompt = "Why did you alter the driver log?"
+response = "Tari reads the movement numbers back without looking up. 'I borrowed the carriage Tuesday. No authority, no spotter, no accident.'"
+clue = ""
+interaction = ""
+requires = ["claim_tari_noll", "account_ready_tari_noll"]
+unlocks = ["followup_tari_noll"]
+
+[[mystery.dialogue]]
+node = "approach_tari_noll"
+character = "tari_noll"
+prompt = "Then account for the wheeled pit cradle."
+response = "'I changed Tuesday to save my post. Tonight's switch contacts are not mine.'"
+clue = "clue_7"
+interaction = ""
+requires = ["clue_3", "claim_tari_noll", "followup_tari_noll"]
+unlocks = ["clue_7", "mechanism"]
+
+[[mystery.dialogue]]
+node = "opening_esme_park"
+character = "esme_park"
+prompt = "Tell me about Mae Corbin. What did they want tonight?"
+response = "Esme aligns two photographs. 'Mae distrusted fleet numbers after the repaint. She asked me to preserve every scratch before maintenance touched the car.'"
+clue = ""
+interaction = ""
+requires = ["claim_esme_park"]
+unlocks = ["account_ready_esme_park"]
+
+[[mystery.dialogue]]
+node = "account_esme_park"
+character = "esme_park"
+prompt = "What changed between your inspection photographs?"
+response = "Esme lays the prints edge to edge. 'The camera cannot read a car number, so I use scars in the glass.'"
+clue = ""
+interaction = ""
+requires = ["claim_esme_park", "account_ready_esme_park"]
+unlocks = ["followup_esme_park"]
+
+[[mystery.dialogue]]
+node = "approach_esme_park"
+character = "esme_park"
+prompt = "Then account for the fixed depot camera."
+response = "Her pencil stops at one window. 'This scratch left frame and returned. The carriage moved.'"
+clue = "clue_8"
+interaction = ""
+requires = ["clue_5", "claim_esme_park", "followup_esme_park"]
+unlocks = ["clue_8", "mechanism"]
+
+[[mystery.city_labels]]
+id = "the_empty_carriage_venue"
+display_name = "CORBIN TRANSIT DEPOT"
+level_spawn = "spawn_player"
+city_site = "depot_ward_venue"
+
+[mystery.solution]
+culprit = "galen_shore"
+motive = "clue_9"
+decisive_contradiction = "decisive_contradiction"
+weapon_block = "weapon"
+murder_place_block = "murder_place"
+death_time_block = "death_time"
+body_movement_block = "body_movement"
+staging_block = "staging"
+cleaning_block = "cleaning"
+alibi_block = "alibi"
+requirements = ["weapon", "murder_place", "death_time", "body_movement", "staging", "cleaning", "alibi"]
+murder_events = ["crime_event"]
+cover_up_events = ["cover_event"]
+false_alibis = ["claim_galen_shore"]
+exclusions = ["tari_noll", "esme_park"]

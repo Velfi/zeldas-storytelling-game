@@ -1,0 +1,4137 @@
+version = "LevelFormat v1"
+id = "vale_house"
+name = "Vale House Grand Estate"
+width = 48
+height = 52
+story_limit = 5
+default_snap = 0.500
+fine_snap = 0.250
+angle_snap = 15.000
+terrain = [0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000]
+
+[[stories]]
+id = "ground"
+name = "Ground Floor"
+base_elevation = 0.000
+floor_height = 3.500
+
+[[rooms]]
+id = "dining_room"
+name = "State Dining & Ballroom"
+story = 0
+points = [[8.000, 10.000], [27.000, 10.000], [27.000, 18.000], [8.000, 18.000]]
+platform_height = 0.000
+floor_material = "core:dining"
+wall_material = "core:dining"
+floor_tint = [255, 255, 255, 255]
+wall_tint = [255, 255, 255, 255]
+ceiling_style = "coffered"
+exterior = false
+
+[[rooms]]
+id = "study"
+name = "Library & Study"
+story = 0
+points = [[8.000, 18.000], [19.000, 18.000], [19.000, 28.000], [8.000, 28.000]]
+platform_height = 0.000
+floor_material = "core:study"
+wall_material = "core:study"
+floor_tint = [255, 255, 255, 255]
+wall_tint = [255, 255, 255, 255]
+ceiling_style = "coffered"
+exterior = false
+
+[[rooms]]
+id = "gallery"
+name = "Long Gallery"
+story = 0
+points = [[8.000, 28.000], [29.000, 28.000], [29.000, 34.000], [8.000, 34.000]]
+platform_height = 0.000
+floor_material = "core:gallery"
+wall_material = "core:gallery"
+floor_tint = [255, 255, 255, 255]
+wall_tint = [255, 255, 255, 255]
+ceiling_style = "coffered"
+exterior = false
+
+[[rooms]]
+id = "pantry"
+name = "Miriam's Sitting Room"
+story = 0
+points = [[27.000, 10.000], [33.000, 10.000], [33.000, 18.000], [27.000, 18.000]]
+platform_height = 0.000
+floor_material = "core:1940s_club_russet"
+wall_material = "core:1940s_club_russet"
+floor_tint = [255, 255, 255, 255]
+wall_tint = [255, 255, 255, 255]
+ceiling_style = "flat"
+exterior = false
+
+[[rooms]]
+id = "master_bedroom"
+name = "Edgar & Miriam's Bedroom"
+story = 0
+points = [[8.000, 34.000], [19.000, 34.000], [19.000, 42.000], [8.000, 42.000]]
+platform_height = 0.000
+floor_material = "core:study"
+wall_material = "core:study"
+floor_tint = [255, 255, 255, 255]
+wall_tint = [255, 255, 255, 255]
+ceiling_style = "coffered"
+exterior = false
+
+[[rooms]]
+id = "bedroom_hall"
+name = "Bedroom Hall"
+story = 0
+points = [[19.000, 34.000], [29.000, 34.000], [29.000, 38.000], [19.000, 38.000]]
+platform_height = 0.000
+floor_material = "core:gallery"
+wall_material = "core:gallery"
+floor_tint = [255, 255, 255, 255]
+wall_tint = [255, 255, 255, 255]
+ceiling_style = "flat"
+exterior = false
+
+[[rooms]]
+id = "bathroom"
+name = "Family Bathroom"
+story = 0
+points = [[19.000, 38.000], [24.000, 38.000], [24.000, 42.000], [19.000, 42.000]]
+platform_height = 0.000
+floor_material = "core:pantry"
+wall_material = "core:pantry"
+floor_tint = [255, 255, 255, 255]
+wall_tint = [255, 255, 255, 255]
+ceiling_style = "flat"
+exterior = false
+
+[[rooms]]
+id = "powder_room"
+name = "Lavatory"
+story = 0
+points = [[24.000, 38.000], [29.000, 38.000], [29.000, 42.000], [24.000, 42.000]]
+platform_height = 0.000
+floor_material = "core:pantry"
+wall_material = "core:pantry"
+floor_tint = [255, 255, 255, 255]
+wall_tint = [255, 255, 255, 255]
+ceiling_style = "flat"
+exterior = false
+
+[[rooms]]
+id = "guest_bedroom"
+name = "Guest Bedroom"
+story = 0
+points = [[29.000, 34.000], [40.000, 34.000], [40.000, 42.000], [29.000, 42.000]]
+platform_height = 0.000
+floor_material = "core:dining"
+wall_material = "core:dining"
+floor_tint = [255, 255, 255, 255]
+wall_tint = [255, 255, 255, 255]
+ceiling_style = "coffered"
+exterior = false
+
+[[rooms]]
+id = "kitchen"
+name = "Kitchen"
+story = 0
+points = [[33.000, 10.000], [40.000, 10.000], [40.000, 24.000], [29.000, 24.000], [29.000, 18.000], [33.000, 18.000]]
+platform_height = 0.000
+floor_material = "core:pantry"
+wall_material = "core:pantry"
+floor_tint = [255, 255, 255, 255]
+wall_tint = [255, 255, 255, 255]
+ceiling_style = "flat"
+exterior = false
+
+[[rooms]]
+id = "scullery"
+name = "Scullery"
+story = 0
+points = [[29.000, 24.000], [40.000, 24.000], [40.000, 34.000], [29.000, 34.000]]
+platform_height = 0.000
+floor_material = "core:pantry"
+wall_material = "core:pantry"
+floor_tint = [255, 255, 255, 255]
+wall_tint = [255, 255, 255, 255]
+ceiling_style = "flat"
+exterior = false
+
+[[rooms]]
+id = "moon_garden"
+name = "Grand Moon Garden Courtyard"
+story = 0
+points = [[19.000, 18.000], [29.000, 18.000], [29.000, 28.000], [19.000, 28.000]]
+platform_height = 0.000
+floor_material = "core:garden_flagstone"
+wall_material = "core:garden"
+floor_tint = [255, 255, 255, 255]
+wall_tint = [255, 255, 255, 255]
+ceiling_style = "open"
+exterior = true
+
+[[paths]]
+id = "shell"
+story = 0
+kind = "wall"
+points = [[8.000, 10.000], [40.000, 10.000], [40.000, 34.000], [8.000, 34.000], [8.000, 10.000]]
+material = "structure"
+width = 0.460
+
+[[paths]]
+id = "bedroom_wing_shell"
+story = 0
+kind = "wall"
+points = [[8.000, 34.000], [8.000, 42.000], [40.000, 42.000], [40.000, 34.000]]
+material = "structure"
+width = 0.460
+
+[[paths]]
+id = "dining_pantry_a"
+story = 0
+kind = "wall"
+points = [[27.000, 10.000], [27.000, 18.000]]
+material = "structure"
+width = 0.180
+
+[[paths]]
+id = "study_west"
+story = 0
+kind = "wall"
+points = [[19.000, 18.000], [19.000, 28.000]]
+material = "structure"
+width = 0.180
+
+[[paths]]
+id = "study_gallery_wall"
+story = 0
+kind = "wall"
+points = [[8.000, 28.000], [19.000, 28.000]]
+material = "structure"
+width = 0.180
+
+[[paths]]
+id = "pantry_east"
+story = 0
+kind = "wall"
+points = [[29.000, 18.000], [29.000, 34.000]]
+material = "structure"
+width = 0.180
+
+[[paths]]
+id = "pantry_kitchen_wall"
+story = 0
+kind = "wall"
+points = [[33.000, 10.000], [33.000, 18.000]]
+material = "structure"
+width = 0.180
+
+[[paths]]
+id = "pantry_north"
+story = 0
+kind = "wall"
+points = [[29.000, 18.000], [33.000, 18.000]]
+material = "structure"
+width = 0.180
+
+[[paths]]
+id = "kitchen_scullery_wall"
+story = 0
+kind = "wall"
+points = [[29.000, 24.000], [40.000, 24.000]]
+material = "structure"
+width = 0.180
+
+[[paths]]
+id = "garden_north"
+story = 0
+kind = "wall"
+points = [[19.000, 18.000], [29.000, 18.000]]
+material = "structure"
+width = 0.180
+
+[[paths]]
+id = "garden_south"
+story = 0
+kind = "wall"
+points = [[19.000, 28.000], [29.000, 28.000]]
+material = "structure"
+width = 0.180
+
+[[paths]]
+id = "bedroom_wing_south"
+story = 0
+kind = "wall"
+points = [[8.000, 34.000], [40.000, 34.000]]
+material = "structure"
+width = 0.180
+
+[[paths]]
+id = "master_bedroom_east"
+story = 0
+kind = "wall"
+points = [[19.000, 34.000], [19.000, 42.000]]
+material = "structure"
+width = 0.180
+
+[[paths]]
+id = "guest_bedroom_west"
+story = 0
+kind = "wall"
+points = [[29.000, 34.000], [29.000, 42.000]]
+material = "structure"
+width = 0.180
+
+[[paths]]
+id = "bathrooms_south"
+story = 0
+kind = "wall"
+points = [[19.000, 38.000], [29.000, 38.000]]
+material = "structure"
+width = 0.180
+
+[[paths]]
+id = "bathroom_divider"
+story = 0
+kind = "wall"
+points = [[24.000, 38.000], [24.000, 42.000]]
+material = "structure"
+width = 0.180
+
+[[paths]]
+id = "front_walk"
+story = 0
+kind = "footpath"
+points = [[24.000, 2.000], [24.000, 10.000]]
+material = "yard_flagstone"
+width = 1.600
+
+[[paths]]
+id = "driveway"
+story = 0
+kind = "road"
+points = [[27.000, 2.000], [27.000, 10.000]]
+material = "yard_gravel"
+width = 3.500
+
+[[openings]]
+id = "door_dining_pantry"
+host_path = "dining_pantry_a"
+kind = "door"
+material = "oak"
+door_style = "hinged"
+style = "fixed"
+flipped = false
+hinge_right = false
+interaction = "door"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.480
+width = 1.400
+height = 2.100
+sill_height = 0.000
+
+[[openings]]
+id = "door_study_master_bedroom"
+host_path = "bedroom_wing_south"
+kind = "door"
+material = "oak"
+door_style = "hinged"
+style = "fixed"
+flipped = false
+hinge_right = false
+interaction = "door"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.170
+width = 1.200
+height = 2.100
+sill_height = 0.000
+
+[[openings]]
+id = "door_gallery_bedroom_hall"
+host_path = "bedroom_wing_south"
+kind = "door"
+material = "oak"
+door_style = "hinged"
+style = "fixed"
+flipped = false
+hinge_right = false
+interaction = "door"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.500
+width = 1.300
+height = 2.100
+sill_height = 0.000
+
+[[openings]]
+id = "door_scullery_guest_bedroom"
+host_path = "bedroom_wing_south"
+kind = "door"
+material = "painted"
+door_style = "hinged"
+style = "fixed"
+flipped = false
+hinge_right = false
+interaction = "door"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.830
+width = 1.200
+height = 2.100
+sill_height = 0.000
+
+[[openings]]
+id = "door_hall_master_bedroom"
+host_path = "master_bedroom_east"
+kind = "door"
+material = "oak"
+door_style = "hinged"
+style = "fixed"
+flipped = false
+hinge_right = false
+interaction = "door"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.250
+width = 1.000
+height = 2.100
+sill_height = 0.000
+
+[[openings]]
+id = "door_hall_guest_bedroom"
+host_path = "guest_bedroom_west"
+kind = "door"
+material = "painted"
+door_style = "hinged"
+style = "fixed"
+flipped = false
+hinge_right = false
+interaction = "door"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.250
+width = 1.000
+height = 2.100
+sill_height = 0.000
+
+[[openings]]
+id = "door_hall_bathroom"
+host_path = "bathrooms_south"
+kind = "door"
+material = "painted"
+door_style = "hinged"
+style = "fixed"
+flipped = false
+hinge_right = false
+interaction = "door"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.250
+width = 0.900
+height = 2.100
+sill_height = 0.000
+
+[[openings]]
+id = "door_hall_lavatory"
+host_path = "bathrooms_south"
+kind = "door"
+material = "painted"
+door_style = "hinged"
+style = "fixed"
+flipped = false
+hinge_right = false
+interaction = "door"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.750
+width = 0.900
+height = 2.100
+sill_height = 0.000
+
+[[openings]]
+id = "door_pantry_kitchen"
+host_path = "pantry_kitchen_wall"
+kind = "door"
+material = "painted"
+door_style = "hinged"
+style = "fixed"
+flipped = false
+hinge_right = false
+interaction = "door"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.500
+width = 1.200
+height = 2.100
+sill_height = 0.000
+
+[[openings]]
+id = "door_kitchen_scullery"
+host_path = "kitchen_scullery_wall"
+kind = "door"
+material = "painted"
+door_style = "hinged"
+style = "fixed"
+flipped = false
+hinge_right = false
+interaction = "door"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.680
+width = 1.200
+height = 2.100
+sill_height = 0.000
+
+[[openings]]
+id = "door_front"
+host_path = "shell"
+kind = "door"
+material = "painted"
+door_style = "double"
+style = "fixed"
+flipped = false
+hinge_right = false
+interaction = "door"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.500
+width = 1.600
+height = 2.200
+sill_height = 0.000
+
+[[openings]]
+id = "door_study_garden"
+host_path = "study_west"
+kind = "door"
+material = "walnut"
+door_style = "sliding"
+style = "fixed"
+flipped = false
+hinge_right = false
+interaction = "door"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.309
+width = 1.600
+height = 2.100
+sill_height = 0.000
+
+[[openings]]
+id = "door_study_gallery"
+host_path = "study_gallery_wall"
+kind = "door"
+material = "oak"
+door_style = "hinged"
+style = "fixed"
+flipped = false
+hinge_right = false
+interaction = "door"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.720
+width = 1.400
+height = 2.100
+sill_height = 0.000
+
+[[openings]]
+id = "door_pantry_garden"
+host_path = "pantry_east"
+kind = "door"
+material = "painted"
+door_style = "hinged"
+style = "fixed"
+flipped = false
+hinge_right = false
+interaction = "door"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.309
+width = 1.600
+height = 2.100
+sill_height = 0.000
+
+[[openings]]
+id = "door_pantry_gallery"
+host_path = "pantry_east"
+kind = "door"
+material = "walnut"
+door_style = "hinged"
+style = "fixed"
+flipped = false
+hinge_right = false
+interaction = "door"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.818
+width = 1.400
+height = 2.100
+sill_height = 0.000
+
+[[openings]]
+id = "door_dining_garden"
+host_path = "garden_north"
+kind = "door"
+material = "oak"
+door_style = "hinged"
+style = "fixed"
+flipped = false
+hinge_right = false
+interaction = "door"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.412
+width = 1.400
+height = 2.100
+sill_height = 0.000
+
+[[openings]]
+id = "window_dining_garden"
+host_path = "garden_north"
+kind = "window"
+material = "oak"
+door_style = "hinged"
+style = "fixed"
+flipped = false
+hinge_right = false
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.650
+width = 2.000
+height = 1.400
+sill_height = 0.720
+
+[[openings]]
+id = "door_garden_gallery"
+host_path = "garden_south"
+kind = "door"
+material = "painted"
+door_style = "hinged"
+style = "fixed"
+flipped = false
+hinge_right = false
+interaction = "door"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.412
+width = 1.400
+height = 2.100
+sill_height = 0.000
+
+[[openings]]
+id = "window_dining_west"
+host_path = "shell"
+kind = "window"
+material = "oak"
+door_style = "hinged"
+style = "picture"
+flipped = false
+hinge_right = false
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.125
+width = 1.200
+height = 1.500
+sill_height = 0.650
+
+[[openings]]
+id = "window_dining_east"
+host_path = "shell"
+kind = "window"
+material = "oak"
+door_style = "hinged"
+style = "picture"
+flipped = false
+hinge_right = false
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.333
+width = 2.400
+height = 1.500
+sill_height = 0.650
+
+[[openings]]
+id = "window_pantry_west"
+host_path = "shell"
+kind = "window"
+material = "oak"
+door_style = "hinged"
+style = "double_hung"
+flipped = false
+hinge_right = false
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.708
+width = 1.000
+height = 1.300
+sill_height = 0.850
+
+[[openings]]
+id = "window_pantry_east"
+host_path = "shell"
+kind = "window"
+material = "oak"
+door_style = "hinged"
+style = "double_hung"
+flipped = false
+hinge_right = false
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.917
+width = 1.600
+height = 1.700
+sill_height = 0.600
+
+[[openings]]
+id = "window_pantry_south"
+host_path = "shell"
+kind = "window"
+material = "oak"
+door_style = "hinged"
+style = "awning"
+flipped = false
+hinge_right = false
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+segment = 1
+position = 0.750
+width = 2.800
+height = 0.900
+sill_height = 1.250
+
+[[openings]]
+id = "window_study_courtyard"
+host_path = "study_west"
+kind = "window"
+material = "oak"
+door_style = "hinged"
+style = "fixed"
+flipped = false
+hinge_right = false
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+segment = 0
+position = 0.680
+width = 2.000
+height = 1.400
+sill_height = 0.720
+
+[[objects]]
+id = "yard_tree_nw"
+catalog_id = "core:tree_large"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[2.500, 5.500]]
+elevation = 0.000
+rotation = 18.000
+tint = [134, 160, 139, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "yard_tree_ne"
+catalog_id = "core:tree_small"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[37.000, 6.000]]
+elevation = 0.000
+rotation = 210.000
+tint = [128, 156, 136, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "yard_tree_sw"
+catalog_id = "core:tree_small"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[3.000, 30.000]]
+elevation = 0.000
+rotation = 72.000
+tint = [122, 151, 132, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "yard_bench_garden"
+catalog_id = "core:yard_bench"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[13.000, 29.000]]
+elevation = 0.000
+rotation = 90.000
+tint = [105, 102, 92, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "grounds_willow_pond"
+catalog_id = "core:nature_willow"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[5.000, 7.000]]
+elevation = 0.000
+rotation = 28.000
+tint = [255, 255, 255, 255]
+bark_tint = [111, 76, 48, 255]
+foliage_tint = [74, 132, 70, 255]
+
+[[objects]]
+id = "grounds_birch_west"
+catalog_id = "core:nature_birch_tree"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[3.500, 16.000]]
+elevation = 0.000
+rotation = 345.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [130, 169, 74, 255]
+
+[[objects]]
+id = "grounds_birch_rear"
+catalog_id = "core:stylized_birch_5"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[14.000, 47.000]]
+elevation = 0.000
+rotation = 32.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [74, 132, 70, 255]
+
+[[objects]]
+id = "grounds_pine_north"
+catalog_id = "core:nature_pine_tree"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[25.000, 47.500]]
+elevation = 0.000
+rotation = 195.000
+tint = [255, 255, 255, 255]
+bark_tint = [67, 43, 30, 255]
+foliage_tint = [74, 132, 70, 255]
+
+[[objects]]
+id = "grounds_tree_northeast"
+catalog_id = "core:stylized_tree_4"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[37.000, 47.000]]
+elevation = 0.000
+rotation = 120.000
+tint = [255, 255, 255, 255]
+bark_tint = [111, 76, 48, 255]
+foliage_tint = [130, 169, 74, 255]
+
+[[objects]]
+id = "grounds_pine_east"
+catalog_id = "core:stylized_pine_1"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[44.000, 26.000]]
+elevation = 0.000
+rotation = 255.000
+tint = [255, 255, 255, 255]
+bark_tint = [67, 43, 30, 255]
+foliage_tint = [74, 132, 70, 255]
+
+[[objects]]
+id = "grounds_palm_southeast"
+catalog_id = "core:nature_palm"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[42.500, 6.500]]
+elevation = 0.000
+rotation = 42.000
+tint = [255, 255, 255, 255]
+bark_tint = [111, 76, 48, 255]
+foliage_tint = [130, 169, 74, 255]
+
+[[objects]]
+id = "grounds_dead_tree_west"
+catalog_id = "core:stylized_dead_tree"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[2.500, 38.000]]
+elevation = 0.000
+rotation = 80.000
+tint = [255, 255, 255, 255]
+bark_tint = [67, 43, 30, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "grounds_berry_bush_pond"
+catalog_id = "core:nature_berry_bush"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[16.500, 1.500]]
+elevation = 0.000
+rotation = 15.000
+tint = [255, 255, 255, 255]
+bark_tint = [111, 76, 48, 255]
+foliage_tint = [74, 132, 70, 255]
+
+[[objects]]
+id = "grounds_bush_front_west"
+catalog_id = "core:nature_bush"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[18.000, 8.500]]
+elevation = 0.000
+rotation = 300.000
+tint = [255, 255, 255, 255]
+bark_tint = [111, 76, 48, 255]
+foliage_tint = [130, 169, 74, 255]
+
+[[objects]]
+id = "grounds_bush_front_east"
+catalog_id = "core:nature_bush"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[22.000, 8.500]]
+elevation = 0.000
+rotation = 45.000
+tint = [255, 255, 255, 255]
+bark_tint = [111, 76, 48, 255]
+foliage_tint = [74, 132, 70, 255]
+
+[[objects]]
+id = "grounds_flowers_pond"
+catalog_id = "core:nature_flowers"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[15.500, 6.500]]
+elevation = 0.000
+rotation = 20.000
+tint = [255, 255, 255, 255]
+bark_tint = [111, 76, 48, 255]
+foliage_tint = [184, 91, 67, 255]
+
+[[objects]]
+id = "grounds_grass_pond"
+catalog_id = "core:nature_grass"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[8.000, 4.500]]
+elevation = 0.000
+rotation = 350.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "study_lamp"
+catalog_id = "core:floor_lamp"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "toggle"
+interaction_prompt = "Use study lamp"
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = true
+locked = false
+powered = true
+story = 0
+position = [[10.000, 26.500]]
+elevation = 0.000
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "grounds_cactus_drive"
+catalog_id = "core:nature_cactus"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[31.000, 4.500]]
+elevation = 0.000
+rotation = 10.000
+tint = [255, 255, 255, 255]
+bark_tint = [111, 76, 48, 255]
+foliage_tint = [74, 132, 70, 255]
+
+[[objects]]
+id = "front_doormat"
+catalog_id = "core:coir_doormat"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[24.000, 10.650]]
+elevation = 0.000
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "gallery_runner"
+catalog_id = "core:persian_runner"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[24.000, 31.000]]
+elevation = 0.000
+rotation = 90.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "master_bedroom_rug"
+catalog_id = "core:geometric_kilim"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[14.000, 38.000]]
+elevation = 0.000
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "guest_bedroom_rug"
+catalog_id = "core:cream_shag_rug"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[34.500, 38.000]]
+elevation = 0.000
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "kitchen_fridge"
+catalog_id = "core:kitchen_fridge"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[38.900, 12.000]]
+elevation = 0.000
+rotation = 90.000
+tint = [219, 225, 226, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "kitchen_stove"
+catalog_id = "core:kitchen_stove"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[38.900, 16.000]]
+elevation = 0.000
+rotation = 90.000
+tint = [70, 76, 79, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "kitchen_sink"
+catalog_id = "core:kitchen_sink"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[38.900, 20.000]]
+elevation = 0.000
+rotation = 90.000
+tint = [205, 211, 210, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "kitchen_cabinet"
+catalog_id = "core:kitchen_cabinet"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[34.200, 21.800]]
+elevation = 0.000
+rotation = 180.000
+tint = [102, 119, 112, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "kitchen_coffee_machine"
+catalog_id = "core:kitchen_coffee_machine"
+support_id = "kitchen_cabinet"
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[34.200, 21.800]]
+elevation = 0.860
+rotation = 180.000
+tint = [51, 57, 59, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "kitchen_island"
+catalog_id = "core:kitchen_island"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[36.500, 18.500]]
+elevation = 0.000
+rotation = 0.000
+tint = [91, 111, 104, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "kitchen_island_stool_west"
+catalog_id = "core:bar_stool"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[35.200, 18.500]]
+elevation = 0.000
+rotation = 90.000
+tint = [92, 72, 60, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "kitchen_island_stool_east"
+catalog_id = "core:bar_stool"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[37.800, 18.500]]
+elevation = 0.000
+rotation = 270.000
+tint = [92, 72, 60, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "scullery_washer"
+catalog_id = "core:washer"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[38.800, 27.000]]
+elevation = 0.000
+rotation = 90.000
+tint = [220, 224, 221, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "scullery_dryer"
+catalog_id = "core:dryer"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[38.800, 29.000]]
+elevation = 0.000
+rotation = 90.000
+tint = [220, 224, 221, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "family_bathtub"
+catalog_id = "core:bathtub"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[20.300, 40.700]]
+elevation = 0.000
+rotation = 90.000
+tint = [225, 222, 211, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "family_toilet"
+catalog_id = "core:toilet"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[22.800, 41.000]]
+elevation = 0.000
+rotation = 180.000
+tint = [229, 229, 224, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "family_sink"
+catalog_id = "core:bathroom_sink"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[23.200, 39.300]]
+elevation = 0.000
+rotation = 90.000
+tint = [213, 217, 211, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "family_mirror"
+catalog_id = "core:bathroom_mirror"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[23.650, 39.300]]
+elevation = 1.150
+rotation = 90.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "powder_toilet"
+catalog_id = "core:toilet"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[25.200, 40.300]]
+elevation = 0.000
+rotation = 270.000
+tint = [229, 229, 224, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "powder_sink"
+catalog_id = "core:bathroom_sink"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[27.800, 40.300]]
+elevation = 0.000
+rotation = 90.000
+tint = [87, 105, 101, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "guest_bedroom_coat_rack"
+catalog_id = "core:coat_rack"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[30.800, 35.000]]
+elevation = 0.000
+rotation = 15.000
+tint = [74, 60, 51, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "painting_starry_night"
+catalog_id = "core:painting_van_gogh_starry_night"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[15.000, 10.400]]
+elevation = 1.000
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "painting_birth_of_venus"
+catalog_id = "core:painting_botticelli_birth_of_venus"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[21.300, 10.400]]
+elevation = 1.000
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "painting_girl_with_pearl"
+catalog_id = "core:painting_vermeer_girl_with_a_pearl_earring"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[8.400, 23.000]]
+elevation = 1.000
+rotation = 270.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "painting_wanderer"
+catalog_id = "core:painting_friedrich_wanderer_above_the_sea_of_fog"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[16.000, 33.600]]
+elevation = 1.000
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "painting_great_wave"
+catalog_id = "core:painting_hokusai_great_wave"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[23.000, 33.600]]
+elevation = 1.000
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "painting_night_watch"
+catalog_id = "core:painting_rembrandt_night_watch"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[39.600, 16.000]]
+elevation = 1.000
+rotation = 90.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_dining_room_1_table_round"
+catalog_id = "core:dining_table"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[17.500, 14.050]]
+elevation = 0.000
+rotation = 90.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_dining_room_2_chair_rounded"
+catalog_id = "core:chair_rounded"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[15.850, 14.050]]
+elevation = 0.000
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_dining_room_3_chair_rounded"
+catalog_id = "core:chair_rounded"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[19.150, 14.050]]
+elevation = 0.000
+rotation = 180.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_dining_room_4_chair_rounded"
+catalog_id = "core:chair_rounded"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[17.500, 12.550]]
+elevation = 0.000
+rotation = 90.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_dining_room_5_chair_rounded"
+catalog_id = "core:chair_rounded"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[17.500, 15.550]]
+elevation = 0.000
+rotation = 270.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_study_1_bookcase_closed_wide"
+catalog_id = "core:bookcase_closed_wide"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[9.200, 20.200]]
+elevation = 0.000
+rotation = 180.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_study_2_bookcase_open_low"
+catalog_id = "core:desk"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[11.250, 24.600]]
+elevation = 0.000
+rotation = 270.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_study_3_cardboard_box_closed"
+catalog_id = "core:chair_desk"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[12.650, 24.600]]
+elevation = 0.000
+rotation = 180.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_study_5_trashcan"
+catalog_id = "core:trashcan"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[10.100, 25.650]]
+elevation = 0.000
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_gallery_1_desk"
+catalog_id = "core:bench_cushion"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[16.000, 29.300]]
+elevation = 0.000
+rotation = 180.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_gallery_2_chair_desk"
+catalog_id = "core:plant"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[9.000, 32.800]]
+elevation = 0.000
+rotation = 25.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_gallery_3_bathroom_cabinet"
+catalog_id = "core:side_table"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[26.800, 29.200]]
+elevation = 0.000
+rotation = 180.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_gallery_4_cardboard_box_closed"
+catalog_id = "core:lounge_chair"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[26.700, 32.400]]
+elevation = 0.000
+rotation = 225.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_gallery_5_trashcan"
+catalog_id = "core:coat_rack"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[28.200, 32.800]]
+elevation = 0.000
+rotation = 8.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_pantry_1_kitchen_cabinet"
+catalog_id = "core:desk"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[30.200, 11.250]]
+elevation = 0.000
+rotation = 180.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_pantry_2_kitchen_cabinet_upper_double"
+catalog_id = "core:chair_desk"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[30.200, 12.650]]
+elevation = 0.000
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_pantry_3_kitchen_cabinet_upper"
+catalog_id = "core:lounge_chair_relax"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[28.400, 15.900]]
+elevation = 0.000
+rotation = 315.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_pantry_4_stool_bar"
+catalog_id = "core:side_table"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[29.650, 16.100]]
+elevation = 0.000
+rotation = 10.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_master_bedroom_1_bed_single"
+catalog_id = "core:bed"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[13.500, 41.000]]
+elevation = 0.000
+rotation = 90.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_master_bedroom_2_side_table"
+catalog_id = "core:side_table"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[10.650, 40.500]]
+elevation = 0.000
+rotation = 180.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_master_bedroom_3_table_lamp_square"
+catalog_id = "core:table_lamp_square"
+support_id = "furnish_master_bedroom_2_side_table"
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[10.650, 40.500]]
+elevation = 0.620
+rotation = 180.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_master_bedroom_4_lounge_chair"
+catalog_id = "core:lounge_chair"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[16.600, 39.500]]
+elevation = 0.000
+rotation = 225.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_powder_room_1_bathroom_mirror"
+catalog_id = "core:bathroom_mirror"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[27.800, 40.850]]
+elevation = 1.150
+rotation = 90.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_powder_room_2_bathroom_cabinet"
+catalog_id = "core:bathroom_cabinet"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[26.500, 41.250]]
+elevation = 0.000
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_guest_bedroom_1_bed_single"
+catalog_id = "core:bed_single"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[34.500, 41.000]]
+elevation = 0.000
+rotation = 90.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_guest_bedroom_2_side_table"
+catalog_id = "core:side_table"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[31.500, 40.500]]
+elevation = 0.000
+rotation = 180.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_guest_bedroom_3_table_lamp_square"
+catalog_id = "core:table_lamp_square"
+support_id = "furnish_guest_bedroom_2_side_table"
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[31.500, 40.500]]
+elevation = 0.620
+rotation = 180.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_guest_bedroom_4_lounge_chair"
+catalog_id = "core:lounge_chair"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[37.500, 39.500]]
+elevation = 0.000
+rotation = 225.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_scullery_1_table_round"
+catalog_id = "core:table_cross"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[33.600, 28.800]]
+elevation = 0.000
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_scullery_2_chair_rounded"
+catalog_id = "core:kitchen_cabinet"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[30.100, 26.200]]
+elevation = 0.000
+rotation = 270.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_scullery_3_chair_rounded"
+catalog_id = "core:kitchen_cabinet"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[30.100, 28.000]]
+elevation = 0.000
+rotation = 270.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_scullery_4_chair_rounded"
+catalog_id = "core:cardboard_box_closed"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[31.100, 32.800]]
+elevation = 0.000
+rotation = 12.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_scullery_5_chair_rounded"
+catalog_id = "core:cardboard_box_open"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[32.200, 32.700]]
+elevation = 0.000
+rotation = 350.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_moon_garden_1_yard_bench"
+catalog_id = "core:yard_bench"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[22.000, 19.150]]
+elevation = 0.000
+rotation = 180.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_moon_garden_2_nature_bush"
+catalog_id = "core:nature_bush"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[19.700, 19.000]]
+elevation = 0.000
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_moon_garden_3_nature_flowers"
+catalog_id = "core:nature_flowers"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[28.000, 26.750]]
+elevation = 0.000
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_moon_garden_4_nature_grass"
+catalog_id = "core:nature_grass"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[20.100, 26.850]]
+elevation = 0.000
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_moon_garden_5_stylized_tree_1"
+catalog_id = "core:stylized_tree_1"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[27.350, 19.450]]
+elevation = 0.000
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "vale_study_desk_lamp"
+catalog_id = "core:table_lamp_round"
+support_id = "furnish_study_2_bookcase_open_low"
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = false
+story = 0
+position = [[11.250, 24.600]]
+elevation = 0.740
+rotation = 270.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "miriam_writing_lamp"
+catalog_id = "core:table_lamp_round"
+support_id = "furnish_pantry_1_kitchen_cabinet"
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = false
+story = 0
+position = [[30.000, 11.500]]
+elevation = 0.740
+rotation = 180.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "gallery_console_lamp"
+catalog_id = "core:table_lamp_round"
+support_id = "furnish_gallery_3_bathroom_cabinet"
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = false
+story = 0
+position = [[27.000, 29.000]]
+elevation = 0.620
+rotation = 180.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "dining_west"
+catalog_id = "core:ceiling_lamp_square"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = true
+locked = false
+powered = true
+story = 0
+position = [[11.500, 14.000]]
+elevation = 2.250
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "dining_table"
+catalog_id = "core:ceiling_lamp_square"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = true
+locked = false
+powered = true
+story = 0
+position = [[17.500, 14.000]]
+elevation = 2.250
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "dining_east"
+catalog_id = "core:ceiling_lamp_square"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = true
+locked = false
+powered = true
+story = 0
+position = [[23.500, 14.000]]
+elevation = 2.250
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "study_desk_ambient"
+catalog_id = "core:ceiling_lamp_square"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = true
+locked = false
+powered = true
+story = 0
+position = [[11.500, 23.000]]
+elevation = 2.250
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "study_library_ambient"
+catalog_id = "core:ceiling_lamp_square"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = true
+locked = false
+powered = true
+story = 0
+position = [[16.000, 23.000]]
+elevation = 2.250
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "gallery_west"
+catalog_id = "core:ceiling_lamp_square"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = true
+locked = false
+powered = true
+story = 0
+position = [[11.500, 31.000]]
+elevation = 2.250
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "gallery_center"
+catalog_id = "core:ceiling_lamp_square"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = true
+locked = false
+powered = true
+story = 0
+position = [[18.500, 31.000]]
+elevation = 2.250
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "gallery_east"
+catalog_id = "core:ceiling_lamp_square"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = true
+locked = false
+powered = true
+story = 0
+position = [[25.500, 31.000]]
+elevation = 2.250
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "miriam_sitting_room"
+catalog_id = "core:ceiling_lamp_square"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = true
+locked = false
+powered = true
+story = 0
+position = [[30.000, 14.000]]
+elevation = 2.250
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "ceiling_master_bedroom"
+catalog_id = "core:ceiling_lamp_square"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = true
+locked = false
+powered = true
+story = 0
+position = [[13.500, 38.000]]
+elevation = 2.250
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "ceiling_bedroom_hall"
+catalog_id = "core:ceiling_lamp_square"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = true
+locked = false
+powered = true
+story = 0
+position = [[24.000, 36.000]]
+elevation = 2.250
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "family_bathroom"
+catalog_id = "core:ceiling_lamp_square"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = true
+locked = false
+powered = true
+story = 0
+position = [[21.500, 40.000]]
+elevation = 2.250
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "lavatory"
+catalog_id = "core:ceiling_lamp_square"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = true
+locked = false
+powered = true
+story = 0
+position = [[26.500, 40.000]]
+elevation = 2.250
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "ceiling_guest_bedroom"
+catalog_id = "core:ceiling_lamp_square"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = true
+locked = false
+powered = true
+story = 0
+position = [[34.500, 38.000]]
+elevation = 2.250
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "kitchen_north"
+catalog_id = "core:ceiling_lamp_square"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = true
+locked = false
+powered = true
+story = 0
+position = [[36.000, 14.000]]
+elevation = 2.250
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "kitchen_south"
+catalog_id = "core:ceiling_lamp_square"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = true
+locked = false
+powered = true
+story = 0
+position = [[34.500, 21.000]]
+elevation = 2.250
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "scullery_west"
+catalog_id = "core:ceiling_lamp_square"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = true
+locked = false
+powered = true
+story = 0
+position = [[32.500, 29.000]]
+elevation = 2.250
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "scullery_east"
+catalog_id = "core:ceiling_lamp_square"
+support_id = ""
+model_asset_ref = ""
+material_asset_ref = ""
+texture_asset_ref = ""
+interaction = "none"
+interaction_prompt = ""
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = true
+locked = false
+powered = true
+story = 0
+position = [[37.000, 29.000]]
+elevation = 2.250
+rotation = 0.000
+tint = [255, 255, 255, 255]
+bark_tint = [255, 255, 255, 255]
+foliage_tint = [255, 255, 255, 255]
+
+[[lights]]
+id = "light_dining_west"
+kind = "area"
+story = 0
+position = [[11.500, 14.000]]
+elevation = 2.450
+range = 4.800
+intensity = 4.500
+facing = 0.000
+cone_angle = 90.000
+color = [255, 226, 184, 255]
+
+[[lights]]
+id = "light_dining_table"
+kind = "area"
+story = 0
+position = [[17.500, 14.000]]
+elevation = 2.450
+range = 4.800
+intensity = 5.000
+facing = 0.000
+cone_angle = 90.000
+color = [255, 222, 174, 255]
+
+[[lights]]
+id = "light_dining_east"
+kind = "area"
+story = 0
+position = [[23.500, 14.000]]
+elevation = 2.450
+range = 4.800
+intensity = 4.500
+facing = 0.000
+cone_angle = 90.000
+color = [255, 226, 184, 255]
+
+[[lights]]
+id = "light_study_desk_ambient"
+kind = "area"
+story = 0
+position = [[11.500, 23.000]]
+elevation = 2.400
+range = 4.600
+intensity = 3.500
+facing = 0.000
+cone_angle = 90.000
+color = [255, 218, 168, 255]
+
+[[lights]]
+id = "light_study_library_ambient"
+kind = "area"
+story = 0
+position = [[16.000, 23.000]]
+elevation = 2.400
+range = 4.600
+intensity = 3.250
+facing = 0.000
+cone_angle = 90.000
+color = [255, 222, 176, 255]
+
+[[lights]]
+id = "light_gallery_west"
+kind = "area"
+story = 0
+position = [[11.500, 31.000]]
+elevation = 2.400
+range = 4.400
+intensity = 3.000
+facing = 0.000
+cone_angle = 90.000
+color = [246, 230, 204, 255]
+
+[[lights]]
+id = "light_gallery_center"
+kind = "area"
+story = 0
+position = [[18.500, 31.000]]
+elevation = 2.400
+range = 4.800
+intensity = 3.250
+facing = 0.000
+cone_angle = 90.000
+color = [248, 232, 204, 255]
+
+[[lights]]
+id = "light_gallery_east"
+kind = "area"
+story = 0
+position = [[25.500, 31.000]]
+elevation = 2.400
+range = 4.400
+intensity = 3.000
+facing = 0.000
+cone_angle = 90.000
+color = [246, 230, 204, 255]
+
+[[lights]]
+id = "light_miriam_sitting_room"
+kind = "area"
+story = 0
+position = [[30.000, 14.000]]
+elevation = 2.350
+range = 4.200
+intensity = 3.400
+facing = 0.000
+cone_angle = 90.000
+color = [255, 218, 168, 255]
+
+[[lights]]
+id = "light_ceiling_master_bedroom"
+kind = "area"
+story = 0
+position = [[13.500, 38.000]]
+elevation = 2.400
+range = 5.000
+intensity = 3.300
+facing = 0.000
+cone_angle = 90.000
+color = [255, 224, 184, 255]
+
+[[lights]]
+id = "light_ceiling_bedroom_hall"
+kind = "area"
+story = 0
+position = [[24.000, 36.000]]
+elevation = 2.350
+range = 4.800
+intensity = 2.800
+facing = 0.000
+cone_angle = 90.000
+color = [246, 229, 200, 255]
+
+[[lights]]
+id = "light_family_bathroom"
+kind = "area"
+story = 0
+position = [[21.500, 40.000]]
+elevation = 2.350
+range = 3.600
+intensity = 3.200
+facing = 0.000
+cone_angle = 90.000
+color = [245, 238, 220, 255]
+
+[[lights]]
+id = "light_lavatory"
+kind = "area"
+story = 0
+position = [[26.500, 40.000]]
+elevation = 2.350
+range = 3.600
+intensity = 3.000
+facing = 0.000
+cone_angle = 90.000
+color = [245, 238, 220, 255]
+
+[[lights]]
+id = "light_ceiling_guest_bedroom"
+kind = "area"
+story = 0
+position = [[34.500, 38.000]]
+elevation = 2.400
+range = 5.000
+intensity = 3.300
+facing = 0.000
+cone_angle = 90.000
+color = [255, 225, 186, 255]
+
+[[lights]]
+id = "light_kitchen_north"
+kind = "area"
+story = 0
+position = [[36.000, 14.000]]
+elevation = 2.350
+range = 4.600
+intensity = 3.500
+facing = 0.000
+cone_angle = 90.000
+color = [250, 239, 214, 255]
+
+[[lights]]
+id = "light_kitchen_south"
+kind = "area"
+story = 0
+position = [[34.500, 21.000]]
+elevation = 2.350
+range = 4.600
+intensity = 3.400
+facing = 0.000
+cone_angle = 90.000
+color = [250, 239, 214, 255]
+
+[[lights]]
+id = "light_scullery_west"
+kind = "area"
+story = 0
+position = [[32.500, 29.000]]
+elevation = 2.350
+range = 4.400
+intensity = 3.200
+facing = 0.000
+cone_angle = 90.000
+color = [246, 237, 216, 255]
+
+[[lights]]
+id = "light_scullery_east"
+kind = "area"
+story = 0
+position = [[37.000, 29.000]]
+elevation = 2.350
+range = 4.400
+intensity = 3.200
+facing = 0.000
+cone_angle = 90.000
+color = [246, 237, 216, 255]
+
+[[lights]]
+id = "light_garden_moon"
+kind = "point"
+story = 0
+position = [[24.000, 23.000]]
+elevation = 3.200
+range = 6.000
+intensity = 0.600
+facing = 0.000
+cone_angle = 45.000
+color = [174, 204, 255, 255]
+
+[[roofs]]
+id = "roof_dining"
+room_id = "dining_room"
+story = 0
+style = "hip"
+pitch = 28.000
+overhang = 0.550
+ridge_angle = 0.000
+gutters = false
+
+[[roofs]]
+id = "roof_study"
+room_id = "study"
+story = 0
+style = "gable"
+pitch = 32.000
+overhang = 0.550
+ridge_angle = 90.000
+gutters = false
+
+[[roofs]]
+id = "roof_gallery"
+room_id = "gallery"
+story = 0
+style = "gable"
+pitch = 30.000
+overhang = 0.450
+ridge_angle = 0.000
+gutters = false
+
+[[roofs]]
+id = "roof_pantry"
+room_id = "pantry"
+story = 0
+style = "hip"
+pitch = 28.000
+overhang = 0.550
+ridge_angle = 90.000
+gutters = false
+
+[[roofs]]
+id = "roof_kitchen"
+room_id = "kitchen"
+story = 0
+style = "hip"
+pitch = 28.000
+overhang = 0.550
+ridge_angle = 90.000
+gutters = false
+
+[[roofs]]
+id = "roof_scullery"
+room_id = "scullery"
+story = 0
+style = "hip"
+pitch = 28.000
+overhang = 0.550
+ridge_angle = 90.000
+gutters = false
+
+[[roofs]]
+id = "roof_master_bedroom"
+room_id = "master_bedroom"
+story = 0
+style = "hip"
+pitch = 28.000
+overhang = 0.550
+ridge_angle = 0.000
+gutters = false
+
+[[roofs]]
+id = "roof_bedroom_hall"
+room_id = "bedroom_hall"
+story = 0
+style = "gable"
+pitch = 28.000
+overhang = 0.450
+ridge_angle = 0.000
+gutters = false
+
+[[roofs]]
+id = "roof_bathroom"
+room_id = "bathroom"
+story = 0
+style = "hip"
+pitch = 28.000
+overhang = 0.450
+ridge_angle = 0.000
+gutters = false
+
+[[roofs]]
+id = "roof_powder_room"
+room_id = "powder_room"
+story = 0
+style = "hip"
+pitch = 28.000
+overhang = 0.450
+ridge_angle = 0.000
+gutters = false
+
+[[roofs]]
+id = "roof_guest_bedroom"
+room_id = "guest_bedroom"
+story = 0
+style = "hip"
+pitch = 28.000
+overhang = 0.550
+ridge_angle = 0.000
+gutters = false
+
+[[waters]]
+id = "garden_pond"
+points = [[9.000, 5.500], [10.000, 2.500], [14.000, 2.000], [17.000, 4.000], [16.000, 7.000], [12.000, 7.500]]
+elevation = 0.050
+
+[[foundations]]
+id = "foundation_dining"
+kind = "slab"
+story = -1
+points = [[8.000, 10.000], [28.000, 10.000], [28.000, 18.000], [8.000, 18.000]]
+elevation = 0.000
+depth = 0.250
+
+[[foundations]]
+id = "foundation_study"
+kind = "slab"
+story = -1
+points = [[8.000, 18.000], [19.000, 18.000], [19.000, 34.000], [8.000, 34.000]]
+elevation = 0.000
+depth = 0.250
+
+[[foundations]]
+id = "foundation_gallery"
+kind = "slab"
+story = -1
+points = [[8.000, 28.000], [29.000, 28.000], [29.000, 34.000], [8.000, 34.000]]
+elevation = 0.000
+depth = 0.250
+
+[[foundations]]
+id = "foundation_service_wing"
+kind = "slab"
+story = -1
+points = [[27.000, 10.000], [40.000, 10.000], [40.000, 34.000], [29.000, 34.000], [29.000, 18.000], [27.000, 18.000]]
+elevation = 0.000
+depth = 0.250
+
+[[foundations]]
+id = "foundation_bedroom_wing"
+kind = "slab"
+story = -1
+points = [[8.000, 34.000], [40.000, 34.000], [40.000, 42.000], [8.000, 42.000]]
+elevation = 0.000
+depth = 0.250
+
+[[markers]]
+id = "spawn_player"
+reference = ""
+destination = ""
+kind = "player_spawn"
+story = 0
+position = [[24.000, 8.500]]
+radius = 0.400
+facing = 90.000
+camera_height = 0.000
+
+[[markers]]
+id = "spawn_front_gate"
+reference = ""
+destination = ""
+kind = "player_spawn"
+story = 0
+position = [[20.000, 3.500]]
+radius = 0.500
+facing = 90.000
+camera_height = 0.000
+
+[[markers]]
+id = "transition_city_gate"
+reference = ""
+destination = "city:vale_house"
+kind = "transition"
+story = 0
+position = [[20.000, 2.500]]
+radius = 1.000
+facing = 0.000
+camera_height = 0.000
+
+[[markers]]
+id = "dining_study_sightline"
+reference = "shutter_crank"
+destination = ""
+kind = "interaction"
+story = 0
+position = [[26.800, 17.200]]
+radius = 1.250
+facing = 0.000
+camera_height = 0.000
+
+[[markers]]
+id = "exterior_garden_staging"
+reference = "garden"
+destination = ""
+kind = "interaction"
+story = 0
+position = [[16.500, 20.500]]
+radius = 1.000
+facing = 0.000
+camera_height = 0.000
+
+[[markers]]
+id = "marker_miriam"
+reference = "miriam"
+destination = ""
+kind = "character_spawn"
+story = 0
+position = [[14.000, 14.000]]
+radius = 0.500
+facing = 0.000
+camera_height = 0.000
+
+[[markers]]
+id = "marker_daniel"
+reference = "daniel"
+destination = ""
+kind = "character_spawn"
+story = 0
+position = [[21.000, 14.000]]
+radius = 0.500
+facing = 0.000
+camera_height = 0.000
+
+[[markers]]
+id = "marker_elsie"
+reference = "elsie"
+destination = ""
+kind = "character_spawn"
+story = 0
+position = [[10.000, 21.000]]
+radius = 0.500
+facing = 0.000
+camera_height = 0.000
+
+[[markers]]
+id = "crime_scene_body"
+reference = "body"
+destination = ""
+kind = "staging"
+story = 0
+position = [[23.800, 23.650]]
+radius = 1.650
+facing = 4.584
+camera_height = 0.000
+
+[[markers]]
+id = "crime_scene_blood"
+reference = "bloodstain"
+destination = ""
+kind = "staging"
+story = 0
+position = [[22.370, 23.500]]
+radius = 1.350
+facing = -6.875
+camera_height = 0.000
+
+[[markers]]
+id = "crime_scene_drag_trace"
+reference = "garden"
+destination = ""
+kind = "staging"
+story = 0
+position = [[21.800, 24.800]]
+radius = 5.600
+facing = 48.701
+camera_height = 0.000
+
+[[markers]]
+id = "crime_scene_cane"
+reference = "cane"
+destination = ""
+kind = "staging"
+story = 0
+position = [[23.650, 24.100]]
+radius = 0.840
+facing = 9.167
+camera_height = 0.055
+
+[[markers]]
+id = "crime_scene_watch"
+reference = "edgar_watch"
+destination = ""
+kind = "staging"
+story = 0
+position = [[23.850, 23.800]]
+radius = 0.180
+facing = -13.751
+camera_height = 0.065
+
+[[markers]]
+id = "evidence_ledger"
+reference = "ledger"
+destination = ""
+kind = "staging"
+story = 0
+position = [[11.020, 24.480]]
+radius = 0.300
+facing = -6.875
+camera_height = 0.755
+
+[[markers]]
+id = "evidence_memo_stub"
+reference = "memo_stub"
+destination = ""
+kind = "staging"
+story = 0
+position = [[11.280, 24.720]]
+radius = 0.180
+facing = 0.000
+camera_height = 0.000
+
+[[markers]]
+id = "evidence_cloth"
+reference = "cloth"
+destination = ""
+kind = "staging"
+story = 0
+position = [[30.500, 26.000]]
+radius = 0.350
+facing = 10.313
+camera_height = 0.012
+
+[[markers]]
+id = "evidence_statuette"
+reference = "statuette"
+destination = ""
+kind = "staging"
+story = 0
+position = [[11.580, 24.480]]
+radius = 0.300
+facing = 20.054
+camera_height = 0.755
+
+[[markers]]
+id = "evidence_burned_note"
+reference = "burned_note"
+destination = ""
+kind = "staging"
+story = 0
+position = [[32.100, 11.150]]
+radius = 0.300
+facing = 5.730
+camera_height = 0.010
+
+[[markers]]
+id = "evidence_dining_room"
+reference = "dining_room"
+destination = ""
+kind = "staging"
+story = 0
+position = [[17.500, 14.050]]
+radius = 1.000
+facing = 0.000
+camera_height = 0.000
+
+[[markers]]
+id = "evidence_study_desk"
+reference = "study_desk"
+destination = ""
+kind = "staging"
+story = 0
+position = [[11.250, 24.600]]
+radius = 0.750
+facing = 270.000
+camera_height = 0.000
+
+[[markers]]
+id = "evidence_study_rug"
+reference = "study_rug"
+destination = ""
+kind = "staging"
+story = 0
+position = [[13.600, 24.500]]
+radius = 1.000
+facing = 0.000
+camera_height = 0.000
+
+[[markers]]
+id = "mechanism_shutter_crank"
+reference = "shutter_crank"
+destination = ""
+kind = "staging"
+interaction = "shutter"
+interaction_prompt = "USE SHUTTER CRANK"
+condition = ""
+focused_scene = ""
+effects = []
+interaction_range = 1.800
+initially_active = false
+locked = false
+powered = true
+story = 0
+position = [[18.800, 26.150]]
+radius = 0.750
+facing = 180.000
+camera_height = 0.000
+
+[[markers]]
+id = "evidence_shutter_thread"
+reference = "shutter_thread"
+destination = ""
+kind = "staging"
+story = 0
+position = [[18.800, 26.150]]
+radius = 0.400
+facing = 180.000
+camera_height = 0.000
+
+[[markers]]
+id = "marker_officer_lead"
+reference = "officer_lead"
+destination = ""
+kind = "character_spawn"
+story = 0
+position = [[23.000, 12.000]]
+radius = 0.750
+facing = 147.600
+camera_height = 0.000
+
+[[markers]]
+id = "marker_officer_hall"
+reference = "officer_hall"
+destination = ""
+kind = "character_spawn"
+story = 0
+position = [[21.000, 31.000]]
+radius = 0.750
+facing = -63.000
+camera_height = 0.000
+
+[[markers]]
+id = "marker_officer_garden"
+reference = "officer_garden"
+destination = ""
+kind = "character_spawn"
+story = 0
+position = [[22.000, 25.000]]
+radius = 0.750
+facing = 27.000
+camera_height = 0.000
+
+[[markers]]
+id = "interaction_pond_reflection"
+reference = "pond_reflection"
+destination = ""
+kind = "interaction"
+story = 0
+position = [[12.000, 7.800]]
+radius = 1.200
+facing = 0.000
+camera_height = 0.000
+
+[[objects]]
+id = "wall_art_gallery_west"
+catalog_id = "core:vale_wall_art"
+story = 0
+position = [[7.200, 0.225]]
+elevation = 1.000
+rotation = 0.000
+tint = [101, 74, 59, 255]
+
+[[objects]]
+id = "wall_art_gallery_east"
+catalog_id = "core:vale_wall_art"
+story = 0
+position = [[19.200, 0.225]]
+elevation = 1.000
+rotation = 0.000
+tint = [76, 97, 104, 255]
+
+[[objects]]
+id = "wall_art_atrium"
+catalog_id = "core:vale_wall_art"
+story = 0
+position = [[12.500, 8.225]]
+elevation = 1.000
+rotation = 0.000
+tint = [116, 89, 53, 255]
+
+[[objects]]
+id = "wall_art_east_hall"
+catalog_id = "core:vale_wall_art"
+story = 0
+position = [[20.775, 16.500]]
+elevation = 1.000
+rotation = 90.000
+tint = [67, 92, 76, 255]

@@ -1,0 +1,471 @@
+version = "LevelFormat v1"
+id = "the_red_fog_of_south_quay_lot"
+name = "South Quay Pumping Station"
+width = 42
+height = 22
+content_offset = [[4, 4]]
+story_limit = 3
+default_snap = 0.5
+fine_snap = 0.25
+angle_snap = 15.0
+
+[[stories]]
+id = "ground"
+name = "Ground Floor"
+base_elevation = 0.0
+floor_height = 3.5
+
+[[foundations]]
+id = "foundation_pumping_station"
+kind = "slab"
+points = [[0.0, 0.0], [6.5, 0.0], [6.5, 8.0], [0.0, 8.0]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "pumping_station"
+name = "Pumping Station"
+story = 0
+points = [[0.0, 0.0], [6.5, 0.0], [6.5, 8.0], [0.0, 8.0]]
+platform_height = 0.0
+floor_material = "core:dining"
+wall_material = "core:dining"
+ceiling_style = "flat"
+exterior = false
+
+[[roofs]]
+id = "roof_pumping_station"
+room_id = "pumping_station"
+story = 0
+style = "hip"
+pitch = 28.0
+overhang = 0.4
+ridge_angle = 90.0
+
+[[foundations]]
+id = "foundation_control_room"
+kind = "slab"
+points = [[7.0, 0.0], [13.5, 0.0], [13.5, 8.0], [7.0, 8.0]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "control_room"
+name = "Control Room"
+story = 0
+points = [[7.0, 0.0], [13.5, 0.0], [13.5, 8.0], [7.0, 8.0]]
+platform_height = 0.0
+floor_material = "core:study"
+wall_material = "core:study"
+ceiling_style = "flat"
+exterior = false
+
+[[roofs]]
+id = "roof_control_room"
+room_id = "control_room"
+story = 0
+style = "gable"
+pitch = 28.0
+overhang = 0.4
+ridge_angle = 90.0
+
+[[foundations]]
+id = "foundation_pipe_gallery"
+kind = "slab"
+points = [[14.0, 0.0], [20.5, 0.0], [20.5, 8.0], [14.0, 8.0]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "pipe_gallery"
+name = "Pipe Gallery"
+story = 0
+points = [[14.0, 0.0], [20.5, 0.0], [20.5, 8.0], [14.0, 8.0]]
+platform_height = 0.0
+floor_material = "core:dining"
+wall_material = "core:dining"
+ceiling_style = "flat"
+exterior = false
+
+[[roofs]]
+id = "roof_pipe_gallery"
+room_id = "pipe_gallery"
+story = 0
+style = "hip"
+pitch = 28.0
+overhang = 0.4
+ridge_angle = 90.0
+
+[[foundations]]
+id = "foundation_quay_yard"
+kind = "slab"
+points = [[21.0, 0.0], [27.5, 0.0], [27.5, 8.0], [21.0, 8.0]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "quay_yard"
+name = "Quay Yard"
+story = 0
+points = [[21.0, 0.0], [27.5, 0.0], [27.5, 8.0], [21.0, 8.0]]
+platform_height = 0.0
+floor_material = "core:study"
+wall_material = "core:study"
+ceiling_style = "flat"
+exterior = false
+
+[[roofs]]
+id = "roof_quay_yard"
+room_id = "quay_yard"
+story = 0
+style = "gable"
+pitch = 28.0
+overhang = 0.4
+ridge_angle = 90.0
+
+[[foundations]]
+id = "foundation_wildlife_shed"
+kind = "slab"
+points = [[28.0, 0.0], [34.5, 0.0], [34.5, 8.0], [28.0, 8.0]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "wildlife_shed"
+name = "Wildlife Shed"
+story = 0
+points = [[28.0, 0.0], [34.5, 0.0], [34.5, 8.0], [28.0, 8.0]]
+platform_height = 0.0
+floor_material = "core:dining"
+wall_material = "core:dining"
+ceiling_style = "flat"
+exterior = false
+
+[[roofs]]
+id = "roof_wildlife_shed"
+room_id = "wildlife_shed"
+story = 0
+style = "hip"
+pitch = 28.0
+overhang = 0.4
+ridge_angle = 90.0
+
+[[markers]]
+id = "spawn_player"
+reference = ""
+kind = "player_spawn"
+story = 0
+position = [[2.0, 4.0]]
+radius = 0.4
+facing = 0.0
+
+[[markers]]
+id = "return_to_city"
+reference = ""
+destination = "city:the_red_fog_of_south_quay_venue"
+kind = "transition"
+story = 0
+position = [[1.0, 1.0]]
+radius = 1.0
+
+[[markers]]
+id = "spawn_asha_venn"
+reference = "asha_venn"
+kind = "character_spawn"
+story = 0
+position = [[9.0, 5.0]]
+radius = 0.5
+
+[[markers]]
+id = "spawn_kerr_moss"
+reference = "kerr_moss"
+kind = "character_spawn"
+story = 0
+position = [[16.0, 5.0]]
+radius = 0.5
+
+[[markers]]
+id = "spawn_lena_pike"
+reference = "lena_pike"
+kind = "character_spawn"
+story = 0
+position = [[23.0, 5.0]]
+radius = 0.5
+
+[[markers]]
+id = "clue_marker_1"
+reference = "inert_red_dust"
+kind = "clue"
+story = 0
+position = [[4.0, 2.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_2"
+reference = "maintenance_vent_residue"
+kind = "clue"
+story = 0
+position = [[11.0, 2.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_3"
+reference = "industrial_fan_array"
+kind = "clue"
+story = 0
+position = [[18.0, 2.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_4"
+reference = "replacement_valve"
+kind = "clue"
+story = 0
+position = [[25.0, 2.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_5"
+reference = "remote_control_log"
+kind = "clue"
+story = 0
+position = [[32.0, 2.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_6"
+reference = "healthy_caged_birds"
+kind = "clue"
+story = 0
+position = [[4.0, 4.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_7"
+reference = "shutdown_damage"
+kind = "clue"
+story = 0
+position = [[11.0, 4.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_8"
+reference = "animal_rescue_route"
+kind = "clue"
+story = 0
+position = [[18.0, 4.0]]
+radius = 0.7
+
+[[markers]]
+id = "clue_marker_9"
+reference = "undetected_gas_warning"
+kind = "clue"
+story = 0
+position = [[25.0, 4.0]]
+radius = 0.7
+
+# BEGIN GENERATED ROOM FURNISHINGS
+
+[[objects]]
+id = "furnish_pumping_station_1_desk"
+catalog_id = "core:desk"
+story = 0
+position = [[1.43, 1.92]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_pumping_station_2_chair_desk"
+catalog_id = "core:chair_desk"
+story = 0
+position = [[1.43, 3.84]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_pumping_station_3_bathroom_cabinet"
+catalog_id = "core:bathroom_cabinet"
+story = 0
+position = [[5.07, 1.76]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_pumping_station_4_cardboard_box_closed"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[5.07, 5.60]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_pumping_station_5_trashcan"
+catalog_id = "core:trashcan"
+story = 0
+position = [[3.25, 6.08]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_control_room_1_desk"
+catalog_id = "core:desk"
+story = 0
+position = [[8.82, 2.24]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_control_room_2_chair_desk"
+catalog_id = "core:chair_desk"
+story = 0
+position = [[8.82, 3.84]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_control_room_3_computer_screen"
+catalog_id = "core:computer_screen"
+support_id = "furnish_control_room_1_desk"
+elevation = 0.74
+story = 0
+position = [[8.82, 2.24]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_control_room_4_bookcase_closed"
+catalog_id = "core:bookcase_closed"
+story = 0
+position = [[12.33, 1.92]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_control_room_5_floor_lamp_round"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[12.33, 6.24]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_pipe_gallery_1_desk"
+catalog_id = "core:desk"
+story = 0
+position = [[15.43, 1.92]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_pipe_gallery_2_chair_desk"
+catalog_id = "core:chair_desk"
+story = 0
+position = [[15.43, 3.84]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_pipe_gallery_3_bathroom_cabinet"
+catalog_id = "core:bathroom_cabinet"
+story = 0
+position = [[19.07, 1.76]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_pipe_gallery_4_cardboard_box_closed"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[19.07, 5.60]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_pipe_gallery_5_trashcan"
+catalog_id = "core:trashcan"
+story = 0
+position = [[17.25, 6.08]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_quay_yard_1_yard_bench"
+catalog_id = "core:yard_bench"
+story = 0
+position = [[23.27, 2.56]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_quay_yard_2_nature_bush"
+catalog_id = "core:nature_bush"
+story = 0
+position = [[22.17, 6.08]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_quay_yard_3_nature_flowers"
+catalog_id = "core:nature_flowers"
+story = 0
+position = [[24.38, 6.24]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_quay_yard_4_nature_grass"
+catalog_id = "core:nature_grass"
+story = 0
+position = [[26.20, 5.76]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_quay_yard_5_stylized_tree_1"
+catalog_id = "core:stylized_tree_1"
+story = 0
+position = [[26.33, 1.92]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_wildlife_shed_1_desk"
+catalog_id = "core:desk"
+story = 0
+position = [[29.43, 1.92]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_wildlife_shed_2_chair_desk"
+catalog_id = "core:chair_desk"
+story = 0
+position = [[29.43, 3.84]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_wildlife_shed_3_bathroom_cabinet"
+catalog_id = "core:bathroom_cabinet"
+story = 0
+position = [[33.07, 1.76]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_wildlife_shed_4_cardboard_box_closed"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[33.07, 5.60]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_wildlife_shed_5_trashcan"
+catalog_id = "core:trashcan"
+story = 0
+position = [[31.25, 6.08]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+# END GENERATED ROOM FURNISHINGS

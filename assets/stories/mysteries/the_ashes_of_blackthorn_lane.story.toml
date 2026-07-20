@@ -1,0 +1,1618 @@
+version = "InteractiveStory v1"
+id = "the_ashes_of_blackthorn_lane"
+title = "The Ashes of Blackthorn Lane"
+creator = "Chicago conversion tool"
+description = "Cartographer Arun Black lies in a locked workroom beside wet footprints that never return."
+content_version = "1.0.0"
+default_space = "the_ashes_of_blackthorn_lane_lot"
+revision = 0
+
+[[capabilities]]
+id = "mystery"
+version = "1"
+
+[[entities]]
+id = "arun_black"
+kind = "character"
+display_name = "Arun Black"
+description = "Arun Black meant to publish corrected boundary figures in the morning. He was generous with access and merciless about attribution, leaving clients, colleagues, and rivals uncertain who would be named beside the new map."
+space_id = ""
+target_kind = "entity"
+target_id = ""
+tags = ["victim"]
+roles = []
+
+[[entities]]
+id = "cora_fen"
+kind = "character"
+display_name = "Cora Fen"
+description = "Surveyor who turns every accusation into a dispute about boundaries, transfer, and direction of travel."
+space_id = "the_ashes_of_blackthorn_lane_lot"
+target_kind = "marker"
+target_id = "spawn_cora_fen"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "milo_venn"
+kind = "character"
+display_name = "Milo Venn"
+description = "Map dealer whose opportunism makes him candid about copies but exacting about paper, plate, and cloth."
+space_id = "the_ashes_of_blackthorn_lane_lot"
+target_kind = "marker"
+target_id = "spawn_milo_venn"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "inez_ward"
+kind = "character"
+display_name = "Dr. Inez Ward"
+description = "Archaeologist who dates memory through material layers, weather, and undisturbed surfaces."
+space_id = "the_ashes_of_blackthorn_lane_lot"
+target_kind = "marker"
+target_id = "spawn_inez_ward"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "street_office"
+kind = "location"
+display_name = "STREET OFFICE"
+description = "Street Office is a connected, spatially testable part of the case."
+space_id = "the_ashes_of_blackthorn_lane_lot"
+target_kind = "room"
+target_id = "street_office"
+tags = []
+roles = []
+
+[[entities]]
+id = "upstairs_workroom"
+kind = "location"
+display_name = "UPSTAIRS WORKROOM"
+description = "Upstairs Workroom is a connected, spatially testable part of the case."
+space_id = "the_ashes_of_blackthorn_lane_lot"
+target_kind = "room"
+target_id = "upstairs_workroom"
+tags = []
+roles = []
+
+[[entities]]
+id = "print_room"
+kind = "location"
+display_name = "PRINT ROOM"
+description = "Print Room is a connected, spatially testable part of the case."
+space_id = "the_ashes_of_blackthorn_lane_lot"
+target_kind = "room"
+target_id = "print_room"
+tags = []
+roles = []
+
+[[entities]]
+id = "rear_courtyard"
+kind = "location"
+display_name = "REAR COURTYARD"
+description = "Rear Courtyard is a connected, spatially testable part of the case."
+space_id = "the_ashes_of_blackthorn_lane_lot"
+target_kind = "room"
+target_id = "rear_courtyard"
+tags = []
+roles = []
+
+[[entities]]
+id = "survey_store"
+kind = "location"
+display_name = "SURVEY STORE"
+description = "Survey Store is a connected, spatially testable part of the case."
+space_id = "the_ashes_of_blackthorn_lane_lot"
+target_kind = "room"
+target_id = "survey_store"
+tags = []
+roles = []
+
+[[entities]]
+id = "mechanical_footprints"
+kind = "object"
+display_name = "Mechanical Footprints"
+description = "The footprints repeat an exact stride and lack heel-to-toe pressure."
+space_id = "the_ashes_of_blackthorn_lane_lot"
+target_kind = "marker"
+target_id = "clue_marker_1"
+tags = []
+roles = []
+
+[[entities]]
+id = "carved_boot_sole"
+kind = "mechanism"
+display_name = "Carved Boot Sole"
+description = "A carved sole fits the survey staff in the store."
+space_id = "the_ashes_of_blackthorn_lane_lot"
+target_kind = "marker"
+target_id = "clue_marker_2"
+tags = []
+roles = []
+
+[[entities]]
+id = "survey_site_clay"
+kind = "mechanism"
+display_name = "Survey Site Clay"
+description = "Clay in the prints comes from Cora's active survey site."
+space_id = "the_ashes_of_blackthorn_lane_lot"
+target_kind = "marker"
+target_id = "clue_marker_3"
+tags = []
+roles = []
+
+[[entities]]
+id = "undisturbed_window_sill"
+kind = "object"
+display_name = "Undisturbed Window Sill"
+description = "The window sill shows no bodily entry."
+space_id = "the_ashes_of_blackthorn_lane_lot"
+target_kind = "marker"
+target_id = "clue_marker_4"
+tags = []
+roles = []
+
+[[entities]]
+id = "operable_transom"
+kind = "mechanism"
+display_name = "Operable Transom"
+description = "The transom admits a returned key but not a person."
+space_id = "the_ashes_of_blackthorn_lane_lot"
+target_kind = "marker"
+target_id = "clue_marker_5"
+tags = []
+roles = []
+
+[[entities]]
+id = "burned_tracing_linen"
+kind = "object"
+display_name = "Burned Tracing Linen"
+description = "The ash is tracing linen, not the stolen original map."
+space_id = "the_ashes_of_blackthorn_lane_lot"
+target_kind = "marker"
+target_id = "clue_marker_6"
+tags = []
+roles = []
+
+[[entities]]
+id = "drawing_board_impressions"
+kind = "object"
+display_name = "Drawing Board Impressions"
+description = "Pressure impressions preserve the true boundary figures."
+space_id = "the_ashes_of_blackthorn_lane_lot"
+target_kind = "marker"
+target_id = "clue_marker_7"
+tags = []
+roles = []
+
+[[entities]]
+id = "map_sales_ledger"
+kind = "object"
+display_name = "Map Sales Ledger"
+description = "Milo's ledger explains his copied maps."
+space_id = "the_ashes_of_blackthorn_lane_lot"
+target_kind = "marker"
+target_id = "clue_marker_8"
+tags = []
+roles = []
+
+[[entities]]
+id = "archaeological_field_note"
+kind = "object"
+display_name = "Archaeological Field Note"
+description = "Inez's field note explains her visit and excludes her at the killing."
+space_id = "the_ashes_of_blackthorn_lane_lot"
+target_kind = "marker"
+target_id = "clue_marker_9"
+tags = []
+roles = []
+
+[[propositions]]
+id = "claim_cora_fen"
+text = "Cora Fen claims no knowledge of the concealed mechanism."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "claim_milo_venn"
+text = "Milo Venn gives an incomplete but innocent account."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "claim_inez_ward"
+text = "Dr. Inez Ward gives an incomplete but innocent account."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_1"
+text = "The footprints repeat an exact stride and lack heel-to-toe pressure."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_2"
+text = "A carved sole fits the survey staff in the store."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_3"
+text = "Clay in the prints comes from Cora's active survey site."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_4"
+text = "The window sill shows no bodily entry."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_5"
+text = "The transom admits a returned key but not a person."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_6"
+text = "The ash is tracing linen, not the stolen original map."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_7"
+text = "Pressure impressions preserve the true boundary figures."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_8"
+text = "Milo's ledger explains his copied maps."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_9"
+text = "Inez's field note explains her visit and excludes her at the killing."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "deduction_1"
+text = "The footprints repeat an exact stride and lack heel-to-toe pressure."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "deduction_2"
+text = "Clay in the prints comes from Cora's active survey site."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "deduction_3"
+text = "The transom admits a returned key but not a person."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "deduction_4"
+text = "Pressure impressions preserve the true boundary figures."
+canonical_truth = "undetermined"
+
+[[events]]
+id = "crime_event"
+subject = "cora_fen"
+action = "kill"
+object = "arun_black"
+location = "street_office"
+fictional_time = "20:20"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[events]]
+id = "cover_event"
+subject = "cora_fen"
+action = "alter"
+object = "carved_boot_sole"
+location = "street_office"
+fictional_time = "20:30"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[conditions]]
+id = "condition.always"
+kind = "always"
+children = []
+variable = ""
+entity = ""
+other_entity = ""
+proposition = ""
+objective = ""
+event = ""
+content = ""
+text = ""
+space_a = ""
+target_a = ""
+space_b = ""
+target_b = ""
+distance = 0
+value_kind = "boolean"
+boolean_value = false
+integer_value = 0
+text_value = ""
+comparison = 0
+objective_status = 0
+stance = "uncertain"
+
+[[scenes]]
+id = "final_confrontation"
+display_name = "Cora killed Arun with a brass divider, stamped prints with a carved sole on a survey staff, burned a linen decoy, and returned the key through the transom."
+entry_node = "reconstruction"
+bound_entity = "cora_fen"
+summary = "Cora killed Arun with a brass divider, stamped prints with a carved sole on a survey staff, burned a linen decoy, and returned the key through the transom."
+return_to = "board"
+
+[[scenes]]
+id = "scene_opening_cora_fen"
+display_name = "Cora traces a boundary on the desk. 'Arun meant to publish revised figures tomorrow. He called it a correction; half the lane would call it an accusation.'"
+entry_node = "opening_cora_fen_line"
+bound_entity = "cora_fen"
+summary = "Cora traces a boundary on the desk. 'Arun meant to publish revised figures tomorrow. He called it a correction; half the lane would call it an accusation.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_cora_fen"
+display_name = "Cora draws an invisible boundary with one finger. 'Because Arun visited my site. Clay crosses a line more easily than a person.'"
+entry_node = "account_cora_fen_line"
+bound_entity = "cora_fen"
+summary = "Cora draws an invisible boundary with one finger. 'Because Arun visited my site. Clay crosses a line more easily than a person.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_cora_fen"
+display_name = "'The prints lead inward. Unless you can make them return, they prove he admitted someone else.'"
+entry_node = "approach_cora_fen_line"
+bound_entity = "cora_fen"
+summary = "'The prints lead inward. Unless you can make them return, they prove he admitted someone else.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_opening_milo_venn"
+display_name = "Milo closes the sales ledger. 'Arun wanted his share and my customer names. Generosity ended wherever attribution began.'"
+entry_node = "opening_milo_venn_line"
+bound_entity = "milo_venn"
+summary = "Milo closes the sales ledger. 'Arun wanted his share and my customer names. Generosity ended wherever attribution began.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_milo_venn"
+display_name = "Milo opens the ledger at the first duplicate. 'I sold impressions after hours. Arun knew; he took half.'"
+entry_node = "account_milo_venn_line"
+bound_entity = "milo_venn"
+summary = "Milo opens the ledger at the first duplicate. 'I sold impressions after hours. Arun knew; he took half.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_milo_venn"
+display_name = "'I came for the original plate. The ash upstairs is linen, not paper. Even I can tell stock from cloth.'"
+entry_node = "approach_milo_venn_line"
+bound_entity = "milo_venn"
+summary = "'I came for the original plate. The ash upstairs is linen, not paper. Even I can tell stock from cloth.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_opening_inez_ward"
+display_name = "Inez brushes dried soil from her note. 'He asked whether an old wall proved an old boundary. I left at six fifteen, after telling him history is rarely that obedient.'"
+entry_node = "opening_inez_ward_line"
+bound_entity = "inez_ward"
+summary = "Inez brushes dried soil from her note. 'He asked whether an old wall proved an old boundary. I left at six fifteen, after telling him history is rarely that obedient.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_inez_ward"
+display_name = "Inez dates her answer by soil layer. 'A field note at six fifteen, before the rain reached Blackthorn Lane.'"
+entry_node = "account_inez_ward_line"
+bound_entity = "inez_ward"
+summary = "Inez dates her answer by soil layer. 'A field note at six fifteen, before the rain reached Blackthorn Lane.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_inez_ward"
+display_name = "'The sill was dry then. If a body crossed it later, the dust would not still be continuous.'"
+entry_node = "approach_inez_ward_line"
+bound_entity = "inez_ward"
+summary = "'The sill was dry then. If a body crossed it later, the dust would not still be continuous.'"
+return_to = "investigation"
+
+[[nodes]]
+id = "reconstruction"
+scene = "final_confrontation"
+kind = "line"
+line_id = "reconstruction"
+speaker = "detective"
+text = "Cora killed Arun with a brass divider, stamped prints with a carved sole on a survey staff, burned a linen decoy, and returned the key through the transom."
+next = "answer"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = ""
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "reconstruction"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "answer"
+scene = "final_confrontation"
+kind = "line"
+line_id = "answer"
+speaker = "cora_fen"
+text = "The physical reconstruction leaves no honest alternative."
+next = "end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = ""
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "answer"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "end"
+scene = "final_confrontation"
+kind = "end"
+line_id = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = ""
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_cora_fen_line"
+scene = "scene_opening_cora_fen"
+kind = "line"
+line_id = "opening_cora_fen_line"
+speaker = "cora_fen"
+text = "Cora traces a boundary on the desk. 'Arun meant to publish revised figures tomorrow. He called it a correction; half the lane would call it an accusation.'"
+next = "opening_cora_fen_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_cora_fen_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_cora_fen_end"
+scene = "scene_opening_cora_fen"
+kind = "end"
+line_id = "opening_cora_fen_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_cora_fen_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_cora_fen_line"
+scene = "scene_account_cora_fen"
+kind = "line"
+line_id = "account_cora_fen_line"
+speaker = "cora_fen"
+text = "Cora draws an invisible boundary with one finger. 'Because Arun visited my site. Clay crosses a line more easily than a person.'"
+next = "account_cora_fen_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_cora_fen_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_cora_fen_end"
+scene = "scene_account_cora_fen"
+kind = "end"
+line_id = "account_cora_fen_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_cora_fen_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_cora_fen_line"
+scene = "scene_approach_cora_fen"
+kind = "line"
+line_id = "approach_cora_fen_line"
+speaker = "cora_fen"
+text = "'The prints lead inward. Unless you can make them return, they prove he admitted someone else.'"
+next = "approach_cora_fen_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_cora_fen_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_cora_fen_end"
+scene = "scene_approach_cora_fen"
+kind = "end"
+line_id = "approach_cora_fen_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_cora_fen_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_milo_venn_line"
+scene = "scene_opening_milo_venn"
+kind = "line"
+line_id = "opening_milo_venn_line"
+speaker = "milo_venn"
+text = "Milo closes the sales ledger. 'Arun wanted his share and my customer names. Generosity ended wherever attribution began.'"
+next = "opening_milo_venn_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_milo_venn_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_milo_venn_end"
+scene = "scene_opening_milo_venn"
+kind = "end"
+line_id = "opening_milo_venn_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_milo_venn_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_milo_venn_line"
+scene = "scene_account_milo_venn"
+kind = "line"
+line_id = "account_milo_venn_line"
+speaker = "milo_venn"
+text = "Milo opens the ledger at the first duplicate. 'I sold impressions after hours. Arun knew; he took half.'"
+next = "account_milo_venn_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_milo_venn_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_milo_venn_end"
+scene = "scene_account_milo_venn"
+kind = "end"
+line_id = "account_milo_venn_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_milo_venn_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_milo_venn_line"
+scene = "scene_approach_milo_venn"
+kind = "line"
+line_id = "approach_milo_venn_line"
+speaker = "milo_venn"
+text = "'I came for the original plate. The ash upstairs is linen, not paper. Even I can tell stock from cloth.'"
+next = "approach_milo_venn_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_milo_venn_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_milo_venn_end"
+scene = "scene_approach_milo_venn"
+kind = "end"
+line_id = "approach_milo_venn_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_milo_venn_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_inez_ward_line"
+scene = "scene_opening_inez_ward"
+kind = "line"
+line_id = "opening_inez_ward_line"
+speaker = "inez_ward"
+text = "Inez brushes dried soil from her note. 'He asked whether an old wall proved an old boundary. I left at six fifteen, after telling him history is rarely that obedient.'"
+next = "opening_inez_ward_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_inez_ward_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_inez_ward_end"
+scene = "scene_opening_inez_ward"
+kind = "end"
+line_id = "opening_inez_ward_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_inez_ward_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_inez_ward_line"
+scene = "scene_account_inez_ward"
+kind = "line"
+line_id = "account_inez_ward_line"
+speaker = "inez_ward"
+text = "Inez dates her answer by soil layer. 'A field note at six fifteen, before the rain reached Blackthorn Lane.'"
+next = "account_inez_ward_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_inez_ward_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_inez_ward_end"
+scene = "scene_account_inez_ward"
+kind = "end"
+line_id = "account_inez_ward_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_inez_ward_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_inez_ward_line"
+scene = "scene_approach_inez_ward"
+kind = "line"
+line_id = "approach_inez_ward_line"
+speaker = "inez_ward"
+text = "'The sill was dry then. If a body crossed it later, the dust would not still be continuous.'"
+next = "approach_inez_ward_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_inez_ward_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_inez_ward_end"
+scene = "scene_approach_inez_ward"
+kind = "end"
+line_id = "approach_inez_ward_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_inez_ward_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[mystery]
+action_budget = 12
+seed = 20261028
+tutorial = ""
+city_start = ""
+city_destination = "the_ashes_of_blackthorn_lane_venue"
+reveal_location = "street_office"
+
+[[mystery.characters]]
+entity = "arun_black"
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = []
+
+[[mystery.characters]]
+entity = "cora_fen"
+private_secret = ""
+motive = "Conceals the crime's material mechanism."
+initial_disposition = 0
+initial_claims = ["claim_cora_fen"]
+
+[[mystery.characters]]
+entity = "milo_venn"
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_milo_venn"]
+
+[[mystery.characters]]
+entity = "inez_ward"
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_inez_ward"]
+
+[[mystery.locations]]
+entity = "street_office"
+connections = ["upstairs_workroom"]
+characters = []
+pois = ["mechanical_footprints", "burned_tracing_linen"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "upstairs_workroom"
+connections = ["street_office", "print_room"]
+characters = ["arun_black"]
+pois = ["carved_boot_sole", "drawing_board_impressions"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "print_room"
+connections = ["upstairs_workroom", "rear_courtyard"]
+characters = ["cora_fen"]
+pois = ["survey_site_clay", "map_sales_ledger"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "rear_courtyard"
+connections = ["print_room", "survey_store"]
+characters = ["milo_venn"]
+pois = ["undisturbed_window_sill", "archaeological_field_note"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "survey_store"
+connections = ["rear_courtyard"]
+characters = []
+pois = ["operable_transom"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.pois]]
+entity = "mechanical_footprints"
+location = "street_office"
+owner = ""
+relevant_state = "The footprints repeat an exact stride and lack heel-to-toe pressure."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "carved_boot_sole"
+location = "upstairs_workroom"
+owner = ""
+relevant_state = "A carved sole fits the survey staff in the store."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "survey_site_clay"
+location = "print_room"
+owner = ""
+relevant_state = "Clay in the prints comes from Cora's active survey site."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "undisturbed_window_sill"
+location = "rear_courtyard"
+owner = ""
+relevant_state = "The window sill shows no bodily entry."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "operable_transom"
+location = "survey_store"
+owner = ""
+relevant_state = "The transom admits a returned key but not a person."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "burned_tracing_linen"
+location = "street_office"
+owner = ""
+relevant_state = "The ash is tracing linen, not the stolen original map."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "drawing_board_impressions"
+location = "upstairs_workroom"
+owner = ""
+relevant_state = "Pressure impressions preserve the true boundary figures."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "map_sales_ledger"
+location = "print_room"
+owner = ""
+relevant_state = "Milo's ledger explains his copied maps."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "archaeological_field_note"
+location = "rear_courtyard"
+owner = ""
+relevant_state = "Inez's field note explains her visit and excludes her at the killing."
+examination_action = "examine"
+
+[[mystery.events]]
+event = "crime_event"
+destination = "street_office"
+tool = "brass_divider"
+effects = ["victim_dead"]
+
+[[mystery.events]]
+event = "cover_event"
+destination = "upstairs_workroom"
+tool = ""
+effects = ["scene_staged"]
+
+[[mystery.clues]]
+id = "clue_1"
+source = "mechanical_footprints"
+description = "The footprints repeat an exact stride and lack heel-to-toe pressure."
+proposition = "clue_1"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["weapon"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_2"
+source = "carved_boot_sole"
+description = "A carved sole fits the survey staff in the store."
+proposition = "clue_2"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["murder_place"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_3"
+source = "survey_site_clay"
+description = "Clay in the prints comes from Cora's active survey site."
+proposition = "clue_3"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["death_time"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_4"
+source = "undisturbed_window_sill"
+description = "The window sill shows no bodily entry."
+proposition = "clue_4"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["body_movement"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_5"
+source = "operable_transom"
+description = "The transom admits a returned key but not a person."
+proposition = "clue_5"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["staging"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_6"
+source = "burned_tracing_linen"
+description = "The ash is tracing linen, not the stolen original map."
+proposition = "clue_6"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["cleaning"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_7"
+source = "milo_venn"
+description = "Pressure impressions preserve the true boundary figures."
+proposition = "clue_7"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["alibi"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_8"
+source = "inez_ward"
+description = "Milo's ledger explains his copied maps."
+proposition = "clue_8"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = []
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_9"
+source = "cora_fen"
+description = "Inez's field note explains her visit and excludes her at the killing."
+proposition = "clue_9"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["claim_cora_fen"]
+topics = ["mechanism"]
+
+[[mystery.claims]]
+id = "claim_cora_fen"
+speaker = "cora_fen"
+proposition = "claim_cora_fen"
+protects = ""
+response = "Cora Fen maintains the account until the physical reconstruction."
+canonical_truth = false
+
+[[mystery.claims]]
+id = "claim_milo_venn"
+speaker = "milo_venn"
+proposition = "claim_milo_venn"
+protects = ""
+response = "Milo Venn maintains the account until the physical reconstruction."
+canonical_truth = true
+
+[[mystery.claims]]
+id = "claim_inez_ward"
+speaker = "inez_ward"
+proposition = "claim_inez_ward"
+protects = ""
+response = "Dr. Inez Ward maintains the account until the physical reconstruction."
+canonical_truth = true
+
+[[mystery.contradictions]]
+id = "decisive_contradiction"
+claim = "claim_cora_fen"
+fact = "clue_9"
+conclusion = ""
+explanation = "Cora killed Arun with a brass divider, stamped prints with a carved sole on a survey staff, burned a linen decoy, and returned the key through the transom."
+
+[[mystery.deductions]]
+id = "deduction_1"
+proposition = "deduction_1"
+category = "what"
+supports = []
+unlock_questions = []
+unlock_topics = []
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "deduction_2"
+proposition = "deduction_2"
+category = "where_when"
+supports = []
+unlock_questions = []
+unlock_topics = []
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "deduction_3"
+proposition = "deduction_3"
+category = "concealment"
+supports = []
+unlock_questions = []
+unlock_topics = []
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "deduction_4"
+proposition = "deduction_4"
+category = "contradiction"
+supports = []
+unlock_questions = []
+unlock_topics = []
+unlock_investigations = []
+
+[[mystery.questions]]
+id = "question_1"
+prompt = "What does this physical comparison establish?"
+hypothesis = "The footprints repeat an exact stride and lack heel-to-toe pressure."
+category = "what"
+requires_clues = ["clue_1", "clue_2"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_2"
+prompt = "What does this physical comparison establish?"
+hypothesis = "Clay in the prints comes from Cora's active survey site."
+category = "where_when"
+requires_clues = ["clue_3", "clue_4"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_3"
+prompt = "What does this physical comparison establish?"
+hypothesis = "The transom admits a returned key but not a person."
+category = "concealment"
+requires_clues = ["clue_5", "clue_6"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_4"
+prompt = "What does this physical comparison establish?"
+hypothesis = "Pressure impressions preserve the true boundary figures."
+category = "contradiction"
+requires_clues = ["clue_7", "clue_8"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.demonstrations]]
+id = "demonstration_1"
+question = "question_1"
+mode = "comparison"
+resolution = "substantiated"
+result = "Cora killed Arun with a brass divider, stamped prints with a carved sole on a survey staff, burned a linen decoy, and returned the key through the transom."
+prompt = "Combine the two observations and test the authored mechanism."
+slot_labels = ["Evidence A", "Evidence B"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_1", "clue_2"]
+route_firsts = []
+route_counts = []
+result_deductions = ["deduction_1"]
+
+[[mystery.demonstrations]]
+id = "demonstration_2"
+question = "question_2"
+mode = "physical"
+resolution = "substantiated"
+result = "Cora killed Arun with a brass divider, stamped prints with a carved sole on a survey staff, burned a linen decoy, and returned the key through the transom."
+prompt = "Combine the two observations and test the authored mechanism."
+slot_labels = ["Evidence A", "Evidence B"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_3", "clue_4"]
+route_firsts = []
+route_counts = []
+result_deductions = ["deduction_2"]
+
+[[mystery.demonstrations]]
+id = "demonstration_3"
+question = "question_3"
+mode = "timeline"
+resolution = "substantiated"
+result = "Cora killed Arun with a brass divider, stamped prints with a carved sole on a survey staff, burned a linen decoy, and returned the key through the transom."
+prompt = "Combine the two observations and test the authored mechanism."
+slot_labels = ["Evidence A", "Evidence B"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_5", "clue_6"]
+route_firsts = []
+route_counts = []
+result_deductions = ["deduction_3"]
+
+[[mystery.demonstrations]]
+id = "demonstration_4"
+question = "question_4"
+mode = "confrontation"
+resolution = "substantiated"
+result = "Cora killed Arun with a brass divider, stamped prints with a carved sole on a survey staff, burned a linen decoy, and returned the key through the transom."
+prompt = "Combine the two observations and test the authored mechanism."
+slot_labels = ["Evidence A", "Evidence B"]
+slot_types = ["testimony", "testimony"]
+accepted = ["clue_7", "clue_8"]
+route_firsts = []
+route_counts = []
+result_deductions = ["deduction_4"]
+
+[[mystery.dialogue]]
+node = "opening_cora_fen"
+character = "cora_fen"
+prompt = "Tell me about Arun Black. What did they want tonight?"
+response = "Cora traces a boundary on the desk. 'Arun meant to publish revised figures tomorrow. He called it a correction; half the lane would call it an accusation.'"
+clue = ""
+interaction = ""
+requires = ["claim_cora_fen"]
+unlocks = ["account_ready_cora_fen"]
+
+[[mystery.dialogue]]
+node = "account_cora_fen"
+character = "cora_fen"
+prompt = "Why does your survey clay appear in the footprints?"
+response = "Cora draws an invisible boundary with one finger. 'Because Arun visited my site. Clay crosses a line more easily than a person.'"
+clue = ""
+interaction = ""
+requires = ["claim_cora_fen", "account_ready_cora_fen"]
+unlocks = ["followup_cora_fen"]
+
+[[mystery.dialogue]]
+node = "approach_cora_fen"
+character = "cora_fen"
+prompt = "Then account for the mechanical footprints."
+response = "'The prints lead inward. Unless you can make them return, they prove he admitted someone else.'"
+clue = "clue_9"
+interaction = ""
+requires = ["clue_1", "claim_cora_fen", "followup_cora_fen"]
+unlocks = ["clue_9", "mechanism"]
+
+[[mystery.dialogue]]
+node = "opening_milo_venn"
+character = "milo_venn"
+prompt = "Tell me about Arun Black. What did they want tonight?"
+response = "Milo closes the sales ledger. 'Arun wanted his share and my customer names. Generosity ended wherever attribution began.'"
+clue = ""
+interaction = ""
+requires = ["claim_milo_venn"]
+unlocks = ["account_ready_milo_venn"]
+
+[[mystery.dialogue]]
+node = "account_milo_venn"
+character = "milo_venn"
+prompt = "Why are copied maps recorded in your sales ledger?"
+response = "Milo opens the ledger at the first duplicate. 'I sold impressions after hours. Arun knew; he took half.'"
+clue = ""
+interaction = ""
+requires = ["claim_milo_venn", "account_ready_milo_venn"]
+unlocks = ["followup_milo_venn"]
+
+[[mystery.dialogue]]
+node = "approach_milo_venn"
+character = "milo_venn"
+prompt = "Then account for the survey site clay."
+response = "'I came for the original plate. The ash upstairs is linen, not paper. Even I can tell stock from cloth.'"
+clue = "clue_7"
+interaction = ""
+requires = ["clue_3", "claim_milo_venn", "followup_milo_venn"]
+unlocks = ["clue_7", "mechanism"]
+
+[[mystery.dialogue]]
+node = "opening_inez_ward"
+character = "inez_ward"
+prompt = "Tell me about Arun Black. What did they want tonight?"
+response = "Inez brushes dried soil from her note. 'He asked whether an old wall proved an old boundary. I left at six fifteen, after telling him history is rarely that obedient.'"
+clue = ""
+interaction = ""
+requires = ["claim_inez_ward"]
+unlocks = ["account_ready_inez_ward"]
+
+[[mystery.dialogue]]
+node = "account_inez_ward"
+character = "inez_ward"
+prompt = "What did you leave in Arun's workroom?"
+response = "Inez dates her answer by soil layer. 'A field note at six fifteen, before the rain reached Blackthorn Lane.'"
+clue = ""
+interaction = ""
+requires = ["claim_inez_ward", "account_ready_inez_ward"]
+unlocks = ["followup_inez_ward"]
+
+[[mystery.dialogue]]
+node = "approach_inez_ward"
+character = "inez_ward"
+prompt = "Then account for the operable transom."
+response = "'The sill was dry then. If a body crossed it later, the dust would not still be continuous.'"
+clue = "clue_8"
+interaction = ""
+requires = ["clue_5", "claim_inez_ward", "followup_inez_ward"]
+unlocks = ["clue_8", "mechanism"]
+
+[[mystery.city_labels]]
+id = "the_ashes_of_blackthorn_lane_venue"
+display_name = "BLACKTHORN LANE CARTOGRAPHY OFFICE"
+level_spawn = "spawn_player"
+city_site = "blackthorn_lane"
+
+[mystery.solution]
+culprit = "cora_fen"
+motive = "clue_9"
+decisive_contradiction = "decisive_contradiction"
+weapon_block = "weapon"
+murder_place_block = "murder_place"
+death_time_block = "death_time"
+body_movement_block = "body_movement"
+staging_block = "staging"
+cleaning_block = "cleaning"
+alibi_block = "alibi"
+requirements = ["weapon", "murder_place", "death_time", "body_movement", "staging", "cleaning", "alibi"]
+murder_events = ["crime_event"]
+cover_up_events = ["cover_event"]
+false_alibis = ["claim_cora_fen"]
+exclusions = ["milo_venn", "inez_ward"]

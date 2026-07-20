@@ -1,0 +1,276 @@
+version = "GraphMode v1"
+case_id = "the_violinist_without_a_shadow"
+revision = 0
+
+[[scenes]]
+id = "final_confrontation"
+source = "dorian_kest"
+entry = "reconstruction"
+summary = "Dorian recorded Mara, killed her with a stand weight, then used playback, a scarf-clad mannequin, and angled reflections to preserve a false continuous sighting."
+return_to = "board"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "reconstruction"
+scene = "final_confrontation"
+kind = "line"
+speaker = "detective"
+text = "Dorian recorded Mara, killed her with a stand weight, then used playback, a scarf-clad mannequin, and angled reflections to preserve a false continuous sighting."
+next = "answer"
+
+[[nodes]]
+id = "answer"
+scene = "final_confrontation"
+kind = "line"
+speaker = "dorian_kest"
+text = "The physical reconstruction leaves no honest alternative."
+next = "end"
+
+[[nodes]]
+id = "end"
+scene = "final_confrontation"
+kind = "end"
+
+[[scenes]]
+id = "scene_opening_dorian_kest"
+source = "dorian_kest"
+entry = "opening_dorian_kest_line"
+summary = "Dorian watches the empty stand. 'Mara meant to replace the gala program without permission. She wanted the audience to hear her, not the centre.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_dorian_kest_line"
+scene = "scene_opening_dorian_kest"
+kind = "line"
+speaker = "dorian_kest"
+text = "Dorian watches the empty stand. 'Mara meant to replace the gala program without permission. She wanted the audience to hear her, not the centre.'"
+next = "opening_dorian_kest_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_dorian_kest_end"
+scene = "scene_opening_dorian_kest"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_dorian_kest"
+source = "dorian_kest"
+entry = "account_dorian_kest_line"
+summary = "Dorian conducts the memory with two fingers. 'Toward the west window when the bell sounded. She always sought the light.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_dorian_kest_line"
+scene = "scene_account_dorian_kest"
+kind = "line"
+speaker = "dorian_kest"
+text = "Dorian conducts the memory with two fingers. 'Toward the west window when the bell sounded. She always sought the light.'"
+next = "account_dorian_kest_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_dorian_kest_end"
+scene = "scene_account_dorian_kest"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_dorian_kest"
+source = "dorian_kest"
+entry = "approach_dorian_kest_line"
+summary = "The reflected recital hall has no west window. His hand falls still before the phrase ends."
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_dorian_kest_line"
+scene = "scene_approach_dorian_kest"
+kind = "line"
+speaker = "dorian_kest"
+text = "The reflected recital hall has no west window. His hand falls still before the phrase ends."
+next = "approach_dorian_kest_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_dorian_kest_end"
+scene = "scene_approach_dorian_kest"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_opening_sel_vale"
+source = "sel_vale"
+entry = "opening_sel_vale_line"
+summary = "Sel names the abandoned piece. 'She played it to prove she no longer needed anyone here. I left during the same eight bars she had repeated all afternoon.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_sel_vale_line"
+scene = "scene_opening_sel_vale"
+kind = "line"
+speaker = "sel_vale"
+text = "Sel names the abandoned piece. 'She played it to prove she no longer needed anyone here. I left during the same eight bars she had repeated all afternoon.'"
+next = "opening_sel_vale_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_sel_vale_end"
+scene = "scene_opening_sel_vale"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_sel_vale"
+source = "sel_vale"
+entry = "account_sel_vale_line"
+summary = "Sel names each string before admitting the fourth. 'I nicked the E string. I wanted her embarrassed, not silent.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_sel_vale_line"
+scene = "scene_account_sel_vale"
+kind = "line"
+speaker = "sel_vale"
+text = "Sel names each string before admitting the fourth. 'I nicked the E string. I wanted her embarrassed, not silent.'"
+next = "account_sel_vale_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_sel_vale_end"
+scene = "scene_account_sel_vale"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_sel_vale"
+source = "sel_vale"
+entry = "approach_sel_vale_line"
+summary = "'When I left, she was repeating the same eight bars. Later they returned without a breath between them.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_sel_vale_line"
+scene = "scene_approach_sel_vale"
+kind = "line"
+speaker = "sel_vale"
+text = "'When I left, she was repeating the same eight bars. Later they returned without a breath between them.'"
+next = "approach_sel_vale_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_sel_vale_end"
+scene = "scene_approach_sel_vale"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_opening_pavel_orr"
+source = "pavel_orr"
+entry = "opening_pavel_orr_line"
+summary = "Pavel checks the booking book. 'Mara asked who had reserved the hall after seven. I told her nobody, which was not quite the same as saying it was free.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_pavel_orr_line"
+scene = "scene_opening_pavel_orr"
+kind = "line"
+speaker = "pavel_orr"
+text = "Pavel checks the booking book. 'Mara asked who had reserved the hall after seven. I told her nobody, which was not quite the same as saying it was free.'"
+next = "opening_pavel_orr_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_pavel_orr_end"
+scene = "scene_opening_pavel_orr"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_pavel_orr"
+source = "pavel_orr"
+entry = "account_pavel_orr_line"
+summary = "Pavel searches the schedule as though a free room might still save him. 'I rented the hall privately and kept the fee.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_pavel_orr_line"
+scene = "scene_account_pavel_orr"
+kind = "line"
+speaker = "pavel_orr"
+text = "Pavel searches the schedule as though a free room might still save him. 'I rented the hall privately and kept the fee.'"
+next = "account_pavel_orr_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_pavel_orr_end"
+scene = "scene_account_pavel_orr"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_pavel_orr"
+source = "pavel_orr"
+entry = "approach_pavel_orr_line"
+summary = "'The recital room was empty by seven. If music came from it afterward, no player made it.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_pavel_orr_line"
+scene = "scene_approach_pavel_orr"
+kind = "line"
+speaker = "pavel_orr"
+text = "'The recital room was empty by seven. If music came from it afterward, no player made it.'"
+next = "approach_pavel_orr_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_pavel_orr_end"
+scene = "scene_approach_pavel_orr"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]

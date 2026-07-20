@@ -1,0 +1,10 @@
+{
+  "author": "Chicago Story Studio",
+  "description": "The complete spatial mystery used by the Chicago campaign runtime.",
+  "content_version": "1.0.0",
+  "story": "assets/stories/mysteries/the_torn_appointment.story.toml",
+  "level": "assets/levels/vale_house.toml",
+  "acknowledge_incomplete_validation": true,
+  "include": [],
+  "exclude": ["**/__pycache__/**", "assets/sound-effects/**"]
+}

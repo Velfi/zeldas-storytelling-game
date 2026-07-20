@@ -1,0 +1,1040 @@
+version = "InteractiveStory v1"
+id = "the_lantern_visit"
+title = "The Lantern Visit"
+creator = "Chicago Story Studio"
+description = "A short ghost story: a rain-soaked visitor helps a strange neighbor relight the courtyard lantern, then discovers whom the light was waiting for."
+content_version = "1.0.0"
+default_space = "vale_house"
+revision = 1
+
+[[roles]]
+id = "protagonist"
+display_name = "Protagonist"
+description = "The player-facing lead role."
+minimum = 1
+maximum = 1
+
+[[roles]]
+id = "resident"
+display_name = "Resident"
+description = "A person who belongs to this place."
+minimum = 1
+maximum = 0
+
+[[entities]]
+id = "player"
+kind = "actor"
+display_name = "Visitor"
+description = "The player character."
+space_id = "vale_house"
+target_kind = "marker"
+target_id = "spawn_player"
+tags = ["playable"]
+roles = ["protagonist"]
+
+[[entities]]
+id = "ada"
+kind = "actor"
+display_name = "Ada"
+description = "The pale apparition of a neighbor who has returned for one last lantern-lighting."
+space_id = "vale_house"
+target_kind = "entity"
+target_id = "character_ada"
+tags = ["neighbor"]
+roles = ["resident"]
+
+[[entities]]
+id = "courtyard_lantern"
+kind = "object"
+display_name = "Courtyard Lantern"
+description = "An old oil lantern beside the gate, dark since the night Ada died."
+space_id = "vale_house"
+target_kind = "interaction"
+target_id = "lantern"
+tags = ["light", "interactive"]
+roles = []
+
+[[entities]]
+id = "courtyard"
+kind = "location"
+display_name = "Courtyard"
+description = "The shared courtyard containing the lantern."
+space_id = "vale_house"
+target_kind = "room"
+target_id = "courtyard"
+tags = ["location"]
+roles = []
+
+[[variables]]
+id = "ada_trust"
+display_name = "Ada's trust"
+description = "A bounded measure of whether Ada trusts the visitor to finish her last task."
+kind = "integer"
+boolean_value = false
+integer_value = 0
+text_value = ""
+minimum = -1
+maximum = 4
+enum_values = []
+
+[[variables]]
+id = "lantern_state"
+display_name = "Lantern state"
+description = "The physical state of the courtyard lantern."
+kind = "enum"
+boolean_value = false
+integer_value = 0
+text_value = "dark"
+minimum = 0
+maximum = 0
+enum_values = ["dark", "lit", "blue", "gold", "extinguished"]
+
+[[variables]]
+id = "memory_shards"
+display_name = "Recovered memories"
+description = "Fragments of Ada's last night recovered through conversation and supernatural events."
+kind = "integer"
+integer_value = 0
+minimum = 0
+maximum = 3
+enum_values = []
+
+[[variables]]
+id = "visitor_courage"
+display_name = "Visitor's courage"
+description = "The visitor's willingness to remain when the courtyard becomes dangerous."
+kind = "integer"
+integer_value = 0
+minimum = 0
+maximum = 3
+enum_values = []
+
+[[propositions]]
+id = "prop_lantern_needs_oil"
+text = "The courtyard lantern needs fresh oil before it can burn again."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "prop_ada_is_ghost"
+text = "Ada died in the courtyard long ago and has returned only to see the lantern lit."
+canonical_truth = "true"
+
+[[propositions]]
+id = "prop_bell_holds_memory"
+text = "Ringing the courtyard bell while the lantern burns will make the house remember its dead."
+canonical_truth = "true"
+
+[[propositions]]
+id = "prop_thomas_returned"
+text = "Ada's brother Thomas returned on the fatal night, but Ada barred the gate because she believed he had betrayed the family."
+canonical_truth = "true"
+
+[[initial_knowledge]]
+actor = "ada"
+proposition = "prop_lantern_needs_oil"
+stance = "believes"
+
+[[initial_knowledge]]
+actor = "ada"
+proposition = "prop_ada_is_ghost"
+stance = "believes"
+
+[[initial_knowledge]]
+actor = "ada"
+proposition = "prop_bell_holds_memory"
+stance = "believes"
+
+[[initial_knowledge]]
+actor = "ada"
+proposition = "prop_thomas_returned"
+stance = "disbelieves"
+
+[[events]]
+id = "lantern_repaired"
+subject = "player"
+action = "relight"
+object = "courtyard_lantern"
+location = "courtyard"
+fictional_time = "evening"
+provenance = "player_action"
+
+[[events]]
+id = "memory_bell_rang"
+subject = "player"
+action = "ring"
+object = "courtyard_lantern"
+location = "courtyard"
+fictional_time = "midnight"
+provenance = "player_action"
+
+[[events]]
+id = "ghost_threshold_opened"
+subject = "ada"
+action = "open_threshold"
+location = "courtyard"
+fictional_time = "midnight"
+provenance = "story_effect"
+
+[[objectives]]
+id = "help_ada"
+display_name = "Help Ada"
+description = "Learn why the lantern went dark and decide whether to grant Ada's final wish."
+hidden = true
+stage_count = 5
+completion_condition = 6
+failure_condition = 8
+
+[[objectives]]
+id = "speak_with_ada"
+display_name = "Speak with Ada"
+description = "Find the voice in the rain and hear why it called to you."
+hidden = false
+initial_status = "active"
+
+[[objectives]]
+id = "learn_why_dark"
+display_name = "Learn Why the Lantern Went Dark"
+description = "Listen to what Ada remembers about the lantern and the promise bound to it."
+hidden = false
+
+[[objectives]]
+id = "restore_lantern"
+display_name = "Restore the Lantern"
+description = "Help the courtyard lantern burn once more."
+hidden = false
+
+[[objectives]]
+id = "decide_final_wish"
+display_name = "Decide Ada’s Final Wish"
+description = "Follow the returning memories, then choose what should happen at the gate."
+hidden = false
+
+# 0: universal fallback; 1: Ada trusts the player; 2: the player knows what
+# the lantern needs; 3: the lantern has been repaired.
+[[conditions]]
+kind = "always"
+first_child = 0
+child_count = 0
+value_kind = "boolean"
+
+[[conditions]]
+kind = "integer_compare"
+variable = "ada_trust"
+comparison = 4
+value_kind = "integer"
+integer_value = 1
+
+[[conditions]]
+kind = "aware"
+entity = "player"
+proposition = "prop_lantern_needs_oil"
+value_kind = "boolean"
+
+[[conditions]]
+kind = "event_occurred"
+event = "lantern_repaired"
+value_kind = "boolean"
+
+[[conditions]]
+kind = "event_occurred"
+event = "memory_bell_rang"
+value_kind = "boolean"
+
+[[conditions]]
+kind = "integer_compare"
+variable = "memory_shards"
+comparison = 3
+value_kind = "integer"
+integer_value = 2
+
+[[conditions]]
+kind = "event_occurred"
+event = "ghost_threshold_opened"
+value_kind = "boolean"
+
+[[conditions]]
+kind = "objective_equals"
+objective = "help_ada"
+objective_status = 2
+value_kind = "boolean"
+
+[[conditions]]
+kind = "objective_equals"
+objective = "help_ada"
+objective_status = 3
+value_kind = "boolean"
+
+[[conditions]]
+kind = "integer_compare"
+variable = "ada_trust"
+comparison = 3
+value_kind = "integer"
+integer_value = 3
+
+[[effects]]
+kind = "communicate"
+actor = "ada"
+other_actor = "player"
+proposition = "prop_lantern_needs_oil"
+content = "ada_explains_lantern"
+stance = "uncertain"
+value_kind = "boolean"
+
+[[effects]]
+kind = "add_integer"
+variable = "ada_trust"
+value_kind = "integer"
+integer_value = 1
+
+[[effects]]
+kind = "set_value"
+variable = "lantern_state"
+value_kind = "enum"
+text_value = "lit"
+
+[[effects]]
+kind = "emit_event"
+event = "lantern_repaired"
+value_kind = "boolean"
+
+[[effects]]
+kind = "add_integer"
+variable = "memory_shards"
+integer_value = 1
+value_kind = "integer"
+
+[[effects]]
+kind = "communicate"
+actor = "ada"
+other_actor = "player"
+proposition = "prop_ada_is_ghost"
+content = "ada_farewell"
+stance = "believes"
+value_kind = "boolean"
+
+[[effects]]
+kind = "communicate"
+actor = "ada"
+other_actor = "player"
+proposition = "prop_bell_holds_memory"
+content = "ada_reveals_bell"
+stance = "believes"
+value_kind = "boolean"
+
+[[effects]]
+kind = "add_integer"
+variable = "visitor_courage"
+integer_value = 1
+value_kind = "integer"
+
+[[effects]]
+kind = "emit_event"
+event = "memory_bell_rang"
+value_kind = "boolean"
+
+[[effects]]
+kind = "add_integer"
+variable = "memory_shards"
+integer_value = 1
+value_kind = "integer"
+
+[[effects]]
+kind = "add_integer"
+variable = "ada_trust"
+integer_value = -1
+value_kind = "integer"
+
+[[effects]]
+kind = "add_integer"
+variable = "memory_shards"
+integer_value = 1
+value_kind = "integer"
+
+[[effects]]
+kind = "add_integer"
+variable = "ada_trust"
+integer_value = 1
+value_kind = "integer"
+
+[[effects]]
+kind = "communicate"
+actor = "ada"
+other_actor = "player"
+proposition = "prop_thomas_returned"
+content = "thomas_memory"
+stance = "uncertain"
+value_kind = "boolean"
+
+[[effects]]
+kind = "emit_event"
+event = "ghost_threshold_opened"
+value_kind = "boolean"
+
+[[effects]]
+kind = "set_value"
+variable = "lantern_state"
+value_kind = "enum"
+text_value = "gold"
+
+[[effects]]
+kind = "add_integer"
+variable = "ada_trust"
+integer_value = 1
+value_kind = "integer"
+
+[[effects]]
+kind = "set_objective"
+objective = "help_ada"
+objective_status = 2
+value_kind = "boolean"
+
+[[effects]]
+kind = "set_value"
+variable = "lantern_state"
+value_kind = "enum"
+text_value = "extinguished"
+
+[[effects]]
+kind = "set_objective"
+objective = "help_ada"
+objective_status = 3
+value_kind = "boolean"
+
+[[effects]]
+id = "quest_speak_complete"
+kind = "set_objective"
+objective = "speak_with_ada"
+objective_status = 2
+
+[[effects]]
+id = "quest_learn_active"
+kind = "set_objective"
+objective = "learn_why_dark"
+objective_status = 1
+
+[[effects]]
+id = "quest_learn_complete"
+kind = "set_objective"
+objective = "learn_why_dark"
+objective_status = 2
+
+[[effects]]
+id = "quest_restore_active"
+kind = "set_objective"
+objective = "restore_lantern"
+objective_status = 1
+
+[[effects]]
+id = "quest_restore_complete"
+kind = "set_objective"
+objective = "restore_lantern"
+objective_status = 2
+
+[[effects]]
+id = "quest_decide_active"
+kind = "set_objective"
+objective = "decide_final_wish"
+objective_status = 1
+
+[[effects]]
+id = "quest_decide_complete"
+kind = "set_objective"
+objective = "decide_final_wish"
+objective_status = 2
+
+[[effects]]
+id = "quest_decide_failed"
+kind = "set_objective"
+objective = "decide_final_wish"
+objective_status = 3
+
+[[scenes]]
+id = "ada_first_meeting"
+display_name = "A voice in the rain"
+entry_node = "ada_greeting"
+bound_entity = "ada"
+
+[[scenes]]
+id = "ada_explains_lantern"
+display_name = "The lantern's last night"
+entry_node = "ada_oil_explanation"
+bound_entity = "ada"
+
+[[scenes]]
+id = "ada_thanks_player"
+display_name = "The blue flame"
+entry_node = "ada_farewell"
+bound_entity = "ada"
+
+[[scenes]]
+id = "bell_memory"
+display_name = "The house remembers"
+entry_node = "bell_opens_memory"
+bound_entity = "ada"
+
+[[scenes]]
+id = "ghost_threshold"
+display_name = "The figure at the gate"
+entry_node = "thomas_at_gate"
+bound_entity = "ada"
+
+[[scenes]]
+id = "ada_release"
+display_name = "What the visitor chooses"
+entry_node = "ada_asks_judgment"
+bound_entity = "ada"
+
+[[nodes]]
+id = "ada_greeting"
+scene = "ada_first_meeting"
+kind = "line"
+line_id = "lantern.ada.greeting"
+speaker = "ada"
+text = "You can see me? Then perhaps you can see the lantern, too. It has been dark for such a long time."
+next = "player_first_choice"
+
+[[nodes]]
+id = "player_first_choice"
+scene = "ada_first_meeting"
+kind = "choice"
+speaker = "player"
+text = "Choose: 'I'll help you.' / 'Who are you?' / 'I'm leaving.'"
+next = "ada_accepts_help"
+success = "ada_names_herself"
+cancel = "ada_left_alone"
+choice_ids = ["player_first_choice.choice.0", "player_first_choice.choice.1", "player_first_choice.choice.2"]
+choice_labels = ["primary", "alternate", "leave"]
+choice_targets = ["ada_accepts_help", "ada_names_herself", "ada_left_alone"]
+choice_conditions = ["", "", ""]
+
+[[nodes]]
+id = "ada_accepts_help"
+scene = "ada_first_meeting"
+kind = "line"
+line_id = "lantern.ada.accepts_help"
+speaker = "ada"
+text = "Thank you. The little flame used to guide everyone home. Come closer; I will show you what it needs."
+next = "first_meeting_end"
+first_effect = 0
+effect_count = 2
+effect_ids = ["effect_0000", "effect_0001", "quest_speak_complete", "quest_learn_active"]
+
+[[nodes]]
+id = "ada_names_herself"
+scene = "ada_first_meeting"
+kind = "line"
+line_id = "lantern.ada.names_herself"
+speaker = "ada"
+text = "Ada Vale. I kept this courtyard once. Names linger longer than people, don't you think?"
+next = "player_agrees_to_help"
+
+[[nodes]]
+id = "player_agrees_to_help"
+scene = "ada_first_meeting"
+kind = "line"
+line_id = "lantern.player.agrees"
+speaker = "player"
+text = "All right, Ada. Tell me how I can help."
+next = "first_meeting_end"
+first_effect = 0
+effect_count = 2
+effect_ids = ["effect_0000", "effect_0001", "quest_speak_complete", "quest_learn_active"]
+
+[[nodes]]
+id = "ada_left_alone"
+scene = "ada_first_meeting"
+kind = "line"
+line_id = "lantern.ada.left_alone"
+speaker = "ada"
+text = "Of course. The living have warm rooms waiting for them."
+next = "first_meeting_end"
+
+[[nodes]]
+id = "first_meeting_end"
+scene = "ada_first_meeting"
+kind = "end"
+
+[[nodes]]
+id = "ada_oil_explanation"
+scene = "ada_explains_lantern"
+kind = "line"
+line_id = "lantern.ada.oil_explanation"
+speaker = "ada"
+text = "The wick is sound. It only needs fresh oil. I cannot lift the flask anymore; my fingers pass through the handle."
+next = "player_lantern_choice"
+first_effect = 0
+effect_count = 1
+
+[[nodes]]
+id = "player_lantern_choice"
+scene = "ada_explains_lantern"
+kind = "choice"
+speaker = "player"
+text = "Choose: 'I'll light it now.' / 'Why does it matter?' / 'Let it stay dark.'"
+next = "player_relights_lantern"
+success = "ada_explains_promise"
+cancel = "ada_accepts_darkness"
+choice_ids = ["player_lantern_choice.choice.0", "player_lantern_choice.choice.1", "player_lantern_choice.choice.2"]
+choice_labels = ["primary", "alternate", "leave"]
+choice_targets = ["player_relights_lantern", "ada_explains_promise", "ada_accepts_darkness"]
+choice_conditions = ["", "", ""]
+
+[[nodes]]
+id = "ada_explains_promise"
+scene = "ada_explains_lantern"
+kind = "line"
+line_id = "lantern.ada.promise"
+speaker = "ada"
+text = "I promised to keep it burning until everyone came home. One person never did. I have waited ever since."
+next = "player_relights_lantern"
+
+[[nodes]]
+id = "player_relights_lantern"
+scene = "ada_explains_lantern"
+kind = "line"
+line_id = "lantern.player.relights"
+speaker = "player"
+text = "The visitor fills the reservoir and strikes a match. Gold light spills across the wet stones."
+next = "lantern_scene_end"
+first_effect = 2
+effect_count = 2
+effect_ids = ["effect_0002", "effect_0003", "quest_learn_complete", "quest_restore_active", "quest_restore_complete", "quest_decide_active"]
+
+[[nodes]]
+id = "ada_accepts_darkness"
+scene = "ada_explains_lantern"
+kind = "line"
+line_id = "lantern.ada.accepts_darkness"
+speaker = "ada"
+text = "Then leave it. Some promises become easier to bear in the dark."
+next = "lantern_scene_end"
+
+[[nodes]]
+id = "lantern_scene_end"
+scene = "ada_explains_lantern"
+kind = "end"
+
+[[nodes]]
+id = "ada_farewell"
+scene = "ada_thanks_player"
+kind = "line"
+line_id = "lantern.ada.farewell"
+speaker = "ada"
+text = "The flame turns blue. Ada recoils from it, and for the first time the rain passes visibly through her."
+next = "player_sees_ghost"
+
+[[nodes]]
+id = "player_sees_ghost"
+scene = "ada_thanks_player"
+kind = "line"
+line_id = "lantern.player.sees_ghost"
+speaker = "player"
+text = "In the new light, rain shines through Ada's pale figure. Beyond her stands a memorial bearing her name and the date of her death."
+next = "ada_final_words"
+first_effect = 4
+effect_count = 2
+
+[[nodes]]
+id = "ada_final_words"
+scene = "ada_thanks_player"
+kind = "line"
+line_id = "lantern.ada.final_words"
+speaker = "ada"
+text = "Do you hear the bell above the gate? Ring it while the flame is blue, and the house will remember what I have tried to forget."
+next = "player_bell_choice"
+first_effect = 6
+effect_count = 1
+
+[[nodes]]
+id = "player_bell_choice"
+scene = "ada_thanks_player"
+kind = "choice"
+speaker = "player"
+text = "Choose: ring the bell / ask what Ada fears / flee the courtyard."
+next = "player_rings_bell"
+success = "ada_fears_memory"
+cancel = "player_flees_blue_flame"
+choice_ids = ["player_bell_choice.choice.0", "player_bell_choice.choice.1", "player_bell_choice.choice.2"]
+choice_labels = ["primary", "alternate", "leave"]
+choice_targets = ["player_rings_bell", "ada_fears_memory", "player_flees_blue_flame"]
+choice_conditions = ["", "", ""]
+
+[[nodes]]
+id = "ada_fears_memory"
+scene = "ada_thanks_player"
+kind = "line"
+line_id = "lantern.ada.fears_memory"
+speaker = "ada"
+text = "I fear that I was not abandoned. I fear that I was the one who refused to open the gate."
+next = "player_rings_bell"
+
+[[nodes]]
+id = "player_rings_bell"
+scene = "ada_thanks_player"
+kind = "line"
+line_id = "lantern.player.rings_bell"
+speaker = "player"
+text = "The visitor pulls the wet cord. The bell sounds once, though its iron tongue does not move. Every window in Vale House answers with a pale light."
+next = "farewell_end"
+first_effect = 7
+effect_count = 2
+
+[[nodes]]
+id = "player_flees_blue_flame"
+scene = "ada_thanks_player"
+kind = "line"
+line_id = "lantern.player.flees"
+speaker = "player"
+text = "The visitor runs. Behind them, Ada calls their name in a voice that seems to come from every locked room."
+next = "farewell_end"
+
+[[nodes]]
+id = "farewell_end"
+scene = "ada_thanks_player"
+kind = "end"
+
+[[nodes]]
+id = "bell_opens_memory"
+scene = "bell_memory"
+kind = "line"
+line_id = "lantern.memory.opens"
+speaker = "ada"
+text = "The courtyard doubles around you: one present, one preserved in the storm of thirty years ago. A young man pounds upon the locked gate."
+next = "player_memory_choice"
+
+[[nodes]]
+id = "player_memory_choice"
+scene = "bell_memory"
+kind = "choice"
+speaker = "player"
+text = "Choose: accuse Ada of locking him out / comfort her / inspect the memory before judging."
+next = "player_accuses_ada"
+success = "player_comforts_ada"
+cancel = "player_inspects_memory"
+choice_ids = ["player_memory_choice.choice.0", "player_memory_choice.choice.1", "player_memory_choice.choice.2"]
+choice_labels = ["primary", "alternate", "leave"]
+choice_targets = ["player_accuses_ada", "player_comforts_ada", "player_inspects_memory"]
+choice_conditions = ["", "", ""]
+
+[[nodes]]
+id = "player_accuses_ada"
+scene = "bell_memory"
+kind = "line"
+line_id = "lantern.player.accuses"
+speaker = "player"
+text = "You knew he was outside. You chose the promise to the house over the person at the gate."
+next = "ada_admits_locking_gate"
+first_effect = 9
+effect_count = 2
+
+[[nodes]]
+id = "player_comforts_ada"
+scene = "bell_memory"
+kind = "line"
+line_id = "lantern.player.comforts"
+speaker = "player"
+text = "Whatever happened, you have punished yourself longer than any living judge could."
+next = "ada_admits_locking_gate"
+first_effect = 11
+effect_count = 2
+
+[[nodes]]
+id = "player_inspects_memory"
+scene = "bell_memory"
+kind = "line"
+line_id = "lantern.player.inspects"
+speaker = "player"
+text = "The visitor watches the reflection in a rain barrel. The young man carries Ada's childhood music box, not a weapon."
+next = "ada_admits_locking_gate"
+first_effect = 11
+effect_count = 1
+
+[[nodes]]
+id = "ada_admits_locking_gate"
+scene = "bell_memory"
+kind = "line"
+line_id = "lantern.ada.admits"
+speaker = "ada"
+text = "Thomas. My brother. They told me he had sold our names and fled. When he returned, I would not believe him."
+next = "memory_second_choice"
+first_effect = 13
+effect_count = 1
+
+[[nodes]]
+id = "memory_second_choice"
+scene = "bell_memory"
+kind = "choice"
+speaker = "player"
+text = "Choose: demand the whole truth / ask Ada to call for Thomas / extinguish the unnatural flame."
+next = "ada_tells_whole_truth"
+success = "ada_calls_thomas"
+cancel = "player_breaks_memory"
+choice_ids = ["memory_second_choice.choice.0", "memory_second_choice.choice.1", "memory_second_choice.choice.2"]
+choice_labels = ["primary", "alternate", "leave"]
+choice_targets = ["ada_tells_whole_truth", "ada_calls_thomas", "player_breaks_memory"]
+choice_conditions = ["", "", ""]
+
+[[nodes]]
+id = "ada_tells_whole_truth"
+scene = "bell_memory"
+kind = "line"
+line_id = "lantern.ada.whole_truth"
+speaker = "ada"
+text = "Lightning struck the lantern. The gate caught fire. Thomas forced it open from outside and carried me clear, but the smoke had already taken us both."
+next = "ada_calls_thomas"
+first_effect = 9
+effect_count = 1
+
+[[nodes]]
+id = "ada_calls_thomas"
+scene = "bell_memory"
+kind = "line"
+line_id = "lantern.ada.calls_thomas"
+speaker = "ada"
+text = "Thomas! I know you came home. I know now."
+next = "memory_scene_end"
+first_effect = 14
+effect_count = 1
+
+[[nodes]]
+id = "player_breaks_memory"
+scene = "bell_memory"
+kind = "line"
+line_id = "lantern.player.breaks_memory"
+speaker = "player"
+text = "The visitor smothers the blue flame. The remembered courtyard folds shut with Thomas still beyond the gate."
+next = "memory_scene_end"
+first_effect = 18
+effect_count = 2
+
+[[nodes]]
+id = "memory_scene_end"
+scene = "bell_memory"
+kind = "end"
+
+[[nodes]]
+id = "thomas_at_gate"
+scene = "ghost_threshold"
+kind = "line"
+line_id = "lantern.thomas.arrives"
+speaker = "player"
+text = "A second figure waits beyond the open gate: a young man holding a scorched music box. He does not enter."
+next = "ada_threshold_choice"
+
+[[nodes]]
+id = "ada_threshold_choice"
+scene = "ghost_threshold"
+kind = "choice"
+speaker = "ada"
+text = "Choose what Ada says: 'Forgive me, Thomas.' / 'Tell me why you came back.' / close the gate again."
+next = "ada_asks_forgiveness"
+success = "thomas_explains_return"
+cancel = "ada_closes_gate"
+choice_ids = ["ada_threshold_choice.choice.0", "ada_threshold_choice.choice.1", "ada_threshold_choice.choice.2"]
+choice_labels = ["primary", "alternate", "leave"]
+choice_targets = ["ada_asks_forgiveness", "thomas_explains_return", "ada_closes_gate"]
+choice_conditions = ["", "", ""]
+
+[[nodes]]
+id = "thomas_explains_return"
+scene = "ghost_threshold"
+kind = "line"
+line_id = "lantern.thomas.explains"
+speaker = "player"
+text = "Thomas opens the music box. Its tune is the answer: he returned because Ada had once asked him to, no matter how many years passed."
+next = "ada_asks_forgiveness"
+
+[[nodes]]
+id = "ada_asks_forgiveness"
+scene = "ghost_threshold"
+kind = "line"
+line_id = "lantern.ada.asks_forgiveness"
+speaker = "ada"
+text = "Forgive me, Thomas. I mistook pride for duty, and waiting for faithfulness."
+next = "threshold_end"
+first_effect = 15
+effect_count = 2
+
+[[nodes]]
+id = "ada_closes_gate"
+scene = "ghost_threshold"
+kind = "line"
+line_id = "lantern.ada.closes_gate"
+speaker = "ada"
+text = "No. Memory is only another ghost. Ada closes the gate, and Thomas vanishes without lowering his hand."
+next = "threshold_end"
+first_effect = 18
+effect_count = 2
+
+[[nodes]]
+id = "threshold_end"
+scene = "ghost_threshold"
+kind = "end"
+
+[[nodes]]
+id = "ada_asks_judgment"
+scene = "ada_release"
+kind = "line"
+line_id = "lantern.ada.asks_judgment"
+speaker = "ada"
+text = "Dawn touches the roofs. Ada and Thomas wait on opposite sides of the gate, unable to choose for themselves."
+next = "player_final_choice"
+
+[[nodes]]
+id = "player_final_choice"
+scene = "ada_release"
+kind = "choice"
+speaker = "player"
+text = "Choose: open the gate and release them / ask Ada to remain as keeper / extinguish the lantern forever."
+next = "player_releases_ghosts"
+success = "ada_becomes_keeper"
+cancel = "player_ends_haunting"
+choice_ids = ["player_final_choice.choice.0", "player_final_choice.choice.1", "player_final_choice.choice.2"]
+choice_labels = ["primary", "alternate", "leave"]
+choice_targets = ["player_releases_ghosts", "ada_becomes_keeper", "player_ends_haunting"]
+choice_conditions = ["", "", ""]
+
+[[nodes]]
+id = "player_releases_ghosts"
+scene = "ada_release"
+kind = "line"
+line_id = "lantern.player.releases"
+speaker = "player"
+text = "The visitor opens the gate. Brother and sister cross the threshold together, becoming gold light in the falling rain."
+next = "release_end"
+first_effect = 17
+effect_count = 1
+effect_ids = ["effect_0017", "quest_decide_complete"]
+
+[[nodes]]
+id = "ada_becomes_keeper"
+scene = "ada_release"
+kind = "line"
+line_id = "lantern.ada.keeper"
+speaker = "ada"
+text = "Ada remains by choice. From that night onward, the lantern burns gold whenever a lost traveler approaches Vale House."
+next = "release_end"
+first_effect = 15
+effect_count = 3
+effect_ids = ["effect_0015", "effect_0016", "effect_0017", "quest_decide_complete"]
+
+[[nodes]]
+id = "player_ends_haunting"
+scene = "ada_release"
+kind = "line"
+line_id = "lantern.player.ends_haunting"
+speaker = "player"
+text = "The visitor closes the lantern. Both ghosts disappear, but each midnight the unstruck bell still rings once."
+next = "release_end"
+first_effect = 18
+effect_count = 2
+effect_ids = ["effect_0018", "effect_0019", "quest_decide_failed"]
+
+[[nodes]]
+id = "release_end"
+scene = "ada_release"
+kind = "end"
+
+[[storylet_groups]]
+id = "ada_contextual_greeting"
+allow_empty = false
+seeded_random_ties = false
+
+[[storylets]]
+id = "ada_first_meeting_storylet"
+group = "ada_contextual_greeting"
+scene = "ada_first_meeting"
+conditions = [0]
+effects = []
+priority = 0
+specificity = 0
+cooldown = 0
+authored_order = 100
+repeat = "always"
+fallback = true
+
+[[storylets]]
+id = "ada_explanation_storylet"
+group = "ada_contextual_greeting"
+scene = "ada_explains_lantern"
+conditions = [1]
+effects = []
+priority = 10
+specificity = 1
+cooldown = 0
+authored_order = 20
+repeat = "once"
+fallback = false
+
+[[storylets]]
+id = "ada_thanks_storylet"
+group = "ada_contextual_greeting"
+scene = "ada_thanks_player"
+conditions = [3]
+effects = []
+priority = 20
+specificity = 1
+cooldown = 0
+authored_order = 10
+repeat = "once"
+fallback = false
+
+[[storylets]]
+id = "bell_memory_storylet"
+group = "ada_contextual_greeting"
+scene = "bell_memory"
+conditions = [4]
+effects = []
+priority = 30
+specificity = 2
+cooldown = 0
+authored_order = 8
+repeat = "once"
+fallback = false
+
+[[storylets]]
+id = "ghost_threshold_storylet"
+group = "ada_contextual_greeting"
+scene = "ghost_threshold"
+conditions = [4, 5]
+effects = []
+priority = 40
+specificity = 3
+cooldown = 0
+authored_order = 6
+repeat = "once"
+fallback = false
+
+[[storylets]]
+id = "ada_release_storylet"
+group = "ada_contextual_greeting"
+scene = "ada_release"
+conditions = [6]
+effects = []
+priority = 50
+specificity = 3
+cooldown = 0
+authored_order = 4
+repeat = "once"
+fallback = false
+
+[[endings]]
+id = "ending_walk_into_dawn"
+title = "The Open Gate"
+summary = "Ada and Thomas leave Vale House together, and the lantern finally goes dark by itself at sunrise."
+condition = 7
+priority = 30
+
+[[endings]]
+id = "ending_keeper_of_the_lantern"
+title = "The Golden Keeper"
+summary = "Ada remains willingly as the courtyard's guardian, guiding lost travelers home."
+condition = 9
+priority = 40
+
+[[endings]]
+id = "ending_bell_without_a_hand"
+title = "The Bell Without a Hand"
+summary = "The visitor ends the vision by force, but the unanswered bell continues to ring each midnight."
+condition = 8
+priority = 50

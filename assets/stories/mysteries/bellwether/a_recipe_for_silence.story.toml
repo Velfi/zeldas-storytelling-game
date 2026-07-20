@@ -1,0 +1,1307 @@
+version = "InteractiveStory v1"
+id = "a_recipe_for_silence"
+title = "A Recipe for Silence"
+creator = "Chicago conversion tool"
+description = "Ada Reed stops Bellwether's recipe competition when Judge Livia Stone collapses. She keeps every dish covered: only Livia's tasting spoon carried the poison, while a swapped herb jar points toward the wrong cook."
+content_version = "1.0.0"
+default_space = "bellwether_cooking_pavilion"
+revision = 0
+
+[[capabilities]]
+id = "mystery"
+version = "1"
+
+[[entities]]
+id = "livia_stone"
+kind = "character"
+display_name = "Livia Stone"
+description = "Livia Stone intended to name the recipe she believed had been stolen before announcing a winner. She tasted in a fixed order, rinsed her own engraved spoon, and gave unsuccessful cooks the courtesy of a private explanation."
+space_id = ""
+target_kind = "entity"
+target_id = ""
+tags = ["victim"]
+roles = []
+
+[[entities]]
+id = "adrian_moss"
+kind = "character"
+display_name = "Adrian Moss"
+description = "Competition favorite who turns assumptions into culinary expertise and cleans objects while answering."
+space_id = "bellwether_cooking_pavilion"
+target_kind = "marker"
+target_id = "character_adrian_moss"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "tessa_bloom"
+kind = "character"
+display_name = "Tessa Bloom"
+description = "Herbalist who identifies people and substitutions by scent, seal, and handling."
+space_id = "bellwether_cooking_pavilion"
+target_kind = "marker"
+target_id = "character_tessa_bloom"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "gabe_noor"
+kind = "character"
+display_name = "Gabe Noor"
+description = "Kitchen porter who counts equipment and uses the neighborhood's attention as both cover and clock."
+space_id = "bellwether_cooking_pavilion"
+target_kind = "marker"
+target_id = "character_gabe_noor"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "competition_floor"
+kind = "location"
+display_name = "COMPETITION FLOOR"
+description = "A spatially distinct part of Bellwether Cooking Pavilion."
+space_id = "bellwether_cooking_pavilion"
+target_kind = "room"
+target_id = "competition_floor"
+tags = []
+roles = []
+
+[[entities]]
+id = "prep_kitchen"
+kind = "location"
+display_name = "PREP KITCHEN"
+description = "A spatially distinct part of Bellwether Cooking Pavilion."
+space_id = "bellwether_cooking_pavilion"
+target_kind = "room"
+target_id = "prep_kitchen"
+tags = []
+roles = []
+
+[[entities]]
+id = "judges_table"
+kind = "location"
+display_name = "JUDGE'S TABLE"
+description = "A spatially distinct part of Bellwether Cooking Pavilion."
+space_id = "bellwether_cooking_pavilion"
+target_kind = "room"
+target_id = "judges_table"
+tags = []
+roles = []
+
+[[entities]]
+id = "pantry"
+kind = "location"
+display_name = "PANTRY"
+description = "A spatially distinct part of Bellwether Cooking Pavilion."
+space_id = "bellwether_cooking_pavilion"
+target_kind = "room"
+target_id = "pantry"
+tags = []
+roles = []
+
+[[entities]]
+id = "wash_station"
+kind = "location"
+display_name = "WASH STATION"
+description = "A spatially distinct part of Bellwether Cooking Pavilion."
+space_id = "bellwether_cooking_pavilion"
+target_kind = "room"
+target_id = "wash_station"
+tags = []
+roles = []
+
+[[entities]]
+id = "engraved_spoon"
+kind = "object"
+display_name = "Engraved Tasting Spoon"
+description = "Retains a protected blood trace."
+space_id = "bellwether_cooking_pavilion"
+target_kind = "marker"
+target_id = "clue_engraved_spoon"
+tags = []
+roles = []
+
+[[entities]]
+id = "wax_trace"
+kind = "object"
+display_name = "Pantry Sealing-Wax Trace"
+description = "Records the concealment route."
+space_id = "bellwether_cooking_pavilion"
+target_kind = "marker"
+target_id = "clue_wax_trace"
+tags = []
+roles = []
+
+[[entities]]
+id = "course_statement"
+kind = "object"
+display_name = "Premature Course Statement"
+description = "Anchors the decisive reconstruction."
+space_id = "bellwether_cooking_pavilion"
+target_kind = "marker"
+target_id = "clue_course_statement"
+tags = []
+roles = []
+
+[[entities]]
+id = "motive_record"
+kind = "object"
+display_name = "Motive Record"
+description = "Theft of a family recipe."
+space_id = "bellwether_cooking_pavilion"
+target_kind = "marker"
+target_id = "clue_motive_record"
+tags = []
+roles = []
+
+[[propositions]]
+id = "claim_culprit"
+text = "I did not know which course poisoned Livia."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "claim_innocent_one"
+text = "I never left the public room."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "claim_innocent_two"
+text = "I did nothing improper tonight."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_weapon"
+text = "The physical injury matches the recovered object."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_route"
+text = "The route trace proves the body and scene were moved."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_decisive"
+text = "Adrian's two explanations are individually plausible but cannot both be true."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_motive"
+text = "The victim documented theft of a family recipe."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_innocent_one"
+text = "The first innocent's lie protects a private relationship, not murder."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_innocent_two"
+text = "The second innocent's lie protects unrelated misconduct, not murder."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_timeline"
+text = "Travel time fixes the narrow opportunity window."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_scene"
+text = "Residue at the true scene disproves the staged discovery place."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "deduction_solution"
+text = "Adrian coated Livia's spoon at the wash station and swapped Tessa's herb jar."
+canonical_truth = "undetermined"
+
+[[events]]
+id = "event_murder"
+subject = "adrian_moss"
+action = "kill"
+object = "livia_stone"
+location = "judges_table"
+fictional_time = "20:10"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[events]]
+id = "event_move"
+subject = "adrian_moss"
+action = "move_body"
+object = "livia_stone"
+location = "judges_table"
+fictional_time = "20:16"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[events]]
+id = "event_stage"
+subject = "adrian_moss"
+action = "alter"
+object = "course_statement"
+location = "prep_kitchen"
+fictional_time = "20:21"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[conditions]]
+id = "condition.always"
+kind = "always"
+children = []
+variable = ""
+entity = ""
+other_entity = ""
+proposition = ""
+objective = ""
+event = ""
+content = ""
+text = ""
+space_a = ""
+target_a = ""
+space_b = ""
+target_b = ""
+distance = 0
+value_kind = "boolean"
+boolean_value = false
+integer_value = 0
+text_value = ""
+comparison = 0
+objective_status = 0
+stance = "uncertain"
+
+[[scenes]]
+id = "scene_opening_adrian_moss"
+display_name = "Adrian polishes an already clean spoon. 'Livia promised to explain her decision before naming the winner. She believed disappointment should be served privately.'"
+entry_node = "opening_adrian_moss_line"
+bound_entity = "adrian_moss"
+summary = "Adrian polishes an already clean spoon. 'Livia promised to explain her decision before naming the winner. She believed disappointment should be served privately.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_adrian_moss"
+display_name = "'You cleared Ruth and Theo by listening past their shame. Try the same courtesy here.' Adrian wipes an already clean spoon. 'Everyone saw Livia fall after the broth.'"
+entry_node = "account_adrian_moss_line"
+bound_entity = "adrian_moss"
+summary = "'You cleared Ruth and Theo by listening past their shame. Try the same courtesy here.' Adrian wipes an already clean spoon. 'Everyone saw Livia fall after the broth.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_adrian_moss"
+display_name = "You leave the covered dishes in place. Adrian points past the broth bowl. 'Test the herb course if you like. That is where you'll find it.'"
+entry_node = "approach_adrian_moss_line"
+bound_entity = "adrian_moss"
+summary = "You leave the covered dishes in place. Adrian points past the broth bowl. 'Test the herb course if you like. That is where you'll find it.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_opening_tessa_bloom"
+display_name = "Tessa sorts leaves by scent. 'Livia asked who had taught me the broth. She was not judging flavor by then; she was tracing ownership.'"
+entry_node = "opening_tessa_bloom_line"
+bound_entity = "tessa_bloom"
+summary = "Tessa sorts leaves by scent. 'Livia asked who had taught me the broth. She was not judging flavor by then; she was tracing ownership.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_tessa_bloom"
+display_name = "Tessa sorts the leaves by scent. 'Because Gabe's seal was on my jar, and people here remember his last scandal.'"
+entry_node = "account_tessa_bloom_line"
+bound_entity = "tessa_bloom"
+summary = "Tessa sorts the leaves by scent. 'Because Gabe's seal was on my jar, and people here remember his last scandal.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_tessa_bloom"
+display_name = "'The herbs were harmless. Someone wanted the swap noticed more than they wanted it to work.'"
+entry_node = "approach_tessa_bloom_line"
+bound_entity = "tessa_bloom"
+summary = "'The herbs were harmless. Someone wanted the swap noticed more than they wanted it to work.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_opening_gabe_noor"
+display_name = "Gabe counts the tasting spoons. 'Livia rinsed her own engraved one between courses. She said shared tools made for shared excuses.'"
+entry_node = "opening_gabe_noor_line"
+bound_entity = "gabe_noor"
+summary = "Gabe counts the tasting spoons. 'Livia rinsed her own engraved one between courses. She said shared tools made for shared excuses.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_gabe_noor"
+display_name = "Gabe counts spoons into their rack. 'I was meeting Tessa. We used the steam as cover because Bellwether notices everything.'"
+entry_node = "account_gabe_noor_line"
+bound_entity = "gabe_noor"
+summary = "Gabe counts spoons into their rack. 'I was meeting Tessa. We used the steam as cover because Bellwether notices everything.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_gabe_noor"
+display_name = "'Adrian washed one engraved spoon separately, then carried it back himself.'"
+entry_node = "approach_gabe_noor_line"
+bound_entity = "gabe_noor"
+summary = "'Adrian washed one engraved spoon separately, then carried it back himself.'"
+return_to = "investigation"
+
+[[nodes]]
+id = "opening_adrian_moss_line"
+scene = "scene_opening_adrian_moss"
+kind = "line"
+line_id = "opening_adrian_moss_line"
+speaker = "adrian_moss"
+text = "Adrian polishes an already clean spoon. 'Livia promised to explain her decision before naming the winner. She believed disappointment should be served privately.'"
+next = "opening_adrian_moss_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_adrian_moss_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_adrian_moss_end"
+scene = "scene_opening_adrian_moss"
+kind = "end"
+line_id = "opening_adrian_moss_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_adrian_moss_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_adrian_moss_line"
+scene = "scene_account_adrian_moss"
+kind = "line"
+line_id = "account_adrian_moss_line"
+speaker = "adrian_moss"
+text = "'You cleared Ruth and Theo by listening past their shame. Try the same courtesy here.' Adrian wipes an already clean spoon. 'Everyone saw Livia fall after the broth.'"
+next = "account_adrian_moss_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_adrian_moss_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_adrian_moss_end"
+scene = "scene_account_adrian_moss"
+kind = "end"
+line_id = "account_adrian_moss_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_adrian_moss_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_adrian_moss_line"
+scene = "scene_approach_adrian_moss"
+kind = "line"
+line_id = "approach_adrian_moss_line"
+speaker = "adrian_moss"
+text = "You leave the covered dishes in place. Adrian points past the broth bowl. 'Test the herb course if you like. That is where you'll find it.'"
+next = "approach_adrian_moss_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_adrian_moss_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_adrian_moss_end"
+scene = "scene_approach_adrian_moss"
+kind = "end"
+line_id = "approach_adrian_moss_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_adrian_moss_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_tessa_bloom_line"
+scene = "scene_opening_tessa_bloom"
+kind = "line"
+line_id = "opening_tessa_bloom_line"
+speaker = "tessa_bloom"
+text = "Tessa sorts leaves by scent. 'Livia asked who had taught me the broth. She was not judging flavor by then; she was tracing ownership.'"
+next = "opening_tessa_bloom_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_tessa_bloom_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_tessa_bloom_end"
+scene = "scene_opening_tessa_bloom"
+kind = "end"
+line_id = "opening_tessa_bloom_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_tessa_bloom_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_tessa_bloom_line"
+scene = "scene_account_tessa_bloom"
+kind = "line"
+line_id = "account_tessa_bloom_line"
+speaker = "tessa_bloom"
+text = "Tessa sorts the leaves by scent. 'Because Gabe's seal was on my jar, and people here remember his last scandal.'"
+next = "account_tessa_bloom_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_tessa_bloom_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_tessa_bloom_end"
+scene = "scene_account_tessa_bloom"
+kind = "end"
+line_id = "account_tessa_bloom_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_tessa_bloom_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_tessa_bloom_line"
+scene = "scene_approach_tessa_bloom"
+kind = "line"
+line_id = "approach_tessa_bloom_line"
+speaker = "tessa_bloom"
+text = "'The herbs were harmless. Someone wanted the swap noticed more than they wanted it to work.'"
+next = "approach_tessa_bloom_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_tessa_bloom_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_tessa_bloom_end"
+scene = "scene_approach_tessa_bloom"
+kind = "end"
+line_id = "approach_tessa_bloom_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_tessa_bloom_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_gabe_noor_line"
+scene = "scene_opening_gabe_noor"
+kind = "line"
+line_id = "opening_gabe_noor_line"
+speaker = "gabe_noor"
+text = "Gabe counts the tasting spoons. 'Livia rinsed her own engraved one between courses. She said shared tools made for shared excuses.'"
+next = "opening_gabe_noor_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_gabe_noor_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_gabe_noor_end"
+scene = "scene_opening_gabe_noor"
+kind = "end"
+line_id = "opening_gabe_noor_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_gabe_noor_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_gabe_noor_line"
+scene = "scene_account_gabe_noor"
+kind = "line"
+line_id = "account_gabe_noor_line"
+speaker = "gabe_noor"
+text = "Gabe counts spoons into their rack. 'I was meeting Tessa. We used the steam as cover because Bellwether notices everything.'"
+next = "account_gabe_noor_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_gabe_noor_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_gabe_noor_end"
+scene = "scene_account_gabe_noor"
+kind = "end"
+line_id = "account_gabe_noor_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_gabe_noor_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_gabe_noor_line"
+scene = "scene_approach_gabe_noor"
+kind = "line"
+line_id = "approach_gabe_noor_line"
+speaker = "gabe_noor"
+text = "'Adrian washed one engraved spoon separately, then carried it back himself.'"
+next = "approach_gabe_noor_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_gabe_noor_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_gabe_noor_end"
+scene = "scene_approach_gabe_noor"
+kind = "end"
+line_id = "approach_gabe_noor_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_gabe_noor_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[mystery]
+action_budget = 12
+seed = 20261003
+tutorial = ""
+city_start = "bellwether_cooking_pavilion"
+city_destination = "bellwether_cooking_pavilion"
+reveal_location = "competition_floor"
+
+[[mystery.characters]]
+entity = "livia_stone"
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = []
+
+[[mystery.characters]]
+entity = "adrian_moss"
+private_secret = "culprit"
+motive = "theft of a family recipe"
+initial_disposition = 0
+initial_claims = ["claim_culprit"]
+
+[[mystery.characters]]
+entity = "tessa_bloom"
+private_secret = "private relationship"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_innocent_one"]
+
+[[mystery.characters]]
+entity = "gabe_noor"
+private_secret = "unrelated misconduct"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_innocent_two"]
+
+[[mystery.locations]]
+entity = "competition_floor"
+connections = ["prep_kitchen"]
+characters = ["adrian_moss"]
+pois = []
+search_actions = ["observe", "search", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "prep_kitchen"
+connections = ["competition_floor", "judges_table"]
+characters = ["tessa_bloom"]
+pois = ["wax_trace"]
+search_actions = ["observe", "search", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "judges_table"
+connections = ["prep_kitchen", "pantry"]
+characters = []
+pois = ["engraved_spoon"]
+search_actions = ["observe", "search", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "pantry"
+connections = ["judges_table", "wash_station"]
+characters = ["gabe_noor"]
+pois = []
+search_actions = ["observe", "search", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "wash_station"
+connections = ["pantry"]
+characters = []
+pois = ["course_statement", "motive_record"]
+search_actions = ["observe", "search", "examine", "dialogue"]
+
+[[mystery.pois]]
+entity = "engraved_spoon"
+location = "judges_table"
+owner = "adrian_moss"
+relevant_state = "retains a protected blood trace"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "wax_trace"
+location = "prep_kitchen"
+owner = "adrian_moss"
+relevant_state = "records the concealment route"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "course_statement"
+location = "wash_station"
+owner = "adrian_moss"
+relevant_state = "anchors the decisive reconstruction"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "motive_record"
+location = "wash_station"
+owner = "livia_stone"
+relevant_state = "theft of a family recipe"
+examination_action = "examine"
+
+[[mystery.events]]
+event = "event_murder"
+destination = "judges_table"
+tool = "engraved_spoon"
+effects = ["victim_dead"]
+
+[[mystery.events]]
+event = "event_move"
+destination = "prep_kitchen"
+tool = "wax_trace"
+effects = ["body_moved"]
+
+[[mystery.events]]
+event = "event_stage"
+destination = "prep_kitchen"
+tool = ""
+effects = ["scene_staged"]
+
+[[mystery.clues]]
+id = "clue_weapon"
+source = "engraved_spoon"
+description = "The physical injury matches the recovered object."
+proposition = "clue_weapon"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["weapon", "murder_place", "death_time", "cleaning"]
+topics = ["weapon", "case_truth"]
+
+[[mystery.clues]]
+id = "clue_route"
+source = "wax_trace"
+description = "The route trace proves the body and scene were moved."
+proposition = "clue_route"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["body_movement", "staging"]
+topics = ["route", "case_truth"]
+
+[[mystery.clues]]
+id = "clue_decisive"
+source = "adrian_moss"
+description = "Adrian's two explanations are individually plausible but cannot both be true."
+proposition = "clue_decisive"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["alibi", "claim_culprit"]
+topics = ["decisive", "case_truth"]
+
+[[mystery.clues]]
+id = "clue_motive"
+source = "motive_record"
+description = "The victim documented theft of a family recipe."
+proposition = "clue_motive"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["motive"]
+topics = ["motive", "case_truth"]
+
+[[mystery.clues]]
+id = "clue_innocent_one"
+source = "tessa_bloom"
+description = "The first innocent's lie protects a private relationship, not murder."
+proposition = "clue_innocent_one"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["exclusion_one"]
+topics = ["innocent", "case_truth"]
+
+[[mystery.clues]]
+id = "clue_innocent_two"
+source = "gabe_noor"
+description = "The second innocent's lie protects unrelated misconduct, not murder."
+proposition = "clue_innocent_two"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["exclusion_two"]
+topics = ["innocent", "case_truth"]
+
+[[mystery.clues]]
+id = "clue_timeline"
+source = "wax_trace"
+description = "Travel time fixes the narrow opportunity window."
+proposition = "clue_timeline"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = false
+prerequisites = []
+blocks = ["timeline"]
+topics = ["route", "case_truth"]
+
+[[mystery.clues]]
+id = "clue_scene"
+source = "engraved_spoon"
+description = "Residue at the true scene disproves the staged discovery place."
+proposition = "clue_scene"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = false
+prerequisites = []
+blocks = ["scene"]
+topics = ["weapon", "case_truth"]
+
+[[mystery.claims]]
+id = "claim_culprit"
+speaker = "adrian_moss"
+proposition = "claim_culprit"
+protects = "murder"
+response = "I did not know which course poisoned Livia."
+canonical_truth = false
+
+[[mystery.claims]]
+id = "claim_innocent_one"
+speaker = "tessa_bloom"
+proposition = "claim_innocent_one"
+protects = "private relationship"
+response = "I remained where everyone could see me."
+canonical_truth = false
+
+[[mystery.claims]]
+id = "claim_innocent_two"
+speaker = "gabe_noor"
+proposition = "claim_innocent_two"
+protects = "unrelated misconduct"
+response = "There is nothing else to explain."
+canonical_truth = false
+
+[[mystery.contradictions]]
+id = "decisive_contradiction"
+claim = "claim_culprit"
+fact = "clue_decisive"
+conclusion = ""
+explanation = "Adrian cannot maintain both claims: if the collapse identified the broth, he had no basis for naming the still-covered herb course; if he knew the herb course, he knew which spoon he had treated."
+
+[[mystery.deductions]]
+id = "deduction_solution"
+proposition = "deduction_solution"
+category = "contradiction"
+supports = []
+unlock_questions = []
+unlock_topics = ["solution_ready"]
+unlock_investigations = []
+
+[[mystery.questions]]
+id = "question_solution"
+prompt = "WHO, HOW, WHERE, WHEN, AND WHY?"
+hypothesis = "Adrian coated Livia's spoon at the wash station and swapped Tessa's herb jar."
+category = "who"
+requires_clues = ["clue_weapon", "clue_route", "clue_decisive", "clue_motive"]
+requires_claims = ["claim_culprit"]
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.demonstrations]]
+id = "demonstration_solution"
+question = "question_solution"
+mode = "comparison"
+resolution = "substantiated"
+result = "Adrian cannot maintain both claims: if the collapse identified the broth, he had no basis for naming the still-covered herb course; if he knew the herb course, he knew which spoon he had treated."
+prompt = "Set Adrian's broth account against the covered course order and Gabe's account of the engraved spoon."
+slot_labels = ["DECISIVE TESTIMONY", "CULPRIT'S ACCOUNT"]
+slot_types = ["testimony", "statement"]
+accepted = ["clue_decisive", "claim_culprit"]
+route_firsts = []
+route_counts = []
+result_deductions = ["deduction_solution"]
+
+[[mystery.dialogue]]
+node = "opening_adrian_moss"
+character = "adrian_moss"
+prompt = "Tell me about Livia Stone. What did they want tonight?"
+response = "Adrian polishes an already clean spoon. 'Livia promised to explain her decision before naming the winner. She believed disappointment should be served privately.'"
+clue = ""
+interaction = ""
+requires = ["claim_culprit"]
+unlocks = ["account_ready_adrian_moss"]
+
+[[mystery.dialogue]]
+node = "account_adrian_moss"
+character = "adrian_moss"
+prompt = "What did you see when Livia collapsed?"
+response = "'You cleared Ruth and Theo by listening past their shame. Try the same courtesy here.' Adrian wipes an already clean spoon. 'Everyone saw Livia fall after the broth.'"
+clue = ""
+interaction = ""
+requires = ["claim_culprit", "account_ready_adrian_moss"]
+unlocks = ["followup_adrian_moss"]
+
+[[mystery.dialogue]]
+node = "approach_adrian_moss"
+character = "adrian_moss"
+prompt = "Set Adrian's broth account against the covered course order and Gabe's account of the engraved spoon."
+response = "You leave the covered dishes in place. Adrian points past the broth bowl. 'Test the herb course if you like. That is where you'll find it.'"
+clue = "clue_decisive"
+interaction = ""
+requires = ["clue_weapon", "clue_route", "clue_innocent_two", "claim_culprit", "followup_adrian_moss"]
+unlocks = ["clue_decisive", "case_truth"]
+
+[[mystery.dialogue]]
+node = "opening_tessa_bloom"
+character = "tessa_bloom"
+prompt = "Tell me about Livia Stone. What did they want tonight?"
+response = "Tessa sorts leaves by scent. 'Livia asked who had taught me the broth. She was not judging flavor by then; she was tracing ownership.'"
+clue = ""
+interaction = ""
+requires = ["claim_innocent_one"]
+unlocks = ["account_ready_tessa_bloom"]
+
+[[mystery.dialogue]]
+node = "account_tessa_bloom"
+character = "tessa_bloom"
+prompt = "Why did you hide the swapped herb jar?"
+response = "Tessa sorts the leaves by scent. 'Because Gabe's seal was on my jar, and people here remember his last scandal.'"
+clue = ""
+interaction = ""
+requires = ["claim_innocent_one", "account_ready_tessa_bloom"]
+unlocks = ["followup_tessa_bloom"]
+
+[[mystery.dialogue]]
+node = "approach_tessa_bloom"
+character = "tessa_bloom"
+prompt = "The pantry sealing-wax trace conflicts with that route. What happened there?"
+response = "'The herbs were harmless. Someone wanted the swap noticed more than they wanted it to work.'"
+clue = "clue_innocent_one"
+interaction = ""
+requires = ["clue_route", "claim_innocent_one", "followup_tessa_bloom"]
+unlocks = ["clue_innocent_one", "case_truth"]
+
+[[mystery.dialogue]]
+node = "opening_gabe_noor"
+character = "gabe_noor"
+prompt = "Tell me about Livia Stone. What did they want tonight?"
+response = "Gabe counts the tasting spoons. 'Livia rinsed her own engraved one between courses. She said shared tools made for shared excuses.'"
+clue = ""
+interaction = ""
+requires = ["claim_innocent_two"]
+unlocks = ["account_ready_gabe_noor"]
+
+[[mystery.dialogue]]
+node = "account_gabe_noor"
+character = "gabe_noor"
+prompt = "Why were you at the wash station?"
+response = "Gabe counts spoons into their rack. 'I was meeting Tessa. We used the steam as cover because Bellwether notices everything.'"
+clue = ""
+interaction = ""
+requires = ["claim_innocent_two", "account_ready_gabe_noor"]
+unlocks = ["followup_gabe_noor"]
+
+[[mystery.dialogue]]
+node = "approach_gabe_noor"
+character = "gabe_noor"
+prompt = "The trace on the engraved tasting spoon changes that account. What did you actually see?"
+response = "'Adrian washed one engraved spoon separately, then carried it back himself.'"
+clue = "clue_innocent_two"
+interaction = ""
+requires = ["clue_scene", "claim_innocent_two", "followup_gabe_noor"]
+unlocks = ["clue_innocent_two", "case_truth"]
+
+[[mystery.city_labels]]
+id = "bellwether_cooking_pavilion"
+display_name = "BELLWETHER COOKING PAVILION"
+level_spawn = "spawn"
+city_site = "westhaven_heights"
+
+[mystery.solution]
+culprit = "adrian_moss"
+motive = "clue_motive"
+decisive_contradiction = "decisive_contradiction"
+weapon_block = "weapon"
+murder_place_block = "murder_place"
+death_time_block = "death_time"
+body_movement_block = "body_movement"
+staging_block = "staging"
+cleaning_block = "cleaning"
+alibi_block = "alibi"
+requirements = ["weapon", "murder_place", "death_time", "body_movement", "staging", "cleaning", "alibi"]
+murder_events = ["event_murder"]
+cover_up_events = ["event_move", "event_stage"]
+false_alibis = ["claim_culprit"]
+exclusions = ["tessa_bloom", "gabe_noor"]

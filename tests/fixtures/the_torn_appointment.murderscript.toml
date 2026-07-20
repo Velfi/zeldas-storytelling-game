@@ -1,0 +1,1769 @@
+murderscript_version = 1
+supported_actions = ["move", "wait", "speak", "take", "place", "unlock", "attack", "kill", "clean", "alter", "hide", "observe", "move_body"]
+
+[case]
+id = "the_torn_appointment"
+title = "The Torn Appointment"
+subtitle = "A murder staged as a fall"
+introduction = "Edgar Vale has been found dead in the garden beneath his study window. His family insists that he fell while opening the storm shutter during dinner. The shutter is now closed, the suspected weapon is clean, and everyone at Vale House appears to be lying.\n"
+action_point_limit = 12
+reveal_location = "dining_room"
+seed = 19361014
+
+[rules]
+travel_cost = 0
+default_interview_cost = 1
+default_examine_cost = 1
+default_search_cost = 2
+allow_early_reveal = true
+reveal_when_actions_exhausted = true
+
+[[characters]]
+id = "edgar"
+name = "Edgar Vale"
+role = "victim"
+description = "The wealthy and severe owner of Vale Shipping. Edgar was feared by his household and had recently begun auditing the company accounts.\n"
+starts_at = "dining_room"
+
+[characters.relationships]
+
+[characters.relationships.miriam]
+public = "spouse"
+private = "distrustful"
+
+[characters.relationships.daniel]
+public = "business_associate"
+private = "contemptuous"
+
+[characters.relationships.elsie]
+public = "employer"
+private = "suspicious"
+
+[[characters]]
+id = "miriam"
+name = "Miriam Vale"
+role = "suspect"
+description = "Edgar's composed and socially formidable wife. She claims she remained at dinner throughout the period in which Edgar must have died.\n"
+starts_at = "dining_room"
+
+[characters.appearance]
+clothing = "green_silk_dress"
+notable_detail = "frayed_left_cuff"
+
+[characters.relationships]
+
+[characters.relationships.edgar]
+public = "spouse"
+private = "resentful"
+
+[characters.relationships.daniel]
+public = "family_friend"
+private = "secret_lover"
+
+[characters.relationships.elsie]
+public = "employer"
+private = "distant"
+
+[characters.private_secret]
+id = "miriam_embezzlement"
+type = "financial_crime"
+detail = "Miriam diverted money from Vale Shipping through a false household supplier account. Edgar discovered the transfers that afternoon.\n"
+exposure_cost = 90
+
+[characters.motive]
+id = "prevent_exposure"
+type = "exposure"
+detail = "Edgar intended to dismiss Miriam from the company, expose her embezzlement, and begin divorce proceedings the following morning.\n"
+
+[characters.disposition]
+trust = 15
+fear = 20
+confidence = 85
+
+[characters.disposition.resistance]
+observation = 55
+analysis = 65
+empathy = 70
+pressure = 75
+
+[[characters]]
+id = "daniel"
+name = "Daniel Cross"
+role = "suspect"
+description = "Edgar's junior business partner. Daniel supports Miriam's alibi with suspicious enthusiasm.\n"
+starts_at = "dining_room"
+
+[characters.relationships]
+
+[characters.relationships.edgar]
+public = "business_partner"
+private = "resentful"
+
+[characters.relationships.miriam]
+public = "family_friend"
+private = "secret_lover"
+
+[characters.relationships.elsie]
+public = "acquaintance"
+private = "neutral"
+
+[characters.private_secret]
+id = "daniel_miriam_affair"
+type = "affair"
+detail = "Daniel and Miriam have been conducting a secret affair. Daniel lies because admitting where he was would expose their relationship.\n"
+exposure_cost = 70
+
+[characters.disposition]
+trust = 30
+fear = 55
+confidence = 50
+
+[characters.disposition.resistance]
+observation = 40
+analysis = 50
+empathy = 45
+pressure = 55
+
+[[characters]]
+id = "elsie"
+name = "Elsie Ward"
+role = "suspect"
+description = "Vale House's housekeeper. Elsie knows the household's routines and mechanisms better than anyone, but denies entering the study.\n"
+starts_at = "kitchen"
+
+[characters.relationships]
+
+[characters.relationships.edgar]
+public = "employer"
+private = "frightened"
+
+[characters.relationships.miriam]
+public = "employer"
+private = "distrustful"
+
+[characters.relationships.daniel]
+public = "acquaintance"
+private = "neutral"
+
+[characters.private_secret]
+id = "elsie_theft"
+type = "theft"
+detail = "Before dinner, Elsie entered the study and stole cash Edgar kept in his desk. She later lies about entering the room to conceal the theft.\n"
+exposure_cost = 55
+
+[characters.disposition]
+trust = 35
+fear = 70
+confidence = 30
+
+[characters.disposition.resistance]
+observation = 30
+analysis = 40
+empathy = 35
+pressure = 45
+
+[[locations]]
+id = "dining_room"
+name = "Dining Room"
+description = "A long formal room overlooking the terrace. Dinner was underway when Edgar left for his study.\n"
+connections = ["hallway"]
+features = ["dinner_table", "terrace_windows", "grandfather_clock"]
+
+[locations.starts_with]
+characters = ["edgar", "miriam", "daniel"]
+pois = ["dinner_place_settings"]
+
+[[locations]]
+id = "hallway"
+name = "Main Hallway"
+description = "The central corridor connecting the public rooms. Footsteps carry clearly through its polished wooden floor.\n"
+connections = ["dining_room", "study", "kitchen", "garden"]
+features = ["polished_floor", "study_sightline"]
+
+[locations.starts_with]
+pois = []
+
+[[locations]]
+id = "study"
+name = "Edgar's Study"
+description = "A dark office overlooking the garden. Its exterior window is protected by a heavy storm shutter operated from an interior brass crank.\n"
+connections = ["hallway", "garden"]
+features = ["storm_shutter", "interior_shutter_crank", "writing_desk", "study_rug", "display_plinth"]
+
+[locations.connection_rules]
+
+[locations.connection_rules.garden]
+type = "window"
+traversable = false
+
+[locations.starts_with]
+pois = ["bronze_statuette", "account_ledger", "lamp_oil", "study_desk_cash_box"]
+
+[[locations]]
+id = "kitchen"
+name = "Kitchen"
+description = "The servants' workroom. Elsie says she remained here preparing coffee from the moment Edgar left dinner until the body was discovered.\n"
+connections = ["hallway"]
+features = ["coffee_stove", "preparation_table", "service_bell"]
+
+[locations.starts_with]
+characters = ["elsie"]
+pois = ["coffee_tray", "kitchen_log"]
+
+[[locations]]
+id = "garden"
+name = "Garden"
+description = "A rain-darkened garden beneath Edgar's study window. Edgar's body lies below the closed storm shutter.\n"
+connections = ["hallway", "study"]
+features = ["wet_gravel", "study_window", "flower_bed"]
+
+[locations.connection_rules]
+
+[locations.connection_rules.study]
+type = "window"
+traversable = false
+
+[locations.starts_with]
+pois = []
+
+[[pois]]
+id = "bronze_statuette"
+name = "Bronze Statuette"
+kind = "object"
+description = "A heavy bronze horse formerly displayed on the study plinth. Its surface smells faintly of lamp oil.\n"
+starts_at = "study"
+properties = ["heavy", "blunt", "washable", "narrow_base"]
+
+[pois.initial_state]
+clean_visible = true
+on_display_plinth = false
+hidden_behind_books = true
+
+[[pois]]
+id = "account_ledger"
+name = "Vale Shipping Account Ledger"
+kind = "object"
+description = "Edgar's private ledger. Several household supplier payments have been marked in red pencil.\n"
+starts_at = "study"
+properties = ["document", "financial_record"]
+
+[pois.initial_state]
+open_to_supplier_accounts = true
+
+[[pois]]
+id = "lamp_oil"
+name = "Bottle of Lamp Oil"
+kind = "object"
+description = "A cleaning oil stored in the study. Fresh fingerprints have been wiped from its neck.\n"
+starts_at = "study"
+properties = ["cleaning_agent", "flammable"]
+
+[[pois]]
+id = "edgar_watch"
+name = "Edgar's Wristwatch"
+kind = "object"
+description = "A cracked mechanical watch found on Edgar's wrist.\n"
+starts_with = "edgar"
+properties = ["time_indicator"]
+
+[pois.initial_state]
+running = true
+displayed_time = "20:24"
+
+[[pois]]
+id = "study_desk_cash_box"
+name = "Study Cash Box"
+kind = "object"
+description = "A small wooden cash box concealed inside Edgar's desk.\n"
+starts_at = "study"
+properties = ["container"]
+
+[pois.initial_state]
+locked = false
+cash_amount = 0
+expected_cash_amount = 80
+
+[[pois]]
+id = "coffee_tray"
+name = "Coffee Tray"
+kind = "object"
+description = "A tray prepared for the dining room. One cup has spilled into its saucer.\n"
+starts_at = "kitchen"
+properties = ["service_item"]
+
+[pois.initial_state]
+prepared = true
+preparation_started_at = "20:20"
+
+[[pois]]
+id = "kitchen_log"
+name = "Kitchen Duty Log"
+kind = "object"
+description = "A handwritten record showing when the stove was lit and coffee was prepared.\n"
+starts_at = "kitchen"
+properties = ["document", "time_record"]
+
+[pois.initial_state]
+coffee_started_at = "20:20"
+
+[[pois]]
+id = "dinner_place_settings"
+name = "Dinner Place Settings"
+kind = "scene"
+description = "The abandoned meal preserves small signs of who left and when.\n"
+starts_at = "dining_room"
+properties = ["scene_record"]
+
+[pois.initial_state]
+edgar_meal_unfinished = true
+miriam_wine_spilled = true
+daniel_napkin_missing = true
+
+[[world_facts]]
+id = "shutter_automatic_close"
+description = "The study storm shutter automatically closes every evening at 8:15.\n"
+
+[world_facts.proposition]
+predicate = "mechanism_action"
+object = "storm_shutter"
+action = "close"
+at = 72900
+
+[[world_facts]]
+id = "shutter_requires_inside_crank"
+description = "Once closed, the shutter can only be reopened using the brass crank inside the study.\n"
+
+[world_facts.proposition]
+predicate = "mechanism_requirement"
+object = "storm_shutter"
+action = "open"
+
+[world_facts.proposition.requires]
+actor_location = "study"
+tool = "interior_shutter_crank"
+
+[[world_facts]]
+id = "closed_shutter_blocks_view"
+description = "When closed, the shutter completely blocks the dining room's view into Edgar's study.\n"
+
+[world_facts.proposition]
+predicate = "sightline_blocked"
+from = "dining_room"
+to = "study"
+blocker = "storm_shutter"
+
+[world_facts.proposition.while]
+state = "closed"
+
+[[canonical_timeline]]
+id = "elsie_enters_study"
+at = 71280
+actor = "elsie"
+action = "move"
+from = "hallway"
+to = "study"
+
+[[canonical_timeline]]
+id = "elsie_takes_cash"
+at = 71400
+actor = "elsie"
+action = "take"
+target = "cash"
+from = "study_desk_cash_box"
+
+[[canonical_timeline.effects]]
+
+[canonical_timeline.effects.set_state]
+object = "study_desk_cash_box"
+field = "cash_amount"
+value = 0
+
+[[canonical_timeline.effects]]
+
+[canonical_timeline.effects.add_possession]
+character = "elsie"
+item = "stolen_cash"
+
+[[canonical_timeline]]
+id = "elsie_leaves_study"
+at = 71520
+actor = "elsie"
+action = "move"
+from = "study"
+to = "kitchen"
+
+[[canonical_timeline]]
+id = "dinner_begins"
+at = 72000
+actor = "edgar"
+action = "speak"
+target = ["miriam", "daniel"]
+subject = "ordinary_dinner_conversation"
+
+[[canonical_timeline]]
+id = "shutter_closes"
+at = 72900
+actor = "storm_shutter"
+action = "alter"
+target = "storm_shutter"
+
+[[canonical_timeline.effects]]
+
+[canonical_timeline.effects.set_state]
+object = "storm_shutter"
+field = "position"
+value = "closed"
+
+[[canonical_timeline]]
+id = "edgar_leaves_dinner"
+at = 73080
+actor = "edgar"
+action = "move"
+from = "dining_room"
+to = "study"
+
+[[canonical_timeline]]
+id = "elsie_begins_coffee"
+at = 73200
+actor = "elsie"
+action = "alter"
+target = "coffee_tray"
+
+[[canonical_timeline.effects]]
+
+[canonical_timeline.effects.set_state]
+object = "coffee_tray"
+field = "preparation_started_at"
+value = 73200
+
+[[canonical_timeline]]
+id = "miriam_leaves_dinner"
+at = 73260
+actor = "miriam"
+action = "move"
+from = "dining_room"
+to = "study"
+
+[[canonical_timeline.effects]]
+
+[canonical_timeline.effects.set_state]
+object = "dinner_place_settings"
+field = "miriam_wine_spilled"
+value = true
+
+[[canonical_timeline]]
+id = "daniel_enters_hallway"
+at = 73320
+actor = "daniel"
+action = "move"
+from = "dining_room"
+to = "hallway"
+reason = "retrieve_dropped_love_note"
+
+[[canonical_timeline]]
+id = "confrontation"
+at = 73380
+actor = "miriam"
+action = "speak"
+target = "edgar"
+subject = "miriam_embezzlement"
+
+[[canonical_timeline]]
+id = "murder"
+at = 73440
+actor = "miriam"
+action = "attack"
+target = "edgar"
+using = "bronze_statuette"
+at_location = "study"
+
+[[canonical_timeline.effects]]
+
+[canonical_timeline.effects.kill]
+character = "edgar"
+cause = "blunt_force_head_injury"
+
+[[canonical_timeline.effects]]
+
+[canonical_timeline.effects.set_state]
+object = "edgar_watch"
+field = "running"
+value = false
+
+[[canonical_timeline.effects]]
+
+[canonical_timeline.effects.set_state]
+object = "edgar_watch"
+field = "displayed_time"
+value = 73440
+
+[[canonical_timeline.effects]]
+
+[canonical_timeline.effects.add_trace]
+target = "study_rug"
+trace = "edgar_blood"
+
+[[canonical_timeline.effects]]
+
+[canonical_timeline.effects.add_trace]
+target = "bronze_statuette"
+trace = "edgar_blood"
+
+[[canonical_timeline.effects]]
+
+[canonical_timeline.effects.remove_state]
+object = "bronze_statuette"
+field = "on_display_plinth"
+
+[[canonical_timeline]]
+id = "daniel_hears_impact"
+at = 73440
+actor = "daniel"
+action = "observe"
+target = "heavy_impact"
+from = "hallway"
+
+[[canonical_timeline]]
+id = "miriam_cleans_weapon"
+at = 73560
+actor = "miriam"
+action = "clean"
+target = "bronze_statuette"
+using = "lamp_oil"
+at_location = "study"
+
+[[canonical_timeline.effects]]
+
+[canonical_timeline.effects.remove_trace]
+target = "bronze_statuette"
+trace = "visible_edgar_blood"
+
+[[canonical_timeline.effects]]
+
+[canonical_timeline.effects.add_trace]
+target = "bronze_statuette"
+trace = "microscopic_edgar_blood"
+
+[[canonical_timeline.effects]]
+
+[canonical_timeline.effects.add_trace]
+target = "bronze_statuette"
+trace = "lamp_oil"
+
+[[canonical_timeline.effects]]
+
+[canonical_timeline.effects.add_trace]
+target = "lamp_oil"
+trace = "wiped_surface"
+
+[[canonical_timeline]]
+id = "miriam_opens_shutter"
+at = 73680
+actor = "miriam"
+action = "alter"
+target = "storm_shutter"
+using = "interior_shutter_crank"
+at_location = "study"
+
+[[canonical_timeline.effects]]
+
+[canonical_timeline.effects.set_state]
+object = "storm_shutter"
+field = "position"
+value = "open"
+
+[[canonical_timeline.effects]]
+
+[canonical_timeline.effects.add_trace]
+target = "interior_shutter_crank"
+trace = "green_silk_thread"
+
+[[canonical_timeline.effects]]
+
+[canonical_timeline.effects.add_trace]
+target = "miriam"
+trace = "frayed_left_cuff"
+
+[[canonical_timeline]]
+id = "miriam_moves_body"
+at = 73800
+actor = "miriam"
+action = "move_body"
+target = "edgar"
+from = "study"
+to = "garden"
+via = "study_window"
+
+[[canonical_timeline.effects]]
+
+[canonical_timeline.effects.add_trace]
+target = "study_window"
+trace = "edgar_coat_fiber"
+
+[[canonical_timeline.effects]]
+
+[canonical_timeline.effects.add_trace]
+target = "flower_bed"
+trace = "body_impact"
+
+[[canonical_timeline.effects]]
+
+[canonical_timeline.effects.set_location]
+character = "edgar"
+location = "garden"
+
+[[canonical_timeline]]
+id = "miriam_closes_shutter"
+at = 73920
+actor = "miriam"
+action = "alter"
+target = "storm_shutter"
+using = "interior_shutter_crank"
+at_location = "study"
+
+[[canonical_timeline.effects]]
+
+[canonical_timeline.effects.set_state]
+object = "storm_shutter"
+field = "position"
+value = "closed"
+
+[[canonical_timeline]]
+id = "elsie_sees_miriam"
+at = 73980
+actor = "elsie"
+action = "observe"
+target = "miriam"
+from = "kitchen"
+
+[canonical_timeline.details]
+observed_event = "miriam_leaving_study"
+confidence = "certain"
+
+[[canonical_timeline]]
+id = "miriam_returns_to_dinner"
+at = 74040
+actor = "miriam"
+action = "move"
+from = "study"
+to = "dining_room"
+
+[[canonical_timeline]]
+id = "daniel_returns_to_dinner"
+at = 74100
+actor = "daniel"
+action = "move"
+from = "hallway"
+to = "dining_room"
+
+[[canonical_timeline]]
+id = "elsie_discovers_body"
+at = 74520
+actor = "elsie"
+action = "observe"
+target = "edgar"
+from = "garden"
+
+[canonical_timeline.details]
+observed_state = "dead"
+
+[[observations]]
+id = "daniel_saw_miriam_leave"
+observer = "daniel"
+at = 73260
+confidence = "certain"
+initial_interpretation = "Miriam left dinner shortly after Edgar.\n"
+
+[observations.perceives]
+predicate = "person_left"
+person = "miriam"
+location = "dining_room"
+
+[[observations]]
+id = "daniel_heard_blow"
+observer = "daniel"
+at = 73440
+confidence = "probable"
+initial_interpretation = "Something heavy fell or struck the floor in Edgar's study.\n"
+
+[observations.perceives]
+predicate = "heard_sound"
+sound = "heavy_impact"
+source_region = "study"
+
+[[observations]]
+id = "elsie_saw_miriam_leave_study"
+observer = "elsie"
+at = 73980
+confidence = "certain"
+initial_interpretation = "Miriam had been inside the study shortly before the body was found.\n"
+
+[observations.perceives]
+predicate = "person_at"
+person = "miriam"
+location = "study"
+at = 73980
+
+[[claims]]
+id = "miriam_alibi"
+speaker = "miriam"
+available_initially = true
+statement = "I remained at the dinner table from the moment Edgar left until Elsie cried out from the garden.\n"
+truth = false
+protects = ["murder", "miriam_embezzlement"]
+
+[claims.proposition]
+predicate = "remained_at"
+person = "miriam"
+location = "dining_room"
+
+[claims.proposition.during]
+start = 73080
+end = 74520
+
+[[claims]]
+id = "miriam_late_sighting"
+speaker = "miriam"
+available_initially = true
+statement = "At approximately half past eight, I saw Edgar through the dining-room window. He was standing at his study window with his left hand on the raised shutter. He was alive then.\n"
+truth = false
+protects = ["murder", "false_time_of_death"]
+hidden_knowledge = ["shutter_was_temporarily_open", "body_passed_through_study_window"]
+
+[claims.proposition]
+predicate = "saw_person"
+observer = "miriam"
+person = "edgar"
+person_location = "study"
+from = "dining_room"
+at = 73800
+detail = "shutter_open"
+
+[[claims]]
+id = "daniel_supports_alibi"
+speaker = "daniel"
+available_initially = true
+statement = "Miriam remained beside me throughout dinner. I would have noticed if she had left.\n"
+truth = false
+protects = ["daniel_miriam_affair"]
+speaker_believes_murderer_guilty = false
+explanation = "Daniel was in the hallway retrieving a love note from Miriam. Admitting that he saw her leave would expose their affair and show that he also left dinner.\n"
+
+[claims.proposition]
+predicate = "remained_at"
+person = "miriam"
+location = "dining_room"
+
+[claims.proposition.during]
+start = 73080
+end = 74040
+
+[[claims]]
+id = "daniel_denies_hallway"
+speaker = "daniel"
+available_initially = true
+statement = "I did not leave the dining room until the body was discovered.\n"
+truth = false
+protects = ["daniel_miriam_affair"]
+
+[claims.proposition]
+predicate = "remained_at"
+person = "daniel"
+location = "dining_room"
+
+[claims.proposition.during]
+start = 72000
+end = 74520
+
+[[claims]]
+id = "elsie_denies_study"
+speaker = "elsie"
+available_initially = true
+statement = "I did not enter Mr. Vale's study at any point that evening.\n"
+truth = false
+protects = ["elsie_theft"]
+
+[claims.proposition]
+predicate = "never_entered"
+person = "elsie"
+location = "study"
+
+[claims.proposition.during]
+start = 64800
+end = 74520
+
+[[claims]]
+id = "elsie_kitchen_alibi"
+speaker = "elsie"
+available_initially = true
+statement = "I began preparing coffee at twenty past eight and remained in the kitchen until I carried the tray out.\n"
+truth = true
+protects = ["elsie_theft"]
+
+[claims.proposition]
+predicate = "remained_at"
+person = "elsie"
+location = "kitchen"
+
+[claims.proposition.during]
+start = 73200
+end = 74400
+
+[[clues]]
+id = "stopped_watch"
+name = "The Stopped Watch"
+description = "Edgar's watch was shattered by the fatal blow and stopped at 8:24.\n"
+
+[clues.source]
+type = "object"
+id = "edgar_watch"
+location = "garden"
+
+[clues.discovery]
+action = "examine"
+cost = 1
+prerequisites = []
+
+[[clues.establishes]]
+id = "edgar_death_time"
+predicate = "death_time"
+person = "edgar"
+certainty = "supported"
+
+[clues.establishes.range]
+start = 73380
+end = 73500
+
+[clues.unlocks]
+blocks = ["time_20_24", "edgar_died_at_20_24"]
+topics = ["time_of_death"]
+
+[[clues]]
+id = "study_blood"
+name = "Blood Beneath the Study Rug"
+description = "Diluted blood has soaked through the underside of the study rug. The visible surface was wiped, but the floor beneath it was not.\n"
+
+[clues.source]
+type = "location"
+id = "study"
+
+[clues.discovery]
+action = "search"
+cost = 2
+prerequisites = []
+
+[[clues.establishes]]
+id = "edgar_bled_in_study"
+predicate = "victim_bled_at"
+person = "edgar"
+location = "study"
+certainty = "proven"
+
+[clues.unlocks]
+blocks = ["study_as_murder_location", "body_moved_from_study"]
+topics = ["blood_in_study"]
+
+[[clues]]
+id = "statuette_residue"
+name = "Residue on the Bronze Statuette"
+description = "The statuette has been scrubbed with lamp oil. Blood remains inside a seam around its base, and the shape of the base matches Edgar's wound.\n"
+
+[clues.source]
+type = "object"
+id = "bronze_statuette"
+location = "study"
+
+[clues.discovery]
+action = "examine"
+cost = 1
+
+[[clues.discovery.prerequisites]]
+clue = "study_blood"
+
+[[clues.establishes]]
+id = "statuette_is_weapon"
+predicate = "weapon_used"
+object = "bronze_statuette"
+victim = "edgar"
+certainty = "proven"
+
+[[clues.establishes]]
+id = "weapon_was_cleaned"
+predicate = "object_cleaned"
+object = "bronze_statuette"
+using = "lamp_oil"
+certainty = "proven"
+
+[clues.unlocks]
+blocks = ["bronze_statuette", "attack_with_statuette", "clean_statuette"]
+topics = ["cleaned_weapon"]
+
+[[clues]]
+id = "shutter_mechanism"
+name = "The Automatic Storm Shutter"
+description = "The shutter closes automatically at 8:15. After closing, it can only be reopened from inside the study with the brass crank.\n"
+
+[clues.source]
+type = "feature"
+id = "storm_shutter"
+location = "study"
+
+[clues.discovery]
+action = "examine"
+cost = 1
+prerequisites = []
+
+[[clues.establishes]]
+ref = "shutter_automatic_close"
+
+[[clues.establishes]]
+ref = "shutter_requires_inside_crank"
+
+[[clues.establishes]]
+ref = "closed_shutter_blocks_view"
+
+[clues.unlocks]
+blocks = ["shutter_closed_at_20_15", "shutter_requires_inside_crank", "shutter_blocks_dining_room_view"]
+topics = ["shutter_operation"]
+
+[[clues]]
+id = "green_thread"
+name = "Green Silk in the Shutter Crank"
+description = "A fresh green silk thread is caught inside the shutter crank's narrow housing. Miriam's left cuff is frayed and matches the thread.\n"
+
+[clues.source]
+type = "feature"
+id = "interior_shutter_crank"
+location = "study"
+
+[clues.discovery]
+action = "examine"
+cost = 1
+
+[[clues.discovery.prerequisites]]
+clue = "shutter_mechanism"
+
+[[clues.establishes]]
+id = "miriam_used_shutter_crank"
+predicate = "used_object"
+person = "miriam"
+object = "interior_shutter_crank"
+after = 72900
+certainty = "proven"
+
+[[clues.establishes]]
+id = "miriam_in_study_after_close"
+predicate = "person_at"
+person = "miriam"
+location = "study"
+after = 72900
+certainty = "proven"
+
+[clues.unlocks]
+blocks = ["green_silk_thread", "miriam_used_crank", "miriam_in_study"]
+topics = ["miriam_frayed_cuff"]
+
+[[clues]]
+id = "ledger_marks"
+name = "The Marked Account Ledger"
+description = "Edgar marked payments to a fictitious household supplier. The account is controlled by Miriam, and Edgar wrote: \"Confront M. tonight.\"\n"
+
+[clues.source]
+type = "object"
+id = "account_ledger"
+location = "study"
+
+[clues.discovery]
+action = "examine"
+cost = 1
+prerequisites = []
+
+[[clues.establishes]]
+id = "edgar_discovered_embezzlement"
+predicate = "discovered_secret"
+person = "edgar"
+secret = "miriam_embezzlement"
+certainty = "proven"
+
+[[clues.establishes]]
+id = "miriam_had_motive"
+predicate = "motive"
+person = "miriam"
+motive = "prevent_exposure"
+certainty = "supported"
+
+[clues.unlocks]
+blocks = ["miriam_embezzlement", "prevent_exposure"]
+topics = ["supplier_account", "confrontation_note"]
+
+[[clues]]
+id = "daniel_breaks"
+name = "Daniel Withdraws the Alibi"
+description = "Daniel admits that Miriam left dinner shortly after Edgar. He lied because he was retrieving a private note from her and feared exposing their affair.\n"
+
+[clues.source]
+type = "character"
+id = "daniel"
+
+[clues.discovery]
+action = "interview"
+cost = 1
+
+[clues.discovery.prerequisites]
+
+[[clues.discovery.prerequisites.any]]
+
+[clues.discovery.prerequisites.any.skill_check]
+skill = "empathy"
+difficulty = 45
+type = "white"
+
+[[clues.discovery.prerequisites.any]]
+
+[clues.discovery.prerequisites.any.presented]
+clue = "dinner_absence"
+
+[[clues.discovery.prerequisites.any]]
+
+[clues.discovery.prerequisites.any.presented]
+clue = "love_note"
+
+[[clues.establishes]]
+id = "miriam_left_dinner"
+predicate = "person_left"
+person = "miriam"
+location = "dining_room"
+at = 73260
+certainty = "supported"
+
+[[clues.establishes]]
+id = "daniel_alibi_false"
+predicate = "claim_false"
+claim = "daniel_supports_alibi"
+certainty = "proven"
+
+[[clues.establishes]]
+id = "daniel_lied_for_affair"
+predicate = "lie_protects"
+claim = "daniel_supports_alibi"
+secret = "daniel_miriam_affair"
+certainty = "proven"
+
+[clues.unlocks]
+blocks = ["daniel_false_alibi", "daniel_protected_affair", "miriam_left_dinner"]
+topics = ["daniel_miriam_affair", "sound_from_study"]
+
+[[clues]]
+id = "elsie_revised_testimony"
+name = "Elsie's Revised Testimony"
+description = "Elsie admits entering the study before dinner to steal money. She also admits seeing Miriam leave the study at 8:33.\n"
+
+[clues.source]
+type = "character"
+id = "elsie"
+
+[clues.discovery]
+action = "interview"
+cost = 1
+
+[clues.discovery.prerequisites]
+
+[[clues.discovery.prerequisites.any]]
+
+[clues.discovery.prerequisites.any.skill_check]
+skill = "empathy"
+difficulty = 35
+type = "white"
+
+[[clues.discovery.prerequisites.any]]
+
+[clues.discovery.prerequisites.any.presented]
+clue = "empty_cash_box"
+
+[[clues.discovery.prerequisites.any]]
+
+[clues.discovery.prerequisites.any.presented]
+clue = "study_blood"
+
+[[clues.establishes]]
+id = "elsie_stole_cash"
+predicate = "committed_secret"
+person = "elsie"
+secret = "elsie_theft"
+certainty = "proven"
+
+[[clues.establishes]]
+id = "elsie_saw_miriam"
+predicate = "person_at"
+person = "miriam"
+location = "study"
+at = 73980
+certainty = "supported"
+
+[[clues.establishes]]
+id = "elsie_lie_unrelated"
+predicate = "lie_protects"
+claim = "elsie_denies_study"
+secret = "elsie_theft"
+certainty = "proven"
+
+[clues.unlocks]
+blocks = ["elsie_theft", "elsie_saw_miriam", "elsie_lied_about_theft"]
+topics = ["miriam_leaving_study"]
+
+[[clues]]
+id = "body_movement"
+name = "The Body Passed Through the Study Window"
+description = "Fibers from Edgar's coat are trapped on the inner window frame. The flower bed shows one heavy impact but no footprints leading to the body. Edgar did not walk into the garden.\n"
+
+[clues.source]
+type = "location"
+id = "garden"
+
+[clues.discovery]
+action = "search"
+cost = 2
+
+[clues.discovery.prerequisites]
+
+[[clues.discovery.prerequisites.any]]
+clue = "study_blood"
+
+[[clues.discovery.prerequisites.any]]
+clue = "shutter_mechanism"
+
+[[clues.establishes]]
+id = "body_moved_through_window"
+predicate = "body_moved"
+person = "edgar"
+from = "study"
+to = "garden"
+via = "study_window"
+certainty = "proven"
+
+[[clues.establishes]]
+id = "fall_was_staged"
+predicate = "scene_staged"
+scene = "garden_fall"
+certainty = "proven"
+
+[clues.unlocks]
+blocks = ["move_body_study_to_garden", "staged_fall"]
+topics = ["body_movement"]
+
+[[clues]]
+id = "dinner_absence"
+name = "The Disturbed Dinner Setting"
+description = "Miriam's wine spilled toward the empty side of her chair and dried before the alarm. Daniel's napkin was found in the hallway. Both left the table despite their claims.\n"
+
+[clues.source]
+type = "object"
+id = "dinner_place_settings"
+location = "dining_room"
+
+[clues.discovery]
+action = "examine"
+cost = 1
+prerequisites = []
+
+[[clues.establishes]]
+id = "miriam_dinner_alibi_doubtful"
+predicate = "claim_unreliable"
+claim = "miriam_alibi"
+certainty = "supported"
+
+[[clues.establishes]]
+id = "daniel_left_dinner"
+predicate = "person_left"
+person = "daniel"
+location = "dining_room"
+certainty = "supported"
+
+[clues.establishes.during]
+start = 73200
+end = 74100
+
+[clues.unlocks]
+blocks = ["miriam_alibi_doubtful", "daniel_left_dinner"]
+topics = ["dinner_absences"]
+
+[[optional_clues]]
+id = "empty_cash_box"
+name = "The Empty Cash Box"
+description = "The desk cash box was emptied before dinner. A kitchen inventory pencil left inside bears Elsie's initials.\n"
+
+[optional_clues.source]
+type = "object"
+id = "study_desk_cash_box"
+location = "study"
+
+[optional_clues.discovery]
+action = "examine"
+cost = 1
+prerequisites = []
+
+[[optional_clues.establishes]]
+id = "elsie_stole_from_study"
+predicate = "committed_secret"
+person = "elsie"
+secret = "elsie_theft"
+certainty = "supported"
+
+[optional_clues.unlocks]
+topics = ["missing_cash"]
+
+[[optional_clues]]
+id = "love_note"
+name = "Daniel's Torn Love Note"
+description = "A torn note in Miriam's hand asks Daniel to meet her after Edgar is asleep. It explains Daniel's effort to conceal leaving dinner.\n"
+
+[optional_clues.source]
+type = "location"
+id = "hallway"
+
+[optional_clues.discovery]
+action = "search"
+cost = 2
+prerequisites = []
+
+[[optional_clues.establishes]]
+id = "affair_supported"
+predicate = "relationship"
+person_a = "miriam"
+person_b = "daniel"
+relationship = "secret_lover"
+certainty = "supported"
+
+[optional_clues.unlocks]
+topics = ["daniel_miriam_affair"]
+
+[[contradictions]]
+id = "miriam_alibi_contradiction"
+name = "Miriam Could Not Have Remained at Dinner"
+player_explanation = "Miriam claims she never left dinner, but physical evidence and witness testimony place her inside the study.\n"
+
+[contradictions.left]
+claim = "miriam_alibi"
+
+[contradictions.right]
+
+[[contradictions.right.any]]
+fact = "miriam_in_study_after_close"
+
+[[contradictions.right.any]]
+fact = "elsie_saw_miriam"
+
+[[contradictions.right.any]]
+fact = "miriam_left_dinner"
+
+[contradictions.conclusion]
+id = "miriam_alibi_false"
+predicate = "claim_false"
+claim = "miriam_alibi"
+certainty = "proven"
+
+[[contradictions]]
+id = "impossible_sighting"
+name = "The Impossible Sighting"
+decisive = true
+player_explanation = "Miriam claims she saw Edgar alive through the study window at 8:30. Edgar was already dead, and the shutter had closed automatically at 8:15. From the dining room she could not see through it. Her description of the raised shutter matches the temporary opening required to move Edgar's body—an event she could know about only because she staged it.\n"
+
+[contradictions.left]
+claim = "miriam_late_sighting"
+
+[contradictions.right]
+
+[[contradictions.right.all]]
+fact = "shutter_automatic_close"
+
+[[contradictions.right.all]]
+fact = "closed_shutter_blocks_view"
+
+[[contradictions.right.all]]
+fact = "shutter_requires_inside_crank"
+
+[[contradictions.right.all]]
+fact = "edgar_death_time"
+
+[contradictions.conclusion]
+id = "miriam_had_hidden_knowledge"
+predicate = "possessed_hidden_knowledge"
+person = "miriam"
+knowledge = ["shutter_was_temporarily_open", "body_passed_through_study_window"]
+certainty = "proven"
+
+[[contradictions]]
+id = "elsie_lie_explained"
+name = "Elsie's Lie Concealed Theft"
+player_explanation = "Elsie lied about entering the study to conceal theft committed before dinner. Her lie does not place her there when Edgar was killed.\n"
+
+[contradictions.left]
+claim = "elsie_denies_study"
+
+[contradictions.right]
+fact = "elsie_stole_cash"
+
+[contradictions.conclusion]
+id = "elsie_lied_for_theft"
+predicate = "lie_protects"
+claim = "elsie_denies_study"
+secret = "elsie_theft"
+certainty = "proven"
+
+[[contradictions]]
+id = "daniel_lie_explained"
+name = "Daniel's Lie Concealed the Affair"
+player_explanation = "Daniel falsely supported Miriam because admitting that both left dinner would expose their affair. He heard the fatal impact but did not know what caused it.\n"
+
+[contradictions.left]
+claim = "daniel_supports_alibi"
+
+[contradictions.right]
+fact = "daniel_lied_for_affair"
+
+[contradictions.conclusion]
+id = "daniel_not_accomplice"
+predicate = "lie_unrelated_to_murder"
+person = "daniel"
+certainty = "supported"
+
+[block_definitions]
+
+[[block_definitions.containers]]
+id = "motive"
+label = "MOTIVE"
+required = true
+
+[[block_definitions.containers]]
+id = "murder"
+label = "MURDER"
+required = true
+
+[[block_definitions.containers]]
+id = "cover_up"
+label = "COVER-UP"
+required = true
+
+[[block_definitions.containers]]
+id = "false_alibi"
+label = "FALSE ALIBI"
+required = true
+
+[[block_definitions.containers]]
+id = "decisive_proof"
+label = "DECISIVE PROOF"
+required = true
+
+[[block_definitions.templates]]
+id = "motive_statement"
+shape = "cause"
+text = "[person] acted because [motive]"
+
+[[block_definitions.templates.sockets]]
+id = "person"
+accepts = "person"
+
+[[block_definitions.templates.sockets]]
+id = "motive"
+accepts = "motive"
+
+[[block_definitions.templates]]
+id = "attack_statement"
+shape = "event"
+text = "[actor] attacked [target] with [object] in [place] at [time]"
+
+[[block_definitions.templates.sockets]]
+id = "actor"
+accepts = "person"
+
+[[block_definitions.templates.sockets]]
+id = "target"
+accepts = "person"
+
+[[block_definitions.templates.sockets]]
+id = "object"
+accepts = "object"
+
+[[block_definitions.templates.sockets]]
+id = "place"
+accepts = "place"
+
+[[block_definitions.templates.sockets]]
+id = "time"
+accepts = "time"
+
+[[block_definitions.templates]]
+id = "move_body_statement"
+shape = "event"
+text = "[actor] moved [body] from [source] to [destination]"
+
+[[block_definitions.templates.sockets]]
+id = "actor"
+accepts = "person"
+
+[[block_definitions.templates.sockets]]
+id = "body"
+accepts = "person"
+
+[[block_definitions.templates.sockets]]
+id = "source"
+accepts = "place"
+
+[[block_definitions.templates.sockets]]
+id = "destination"
+accepts = "place"
+
+[[block_definitions.templates]]
+id = "clean_statement"
+shape = "event"
+text = "[actor] cleaned [object] with [cleaning_object]"
+
+[[block_definitions.templates.sockets]]
+id = "actor"
+accepts = "person"
+
+[[block_definitions.templates.sockets]]
+id = "object"
+accepts = "object"
+
+[[block_definitions.templates.sockets]]
+id = "cleaning_object"
+accepts = "object"
+
+[[block_definitions.templates]]
+id = "claim_contradiction"
+shape = "contradiction"
+text = "[claim] is contradicted by [fact]"
+
+[[block_definitions.templates.sockets]]
+id = "claim"
+accepts = "claim"
+
+[[block_definitions.templates.sockets]]
+id = "fact"
+accepts = "fact"
+
+[[block_definitions.templates]]
+id = "support_statement"
+shape = "support"
+text = "[conclusion] is supported by [evidence]"
+
+[[block_definitions.templates.sockets]]
+id = "conclusion"
+accepts = "conclusion"
+
+[[block_definitions.templates.sockets]]
+id = "evidence"
+accepts = "evidence"
+
+[[block_definitions.templates]]
+id = "hidden_knowledge_statement"
+shape = "decisive"
+text = "[person] knew [hidden_fact] even though [blocking_fact]"
+
+[[block_definitions.templates.sockets]]
+id = "person"
+accepts = "person"
+
+[[block_definitions.templates.sockets]]
+id = "hidden_fact"
+accepts = "fact"
+
+[[block_definitions.templates.sockets]]
+id = "blocking_fact"
+accepts = "fact"
+
+[[endings]]
+id = "case_closed"
+trigger = "outcome.airtight"
+outcome = "airtight"
+title = "THE APPOINTMENT KEPT"
+subtitle = "Vale House · The truth survives the fire"
+summary = "The rejoined appointment note silences the room. Miriam alone knew Edgar summoned her to the study, and every movement of the statuette, the body, and the borrowed cane now answers to that meeting."
+epilogue = "Miriam is taken from Vale House before dawn. Daniel withdraws his false dinner alibi; Elsie returns the stolen cash. Your first reconstruction enters the archive as a complete case: accusation, mechanism, concealment, and exclusion all proved."
+canonical_timeline = "At 8:20 Edgar summoned Miriam to the study over the missing household accounts. At 8:24 she struck him with the bronze statuette. She cleaned it with lamp oil, moved his body through the study shutter, and staged a garden fall with Edgar's cane. The memo stub from his desk joins the burned fragment from Miriam's wastebin and proves she lied about the appointment."
+tone = "success"
+primary_label = "REVEAL CANONICAL ACCOUNT"
+primary_action = "reveal"
+secondary_label = "RETURN TO CAMPAIGN"
+secondary_action = "campaign"
+
+[[endings]]
+id = "case_referred"
+trigger = "outcome.correct_but_unproven"
+outcome = "correct_but_unproven"
+title = "THE RIGHT NAME, WITHOUT THE PROOF"
+subtitle = "Vale House · The accusation goes forward"
+summary = "You name Miriam, and the physical sequence is credible, but a missing link leaves the appointment or an innocent suspect insufficiently resolved."
+epilogue = "The inspector records Miriam as the principal suspect and keeps Vale House under watch. The case continues without your authority to close it; what you established may still be enough for another investigator to finish."
+tone = "warning"
+primary_label = "RETRY THE CASE"
+primary_action = "restart"
+secondary_label = "RETURN TO CAMPAIGN"
+secondary_action = "campaign"
+
+[[endings]]
+id = "case_incomplete"
+trigger = "outcome.plausible_incomplete"
+outcome = "plausible_incomplete"
+title = "A THEORY THE HOUSE CAN STILL RESIST"
+subtitle = "Vale House · Major questions remain"
+summary = "Your accusation points toward Miriam, but the reconstruction leaves gaps large enough for the room to contest what happened."
+epilogue = "No arrest is made tonight. Statements are preserved and the house remains sealed, but your account cannot yet carry the case."
+tone = "warning"
+primary_label = "RETRY THE CASE"
+primary_action = "restart"
+secondary_label = "RETURN TO CAMPAIGN"
+secondary_action = "campaign"
+
+[[endings]]
+id = "wrong_accusation"
+trigger = "outcome.wrong_accusation"
+outcome = "wrong_accusation"
+title = "THE WRONG PERSON LEAVES IN IRONS"
+subtitle = "Vale House · The reconstruction breaks"
+summary = "The suspect you accuse cannot satisfy the complete sequence. The contradictions you leave behind give the true killer room to escape."
+epilogue = "By morning the error is public. The arrest is reversed, Vale House disperses, and the burned half of the appointment remains an unanswered warning."
+tone = "failure"
+primary_label = "RETRY THE CASE"
+primary_action = "restart"
+secondary_label = "RETURN TO CAMPAIGN"
+secondary_action = "campaign"
+
+[[endings]]
+id = "case_unresolved"
+trigger = "outcome.unresolved"
+outcome = "unresolved"
+title = "NO ACCUSATION"
+subtitle = "Vale House · The inquiry is suspended"
+summary = "Without a coherent accusation, the final confrontation ends in silence."
+epilogue = "The evidence is boxed, the witnesses are released, and Edgar Vale's death remains open in the archive."
+tone = "neutral"
+primary_label = "RETRY THE CASE"
+primary_action = "restart"
+secondary_label = "RETURN TO CAMPAIGN"
+secondary_action = "campaign"
+
+[[endings]]
+id = "night_overtakes_the_inquiry"
+trigger = "out_of_time"
+title = "THE LAST CANDLE FAILS"
+subtitle = "Vale House · No final reconstruction"
+summary = "The investigation clock expires before you can prepare a complete account of Edgar Vale's death."
+epilogue = "The household is released at dawn. Evidence remains in the archive, but the opportunity to confront every witness under one roof is gone."
+tone = "failure"
+primary_label = "RETRY THE CASE"
+primary_action = "restart"
+secondary_label = "RETURN TO CAMPAIGN"
+secondary_action = "campaign"
+
+[solution]
+culprit = "miriam"
+victim = "edgar"
+required_final_argument = ["Miriam was facing exposure for embezzlement.", "Edgar died in the study at approximately 8:24.", "Miriam killed him with the bronze statuette.", "Miriam cleaned the weapon with lamp oil.", "Miriam opened the shutter from inside the study.", "Miriam moved Edgar's body into the garden and staged a fall.", "Daniel's supporting alibi was false and motivated by their affair.", "Elsie's lie concerned an earlier theft.", "Miriam's claimed sighting was physically and temporally impossible.", "Miriam knew the shutter had been opened because she opened it to move Edgar's body."]
+
+[solution.required_sections]
+
+[solution.required_sections.motive]
+conclusions = ["edgar_discovered_embezzlement", "miriam_had_motive"]
+
+[[solution.required_sections.motive.acceptable_support_sets]]
+
+[[solution.required_sections.motive.acceptable_support_sets.all]]
+clue = "ledger_marks"
+
+[solution.required_sections.murder]
+conclusions = ["edgar_death_time", "edgar_bled_in_study", "statuette_is_weapon"]
+
+[[solution.required_sections.murder.events]]
+actor = "miriam"
+action = "attack"
+target = "edgar"
+using = "bronze_statuette"
+location = "study"
+
+[solution.required_sections.murder.events.time]
+start = 73380
+end = 73500
+
+[[solution.required_sections.murder.acceptable_support_sets]]
+
+[[solution.required_sections.murder.acceptable_support_sets.all]]
+clue = "stopped_watch"
+
+[[solution.required_sections.murder.acceptable_support_sets.all]]
+clue = "study_blood"
+
+[[solution.required_sections.murder.acceptable_support_sets.all]]
+clue = "statuette_residue"
+
+[solution.required_sections.cover_up]
+conclusions = ["weapon_was_cleaned", "body_moved_through_window", "fall_was_staged"]
+
+[[solution.required_sections.cover_up.events]]
+actor = "miriam"
+action = "clean"
+target = "bronze_statuette"
+using = "lamp_oil"
+
+[[solution.required_sections.cover_up.events]]
+actor = "miriam"
+action = "move_body"
+target = "edgar"
+from = "study"
+to = "garden"
+
+[[solution.required_sections.cover_up.acceptable_support_sets]]
+
+[[solution.required_sections.cover_up.acceptable_support_sets.all]]
+clue = "statuette_residue"
+
+[[solution.required_sections.cover_up.acceptable_support_sets.all]]
+clue = "body_movement"
+
+[solution.required_sections.false_alibi]
+conclusions = ["miriam_alibi_false", "daniel_alibi_false", "daniel_lied_for_affair"]
+
+[[solution.required_sections.false_alibi.acceptable_support_sets]]
+
+[[solution.required_sections.false_alibi.acceptable_support_sets.all]]
+clue = "green_thread"
+
+[[solution.required_sections.false_alibi.acceptable_support_sets.all]]
+clue = "daniel_breaks"
+
+[[solution.required_sections.false_alibi.acceptable_support_sets]]
+
+[[solution.required_sections.false_alibi.acceptable_support_sets.all]]
+clue = "elsie_revised_testimony"
+
+[[solution.required_sections.false_alibi.acceptable_support_sets.all]]
+clue = "daniel_breaks"
+
+[solution.required_sections.decisive_proof]
+contradiction = "impossible_sighting"
+conclusions = ["miriam_had_hidden_knowledge", "miriam_used_shutter_crank"]
+
+[[solution.required_sections.decisive_proof.acceptable_support_sets]]
+
+[[solution.required_sections.decisive_proof.acceptable_support_sets.all]]
+clue = "stopped_watch"
+
+[[solution.required_sections.decisive_proof.acceptable_support_sets.all]]
+clue = "shutter_mechanism"
+
+[[solution.required_sections.decisive_proof.acceptable_support_sets.all]]
+clue = "green_thread"
+
+[[solution.required_sections.decisive_proof.acceptable_support_sets.all]]
+claim = "miriam_late_sighting"
+
+[solution.exclusions]
+
+[solution.exclusions.daniel]
+conclusions = ["daniel_not_accomplice"]
+requirements = ["Daniel was in the hallway when the fatal impact occurred.", "Daniel had no opportunity to clean the study and move the body.", "His false testimony protected the affair."]
+
+[[solution.exclusions.daniel.acceptable_support_sets]]
+
+[[solution.exclusions.daniel.acceptable_support_sets.all]]
+clue = "daniel_breaks"
+
+[[solution.exclusions.daniel.acceptable_support_sets.all]]
+fact = "daniel_heard_blow"
+
+[[solution.exclusions.daniel.acceptable_support_sets.all]]
+contradiction = "daniel_lie_explained"
+
+[solution.exclusions.elsie]
+conclusions = ["elsie_lied_for_theft"]
+requirements = ["Elsie began preparing coffee before the murder.", "Her study entry occurred before dinner.", "Her lie protected the theft rather than the murder."]
+
+[[solution.exclusions.elsie.acceptable_support_sets]]
+
+[[solution.exclusions.elsie.acceptable_support_sets.all]]
+clue = "elsie_revised_testimony"
+
+[[solution.exclusions.elsie.acceptable_support_sets.all]]
+fact = "elsie_kitchen_alibi"
+
+[[solution.exclusions.elsie.acceptable_support_sets.all]]
+contradiction = "elsie_lie_explained"
+
+[outcomes]
+
+[outcomes.airtight]
+
+[outcomes.airtight.requires]
+culprit_correct = true
+all_required_sections_complete = true
+decisive_proof_complete = true
+essential_claims_supported = true
+innocent_suspects_excluded = true
+
+[outcomes.correct_but_unproven]
+
+[outcomes.correct_but_unproven.requires]
+culprit_correct = true
+decisive_proof_complete = false
+
+[outcomes.incomplete]
+
+[outcomes.incomplete.requires]
+culprit_correct = true
+one_or_more_required_sections_incomplete = true
+
+[outcomes.wrong_accusation]
+
+[outcomes.wrong_accusation.requires]
+culprit_correct = false
+
+[outcomes.unresolved]
+
+[outcomes.unresolved.requires]
+no_culprit_selected = true
+
+[development]
+canonical_summary = "Edgar discovered Miriam's embezzlement and intended to expose her. Miriam followed him from dinner and killed him in the study at 8:24 using the bronze statuette. She cleaned the weapon, opened the automatic storm shutter from inside, moved Edgar's body through the window into the garden, closed the shutter, and returned to dinner. Daniel gave her a false alibi to conceal their affair. Elsie lied about entering the study because she had stolen Edgar's cash before dinner. Miriam's claim that she saw Edgar alive through the open shutter at 8:30 is impossible and reveals knowledge of her own staging.\n"
+
+[development.recommended_winning_route]
+total_action_cost = 12
+
+[[development.recommended_winning_route.actions]]
+clue = "stopped_watch"
+cost = 1
+
+[[development.recommended_winning_route.actions]]
+clue = "study_blood"
+cost = 2
+
+[[development.recommended_winning_route.actions]]
+clue = "statuette_residue"
+cost = 1
+
+[[development.recommended_winning_route.actions]]
+clue = "shutter_mechanism"
+cost = 1
+
+[[development.recommended_winning_route.actions]]
+clue = "green_thread"
+cost = 1
+
+[[development.recommended_winning_route.actions]]
+clue = "ledger_marks"
+cost = 1
+
+[[development.recommended_winning_route.actions]]
+clue = "daniel_breaks"
+cost = 1
+
+[[development.recommended_winning_route.actions]]
+clue = "elsie_revised_testimony"
+cost = 1
+
+[[development.recommended_winning_route.actions]]
+clue = "body_movement"
+cost = 2
+
+[[development.recommended_winning_route.actions]]
+cost = 1

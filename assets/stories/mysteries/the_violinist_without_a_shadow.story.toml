@@ -1,0 +1,1618 @@
+version = "InteractiveStory v1"
+id = "the_violinist_without_a_shadow"
+title = "The Violinist Without a Shadow"
+creator = "Chicago conversion tool"
+description = "Mara Quill seemed to vanish from a watched courtyard while her violin continued to play."
+content_version = "1.0.0"
+default_space = "the_violinist_without_a_shadow_lot"
+revision = 0
+
+[[capabilities]]
+id = "mystery"
+version = "1"
+
+[[entities]]
+id = "mara_quill"
+kind = "character"
+display_name = "Mara Quill"
+description = "Mara Quill was preparing to abandon the centre's gala program and play an unannounced work of her own. She repeated difficult passages without pause, but always stopped when the courtyard bell sounded."
+space_id = ""
+target_kind = "entity"
+target_id = ""
+tags = ["victim"]
+roles = []
+
+[[entities]]
+id = "dorian_kest"
+kind = "character"
+display_name = "Dorian Kest"
+description = "Director who shapes recollection like a performance, supplying graceful detail where direct observation is missing."
+space_id = "the_violinist_without_a_shadow_lot"
+target_kind = "marker"
+target_id = "spawn_dorian_kest"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "sel_vale"
+kind = "character"
+display_name = "Sel Vale"
+description = "Rival violinist who hears repetition, breath, and sabotage more clearly than she understands anyone's motive."
+space_id = "the_violinist_without_a_shadow_lot"
+target_kind = "marker"
+target_id = "spawn_sel_vale"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "pavel_orr"
+kind = "character"
+display_name = "Pavel Orr"
+description = "Booking manager who thinks in rooms, fees, and vacancies, concealing petty fraud rather than violence."
+space_id = "the_violinist_without_a_shadow_lot"
+target_kind = "marker"
+target_id = "spawn_pavel_orr"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "courtyard"
+kind = "location"
+display_name = "COURTYARD"
+description = "Courtyard is a connected, spatially testable part of the case."
+space_id = "the_violinist_without_a_shadow_lot"
+target_kind = "room"
+target_id = "courtyard"
+tags = []
+roles = []
+
+[[entities]]
+id = "practice_room"
+kind = "location"
+display_name = "PRACTICE ROOM"
+description = "Practice Room is a connected, spatially testable part of the case."
+space_id = "the_violinist_without_a_shadow_lot"
+target_kind = "room"
+target_id = "practice_room"
+tags = []
+roles = []
+
+[[entities]]
+id = "recital_hall"
+kind = "location"
+display_name = "RECITAL HALL"
+description = "Recital Hall is a connected, spatially testable part of the case."
+space_id = "the_violinist_without_a_shadow_lot"
+target_kind = "room"
+target_id = "recital_hall"
+tags = []
+roles = []
+
+[[entities]]
+id = "director_s_office"
+kind = "location"
+display_name = "DIRECTOR'S OFFICE"
+description = "Director's Office is a connected, spatially testable part of the case."
+space_id = "the_violinist_without_a_shadow_lot"
+target_kind = "room"
+target_id = "director_s_office"
+tags = []
+roles = []
+
+[[entities]]
+id = "glass_passage"
+kind = "location"
+display_name = "GLASS PASSAGE"
+description = "Glass Passage is a connected, spatially testable part of the case."
+space_id = "the_violinist_without_a_shadow_lot"
+target_kind = "room"
+target_id = "glass_passage"
+tags = []
+roles = []
+
+[[entities]]
+id = "shadowless_sighting"
+kind = "object"
+display_name = "Shadowless Sighting"
+description = "The courtyard figure casts no shadow because it is a reflection."
+space_id = "the_violinist_without_a_shadow_lot"
+target_kind = "marker"
+target_id = "clue_marker_1"
+tags = []
+roles = []
+
+[[entities]]
+id = "angled_glass_panels"
+kind = "mechanism"
+display_name = "Angled Glass Panels"
+description = "Sightline testing reveals the recital hall in the angled glass."
+space_id = "the_violinist_without_a_shadow_lot"
+target_kind = "marker"
+target_id = "clue_marker_2"
+tags = []
+roles = []
+
+[[entities]]
+id = "repeated_musical_phrase"
+kind = "mechanism"
+display_name = "Repeated Musical Phrase"
+description = "The repeated phrase is acoustically identical on each pass."
+space_id = "the_violinist_without_a_shadow_lot"
+target_kind = "marker"
+target_id = "clue_marker_3"
+tags = []
+roles = []
+
+[[entities]]
+id = "bell_in_playback"
+kind = "object"
+display_name = "Bell in Playback"
+description = "The playback contains a bell that rang earlier."
+space_id = "the_violinist_without_a_shadow_lot"
+target_kind = "marker"
+target_id = "clue_marker_4"
+tags = []
+roles = []
+
+[[entities]]
+id = "dressed_mannequin"
+kind = "mechanism"
+display_name = "Dressed Mannequin"
+description = "Mannequin fibers and Mara's scarf remain in the glass passage."
+space_id = "the_violinist_without_a_shadow_lot"
+target_kind = "marker"
+target_id = "clue_marker_5"
+tags = []
+roles = []
+
+[[entities]]
+id = "music_stand_weight"
+kind = "object"
+display_name = "Music Stand Weight"
+description = "Blood remains inside the stand weight's adjustment collar."
+space_id = "the_violinist_without_a_shadow_lot"
+target_kind = "marker"
+target_id = "clue_marker_6"
+tags = []
+roles = []
+
+[[entities]]
+id = "sabotaged_strings"
+kind = "object"
+display_name = "Sabotaged Strings"
+description = "Sel's sabotaged strings explain her concealed visit."
+space_id = "the_violinist_without_a_shadow_lot"
+target_kind = "marker"
+target_id = "clue_marker_7"
+tags = []
+roles = []
+
+[[entities]]
+id = "room_booking_log"
+kind = "object"
+display_name = "Room Booking Log"
+description = "Pavel's rentals explain the falsified room log."
+space_id = "the_violinist_without_a_shadow_lot"
+target_kind = "marker"
+target_id = "clue_marker_8"
+tags = []
+roles = []
+
+[[entities]]
+id = "stolen_violin"
+kind = "object"
+display_name = "Stolen Violin"
+description = "Dorian described the reflection turning toward a window it could not see."
+space_id = "the_violinist_without_a_shadow_lot"
+target_kind = "marker"
+target_id = "clue_marker_9"
+tags = []
+roles = []
+
+[[propositions]]
+id = "claim_dorian_kest"
+text = "Dorian Kest claims no knowledge of the concealed mechanism."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "claim_sel_vale"
+text = "Sel Vale gives an incomplete but innocent account."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "claim_pavel_orr"
+text = "Pavel Orr gives an incomplete but innocent account."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_1"
+text = "The courtyard figure casts no shadow because it is a reflection."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_2"
+text = "Sightline testing reveals the recital hall in the angled glass."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_3"
+text = "The repeated phrase is acoustically identical on each pass."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_4"
+text = "The playback contains a bell that rang earlier."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_5"
+text = "Mannequin fibers and Mara's scarf remain in the glass passage."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_6"
+text = "Blood remains inside the stand weight's adjustment collar."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_7"
+text = "Sel's sabotaged strings explain her concealed visit."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_8"
+text = "Pavel's rentals explain the falsified room log."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_9"
+text = "Dorian described the reflection turning toward a window it could not see."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "deduction_1"
+text = "The courtyard figure casts no shadow because it is a reflection."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "deduction_2"
+text = "The repeated phrase is acoustically identical on each pass."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "deduction_3"
+text = "Mannequin fibers and Mara's scarf remain in the glass passage."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "deduction_4"
+text = "Sel's sabotaged strings explain her concealed visit."
+canonical_truth = "undetermined"
+
+[[events]]
+id = "crime_event"
+subject = "dorian_kest"
+action = "kill"
+object = "mara_quill"
+location = "courtyard"
+fictional_time = "20:20"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[events]]
+id = "cover_event"
+subject = "dorian_kest"
+action = "alter"
+object = "angled_glass_panels"
+location = "courtyard"
+fictional_time = "20:30"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[conditions]]
+id = "condition.always"
+kind = "always"
+children = []
+variable = ""
+entity = ""
+other_entity = ""
+proposition = ""
+objective = ""
+event = ""
+content = ""
+text = ""
+space_a = ""
+target_a = ""
+space_b = ""
+target_b = ""
+distance = 0
+value_kind = "boolean"
+boolean_value = false
+integer_value = 0
+text_value = ""
+comparison = 0
+objective_status = 0
+stance = "uncertain"
+
+[[scenes]]
+id = "final_confrontation"
+display_name = "Dorian recorded Mara, killed her with a stand weight, then used playback, a scarf-clad mannequin, and angled reflections to preserve a false continuous sighting."
+entry_node = "reconstruction"
+bound_entity = "dorian_kest"
+summary = "Dorian recorded Mara, killed her with a stand weight, then used playback, a scarf-clad mannequin, and angled reflections to preserve a false continuous sighting."
+return_to = "board"
+
+[[scenes]]
+id = "scene_opening_dorian_kest"
+display_name = "Dorian watches the empty stand. 'Mara meant to replace the gala program without permission. She wanted the audience to hear her, not the centre.'"
+entry_node = "opening_dorian_kest_line"
+bound_entity = "dorian_kest"
+summary = "Dorian watches the empty stand. 'Mara meant to replace the gala program without permission. She wanted the audience to hear her, not the centre.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_dorian_kest"
+display_name = "Dorian conducts the memory with two fingers. 'Toward the west window when the bell sounded. She always sought the light.'"
+entry_node = "account_dorian_kest_line"
+bound_entity = "dorian_kest"
+summary = "Dorian conducts the memory with two fingers. 'Toward the west window when the bell sounded. She always sought the light.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_dorian_kest"
+display_name = "The reflected recital hall has no west window. His hand falls still before the phrase ends."
+entry_node = "approach_dorian_kest_line"
+bound_entity = "dorian_kest"
+summary = "The reflected recital hall has no west window. His hand falls still before the phrase ends."
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_opening_sel_vale"
+display_name = "Sel names the abandoned piece. 'She played it to prove she no longer needed anyone here. I left during the same eight bars she had repeated all afternoon.'"
+entry_node = "opening_sel_vale_line"
+bound_entity = "sel_vale"
+summary = "Sel names the abandoned piece. 'She played it to prove she no longer needed anyone here. I left during the same eight bars she had repeated all afternoon.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_sel_vale"
+display_name = "Sel names each string before admitting the fourth. 'I nicked the E string. I wanted her embarrassed, not silent.'"
+entry_node = "account_sel_vale_line"
+bound_entity = "sel_vale"
+summary = "Sel names each string before admitting the fourth. 'I nicked the E string. I wanted her embarrassed, not silent.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_sel_vale"
+display_name = "'When I left, she was repeating the same eight bars. Later they returned without a breath between them.'"
+entry_node = "approach_sel_vale_line"
+bound_entity = "sel_vale"
+summary = "'When I left, she was repeating the same eight bars. Later they returned without a breath between them.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_opening_pavel_orr"
+display_name = "Pavel checks the booking book. 'Mara asked who had reserved the hall after seven. I told her nobody, which was not quite the same as saying it was free.'"
+entry_node = "opening_pavel_orr_line"
+bound_entity = "pavel_orr"
+summary = "Pavel checks the booking book. 'Mara asked who had reserved the hall after seven. I told her nobody, which was not quite the same as saying it was free.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_pavel_orr"
+display_name = "Pavel searches the schedule as though a free room might still save him. 'I rented the hall privately and kept the fee.'"
+entry_node = "account_pavel_orr_line"
+bound_entity = "pavel_orr"
+summary = "Pavel searches the schedule as though a free room might still save him. 'I rented the hall privately and kept the fee.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_pavel_orr"
+display_name = "'The recital room was empty by seven. If music came from it afterward, no player made it.'"
+entry_node = "approach_pavel_orr_line"
+bound_entity = "pavel_orr"
+summary = "'The recital room was empty by seven. If music came from it afterward, no player made it.'"
+return_to = "investigation"
+
+[[nodes]]
+id = "reconstruction"
+scene = "final_confrontation"
+kind = "line"
+line_id = "reconstruction"
+speaker = "detective"
+text = "Dorian recorded Mara, killed her with a stand weight, then used playback, a scarf-clad mannequin, and angled reflections to preserve a false continuous sighting."
+next = "answer"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = ""
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "reconstruction"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "answer"
+scene = "final_confrontation"
+kind = "line"
+line_id = "answer"
+speaker = "dorian_kest"
+text = "The physical reconstruction leaves no honest alternative."
+next = "end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = ""
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "answer"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "end"
+scene = "final_confrontation"
+kind = "end"
+line_id = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = ""
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_dorian_kest_line"
+scene = "scene_opening_dorian_kest"
+kind = "line"
+line_id = "opening_dorian_kest_line"
+speaker = "dorian_kest"
+text = "Dorian watches the empty stand. 'Mara meant to replace the gala program without permission. She wanted the audience to hear her, not the centre.'"
+next = "opening_dorian_kest_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_dorian_kest_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_dorian_kest_end"
+scene = "scene_opening_dorian_kest"
+kind = "end"
+line_id = "opening_dorian_kest_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_dorian_kest_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_dorian_kest_line"
+scene = "scene_account_dorian_kest"
+kind = "line"
+line_id = "account_dorian_kest_line"
+speaker = "dorian_kest"
+text = "Dorian conducts the memory with two fingers. 'Toward the west window when the bell sounded. She always sought the light.'"
+next = "account_dorian_kest_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_dorian_kest_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_dorian_kest_end"
+scene = "scene_account_dorian_kest"
+kind = "end"
+line_id = "account_dorian_kest_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_dorian_kest_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_dorian_kest_line"
+scene = "scene_approach_dorian_kest"
+kind = "line"
+line_id = "approach_dorian_kest_line"
+speaker = "dorian_kest"
+text = "The reflected recital hall has no west window. His hand falls still before the phrase ends."
+next = "approach_dorian_kest_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_dorian_kest_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_dorian_kest_end"
+scene = "scene_approach_dorian_kest"
+kind = "end"
+line_id = "approach_dorian_kest_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_dorian_kest_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_sel_vale_line"
+scene = "scene_opening_sel_vale"
+kind = "line"
+line_id = "opening_sel_vale_line"
+speaker = "sel_vale"
+text = "Sel names the abandoned piece. 'She played it to prove she no longer needed anyone here. I left during the same eight bars she had repeated all afternoon.'"
+next = "opening_sel_vale_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_sel_vale_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_sel_vale_end"
+scene = "scene_opening_sel_vale"
+kind = "end"
+line_id = "opening_sel_vale_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_sel_vale_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_sel_vale_line"
+scene = "scene_account_sel_vale"
+kind = "line"
+line_id = "account_sel_vale_line"
+speaker = "sel_vale"
+text = "Sel names each string before admitting the fourth. 'I nicked the E string. I wanted her embarrassed, not silent.'"
+next = "account_sel_vale_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_sel_vale_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_sel_vale_end"
+scene = "scene_account_sel_vale"
+kind = "end"
+line_id = "account_sel_vale_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_sel_vale_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_sel_vale_line"
+scene = "scene_approach_sel_vale"
+kind = "line"
+line_id = "approach_sel_vale_line"
+speaker = "sel_vale"
+text = "'When I left, she was repeating the same eight bars. Later they returned without a breath between them.'"
+next = "approach_sel_vale_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_sel_vale_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_sel_vale_end"
+scene = "scene_approach_sel_vale"
+kind = "end"
+line_id = "approach_sel_vale_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_sel_vale_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_pavel_orr_line"
+scene = "scene_opening_pavel_orr"
+kind = "line"
+line_id = "opening_pavel_orr_line"
+speaker = "pavel_orr"
+text = "Pavel checks the booking book. 'Mara asked who had reserved the hall after seven. I told her nobody, which was not quite the same as saying it was free.'"
+next = "opening_pavel_orr_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_pavel_orr_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_pavel_orr_end"
+scene = "scene_opening_pavel_orr"
+kind = "end"
+line_id = "opening_pavel_orr_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_pavel_orr_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_pavel_orr_line"
+scene = "scene_account_pavel_orr"
+kind = "line"
+line_id = "account_pavel_orr_line"
+speaker = "pavel_orr"
+text = "Pavel searches the schedule as though a free room might still save him. 'I rented the hall privately and kept the fee.'"
+next = "account_pavel_orr_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_pavel_orr_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_pavel_orr_end"
+scene = "scene_account_pavel_orr"
+kind = "end"
+line_id = "account_pavel_orr_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_pavel_orr_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_pavel_orr_line"
+scene = "scene_approach_pavel_orr"
+kind = "line"
+line_id = "approach_pavel_orr_line"
+speaker = "pavel_orr"
+text = "'The recital room was empty by seven. If music came from it afterward, no player made it.'"
+next = "approach_pavel_orr_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_pavel_orr_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_pavel_orr_end"
+scene = "scene_approach_pavel_orr"
+kind = "end"
+line_id = "approach_pavel_orr_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_pavel_orr_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[mystery]
+action_budget = 12
+seed = 20261030
+tutorial = ""
+city_start = ""
+city_destination = "the_violinist_without_a_shadow_venue"
+reveal_location = "courtyard"
+
+[[mystery.characters]]
+entity = "mara_quill"
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = []
+
+[[mystery.characters]]
+entity = "dorian_kest"
+private_secret = ""
+motive = "Conceals the crime's material mechanism."
+initial_disposition = 0
+initial_claims = ["claim_dorian_kest"]
+
+[[mystery.characters]]
+entity = "sel_vale"
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_sel_vale"]
+
+[[mystery.characters]]
+entity = "pavel_orr"
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_pavel_orr"]
+
+[[mystery.locations]]
+entity = "courtyard"
+connections = ["practice_room"]
+characters = []
+pois = ["shadowless_sighting", "music_stand_weight"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "practice_room"
+connections = ["courtyard", "recital_hall"]
+characters = ["mara_quill"]
+pois = ["angled_glass_panels", "sabotaged_strings"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "recital_hall"
+connections = ["practice_room", "director_s_office"]
+characters = ["dorian_kest"]
+pois = ["repeated_musical_phrase", "room_booking_log"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "director_s_office"
+connections = ["recital_hall", "glass_passage"]
+characters = ["sel_vale"]
+pois = ["bell_in_playback", "stolen_violin"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "glass_passage"
+connections = ["director_s_office"]
+characters = []
+pois = ["dressed_mannequin"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.pois]]
+entity = "shadowless_sighting"
+location = "courtyard"
+owner = ""
+relevant_state = "The courtyard figure casts no shadow because it is a reflection."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "angled_glass_panels"
+location = "practice_room"
+owner = ""
+relevant_state = "Sightline testing reveals the recital hall in the angled glass."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "repeated_musical_phrase"
+location = "recital_hall"
+owner = ""
+relevant_state = "The repeated phrase is acoustically identical on each pass."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "bell_in_playback"
+location = "director_s_office"
+owner = ""
+relevant_state = "The playback contains a bell that rang earlier."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "dressed_mannequin"
+location = "glass_passage"
+owner = ""
+relevant_state = "Mannequin fibers and Mara's scarf remain in the glass passage."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "music_stand_weight"
+location = "courtyard"
+owner = ""
+relevant_state = "Blood remains inside the stand weight's adjustment collar."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "sabotaged_strings"
+location = "practice_room"
+owner = ""
+relevant_state = "Sel's sabotaged strings explain her concealed visit."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "room_booking_log"
+location = "recital_hall"
+owner = ""
+relevant_state = "Pavel's rentals explain the falsified room log."
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "stolen_violin"
+location = "director_s_office"
+owner = ""
+relevant_state = "Dorian described the reflection turning toward a window it could not see."
+examination_action = "examine"
+
+[[mystery.events]]
+event = "crime_event"
+destination = "courtyard"
+tool = "music_stand_weight"
+effects = ["victim_dead"]
+
+[[mystery.events]]
+event = "cover_event"
+destination = "practice_room"
+tool = ""
+effects = ["scene_staged"]
+
+[[mystery.clues]]
+id = "clue_1"
+source = "shadowless_sighting"
+description = "The courtyard figure casts no shadow because it is a reflection."
+proposition = "clue_1"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["weapon"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_2"
+source = "angled_glass_panels"
+description = "Sightline testing reveals the recital hall in the angled glass."
+proposition = "clue_2"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["murder_place"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_3"
+source = "repeated_musical_phrase"
+description = "The repeated phrase is acoustically identical on each pass."
+proposition = "clue_3"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["death_time"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_4"
+source = "bell_in_playback"
+description = "The playback contains a bell that rang earlier."
+proposition = "clue_4"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["body_movement"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_5"
+source = "dressed_mannequin"
+description = "Mannequin fibers and Mara's scarf remain in the glass passage."
+proposition = "clue_5"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["staging"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_6"
+source = "music_stand_weight"
+description = "Blood remains inside the stand weight's adjustment collar."
+proposition = "clue_6"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["cleaning"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_7"
+source = "sel_vale"
+description = "Sel's sabotaged strings explain her concealed visit."
+proposition = "clue_7"
+skill = "Observation"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["alibi"]
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_8"
+source = "pavel_orr"
+description = "Pavel's rentals explain the falsified room log."
+proposition = "clue_8"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = []
+topics = ["mechanism"]
+
+[[mystery.clues]]
+id = "clue_9"
+source = "dorian_kest"
+description = "Dorian described the reflection turning toward a window it could not see."
+proposition = "clue_9"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 1
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["claim_dorian_kest"]
+topics = ["mechanism"]
+
+[[mystery.claims]]
+id = "claim_dorian_kest"
+speaker = "dorian_kest"
+proposition = "claim_dorian_kest"
+protects = ""
+response = "Dorian Kest maintains the account until the physical reconstruction."
+canonical_truth = false
+
+[[mystery.claims]]
+id = "claim_sel_vale"
+speaker = "sel_vale"
+proposition = "claim_sel_vale"
+protects = ""
+response = "Sel Vale maintains the account until the physical reconstruction."
+canonical_truth = true
+
+[[mystery.claims]]
+id = "claim_pavel_orr"
+speaker = "pavel_orr"
+proposition = "claim_pavel_orr"
+protects = ""
+response = "Pavel Orr maintains the account until the physical reconstruction."
+canonical_truth = true
+
+[[mystery.contradictions]]
+id = "decisive_contradiction"
+claim = "claim_dorian_kest"
+fact = "clue_9"
+conclusion = ""
+explanation = "Dorian recorded Mara, killed her with a stand weight, then used playback, a scarf-clad mannequin, and angled reflections to preserve a false continuous sighting."
+
+[[mystery.deductions]]
+id = "deduction_1"
+proposition = "deduction_1"
+category = "what"
+supports = []
+unlock_questions = []
+unlock_topics = []
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "deduction_2"
+proposition = "deduction_2"
+category = "where_when"
+supports = []
+unlock_questions = []
+unlock_topics = []
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "deduction_3"
+proposition = "deduction_3"
+category = "concealment"
+supports = []
+unlock_questions = []
+unlock_topics = []
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "deduction_4"
+proposition = "deduction_4"
+category = "contradiction"
+supports = []
+unlock_questions = []
+unlock_topics = []
+unlock_investigations = []
+
+[[mystery.questions]]
+id = "question_1"
+prompt = "What does this physical comparison establish?"
+hypothesis = "The courtyard figure casts no shadow because it is a reflection."
+category = "what"
+requires_clues = ["clue_1", "clue_2"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_2"
+prompt = "What does this physical comparison establish?"
+hypothesis = "The repeated phrase is acoustically identical on each pass."
+category = "where_when"
+requires_clues = ["clue_3", "clue_4"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_3"
+prompt = "What does this physical comparison establish?"
+hypothesis = "Mannequin fibers and Mara's scarf remain in the glass passage."
+category = "concealment"
+requires_clues = ["clue_5", "clue_6"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_4"
+prompt = "What does this physical comparison establish?"
+hypothesis = "Sel's sabotaged strings explain her concealed visit."
+category = "contradiction"
+requires_clues = ["clue_7", "clue_8"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.demonstrations]]
+id = "demonstration_1"
+question = "question_1"
+mode = "comparison"
+resolution = "substantiated"
+result = "Dorian recorded Mara, killed her with a stand weight, then used playback, a scarf-clad mannequin, and angled reflections to preserve a false continuous sighting."
+prompt = "Combine the two observations and test the authored mechanism."
+slot_labels = ["Evidence A", "Evidence B"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_1", "clue_2"]
+route_firsts = []
+route_counts = []
+result_deductions = ["deduction_1"]
+
+[[mystery.demonstrations]]
+id = "demonstration_2"
+question = "question_2"
+mode = "physical"
+resolution = "substantiated"
+result = "Dorian recorded Mara, killed her with a stand weight, then used playback, a scarf-clad mannequin, and angled reflections to preserve a false continuous sighting."
+prompt = "Combine the two observations and test the authored mechanism."
+slot_labels = ["Evidence A", "Evidence B"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_3", "clue_4"]
+route_firsts = []
+route_counts = []
+result_deductions = ["deduction_2"]
+
+[[mystery.demonstrations]]
+id = "demonstration_3"
+question = "question_3"
+mode = "timeline"
+resolution = "substantiated"
+result = "Dorian recorded Mara, killed her with a stand weight, then used playback, a scarf-clad mannequin, and angled reflections to preserve a false continuous sighting."
+prompt = "Combine the two observations and test the authored mechanism."
+slot_labels = ["Evidence A", "Evidence B"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_5", "clue_6"]
+route_firsts = []
+route_counts = []
+result_deductions = ["deduction_3"]
+
+[[mystery.demonstrations]]
+id = "demonstration_4"
+question = "question_4"
+mode = "confrontation"
+resolution = "substantiated"
+result = "Dorian recorded Mara, killed her with a stand weight, then used playback, a scarf-clad mannequin, and angled reflections to preserve a false continuous sighting."
+prompt = "Combine the two observations and test the authored mechanism."
+slot_labels = ["Evidence A", "Evidence B"]
+slot_types = ["testimony", "testimony"]
+accepted = ["clue_7", "clue_8"]
+route_firsts = []
+route_counts = []
+result_deductions = ["deduction_4"]
+
+[[mystery.dialogue]]
+node = "opening_dorian_kest"
+character = "dorian_kest"
+prompt = "Tell me about Mara Quill. What did they want tonight?"
+response = "Dorian watches the empty stand. 'Mara meant to replace the gala program without permission. She wanted the audience to hear her, not the centre.'"
+clue = ""
+interaction = ""
+requires = ["claim_dorian_kest"]
+unlocks = ["account_ready_dorian_kest"]
+
+[[mystery.dialogue]]
+node = "account_dorian_kest"
+character = "dorian_kest"
+prompt = "Which way did Mara turn in the courtyard?"
+response = "Dorian conducts the memory with two fingers. 'Toward the west window when the bell sounded. She always sought the light.'"
+clue = ""
+interaction = ""
+requires = ["claim_dorian_kest", "account_ready_dorian_kest"]
+unlocks = ["followup_dorian_kest"]
+
+[[mystery.dialogue]]
+node = "approach_dorian_kest"
+character = "dorian_kest"
+prompt = "Then account for the shadowless sighting."
+response = "The reflected recital hall has no west window. His hand falls still before the phrase ends."
+clue = "clue_9"
+interaction = ""
+requires = ["clue_1", "claim_dorian_kest", "followup_dorian_kest"]
+unlocks = ["clue_9", "mechanism"]
+
+[[mystery.dialogue]]
+node = "opening_sel_vale"
+character = "sel_vale"
+prompt = "Tell me about Mara Quill. What did they want tonight?"
+response = "Sel names the abandoned piece. 'She played it to prove she no longer needed anyone here. I left during the same eight bars she had repeated all afternoon.'"
+clue = ""
+interaction = ""
+requires = ["claim_sel_vale"]
+unlocks = ["account_ready_sel_vale"]
+
+[[mystery.dialogue]]
+node = "account_sel_vale"
+character = "sel_vale"
+prompt = "Why were Mara's strings cut?"
+response = "Sel names each string before admitting the fourth. 'I nicked the E string. I wanted her embarrassed, not silent.'"
+clue = ""
+interaction = ""
+requires = ["claim_sel_vale", "account_ready_sel_vale"]
+unlocks = ["followup_sel_vale"]
+
+[[mystery.dialogue]]
+node = "approach_sel_vale"
+character = "sel_vale"
+prompt = "Then account for the repeated musical phrase."
+response = "'When I left, she was repeating the same eight bars. Later they returned without a breath between them.'"
+clue = "clue_7"
+interaction = ""
+requires = ["clue_3", "claim_sel_vale", "followup_sel_vale"]
+unlocks = ["clue_7", "mechanism"]
+
+[[mystery.dialogue]]
+node = "opening_pavel_orr"
+character = "pavel_orr"
+prompt = "Tell me about Mara Quill. What did they want tonight?"
+response = "Pavel checks the booking book. 'Mara asked who had reserved the hall after seven. I told her nobody, which was not quite the same as saying it was free.'"
+clue = ""
+interaction = ""
+requires = ["claim_pavel_orr"]
+unlocks = ["account_ready_pavel_orr"]
+
+[[mystery.dialogue]]
+node = "account_pavel_orr"
+character = "pavel_orr"
+prompt = "Why did you falsify the room booking?"
+response = "Pavel searches the schedule as though a free room might still save him. 'I rented the hall privately and kept the fee.'"
+clue = ""
+interaction = ""
+requires = ["claim_pavel_orr", "account_ready_pavel_orr"]
+unlocks = ["followup_pavel_orr"]
+
+[[mystery.dialogue]]
+node = "approach_pavel_orr"
+character = "pavel_orr"
+prompt = "Then account for the dressed mannequin."
+response = "'The recital room was empty by seven. If music came from it afterward, no player made it.'"
+clue = "clue_8"
+interaction = ""
+requires = ["clue_5", "claim_pavel_orr", "followup_pavel_orr"]
+unlocks = ["clue_8", "mechanism"]
+
+[[mystery.city_labels]]
+id = "the_violinist_without_a_shadow_venue"
+display_name = "QUILL ARTS CENTRE"
+level_spawn = "spawn_player"
+city_site = "civic_loop_venue"
+
+[mystery.solution]
+culprit = "dorian_kest"
+motive = "clue_9"
+decisive_contradiction = "decisive_contradiction"
+weapon_block = "weapon"
+murder_place_block = "murder_place"
+death_time_block = "death_time"
+body_movement_block = "body_movement"
+staging_block = "staging"
+cleaning_block = "cleaning"
+alibi_block = "alibi"
+requirements = ["weapon", "murder_place", "death_time", "body_movement", "staging", "cleaning", "alibi"]
+murder_events = ["crime_event"]
+cover_up_events = ["cover_event"]
+false_alibis = ["claim_dorian_kest"]
+exclusions = ["sel_vale", "pavel_orr"]

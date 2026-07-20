@@ -1,0 +1,246 @@
+version = "GraphMode v1"
+case_id = "murder_in_the_marigold_rooms"
+revision = 0
+
+[[scenes]]
+id = "scene_opening_clara"
+source = "clara"
+entry = "opening_clara_line"
+summary = "Clara squares Ambrose's empty place with the table. 'He wanted the accounts before dessert. I told him the foundation could not be governed between courses.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_clara_line"
+scene = "scene_opening_clara"
+kind = "line"
+speaker = "clara"
+text = "Clara squares Ambrose's empty place with the table. 'He wanted the accounts before dessert. I told him the foundation could not be governed between courses.'"
+next = "opening_clara_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_clara_end"
+scene = "scene_opening_clara"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_clara"
+source = "clara"
+entry = "account_clara_line"
+summary = "Clara closes the foundation ledger. 'Ambrose repeated himself. Anyone who worked beside him knew the speech.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_clara_line"
+scene = "scene_account_clara"
+kind = "line"
+speaker = "clara"
+text = "Clara closes the foundation ledger. 'Ambrose repeated himself. Anyone who worked beside him knew the speech.'"
+next = "account_clara_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_clara_end"
+scene = "scene_account_clara"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_clara"
+source = "clara"
+entry = "approach_clara_line"
+summary = "Clara names the disputed phrase word for word, then stills. 'That is what he always said.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_clara_line"
+scene = "scene_approach_clara"
+kind = "line"
+speaker = "clara"
+text = "Clara names the disputed phrase word for word, then stills. 'That is what he always said.'"
+next = "approach_clara_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_clara_end"
+scene = "scene_approach_clara"
+kind = "end"
+ui = "unchanged"
+position = [[680.0, 120.0]]
+
+[[scenes]]
+id = "scene_opening_basil"
+source = "basil"
+entry = "opening_basil_line"
+summary = "Basil turns his signet inward. 'Ambrose asked what I meant to do without the west property. He enjoyed questions that already contained the humiliation.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_basil_line"
+scene = "scene_opening_basil"
+kind = "line"
+speaker = "basil"
+text = "Basil turns his signet inward. 'Ambrose asked what I meant to do without the west property. He enjoyed questions that already contained the humiliation.'"
+next = "opening_basil_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_basil_end"
+scene = "scene_opening_basil"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_basil"
+source = "basil"
+entry = "account_basil_line"
+summary = "Basil turns his signet ring inward. 'The west property was mine to sell. Ambrose preferred to call that theft.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_basil_line"
+scene = "scene_account_basil"
+kind = "line"
+speaker = "basil"
+text = "Basil turns his signet ring inward. 'The west property was mine to sell. Ambrose preferred to call that theft.'"
+next = "account_basil_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_basil_end"
+scene = "scene_account_basil"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_basil"
+source = "basil"
+entry = "approach_basil_line"
+summary = "'I left the conservatory while he was alive. Check the soil on my shoes if you doubt the route.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_basil_line"
+scene = "scene_approach_basil"
+kind = "line"
+speaker = "basil"
+text = "'I left the conservatory while he was alive. Check the soil on my shoes if you doubt the route.'"
+next = "approach_basil_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_basil_end"
+scene = "scene_approach_basil"
+kind = "end"
+ui = "unchanged"
+position = [[680.0, 120.0]]
+
+[[scenes]]
+id = "scene_opening_sonia"
+source = "sonia"
+entry = "opening_sonia_line"
+summary = "Sonia consults the bell sheet. 'He arrived at six thirty-eight, asked for three files, and rang twice for the dinner list. That was Ambrose in an impatient mood.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_sonia_line"
+scene = "scene_opening_sonia"
+kind = "line"
+speaker = "sonia"
+text = "Sonia consults the bell sheet. 'He arrived at six thirty-eight, asked for three files, and rang twice for the dinner list. That was Ambrose in an impatient mood.'"
+next = "opening_sonia_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_sonia_end"
+scene = "scene_opening_sonia"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_sonia"
+source = "sonia"
+entry = "account_sonia_line"
+summary = "Sonia aligns the folder tabs by date. 'Because one signature is mine and the authorization is not.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_sonia_line"
+scene = "scene_account_sonia"
+kind = "line"
+speaker = "sonia"
+text = "Sonia aligns the folder tabs by date. 'Because one signature is mine and the authorization is not.'"
+next = "account_sonia_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_sonia_end"
+scene = "scene_account_sonia"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_sonia"
+source = "sonia"
+entry = "approach_sonia_line"
+summary = "'I went to the cloakroom for the file, not the library. The service bell rang while I was there.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_sonia_line"
+scene = "scene_approach_sonia"
+kind = "line"
+speaker = "sonia"
+text = "'I went to the cloakroom for the file, not the library. The service bell rang while I was there.'"
+next = "approach_sonia_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_sonia_end"
+scene = "scene_approach_sonia"
+kind = "end"
+ui = "unchanged"
+position = [[680.0, 120.0]]

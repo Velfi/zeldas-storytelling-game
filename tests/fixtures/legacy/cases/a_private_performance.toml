@@ -1,0 +1,616 @@
+version = "MurderScript v1"
+id = "a_private_performance"
+title = "A Private Performance"
+introduction = "Simon Rusk is found after Helena March's public rehearsal. A recorded interruption supplied his false alibi."
+action_point_limit = 14
+reveal_location = "concert_hall"
+city_destination = "march_concert_hall"
+seed = 20299528
+
+[[city_locations]]
+id = "march_concert_hall"
+display_name = "A PRIVATE PERFORMANCE"
+level_spawn = "spawn_player"
+city_site = "civic_loop_venue"
+
+[[characters]]
+id = "simon"
+display_name = "Simon Rusk"
+role = "victim"
+description = "Simon Rusk planned to end Helena's residency after the public rehearsal. He interrupted performances only from the aisle and always waited for a phrase to finish before speaking."
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = []
+
+[[characters]]
+id = "helena"
+display_name = "Helena March"
+role = "suspect"
+description = "Conductor who controls accounts through cues and bar numbers until an out-of-sequence memory escapes."
+private_secret = "murder and staging"
+motive = "Exposure would destroy a celebrated career."
+initial_disposition = -1
+initial_claims = ["claim_culprit_account"]
+
+[[characters]]
+id = "oren"
+display_name = "Oren Bell"
+role = "suspect"
+description = "Orchestra manager who treats silence and timing as negotiated obligations."
+private_secret = "a separate professional offense"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_oren_secret"]
+
+[[characters]]
+id = "mina"
+display_name = "Mina Shah"
+role = "suspect"
+description = "Recording engineer who sees lies as discontinuities in room tone and waveform."
+private_secret = "a separate professional offense"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_mina_secret"]
+
+[[locations]]
+id = "concert_hall"
+display_name = "CONCERT HALL"
+description = "Concert Hall preserves physical evidence in the staged chronology."
+connections = ["rehearsal_studio"]
+characters = []
+pois = []
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "rehearsal_studio"
+display_name = "REHEARSAL STUDIO"
+description = "Rehearsal Studio preserves physical evidence in the staged chronology."
+connections = ["concert_hall", "control_room"]
+characters = ["helena"]
+pois = ["mute"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "control_room"
+display_name = "CONTROL ROOM"
+description = "Control Room preserves physical evidence in the staged chronology."
+connections = ["rehearsal_studio", "conductors_office"]
+characters = ["oren"]
+pois = ["waveform", "recorder"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "conductors_office"
+display_name = "CONDUCTOR'S OFFICE"
+description = "Conductor's Office preserves physical evidence in the staged chronology."
+connections = ["control_room", "instrument_store"]
+characters = ["mina"]
+pois = ["metronome", "marked_score"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "instrument_store"
+display_name = "INSTRUMENT STORE"
+description = "Instrument Store preserves physical evidence in the staged chronology."
+connections = ["conductors_office"]
+characters = []
+pois = ["rosin", "bass_case"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[pois]]
+id = "metronome"
+display_name = "Heavy Mechanical Metronome"
+kind = "object"
+location = "conductors_office"
+owner = ""
+description = "Heavy Mechanical Metronome is preserved as an inspectable part of the crime scene."
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[pois]]
+id = "rosin"
+display_name = "Rosin Trace"
+kind = "object"
+location = "instrument_store"
+owner = ""
+description = "Rosin Trace is preserved as an inspectable part of the crime scene."
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[pois]]
+id = "bass_case"
+display_name = "Wheeled Double-bass Case"
+kind = "object"
+location = "instrument_store"
+owner = ""
+description = "Wheeled Double-bass Case is preserved as an inspectable part of the crime scene."
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[pois]]
+id = "waveform"
+display_name = "Edited Waveform Display"
+kind = "object"
+location = "control_room"
+owner = ""
+description = "Edited Waveform Display is preserved as an inspectable part of the crime scene."
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[pois]]
+id = "marked_score"
+display_name = "Marked Conducting Score"
+kind = "object"
+location = "conductors_office"
+owner = ""
+description = "Marked Conducting Score is preserved as an inspectable part of the crime scene."
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[pois]]
+id = "mute"
+display_name = "Dropped Orchestral Mute"
+kind = "object"
+location = "rehearsal_studio"
+owner = ""
+description = "Dropped Orchestral Mute is preserved as an inspectable part of the crime scene."
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[pois]]
+id = "recorder"
+display_name = "Playback Recorder"
+kind = "object"
+location = "control_room"
+owner = ""
+description = "Playback Recorder is preserved as an inspectable part of the crime scene."
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[events]]
+id = "crime"
+time = "20:10"
+actor = "helena"
+action = "kill"
+target = "simon"
+source = "concert_hall"
+destination = "concert_hall"
+tool = "metronome"
+effects = ["victim_dead"]
+witnesses = []
+
+[[events]]
+id = "staging"
+time = "20:25"
+actor = "helena"
+action = "alter"
+target = "simon"
+source = "concert_hall"
+destination = "instrument_store"
+tool = ""
+effects = ["false_scene"]
+witnesses = []
+
+[[claims]]
+id = "claim_culprit_account"
+speaker = "helena"
+proposition = "Helena says Simon interrupted the public rehearsal live."
+true = false
+protects = "murder"
+response = "Helena says Simon interrupted the public rehearsal live."
+
+[[claims]]
+id = "claim_oren_secret"
+speaker = "oren"
+proposition = "Oren Bell conceals unrelated misconduct."
+true = false
+protects = "oren_secret"
+response = "I hid something, but it was not murder."
+
+[[claims]]
+id = "claim_mina_secret"
+speaker = "mina"
+proposition = "Mina Shah conceals unrelated misconduct."
+true = false
+protects = "mina_secret"
+response = "I hid something, but it was not murder."
+
+[[clues]]
+id = "clue_1"
+source = "metronome"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Simon's wound matches the office metronome."
+proposition = "Simon's wound matches the office metronome."
+blocks = ["weapon"]
+topics = ["case_evidence", "weapon"]
+essential = true
+
+[[clues]]
+id = "clue_2"
+source = "rosin"
+discovery_action = "examine"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Rosin on his coat comes from the instrument-store floor."
+proposition = "Rosin on his coat comes from the instrument-store floor."
+blocks = ["murder_place"]
+topics = ["case_evidence", "murder_place"]
+essential = true
+
+[[clues]]
+id = "clue_3"
+source = "bass_case"
+discovery_action = "examine"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "A wheel track shows the bass case moved him."
+proposition = "A wheel track shows the bass case moved him."
+blocks = ["death_time"]
+topics = ["case_evidence", "death_time"]
+essential = true
+
+[[clues]]
+id = "clue_4"
+source = "waveform"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "The interruption lacks the hall's live ventilation hum."
+proposition = "The interruption lacks the hall's live ventilation hum."
+blocks = ["body_movement"]
+topics = ["case_evidence", "body_movement"]
+essential = true
+
+[[clues]]
+id = "clue_5"
+source = "marked_score"
+discovery_action = "examine"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "The waveform contains an edit Mina can explain but did not make."
+proposition = "The waveform contains an edit Mina can explain but did not make."
+blocks = ["staging"]
+topics = ["case_evidence", "staging"]
+essential = true
+
+[[clues]]
+id = "clue_6"
+source = "mute"
+discovery_action = "examine"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Helena's marked score contains the false interruption cue."
+proposition = "Helena's marked score contains the false interruption cue."
+blocks = ["cleaning"]
+topics = ["case_evidence", "cleaning"]
+essential = true
+
+[[clues]]
+id = "clue_7"
+source = "oren"
+discovery_action = "dialogue"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Oren's contract meeting explains his secret absence."
+proposition = "Oren's contract meeting explains his secret absence."
+blocks = ["alibi"]
+topics = ["case_evidence", "alibi"]
+essential = true
+
+[[clues]]
+id = "clue_8"
+source = "mina"
+discovery_action = "dialogue"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Mina's piracy explains her deleted log."
+proposition = "Mina's piracy explains her deleted log."
+blocks = ["culprit_knowledge"]
+topics = ["case_evidence", "culprit_knowledge"]
+essential = true
+
+[[clues]]
+id = "clue_9"
+source = "helena"
+discovery_action = "dialogue"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Helena recalls a dropped mute from after the source recording."
+proposition = "Helena recalls a dropped mute from after the source recording."
+blocks = ["motive", "claim_culprit_account"]
+topics = ["case_evidence", "motive"]
+essential = true
+
+[[dialogue_approaches]]
+id = "opening_helena"
+character = "helena"
+prompt = "Tell me about Simon Rusk. What did they want tonight?"
+response = "Helena marks an absent downbeat. 'Simon intended to end my residency after rehearsal. He promised to let the orchestra finish before he said it publicly.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_culprit_account"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_helena"]
+
+[[dialogue_approaches]]
+id = "account_helena"
+character = "helena"
+prompt = "How did Simon interrupt a rehearsal recorded earlier?"
+response = "Helena supplies the cue before the question ends. 'Bar sixty-two. Simon objected, and I stopped the orchestra.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_culprit_account"]
+requires_topics = ["account_ready_helena"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_helena"]
+
+[[dialogue_approaches]]
+id = "approach_helena"
+character = "helena"
+prompt = "Then account for the heavy mechanical metronome."
+response = "'Then Oren dropped his mute—' She corrects herself too late; the mute fell after the source recording."
+clue = "clue_9"
+requires_clues = ["clue_1"]
+requires_claims = ["claim_culprit_account"]
+requires_topics = ["followup_helena"]
+unlock_clues = ["clue_9"]
+unlock_claims = []
+unlock_topics = ["case_evidence"]
+
+[[dialogue_approaches]]
+id = "opening_oren"
+character = "oren"
+prompt = "Tell me about Simon Rusk. What did they want tonight?"
+response = "Oren raises one finger for a rest. 'Simon asked for the revised contracts in private. He expected an argument, so he scheduled it between movements.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_oren_secret"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_oren"]
+
+[[dialogue_approaches]]
+id = "account_oren"
+character = "oren"
+prompt = "Where were you during the interruption?"
+response = "Oren marks the rest with one raised finger. 'Not on stage. I was renegotiating Simon's contract in the instrument store.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_oren_secret"]
+requires_topics = ["account_ready_oren"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_oren"]
+
+[[dialogue_approaches]]
+id = "approach_oren"
+character = "oren"
+prompt = "Then account for the wheeled double-bass case."
+response = "'I hid the meeting because it was disloyal. The playback kept perfect time while we argued.'"
+clue = "clue_7"
+requires_clues = ["clue_3"]
+requires_claims = ["claim_oren_secret"]
+requires_topics = ["followup_oren"]
+unlock_clues = ["clue_7"]
+unlock_claims = []
+unlock_topics = ["case_evidence"]
+
+[[dialogue_approaches]]
+id = "opening_mina"
+character = "mina"
+prompt = "Tell me about Simon Rusk. What did they want tonight?"
+response = "Mina studies the room tone. 'Simon asked me to preserve a clean recording. He thought somebody would later dispute what was said in the hall.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_mina_secret"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_mina"]
+
+[[dialogue_approaches]]
+id = "account_mina"
+character = "mina"
+prompt = "What was edited in the control-room recording?"
+response = "Mina enlarges the waveform until the room tone becomes visible. 'A clean voice pasted over dirty hall air. Amateur join, excellent source.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_mina_secret"]
+requires_topics = ["account_ready_mina"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_mina"]
+
+[[dialogue_approaches]]
+id = "approach_mina"
+character = "mina"
+prompt = "Then account for the marked conducting score."
+response = "'I deleted my piracy log. I did not place the false interruption cue in Helena's score.'"
+clue = "clue_8"
+requires_clues = ["clue_5"]
+requires_claims = ["claim_mina_secret"]
+requires_topics = ["followup_mina"]
+unlock_clues = ["clue_8"]
+unlock_claims = []
+unlock_topics = ["case_evidence"]
+
+[[contradictions]]
+id = "decisive_contradiction"
+claim = "claim_culprit_account"
+fact = "clue_9"
+conclusion = "Helena recalls a dropped mute that occurred only after the source recording."
+explanation = "The culprit commits to knowledge available only to the person who staged the scene."
+
+[[deductions]]
+id = "ded_1"
+proposition = "Simon's voice was recorded, not live."
+category = "where_when"
+unlock_questions = []
+unlock_topics = ["finding_1"]
+unlock_investigations = []
+
+[[questions]]
+id = "question_1"
+prompt = "Where did the murder occur?"
+hypothesis = "Simon's voice was recorded, not live."
+category = "where_when"
+requires_clues = ["clue_1", "clue_2"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_1"
+question = "question_1"
+mode = "physical"
+resolution = "substantiated"
+prompt = "Place the two established pieces together."
+result = "Simon's voice was recorded, not live."
+slot_labels = ["FIRST FACT", "SECOND FACT"]
+slot_types = ["observation", "observation"]
+accepted_pieces = ["clue_1", "clue_2"]
+result_deductions = ["ded_1"]
+
+[[deductions]]
+id = "ded_2"
+proposition = "The bass case carried Simon through the instrument store."
+category = "what"
+unlock_questions = []
+unlock_topics = ["finding_2"]
+unlock_investigations = []
+
+[[questions]]
+id = "question_2"
+prompt = "How was the false scene constructed?"
+hypothesis = "The bass case carried Simon through the instrument store."
+category = "what"
+requires_clues = ["clue_3", "clue_4"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_2"
+question = "question_2"
+mode = "comparison"
+resolution = "substantiated"
+prompt = "Place the two established pieces together."
+result = "The bass case carried Simon through the instrument store."
+slot_labels = ["FIRST FACT", "SECOND FACT"]
+slot_types = ["observation", "observation"]
+accepted_pieces = ["clue_3", "clue_4"]
+result_deductions = ["ded_2"]
+
+[[deductions]]
+id = "ded_3"
+proposition = "The interruption was inserted after the source rehearsal."
+category = "concealment"
+unlock_questions = []
+unlock_topics = ["finding_3"]
+unlock_investigations = []
+
+[[questions]]
+id = "question_3"
+prompt = "What created the false chronology?"
+hypothesis = "The interruption was inserted after the source rehearsal."
+category = "concealment"
+requires_clues = ["clue_5", "clue_6"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_3"
+question = "question_3"
+mode = "timeline"
+resolution = "substantiated"
+prompt = "Place the two established pieces together."
+result = "The interruption was inserted after the source rehearsal."
+slot_labels = ["FIRST FACT", "SECOND FACT"]
+slot_types = ["observation", "observation"]
+accepted_pieces = ["clue_5", "clue_6"]
+result_deductions = ["ded_3"]
+
+[[deductions]]
+id = "ded_4"
+proposition = "Helena's sequence correction proves unique knowledge."
+category = "contradiction"
+unlock_questions = []
+unlock_topics = ["finding_4"]
+unlock_investigations = []
+
+[[questions]]
+id = "question_4"
+prompt = "What unique knowledge proves the culprit staged it?"
+hypothesis = "Helena's sequence correction proves unique knowledge."
+category = "contradiction"
+requires_clues = ["clue_8", "clue_9"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_4"
+question = "question_4"
+mode = "confrontation"
+resolution = "substantiated"
+prompt = "Place the two established pieces together."
+result = "Helena's sequence correction proves unique knowledge."
+slot_labels = ["FIRST FACT", "SECOND FACT"]
+slot_types = ["testimony", "testimony"]
+accepted_pieces = ["clue_8", "clue_9"]
+result_deductions = ["ded_4"]
+
+[solution]
+culprit = "helena"
+motive = "clue_9"
+decisive_contradiction = "decisive_contradiction"
+weapon_block = "weapon"
+murder_place_block = "murder_place"
+death_time_block = "death_time"
+body_movement_block = "body_movement"
+staging_block = "staging"
+cleaning_block = "cleaning"
+alibi_block = "alibi"
+murder_events = ["crime"]
+cover_up_events = ["staging"]
+false_alibi = ["claim_culprit_account"]
+exclusions = ["oren", "mina"]

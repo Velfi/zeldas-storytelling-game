@@ -1,0 +1,616 @@
+version = "MurderScript v1"
+id = "the_final_cut"
+title = "The Final Cut"
+introduction = "Leon Pike is dead in a private screening room. Vera Sloane's altered workprint is the clock."
+action_point_limit = 14
+reveal_location = "screening_room"
+city_destination = "sloane_picture_house"
+seed = 20310405
+
+[[city_locations]]
+id = "sloane_picture_house"
+display_name = "THE FINAL CUT"
+level_spawn = "spawn_player"
+city_site = "old_market_venue"
+
+[[characters]]
+id = "leon"
+display_name = "Leon Pike"
+role = "victim"
+description = "Leon Pike came to the screening determined to restore a sequence the studio wanted removed. He argued in images, then waited through the entire reel before asking anyone for an answer."
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = []
+
+[[characters]]
+id = "vera"
+display_name = "Vera Sloane"
+role = "suspect"
+description = "Editor who reconstructs memory as shots and cuts, adding visual precision where sound evidence fails."
+private_secret = "murder and staging"
+motive = "Exposure would destroy a celebrated career."
+initial_disposition = -1
+initial_claims = ["claim_culprit_account"]
+
+[[characters]]
+id = "iris"
+display_name = "Iris Chen"
+role = "suspect"
+description = "Film archivist who identifies evidence through edge codes, frame ranges, and custody."
+private_secret = "a separate professional offense"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_iris_secret"]
+
+[[characters]]
+id = "mal"
+display_name = "Mal Reed"
+role = "suspect"
+description = "Projectionist whose concealed screenings make him evasive about logs but exact about acoustics."
+private_secret = "a separate professional offense"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_mal_secret"]
+
+[[locations]]
+id = "screening_room"
+display_name = "SCREENING ROOM"
+description = "Screening Room preserves physical evidence in the staged chronology."
+connections = ["projection_booth"]
+characters = []
+pois = ["projector", "seat_blood"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "projection_booth"
+display_name = "PROJECTION BOOTH"
+description = "Projection Booth preserves physical evidence in the staged chronology."
+connections = ["screening_room", "editing_suite"]
+characters = ["vera"]
+pois = ["workprint", "booth_door"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "editing_suite"
+display_name = "EDITING SUITE"
+description = "Editing Suite preserves physical evidence in the staged chronology."
+connections = ["projection_booth", "film_vault"]
+characters = ["iris"]
+pois = ["film_dust"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "film_vault"
+display_name = "FILM VAULT"
+description = "Film Vault preserves physical evidence in the staged chronology."
+connections = ["editing_suite", "studio_corridor"]
+characters = ["mal"]
+pois = ["vault_log", "removed_frames"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "studio_corridor"
+display_name = "STUDIO CORRIDOR"
+description = "Studio Corridor preserves physical evidence in the staged chronology."
+connections = ["film_vault"]
+characters = []
+pois = []
+search_actions = ["observe", "examine", "dialogue"]
+
+[[pois]]
+id = "projector"
+display_name = "Film Projector"
+kind = "object"
+location = "screening_room"
+owner = ""
+description = "Film Projector is preserved as an inspectable part of the crime scene."
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[pois]]
+id = "seat_blood"
+display_name = "Blood Beneath Moved Seat"
+kind = "object"
+location = "screening_room"
+owner = ""
+description = "Blood Beneath Moved Seat is preserved as an inspectable part of the crime scene."
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[pois]]
+id = "workprint"
+display_name = "Freshly Spliced Workprint"
+kind = "object"
+location = "projection_booth"
+owner = ""
+description = "Freshly Spliced Workprint is preserved as an inspectable part of the crime scene."
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[pois]]
+id = "film_dust"
+display_name = "Film Dust in Editing Bin"
+kind = "object"
+location = "editing_suite"
+owner = ""
+description = "Film Dust in Editing Bin is preserved as an inspectable part of the crime scene."
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[pois]]
+id = "vault_log"
+display_name = "Vault Checkout Log"
+kind = "object"
+location = "film_vault"
+owner = ""
+description = "Vault Checkout Log is preserved as an inspectable part of the crime scene."
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[pois]]
+id = "removed_frames"
+display_name = "Mislabeled Reel of Removed Frames"
+kind = "object"
+location = "film_vault"
+owner = ""
+description = "Mislabeled Reel of Removed Frames is preserved as an inspectable part of the crime scene."
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[pois]]
+id = "booth_door"
+display_name = "Sound-insulating Booth Door"
+kind = "object"
+location = "projection_booth"
+owner = ""
+description = "Sound-insulating Booth Door is preserved as an inspectable part of the crime scene."
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[events]]
+id = "crime"
+time = "20:10"
+actor = "vera"
+action = "kill"
+target = "leon"
+source = "screening_room"
+destination = "screening_room"
+tool = "workprint"
+effects = ["victim_dead"]
+witnesses = []
+
+[[events]]
+id = "staging"
+time = "20:25"
+actor = "vera"
+action = "alter"
+target = "leon"
+source = "screening_room"
+destination = "studio_corridor"
+tool = ""
+effects = ["false_scene"]
+witnesses = []
+
+[[claims]]
+id = "claim_culprit_account"
+speaker = "vera"
+proposition = "Vera heard Leon answer while the projector ran."
+true = false
+protects = "murder"
+response = "Vera heard Leon answer while the projector ran."
+
+[[claims]]
+id = "claim_iris_secret"
+speaker = "iris"
+proposition = "Iris Chen conceals unrelated misconduct."
+true = false
+protects = "iris_secret"
+response = "I hid something, but it was not murder."
+
+[[claims]]
+id = "claim_mal_secret"
+speaker = "mal"
+proposition = "Mal Reed conceals unrelated misconduct."
+true = false
+protects = "mal_secret"
+response = "I hid something, but it was not murder."
+
+[[clues]]
+id = "clue_1"
+source = "projector"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Projector noise makes the claimed conversation unintelligible."
+proposition = "Projector noise makes the claimed conversation unintelligible."
+blocks = ["weapon"]
+topics = ["case_evidence", "weapon"]
+essential = true
+
+[[clues]]
+id = "clue_2"
+source = "seat_blood"
+discovery_action = "examine"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Leon's blood lies beneath a seat moved before the alleged death time."
+proposition = "Leon's blood lies beneath a seat moved before the alleged death time."
+blocks = ["murder_place"]
+topics = ["case_evidence", "murder_place"]
+essential = true
+
+[[clues]]
+id = "clue_3"
+source = "workprint"
+discovery_action = "examine"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "The workprint has a fresh splice and missing frames."
+proposition = "The workprint has a fresh splice and missing frames."
+blocks = ["death_time"]
+topics = ["case_evidence", "death_time"]
+essential = true
+
+[[clues]]
+id = "clue_4"
+source = "film_dust"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Film dust from the missing section remains in Vera's editing bin."
+proposition = "Film dust from the missing section remains in Vera's editing bin."
+blocks = ["body_movement"]
+topics = ["case_evidence", "body_movement"]
+essential = true
+
+[[clues]]
+id = "clue_5"
+source = "vault_log"
+discovery_action = "examine"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "The vault checkout contradicts Vera's account."
+proposition = "The vault checkout contradicts Vera's account."
+blocks = ["staging"]
+topics = ["case_evidence", "staging"]
+essential = true
+
+[[clues]]
+id = "clue_6"
+source = "removed_frames"
+discovery_action = "examine"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Iris copied footage but lacked the murder opportunity."
+proposition = "Iris copied footage but lacked the murder opportunity."
+blocks = ["cleaning"]
+topics = ["case_evidence", "cleaning"]
+essential = true
+
+[[clues]]
+id = "clue_7"
+source = "iris"
+discovery_action = "dialogue"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Mal's illicit club explains his false booth log."
+proposition = "Mal's illicit club explains his false booth log."
+blocks = ["alibi"]
+topics = ["case_evidence", "alibi"]
+essential = true
+
+[[clues]]
+id = "clue_8"
+source = "mal"
+discovery_action = "dialogue"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Vera describes an image absent from her claimed version."
+proposition = "Vera describes an image absent from her claimed version."
+blocks = ["culprit_knowledge"]
+topics = ["case_evidence", "culprit_knowledge"]
+essential = true
+
+[[clues]]
+id = "clue_9"
+source = "vera"
+discovery_action = "dialogue"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "The removed frames are inside a reel Vera alone handled."
+proposition = "The removed frames are inside a reel Vera alone handled."
+blocks = ["motive", "claim_culprit_account"]
+topics = ["case_evidence", "motive"]
+essential = true
+
+[[dialogue_approaches]]
+id = "opening_vera"
+character = "vera"
+prompt = "Tell me about Leon Pike. What did they want tonight?"
+response = "Vera looks toward the dead projector beam. 'Leon wanted the orchard restored to the final cut. He said we would watch the whole reel before either of us defended ourselves.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_culprit_account"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_vera"]
+
+[[dialogue_approaches]]
+id = "account_vera"
+character = "vera"
+prompt = "You could not hear Leon over the projector. What did you actually hear?"
+response = "Vera frames the answer like a cut. 'His door opened. His silhouette crossed the beam. Then he answered.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_culprit_account"]
+requires_topics = ["account_ready_vera"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_vera"]
+
+[[dialogue_approaches]]
+id = "approach_vera"
+character = "vera"
+prompt = "Then account for the film projector."
+response = "'The orchard burned white behind him.' Vera looks toward the reel can, then away."
+clue = "clue_9"
+requires_clues = ["clue_1"]
+requires_claims = ["claim_culprit_account"]
+requires_topics = ["followup_vera"]
+unlock_clues = ["clue_9"]
+unlock_claims = []
+unlock_topics = ["case_evidence"]
+
+[[dialogue_approaches]]
+id = "opening_iris"
+character = "iris"
+prompt = "Tell me about Leon Pike. What did they want tonight?"
+response = "Iris names the reel by edge code. 'Leon asked me to verify which version entered the vault. He was worried about an alteration, not a screening.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_iris_secret"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_iris"]
+
+[[dialogue_approaches]]
+id = "account_iris"
+character = "iris"
+prompt = "Which footage did you copy?"
+response = "Iris names edge codes instead of titles. 'Reel three, frames twelve hundred through eighteen hundred. Insurance reference, nothing more.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_iris_secret"]
+requires_topics = ["account_ready_iris"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_iris"]
+
+[[dialogue_approaches]]
+id = "approach_iris"
+character = "iris"
+prompt = "Then account for the freshly spliced workprint."
+response = "'Vera's missing orchard shot was outside my copy. My dust is absent from her fresh splice.'"
+clue = "clue_7"
+requires_clues = ["clue_3"]
+requires_claims = ["claim_iris_secret"]
+requires_topics = ["followup_iris"]
+unlock_clues = ["clue_7"]
+unlock_claims = []
+unlock_topics = ["case_evidence"]
+
+[[dialogue_approaches]]
+id = "opening_mal"
+character = "mal"
+prompt = "Tell me about Leon Pike. What did they want tonight?"
+response = "Mal keeps his voice low. 'Leon stayed after the private audience left. He asked me to run the projector at full speed and keep the booth shut.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_mal_secret"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_mal"]
+
+[[dialogue_approaches]]
+id = "account_mal"
+character = "mal"
+prompt = "Why is the booth log false?"
+response = "Mal lowers his voice although the booth door is shut. 'I ran a private screening after hours and wrote Leon's name over mine.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_mal_secret"]
+requires_topics = ["account_ready_mal"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_mal"]
+
+[[dialogue_approaches]]
+id = "approach_mal"
+character = "mal"
+prompt = "Then account for the vault checkout log."
+response = "'The door kills conversation at full projector speed. Whatever Vera heard, it was not an answer from inside.'"
+clue = "clue_8"
+requires_clues = ["clue_5"]
+requires_claims = ["claim_mal_secret"]
+requires_topics = ["followup_mal"]
+unlock_clues = ["clue_8"]
+unlock_claims = []
+unlock_topics = ["case_evidence"]
+
+[[contradictions]]
+id = "decisive_contradiction"
+claim = "claim_culprit_account"
+fact = "clue_9"
+conclusion = "Vera describes an image absent from the version she claims to know."
+explanation = "The culprit commits to knowledge available only to the person who staged the scene."
+
+[[deductions]]
+id = "ded_1"
+proposition = "The projector made the alleged conversation impossible."
+category = "where_when"
+unlock_questions = []
+unlock_topics = ["finding_1"]
+unlock_investigations = []
+
+[[questions]]
+id = "question_1"
+prompt = "Where did the murder occur?"
+hypothesis = "The projector made the alleged conversation impossible."
+category = "where_when"
+requires_clues = ["clue_1", "clue_2"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_1"
+question = "question_1"
+mode = "physical"
+resolution = "substantiated"
+prompt = "Place the two established pieces together."
+result = "The projector made the alleged conversation impossible."
+slot_labels = ["FIRST FACT", "SECOND FACT"]
+slot_types = ["observation", "observation"]
+accepted_pieces = ["clue_1", "clue_2"]
+result_deductions = ["ded_1"]
+
+[[deductions]]
+id = "ded_2"
+proposition = "The altered film created a false time of death."
+category = "what"
+unlock_questions = []
+unlock_topics = ["finding_2"]
+unlock_investigations = []
+
+[[questions]]
+id = "question_2"
+prompt = "How was the false scene constructed?"
+hypothesis = "The altered film created a false time of death."
+category = "what"
+requires_clues = ["clue_3", "clue_4"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_2"
+question = "question_2"
+mode = "comparison"
+resolution = "substantiated"
+prompt = "Place the two established pieces together."
+result = "The altered film created a false time of death."
+slot_labels = ["FIRST FACT", "SECOND FACT"]
+slot_types = ["observation", "observation"]
+accepted_pieces = ["clue_3", "clue_4"]
+result_deductions = ["ded_2"]
+
+[[deductions]]
+id = "ded_3"
+proposition = "Vera edited the workprint after killing Leon."
+category = "concealment"
+unlock_questions = []
+unlock_topics = ["finding_3"]
+unlock_investigations = []
+
+[[questions]]
+id = "question_3"
+prompt = "What created the false chronology?"
+hypothesis = "Vera edited the workprint after killing Leon."
+category = "concealment"
+requires_clues = ["clue_5", "clue_6"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_3"
+question = "question_3"
+mode = "timeline"
+resolution = "substantiated"
+prompt = "Place the two established pieces together."
+result = "Vera edited the workprint after killing Leon."
+slot_labels = ["FIRST FACT", "SECOND FACT"]
+slot_types = ["observation", "observation"]
+accepted_pieces = ["clue_5", "clue_6"]
+result_deductions = ["ded_3"]
+
+[[deductions]]
+id = "ded_4"
+proposition = "Vera's knowledge of the absent image proves the staging."
+category = "contradiction"
+unlock_questions = []
+unlock_topics = ["finding_4"]
+unlock_investigations = []
+
+[[questions]]
+id = "question_4"
+prompt = "What unique knowledge proves the culprit staged it?"
+hypothesis = "Vera's knowledge of the absent image proves the staging."
+category = "contradiction"
+requires_clues = ["clue_8", "clue_9"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_4"
+question = "question_4"
+mode = "confrontation"
+resolution = "substantiated"
+prompt = "Place the two established pieces together."
+result = "Vera's knowledge of the absent image proves the staging."
+slot_labels = ["FIRST FACT", "SECOND FACT"]
+slot_types = ["testimony", "testimony"]
+accepted_pieces = ["clue_8", "clue_9"]
+result_deductions = ["ded_4"]
+
+[solution]
+culprit = "vera"
+motive = "clue_9"
+decisive_contradiction = "decisive_contradiction"
+weapon_block = "weapon"
+murder_place_block = "murder_place"
+death_time_block = "death_time"
+body_movement_block = "body_movement"
+staging_block = "staging"
+cleaning_block = "cleaning"
+alibi_block = "alibi"
+murder_events = ["crime"]
+cover_up_events = ["staging"]
+false_alibi = ["claim_culprit_account"]
+exclusions = ["iris", "mal"]

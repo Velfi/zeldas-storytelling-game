@@ -1,0 +1,246 @@
+version = "GraphMode v1"
+case_id = "the_final_cut"
+revision = 0
+
+[[scenes]]
+id = "scene_opening_vera"
+source = "vera"
+entry = "opening_vera_line"
+summary = "Vera looks toward the dead projector beam. 'Leon wanted the orchard restored to the final cut. He said we would watch the whole reel before either of us defended ourselves.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_vera_line"
+scene = "scene_opening_vera"
+kind = "line"
+speaker = "vera"
+text = "Vera looks toward the dead projector beam. 'Leon wanted the orchard restored to the final cut. He said we would watch the whole reel before either of us defended ourselves.'"
+next = "opening_vera_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_vera_end"
+scene = "scene_opening_vera"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_vera"
+source = "vera"
+entry = "account_vera_line"
+summary = "Vera frames the answer like a cut. 'His door opened. His silhouette crossed the beam. Then he answered.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_vera_line"
+scene = "scene_account_vera"
+kind = "line"
+speaker = "vera"
+text = "Vera frames the answer like a cut. 'His door opened. His silhouette crossed the beam. Then he answered.'"
+next = "account_vera_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_vera_end"
+scene = "scene_account_vera"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_vera"
+source = "vera"
+entry = "approach_vera_line"
+summary = "'The orchard burned white behind him.' Vera looks toward the reel can, then away."
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_vera_line"
+scene = "scene_approach_vera"
+kind = "line"
+speaker = "vera"
+text = "'The orchard burned white behind him.' Vera looks toward the reel can, then away."
+next = "approach_vera_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_vera_end"
+scene = "scene_approach_vera"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_opening_iris"
+source = "iris"
+entry = "opening_iris_line"
+summary = "Iris names the reel by edge code. 'Leon asked me to verify which version entered the vault. He was worried about an alteration, not a screening.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_iris_line"
+scene = "scene_opening_iris"
+kind = "line"
+speaker = "iris"
+text = "Iris names the reel by edge code. 'Leon asked me to verify which version entered the vault. He was worried about an alteration, not a screening.'"
+next = "opening_iris_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_iris_end"
+scene = "scene_opening_iris"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_iris"
+source = "iris"
+entry = "account_iris_line"
+summary = "Iris names edge codes instead of titles. 'Reel three, frames twelve hundred through eighteen hundred. Insurance reference, nothing more.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_iris_line"
+scene = "scene_account_iris"
+kind = "line"
+speaker = "iris"
+text = "Iris names edge codes instead of titles. 'Reel three, frames twelve hundred through eighteen hundred. Insurance reference, nothing more.'"
+next = "account_iris_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_iris_end"
+scene = "scene_account_iris"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_iris"
+source = "iris"
+entry = "approach_iris_line"
+summary = "'Vera's missing orchard shot was outside my copy. My dust is absent from her fresh splice.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_iris_line"
+scene = "scene_approach_iris"
+kind = "line"
+speaker = "iris"
+text = "'Vera's missing orchard shot was outside my copy. My dust is absent from her fresh splice.'"
+next = "approach_iris_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_iris_end"
+scene = "scene_approach_iris"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_opening_mal"
+source = "mal"
+entry = "opening_mal_line"
+summary = "Mal keeps his voice low. 'Leon stayed after the private audience left. He asked me to run the projector at full speed and keep the booth shut.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "opening_mal_line"
+scene = "scene_opening_mal"
+kind = "line"
+speaker = "mal"
+text = "Mal keeps his voice low. 'Leon stayed after the private audience left. He asked me to run the projector at full speed and keep the booth shut.'"
+next = "opening_mal_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "opening_mal_end"
+scene = "scene_opening_mal"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_account_mal"
+source = "mal"
+entry = "account_mal_line"
+summary = "Mal lowers his voice although the booth door is shut. 'I ran a private screening after hours and wrote Leon's name over mine.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "account_mal_line"
+scene = "scene_account_mal"
+kind = "line"
+speaker = "mal"
+text = "Mal lowers his voice although the booth door is shut. 'I ran a private screening after hours and wrote Leon's name over mine.'"
+next = "account_mal_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "account_mal_end"
+scene = "scene_account_mal"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]
+
+[[scenes]]
+id = "scene_approach_mal"
+source = "mal"
+entry = "approach_mal_line"
+summary = "'The door kills conversation at full projector speed. Whatever Vera heard, it was not an answer from inside.'"
+return_to = "investigation"
+pan = [[0.0, 0.0]]
+zoom = 1.0
+
+[[nodes]]
+id = "approach_mal_line"
+scene = "scene_approach_mal"
+kind = "line"
+speaker = "mal"
+text = "'The door kills conversation at full projector speed. Whatever Vera heard, it was not an answer from inside.'"
+next = "approach_mal_end"
+ui = "dialogue"
+transition = 0.18
+position = [[200.0, 120.0]]
+
+[[nodes]]
+id = "approach_mal_end"
+scene = "scene_approach_mal"
+kind = "end"
+ui = "unchanged"
+position = [[440.0, 120.0]]

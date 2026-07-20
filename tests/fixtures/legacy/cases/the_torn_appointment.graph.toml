@@ -1,0 +1,3847 @@
+version = "GraphMode v1"
+case_id = "the_torn_appointment"
+revision = 0
+
+[[scenes]]
+id = "scene_arrival"
+source = ""
+entry = "arrival_constable"
+summary = "At Vale House, Miriam tries to define the evening before the detective crosses the threshold; Daniel frames himself as witness before ally, while Elsie separates who found the open doors from who found Edgar."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_intro_miriam"
+source = "miriam"
+entry = "intro_miriam_open"
+summary = "Miriam receives the detective with exact courtesy and describes a marriage governed by Edgar's expectations."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_intro_daniel"
+source = "daniel"
+entry = "intro_daniel_open"
+summary = "Daniel Cross identifies himself as the family solicitor and tries to set professional boundaries around a deeply personal evening."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_intro_elsie"
+source = "elsie"
+entry = "intro_elsie_open"
+summary = "Elsie Ward introduces herself through her duties and makes clear that work, not welcome, is holding Vale House together."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_miriam_edgar"
+source = "miriam"
+entry = "approach_miriam_edgar_clock"
+summary = "Miriam recalls Edgar correcting a late household by resetting its clocks, revealing both his quiet punishments and how well she learned his methods."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_daniel_edgar"
+source = "daniel"
+entry = "approach_daniel_edgar_client"
+summary = "Daniel describes Edgar retaining every draft, favor, and indiscretion until gratitude became a debt he could collect."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_elsie_edgar"
+source = "elsie"
+entry = "approach_elsie_edgar_wages"
+summary = "Elsie remembers a master who paid exactly on time, mistook correctness for kindness, and used the study bell to assign blame."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_miriam_alibi"
+source = "miriam"
+entry = "approach_miriam_alibi_response"
+summary = "Miriam describes the cold dinner and volunteers Daniel as her witness before the detective asks for an alibi."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_miriam_summons_denial"
+source = "miriam"
+entry = "approach_miriam_summons_denial_response"
+summary = "Miriam narrows the question and explicitly denies that Edgar sent for her or gave her reason to enter the study."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_miriam_accounts"
+source = "miriam"
+entry = "approach_miriam_accounts_response"
+summary = "Miriam calls the marked transfers household advances and admits they purchased possibility: a room, a journey, or an hour beyond Edgar's accounts."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_miriam_statuette_blood"
+source = "miriam"
+entry = "approach_miriam_statuette_blood_response"
+summary = "Miriam reaches to hide the statuette's blood-dark seam, then argues that proximity cannot prove possession."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_miriam_garden_route"
+source = "miriam"
+entry = "approach_miriam_garden_route_response"
+summary = "Miriam corrects who opened the garden doors but cannot explain the trail from Edgar's study without making his habits do the work."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_elsie_desk_catch"
+source = "elsie"
+entry = "approach_elsie_desk_catch_response"
+summary = "Elsie explains her knowledge of the hidden catch with the dry certainty of someone expected to recover what gentlemen lose."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_miriam_burned_fragment"
+source = "miriam"
+entry = "approach_miriam_burned_fragment_response"
+summary = "Miriam objects to the search and disputes who placed or burned the fragment, but does not deny recognizing Edgar's handwriting."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_miriam_joined_appointment"
+source = "miriam"
+entry = "approach_miriam_joined_appointment_response"
+summary = "The exact wording of Miriam's denial traps her against the rejoined appointment; for the first time, she leaves something crooked."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_miriam_other_lies"
+source = "miriam"
+entry = "approach_miriam_other_lies_detective"
+summary = "Miriam shelters behind Daniel's affair and Elsie's theft, but his confession removes her alibi while Elsie's places her at Edgar's study door."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_daniel_memo_habit"
+source = "daniel"
+entry = "approach_daniel_memo_habit_response"
+summary = "Daniel explains that Edgar retained torn memo stubs as leverage, turning appointments into records the recipient knew could later be produced."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_daniel_alibi"
+source = "daniel"
+entry = "approach_daniel_alibi_response"
+summary = "Daniel offers a polished separate account and insists he would have noticed Miriam's empty chair."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_daniel_affair"
+source = "daniel"
+entry = "approach_daniel_affair_response"
+summary = "Daniel unfolds Miriam's intimate note, admits waiting alone in the gallery, and reveals that he lied to conceal their affair."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_daniel_impact"
+source = "daniel"
+entry = "approach_daniel_impact_response"
+summary = "Daniel admits hearing one heavy blow through the study door and choosing to require himself to believe it was the shutter."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_daniel_cane"
+source = "daniel"
+entry = "approach_daniel_cane_response"
+summary = "Daniel confirms Edgar was emphatically right-handed and recognizes that the cane was staged beneath the wrong hand."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_daniel_failed_followup"
+source = "daniel"
+entry = "approach_daniel_failed_followup_response"
+summary = "Daniel invokes the limits of the detective's authority and refuses to surrender Miriam's folded note."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_daniel_withdrawal"
+source = "daniel"
+entry = "approach_daniel_withdrawal_response"
+summary = "Daniel withdraws Miriam's alibi and tells her she never explained what he was protecting her from."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_elsie_denial"
+source = "elsie"
+entry = "approach_elsie_denial_response"
+summary = "Elsie denies working in the study and says Edgar never rang for service there that night."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_elsie_routine"
+source = "elsie"
+entry = "approach_elsie_routine_response"
+summary = "Elsie accounts for the evening through duties that, unlike people, stay where they are put."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_elsie_theft"
+source = "elsie"
+entry = "approach_elsie_theft_response"
+summary = "Elsie confesses to taking sixteen pounds, then reveals that she saw Miriam enter the study just after the fish."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_elsie_explanation"
+source = "elsie"
+entry = "approach_elsie_explanation_response"
+summary = "Elsie accounts for every stolen note and admits that sixteen pounds meant a room beyond Edgar's bells—if she could decide to become the woman who kept it."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_elsie_cloth"
+source = "elsie"
+entry = "approach_elsie_cloth_response"
+summary = "Elsie distinguishes someone who knew where the polish was kept from someone who understood the household's work."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_elsie_burned_paper"
+source = "elsie"
+entry = "approach_elsie_burned_paper_response"
+summary = "Elsie distinguishes Miriam's meticulous destruction of private papers from a fragment singed over a small flame and abandoned in haste."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_elsie_failed_followup"
+source = "elsie"
+entry = "approach_elsie_failed_followup_response"
+summary = "Elsie reveals precise knowledge of the cash drawer and catches herself with one finger on its hidden release."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_approach_elsie_return"
+source = "elsie"
+entry = "approach_elsie_return_response"
+summary = "Elsie returns the money and admits she feared the detective would believe the mistress of the house before the housekeeper."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_inspect_desk"
+source = "study_desk"
+entry = "inspect_desk_intro"
+summary = "Edgar's locked center drawer sits slightly out of true, with a ledger spine and torn memo pad visible through the gap."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_inspect_statuette"
+source = "statuette"
+entry = "inspect_statuette_intro"
+summary = "Fresh polish catches unevenly across a bronze statuette whose weight invites a closer examination of its base."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_inspect_cloth"
+source = "cloth"
+entry = "inspect_cloth_intro"
+summary = "A damp polishing cloth smells sharply of lamp oil; one folded edge is darker than the rest."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_search_wastebin"
+source = "burned_note"
+entry = "wastebin_ash"
+summary = "Cold ash in Miriam's metal wastebin conceals one surviving corner of paper."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_recover_memo_stub"
+source = "memo_stub"
+entry = "memo_stub_found"
+summary = "A missing sheet has left a ragged stub trapped beneath Edgar's memo-pad binding."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_recover_desk_key"
+source = "edgar"
+entry = "body_first_impression"
+summary = "Examined Edgar beneath the shuttered study window and recovered the small brass key chained inside his waistcoat."
+return_to = "investigation"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[scenes]]
+id = "scene_police_briefing"
+source = ""
+entry = "briefing_dispatch"
+summary = "A dispatch calls Edgar Vale's death a garden fall, then undermines itself with a closed storm shutter, an open door, and three explanations already waiting."
+return_to = "exterior"
+pan = [[0.00, 0.00]]
+zoom = 1.000
+
+[[nodes]]
+id = "arrival_constable"
+scene = "scene_arrival"
+kind = "line"
+speaker = "constable"
+text = "Lieutenant. Mr Vale is in the moon garden. No one has touched the body. The household is waiting inside; that is the last point on which they all agree."
+next = "arrival_miriam_name"
+ui = "dialogue"
+transition = 0.180
+position = [[250.00, 105.00]]
+
+[[nodes]]
+id = "arrival_miriam_name"
+scene = "scene_arrival"
+kind = "line"
+speaker = "miriam"
+text = "'Detective. Miriam Vale.' She offers her hand, then lets it fall. 'I would say you were welcome, but neither of us would believe it.'"
+next = "arrival_miriam_control"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 105.00]]
+
+[[nodes]]
+id = "arrival_miriam_control"
+scene = "scene_arrival"
+kind = "line"
+speaker = "miriam"
+text = "'Edgar is in the garden. I have kept everyone away from him.'"
+next = "arrival_daniel_name"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 105.00]]
+
+[[nodes]]
+id = "arrival_daniel_name"
+scene = "scene_arrival"
+kind = "line"
+speaker = "daniel"
+text = "'Daniel Cross. The family solicitor—and, tonight, a dinner guest. I expect that makes me a witness before it makes me useful.'"
+next = "arrival_elsie_name"
+ui = "dialogue"
+transition = 0.180
+position = [[910.00, 105.00]]
+
+[[nodes]]
+id = "arrival_elsie_name"
+scene = "scene_arrival"
+kind = "line"
+speaker = "elsie"
+text = "Elsie crosses the room with a wine-stained cloth over one arm. 'Elsie Ward. I keep the house. Mrs Vale found the garden doors open. I found Mr Vale.'"
+next = "arrival_miriam_distinction"
+ui = "dialogue"
+transition = 0.180
+position = [[1130.00, 105.00]]
+
+[[nodes]]
+id = "arrival_miriam_distinction"
+scene = "scene_arrival"
+kind = "line"
+speaker = "miriam"
+text = "'Is that distinction important?' Daniel looks toward Miriam. Elsie notices."
+next = "arrival_detective_space"
+ui = "dialogue"
+transition = 0.180
+position = [[1350.00, 105.00]]
+
+[[nodes]]
+id = "arrival_detective_space"
+scene = "scene_arrival"
+kind = "line"
+speaker = "detective"
+text = "'Important enough to separate. I want three accounts before this house has time to improve a single one.'"
+next = "arrival_end"
+ui = "dialogue"
+transition = 0.180
+position = [[1570.00, 105.00]]
+
+[[nodes]]
+id = "arrival_end"
+scene = "scene_arrival"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+ui = "unchanged"
+transition = 0.000
+position = [[1790.00, 105.00]]
+
+[[nodes]]
+id = "intro_miriam_open"
+scene = "scene_intro_miriam"
+kind = "line"
+speaker = "miriam"
+text = "Miriam turns Edgar's wineglass until its etched crest faces the room. 'You need not offer condolences, Detective. Edgar disliked words that asked nothing of him.'"
+next = "intro_miriam_marriage"
+ui = "dialogue"
+transition = 0.180
+position = [[250.00, 260.00]]
+
+[[nodes]]
+id = "intro_miriam_marriage"
+scene = "scene_intro_miriam"
+kind = "line"
+speaker = "miriam"
+text = "'He expected the household to run to time, even when he did not. Dinner waited for him often enough that no one thought tonight remarkable—not at first.'"
+next = "intro_miriam_leave"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 260.00]]
+
+[[nodes]]
+id = "intro_miriam_leave"
+scene = "scene_intro_miriam"
+kind = "line"
+speaker = "detective"
+text = "'Then we will leave condolences untouched. I am more interested in the place Edgar left empty.'"
+next = "intro_miriam_end"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 260.00]]
+
+[[nodes]]
+id = "intro_miriam_end"
+scene = "scene_intro_miriam"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+ui = "unchanged"
+transition = 0.000
+position = [[910.00, 260.00]]
+
+[[nodes]]
+id = "intro_daniel_open"
+scene = "scene_intro_daniel"
+kind = "line"
+speaker = "daniel"
+text = "'Before you ask: I represent the family, not any one person in it.' Daniel smooths a cuff that is already straight."
+next = "intro_daniel_boundary"
+ui = "dialogue"
+transition = 0.180
+position = [[250.00, 415.00]]
+
+[[nodes]]
+id = "intro_daniel_boundary"
+scene = "scene_intro_daniel"
+kind = "line"
+speaker = "daniel"
+text = "'Grief makes private things look suspicious. I only ask that you decide what is relevant before you make it public.'"
+next = "intro_daniel_leave"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 415.00]]
+
+[[nodes]]
+id = "intro_daniel_leave"
+scene = "scene_intro_daniel"
+kind = "line"
+speaker = "detective"
+text = "'I decide what is relevant after I hear the account, Mr Cross—not before. Let us begin with yours.'"
+next = "intro_daniel_end"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 415.00]]
+
+[[nodes]]
+id = "intro_daniel_end"
+scene = "scene_intro_daniel"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+ui = "unchanged"
+transition = 0.000
+position = [[910.00, 415.00]]
+
+[[nodes]]
+id = "intro_elsie_open"
+scene = "scene_intro_elsie"
+kind = "line"
+speaker = "elsie"
+text = "Elsie keeps sorting the silver as you approach. 'If you need me to stop working, say so. No one else has remembered to.'"
+next = "intro_elsie_duty"
+ui = "dialogue"
+transition = 0.180
+position = [[250.00, 570.00]]
+
+[[nodes]]
+id = "intro_elsie_duty"
+scene = "scene_intro_elsie"
+kind = "line"
+speaker = "elsie"
+text = "'I have kept Vale House for eleven years. That means I know where everyone ought to be. It does not mean they tell me where they go.'"
+next = "intro_elsie_leave"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 570.00]]
+
+[[nodes]]
+id = "intro_elsie_leave"
+scene = "scene_intro_elsie"
+kind = "line"
+speaker = "detective"
+text = "'Then your duties make a timetable, Miss Ward. Timetables are useful when people are not.'"
+next = "intro_elsie_end"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 570.00]]
+
+[[nodes]]
+id = "intro_elsie_end"
+scene = "scene_intro_elsie"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+ui = "unchanged"
+transition = 0.000
+position = [[910.00, 570.00]]
+
+[[nodes]]
+id = "approach_miriam_alibi_response"
+scene = "scene_approach_miriam_alibi"
+kind = "line"
+speaker = "miriam"
+text = "Miriam brings Edgar's unused knife into line with the others. 'Edgar often chose work over courtesy. Dinner began at eight without him.'"
+next = "approach_miriam_alibi_after"
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.180
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_miriam_alibi_after"
+scene = "scene_approach_miriam_alibi"
+kind = "line"
+speaker = "miriam"
+text = "'Daniel was opposite me from soup through fish. Elsie served us.' She leaves the knife perfectly parallel to the plate."
+next = "approach_miriam_alibi_detective"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_alibi_detective"
+scene = "scene_approach_miriam_alibi"
+kind = "line"
+speaker = "detective"
+text = "'You offered me an alibi when I asked who was present.'"
+next = "approach_miriam_alibi_reply"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_alibi_reply"
+scene = "scene_approach_miriam_alibi"
+kind = "line"
+speaker = "miriam"
+text = "'In this house, Detective, presence and absence have become the same question.'"
+next = "approach_miriam_alibi_end"
+ui = "dialogue"
+transition = 0.180
+position = [[910.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_alibi_end"
+scene = "scene_approach_miriam_alibi"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[470.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_miriam_summons_denial_response"
+scene = "scene_approach_miriam_summons_denial"
+kind = "line"
+speaker = "miriam"
+text = "'Ever is an accommodating word.' Miriam adjusts the question before answering it. 'You are asking whether Edgar sent for me tonight.'"
+next = "approach_miriam_summons_denial_after"
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.180
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_miriam_summons_denial_after"
+scene = "scene_approach_miriam_summons_denial"
+kind = "line"
+speaker = "miriam"
+text = "'He did not. I remained at dinner, and I had no reason to enter his study.'"
+next = "approach_miriam_summons_denial_detective"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_summons_denial_detective"
+scene = "scene_approach_miriam_summons_denial"
+kind = "line"
+speaker = "detective"
+text = "'You answered a narrower question than I asked.'"
+next = "approach_miriam_summons_denial_reply"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_summons_denial_reply"
+scene = "scene_approach_miriam_summons_denial"
+kind = "line"
+speaker = "miriam"
+text = "'Narrow questions are less likely to produce careless answers.'"
+next = "approach_miriam_summons_denial_end"
+ui = "dialogue"
+transition = 0.180
+position = [[910.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_summons_denial_end"
+scene = "scene_approach_miriam_summons_denial"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[470.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_miriam_accounts_response"
+scene = "scene_approach_miriam_accounts"
+kind = "line"
+speaker = "miriam"
+text = "Miriam looks at Edgar's red circles before she looks at the figures. 'You have already decided what those marks mean.'"
+next = "approach_miriam_accounts_detective"
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.180
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_accounts_detective"
+scene = "scene_approach_miriam_accounts"
+kind = "line"
+speaker = "detective"
+text = "'Red pencil is not a verdict. Your answer may be. The transfers bear your initials, and there are no receipts.'"
+next = "approach_miriam_accounts_reply"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_accounts_reply"
+scene = "scene_approach_miriam_accounts"
+kind = "line"
+speaker = "miriam"
+text = "Her thumb settles over the initials. 'Household advances. Receipts go missing. Edgar preferred initials; they made every ordinary expense look like a confidence.'"
+next = "approach_miriam_accounts_purchase"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_accounts_purchase"
+scene = "scene_approach_miriam_accounts"
+kind = "line"
+speaker = "detective"
+text = "'What did these advances purchase?'"
+next = "approach_miriam_accounts_possibility"
+ui = "dialogue"
+transition = 0.180
+position = [[910.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_accounts_possibility"
+scene = "scene_approach_miriam_accounts"
+kind = "line"
+speaker = "miriam"
+text = "'Possibility. A room, a journey, one unaccounted-for hour. Edgar regarded anything he could not audit as theft.'"
+next = "approach_miriam_accounts_last"
+ui = "dialogue"
+transition = 0.180
+position = [[1130.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_accounts_last"
+scene = "scene_approach_miriam_accounts"
+kind = "line"
+speaker = "miriam"
+text = "'Money does not become stolen merely because a dead man circled it in red.'"
+next = "approach_miriam_accounts_end"
+ui = "dialogue"
+transition = 0.180
+position = [[1350.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_miriam_accounts_end"
+scene = "scene_approach_miriam_accounts"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[1570.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_miriam_statuette_blood_response"
+scene = "scene_approach_miriam_statuette_blood"
+kind = "line"
+speaker = "miriam"
+text = "Miriam reaches to turn the statuette until its blood-dark seam faces away."
+next = "approach_miriam_statuette_stop"
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.180
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_statuette_stop"
+scene = "scene_approach_miriam_statuette_blood"
+kind = "line"
+speaker = "detective"
+text = "'Do not touch it.' She removes her hand at once."
+next = "approach_miriam_statuette_reply"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_statuette_reply"
+scene = "scene_approach_miriam_statuette_blood"
+kind = "line"
+speaker = "miriam"
+text = "'It stood on Edgar's desk. Everyone in this house passed within reach of it. You cannot make possession out of proximity.'"
+next = "approach_miriam_statuette_detective"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_statuette_detective"
+scene = "scene_approach_miriam_statuette_blood"
+kind = "line"
+speaker = "detective"
+text = "'I asked who tried to clean away Edgar's blood.' Miriam does not reach for the statuette again."
+next = "approach_miriam_statuette_blood_end"
+ui = "dialogue"
+transition = 0.180
+position = [[910.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_miriam_statuette_blood_end"
+scene = "scene_approach_miriam_statuette_blood"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[470.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_elsie_desk_catch_response"
+scene = "scene_approach_elsie_desk_catch"
+kind = "line"
+speaker = "elsie"
+text = "Elsie studies the opened drawer. 'Mr Vale showed me the catch once, when the key went missing.'"
+next = "approach_elsie_desk_catch_detective"
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.180
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_desk_catch_detective"
+scene = "scene_approach_elsie_desk_catch"
+kind = "line"
+speaker = "detective"
+text = "'Why show the housekeeper a secret drawer?'"
+next = "approach_elsie_desk_catch_reply"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_desk_catch_reply"
+scene = "scene_approach_elsie_desk_catch"
+kind = "line"
+speaker = "elsie"
+text = "'Because when gentlemen lose things, they prefer someone else to find them.' She looks into the drawer. 'He kept the household cash there.'"
+next = "approach_elsie_desk_catch_end"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_elsie_desk_catch_end"
+scene = "scene_approach_elsie_desk_catch"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[470.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_miriam_burned_fragment_response"
+scene = "scene_approach_miriam_burned_fragment"
+kind = "line"
+speaker = "miriam"
+text = "Miriam looks at the fragment without taking it. 'You searched my sitting room.'"
+next = "approach_miriam_burned_detective"
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.180
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_burned_detective"
+scene = "scene_approach_miriam_burned_fragment"
+kind = "line"
+speaker = "detective"
+text = "'A wastebin loses its privacy when it shares a wall with a murder scene. This was inside yours.'"
+next = "approach_miriam_burned_reply"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_burned_reply"
+scene = "scene_approach_miriam_burned_fragment"
+kind = "line"
+speaker = "miriam"
+text = "She studies the scorch marks, not the words. 'Then you know where you found it. You do not know who placed it there—or who burned it.'"
+next = "approach_miriam_burned_hand"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_burned_hand"
+scene = "scene_approach_miriam_burned_fragment"
+kind = "line"
+speaker = "detective"
+text = "'But you recognize Edgar's handwriting.'"
+next = "approach_miriam_burned_last"
+ui = "dialogue"
+transition = 0.180
+position = [[910.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_burned_last"
+scene = "scene_approach_miriam_burned_fragment"
+kind = "line"
+speaker = "miriam"
+text = "After a pause: 'Everyone in this house does.'"
+next = "approach_miriam_burned_fragment_end"
+ui = "dialogue"
+transition = 0.180
+position = [[1130.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_miriam_burned_fragment_end"
+scene = "scene_approach_miriam_burned_fragment"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[470.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_miriam_joined_appointment_response"
+scene = "scene_approach_miriam_joined_appointment"
+kind = "line"
+speaker = "detective"
+text = "The rejoined note lies between you. 'Edgar summoned you at eight-twenty and told you to bring the account books.'"
+next = "approach_miriam_joined_reach"
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.180
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_joined_reach"
+scene = "scene_approach_miriam_joined_appointment"
+kind = "line"
+speaker = "miriam"
+text = "Miriam reaches to square the note, then stops. 'You have two scraps of paper and an accusation.'"
+next = "approach_miriam_joined_proof"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_joined_proof"
+scene = "scene_approach_miriam_joined_appointment"
+kind = "line"
+speaker = "detective"
+text = "'One scrap remained in Edgar's pad. The other was burned in your room. You told me he never sent for you.'"
+next = "approach_miriam_joined_narrow"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_joined_narrow"
+scene = "scene_approach_miriam_joined_appointment"
+kind = "line"
+speaker = "miriam"
+text = "'I told you I did not receive a summons.'"
+next = "approach_miriam_joined_exact"
+ui = "dialogue"
+transition = 0.180
+position = [[910.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_joined_exact"
+scene = "scene_approach_miriam_joined_appointment"
+kind = "line"
+speaker = "detective"
+text = "'No. You said: He did not.'"
+next = "approach_miriam_joined_crooked"
+ui = "dialogue"
+transition = 0.180
+position = [[1130.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_joined_crooked"
+scene = "scene_approach_miriam_joined_appointment"
+kind = "line"
+speaker = "narrator"
+text = "For the first time, Miriam leaves something crooked."
+next = "approach_miriam_joined_appointment_end"
+ui = "dialogue"
+transition = 0.180
+position = [[1350.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_miriam_joined_appointment_end"
+scene = "scene_approach_miriam_joined_appointment"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[470.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_daniel_alibi_response"
+scene = "scene_approach_daniel_alibi"
+kind = "line"
+speaker = "daniel"
+text = "'You will want a separate account. Quite right.' Daniel glances toward Miriam. 'From soup through fish, she was opposite me.'"
+next = "approach_daniel_alibi_after"
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.180
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_daniel_alibi_after"
+scene = "scene_approach_daniel_alibi"
+kind = "line"
+speaker = "daniel"
+text = "He folds his napkin into a precise square. 'I would have noticed an empty chair.'"
+next = "approach_daniel_alibi_watch"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_alibi_watch"
+scene = "scene_approach_daniel_alibi"
+kind = "line"
+speaker = "detective"
+text = "'Because you were watching her?'"
+next = "approach_daniel_alibi_reply"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_alibi_reply"
+scene = "scene_approach_daniel_alibi"
+kind = "line"
+speaker = "daniel"
+text = "'Because she was directly in front of me.'"
+next = "approach_daniel_alibi_end"
+ui = "dialogue"
+transition = 0.180
+position = [[910.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_alibi_end"
+scene = "scene_approach_daniel_alibi"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[470.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_daniel_affair_response"
+scene = "scene_approach_daniel_affair"
+kind = "line"
+speaker = "daniel"
+text = "Daniel looks at the monogram showing above his pocket. 'That distinction exists only because you want it to.'"
+next = "approach_daniel_affair_note"
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.180
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_affair_note"
+scene = "scene_approach_daniel_affair"
+kind = "line"
+speaker = "detective"
+text = "'Miriam's note. You were not watching the table; you were watching her.'"
+next = "approach_daniel_affair_admit"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_affair_admit"
+scene = "scene_approach_daniel_affair"
+kind = "line"
+speaker = "narrator"
+text = "He unfolds the note. 'Gallery, after the fish. I cannot bear another evening opposite you pretending not to look.'"
+next = "approach_daniel_affair_reason"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_affair_reason"
+scene = "scene_approach_daniel_affair"
+kind = "line"
+speaker = "daniel"
+text = "'I went. And I lied because no one could know why.'"
+next = "approach_daniel_affair_arrival"
+ui = "dialogue"
+transition = 0.180
+position = [[800.00, 235.00]]
+
+[[nodes]]
+id = "approach_daniel_affair_arrival"
+scene = "scene_approach_daniel_affair"
+kind = "line"
+speaker = "detective"
+text = "'Did Miriam come to the gallery?'"
+next = "approach_daniel_affair_waited"
+ui = "dialogue"
+transition = 0.180
+position = [[910.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_affair_waited"
+scene = "scene_approach_daniel_affair"
+kind = "line"
+speaker = "daniel"
+text = "'No. I waited alone, close enough to hear the study door. Then I returned and gave her the alibi she had failed to earn.'"
+next = "approach_daniel_affair_edgar"
+ui = "dialogue"
+transition = 0.180
+position = [[1130.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_affair_edgar"
+scene = "scene_approach_daniel_affair"
+kind = "line"
+speaker = "detective"
+text = "'Especially Edgar?' Daniel refolds the note along its old crease until the paper threatens to split. He does not answer."
+next = "approach_daniel_affair_end"
+ui = "dialogue"
+transition = 0.180
+position = [[1350.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_daniel_affair_end"
+scene = "scene_approach_daniel_affair"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[470.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_daniel_impact_response"
+scene = "scene_approach_daniel_impact"
+kind = "line"
+speaker = "daniel"
+text = "'The house was settling. The shutter moves in bad weather.'"
+next = "approach_daniel_impact_weather"
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.180
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_impact_weather"
+scene = "scene_approach_daniel_impact"
+kind = "line"
+speaker = "detective"
+text = "'There was no wind.'"
+next = "approach_daniel_impact_blow"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_impact_blow"
+scene = "scene_approach_daniel_impact"
+kind = "line"
+speaker = "daniel"
+text = "Daniel strikes his palm once against the table. 'One blow. Heavy. Through the study door.'"
+next = "approach_daniel_impact_return"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_impact_return"
+scene = "scene_approach_daniel_impact"
+kind = "line"
+speaker = "detective"
+text = "'And you went back to dinner. Did you believe it was the shutter?'"
+next = "approach_daniel_impact_required"
+ui = "dialogue"
+transition = 0.180
+position = [[910.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_impact_required"
+scene = "scene_approach_daniel_impact"
+kind = "line"
+speaker = "daniel"
+text = "'I required myself to.'"
+next = "approach_daniel_impact_end"
+ui = "dialogue"
+transition = 0.180
+position = [[1130.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_daniel_impact_end"
+scene = "scene_approach_daniel_impact"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[470.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_daniel_failed_followup_response"
+scene = "scene_approach_daniel_failed_followup"
+kind = "line"
+speaker = "daniel"
+text = "Daniel places one hand over his inner pocket. 'You may question me. You may not search me because a corner of stationery offends your intuition.'"
+next = "approach_daniel_failed_monogram"
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.180
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_failed_monogram"
+scene = "scene_approach_daniel_failed_followup"
+kind = "line"
+speaker = "detective"
+text = "'It bears Miriam's monogram.'"
+next = "approach_daniel_failed_reply"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_failed_reply"
+scene = "scene_approach_daniel_failed_followup"
+kind = "line"
+speaker = "daniel"
+text = "'Then you have identified the stationer.' He keeps his hand where it is."
+next = "approach_daniel_failed_followup_end"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_daniel_failed_followup_end"
+scene = "scene_approach_daniel_failed_followup"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[470.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_daniel_withdrawal_response"
+scene = "scene_approach_daniel_withdrawal"
+kind = "line"
+speaker = "daniel"
+text = "Daniel looks toward Miriam. She does not return the look. 'No. She was not there throughout. My first account was false.'"
+next = "approach_daniel_withdrawal_miriam"
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.180
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_withdrawal_miriam"
+scene = "scene_approach_daniel_withdrawal"
+kind = "line"
+speaker = "miriam"
+text = "'Daniel.'"
+next = "approach_daniel_withdrawal_reply"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_withdrawal_reply"
+scene = "scene_approach_daniel_withdrawal"
+kind = "line"
+speaker = "daniel"
+text = "'You asked me to protect your name. You did not tell me what I was protecting it from.'"
+next = "approach_daniel_withdrawal_end"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_daniel_withdrawal_end"
+scene = "scene_approach_daniel_withdrawal"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[470.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_elsie_denial_response"
+scene = "scene_approach_elsie_denial"
+kind = "line"
+speaker = "elsie"
+text = "'That is generally what housekeeper means.' Elsie smooths her apron. 'But no—I was not working in the study.'"
+next = "approach_elsie_denial_after"
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.180
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_elsie_denial_after"
+scene = "scene_approach_elsie_denial"
+kind = "line"
+speaker = "elsie"
+text = "'If Mr Vale wanted something brought in, he rang.'"
+next = "approach_elsie_denial_detective"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_denial_detective"
+scene = "scene_approach_elsie_denial"
+kind = "line"
+speaker = "detective"
+text = "'Did he ring tonight?'"
+next = "approach_elsie_denial_reply"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_denial_reply"
+scene = "scene_approach_elsie_denial"
+kind = "line"
+speaker = "elsie"
+text = "'He did not.' Her hand remains at the edge of her apron."
+next = "approach_elsie_denial_end"
+ui = "dialogue"
+transition = 0.180
+position = [[910.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_denial_end"
+scene = "scene_approach_elsie_denial"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[470.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_elsie_routine_response"
+scene = "scene_approach_elsie_routine"
+kind = "line"
+speaker = "elsie"
+text = "'Fish went in at eight-twenty. Coffee waited in the kitchen. Silver came away last.'"
+next = "approach_elsie_routine_after"
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.180
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_elsie_routine_after"
+scene = "scene_approach_elsie_routine"
+kind = "line"
+speaker = "elsie"
+text = "Elsie checks each duty against the next before she nods. 'That was the order.'"
+next = "approach_elsie_routine_people"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_routine_people"
+scene = "scene_approach_elsie_routine"
+kind = "line"
+speaker = "detective"
+text = "'You remember duties more clearly than people.'"
+next = "approach_elsie_routine_reply"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_routine_reply"
+scene = "scene_approach_elsie_routine"
+kind = "line"
+speaker = "elsie"
+text = "'Duties stay where they are put.'"
+next = "approach_elsie_routine_end"
+ui = "dialogue"
+transition = 0.180
+position = [[910.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_routine_end"
+scene = "scene_approach_elsie_routine"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[470.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_elsie_theft_response"
+scene = "scene_approach_elsie_theft"
+kind = "line"
+speaker = "detective"
+text = "Elsie says nothing. The detective taps the hidden catch beneath the open drawer. 'You knew the drawer, the catch, and the exact amount inside.'"
+next = "approach_elsie_theft_amount"
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.180
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_theft_amount"
+scene = "scene_approach_elsie_theft"
+kind = "line"
+speaker = "elsie"
+text = "'Sixteen pounds.' She gives each fact as if entering it in the household book. 'I took it before dinner.'"
+next = "approach_elsie_theft_after"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_theft_after"
+scene = "scene_approach_elsie_theft"
+kind = "line"
+speaker = "detective"
+text = "'And after dinner began?'"
+next = "approach_elsie_theft_sighting"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_theft_sighting"
+scene = "scene_approach_elsie_theft"
+kind = "line"
+speaker = "elsie"
+text = "'Just after the fish, I crossed the gallery. Mrs Vale went into the study.'"
+next = "approach_elsie_theft_silence"
+ui = "dialogue"
+transition = 0.180
+position = [[910.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_theft_silence"
+scene = "scene_approach_elsie_theft"
+kind = "line"
+speaker = "detective"
+text = "'You kept silent because seeing her meant admitting why you were there.'"
+next = "approach_elsie_theft_answer"
+ui = "dialogue"
+transition = 0.180
+position = [[1130.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_theft_answer"
+scene = "scene_approach_elsie_theft"
+kind = "line"
+speaker = "elsie"
+text = "'And because she saw me too. I had sixteen stolen pounds in my apron and the mistress of the house had my future in her hand.'"
+next = "approach_elsie_theft_end"
+ui = "dialogue"
+transition = 0.180
+position = [[1350.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_elsie_theft_end"
+scene = "scene_approach_elsie_theft"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[470.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_elsie_explanation_response"
+scene = "scene_approach_elsie_explanation"
+kind = "line"
+speaker = "elsie"
+text = "Elsie lays out the notes by denomination. 'Two fives. Six ones. The box held sixteen pounds.'"
+next = "approach_elsie_explanation_return"
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.180
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_explanation_return"
+scene = "scene_approach_elsie_explanation"
+kind = "line"
+speaker = "detective"
+text = "'Why sixteen pounds?'"
+next = "approach_elsie_explanation_room"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_explanation_room"
+scene = "scene_approach_elsie_explanation"
+kind = "line"
+speaker = "elsie"
+text = "'It was what the box held. It was also enough for a room of my own—somewhere one bell did not mean service and two did not mean blame.'"
+next = "approach_elsie_explanation_kept"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_explanation_kept"
+scene = "scene_approach_elsie_explanation"
+kind = "line"
+speaker = "detective"
+text = "'But you kept it on you through dinner.'"
+next = "approach_elsie_explanation_reply"
+ui = "dialogue"
+transition = 0.180
+position = [[910.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_explanation_reply"
+scene = "scene_approach_elsie_explanation"
+kind = "line"
+speaker = "elsie"
+text = "'I meant to put it back before I had to decide whether I was the sort of woman who could keep it.'"
+next = "approach_elsie_explanation_end"
+ui = "dialogue"
+transition = 0.180
+position = [[1130.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_elsie_explanation_end"
+scene = "scene_approach_elsie_explanation"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[470.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_elsie_failed_followup_response"
+scene = "scene_approach_elsie_failed_followup"
+kind = "line"
+speaker = "elsie"
+text = "Elsie looks at the drawer. 'Household money. Receipts beneath it.' Her finger finds the hidden release catch before she stops."
+next = "approach_elsie_failed_precise"
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.180
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_failed_precise"
+scene = "scene_approach_elsie_failed_followup"
+kind = "line"
+speaker = "detective"
+text = "'You named the receipts before your finger found the catch.'"
+next = "approach_elsie_failed_reply"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_failed_reply"
+scene = "scene_approach_elsie_failed_followup"
+kind = "line"
+speaker = "elsie"
+text = "'I know how the house is kept.'"
+next = "approach_elsie_failed_last"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_failed_last"
+scene = "scene_approach_elsie_failed_followup"
+kind = "line"
+speaker = "detective"
+text = "'You know how this drawer is kept.'"
+next = "approach_elsie_failed_followup_end"
+ui = "dialogue"
+transition = 0.180
+position = [[910.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_elsie_failed_followup_end"
+scene = "scene_approach_elsie_failed_followup"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[470.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_elsie_return_response"
+scene = "scene_approach_elsie_return"
+kind = "line"
+speaker = "elsie"
+text = "The notes stop halfway into the cash box. 'Putting them back will not make my first account true. I know that.'"
+next = "approach_elsie_return_why"
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.180
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_return_why"
+scene = "scene_approach_elsie_return"
+kind = "line"
+speaker = "detective"
+text = "'Why return now?'"
+next = "approach_elsie_return_wrong"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_return_wrong"
+scene = "scene_approach_elsie_return"
+kind = "line"
+speaker = "elsie"
+text = "'Because Mrs Vale knows I saw her. And because Mr Vale is dead, which makes every small wrong in this house look as though it led to the garden.'"
+next = "approach_elsie_return_afraid"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_return_afraid"
+scene = "scene_approach_elsie_return"
+kind = "line"
+speaker = "detective"
+text = "'Were you afraid of Miriam?'"
+next = "approach_elsie_return_belief"
+ui = "dialogue"
+transition = 0.180
+position = [[910.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_return_belief"
+scene = "scene_approach_elsie_return"
+kind = "line"
+speaker = "elsie"
+text = "'I was afraid you would believe her before you believed me.'"
+next = "approach_elsie_return_end"
+ui = "dialogue"
+transition = 0.180
+position = [[1130.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_elsie_return_end"
+scene = "scene_approach_elsie_return"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[470.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_miriam_garden_route_response"
+scene = "scene_approach_miriam_garden_route"
+kind = "line"
+speaker = "miriam"
+text = "'You are joining two facts because they are near one another. I found the doors open. The thyme grows beyond them.'"
+next = "approach_miriam_garden_route_trace"
+ui = "dialogue"
+transition = 0.180
+position = [[250.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_garden_route_trace"
+scene = "scene_approach_miriam_garden_route"
+kind = "line"
+speaker = "detective"
+text = "'The trail is broad enough for a pair of heels and a body. It starts at Edgar's terrace.'"
+next = "approach_miriam_garden_route_habit"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_garden_route_habit"
+scene = "scene_approach_miriam_garden_route"
+kind = "line"
+speaker = "miriam"
+text = "'Edgar crossed that terrace every evening. Habit leaves marks long after the man has gone.'"
+next = "approach_miriam_garden_route_exact"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_garden_route_exact"
+scene = "scene_approach_miriam_garden_route"
+kind = "line"
+speaker = "detective"
+text = "'You keep correcting who opened the doors. You have not explained what passed through them tonight.'"
+next = "approach_miriam_garden_route_end"
+ui = "dialogue"
+transition = 0.180
+position = [[910.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_garden_route_end"
+scene = "scene_approach_miriam_garden_route"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+ui = "unchanged"
+transition = 0.000
+position = [[1130.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_cane_response"
+scene = "scene_approach_daniel_cane"
+kind = "line"
+speaker = "daniel"
+text = "'His right. Emphatically. Edgar signed with it, struck matches with it, and rapped that cane whenever a sentence displeased him.'"
+next = "approach_daniel_cane_staged"
+ui = "dialogue"
+transition = 0.180
+position = [[250.00, 235.00]]
+
+[[nodes]]
+id = "approach_daniel_cane_staged"
+scene = "scene_approach_daniel_cane"
+kind = "line"
+speaker = "detective"
+text = "'Then the cane did not fall beneath his left hand. Someone put it there.'"
+next = "approach_daniel_cane_reply"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 235.00]]
+
+[[nodes]]
+id = "approach_daniel_cane_reply"
+scene = "scene_approach_daniel_cane"
+kind = "line"
+speaker = "daniel"
+text = "'Yes. Though knowing a client's habits is not an alibi. For either of us.'"
+next = "approach_daniel_cane_end"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 235.00]]
+
+[[nodes]]
+id = "approach_daniel_cane_end"
+scene = "scene_approach_daniel_cane"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+ui = "unchanged"
+transition = 0.000
+position = [[910.00, 235.00]]
+
+[[nodes]]
+id = "approach_elsie_cloth_response"
+scene = "scene_approach_elsie_cloth"
+kind = "line"
+speaker = "elsie"
+text = "'No. Clean cloths belong folded in the cupboard. Used ones go straight to the scullery, unless you want oil through the whole wash.'"
+next = "approach_elsie_cloth_knowledge"
+ui = "dialogue"
+transition = 0.180
+position = [[250.00, 365.00]]
+
+[[nodes]]
+id = "approach_elsie_cloth_knowledge"
+scene = "scene_approach_elsie_cloth"
+kind = "line"
+speaker = "detective"
+text = "'So whoever wedged it behind the bottles knew where the polish was kept.'"
+next = "approach_elsie_cloth_work"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 365.00]]
+
+[[nodes]]
+id = "approach_elsie_cloth_work"
+scene = "scene_approach_elsie_cloth"
+kind = "line"
+speaker = "elsie"
+text = "'But not how the work is done. There is a difference between knowing a house and having to keep it.'"
+next = "approach_elsie_cloth_end"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 365.00]]
+
+[[nodes]]
+id = "approach_elsie_cloth_end"
+scene = "scene_approach_elsie_cloth"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+ui = "unchanged"
+transition = 0.000
+position = [[910.00, 365.00]]
+
+[[nodes]]
+id = "inspect_desk_intro"
+scene = "scene_inspect_desk"
+kind = "line"
+speaker = "narrator"
+text = "The locked center drawer sits slightly out of true. Through the gap, a ledger spine and torn memo pad are just visible."
+next = "inspect_desk_hide"
+success = ""
+failure = ""
+cancel = ""
+ui = ""
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "inspect_desk_hide"
+scene = "scene_inspect_desk"
+kind = "stage"
+speaker = ""
+text = ""
+next = "inspect_desk"
+success = ""
+failure = ""
+cancel = ""
+ui = "hidden"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.250
+transition = 0.180
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[470.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "inspect_desk"
+scene = "scene_inspect_desk"
+kind = "interaction"
+speaker = ""
+text = ""
+next = ""
+success = "inspect_desk_end"
+failure = ""
+cancel = "inspect_desk_end"
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = "desk"
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.180
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[690.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "inspect_desk_end"
+scene = "scene_inspect_desk"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 235.00]]
+collapsed = false
+
+[[nodes]]
+id = "inspect_statuette_intro"
+scene = "scene_inspect_statuette"
+kind = "line"
+speaker = "narrator"
+text = "The bronze statuette is heavier than its size suggests. Fresh polish catches the light unevenly across its surface."
+next = "inspect_statuette_hide"
+success = ""
+failure = ""
+cancel = ""
+ui = ""
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "inspect_statuette_hide"
+scene = "scene_inspect_statuette"
+kind = "stage"
+speaker = ""
+text = ""
+next = "inspect_statuette"
+success = ""
+failure = ""
+cancel = ""
+ui = "hidden"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.250
+transition = 0.180
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[470.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "inspect_statuette"
+scene = "scene_inspect_statuette"
+kind = "interaction"
+speaker = ""
+text = ""
+next = ""
+success = "inspect_statuette_end"
+failure = ""
+cancel = "inspect_statuette_end"
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = "statuette"
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.180
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[690.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "inspect_statuette_end"
+scene = "scene_inspect_statuette"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 235.00]]
+collapsed = false
+
+[[nodes]]
+id = "inspect_cloth_intro"
+scene = "scene_inspect_cloth"
+kind = "line"
+speaker = "narrator"
+text = "A damp polishing cloth is wedged behind the service bottles. It smells sharply of lamp oil; a rust-colored stain darkens one folded edge."
+next = "inspect_cloth_hide"
+success = ""
+failure = ""
+cancel = ""
+ui = ""
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "inspect_cloth_hide"
+scene = "scene_inspect_cloth"
+kind = "stage"
+speaker = ""
+text = ""
+next = "inspect_cloth"
+success = ""
+failure = ""
+cancel = ""
+ui = "hidden"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.250
+transition = 0.180
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[470.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "inspect_cloth"
+scene = "scene_inspect_cloth"
+kind = "interaction"
+speaker = ""
+text = ""
+next = ""
+success = "inspect_cloth_end"
+failure = ""
+cancel = "inspect_cloth_end"
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = "cloth"
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.180
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[690.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "inspect_cloth_end"
+scene = "scene_inspect_cloth"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 235.00]]
+collapsed = false
+
+[[nodes]]
+id = "wastebin_ash"
+scene = "scene_search_wastebin"
+kind = "line"
+speaker = "narrator"
+text = "A careful search stirs the cold ash. One folded corner of paper has survived against the metal wall."
+next = "wastebin_fragment"
+success = ""
+failure = ""
+cancel = ""
+ui = ""
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "wastebin_fragment"
+scene = "scene_search_wastebin"
+kind = "line"
+speaker = "detective"
+text = "Scorched, but still legible: '—bring the account books. We settle this tonight. —E.'"
+next = "wastebin_significance"
+success = ""
+failure = ""
+cancel = ""
+ui = ""
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[470.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "wastebin_significance"
+scene = "scene_search_wastebin"
+kind = "line"
+speaker = "detective"
+text = "Someone tried to destroy this. The torn edge may tell us what the fire could not."
+next = "wastebin_end"
+success = ""
+failure = ""
+cancel = ""
+ui = ""
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[690.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "wastebin_end"
+scene = "scene_search_wastebin"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 235.00]]
+collapsed = false
+
+[[nodes]]
+id = "memo_stub_found"
+scene = "scene_recover_memo_stub"
+kind = "line"
+speaker = "narrator"
+text = "One sheet is missing from Edgar's memo pad, but its ragged stub remains caught beneath the binding."
+next = "memo_stub_read"
+success = ""
+failure = ""
+cancel = ""
+ui = ""
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "memo_stub_read"
+scene = "scene_recover_memo_stub"
+kind = "line"
+speaker = "detective"
+text = "'Miriam—study, 8:20—' The lower half was torn away, not cut. Preserve that edge."
+next = "memo_stub_end"
+success = ""
+failure = ""
+cancel = ""
+ui = ""
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[470.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "memo_stub_end"
+scene = "scene_recover_memo_stub"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[690.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "body_first_impression"
+scene = "scene_recover_desk_key"
+kind = "line"
+speaker = "narrator"
+text = "Moon thyme releases a sweet, bruised smell beneath your shoes. Edgar Vale lies directly below the shuttered study window, dressed for the dinner he never attended."
+next = "body_pose"
+ui = "dialogue"
+transition = 0.180
+position = [[250.00, 495.00]]
+
+[[nodes]]
+id = "body_pose"
+scene = "scene_recover_desk_key"
+kind = "line"
+speaker = "detective"
+text = "His coat is still buttoned. The cane has been fitted beneath one hand. There is blood at his temple, but remarkably little in the gravel beneath it."
+next = "body_questions"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 495.00]]
+
+[[nodes]]
+id = "body_questions"
+scene = "scene_recover_desk_key"
+kind = "line"
+speaker = "detective"
+text = "A fall might explain the body. It does not explain why the scene looks tidier than the death. Start with what still belongs to him."
+next = "desk_key_search"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 495.00]]
+
+[[nodes]]
+id = "desk_key_search"
+scene = "scene_recover_desk_key"
+kind = "line"
+speaker = "narrator"
+text = "Inside Edgar's waistcoat, your fingers catch on a short chain sewn into the lining."
+next = "desk_key_found"
+success = ""
+failure = ""
+cancel = ""
+ui = ""
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[910.00, 495.00]]
+collapsed = false
+
+[[nodes]]
+id = "briefing_dispatch"
+scene = "scene_police_briefing"
+kind = "line"
+speaker = "narrator"
+text = "The night desk slides a rain-spotted dispatch across the counter. Vale House. Edgar Vale, found dead beneath his study window."
+next = "briefing_anomaly"
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = true
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[250.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "briefing_anomaly"
+scene = "scene_police_briefing"
+kind = "line"
+speaker = "narrator"
+text = "The first page calls it a fall. The second records open garden doors, a closed storm shutter, dinner gone cold, and three people already explaining themselves."
+next = "briefing_instruction"
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = true
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[1130.00, 495.00]]
+collapsed = false
+
+[[nodes]]
+id = "briefing_instruction"
+scene = "scene_police_briefing"
+kind = "line"
+speaker = "narrator"
+text = "An accident ought not require three explanations. Take a car when you're ready; Vale House is marked on your map."
+next = "briefing_end"
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = true
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[690.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "briefing_end"
+scene = "scene_police_briefing"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = true
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[910.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "desk_key_found"
+scene = "scene_recover_desk_key"
+kind = "line"
+speaker = "detective"
+text = "A small brass key, worn bright at the teeth."
+next = "desk_key_end"
+success = ""
+failure = ""
+cancel = ""
+ui = ""
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[470.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "desk_key_end"
+scene = "scene_recover_desk_key"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+interaction = ""
+clue = ""
+summary = ""
+duration = 0.000
+transition = 0.000
+blocking = false
+choice_labels = []
+choice_targets = []
+requires_clues = []
+requires_claims = []
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = []
+position = [[690.00, 105.00]]
+collapsed = false
+
+[[nodes]]
+id = "approach_daniel_memo_habit_response"
+scene = "scene_approach_daniel_memo_habit"
+kind = "line"
+speaker = "daniel"
+text = "Daniel holds the stub by its untorn corner. 'Yes. An exact time, an instruction, then the message torn free. Edgar kept the root.'"
+next = "approach_daniel_memo_habit_detective"
+ui = "dialogue"
+transition = 0.180
+position = [[250.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_memo_habit_detective"
+scene = "scene_approach_daniel_memo_habit"
+kind = "line"
+speaker = "detective"
+text = "'A reminder for himself?'"
+next = "approach_daniel_memo_habit_leverage"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_memo_habit_leverage"
+scene = "scene_approach_daniel_memo_habit"
+kind = "line"
+speaker = "daniel"
+text = "'A record for everyone else. Edgar scheduled confrontations as if they were contracts.'"
+next = "approach_daniel_memo_habit_knowledge"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_memo_habit_knowledge"
+scene = "scene_approach_daniel_memo_habit"
+kind = "line"
+speaker = "detective"
+text = "'Then whoever received the missing half knew this one remained in his desk.'"
+next = "approach_daniel_memo_habit_reply"
+ui = "dialogue"
+transition = 0.180
+position = [[910.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_memo_habit_reply"
+scene = "scene_approach_daniel_memo_habit"
+kind = "line"
+speaker = "daniel"
+text = "Daniel releases the paper. 'Being summoned by Edgar always meant being documented by him.'"
+next = "approach_daniel_memo_habit_end"
+ui = "dialogue"
+transition = 0.180
+unlock_topics = ["edgar_kept_appointment_stubs"]
+position = [[1130.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_memo_habit_end"
+scene = "scene_approach_daniel_memo_habit"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+ui = "unchanged"
+position = [[1350.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_burned_paper_response"
+scene = "scene_approach_elsie_burned_paper"
+kind = "line"
+speaker = "elsie"
+text = "Elsie examines the blackened edge. 'Mrs Vale burns private letters in the sitting-room grate. She waits until there is nothing left to read.'"
+next = "approach_elsie_burned_paper_detective"
+ui = "dialogue"
+transition = 0.180
+position = [[250.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_burned_paper_detective"
+scene = "scene_approach_elsie_burned_paper"
+kind = "line"
+speaker = "detective"
+text = "'This never reached the grate.'"
+next = "approach_elsie_burned_paper_flame"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_burned_paper_flame"
+scene = "scene_approach_elsie_burned_paper"
+kind = "line"
+speaker = "elsie"
+text = "'No. A lamp or a match—small flame, pinched out. Then the wastebin.'"
+next = "approach_elsie_burned_paper_haste"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_burned_paper_haste"
+scene = "scene_approach_elsie_burned_paper"
+kind = "line"
+speaker = "detective"
+text = "'Careful enough to destroy it. Too hurried to finish.'"
+next = "approach_elsie_burned_paper_reply"
+ui = "dialogue"
+transition = 0.180
+position = [[910.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_burned_paper_reply"
+scene = "scene_approach_elsie_burned_paper"
+kind = "line"
+speaker = "elsie"
+text = "'That is not how Mrs Vale does anything—unless time has stopped belonging to her.'"
+next = "approach_elsie_burned_paper_end"
+ui = "dialogue"
+transition = 0.180
+unlock_topics = ["fragment_burned_in_haste"]
+position = [[1130.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_burned_paper_end"
+scene = "scene_approach_elsie_burned_paper"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+ui = "unchanged"
+position = [[1350.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_other_lies_detective"
+scene = "scene_approach_miriam_other_lies"
+kind = "line"
+speaker = "detective"
+text = "'Mr Cross lied about watching you at dinner. Miss Ward lied to conceal why she crossed the gallery. One leaves your chair unobserved; the other places you at Edgar's door.'"
+next = "approach_miriam_other_lies_shield"
+ui = "dialogue"
+transition = 0.180
+position = [[250.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_other_lies_shield"
+scene = "scene_approach_miriam_other_lies"
+kind = "line"
+speaker = "miriam"
+text = "Miriam regards them across the cold table. 'Your case rests on an adulterer and a thief discovering honesty at a convenient hour.'"
+next = "approach_miriam_other_lies_daniel"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_other_lies_daniel"
+scene = "scene_approach_miriam_other_lies"
+kind = "line"
+speaker = "daniel"
+text = "'My cowardice explains my statement. It does not put you back at dinner.'"
+next = "approach_miriam_other_lies_elsie"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_other_lies_elsie"
+scene = "scene_approach_miriam_other_lies"
+kind = "line"
+speaker = "elsie"
+text = "Elsie lays the sixteen pounds beside Daniel's folded note. 'And this does not change which door I saw you open.'"
+next = "approach_miriam_other_lies_democratic"
+ui = "dialogue"
+transition = 0.180
+position = [[910.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_other_lies_democratic"
+scene = "scene_approach_miriam_other_lies"
+kind = "line"
+speaker = "miriam"
+text = "'How democratic. Vale House absolves its servants and solicitors by putting the mistress on trial.'"
+next = "approach_miriam_other_lies_separate"
+ui = "dialogue"
+transition = 0.180
+position = [[1130.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_other_lies_separate"
+scene = "scene_approach_miriam_other_lies"
+kind = "line"
+speaker = "detective"
+text = "'Their lies explain what they protected. Yours must explain why one witness lost you and another found you at Edgar's door.'"
+next = "approach_miriam_other_lies_precision"
+ui = "dialogue"
+transition = 0.180
+position = [[1350.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_other_lies_precision"
+scene = "scene_approach_miriam_other_lies"
+kind = "line"
+speaker = "miriam"
+text = "She squares the two confessions without letting them touch. 'A corrected record is not proof, Detective.'"
+next = "approach_miriam_other_lies_end"
+ui = "dialogue"
+transition = 0.180
+unlock_topics = ["other_lies_separated"]
+position = [[1570.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_other_lies_end"
+scene = "scene_approach_miriam_other_lies"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+ui = "unchanged"
+position = [[1790.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_edgar_clock"
+scene = "scene_approach_miriam_edgar"
+kind = "line"
+speaker = "miriam"
+text = "Miriam looks toward the mantel clock. 'Edgar never raised his voice. If dinner was late, he moved that clock forward and made the whole house live by the correction.'"
+next = "approach_miriam_edgar_detective"
+ui = "dialogue"
+transition = 0.180
+position = [[250.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_edgar_detective"
+scene = "scene_approach_miriam_edgar"
+kind = "line"
+speaker = "detective"
+text = "'A punishment that looked like punctuality.'"
+next = "approach_miriam_edgar_apology"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_edgar_apology"
+scene = "scene_approach_miriam_edgar"
+kind = "line"
+speaker = "miriam"
+text = "'An apology was merely another thing that could arrive late.' She straightens the clock without checking its face."
+next = "approach_miriam_edgar_peace"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_edgar_peace"
+scene = "scene_approach_miriam_edgar"
+kind = "line"
+speaker = "miriam"
+text = "'By the end, every clock agreed with Edgar. That was what he called peace.'"
+next = "approach_miriam_edgar_end"
+ui = "dialogue"
+transition = 0.180
+unlock_topics = ["edgar_controlled_by_correction"]
+position = [[910.00, 105.00]]
+
+[[nodes]]
+id = "approach_miriam_edgar_end"
+scene = "scene_approach_miriam_edgar"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+ui = "unchanged"
+position = [[1130.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_edgar_client"
+scene = "scene_approach_daniel_edgar"
+kind = "line"
+speaker = "daniel"
+text = "'Meticulous,' Daniel says. Then, with less loyalty: 'He retained every draft I prepared, including the ones no one was meant to see.'"
+next = "approach_daniel_edgar_favors"
+ui = "dialogue"
+transition = 0.180
+position = [[250.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_edgar_favors"
+scene = "scene_approach_daniel_edgar"
+kind = "line"
+speaker = "detective"
+text = "'Documents, favors, indiscretions.'"
+next = "approach_daniel_edgar_debts"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_edgar_debts"
+scene = "scene_approach_daniel_edgar"
+kind = "line"
+speaker = "daniel"
+text = "'Edgar preferred leverage to trust. Gratitude decays; a debt can be collected.'"
+next = "approach_daniel_edgar_enemies"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_edgar_enemies"
+scene = "scene_approach_daniel_edgar"
+kind = "line"
+speaker = "detective"
+text = "'That gives half the city a reason to dislike your client.'"
+next = "approach_daniel_edgar_opportunity"
+ui = "dialogue"
+transition = 0.180
+position = [[910.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_edgar_opportunity"
+scene = "scene_approach_daniel_edgar"
+kind = "line"
+speaker = "daniel"
+text = "'Reason is plentiful, Detective. Opportunity is the expensive part.'"
+next = "approach_daniel_edgar_end"
+ui = "dialogue"
+transition = 0.180
+unlock_topics = ["edgar_kept_leverage"]
+position = [[1130.00, 105.00]]
+
+[[nodes]]
+id = "approach_daniel_edgar_end"
+scene = "scene_approach_daniel_edgar"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+ui = "unchanged"
+position = [[1350.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_edgar_wages"
+scene = "scene_approach_elsie_edgar"
+kind = "line"
+speaker = "elsie"
+text = "'Mr Vale paid wages at nine on the last Friday of every month. Never a minute late. Never a penny extra.'"
+next = "approach_elsie_edgar_detective"
+ui = "dialogue"
+transition = 0.180
+position = [[250.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_edgar_detective"
+scene = "scene_approach_elsie_edgar"
+kind = "line"
+speaker = "detective"
+text = "'You make correctness sound unlike kindness.'"
+next = "approach_elsie_edgar_kindness"
+ui = "dialogue"
+transition = 0.180
+position = [[470.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_edgar_kindness"
+scene = "scene_approach_elsie_edgar"
+kind = "line"
+speaker = "elsie"
+text = "'He did not know there was a difference. Correctness was what he offered instead.'"
+next = "approach_elsie_edgar_bell"
+ui = "dialogue"
+transition = 0.180
+position = [[690.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_edgar_bell"
+scene = "scene_approach_elsie_edgar"
+kind = "line"
+speaker = "elsie"
+text = "She glances toward the service passage. 'One pull on the study bell meant bring something. Two meant someone was about to be blamed.'"
+next = "approach_elsie_edgar_tonight"
+ui = "dialogue"
+transition = 0.180
+position = [[910.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_edgar_tonight"
+scene = "scene_approach_elsie_edgar"
+kind = "line"
+speaker = "detective"
+text = "'And tonight?'"
+next = "approach_elsie_edgar_silence"
+ui = "dialogue"
+transition = 0.180
+position = [[1130.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_edgar_silence"
+scene = "scene_approach_elsie_edgar"
+kind = "line"
+speaker = "elsie"
+text = "'Not once. The silence is why I remember listening.'"
+next = "approach_elsie_edgar_end"
+ui = "dialogue"
+transition = 0.180
+unlock_topics = ["edgar_household_power"]
+position = [[1350.00, 105.00]]
+
+[[nodes]]
+id = "approach_elsie_edgar_end"
+scene = "scene_approach_elsie_edgar"
+kind = "end"
+speaker = ""
+text = ""
+next = ""
+ui = "unchanged"
+position = [[1570.00, 105.00]]

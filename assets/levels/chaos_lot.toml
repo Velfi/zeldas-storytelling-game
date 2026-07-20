@@ -1,0 +1,9372 @@
+version = "LevelFormat v1"
+id = "chaos_lot"
+name = "Chaos Lot — Rendering Stress Test"
+width = 64
+height = 64
+story_limit = 5
+default_snap = 0.5
+fine_snap = 0.25
+angle_snap = 15.0
+
+[[stories]]
+id = "ground"
+name = "Ground"
+base_elevation = 0.0
+floor_height = 3.5
+
+# Four deliberately different little houses exercise roof batching, wall
+# cutaways, apertures, materials, and dense prop rendering in one camera view.
+[[foundations]]
+id = "foundation_nw"
+kind = "raised"
+story = 0
+points = [[5, 6], [25, 6], [25, 24], [5, 24]]
+elevation = 0.15
+depth = 0.5
+
+[[foundations]]
+id = "foundation_ne"
+kind = "slab"
+story = 0
+points = [[37, 6], [57, 6], [57, 24], [37, 24]]
+elevation = 0.0
+depth = 0.25
+
+[[foundations]]
+id = "foundation_sw"
+kind = "slab"
+story = 0
+points = [[5, 38], [25, 38], [25, 56], [5, 56]]
+elevation = 0.0
+depth = 0.25
+
+[[foundations]]
+id = "foundation_se"
+kind = "raised"
+story = 0
+points = [[37, 38], [57, 38], [57, 56], [37, 56]]
+elevation = 0.25
+depth = 0.75
+
+[[rooms]]
+id = "gable_house"
+name = "Gable House"
+story = 0
+points = [[5, 6], [25, 6], [25, 24], [5, 24]]
+platform_height = 0.15
+floor_material = "core:dining"
+wall_material = "core:dining"
+ceiling_style = "coffered"
+exterior = false
+
+[[rooms]]
+id = "hip_house"
+name = "Hip House"
+story = 0
+points = [[37, 6], [57, 6], [57, 24], [37, 24]]
+platform_height = 0.0
+floor_material = "core:study"
+wall_material = "core:study"
+ceiling_style = "flat"
+exterior = false
+
+[[rooms]]
+id = "mansard_house"
+name = "Mansard House"
+story = 0
+points = [[5, 38], [25, 38], [25, 56], [5, 56]]
+platform_height = 0.0
+floor_material = "core:dining"
+wall_material = "core:study"
+ceiling_style = "coffered"
+exterior = false
+
+[[rooms]]
+id = "flat_house"
+name = "Flat House"
+story = 0
+points = [[37, 38], [57, 38], [57, 56], [37, 56]]
+platform_height = 0.25
+floor_material = "core:study"
+wall_material = "core:dining"
+ceiling_style = "flat"
+exterior = false
+
+[[paths]]
+id = "shell_nw"
+story = 0
+kind = "wall"
+points = [[5, 6], [25, 6], [25, 24], [5, 24], [5, 6]]
+material = "structure"
+width = 0.46
+
+[[paths]]
+id = "shell_ne"
+story = 0
+kind = "wall"
+points = [[37, 6], [57, 6], [57, 24], [37, 24], [37, 6]]
+material = "structure"
+width = 0.3
+
+[[paths]]
+id = "shell_sw"
+story = 0
+kind = "wall"
+points = [[5, 38], [25, 38], [25, 56], [5, 56], [5, 38]]
+material = "structure"
+width = 0.6
+
+[[paths]]
+id = "shell_se"
+story = 0
+kind = "wall"
+points = [[37, 38], [57, 38], [57, 56], [37, 56], [37, 38]]
+material = "structure"
+width = 0.46
+
+[[paths]]
+id = "cross_nw"
+story = 0
+kind = "half_wall"
+points = [[15, 7], [15, 23]]
+material = "structure"
+width = 0.25
+
+[[paths]]
+id = "cross_ne"
+story = 0
+kind = "freestanding_wall"
+points = [[38, 15], [56, 15]]
+material = "structure"
+width = 0.35
+
+[[paths]]
+id = "cross_sw"
+story = 0
+kind = "half_wall"
+points = [[6, 47], [24, 47]]
+material = "structure"
+width = 0.25
+
+[[paths]]
+id = "cross_se"
+story = 0
+kind = "freestanding_wall"
+points = [[47, 39], [47, 55]]
+material = "structure"
+width = 0.46
+
+[[paths]]
+id = "chaos_road"
+story = 0
+kind = "road"
+points = [[0, 31], [20, 29], [42, 33], [64, 31]]
+material = "road"
+width = 4.0
+
+[[paths]]
+id = "chaos_footpath"
+story = 0
+kind = "footpath"
+points = [[31, 0], [30, 20], [34, 42], [32, 64]]
+material = "stone"
+width = 1.4
+
+[[openings]]
+id = "door_nw"
+host_path = "shell_nw"
+kind = "door"
+interaction = "door"
+interaction_prompt = "Open stress-test door"
+interaction_range = 2.0
+initially_active = false
+segment = 0
+position = 0.5
+width = 1.8
+height = 2.3
+
+[[openings]]
+id = "window_nw_wide"
+host_path = "shell_nw"
+kind = "window"
+style = "casement"
+segment = 2
+position = 0.5
+width = 4.0
+height = 1.2
+sill_height = 0.8
+
+[[openings]]
+id = "window_nw_tall"
+host_path = "shell_nw"
+kind = "window"
+style = "awning"
+segment = 1
+position = 0.5
+width = 2.0
+height = 1.8
+sill_height = 0.5
+
+[[openings]]
+id = "door_ne"
+host_path = "shell_ne"
+kind = "door"
+door_style = "double"
+segment = 0
+position = 0.5
+width = 2.4
+height = 2.4
+
+[[openings]]
+id = "window_ne_a"
+host_path = "shell_ne"
+kind = "window"
+style = "double_hung"
+segment = 1
+position = 0.35
+width = 1.4
+height = 1.4
+sill_height = 0.75
+
+[[openings]]
+id = "window_ne_b"
+host_path = "shell_ne"
+kind = "window"
+style = "fixed"
+flipped = true
+segment = 1
+position = 0.72
+width = 2.2
+height = 1.0
+sill_height = 1.0
+
+[[openings]]
+id = "door_sw"
+host_path = "shell_sw"
+kind = "door"
+door_style = "sliding"
+segment = 0
+position = 0.5
+width = 3.6
+height = 2.4
+
+[[openings]]
+id = "window_sw_a"
+host_path = "shell_sw"
+kind = "window"
+style = "awning"
+segment = 2
+position = 0.3
+width = 2.0
+height = 1.0
+sill_height = 1.15
+
+[[openings]]
+id = "window_sw_b"
+host_path = "shell_sw"
+kind = "window"
+style = "casement"
+hinge_right = true
+segment = 2
+position = 0.7
+width = 2.0
+height = 1.5
+sill_height = 0.65
+
+[[openings]]
+id = "door_se"
+host_path = "shell_se"
+kind = "arch"
+segment = 0
+position = 0.5
+width = 2.8
+height = 2.7
+
+[[openings]]
+id = "window_se_a"
+host_path = "shell_se"
+kind = "window"
+style = "fixed"
+segment = 3
+position = 0.3
+width = 2.0
+height = 1.6
+sill_height = 0.6
+
+[[openings]]
+id = "window_se_b"
+host_path = "shell_se"
+kind = "window"
+style = "double_hung"
+segment = 3
+position = 0.72
+width = 1.4
+height = 1.2
+sill_height = 0.9
+
+[[roofs]]
+id = "roof_gable"
+room_id = "gable_house"
+story = 0
+style = "gable"
+pitch = 48
+overhang = 0.8
+ridge_angle = 0
+gutters = true
+
+[[roofs]]
+id = "roof_hip"
+room_id = "hip_house"
+story = 0
+style = "hip"
+pitch = 18
+overhang = 0.25
+ridge_angle = 90
+gutters = false
+
+[[roofs]]
+id = "roof_mansard"
+room_id = "mansard_house"
+story = 0
+style = "mansard"
+pitch = 62
+overhang = 0.45
+ridge_angle = 15
+gutters = true
+
+[[roofs]]
+id = "roof_parapet"
+room_id = "flat_house"
+story = 0
+style = "parapet"
+pitch = 0
+overhang = 0.0
+ridge_angle = 0
+gutters = false
+
+[[waters]]
+id = "chaos_pond"
+points = [[27, 25], [30, 23], [34, 24], [37, 28], [36, 36], [31, 38], [27, 35]]
+elevation = 0.2
+
+# Dense grids intentionally overlap some footprints. Validation permits this,
+# while the renderer sees many models, rotations, tints, elevations and lights.
+[[objects]]
+id="nw_01"
+catalog_id = "core:dining_table"
+story=0
+position=[[9,10]]
+rotation=15
+tint=[180,70,70,255]
+[[objects]]
+id="nw_02"
+catalog_id = "core:chair"
+story=0
+position=[[8,9]]
+rotation=0
+tint=[255,255,255,255]
+[[objects]]
+id="nw_03"
+catalog_id = "core:chair_modern_cushion"
+story=0
+position=[[10,9]]
+rotation=45
+tint=[120,180,220,255]
+[[objects]]
+id="nw_04"
+catalog_id = "core:sofa"
+story=0
+position=[[20,10]]
+rotation=90
+tint=[210,160,90,255]
+[[objects]]
+id="nw_05"
+catalog_id = "core:coffee_table"
+story=0
+position=[[18,10]]
+rotation=30
+tint=[255,255,255,255]
+[[objects]]
+id="nw_06"
+catalog_id = "core:bookcase"
+story=0
+position=[[6.2,15]]
+rotation=270
+tint=[110,70,45,255]
+[[objects]]
+id="nw_07"
+catalog_id = "core:desk"
+story=0
+position=[[10,19]]
+rotation=180
+tint=[150,90,55,255]
+[[objects]]
+id="nw_08"
+catalog_id = "core:computer_screen"
+support_id="nw_07"
+story=0
+position=[[10,19]]
+elevation=0.75
+rotation=180
+tint=[255,255,255,255]
+[[objects]]
+id="nw_09"
+catalog_id = "core:computer_keyboard"
+support_id="nw_07"
+story=0
+position=[[10,18.7]]
+elevation=0.76
+rotation=180
+tint=[255,255,255,255]
+[[objects]]
+id="nw_10"
+catalog_id = "core:floor_lamp"
+story=0
+position=[[23,21]]
+rotation=0
+tint=[255,220,160,255]
+[[objects]]
+id="nw_11"
+catalog_id = "core:bed_bunk"
+story=0
+position=[[20,20]]
+rotation=45
+tint=[150,190,210,255]
+[[objects]]
+id="nw_12"
+catalog_id = "core:pillow_blue_long"
+story=0
+position=[[20,20]]
+elevation=1.3
+rotation=45
+tint=[255,255,255,255]
+[[objects]]
+id="nw_13"
+catalog_id = "core:rug_round"
+story=0
+position=[[15,15]]
+rotation=0
+tint=[220,100,180,210]
+[[objects]]
+id="nw_14"
+catalog_id = "core:ceiling_fan"
+story=0
+position=[[15,15]]
+elevation=2.35
+rotation=22
+tint=[255,255,255,255]
+[[objects]]
+id="nw_15"
+catalog_id = "core:radio"
+story=0
+position=[[13,12]]
+elevation=1.0
+rotation=120
+tint=[255,255,255,255]
+
+[[objects]]
+id="ne_01"
+catalog_id = "core:kitchen_island"
+story=0
+position=[[47,10]]
+rotation=0
+tint=[90,140,110,255]
+[[objects]]
+id="ne_02"
+catalog_id = "core:bar_stool"
+story=0
+position=[[44,10]]
+rotation=90
+tint=[255,170,80,255]
+[[objects]]
+id="ne_03"
+catalog_id = "core:stool_bar"
+story=0
+position=[[50,10]]
+rotation=270
+tint=[120,180,230,255]
+[[objects]]
+id="ne_04"
+catalog_id = "core:kitchen_fridge"
+story=0
+position=[[55,9]]
+rotation=90
+tint=[210,225,235,255]
+[[objects]]
+id="ne_05"
+catalog_id = "core:kitchen_stove"
+story=0
+position=[[55,13]]
+rotation=90
+tint=[60,65,70,255]
+[[objects]]
+id="ne_06"
+catalog_id = "core:kitchen_sink"
+story=0
+position=[[39,10]]
+rotation=270
+tint=[200,210,215,255]
+[[objects]]
+id="ne_07"
+catalog_id = "core:kenney_kitchen_cabinet"
+story=0
+position=[[42,20]]
+rotation=180
+tint=[170,110,70,255]
+[[objects]]
+id="ne_08"
+catalog_id = "core:kitchen_blender"
+support_id="ne_07"
+story=0
+position=[[42,20]]
+elevation=0.9
+rotation=180
+tint=[255,80,80,255]
+[[objects]]
+id="ne_09"
+catalog_id = "core:toaster"
+support_id="ne_07"
+story=0
+position=[[42.5,20]]
+elevation=0.9
+rotation=180
+tint=[230,230,230,255]
+[[objects]]
+id="ne_10"
+catalog_id = "core:lounge_design_sofa_corner"
+story=0
+position=[[50,20]]
+rotation=135
+tint=[160,100,220,255]
+[[objects]]
+id="ne_11"
+catalog_id = "core:table_coffee_glass"
+story=0
+position=[[48,18]]
+rotation=10
+tint=[170,220,255,180]
+[[objects]]
+id="ne_12"
+catalog_id = "core:television_modern"
+story=0
+position=[[54,21]]
+elevation=0.8
+rotation=90
+tint=[255,255,255,255]
+[[objects]]
+id="ne_13"
+catalog_id = "core:speaker"
+story=0
+position=[[53,18]]
+rotation=75
+tint=[30,30,35,255]
+[[objects]]
+id="ne_14"
+catalog_id = "core:speaker_small"
+story=0
+position=[[55,18]]
+rotation=105
+tint=[30,30,35,255]
+[[objects]]
+id="ne_15"
+catalog_id = "core:ceiling_lamp_square"
+story=0
+position=[[47,15]]
+elevation=2.45
+rotation=45
+tint=[255,255,255,255]
+
+[[objects]]
+id="sw_01"
+catalog_id = "core:bed"
+story=0
+position=[[10,43]]
+rotation=0
+tint=[200,130,170,255]
+[[objects]]
+id="sw_02"
+catalog_id = "core:bed_single"
+story=0
+position=[[20,43]]
+rotation=180
+tint=[110,170,220,255]
+[[objects]]
+id="sw_03"
+catalog_id = "core:cabinet_bed_drawer_table"
+story=0
+position=[[15,42]]
+rotation=45
+tint=[150,95,60,255]
+[[objects]]
+id="sw_04"
+catalog_id = "core:table_lamp_round"
+support_id="sw_03"
+story=0
+position=[[15,42]]
+elevation=0.65
+rotation=45
+tint=[255,220,170,255]
+[[objects]]
+id="sw_05"
+catalog_id = "core:bathtub"
+story=0
+position=[[8,52]]
+rotation=90
+tint=[235,235,220,255]
+[[objects]]
+id="sw_06"
+catalog_id = "core:kenney_toilet"
+story=0
+position=[[12,52]]
+rotation=180
+tint=[255,255,245,255]
+[[objects]]
+id="sw_07"
+catalog_id = "core:kenney_bathroom_sink"
+story=0
+position=[[16,53]]
+rotation=0
+tint=[180,220,220,255]
+[[objects]]
+id="sw_08"
+catalog_id = "core:shower_round"
+story=0
+position=[[22,52]]
+rotation=225
+tint=[160,210,235,180]
+[[objects]]
+id="sw_09"
+catalog_id = "core:washer_dryer_stacked"
+story=0
+position=[[23,45]]
+rotation=90
+tint=[225,225,230,255]
+[[objects]]
+id="sw_10"
+catalog_id = "core:coat_rack"
+story=0
+position=[[7,44]]
+rotation=345
+tint=[95,60,45,255]
+[[objects]]
+id="sw_11"
+catalog_id = "core:plant_small1"
+story=0
+position=[[18,51]]
+rotation=33
+tint=[255,255,255,255]
+foliage_tint=[40,180,80,255]
+[[objects]]
+id="sw_12"
+catalog_id = "core:plant_small2"
+story=0
+position=[[19,51]]
+rotation=166
+tint=[255,255,255,255]
+foliage_tint=[180,70,160,255]
+[[objects]]
+id="sw_13"
+catalog_id = "core:plant_small3"
+story=0
+position=[[20,51]]
+rotation=277
+tint=[255,255,255,255]
+foliage_tint=[220,150,45,255]
+[[objects]]
+id="sw_14"
+catalog_id = "core:rug_rectangle"
+story=0
+position=[[15,47]]
+rotation=15
+tint=[255,90,60,190]
+[[objects]]
+id="sw_15"
+catalog_id = "core:floor_lamp_round"
+story=0
+position=[[23,54]]
+rotation=0
+tint=[255,220,170,255]
+
+[[objects]]
+id="se_01"
+catalog_id = "core:lounge_sofa_long"
+story=0
+position=[[42,43]]
+rotation=315
+tint=[80,180,190,255]
+[[objects]]
+id="se_02"
+catalog_id = "core:lounge_sofa_ottoman"
+story=0
+position=[[45,45]]
+rotation=15
+tint=[210,100,70,255]
+[[objects]]
+id="se_03"
+catalog_id = "core:lounge_chair_relax"
+story=0
+position=[[52,43]]
+rotation=120
+tint=[150,210,100,255]
+[[objects]]
+id="se_04"
+catalog_id = "core:table_cross_cloth"
+story=0
+position=[[52,50]]
+rotation=75
+tint=[190,100,190,255]
+[[objects]]
+id="se_05"
+catalog_id = "core:kenney_chair"
+story=0
+position=[[50,49]]
+rotation=20
+tint=[240,160,60,255]
+[[objects]]
+id="se_06"
+catalog_id = "core:chair_rounded"
+story=0
+position=[[54,49]]
+rotation=200
+tint=[70,150,230,255]
+[[objects]]
+id="se_07"
+catalog_id = "core:bookcase_closed_wide"
+story=0
+position=[[55,53]]
+rotation=90
+tint=[115,70,45,255]
+[[objects]]
+id="se_08"
+catalog_id = "core:books"
+support_id="se_07"
+story=0
+position=[[55,53]]
+elevation=1.2
+rotation=90
+tint=[255,120,80,255]
+[[objects]]
+id="se_09"
+catalog_id = "core:desk_corner"
+story=0
+position=[[40,52]]
+rotation=270
+tint=[130,90,55,255]
+[[objects]]
+id="se_10"
+catalog_id = "core:laptop"
+support_id="se_09"
+story=0
+position=[[40,52]]
+elevation=0.78
+rotation=270
+tint=[180,200,220,255]
+[[objects]]
+id="se_11"
+catalog_id = "core:cardboard_box_closed"
+story=0
+position=[[44,52]]
+rotation=11
+tint=[180,130,80,255]
+[[objects]]
+id="se_12"
+catalog_id = "core:cardboard_box_open"
+story=0
+position=[[45,52]]
+rotation=289
+tint=[210,160,95,255]
+[[objects]]
+id="se_13"
+catalog_id = "core:bear"
+story=0
+position=[[49,53]]
+elevation=0.4
+rotation=33
+tint=[255,255,255,255]
+[[objects]]
+id="se_14"
+catalog_id = "core:television_vintage"
+story=0
+position=[[55,42]]
+rotation=90
+tint=[130,90,60,255]
+[[objects]]
+id="se_15"
+catalog_id = "core:wall_lamp"
+story=0
+position=[[37.3,47]]
+elevation=1.8
+rotation=270
+tint=[255,220,160,255]
+
+[[objects]]
+id="yard_01"
+catalog_id = "core:tree_large"
+story=0
+position=[[3,3]]
+rotation=17
+tint=[255,255,255,255]
+bark_tint=[95,65,42,255]
+foliage_tint=[45,120,60,255]
+[[objects]]
+id="yard_02"
+catalog_id = "core:nature_palm"
+story=0
+position=[[61,3]]
+rotation=93
+tint=[255,255,255,255]
+bark_tint=[140,95,55,255]
+foliage_tint=[55,180,85,255]
+[[objects]]
+id="yard_03"
+catalog_id = "core:stylized_dead_tree"
+story=0
+position=[[3,61]]
+rotation=201
+tint=[255,255,255,255]
+bark_tint=[80,55,40,255]
+[[objects]]
+id="yard_04"
+catalog_id = "core:nature_willow"
+story=0
+position=[[61,61]]
+rotation=307
+tint=[255,255,255,255]
+bark_tint=[100,75,48,255]
+foliage_tint=[80,150,95,255]
+[[objects]]
+id="yard_05"
+catalog_id = "core:stylized_pine_3"
+story=0
+position=[[29,6]]
+rotation=49
+tint=[255,255,255,255]
+bark_tint=[85,55,35,255]
+foliage_tint=[30,95,70,255]
+[[objects]]
+id="yard_06"
+catalog_id = "core:stylized_birch_5"
+story=0
+position=[[35,58]]
+rotation=149
+tint=[255,255,255,255]
+bark_tint=[220,220,205,255]
+foliage_tint=[170,100,45,255]
+[[objects]]
+id="yard_07"
+catalog_id = "core:nature_cactus"
+story=0
+position=[[29,58]]
+rotation=249
+tint=[255,255,255,255]
+foliage_tint=[75,145,85,255]
+[[objects]]
+id="yard_08"
+catalog_id = "core:nature_berry_bush"
+story=0
+position=[[35,6]]
+rotation=349
+tint=[255,255,255,255]
+foliage_tint=[110,55,150,255]
+[[objects]]
+id="yard_09"
+catalog_id = "core:yard_bench"
+story=0
+position=[[31,18]]
+rotation=0
+tint=[175,115,70,255]
+[[objects]]
+id="yard_10"
+catalog_id = "core:nature_flowers"
+story=0
+position=[[33,18]]
+rotation=180
+tint=[255,255,255,255]
+foliage_tint=[240,80,160,255]
+[[objects]]
+id="yard_11"
+catalog_id = "core:yard_fence"
+story=0
+position=[[27,15]]
+rotation=90
+tint=[220,180,120,255]
+[[objects]]
+id="yard_12"
+catalog_id = "core:nature_grass"
+story=0
+position=[[36,31]]
+rotation=44
+tint=[255,255,255,255]
+foliage_tint=[90,200,55,180]
+# BEGIN GENERATED CHAOS PROPS
+# 928 instances + 72 authored objects = exactly 1,000 renderable props.
+
+[[objects]]
+id = "generated_0001"
+catalog_id = "core:chair"
+story = 0
+position = [[1.500, 1.500]]
+elevation = 0.350
+rotation = 0
+tint = [70, 70, 70, 176]
+
+[[objects]]
+id = "generated_0002"
+catalog_id = "core:chair_modern_cushion"
+story = 0
+position = [[3.450, 1.500]]
+elevation = 0.000
+rotation = 47
+tint = [107, 137, 167, 255]
+
+[[objects]]
+id = "generated_0003"
+catalog_id = "core:sofa"
+story = 0
+position = [[5.400, 1.500]]
+elevation = 0.000
+rotation = 94
+tint = [144, 204, 78, 255]
+
+[[objects]]
+id = "generated_0004"
+catalog_id = "core:coffee_table"
+story = 0
+position = [[7.350, 1.500]]
+elevation = 0.000
+rotation = 141
+tint = [181, 85, 175, 255]
+
+[[objects]]
+id = "generated_0005"
+catalog_id = "core:bookcase"
+story = 0
+position = [[9.300, 1.500]]
+elevation = 0.000
+rotation = 188
+tint = [218, 152, 86, 255]
+
+[[objects]]
+id = "generated_0006"
+catalog_id = "core:desk"
+story = 0
+position = [[11.250, 1.500]]
+elevation = 0.000
+rotation = 235
+tint = [255, 219, 183, 255]
+
+[[objects]]
+id = "generated_0007"
+catalog_id = "core:bed"
+story = 0
+position = [[13.200, 1.500]]
+elevation = 0.000
+rotation = 282
+tint = [106, 100, 94, 255]
+
+[[objects]]
+id = "generated_0008"
+catalog_id = "core:side_table"
+story = 0
+position = [[15.150, 1.500]]
+elevation = 0.000
+rotation = 329
+tint = [143, 167, 191, 255]
+
+[[objects]]
+id = "generated_0009"
+catalog_id = "core:floor_lamp"
+story = 0
+position = [[17.100, 1.500]]
+elevation = 0.000
+rotation = 16
+tint = [180, 234, 102, 255]
+
+[[objects]]
+id = "generated_0010"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[19.050, 1.500]]
+elevation = 0.000
+rotation = 63
+tint = [217, 115, 199, 255]
+
+[[objects]]
+id = "generated_0011"
+catalog_id = "core:table_lamp_square"
+story = 0
+position = [[21.000, 1.500]]
+elevation = 0.000
+rotation = 110
+tint = [254, 182, 110, 255]
+
+[[objects]]
+id = "generated_0012"
+catalog_id = "core:table_lamp_round"
+story = 0
+position = [[22.950, 1.500]]
+elevation = 0.000
+rotation = 157
+tint = [105, 249, 207, 255]
+
+[[objects]]
+id = "generated_0013"
+catalog_id = "core:ceiling_fan"
+story = 0
+position = [[24.900, 1.500]]
+elevation = 0.000
+rotation = 204
+tint = [142, 130, 118, 255]
+
+[[objects]]
+id = "generated_0014"
+catalog_id = "core:kitchen_island"
+story = 0
+position = [[26.850, 1.500]]
+elevation = 0.000
+rotation = 251
+tint = [179, 197, 215, 255]
+
+[[objects]]
+id = "generated_0015"
+catalog_id = "core:bar_stool"
+story = 0
+position = [[28.800, 1.500]]
+elevation = 0.000
+rotation = 298
+tint = [216, 78, 126, 255]
+
+[[objects]]
+id = "generated_0016"
+catalog_id = "core:kitchen_fridge"
+story = 0
+position = [[30.750, 1.500]]
+elevation = 0.000
+rotation = 345
+tint = [253, 145, 223, 255]
+
+[[objects]]
+id = "generated_0017"
+catalog_id = "core:kitchen_stove"
+story = 0
+position = [[32.700, 1.500]]
+elevation = 0.000
+rotation = 32
+tint = [104, 212, 134, 255]
+
+[[objects]]
+id = "generated_0018"
+catalog_id = "core:kitchen_sink"
+story = 0
+position = [[34.650, 1.500]]
+elevation = 0.000
+rotation = 79
+tint = [141, 93, 231, 255]
+
+[[objects]]
+id = "generated_0019"
+catalog_id = "core:kenney_kitchen_cabinet"
+story = 0
+position = [[36.600, 1.500]]
+elevation = 0.000
+rotation = 126
+tint = [178, 160, 142, 255]
+
+[[objects]]
+id = "generated_0020"
+catalog_id = "core:kitchen_blender"
+story = 0
+position = [[38.550, 1.500]]
+elevation = 0.000
+rotation = 173
+tint = [215, 227, 239, 176]
+
+[[objects]]
+id = "generated_0021"
+catalog_id = "core:toaster"
+story = 0
+position = [[40.500, 1.500]]
+elevation = 0.000
+rotation = 220
+tint = [252, 108, 150, 255]
+
+[[objects]]
+id = "generated_0022"
+catalog_id = "core:lounge_chair"
+story = 0
+position = [[42.450, 1.500]]
+elevation = 0.000
+rotation = 267
+tint = [103, 175, 247, 255]
+
+[[objects]]
+id = "generated_0023"
+catalog_id = "core:lounge_design_chair"
+story = 0
+position = [[44.400, 1.500]]
+elevation = 0.000
+rotation = 314
+tint = [140, 242, 158, 255]
+
+[[objects]]
+id = "generated_0024"
+catalog_id = "core:lounge_design_sofa"
+story = 0
+position = [[46.350, 1.500]]
+elevation = 0.350
+rotation = 1
+tint = [177, 123, 255, 255]
+
+[[objects]]
+id = "generated_0025"
+catalog_id = "core:lounge_sofa_corner"
+story = 0
+position = [[48.300, 1.500]]
+elevation = 0.000
+rotation = 48
+tint = [214, 190, 166, 255]
+
+[[objects]]
+id = "generated_0026"
+catalog_id = "core:lounge_sofa_ottoman"
+story = 0
+position = [[50.250, 1.500]]
+elevation = 0.000
+rotation = 95
+tint = [251, 71, 77, 255]
+
+[[objects]]
+id = "generated_0027"
+catalog_id = "core:table"
+story = 0
+position = [[52.200, 1.500]]
+elevation = 0.000
+rotation = 142
+tint = [102, 138, 174, 255]
+
+[[objects]]
+id = "generated_0028"
+catalog_id = "core:table_round"
+story = 0
+position = [[54.150, 1.500]]
+elevation = 0.000
+rotation = 189
+tint = [139, 205, 85, 255]
+
+[[objects]]
+id = "generated_0029"
+catalog_id = "core:table_cross"
+story = 0
+position = [[56.100, 1.500]]
+elevation = 0.000
+rotation = 236
+tint = [176, 86, 182, 255]
+
+[[objects]]
+id = "generated_0030"
+catalog_id = "core:table_glass"
+story = 0
+position = [[58.050, 1.500]]
+elevation = 0.000
+rotation = 283
+tint = [213, 153, 93, 255]
+
+[[objects]]
+id = "generated_0031"
+catalog_id = "core:rug_rectangle"
+story = 0
+position = [[60.000, 1.500]]
+elevation = 0.000
+rotation = 330
+tint = [250, 220, 190, 255]
+
+[[objects]]
+id = "generated_0032"
+catalog_id = "core:rug_round"
+story = 0
+position = [[61.950, 1.500]]
+elevation = 0.000
+rotation = 17
+tint = [101, 101, 101, 255]
+
+[[objects]]
+id = "generated_0033"
+catalog_id = "core:rug_square"
+story = 0
+position = [[1.500, 3.600]]
+elevation = 0.000
+rotation = 77
+tint = [138, 168, 198, 255]
+
+[[objects]]
+id = "generated_0034"
+catalog_id = "core:bathtub"
+story = 0
+position = [[3.450, 3.600]]
+elevation = 0.000
+rotation = 124
+tint = [175, 235, 109, 255]
+
+[[objects]]
+id = "generated_0035"
+catalog_id = "core:kenney_toilet"
+story = 0
+position = [[5.400, 3.600]]
+elevation = 0.000
+rotation = 171
+tint = [212, 116, 206, 255]
+
+[[objects]]
+id = "generated_0036"
+catalog_id = "core:kenney_bathroom_sink"
+story = 0
+position = [[7.350, 3.600]]
+elevation = 0.000
+rotation = 218
+tint = [249, 183, 117, 255]
+
+[[objects]]
+id = "generated_0037"
+catalog_id = "core:shower_round"
+story = 0
+position = [[9.300, 3.600]]
+elevation = 0.000
+rotation = 265
+tint = [100, 250, 214, 255]
+
+[[objects]]
+id = "generated_0038"
+catalog_id = "core:washer"
+story = 0
+position = [[11.250, 3.600]]
+elevation = 0.000
+rotation = 312
+tint = [137, 131, 125, 255]
+
+[[objects]]
+id = "generated_0039"
+catalog_id = "core:dryer"
+story = 0
+position = [[13.200, 3.600]]
+elevation = 0.000
+rotation = 359
+tint = [174, 198, 222, 176]
+
+[[objects]]
+id = "generated_0040"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[15.150, 3.600]]
+elevation = 0.000
+rotation = 46
+tint = [211, 79, 133, 255]
+
+[[objects]]
+id = "generated_0041"
+catalog_id = "core:cardboard_box_open"
+story = 0
+position = [[17.100, 3.600]]
+elevation = 0.000
+rotation = 93
+tint = [248, 146, 230, 255]
+
+[[objects]]
+id = "generated_0042"
+catalog_id = "core:trashcan"
+story = 0
+position = [[19.050, 3.600]]
+elevation = 0.000
+rotation = 140
+tint = [99, 213, 141, 255]
+
+[[objects]]
+id = "generated_0043"
+catalog_id = "core:radio"
+story = 0
+position = [[21.000, 3.600]]
+elevation = 0.000
+rotation = 187
+tint = [136, 94, 238, 255]
+
+[[objects]]
+id = "generated_0044"
+catalog_id = "core:speaker"
+story = 0
+position = [[22.950, 3.600]]
+elevation = 0.000
+rotation = 234
+tint = [173, 161, 149, 255]
+
+[[objects]]
+id = "generated_0045"
+catalog_id = "core:speaker_small"
+story = 0
+position = [[24.900, 3.600]]
+elevation = 0.000
+rotation = 281
+tint = [210, 228, 246, 255]
+
+[[objects]]
+id = "generated_0046"
+catalog_id = "core:plant_small1"
+story = 0
+position = [[26.850, 3.600]]
+elevation = 0.000
+rotation = 328
+tint = [247, 109, 157, 255]
+
+[[objects]]
+id = "generated_0047"
+catalog_id = "core:nature_bush"
+story = 0
+position = [[28.800, 3.600]]
+elevation = 0.350
+rotation = 15
+tint = [98, 176, 254, 255]
+
+[[objects]]
+id = "generated_0048"
+catalog_id = "core:nature_grass"
+story = 0
+position = [[30.750, 3.600]]
+elevation = 0.000
+rotation = 62
+tint = [135, 243, 165, 255]
+
+[[objects]]
+id = "generated_0049"
+catalog_id = "core:chair"
+story = 0
+position = [[32.700, 3.600]]
+elevation = 0.000
+rotation = 109
+tint = [172, 124, 76, 255]
+
+[[objects]]
+id = "generated_0050"
+catalog_id = "core:chair_modern_cushion"
+story = 0
+position = [[34.650, 3.600]]
+elevation = 0.000
+rotation = 156
+tint = [209, 191, 173, 255]
+
+[[objects]]
+id = "generated_0051"
+catalog_id = "core:sofa"
+story = 0
+position = [[36.600, 3.600]]
+elevation = 0.000
+rotation = 203
+tint = [246, 72, 84, 255]
+
+[[objects]]
+id = "generated_0052"
+catalog_id = "core:coffee_table"
+story = 0
+position = [[38.550, 3.600]]
+elevation = 0.000
+rotation = 250
+tint = [97, 139, 181, 255]
+
+[[objects]]
+id = "generated_0053"
+catalog_id = "core:bookcase"
+story = 0
+position = [[40.500, 3.600]]
+elevation = 0.000
+rotation = 297
+tint = [134, 206, 92, 255]
+
+[[objects]]
+id = "generated_0054"
+catalog_id = "core:desk"
+story = 0
+position = [[42.450, 3.600]]
+elevation = 0.000
+rotation = 344
+tint = [171, 87, 189, 255]
+
+[[objects]]
+id = "generated_0055"
+catalog_id = "core:bed"
+story = 0
+position = [[44.400, 3.600]]
+elevation = 0.000
+rotation = 31
+tint = [208, 154, 100, 255]
+
+[[objects]]
+id = "generated_0056"
+catalog_id = "core:side_table"
+story = 0
+position = [[46.350, 3.600]]
+elevation = 0.000
+rotation = 78
+tint = [245, 221, 197, 255]
+
+[[objects]]
+id = "generated_0057"
+catalog_id = "core:floor_lamp"
+story = 0
+position = [[48.300, 3.600]]
+elevation = 0.000
+rotation = 125
+tint = [96, 102, 108, 255]
+
+[[objects]]
+id = "generated_0058"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[50.250, 3.600]]
+elevation = 0.000
+rotation = 172
+tint = [133, 169, 205, 176]
+
+[[objects]]
+id = "generated_0059"
+catalog_id = "core:table_lamp_square"
+story = 0
+position = [[52.200, 3.600]]
+elevation = 0.000
+rotation = 219
+tint = [170, 236, 116, 255]
+
+[[objects]]
+id = "generated_0060"
+catalog_id = "core:table_lamp_round"
+story = 0
+position = [[54.150, 3.600]]
+elevation = 0.000
+rotation = 266
+tint = [207, 117, 213, 255]
+
+[[objects]]
+id = "generated_0061"
+catalog_id = "core:ceiling_fan"
+story = 0
+position = [[56.100, 3.600]]
+elevation = 0.000
+rotation = 313
+tint = [244, 184, 124, 255]
+
+[[objects]]
+id = "generated_0062"
+catalog_id = "core:kitchen_island"
+story = 0
+position = [[58.050, 3.600]]
+elevation = 0.000
+rotation = 0
+tint = [95, 251, 221, 255]
+
+[[objects]]
+id = "generated_0063"
+catalog_id = "core:bar_stool"
+story = 0
+position = [[60.000, 3.600]]
+elevation = 0.000
+rotation = 47
+tint = [132, 132, 132, 255]
+
+[[objects]]
+id = "generated_0064"
+catalog_id = "core:kitchen_fridge"
+story = 0
+position = [[61.950, 3.600]]
+elevation = 0.000
+rotation = 94
+tint = [169, 199, 229, 255]
+
+[[objects]]
+id = "generated_0065"
+catalog_id = "core:kitchen_stove"
+story = 0
+position = [[1.500, 5.700]]
+elevation = 0.000
+rotation = 154
+tint = [206, 80, 140, 255]
+
+[[objects]]
+id = "generated_0066"
+catalog_id = "core:kitchen_sink"
+story = 0
+position = [[3.450, 5.700]]
+elevation = 0.000
+rotation = 201
+tint = [243, 147, 237, 255]
+
+[[objects]]
+id = "generated_0067"
+catalog_id = "core:kenney_kitchen_cabinet"
+story = 0
+position = [[5.400, 5.700]]
+elevation = 0.000
+rotation = 248
+tint = [94, 214, 148, 255]
+
+[[objects]]
+id = "generated_0068"
+catalog_id = "core:kitchen_blender"
+story = 0
+position = [[7.350, 5.700]]
+elevation = 0.000
+rotation = 295
+tint = [131, 95, 245, 255]
+
+[[objects]]
+id = "generated_0069"
+catalog_id = "core:toaster"
+story = 0
+position = [[9.300, 5.700]]
+elevation = 0.000
+rotation = 342
+tint = [168, 162, 156, 255]
+
+[[objects]]
+id = "generated_0070"
+catalog_id = "core:lounge_chair"
+story = 0
+position = [[11.250, 5.700]]
+elevation = 0.350
+rotation = 29
+tint = [205, 229, 253, 255]
+
+[[objects]]
+id = "generated_0071"
+catalog_id = "core:lounge_design_chair"
+story = 0
+position = [[13.200, 5.700]]
+elevation = 0.000
+rotation = 76
+tint = [242, 110, 164, 255]
+
+[[objects]]
+id = "generated_0072"
+catalog_id = "core:lounge_design_sofa"
+story = 0
+position = [[15.150, 5.700]]
+elevation = 0.000
+rotation = 123
+tint = [93, 177, 75, 255]
+
+[[objects]]
+id = "generated_0073"
+catalog_id = "core:lounge_sofa_corner"
+story = 0
+position = [[17.100, 5.700]]
+elevation = 0.000
+rotation = 170
+tint = [130, 244, 172, 255]
+
+[[objects]]
+id = "generated_0074"
+catalog_id = "core:lounge_sofa_ottoman"
+story = 0
+position = [[19.050, 5.700]]
+elevation = 0.000
+rotation = 217
+tint = [167, 125, 83, 255]
+
+[[objects]]
+id = "generated_0075"
+catalog_id = "core:table"
+story = 0
+position = [[21.000, 5.700]]
+elevation = 0.000
+rotation = 264
+tint = [204, 192, 180, 255]
+
+[[objects]]
+id = "generated_0076"
+catalog_id = "core:table_round"
+story = 0
+position = [[22.950, 5.700]]
+elevation = 0.000
+rotation = 311
+tint = [241, 73, 91, 255]
+
+[[objects]]
+id = "generated_0077"
+catalog_id = "core:table_cross"
+story = 0
+position = [[24.900, 5.700]]
+elevation = 0.000
+rotation = 358
+tint = [92, 140, 188, 176]
+
+[[objects]]
+id = "generated_0078"
+catalog_id = "core:table_glass"
+story = 0
+position = [[26.850, 5.700]]
+elevation = 0.000
+rotation = 45
+tint = [129, 207, 99, 255]
+
+[[objects]]
+id = "generated_0079"
+catalog_id = "core:rug_rectangle"
+story = 0
+position = [[28.800, 5.700]]
+elevation = 0.000
+rotation = 92
+tint = [166, 88, 196, 255]
+
+[[objects]]
+id = "generated_0080"
+catalog_id = "core:rug_round"
+story = 0
+position = [[30.750, 5.700]]
+elevation = 0.000
+rotation = 139
+tint = [203, 155, 107, 255]
+
+[[objects]]
+id = "generated_0081"
+catalog_id = "core:rug_square"
+story = 0
+position = [[32.700, 5.700]]
+elevation = 0.000
+rotation = 186
+tint = [240, 222, 204, 255]
+
+[[objects]]
+id = "generated_0082"
+catalog_id = "core:bathtub"
+story = 0
+position = [[34.650, 5.700]]
+elevation = 0.000
+rotation = 233
+tint = [91, 103, 115, 255]
+
+[[objects]]
+id = "generated_0083"
+catalog_id = "core:kenney_toilet"
+story = 0
+position = [[36.600, 5.700]]
+elevation = 0.000
+rotation = 280
+tint = [128, 170, 212, 255]
+
+[[objects]]
+id = "generated_0084"
+catalog_id = "core:kenney_bathroom_sink"
+story = 0
+position = [[38.550, 5.700]]
+elevation = 0.000
+rotation = 327
+tint = [165, 237, 123, 255]
+
+[[objects]]
+id = "generated_0085"
+catalog_id = "core:shower_round"
+story = 0
+position = [[40.500, 5.700]]
+elevation = 0.000
+rotation = 14
+tint = [202, 118, 220, 255]
+
+[[objects]]
+id = "generated_0086"
+catalog_id = "core:washer"
+story = 0
+position = [[42.450, 5.700]]
+elevation = 0.000
+rotation = 61
+tint = [239, 185, 131, 255]
+
+[[objects]]
+id = "generated_0087"
+catalog_id = "core:dryer"
+story = 0
+position = [[44.400, 5.700]]
+elevation = 0.000
+rotation = 108
+tint = [90, 252, 228, 255]
+
+[[objects]]
+id = "generated_0088"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[46.350, 5.700]]
+elevation = 0.000
+rotation = 155
+tint = [127, 133, 139, 255]
+
+[[objects]]
+id = "generated_0089"
+catalog_id = "core:cardboard_box_open"
+story = 0
+position = [[48.300, 5.700]]
+elevation = 0.000
+rotation = 202
+tint = [164, 200, 236, 255]
+
+[[objects]]
+id = "generated_0090"
+catalog_id = "core:trashcan"
+story = 0
+position = [[50.250, 5.700]]
+elevation = 0.000
+rotation = 249
+tint = [201, 81, 147, 255]
+
+[[objects]]
+id = "generated_0091"
+catalog_id = "core:radio"
+story = 0
+position = [[52.200, 5.700]]
+elevation = 0.000
+rotation = 296
+tint = [238, 148, 244, 255]
+
+[[objects]]
+id = "generated_0092"
+catalog_id = "core:speaker"
+story = 0
+position = [[54.150, 5.700]]
+elevation = 0.000
+rotation = 343
+tint = [89, 215, 155, 255]
+
+[[objects]]
+id = "generated_0093"
+catalog_id = "core:speaker_small"
+story = 0
+position = [[56.100, 5.700]]
+elevation = 0.350
+rotation = 30
+tint = [126, 96, 252, 255]
+
+[[objects]]
+id = "generated_0094"
+catalog_id = "core:plant_small1"
+story = 0
+position = [[58.050, 5.700]]
+elevation = 0.000
+rotation = 77
+tint = [163, 163, 163, 255]
+
+[[objects]]
+id = "generated_0095"
+catalog_id = "core:nature_bush"
+story = 0
+position = [[60.000, 5.700]]
+elevation = 0.000
+rotation = 124
+tint = [200, 230, 74, 255]
+
+[[objects]]
+id = "generated_0096"
+catalog_id = "core:nature_grass"
+story = 0
+position = [[61.950, 5.700]]
+elevation = 0.000
+rotation = 171
+tint = [237, 111, 171, 176]
+
+[[objects]]
+id = "generated_0097"
+catalog_id = "core:chair"
+story = 0
+position = [[1.500, 7.800]]
+elevation = 0.000
+rotation = 231
+tint = [88, 178, 82, 255]
+
+[[objects]]
+id = "generated_0098"
+catalog_id = "core:chair_modern_cushion"
+story = 0
+position = [[3.450, 7.800]]
+elevation = 0.000
+rotation = 278
+tint = [125, 245, 179, 255]
+
+[[objects]]
+id = "generated_0099"
+catalog_id = "core:sofa"
+story = 0
+position = [[5.400, 7.800]]
+elevation = 0.000
+rotation = 325
+tint = [162, 126, 90, 255]
+
+[[objects]]
+id = "generated_0100"
+catalog_id = "core:coffee_table"
+story = 0
+position = [[7.350, 7.800]]
+elevation = 0.000
+rotation = 12
+tint = [199, 193, 187, 255]
+
+[[objects]]
+id = "generated_0101"
+catalog_id = "core:bookcase"
+story = 0
+position = [[9.300, 7.800]]
+elevation = 0.000
+rotation = 59
+tint = [236, 74, 98, 255]
+
+[[objects]]
+id = "generated_0102"
+catalog_id = "core:desk"
+story = 0
+position = [[11.250, 7.800]]
+elevation = 0.000
+rotation = 106
+tint = [87, 141, 195, 255]
+
+[[objects]]
+id = "generated_0103"
+catalog_id = "core:bed"
+story = 0
+position = [[13.200, 7.800]]
+elevation = 0.000
+rotation = 153
+tint = [124, 208, 106, 255]
+
+[[objects]]
+id = "generated_0104"
+catalog_id = "core:side_table"
+story = 0
+position = [[15.150, 7.800]]
+elevation = 0.000
+rotation = 200
+tint = [161, 89, 203, 255]
+
+[[objects]]
+id = "generated_0105"
+catalog_id = "core:floor_lamp"
+story = 0
+position = [[17.100, 7.800]]
+elevation = 0.000
+rotation = 247
+tint = [198, 156, 114, 255]
+
+[[objects]]
+id = "generated_0106"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[19.050, 7.800]]
+elevation = 0.000
+rotation = 294
+tint = [235, 223, 211, 255]
+
+[[objects]]
+id = "generated_0107"
+catalog_id = "core:table_lamp_square"
+story = 0
+position = [[21.000, 7.800]]
+elevation = 0.000
+rotation = 341
+tint = [86, 104, 122, 255]
+
+[[objects]]
+id = "generated_0108"
+catalog_id = "core:table_lamp_round"
+story = 0
+position = [[22.950, 7.800]]
+elevation = 0.000
+rotation = 28
+tint = [123, 171, 219, 255]
+
+[[objects]]
+id = "generated_0109"
+catalog_id = "core:ceiling_fan"
+story = 0
+position = [[24.900, 7.800]]
+elevation = 0.000
+rotation = 75
+tint = [160, 238, 130, 255]
+
+[[objects]]
+id = "generated_0110"
+catalog_id = "core:kitchen_island"
+story = 0
+position = [[26.850, 7.800]]
+elevation = 0.000
+rotation = 122
+tint = [197, 119, 227, 255]
+
+[[objects]]
+id = "generated_0111"
+catalog_id = "core:bar_stool"
+story = 0
+position = [[28.800, 7.800]]
+elevation = 0.000
+rotation = 169
+tint = [234, 186, 138, 255]
+
+[[objects]]
+id = "generated_0112"
+catalog_id = "core:kitchen_fridge"
+story = 0
+position = [[30.750, 7.800]]
+elevation = 0.000
+rotation = 216
+tint = [85, 253, 235, 255]
+
+[[objects]]
+id = "generated_0113"
+catalog_id = "core:kitchen_stove"
+story = 0
+position = [[32.700, 7.800]]
+elevation = 0.000
+rotation = 263
+tint = [122, 134, 146, 255]
+
+[[objects]]
+id = "generated_0114"
+catalog_id = "core:kitchen_sink"
+story = 0
+position = [[34.650, 7.800]]
+elevation = 0.000
+rotation = 310
+tint = [159, 201, 243, 255]
+
+[[objects]]
+id = "generated_0115"
+catalog_id = "core:kenney_kitchen_cabinet"
+story = 0
+position = [[36.600, 7.800]]
+elevation = 0.000
+rotation = 357
+tint = [196, 82, 154, 176]
+
+[[objects]]
+id = "generated_0116"
+catalog_id = "core:kitchen_blender"
+story = 0
+position = [[38.550, 7.800]]
+elevation = 0.350
+rotation = 44
+tint = [233, 149, 251, 255]
+
+[[objects]]
+id = "generated_0117"
+catalog_id = "core:toaster"
+story = 0
+position = [[40.500, 7.800]]
+elevation = 0.000
+rotation = 91
+tint = [84, 216, 162, 255]
+
+[[objects]]
+id = "generated_0118"
+catalog_id = "core:lounge_chair"
+story = 0
+position = [[42.450, 7.800]]
+elevation = 0.000
+rotation = 138
+tint = [121, 97, 73, 255]
+
+[[objects]]
+id = "generated_0119"
+catalog_id = "core:lounge_design_chair"
+story = 0
+position = [[44.400, 7.800]]
+elevation = 0.000
+rotation = 185
+tint = [158, 164, 170, 255]
+
+[[objects]]
+id = "generated_0120"
+catalog_id = "core:lounge_design_sofa"
+story = 0
+position = [[46.350, 7.800]]
+elevation = 0.000
+rotation = 232
+tint = [195, 231, 81, 255]
+
+[[objects]]
+id = "generated_0121"
+catalog_id = "core:lounge_sofa_corner"
+story = 0
+position = [[48.300, 7.800]]
+elevation = 0.000
+rotation = 279
+tint = [232, 112, 178, 255]
+
+[[objects]]
+id = "generated_0122"
+catalog_id = "core:lounge_sofa_ottoman"
+story = 0
+position = [[50.250, 7.800]]
+elevation = 0.000
+rotation = 326
+tint = [83, 179, 89, 255]
+
+[[objects]]
+id = "generated_0123"
+catalog_id = "core:table"
+story = 0
+position = [[52.200, 7.800]]
+elevation = 0.000
+rotation = 13
+tint = [120, 246, 186, 255]
+
+[[objects]]
+id = "generated_0124"
+catalog_id = "core:table_round"
+story = 0
+position = [[54.150, 7.800]]
+elevation = 0.000
+rotation = 60
+tint = [157, 127, 97, 255]
+
+[[objects]]
+id = "generated_0125"
+catalog_id = "core:table_cross"
+story = 0
+position = [[56.100, 7.800]]
+elevation = 0.000
+rotation = 107
+tint = [194, 194, 194, 255]
+
+[[objects]]
+id = "generated_0126"
+catalog_id = "core:table_glass"
+story = 0
+position = [[58.050, 7.800]]
+elevation = 0.000
+rotation = 154
+tint = [231, 75, 105, 255]
+
+[[objects]]
+id = "generated_0127"
+catalog_id = "core:rug_rectangle"
+story = 0
+position = [[60.000, 7.800]]
+elevation = 0.000
+rotation = 201
+tint = [82, 142, 202, 255]
+
+[[objects]]
+id = "generated_0128"
+catalog_id = "core:rug_round"
+story = 0
+position = [[61.950, 7.800]]
+elevation = 0.000
+rotation = 248
+tint = [119, 209, 113, 255]
+
+[[objects]]
+id = "generated_0129"
+catalog_id = "core:rug_square"
+story = 0
+position = [[1.500, 9.900]]
+elevation = 0.000
+rotation = 308
+tint = [156, 90, 210, 255]
+
+[[objects]]
+id = "generated_0130"
+catalog_id = "core:bathtub"
+story = 0
+position = [[3.450, 9.900]]
+elevation = 0.000
+rotation = 355
+tint = [193, 157, 121, 255]
+
+[[objects]]
+id = "generated_0131"
+catalog_id = "core:kenney_toilet"
+story = 0
+position = [[5.400, 9.900]]
+elevation = 0.000
+rotation = 42
+tint = [230, 224, 218, 255]
+
+[[objects]]
+id = "generated_0132"
+catalog_id = "core:kenney_bathroom_sink"
+story = 0
+position = [[7.350, 9.900]]
+elevation = 0.000
+rotation = 89
+tint = [81, 105, 129, 255]
+
+[[objects]]
+id = "generated_0133"
+catalog_id = "core:shower_round"
+story = 0
+position = [[9.300, 9.900]]
+elevation = 0.000
+rotation = 136
+tint = [118, 172, 226, 255]
+
+[[objects]]
+id = "generated_0134"
+catalog_id = "core:washer"
+story = 0
+position = [[11.250, 9.900]]
+elevation = 0.000
+rotation = 183
+tint = [155, 239, 137, 176]
+
+[[objects]]
+id = "generated_0135"
+catalog_id = "core:dryer"
+story = 0
+position = [[13.200, 9.900]]
+elevation = 0.000
+rotation = 230
+tint = [192, 120, 234, 255]
+
+[[objects]]
+id = "generated_0136"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[15.150, 9.900]]
+elevation = 0.000
+rotation = 277
+tint = [229, 187, 145, 255]
+
+[[objects]]
+id = "generated_0137"
+catalog_id = "core:cardboard_box_open"
+story = 0
+position = [[17.100, 9.900]]
+elevation = 0.000
+rotation = 324
+tint = [80, 254, 242, 255]
+
+[[objects]]
+id = "generated_0138"
+catalog_id = "core:trashcan"
+story = 0
+position = [[19.050, 9.900]]
+elevation = 0.000
+rotation = 11
+tint = [117, 135, 153, 255]
+
+[[objects]]
+id = "generated_0139"
+catalog_id = "core:radio"
+story = 0
+position = [[21.000, 9.900]]
+elevation = 0.350
+rotation = 58
+tint = [154, 202, 250, 255]
+
+[[objects]]
+id = "generated_0140"
+catalog_id = "core:speaker"
+story = 0
+position = [[22.950, 9.900]]
+elevation = 0.000
+rotation = 105
+tint = [191, 83, 161, 255]
+
+[[objects]]
+id = "generated_0141"
+catalog_id = "core:speaker_small"
+story = 0
+position = [[24.900, 9.900]]
+elevation = 0.000
+rotation = 152
+tint = [228, 150, 72, 255]
+
+[[objects]]
+id = "generated_0142"
+catalog_id = "core:plant_small1"
+story = 0
+position = [[26.850, 9.900]]
+elevation = 0.000
+rotation = 199
+tint = [79, 217, 169, 255]
+
+[[objects]]
+id = "generated_0143"
+catalog_id = "core:nature_bush"
+story = 0
+position = [[28.800, 9.900]]
+elevation = 0.000
+rotation = 246
+tint = [116, 98, 80, 255]
+
+[[objects]]
+id = "generated_0144"
+catalog_id = "core:nature_grass"
+story = 0
+position = [[30.750, 9.900]]
+elevation = 0.000
+rotation = 293
+tint = [153, 165, 177, 255]
+
+[[objects]]
+id = "generated_0145"
+catalog_id = "core:chair"
+story = 0
+position = [[32.700, 9.900]]
+elevation = 0.000
+rotation = 340
+tint = [190, 232, 88, 255]
+
+[[objects]]
+id = "generated_0146"
+catalog_id = "core:chair_modern_cushion"
+story = 0
+position = [[34.650, 9.900]]
+elevation = 0.000
+rotation = 27
+tint = [227, 113, 185, 255]
+
+[[objects]]
+id = "generated_0147"
+catalog_id = "core:sofa"
+story = 0
+position = [[36.600, 9.900]]
+elevation = 0.000
+rotation = 74
+tint = [78, 180, 96, 255]
+
+[[objects]]
+id = "generated_0148"
+catalog_id = "core:coffee_table"
+story = 0
+position = [[38.550, 9.900]]
+elevation = 0.000
+rotation = 121
+tint = [115, 247, 193, 255]
+
+[[objects]]
+id = "generated_0149"
+catalog_id = "core:bookcase"
+story = 0
+position = [[40.500, 9.900]]
+elevation = 0.000
+rotation = 168
+tint = [152, 128, 104, 255]
+
+[[objects]]
+id = "generated_0150"
+catalog_id = "core:desk"
+story = 0
+position = [[42.450, 9.900]]
+elevation = 0.000
+rotation = 215
+tint = [189, 195, 201, 255]
+
+[[objects]]
+id = "generated_0151"
+catalog_id = "core:bed"
+story = 0
+position = [[44.400, 9.900]]
+elevation = 0.000
+rotation = 262
+tint = [226, 76, 112, 255]
+
+[[objects]]
+id = "generated_0152"
+catalog_id = "core:side_table"
+story = 0
+position = [[46.350, 9.900]]
+elevation = 0.000
+rotation = 309
+tint = [77, 143, 209, 255]
+
+[[objects]]
+id = "generated_0153"
+catalog_id = "core:floor_lamp"
+story = 0
+position = [[48.300, 9.900]]
+elevation = 0.000
+rotation = 356
+tint = [114, 210, 120, 176]
+
+[[objects]]
+id = "generated_0154"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[50.250, 9.900]]
+elevation = 0.000
+rotation = 43
+tint = [151, 91, 217, 255]
+
+[[objects]]
+id = "generated_0155"
+catalog_id = "core:table_lamp_square"
+story = 0
+position = [[52.200, 9.900]]
+elevation = 0.000
+rotation = 90
+tint = [188, 158, 128, 255]
+
+[[objects]]
+id = "generated_0156"
+catalog_id = "core:table_lamp_round"
+story = 0
+position = [[54.150, 9.900]]
+elevation = 0.000
+rotation = 137
+tint = [225, 225, 225, 255]
+
+[[objects]]
+id = "generated_0157"
+catalog_id = "core:ceiling_fan"
+story = 0
+position = [[56.100, 9.900]]
+elevation = 0.000
+rotation = 184
+tint = [76, 106, 136, 255]
+
+[[objects]]
+id = "generated_0158"
+catalog_id = "core:kitchen_island"
+story = 0
+position = [[58.050, 9.900]]
+elevation = 0.000
+rotation = 231
+tint = [113, 173, 233, 255]
+
+[[objects]]
+id = "generated_0159"
+catalog_id = "core:bar_stool"
+story = 0
+position = [[60.000, 9.900]]
+elevation = 0.000
+rotation = 278
+tint = [150, 240, 144, 255]
+
+[[objects]]
+id = "generated_0160"
+catalog_id = "core:kitchen_fridge"
+story = 0
+position = [[61.950, 9.900]]
+elevation = 0.000
+rotation = 325
+tint = [187, 121, 241, 255]
+
+[[objects]]
+id = "generated_0161"
+catalog_id = "core:kitchen_stove"
+story = 0
+position = [[1.500, 12.000]]
+elevation = 0.000
+rotation = 25
+tint = [224, 188, 152, 255]
+
+[[objects]]
+id = "generated_0162"
+catalog_id = "core:kitchen_sink"
+story = 0
+position = [[3.450, 12.000]]
+elevation = 0.350
+rotation = 72
+tint = [75, 255, 249, 255]
+
+[[objects]]
+id = "generated_0163"
+catalog_id = "core:kenney_kitchen_cabinet"
+story = 0
+position = [[5.400, 12.000]]
+elevation = 0.000
+rotation = 119
+tint = [112, 136, 160, 255]
+
+[[objects]]
+id = "generated_0164"
+catalog_id = "core:kitchen_blender"
+story = 0
+position = [[7.350, 12.000]]
+elevation = 0.000
+rotation = 166
+tint = [149, 203, 71, 255]
+
+[[objects]]
+id = "generated_0165"
+catalog_id = "core:toaster"
+story = 0
+position = [[9.300, 12.000]]
+elevation = 0.000
+rotation = 213
+tint = [186, 84, 168, 255]
+
+[[objects]]
+id = "generated_0166"
+catalog_id = "core:lounge_chair"
+story = 0
+position = [[11.250, 12.000]]
+elevation = 0.000
+rotation = 260
+tint = [223, 151, 79, 255]
+
+[[objects]]
+id = "generated_0167"
+catalog_id = "core:lounge_design_chair"
+story = 0
+position = [[13.200, 12.000]]
+elevation = 0.000
+rotation = 307
+tint = [74, 218, 176, 255]
+
+[[objects]]
+id = "generated_0168"
+catalog_id = "core:lounge_design_sofa"
+story = 0
+position = [[15.150, 12.000]]
+elevation = 0.000
+rotation = 354
+tint = [111, 99, 87, 255]
+
+[[objects]]
+id = "generated_0169"
+catalog_id = "core:lounge_sofa_corner"
+story = 0
+position = [[17.100, 12.000]]
+elevation = 0.000
+rotation = 41
+tint = [148, 166, 184, 255]
+
+[[objects]]
+id = "generated_0170"
+catalog_id = "core:lounge_sofa_ottoman"
+story = 0
+position = [[19.050, 12.000]]
+elevation = 0.000
+rotation = 88
+tint = [185, 233, 95, 255]
+
+[[objects]]
+id = "generated_0171"
+catalog_id = "core:table"
+story = 0
+position = [[21.000, 12.000]]
+elevation = 0.000
+rotation = 135
+tint = [222, 114, 192, 255]
+
+[[objects]]
+id = "generated_0172"
+catalog_id = "core:table_round"
+story = 0
+position = [[22.950, 12.000]]
+elevation = 0.000
+rotation = 182
+tint = [73, 181, 103, 176]
+
+[[objects]]
+id = "generated_0173"
+catalog_id = "core:table_cross"
+story = 0
+position = [[24.900, 12.000]]
+elevation = 0.000
+rotation = 229
+tint = [110, 248, 200, 255]
+
+[[objects]]
+id = "generated_0174"
+catalog_id = "core:table_glass"
+story = 0
+position = [[26.850, 12.000]]
+elevation = 0.000
+rotation = 276
+tint = [147, 129, 111, 255]
+
+[[objects]]
+id = "generated_0175"
+catalog_id = "core:rug_rectangle"
+story = 0
+position = [[28.800, 12.000]]
+elevation = 0.000
+rotation = 323
+tint = [184, 196, 208, 255]
+
+[[objects]]
+id = "generated_0176"
+catalog_id = "core:rug_round"
+story = 0
+position = [[30.750, 12.000]]
+elevation = 0.000
+rotation = 10
+tint = [221, 77, 119, 255]
+
+[[objects]]
+id = "generated_0177"
+catalog_id = "core:rug_square"
+story = 0
+position = [[32.700, 12.000]]
+elevation = 0.000
+rotation = 57
+tint = [72, 144, 216, 255]
+
+[[objects]]
+id = "generated_0178"
+catalog_id = "core:bathtub"
+story = 0
+position = [[34.650, 12.000]]
+elevation = 0.000
+rotation = 104
+tint = [109, 211, 127, 255]
+
+[[objects]]
+id = "generated_0179"
+catalog_id = "core:kenney_toilet"
+story = 0
+position = [[36.600, 12.000]]
+elevation = 0.000
+rotation = 151
+tint = [146, 92, 224, 255]
+
+[[objects]]
+id = "generated_0180"
+catalog_id = "core:kenney_bathroom_sink"
+story = 0
+position = [[38.550, 12.000]]
+elevation = 0.000
+rotation = 198
+tint = [183, 159, 135, 255]
+
+[[objects]]
+id = "generated_0181"
+catalog_id = "core:shower_round"
+story = 0
+position = [[40.500, 12.000]]
+elevation = 0.000
+rotation = 245
+tint = [220, 226, 232, 255]
+
+[[objects]]
+id = "generated_0182"
+catalog_id = "core:washer"
+story = 0
+position = [[42.450, 12.000]]
+elevation = 0.000
+rotation = 292
+tint = [71, 107, 143, 255]
+
+[[objects]]
+id = "generated_0183"
+catalog_id = "core:dryer"
+story = 0
+position = [[44.400, 12.000]]
+elevation = 0.000
+rotation = 339
+tint = [108, 174, 240, 255]
+
+[[objects]]
+id = "generated_0184"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[46.350, 12.000]]
+elevation = 0.000
+rotation = 26
+tint = [145, 241, 151, 255]
+
+[[objects]]
+id = "generated_0185"
+catalog_id = "core:cardboard_box_open"
+story = 0
+position = [[48.300, 12.000]]
+elevation = 0.350
+rotation = 73
+tint = [182, 122, 248, 255]
+
+[[objects]]
+id = "generated_0186"
+catalog_id = "core:trashcan"
+story = 0
+position = [[50.250, 12.000]]
+elevation = 0.000
+rotation = 120
+tint = [219, 189, 159, 255]
+
+[[objects]]
+id = "generated_0187"
+catalog_id = "core:radio"
+story = 0
+position = [[52.200, 12.000]]
+elevation = 0.000
+rotation = 167
+tint = [70, 70, 70, 255]
+
+[[objects]]
+id = "generated_0188"
+catalog_id = "core:speaker"
+story = 0
+position = [[54.150, 12.000]]
+elevation = 0.000
+rotation = 214
+tint = [107, 137, 167, 255]
+
+[[objects]]
+id = "generated_0189"
+catalog_id = "core:speaker_small"
+story = 0
+position = [[56.100, 12.000]]
+elevation = 0.000
+rotation = 261
+tint = [144, 204, 78, 255]
+
+[[objects]]
+id = "generated_0190"
+catalog_id = "core:plant_small1"
+story = 0
+position = [[58.050, 12.000]]
+elevation = 0.000
+rotation = 308
+tint = [181, 85, 175, 255]
+
+[[objects]]
+id = "generated_0191"
+catalog_id = "core:nature_bush"
+story = 0
+position = [[60.000, 12.000]]
+elevation = 0.000
+rotation = 355
+tint = [218, 152, 86, 176]
+
+[[objects]]
+id = "generated_0192"
+catalog_id = "core:nature_grass"
+story = 0
+position = [[61.950, 12.000]]
+elevation = 0.000
+rotation = 42
+tint = [255, 219, 183, 255]
+
+[[objects]]
+id = "generated_0193"
+catalog_id = "core:chair"
+story = 0
+position = [[1.500, 14.100]]
+elevation = 0.000
+rotation = 102
+tint = [106, 100, 94, 255]
+
+[[objects]]
+id = "generated_0194"
+catalog_id = "core:chair_modern_cushion"
+story = 0
+position = [[3.450, 14.100]]
+elevation = 0.000
+rotation = 149
+tint = [143, 167, 191, 255]
+
+[[objects]]
+id = "generated_0195"
+catalog_id = "core:sofa"
+story = 0
+position = [[5.400, 14.100]]
+elevation = 0.000
+rotation = 196
+tint = [180, 234, 102, 255]
+
+[[objects]]
+id = "generated_0196"
+catalog_id = "core:coffee_table"
+story = 0
+position = [[7.350, 14.100]]
+elevation = 0.000
+rotation = 243
+tint = [217, 115, 199, 255]
+
+[[objects]]
+id = "generated_0197"
+catalog_id = "core:bookcase"
+story = 0
+position = [[9.300, 14.100]]
+elevation = 0.000
+rotation = 290
+tint = [254, 182, 110, 255]
+
+[[objects]]
+id = "generated_0198"
+catalog_id = "core:desk"
+story = 0
+position = [[11.250, 14.100]]
+elevation = 0.000
+rotation = 337
+tint = [105, 249, 207, 255]
+
+[[objects]]
+id = "generated_0199"
+catalog_id = "core:bed"
+story = 0
+position = [[13.200, 14.100]]
+elevation = 0.000
+rotation = 24
+tint = [142, 130, 118, 255]
+
+[[objects]]
+id = "generated_0200"
+catalog_id = "core:side_table"
+story = 0
+position = [[15.150, 14.100]]
+elevation = 0.000
+rotation = 71
+tint = [179, 197, 215, 255]
+
+[[objects]]
+id = "generated_0201"
+catalog_id = "core:floor_lamp"
+story = 0
+position = [[17.100, 14.100]]
+elevation = 0.000
+rotation = 118
+tint = [216, 78, 126, 255]
+
+[[objects]]
+id = "generated_0202"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[19.050, 14.100]]
+elevation = 0.000
+rotation = 165
+tint = [253, 145, 223, 255]
+
+[[objects]]
+id = "generated_0203"
+catalog_id = "core:table_lamp_square"
+story = 0
+position = [[21.000, 14.100]]
+elevation = 0.000
+rotation = 212
+tint = [104, 212, 134, 255]
+
+[[objects]]
+id = "generated_0204"
+catalog_id = "core:table_lamp_round"
+story = 0
+position = [[22.950, 14.100]]
+elevation = 0.000
+rotation = 259
+tint = [141, 93, 231, 255]
+
+[[objects]]
+id = "generated_0205"
+catalog_id = "core:ceiling_fan"
+story = 0
+position = [[24.900, 14.100]]
+elevation = 0.000
+rotation = 306
+tint = [178, 160, 142, 255]
+
+[[objects]]
+id = "generated_0206"
+catalog_id = "core:kitchen_island"
+story = 0
+position = [[26.850, 14.100]]
+elevation = 0.000
+rotation = 353
+tint = [215, 227, 239, 255]
+
+[[objects]]
+id = "generated_0207"
+catalog_id = "core:bar_stool"
+story = 0
+position = [[28.800, 14.100]]
+elevation = 0.000
+rotation = 40
+tint = [252, 108, 150, 255]
+
+[[objects]]
+id = "generated_0208"
+catalog_id = "core:kitchen_fridge"
+story = 0
+position = [[30.750, 14.100]]
+elevation = 0.350
+rotation = 87
+tint = [103, 175, 247, 255]
+
+[[objects]]
+id = "generated_0209"
+catalog_id = "core:kitchen_stove"
+story = 0
+position = [[32.700, 14.100]]
+elevation = 0.000
+rotation = 134
+tint = [140, 242, 158, 255]
+
+[[objects]]
+id = "generated_0210"
+catalog_id = "core:kitchen_sink"
+story = 0
+position = [[34.650, 14.100]]
+elevation = 0.000
+rotation = 181
+tint = [177, 123, 255, 176]
+
+[[objects]]
+id = "generated_0211"
+catalog_id = "core:kenney_kitchen_cabinet"
+story = 0
+position = [[36.600, 14.100]]
+elevation = 0.000
+rotation = 228
+tint = [214, 190, 166, 255]
+
+[[objects]]
+id = "generated_0212"
+catalog_id = "core:kitchen_blender"
+story = 0
+position = [[38.550, 14.100]]
+elevation = 0.000
+rotation = 275
+tint = [251, 71, 77, 255]
+
+[[objects]]
+id = "generated_0213"
+catalog_id = "core:toaster"
+story = 0
+position = [[40.500, 14.100]]
+elevation = 0.000
+rotation = 322
+tint = [102, 138, 174, 255]
+
+[[objects]]
+id = "generated_0214"
+catalog_id = "core:lounge_chair"
+story = 0
+position = [[42.450, 14.100]]
+elevation = 0.000
+rotation = 9
+tint = [139, 205, 85, 255]
+
+[[objects]]
+id = "generated_0215"
+catalog_id = "core:lounge_design_chair"
+story = 0
+position = [[44.400, 14.100]]
+elevation = 0.000
+rotation = 56
+tint = [176, 86, 182, 255]
+
+[[objects]]
+id = "generated_0216"
+catalog_id = "core:lounge_design_sofa"
+story = 0
+position = [[46.350, 14.100]]
+elevation = 0.000
+rotation = 103
+tint = [213, 153, 93, 255]
+
+[[objects]]
+id = "generated_0217"
+catalog_id = "core:lounge_sofa_corner"
+story = 0
+position = [[48.300, 14.100]]
+elevation = 0.000
+rotation = 150
+tint = [250, 220, 190, 255]
+
+[[objects]]
+id = "generated_0218"
+catalog_id = "core:lounge_sofa_ottoman"
+story = 0
+position = [[50.250, 14.100]]
+elevation = 0.000
+rotation = 197
+tint = [101, 101, 101, 255]
+
+[[objects]]
+id = "generated_0219"
+catalog_id = "core:table"
+story = 0
+position = [[52.200, 14.100]]
+elevation = 0.000
+rotation = 244
+tint = [138, 168, 198, 255]
+
+[[objects]]
+id = "generated_0220"
+catalog_id = "core:table_round"
+story = 0
+position = [[54.150, 14.100]]
+elevation = 0.000
+rotation = 291
+tint = [175, 235, 109, 255]
+
+[[objects]]
+id = "generated_0221"
+catalog_id = "core:table_cross"
+story = 0
+position = [[56.100, 14.100]]
+elevation = 0.000
+rotation = 338
+tint = [212, 116, 206, 255]
+
+[[objects]]
+id = "generated_0222"
+catalog_id = "core:table_glass"
+story = 0
+position = [[58.050, 14.100]]
+elevation = 0.000
+rotation = 25
+tint = [249, 183, 117, 255]
+
+[[objects]]
+id = "generated_0223"
+catalog_id = "core:rug_rectangle"
+story = 0
+position = [[60.000, 14.100]]
+elevation = 0.000
+rotation = 72
+tint = [100, 250, 214, 255]
+
+[[objects]]
+id = "generated_0224"
+catalog_id = "core:rug_round"
+story = 0
+position = [[61.950, 14.100]]
+elevation = 0.000
+rotation = 119
+tint = [137, 131, 125, 255]
+
+[[objects]]
+id = "generated_0225"
+catalog_id = "core:rug_square"
+story = 0
+position = [[1.500, 16.200]]
+elevation = 0.000
+rotation = 179
+tint = [174, 198, 222, 255]
+
+[[objects]]
+id = "generated_0226"
+catalog_id = "core:bathtub"
+story = 0
+position = [[3.450, 16.200]]
+elevation = 0.000
+rotation = 226
+tint = [211, 79, 133, 255]
+
+[[objects]]
+id = "generated_0227"
+catalog_id = "core:kenney_toilet"
+story = 0
+position = [[5.400, 16.200]]
+elevation = 0.000
+rotation = 273
+tint = [248, 146, 230, 255]
+
+[[objects]]
+id = "generated_0228"
+catalog_id = "core:kenney_bathroom_sink"
+story = 0
+position = [[7.350, 16.200]]
+elevation = 0.000
+rotation = 320
+tint = [99, 213, 141, 255]
+
+[[objects]]
+id = "generated_0229"
+catalog_id = "core:shower_round"
+story = 0
+position = [[9.300, 16.200]]
+elevation = 0.000
+rotation = 7
+tint = [136, 94, 238, 176]
+
+[[objects]]
+id = "generated_0230"
+catalog_id = "core:washer"
+story = 0
+position = [[11.250, 16.200]]
+elevation = 0.000
+rotation = 54
+tint = [173, 161, 149, 255]
+
+[[objects]]
+id = "generated_0231"
+catalog_id = "core:dryer"
+story = 0
+position = [[13.200, 16.200]]
+elevation = 0.350
+rotation = 101
+tint = [210, 228, 246, 255]
+
+[[objects]]
+id = "generated_0232"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[15.150, 16.200]]
+elevation = 0.000
+rotation = 148
+tint = [247, 109, 157, 255]
+
+[[objects]]
+id = "generated_0233"
+catalog_id = "core:cardboard_box_open"
+story = 0
+position = [[17.100, 16.200]]
+elevation = 0.000
+rotation = 195
+tint = [98, 176, 254, 255]
+
+[[objects]]
+id = "generated_0234"
+catalog_id = "core:trashcan"
+story = 0
+position = [[19.050, 16.200]]
+elevation = 0.000
+rotation = 242
+tint = [135, 243, 165, 255]
+
+[[objects]]
+id = "generated_0235"
+catalog_id = "core:radio"
+story = 0
+position = [[21.000, 16.200]]
+elevation = 0.000
+rotation = 289
+tint = [172, 124, 76, 255]
+
+[[objects]]
+id = "generated_0236"
+catalog_id = "core:speaker"
+story = 0
+position = [[22.950, 16.200]]
+elevation = 0.000
+rotation = 336
+tint = [209, 191, 173, 255]
+
+[[objects]]
+id = "generated_0237"
+catalog_id = "core:speaker_small"
+story = 0
+position = [[24.900, 16.200]]
+elevation = 0.000
+rotation = 23
+tint = [246, 72, 84, 255]
+
+[[objects]]
+id = "generated_0238"
+catalog_id = "core:plant_small1"
+story = 0
+position = [[26.850, 16.200]]
+elevation = 0.000
+rotation = 70
+tint = [97, 139, 181, 255]
+
+[[objects]]
+id = "generated_0239"
+catalog_id = "core:nature_bush"
+story = 0
+position = [[28.800, 16.200]]
+elevation = 0.000
+rotation = 117
+tint = [134, 206, 92, 255]
+
+[[objects]]
+id = "generated_0240"
+catalog_id = "core:nature_grass"
+story = 0
+position = [[30.750, 16.200]]
+elevation = 0.000
+rotation = 164
+tint = [171, 87, 189, 255]
+
+[[objects]]
+id = "generated_0241"
+catalog_id = "core:chair"
+story = 0
+position = [[32.700, 16.200]]
+elevation = 0.000
+rotation = 211
+tint = [208, 154, 100, 255]
+
+[[objects]]
+id = "generated_0242"
+catalog_id = "core:chair_modern_cushion"
+story = 0
+position = [[34.650, 16.200]]
+elevation = 0.000
+rotation = 258
+tint = [245, 221, 197, 255]
+
+[[objects]]
+id = "generated_0243"
+catalog_id = "core:sofa"
+story = 0
+position = [[36.600, 16.200]]
+elevation = 0.000
+rotation = 305
+tint = [96, 102, 108, 255]
+
+[[objects]]
+id = "generated_0244"
+catalog_id = "core:coffee_table"
+story = 0
+position = [[38.550, 16.200]]
+elevation = 0.000
+rotation = 352
+tint = [133, 169, 205, 255]
+
+[[objects]]
+id = "generated_0245"
+catalog_id = "core:bookcase"
+story = 0
+position = [[40.500, 16.200]]
+elevation = 0.000
+rotation = 39
+tint = [170, 236, 116, 255]
+
+[[objects]]
+id = "generated_0246"
+catalog_id = "core:desk"
+story = 0
+position = [[42.450, 16.200]]
+elevation = 0.000
+rotation = 86
+tint = [207, 117, 213, 255]
+
+[[objects]]
+id = "generated_0247"
+catalog_id = "core:bed"
+story = 0
+position = [[44.400, 16.200]]
+elevation = 0.000
+rotation = 133
+tint = [244, 184, 124, 255]
+
+[[objects]]
+id = "generated_0248"
+catalog_id = "core:side_table"
+story = 0
+position = [[46.350, 16.200]]
+elevation = 0.000
+rotation = 180
+tint = [95, 251, 221, 176]
+
+[[objects]]
+id = "generated_0249"
+catalog_id = "core:floor_lamp"
+story = 0
+position = [[48.300, 16.200]]
+elevation = 0.000
+rotation = 227
+tint = [132, 132, 132, 255]
+
+[[objects]]
+id = "generated_0250"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[50.250, 16.200]]
+elevation = 0.000
+rotation = 274
+tint = [169, 199, 229, 255]
+
+[[objects]]
+id = "generated_0251"
+catalog_id = "core:table_lamp_square"
+story = 0
+position = [[52.200, 16.200]]
+elevation = 0.000
+rotation = 321
+tint = [206, 80, 140, 255]
+
+[[objects]]
+id = "generated_0252"
+catalog_id = "core:table_lamp_round"
+story = 0
+position = [[54.150, 16.200]]
+elevation = 0.000
+rotation = 8
+tint = [243, 147, 237, 255]
+
+[[objects]]
+id = "generated_0253"
+catalog_id = "core:ceiling_fan"
+story = 0
+position = [[56.100, 16.200]]
+elevation = 0.000
+rotation = 55
+tint = [94, 214, 148, 255]
+
+[[objects]]
+id = "generated_0254"
+catalog_id = "core:kitchen_island"
+story = 0
+position = [[58.050, 16.200]]
+elevation = 0.350
+rotation = 102
+tint = [131, 95, 245, 255]
+
+[[objects]]
+id = "generated_0255"
+catalog_id = "core:bar_stool"
+story = 0
+position = [[60.000, 16.200]]
+elevation = 0.000
+rotation = 149
+tint = [168, 162, 156, 255]
+
+[[objects]]
+id = "generated_0256"
+catalog_id = "core:kitchen_fridge"
+story = 0
+position = [[61.950, 16.200]]
+elevation = 0.000
+rotation = 196
+tint = [205, 229, 253, 255]
+
+[[objects]]
+id = "generated_0257"
+catalog_id = "core:kitchen_stove"
+story = 0
+position = [[1.500, 18.300]]
+elevation = 0.000
+rotation = 256
+tint = [242, 110, 164, 255]
+
+[[objects]]
+id = "generated_0258"
+catalog_id = "core:kitchen_sink"
+story = 0
+position = [[3.450, 18.300]]
+elevation = 0.000
+rotation = 303
+tint = [93, 177, 75, 255]
+
+[[objects]]
+id = "generated_0259"
+catalog_id = "core:kenney_kitchen_cabinet"
+story = 0
+position = [[5.400, 18.300]]
+elevation = 0.000
+rotation = 350
+tint = [130, 244, 172, 255]
+
+[[objects]]
+id = "generated_0260"
+catalog_id = "core:kitchen_blender"
+story = 0
+position = [[7.350, 18.300]]
+elevation = 0.000
+rotation = 37
+tint = [167, 125, 83, 255]
+
+[[objects]]
+id = "generated_0261"
+catalog_id = "core:toaster"
+story = 0
+position = [[9.300, 18.300]]
+elevation = 0.000
+rotation = 84
+tint = [204, 192, 180, 255]
+
+[[objects]]
+id = "generated_0262"
+catalog_id = "core:lounge_chair"
+story = 0
+position = [[11.250, 18.300]]
+elevation = 0.000
+rotation = 131
+tint = [241, 73, 91, 255]
+
+[[objects]]
+id = "generated_0263"
+catalog_id = "core:lounge_design_chair"
+story = 0
+position = [[13.200, 18.300]]
+elevation = 0.000
+rotation = 178
+tint = [92, 140, 188, 255]
+
+[[objects]]
+id = "generated_0264"
+catalog_id = "core:lounge_design_sofa"
+story = 0
+position = [[15.150, 18.300]]
+elevation = 0.000
+rotation = 225
+tint = [129, 207, 99, 255]
+
+[[objects]]
+id = "generated_0265"
+catalog_id = "core:lounge_sofa_corner"
+story = 0
+position = [[17.100, 18.300]]
+elevation = 0.000
+rotation = 272
+tint = [166, 88, 196, 255]
+
+[[objects]]
+id = "generated_0266"
+catalog_id = "core:lounge_sofa_ottoman"
+story = 0
+position = [[19.050, 18.300]]
+elevation = 0.000
+rotation = 319
+tint = [203, 155, 107, 255]
+
+[[objects]]
+id = "generated_0267"
+catalog_id = "core:table"
+story = 0
+position = [[21.000, 18.300]]
+elevation = 0.000
+rotation = 6
+tint = [240, 222, 204, 176]
+
+[[objects]]
+id = "generated_0268"
+catalog_id = "core:table_round"
+story = 0
+position = [[22.950, 18.300]]
+elevation = 0.000
+rotation = 53
+tint = [91, 103, 115, 255]
+
+[[objects]]
+id = "generated_0269"
+catalog_id = "core:table_cross"
+story = 0
+position = [[24.900, 18.300]]
+elevation = 0.000
+rotation = 100
+tint = [128, 170, 212, 255]
+
+[[objects]]
+id = "generated_0270"
+catalog_id = "core:table_glass"
+story = 0
+position = [[26.850, 18.300]]
+elevation = 0.000
+rotation = 147
+tint = [165, 237, 123, 255]
+
+[[objects]]
+id = "generated_0271"
+catalog_id = "core:rug_rectangle"
+story = 0
+position = [[28.800, 18.300]]
+elevation = 0.000
+rotation = 194
+tint = [202, 118, 220, 255]
+
+[[objects]]
+id = "generated_0272"
+catalog_id = "core:rug_round"
+story = 0
+position = [[30.750, 18.300]]
+elevation = 0.000
+rotation = 241
+tint = [239, 185, 131, 255]
+
+[[objects]]
+id = "generated_0273"
+catalog_id = "core:rug_square"
+story = 0
+position = [[32.700, 18.300]]
+elevation = 0.000
+rotation = 288
+tint = [90, 252, 228, 255]
+
+[[objects]]
+id = "generated_0274"
+catalog_id = "core:bathtub"
+story = 0
+position = [[34.650, 18.300]]
+elevation = 0.000
+rotation = 335
+tint = [127, 133, 139, 255]
+
+[[objects]]
+id = "generated_0275"
+catalog_id = "core:kenney_toilet"
+story = 0
+position = [[36.600, 18.300]]
+elevation = 0.000
+rotation = 22
+tint = [164, 200, 236, 255]
+
+[[objects]]
+id = "generated_0276"
+catalog_id = "core:kenney_bathroom_sink"
+story = 0
+position = [[38.550, 18.300]]
+elevation = 0.000
+rotation = 69
+tint = [201, 81, 147, 255]
+
+[[objects]]
+id = "generated_0277"
+catalog_id = "core:shower_round"
+story = 0
+position = [[40.500, 18.300]]
+elevation = 0.350
+rotation = 116
+tint = [238, 148, 244, 255]
+
+[[objects]]
+id = "generated_0278"
+catalog_id = "core:washer"
+story = 0
+position = [[42.450, 18.300]]
+elevation = 0.000
+rotation = 163
+tint = [89, 215, 155, 255]
+
+[[objects]]
+id = "generated_0279"
+catalog_id = "core:dryer"
+story = 0
+position = [[44.400, 18.300]]
+elevation = 0.000
+rotation = 210
+tint = [126, 96, 252, 255]
+
+[[objects]]
+id = "generated_0280"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[46.350, 18.300]]
+elevation = 0.000
+rotation = 257
+tint = [163, 163, 163, 255]
+
+[[objects]]
+id = "generated_0281"
+catalog_id = "core:cardboard_box_open"
+story = 0
+position = [[48.300, 18.300]]
+elevation = 0.000
+rotation = 304
+tint = [200, 230, 74, 255]
+
+[[objects]]
+id = "generated_0282"
+catalog_id = "core:trashcan"
+story = 0
+position = [[50.250, 18.300]]
+elevation = 0.000
+rotation = 351
+tint = [237, 111, 171, 255]
+
+[[objects]]
+id = "generated_0283"
+catalog_id = "core:radio"
+story = 0
+position = [[52.200, 18.300]]
+elevation = 0.000
+rotation = 38
+tint = [88, 178, 82, 255]
+
+[[objects]]
+id = "generated_0284"
+catalog_id = "core:speaker"
+story = 0
+position = [[54.150, 18.300]]
+elevation = 0.000
+rotation = 85
+tint = [125, 245, 179, 255]
+
+[[objects]]
+id = "generated_0285"
+catalog_id = "core:speaker_small"
+story = 0
+position = [[56.100, 18.300]]
+elevation = 0.000
+rotation = 132
+tint = [162, 126, 90, 255]
+
+[[objects]]
+id = "generated_0286"
+catalog_id = "core:plant_small1"
+story = 0
+position = [[58.050, 18.300]]
+elevation = 0.000
+rotation = 179
+tint = [199, 193, 187, 176]
+
+[[objects]]
+id = "generated_0287"
+catalog_id = "core:nature_bush"
+story = 0
+position = [[60.000, 18.300]]
+elevation = 0.000
+rotation = 226
+tint = [236, 74, 98, 255]
+
+[[objects]]
+id = "generated_0288"
+catalog_id = "core:nature_grass"
+story = 0
+position = [[61.950, 18.300]]
+elevation = 0.000
+rotation = 273
+tint = [87, 141, 195, 255]
+
+[[objects]]
+id = "generated_0289"
+catalog_id = "core:chair"
+story = 0
+position = [[1.500, 20.400]]
+elevation = 0.000
+rotation = 333
+tint = [124, 208, 106, 255]
+
+[[objects]]
+id = "generated_0290"
+catalog_id = "core:chair_modern_cushion"
+story = 0
+position = [[3.450, 20.400]]
+elevation = 0.000
+rotation = 20
+tint = [161, 89, 203, 255]
+
+[[objects]]
+id = "generated_0291"
+catalog_id = "core:sofa"
+story = 0
+position = [[5.400, 20.400]]
+elevation = 0.000
+rotation = 67
+tint = [198, 156, 114, 255]
+
+[[objects]]
+id = "generated_0292"
+catalog_id = "core:coffee_table"
+story = 0
+position = [[7.350, 20.400]]
+elevation = 0.000
+rotation = 114
+tint = [235, 223, 211, 255]
+
+[[objects]]
+id = "generated_0293"
+catalog_id = "core:bookcase"
+story = 0
+position = [[9.300, 20.400]]
+elevation = 0.000
+rotation = 161
+tint = [86, 104, 122, 255]
+
+[[objects]]
+id = "generated_0294"
+catalog_id = "core:desk"
+story = 0
+position = [[11.250, 20.400]]
+elevation = 0.000
+rotation = 208
+tint = [123, 171, 219, 255]
+
+[[objects]]
+id = "generated_0295"
+catalog_id = "core:bed"
+story = 0
+position = [[13.200, 20.400]]
+elevation = 0.000
+rotation = 255
+tint = [160, 238, 130, 255]
+
+[[objects]]
+id = "generated_0296"
+catalog_id = "core:side_table"
+story = 0
+position = [[15.150, 20.400]]
+elevation = 0.000
+rotation = 302
+tint = [197, 119, 227, 255]
+
+[[objects]]
+id = "generated_0297"
+catalog_id = "core:floor_lamp"
+story = 0
+position = [[17.100, 20.400]]
+elevation = 0.000
+rotation = 349
+tint = [234, 186, 138, 255]
+
+[[objects]]
+id = "generated_0298"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[19.050, 20.400]]
+elevation = 0.000
+rotation = 36
+tint = [85, 253, 235, 255]
+
+[[objects]]
+id = "generated_0299"
+catalog_id = "core:table_lamp_square"
+story = 0
+position = [[21.000, 20.400]]
+elevation = 0.000
+rotation = 83
+tint = [122, 134, 146, 255]
+
+[[objects]]
+id = "generated_0300"
+catalog_id = "core:table_lamp_round"
+story = 0
+position = [[22.950, 20.400]]
+elevation = 0.350
+rotation = 130
+tint = [159, 201, 243, 255]
+
+[[objects]]
+id = "generated_0301"
+catalog_id = "core:ceiling_fan"
+story = 0
+position = [[24.900, 20.400]]
+elevation = 0.000
+rotation = 177
+tint = [196, 82, 154, 255]
+
+[[objects]]
+id = "generated_0302"
+catalog_id = "core:kitchen_island"
+story = 0
+position = [[26.850, 20.400]]
+elevation = 0.000
+rotation = 224
+tint = [233, 149, 251, 255]
+
+[[objects]]
+id = "generated_0303"
+catalog_id = "core:bar_stool"
+story = 0
+position = [[28.800, 20.400]]
+elevation = 0.000
+rotation = 271
+tint = [84, 216, 162, 255]
+
+[[objects]]
+id = "generated_0304"
+catalog_id = "core:kitchen_fridge"
+story = 0
+position = [[30.750, 20.400]]
+elevation = 0.000
+rotation = 318
+tint = [121, 97, 73, 255]
+
+[[objects]]
+id = "generated_0305"
+catalog_id = "core:kitchen_stove"
+story = 0
+position = [[32.700, 20.400]]
+elevation = 0.000
+rotation = 5
+tint = [158, 164, 170, 176]
+
+[[objects]]
+id = "generated_0306"
+catalog_id = "core:kitchen_sink"
+story = 0
+position = [[34.650, 20.400]]
+elevation = 0.000
+rotation = 52
+tint = [195, 231, 81, 255]
+
+[[objects]]
+id = "generated_0307"
+catalog_id = "core:kenney_kitchen_cabinet"
+story = 0
+position = [[36.600, 20.400]]
+elevation = 0.000
+rotation = 99
+tint = [232, 112, 178, 255]
+
+[[objects]]
+id = "generated_0308"
+catalog_id = "core:kitchen_blender"
+story = 0
+position = [[38.550, 20.400]]
+elevation = 0.000
+rotation = 146
+tint = [83, 179, 89, 255]
+
+[[objects]]
+id = "generated_0309"
+catalog_id = "core:toaster"
+story = 0
+position = [[40.500, 20.400]]
+elevation = 0.000
+rotation = 193
+tint = [120, 246, 186, 255]
+
+[[objects]]
+id = "generated_0310"
+catalog_id = "core:lounge_chair"
+story = 0
+position = [[42.450, 20.400]]
+elevation = 0.000
+rotation = 240
+tint = [157, 127, 97, 255]
+
+[[objects]]
+id = "generated_0311"
+catalog_id = "core:lounge_design_chair"
+story = 0
+position = [[44.400, 20.400]]
+elevation = 0.000
+rotation = 287
+tint = [194, 194, 194, 255]
+
+[[objects]]
+id = "generated_0312"
+catalog_id = "core:lounge_design_sofa"
+story = 0
+position = [[46.350, 20.400]]
+elevation = 0.000
+rotation = 334
+tint = [231, 75, 105, 255]
+
+[[objects]]
+id = "generated_0313"
+catalog_id = "core:lounge_sofa_corner"
+story = 0
+position = [[48.300, 20.400]]
+elevation = 0.000
+rotation = 21
+tint = [82, 142, 202, 255]
+
+[[objects]]
+id = "generated_0314"
+catalog_id = "core:lounge_sofa_ottoman"
+story = 0
+position = [[50.250, 20.400]]
+elevation = 0.000
+rotation = 68
+tint = [119, 209, 113, 255]
+
+[[objects]]
+id = "generated_0315"
+catalog_id = "core:table"
+story = 0
+position = [[52.200, 20.400]]
+elevation = 0.000
+rotation = 115
+tint = [156, 90, 210, 255]
+
+[[objects]]
+id = "generated_0316"
+catalog_id = "core:table_round"
+story = 0
+position = [[54.150, 20.400]]
+elevation = 0.000
+rotation = 162
+tint = [193, 157, 121, 255]
+
+[[objects]]
+id = "generated_0317"
+catalog_id = "core:table_cross"
+story = 0
+position = [[56.100, 20.400]]
+elevation = 0.000
+rotation = 209
+tint = [230, 224, 218, 255]
+
+[[objects]]
+id = "generated_0318"
+catalog_id = "core:table_glass"
+story = 0
+position = [[58.050, 20.400]]
+elevation = 0.000
+rotation = 256
+tint = [81, 105, 129, 255]
+
+[[objects]]
+id = "generated_0319"
+catalog_id = "core:rug_rectangle"
+story = 0
+position = [[60.000, 20.400]]
+elevation = 0.000
+rotation = 303
+tint = [118, 172, 226, 255]
+
+[[objects]]
+id = "generated_0320"
+catalog_id = "core:rug_round"
+story = 0
+position = [[61.950, 20.400]]
+elevation = 0.000
+rotation = 350
+tint = [155, 239, 137, 255]
+
+[[objects]]
+id = "generated_0321"
+catalog_id = "core:rug_square"
+story = 0
+position = [[1.500, 22.500]]
+elevation = 0.000
+rotation = 50
+tint = [192, 120, 234, 255]
+
+[[objects]]
+id = "generated_0322"
+catalog_id = "core:bathtub"
+story = 0
+position = [[3.450, 22.500]]
+elevation = 0.000
+rotation = 97
+tint = [229, 187, 145, 255]
+
+[[objects]]
+id = "generated_0323"
+catalog_id = "core:kenney_toilet"
+story = 0
+position = [[5.400, 22.500]]
+elevation = 0.350
+rotation = 144
+tint = [80, 254, 242, 255]
+
+[[objects]]
+id = "generated_0324"
+catalog_id = "core:kenney_bathroom_sink"
+story = 0
+position = [[7.350, 22.500]]
+elevation = 0.000
+rotation = 191
+tint = [117, 135, 153, 176]
+
+[[objects]]
+id = "generated_0325"
+catalog_id = "core:shower_round"
+story = 0
+position = [[9.300, 22.500]]
+elevation = 0.000
+rotation = 238
+tint = [154, 202, 250, 255]
+
+[[objects]]
+id = "generated_0326"
+catalog_id = "core:washer"
+story = 0
+position = [[11.250, 22.500]]
+elevation = 0.000
+rotation = 285
+tint = [191, 83, 161, 255]
+
+[[objects]]
+id = "generated_0327"
+catalog_id = "core:dryer"
+story = 0
+position = [[13.200, 22.500]]
+elevation = 0.000
+rotation = 332
+tint = [228, 150, 72, 255]
+
+[[objects]]
+id = "generated_0328"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[15.150, 22.500]]
+elevation = 0.000
+rotation = 19
+tint = [79, 217, 169, 255]
+
+[[objects]]
+id = "generated_0329"
+catalog_id = "core:cardboard_box_open"
+story = 0
+position = [[17.100, 22.500]]
+elevation = 0.000
+rotation = 66
+tint = [116, 98, 80, 255]
+
+[[objects]]
+id = "generated_0330"
+catalog_id = "core:trashcan"
+story = 0
+position = [[19.050, 22.500]]
+elevation = 0.000
+rotation = 113
+tint = [153, 165, 177, 255]
+
+[[objects]]
+id = "generated_0331"
+catalog_id = "core:radio"
+story = 0
+position = [[21.000, 22.500]]
+elevation = 0.000
+rotation = 160
+tint = [190, 232, 88, 255]
+
+[[objects]]
+id = "generated_0332"
+catalog_id = "core:speaker"
+story = 0
+position = [[22.950, 22.500]]
+elevation = 0.000
+rotation = 207
+tint = [227, 113, 185, 255]
+
+[[objects]]
+id = "generated_0333"
+catalog_id = "core:speaker_small"
+story = 0
+position = [[24.900, 22.500]]
+elevation = 0.000
+rotation = 254
+tint = [78, 180, 96, 255]
+
+[[objects]]
+id = "generated_0334"
+catalog_id = "core:plant_small1"
+story = 0
+position = [[26.850, 22.500]]
+elevation = 0.000
+rotation = 301
+tint = [115, 247, 193, 255]
+
+[[objects]]
+id = "generated_0335"
+catalog_id = "core:nature_bush"
+story = 0
+position = [[28.800, 22.500]]
+elevation = 0.000
+rotation = 348
+tint = [152, 128, 104, 255]
+
+[[objects]]
+id = "generated_0336"
+catalog_id = "core:nature_grass"
+story = 0
+position = [[30.750, 22.500]]
+elevation = 0.000
+rotation = 35
+tint = [189, 195, 201, 255]
+
+[[objects]]
+id = "generated_0337"
+catalog_id = "core:chair"
+story = 0
+position = [[32.700, 22.500]]
+elevation = 0.000
+rotation = 82
+tint = [226, 76, 112, 255]
+
+[[objects]]
+id = "generated_0338"
+catalog_id = "core:chair_modern_cushion"
+story = 0
+position = [[34.650, 22.500]]
+elevation = 0.000
+rotation = 129
+tint = [77, 143, 209, 255]
+
+[[objects]]
+id = "generated_0339"
+catalog_id = "core:sofa"
+story = 0
+position = [[36.600, 22.500]]
+elevation = 0.000
+rotation = 176
+tint = [114, 210, 120, 255]
+
+[[objects]]
+id = "generated_0340"
+catalog_id = "core:coffee_table"
+story = 0
+position = [[38.550, 22.500]]
+elevation = 0.000
+rotation = 223
+tint = [151, 91, 217, 255]
+
+[[objects]]
+id = "generated_0341"
+catalog_id = "core:bookcase"
+story = 0
+position = [[40.500, 22.500]]
+elevation = 0.000
+rotation = 270
+tint = [188, 158, 128, 255]
+
+[[objects]]
+id = "generated_0342"
+catalog_id = "core:desk"
+story = 0
+position = [[42.450, 22.500]]
+elevation = 0.000
+rotation = 317
+tint = [225, 225, 225, 255]
+
+[[objects]]
+id = "generated_0343"
+catalog_id = "core:bed"
+story = 0
+position = [[44.400, 22.500]]
+elevation = 0.000
+rotation = 4
+tint = [76, 106, 136, 176]
+
+[[objects]]
+id = "generated_0344"
+catalog_id = "core:side_table"
+story = 0
+position = [[46.350, 22.500]]
+elevation = 0.000
+rotation = 51
+tint = [113, 173, 233, 255]
+
+[[objects]]
+id = "generated_0345"
+catalog_id = "core:floor_lamp"
+story = 0
+position = [[48.300, 22.500]]
+elevation = 0.000
+rotation = 98
+tint = [150, 240, 144, 255]
+
+[[objects]]
+id = "generated_0346"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[50.250, 22.500]]
+elevation = 0.350
+rotation = 145
+tint = [187, 121, 241, 255]
+
+[[objects]]
+id = "generated_0347"
+catalog_id = "core:table_lamp_square"
+story = 0
+position = [[52.200, 22.500]]
+elevation = 0.000
+rotation = 192
+tint = [224, 188, 152, 255]
+
+[[objects]]
+id = "generated_0348"
+catalog_id = "core:table_lamp_round"
+story = 0
+position = [[54.150, 22.500]]
+elevation = 0.000
+rotation = 239
+tint = [75, 255, 249, 255]
+
+[[objects]]
+id = "generated_0349"
+catalog_id = "core:ceiling_fan"
+story = 0
+position = [[56.100, 22.500]]
+elevation = 0.000
+rotation = 286
+tint = [112, 136, 160, 255]
+
+[[objects]]
+id = "generated_0350"
+catalog_id = "core:kitchen_island"
+story = 0
+position = [[58.050, 22.500]]
+elevation = 0.000
+rotation = 333
+tint = [149, 203, 71, 255]
+
+[[objects]]
+id = "generated_0351"
+catalog_id = "core:bar_stool"
+story = 0
+position = [[60.000, 22.500]]
+elevation = 0.000
+rotation = 20
+tint = [186, 84, 168, 255]
+
+[[objects]]
+id = "generated_0352"
+catalog_id = "core:kitchen_fridge"
+story = 0
+position = [[61.950, 22.500]]
+elevation = 0.000
+rotation = 67
+tint = [223, 151, 79, 255]
+
+[[objects]]
+id = "generated_0353"
+catalog_id = "core:kitchen_stove"
+story = 0
+position = [[1.500, 24.600]]
+elevation = 0.000
+rotation = 127
+tint = [74, 218, 176, 255]
+
+[[objects]]
+id = "generated_0354"
+catalog_id = "core:kitchen_sink"
+story = 0
+position = [[3.450, 24.600]]
+elevation = 0.000
+rotation = 174
+tint = [111, 99, 87, 255]
+
+[[objects]]
+id = "generated_0355"
+catalog_id = "core:kenney_kitchen_cabinet"
+story = 0
+position = [[5.400, 24.600]]
+elevation = 0.000
+rotation = 221
+tint = [148, 166, 184, 255]
+
+[[objects]]
+id = "generated_0356"
+catalog_id = "core:kitchen_blender"
+story = 0
+position = [[7.350, 24.600]]
+elevation = 0.000
+rotation = 268
+tint = [185, 233, 95, 255]
+
+[[objects]]
+id = "generated_0357"
+catalog_id = "core:toaster"
+story = 0
+position = [[9.300, 24.600]]
+elevation = 0.000
+rotation = 315
+tint = [222, 114, 192, 255]
+
+[[objects]]
+id = "generated_0358"
+catalog_id = "core:lounge_chair"
+story = 0
+position = [[11.250, 24.600]]
+elevation = 0.000
+rotation = 2
+tint = [73, 181, 103, 255]
+
+[[objects]]
+id = "generated_0359"
+catalog_id = "core:lounge_design_chair"
+story = 0
+position = [[13.200, 24.600]]
+elevation = 0.000
+rotation = 49
+tint = [110, 248, 200, 255]
+
+[[objects]]
+id = "generated_0360"
+catalog_id = "core:lounge_design_sofa"
+story = 0
+position = [[15.150, 24.600]]
+elevation = 0.000
+rotation = 96
+tint = [147, 129, 111, 255]
+
+[[objects]]
+id = "generated_0361"
+catalog_id = "core:lounge_sofa_corner"
+story = 0
+position = [[17.100, 24.600]]
+elevation = 0.000
+rotation = 143
+tint = [184, 196, 208, 255]
+
+[[objects]]
+id = "generated_0362"
+catalog_id = "core:lounge_sofa_ottoman"
+story = 0
+position = [[19.050, 24.600]]
+elevation = 0.000
+rotation = 190
+tint = [221, 77, 119, 176]
+
+[[objects]]
+id = "generated_0363"
+catalog_id = "core:table"
+story = 0
+position = [[21.000, 24.600]]
+elevation = 0.000
+rotation = 237
+tint = [72, 144, 216, 255]
+
+[[objects]]
+id = "generated_0364"
+catalog_id = "core:table_round"
+story = 0
+position = [[22.950, 24.600]]
+elevation = 0.000
+rotation = 284
+tint = [109, 211, 127, 255]
+
+[[objects]]
+id = "generated_0365"
+catalog_id = "core:table_cross"
+story = 0
+position = [[24.900, 24.600]]
+elevation = 0.000
+rotation = 331
+tint = [146, 92, 224, 255]
+
+[[objects]]
+id = "generated_0366"
+catalog_id = "core:table_glass"
+story = 0
+position = [[26.850, 24.600]]
+elevation = 0.000
+rotation = 18
+tint = [183, 159, 135, 255]
+
+[[objects]]
+id = "generated_0367"
+catalog_id = "core:rug_rectangle"
+story = 0
+position = [[28.800, 24.600]]
+elevation = 0.000
+rotation = 65
+tint = [220, 226, 232, 255]
+
+[[objects]]
+id = "generated_0368"
+catalog_id = "core:rug_round"
+story = 0
+position = [[30.750, 24.600]]
+elevation = 0.000
+rotation = 112
+tint = [71, 107, 143, 255]
+
+[[objects]]
+id = "generated_0369"
+catalog_id = "core:rug_square"
+story = 0
+position = [[32.700, 24.600]]
+elevation = 0.350
+rotation = 159
+tint = [108, 174, 240, 255]
+
+[[objects]]
+id = "generated_0370"
+catalog_id = "core:bathtub"
+story = 0
+position = [[34.650, 24.600]]
+elevation = 0.000
+rotation = 206
+tint = [145, 241, 151, 255]
+
+[[objects]]
+id = "generated_0371"
+catalog_id = "core:kenney_toilet"
+story = 0
+position = [[36.600, 24.600]]
+elevation = 0.000
+rotation = 253
+tint = [182, 122, 248, 255]
+
+[[objects]]
+id = "generated_0372"
+catalog_id = "core:kenney_bathroom_sink"
+story = 0
+position = [[38.550, 24.600]]
+elevation = 0.000
+rotation = 300
+tint = [219, 189, 159, 255]
+
+[[objects]]
+id = "generated_0373"
+catalog_id = "core:shower_round"
+story = 0
+position = [[40.500, 24.600]]
+elevation = 0.000
+rotation = 347
+tint = [70, 70, 70, 255]
+
+[[objects]]
+id = "generated_0374"
+catalog_id = "core:washer"
+story = 0
+position = [[42.450, 24.600]]
+elevation = 0.000
+rotation = 34
+tint = [107, 137, 167, 255]
+
+[[objects]]
+id = "generated_0375"
+catalog_id = "core:dryer"
+story = 0
+position = [[44.400, 24.600]]
+elevation = 0.000
+rotation = 81
+tint = [144, 204, 78, 255]
+
+[[objects]]
+id = "generated_0376"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[46.350, 24.600]]
+elevation = 0.000
+rotation = 128
+tint = [181, 85, 175, 255]
+
+[[objects]]
+id = "generated_0377"
+catalog_id = "core:cardboard_box_open"
+story = 0
+position = [[48.300, 24.600]]
+elevation = 0.000
+rotation = 175
+tint = [218, 152, 86, 255]
+
+[[objects]]
+id = "generated_0378"
+catalog_id = "core:trashcan"
+story = 0
+position = [[50.250, 24.600]]
+elevation = 0.000
+rotation = 222
+tint = [255, 219, 183, 255]
+
+[[objects]]
+id = "generated_0379"
+catalog_id = "core:radio"
+story = 0
+position = [[52.200, 24.600]]
+elevation = 0.000
+rotation = 269
+tint = [106, 100, 94, 255]
+
+[[objects]]
+id = "generated_0380"
+catalog_id = "core:speaker"
+story = 0
+position = [[54.150, 24.600]]
+elevation = 0.000
+rotation = 316
+tint = [143, 167, 191, 255]
+
+[[objects]]
+id = "generated_0381"
+catalog_id = "core:speaker_small"
+story = 0
+position = [[56.100, 24.600]]
+elevation = 0.000
+rotation = 3
+tint = [180, 234, 102, 176]
+
+[[objects]]
+id = "generated_0382"
+catalog_id = "core:plant_small1"
+story = 0
+position = [[58.050, 24.600]]
+elevation = 0.000
+rotation = 50
+tint = [217, 115, 199, 255]
+
+[[objects]]
+id = "generated_0383"
+catalog_id = "core:nature_bush"
+story = 0
+position = [[60.000, 24.600]]
+elevation = 0.000
+rotation = 97
+tint = [254, 182, 110, 255]
+
+[[objects]]
+id = "generated_0384"
+catalog_id = "core:nature_grass"
+story = 0
+position = [[61.950, 24.600]]
+elevation = 0.000
+rotation = 144
+tint = [105, 249, 207, 255]
+
+[[objects]]
+id = "generated_0385"
+catalog_id = "core:chair"
+story = 0
+position = [[1.500, 26.700]]
+elevation = 0.000
+rotation = 204
+tint = [142, 130, 118, 255]
+
+[[objects]]
+id = "generated_0386"
+catalog_id = "core:chair_modern_cushion"
+story = 0
+position = [[3.450, 26.700]]
+elevation = 0.000
+rotation = 251
+tint = [179, 197, 215, 255]
+
+[[objects]]
+id = "generated_0387"
+catalog_id = "core:sofa"
+story = 0
+position = [[5.400, 26.700]]
+elevation = 0.000
+rotation = 298
+tint = [216, 78, 126, 255]
+
+[[objects]]
+id = "generated_0388"
+catalog_id = "core:coffee_table"
+story = 0
+position = [[7.350, 26.700]]
+elevation = 0.000
+rotation = 345
+tint = [253, 145, 223, 255]
+
+[[objects]]
+id = "generated_0389"
+catalog_id = "core:bookcase"
+story = 0
+position = [[9.300, 26.700]]
+elevation = 0.000
+rotation = 32
+tint = [104, 212, 134, 255]
+
+[[objects]]
+id = "generated_0390"
+catalog_id = "core:desk"
+story = 0
+position = [[11.250, 26.700]]
+elevation = 0.000
+rotation = 79
+tint = [141, 93, 231, 255]
+
+[[objects]]
+id = "generated_0391"
+catalog_id = "core:bed"
+story = 0
+position = [[13.200, 26.700]]
+elevation = 0.000
+rotation = 126
+tint = [178, 160, 142, 255]
+
+[[objects]]
+id = "generated_0392"
+catalog_id = "core:side_table"
+story = 0
+position = [[15.150, 26.700]]
+elevation = 0.350
+rotation = 173
+tint = [215, 227, 239, 255]
+
+[[objects]]
+id = "generated_0393"
+catalog_id = "core:floor_lamp"
+story = 0
+position = [[17.100, 26.700]]
+elevation = 0.000
+rotation = 220
+tint = [252, 108, 150, 255]
+
+[[objects]]
+id = "generated_0394"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[19.050, 26.700]]
+elevation = 0.000
+rotation = 267
+tint = [103, 175, 247, 255]
+
+[[objects]]
+id = "generated_0395"
+catalog_id = "core:table_lamp_square"
+story = 0
+position = [[21.000, 26.700]]
+elevation = 0.000
+rotation = 314
+tint = [140, 242, 158, 255]
+
+[[objects]]
+id = "generated_0396"
+catalog_id = "core:table_lamp_round"
+story = 0
+position = [[22.950, 26.700]]
+elevation = 0.000
+rotation = 1
+tint = [177, 123, 255, 255]
+
+[[objects]]
+id = "generated_0397"
+catalog_id = "core:ceiling_fan"
+story = 0
+position = [[24.900, 26.700]]
+elevation = 0.000
+rotation = 48
+tint = [214, 190, 166, 255]
+
+[[objects]]
+id = "generated_0398"
+catalog_id = "core:kitchen_island"
+story = 0
+position = [[26.850, 26.700]]
+elevation = 0.000
+rotation = 95
+tint = [251, 71, 77, 255]
+
+[[objects]]
+id = "generated_0399"
+catalog_id = "core:bar_stool"
+story = 0
+position = [[28.800, 26.700]]
+elevation = 0.000
+rotation = 142
+tint = [102, 138, 174, 255]
+
+[[objects]]
+id = "generated_0400"
+catalog_id = "core:kitchen_fridge"
+story = 0
+position = [[30.750, 26.700]]
+elevation = 0.000
+rotation = 189
+tint = [139, 205, 85, 176]
+
+[[objects]]
+id = "generated_0401"
+catalog_id = "core:kitchen_stove"
+story = 0
+position = [[32.700, 26.700]]
+elevation = 0.000
+rotation = 236
+tint = [176, 86, 182, 255]
+
+[[objects]]
+id = "generated_0402"
+catalog_id = "core:kitchen_sink"
+story = 0
+position = [[34.650, 26.700]]
+elevation = 0.000
+rotation = 283
+tint = [213, 153, 93, 255]
+
+[[objects]]
+id = "generated_0403"
+catalog_id = "core:kenney_kitchen_cabinet"
+story = 0
+position = [[36.600, 26.700]]
+elevation = 0.000
+rotation = 330
+tint = [250, 220, 190, 255]
+
+[[objects]]
+id = "generated_0404"
+catalog_id = "core:kitchen_blender"
+story = 0
+position = [[38.550, 26.700]]
+elevation = 0.000
+rotation = 17
+tint = [101, 101, 101, 255]
+
+[[objects]]
+id = "generated_0405"
+catalog_id = "core:toaster"
+story = 0
+position = [[40.500, 26.700]]
+elevation = 0.000
+rotation = 64
+tint = [138, 168, 198, 255]
+
+[[objects]]
+id = "generated_0406"
+catalog_id = "core:lounge_chair"
+story = 0
+position = [[42.450, 26.700]]
+elevation = 0.000
+rotation = 111
+tint = [175, 235, 109, 255]
+
+[[objects]]
+id = "generated_0407"
+catalog_id = "core:lounge_design_chair"
+story = 0
+position = [[44.400, 26.700]]
+elevation = 0.000
+rotation = 158
+tint = [212, 116, 206, 255]
+
+[[objects]]
+id = "generated_0408"
+catalog_id = "core:lounge_design_sofa"
+story = 0
+position = [[46.350, 26.700]]
+elevation = 0.000
+rotation = 205
+tint = [249, 183, 117, 255]
+
+[[objects]]
+id = "generated_0409"
+catalog_id = "core:lounge_sofa_corner"
+story = 0
+position = [[48.300, 26.700]]
+elevation = 0.000
+rotation = 252
+tint = [100, 250, 214, 255]
+
+[[objects]]
+id = "generated_0410"
+catalog_id = "core:lounge_sofa_ottoman"
+story = 0
+position = [[50.250, 26.700]]
+elevation = 0.000
+rotation = 299
+tint = [137, 131, 125, 255]
+
+[[objects]]
+id = "generated_0411"
+catalog_id = "core:table"
+story = 0
+position = [[52.200, 26.700]]
+elevation = 0.000
+rotation = 346
+tint = [174, 198, 222, 255]
+
+[[objects]]
+id = "generated_0412"
+catalog_id = "core:table_round"
+story = 0
+position = [[54.150, 26.700]]
+elevation = 0.000
+rotation = 33
+tint = [211, 79, 133, 255]
+
+[[objects]]
+id = "generated_0413"
+catalog_id = "core:table_cross"
+story = 0
+position = [[56.100, 26.700]]
+elevation = 0.000
+rotation = 80
+tint = [248, 146, 230, 255]
+
+[[objects]]
+id = "generated_0414"
+catalog_id = "core:table_glass"
+story = 0
+position = [[58.050, 26.700]]
+elevation = 0.000
+rotation = 127
+tint = [99, 213, 141, 255]
+
+[[objects]]
+id = "generated_0415"
+catalog_id = "core:rug_rectangle"
+story = 0
+position = [[60.000, 26.700]]
+elevation = 0.350
+rotation = 174
+tint = [136, 94, 238, 255]
+
+[[objects]]
+id = "generated_0416"
+catalog_id = "core:rug_round"
+story = 0
+position = [[61.950, 26.700]]
+elevation = 0.000
+rotation = 221
+tint = [173, 161, 149, 255]
+
+[[objects]]
+id = "generated_0417"
+catalog_id = "core:rug_square"
+story = 0
+position = [[1.500, 28.800]]
+elevation = 0.000
+rotation = 281
+tint = [210, 228, 246, 255]
+
+[[objects]]
+id = "generated_0418"
+catalog_id = "core:bathtub"
+story = 0
+position = [[3.450, 28.800]]
+elevation = 0.000
+rotation = 328
+tint = [247, 109, 157, 255]
+
+[[objects]]
+id = "generated_0419"
+catalog_id = "core:kenney_toilet"
+story = 0
+position = [[5.400, 28.800]]
+elevation = 0.000
+rotation = 15
+tint = [98, 176, 254, 176]
+
+[[objects]]
+id = "generated_0420"
+catalog_id = "core:kenney_bathroom_sink"
+story = 0
+position = [[7.350, 28.800]]
+elevation = 0.000
+rotation = 62
+tint = [135, 243, 165, 255]
+
+[[objects]]
+id = "generated_0421"
+catalog_id = "core:shower_round"
+story = 0
+position = [[9.300, 28.800]]
+elevation = 0.000
+rotation = 109
+tint = [172, 124, 76, 255]
+
+[[objects]]
+id = "generated_0422"
+catalog_id = "core:washer"
+story = 0
+position = [[11.250, 28.800]]
+elevation = 0.000
+rotation = 156
+tint = [209, 191, 173, 255]
+
+[[objects]]
+id = "generated_0423"
+catalog_id = "core:dryer"
+story = 0
+position = [[13.200, 28.800]]
+elevation = 0.000
+rotation = 203
+tint = [246, 72, 84, 255]
+
+[[objects]]
+id = "generated_0424"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[15.150, 28.800]]
+elevation = 0.000
+rotation = 250
+tint = [97, 139, 181, 255]
+
+[[objects]]
+id = "generated_0425"
+catalog_id = "core:cardboard_box_open"
+story = 0
+position = [[17.100, 28.800]]
+elevation = 0.000
+rotation = 297
+tint = [134, 206, 92, 255]
+
+[[objects]]
+id = "generated_0426"
+catalog_id = "core:trashcan"
+story = 0
+position = [[19.050, 28.800]]
+elevation = 0.000
+rotation = 344
+tint = [171, 87, 189, 255]
+
+[[objects]]
+id = "generated_0427"
+catalog_id = "core:radio"
+story = 0
+position = [[21.000, 28.800]]
+elevation = 0.000
+rotation = 31
+tint = [208, 154, 100, 255]
+
+[[objects]]
+id = "generated_0428"
+catalog_id = "core:speaker"
+story = 0
+position = [[22.950, 28.800]]
+elevation = 0.000
+rotation = 78
+tint = [245, 221, 197, 255]
+
+[[objects]]
+id = "generated_0429"
+catalog_id = "core:speaker_small"
+story = 0
+position = [[24.900, 28.800]]
+elevation = 0.000
+rotation = 125
+tint = [96, 102, 108, 255]
+
+[[objects]]
+id = "generated_0430"
+catalog_id = "core:plant_small1"
+story = 0
+position = [[26.850, 28.800]]
+elevation = 0.000
+rotation = 172
+tint = [133, 169, 205, 255]
+
+[[objects]]
+id = "generated_0431"
+catalog_id = "core:nature_bush"
+story = 0
+position = [[28.800, 28.800]]
+elevation = 0.000
+rotation = 219
+tint = [170, 236, 116, 255]
+
+[[objects]]
+id = "generated_0432"
+catalog_id = "core:nature_grass"
+story = 0
+position = [[30.750, 28.800]]
+elevation = 0.000
+rotation = 266
+tint = [207, 117, 213, 255]
+
+[[objects]]
+id = "generated_0433"
+catalog_id = "core:chair"
+story = 0
+position = [[32.700, 28.800]]
+elevation = 0.000
+rotation = 313
+tint = [244, 184, 124, 255]
+
+[[objects]]
+id = "generated_0434"
+catalog_id = "core:chair_modern_cushion"
+story = 0
+position = [[34.650, 28.800]]
+elevation = 0.000
+rotation = 0
+tint = [95, 251, 221, 255]
+
+[[objects]]
+id = "generated_0435"
+catalog_id = "core:sofa"
+story = 0
+position = [[36.600, 28.800]]
+elevation = 0.000
+rotation = 47
+tint = [132, 132, 132, 255]
+
+[[objects]]
+id = "generated_0436"
+catalog_id = "core:coffee_table"
+story = 0
+position = [[38.550, 28.800]]
+elevation = 0.000
+rotation = 94
+tint = [169, 199, 229, 255]
+
+[[objects]]
+id = "generated_0437"
+catalog_id = "core:bookcase"
+story = 0
+position = [[40.500, 28.800]]
+elevation = 0.000
+rotation = 141
+tint = [206, 80, 140, 255]
+
+[[objects]]
+id = "generated_0438"
+catalog_id = "core:desk"
+story = 0
+position = [[42.450, 28.800]]
+elevation = 0.350
+rotation = 188
+tint = [243, 147, 237, 176]
+
+[[objects]]
+id = "generated_0439"
+catalog_id = "core:bed"
+story = 0
+position = [[44.400, 28.800]]
+elevation = 0.000
+rotation = 235
+tint = [94, 214, 148, 255]
+
+[[objects]]
+id = "generated_0440"
+catalog_id = "core:side_table"
+story = 0
+position = [[46.350, 28.800]]
+elevation = 0.000
+rotation = 282
+tint = [131, 95, 245, 255]
+
+[[objects]]
+id = "generated_0441"
+catalog_id = "core:floor_lamp"
+story = 0
+position = [[48.300, 28.800]]
+elevation = 0.000
+rotation = 329
+tint = [168, 162, 156, 255]
+
+[[objects]]
+id = "generated_0442"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[50.250, 28.800]]
+elevation = 0.000
+rotation = 16
+tint = [205, 229, 253, 255]
+
+[[objects]]
+id = "generated_0443"
+catalog_id = "core:table_lamp_square"
+story = 0
+position = [[52.200, 28.800]]
+elevation = 0.000
+rotation = 63
+tint = [242, 110, 164, 255]
+
+[[objects]]
+id = "generated_0444"
+catalog_id = "core:table_lamp_round"
+story = 0
+position = [[54.150, 28.800]]
+elevation = 0.000
+rotation = 110
+tint = [93, 177, 75, 255]
+
+[[objects]]
+id = "generated_0445"
+catalog_id = "core:ceiling_fan"
+story = 0
+position = [[56.100, 28.800]]
+elevation = 0.000
+rotation = 157
+tint = [130, 244, 172, 255]
+
+[[objects]]
+id = "generated_0446"
+catalog_id = "core:kitchen_island"
+story = 0
+position = [[58.050, 28.800]]
+elevation = 0.000
+rotation = 204
+tint = [167, 125, 83, 255]
+
+[[objects]]
+id = "generated_0447"
+catalog_id = "core:bar_stool"
+story = 0
+position = [[60.000, 28.800]]
+elevation = 0.000
+rotation = 251
+tint = [204, 192, 180, 255]
+
+[[objects]]
+id = "generated_0448"
+catalog_id = "core:kitchen_fridge"
+story = 0
+position = [[61.950, 28.800]]
+elevation = 0.000
+rotation = 298
+tint = [241, 73, 91, 255]
+
+[[objects]]
+id = "generated_0449"
+catalog_id = "core:kitchen_stove"
+story = 0
+position = [[1.500, 30.900]]
+elevation = 0.000
+rotation = 358
+tint = [92, 140, 188, 255]
+
+[[objects]]
+id = "generated_0450"
+catalog_id = "core:kitchen_sink"
+story = 0
+position = [[3.450, 30.900]]
+elevation = 0.000
+rotation = 45
+tint = [129, 207, 99, 255]
+
+[[objects]]
+id = "generated_0451"
+catalog_id = "core:kenney_kitchen_cabinet"
+story = 0
+position = [[5.400, 30.900]]
+elevation = 0.000
+rotation = 92
+tint = [166, 88, 196, 255]
+
+[[objects]]
+id = "generated_0452"
+catalog_id = "core:kitchen_blender"
+story = 0
+position = [[7.350, 30.900]]
+elevation = 0.000
+rotation = 139
+tint = [203, 155, 107, 255]
+
+[[objects]]
+id = "generated_0453"
+catalog_id = "core:toaster"
+story = 0
+position = [[9.300, 30.900]]
+elevation = 0.000
+rotation = 186
+tint = [240, 222, 204, 255]
+
+[[objects]]
+id = "generated_0454"
+catalog_id = "core:lounge_chair"
+story = 0
+position = [[11.250, 30.900]]
+elevation = 0.000
+rotation = 233
+tint = [91, 103, 115, 255]
+
+[[objects]]
+id = "generated_0455"
+catalog_id = "core:lounge_design_chair"
+story = 0
+position = [[13.200, 30.900]]
+elevation = 0.000
+rotation = 280
+tint = [128, 170, 212, 255]
+
+[[objects]]
+id = "generated_0456"
+catalog_id = "core:lounge_design_sofa"
+story = 0
+position = [[15.150, 30.900]]
+elevation = 0.000
+rotation = 327
+tint = [165, 237, 123, 255]
+
+[[objects]]
+id = "generated_0457"
+catalog_id = "core:lounge_sofa_corner"
+story = 0
+position = [[17.100, 30.900]]
+elevation = 0.000
+rotation = 14
+tint = [202, 118, 220, 176]
+
+[[objects]]
+id = "generated_0458"
+catalog_id = "core:lounge_sofa_ottoman"
+story = 0
+position = [[19.050, 30.900]]
+elevation = 0.000
+rotation = 61
+tint = [239, 185, 131, 255]
+
+[[objects]]
+id = "generated_0459"
+catalog_id = "core:table"
+story = 0
+position = [[21.000, 30.900]]
+elevation = 0.000
+rotation = 108
+tint = [90, 252, 228, 255]
+
+[[objects]]
+id = "generated_0460"
+catalog_id = "core:table_round"
+story = 0
+position = [[22.950, 30.900]]
+elevation = 0.000
+rotation = 155
+tint = [127, 133, 139, 255]
+
+[[objects]]
+id = "generated_0461"
+catalog_id = "core:table_cross"
+story = 0
+position = [[24.900, 30.900]]
+elevation = 0.350
+rotation = 202
+tint = [164, 200, 236, 255]
+
+[[objects]]
+id = "generated_0462"
+catalog_id = "core:table_glass"
+story = 0
+position = [[26.850, 30.900]]
+elevation = 0.000
+rotation = 249
+tint = [201, 81, 147, 255]
+
+[[objects]]
+id = "generated_0463"
+catalog_id = "core:rug_rectangle"
+story = 0
+position = [[28.800, 30.900]]
+elevation = 0.000
+rotation = 296
+tint = [238, 148, 244, 255]
+
+[[objects]]
+id = "generated_0464"
+catalog_id = "core:rug_round"
+story = 0
+position = [[30.750, 30.900]]
+elevation = 0.000
+rotation = 343
+tint = [89, 215, 155, 255]
+
+[[objects]]
+id = "generated_0465"
+catalog_id = "core:rug_square"
+story = 0
+position = [[32.700, 30.900]]
+elevation = 0.000
+rotation = 30
+tint = [126, 96, 252, 255]
+
+[[objects]]
+id = "generated_0466"
+catalog_id = "core:bathtub"
+story = 0
+position = [[34.650, 30.900]]
+elevation = 0.000
+rotation = 77
+tint = [163, 163, 163, 255]
+
+[[objects]]
+id = "generated_0467"
+catalog_id = "core:kenney_toilet"
+story = 0
+position = [[36.600, 30.900]]
+elevation = 0.000
+rotation = 124
+tint = [200, 230, 74, 255]
+
+[[objects]]
+id = "generated_0468"
+catalog_id = "core:kenney_bathroom_sink"
+story = 0
+position = [[38.550, 30.900]]
+elevation = 0.000
+rotation = 171
+tint = [237, 111, 171, 255]
+
+[[objects]]
+id = "generated_0469"
+catalog_id = "core:shower_round"
+story = 0
+position = [[40.500, 30.900]]
+elevation = 0.000
+rotation = 218
+tint = [88, 178, 82, 255]
+
+[[objects]]
+id = "generated_0470"
+catalog_id = "core:washer"
+story = 0
+position = [[42.450, 30.900]]
+elevation = 0.000
+rotation = 265
+tint = [125, 245, 179, 255]
+
+[[objects]]
+id = "generated_0471"
+catalog_id = "core:dryer"
+story = 0
+position = [[44.400, 30.900]]
+elevation = 0.000
+rotation = 312
+tint = [162, 126, 90, 255]
+
+[[objects]]
+id = "generated_0472"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[46.350, 30.900]]
+elevation = 0.000
+rotation = 359
+tint = [199, 193, 187, 255]
+
+[[objects]]
+id = "generated_0473"
+catalog_id = "core:cardboard_box_open"
+story = 0
+position = [[48.300, 30.900]]
+elevation = 0.000
+rotation = 46
+tint = [236, 74, 98, 255]
+
+[[objects]]
+id = "generated_0474"
+catalog_id = "core:trashcan"
+story = 0
+position = [[50.250, 30.900]]
+elevation = 0.000
+rotation = 93
+tint = [87, 141, 195, 255]
+
+[[objects]]
+id = "generated_0475"
+catalog_id = "core:radio"
+story = 0
+position = [[52.200, 30.900]]
+elevation = 0.000
+rotation = 140
+tint = [124, 208, 106, 255]
+
+[[objects]]
+id = "generated_0476"
+catalog_id = "core:speaker"
+story = 0
+position = [[54.150, 30.900]]
+elevation = 0.000
+rotation = 187
+tint = [161, 89, 203, 176]
+
+[[objects]]
+id = "generated_0477"
+catalog_id = "core:speaker_small"
+story = 0
+position = [[56.100, 30.900]]
+elevation = 0.000
+rotation = 234
+tint = [198, 156, 114, 255]
+
+[[objects]]
+id = "generated_0478"
+catalog_id = "core:plant_small1"
+story = 0
+position = [[58.050, 30.900]]
+elevation = 0.000
+rotation = 281
+tint = [235, 223, 211, 255]
+
+[[objects]]
+id = "generated_0479"
+catalog_id = "core:nature_bush"
+story = 0
+position = [[60.000, 30.900]]
+elevation = 0.000
+rotation = 328
+tint = [86, 104, 122, 255]
+
+[[objects]]
+id = "generated_0480"
+catalog_id = "core:nature_grass"
+story = 0
+position = [[61.950, 30.900]]
+elevation = 0.000
+rotation = 15
+tint = [123, 171, 219, 255]
+
+[[objects]]
+id = "generated_0481"
+catalog_id = "core:chair"
+story = 0
+position = [[1.500, 33.000]]
+elevation = 0.000
+rotation = 75
+tint = [160, 238, 130, 255]
+
+[[objects]]
+id = "generated_0482"
+catalog_id = "core:chair_modern_cushion"
+story = 0
+position = [[3.450, 33.000]]
+elevation = 0.000
+rotation = 122
+tint = [197, 119, 227, 255]
+
+[[objects]]
+id = "generated_0483"
+catalog_id = "core:sofa"
+story = 0
+position = [[5.400, 33.000]]
+elevation = 0.000
+rotation = 169
+tint = [234, 186, 138, 255]
+
+[[objects]]
+id = "generated_0484"
+catalog_id = "core:coffee_table"
+story = 0
+position = [[7.350, 33.000]]
+elevation = 0.350
+rotation = 216
+tint = [85, 253, 235, 255]
+
+[[objects]]
+id = "generated_0485"
+catalog_id = "core:bookcase"
+story = 0
+position = [[9.300, 33.000]]
+elevation = 0.000
+rotation = 263
+tint = [122, 134, 146, 255]
+
+[[objects]]
+id = "generated_0486"
+catalog_id = "core:desk"
+story = 0
+position = [[11.250, 33.000]]
+elevation = 0.000
+rotation = 310
+tint = [159, 201, 243, 255]
+
+[[objects]]
+id = "generated_0487"
+catalog_id = "core:bed"
+story = 0
+position = [[13.200, 33.000]]
+elevation = 0.000
+rotation = 357
+tint = [196, 82, 154, 255]
+
+[[objects]]
+id = "generated_0488"
+catalog_id = "core:side_table"
+story = 0
+position = [[15.150, 33.000]]
+elevation = 0.000
+rotation = 44
+tint = [233, 149, 251, 255]
+
+[[objects]]
+id = "generated_0489"
+catalog_id = "core:floor_lamp"
+story = 0
+position = [[17.100, 33.000]]
+elevation = 0.000
+rotation = 91
+tint = [84, 216, 162, 255]
+
+[[objects]]
+id = "generated_0490"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[19.050, 33.000]]
+elevation = 0.000
+rotation = 138
+tint = [121, 97, 73, 255]
+
+[[objects]]
+id = "generated_0491"
+catalog_id = "core:table_lamp_square"
+story = 0
+position = [[21.000, 33.000]]
+elevation = 0.000
+rotation = 185
+tint = [158, 164, 170, 255]
+
+[[objects]]
+id = "generated_0492"
+catalog_id = "core:table_lamp_round"
+story = 0
+position = [[22.950, 33.000]]
+elevation = 0.000
+rotation = 232
+tint = [195, 231, 81, 255]
+
+[[objects]]
+id = "generated_0493"
+catalog_id = "core:ceiling_fan"
+story = 0
+position = [[24.900, 33.000]]
+elevation = 0.000
+rotation = 279
+tint = [232, 112, 178, 255]
+
+[[objects]]
+id = "generated_0494"
+catalog_id = "core:kitchen_island"
+story = 0
+position = [[26.850, 33.000]]
+elevation = 0.000
+rotation = 326
+tint = [83, 179, 89, 255]
+
+[[objects]]
+id = "generated_0495"
+catalog_id = "core:bar_stool"
+story = 0
+position = [[28.800, 33.000]]
+elevation = 0.000
+rotation = 13
+tint = [120, 246, 186, 176]
+
+[[objects]]
+id = "generated_0496"
+catalog_id = "core:kitchen_fridge"
+story = 0
+position = [[30.750, 33.000]]
+elevation = 0.000
+rotation = 60
+tint = [157, 127, 97, 255]
+
+[[objects]]
+id = "generated_0497"
+catalog_id = "core:kitchen_stove"
+story = 0
+position = [[32.700, 33.000]]
+elevation = 0.000
+rotation = 107
+tint = [194, 194, 194, 255]
+
+[[objects]]
+id = "generated_0498"
+catalog_id = "core:kitchen_sink"
+story = 0
+position = [[34.650, 33.000]]
+elevation = 0.000
+rotation = 154
+tint = [231, 75, 105, 255]
+
+[[objects]]
+id = "generated_0499"
+catalog_id = "core:kenney_kitchen_cabinet"
+story = 0
+position = [[36.600, 33.000]]
+elevation = 0.000
+rotation = 201
+tint = [82, 142, 202, 255]
+
+[[objects]]
+id = "generated_0500"
+catalog_id = "core:kitchen_blender"
+story = 0
+position = [[38.550, 33.000]]
+elevation = 0.000
+rotation = 248
+tint = [119, 209, 113, 255]
+
+[[objects]]
+id = "generated_0501"
+catalog_id = "core:toaster"
+story = 0
+position = [[40.500, 33.000]]
+elevation = 0.000
+rotation = 295
+tint = [156, 90, 210, 255]
+
+[[objects]]
+id = "generated_0502"
+catalog_id = "core:lounge_chair"
+story = 0
+position = [[42.450, 33.000]]
+elevation = 0.000
+rotation = 342
+tint = [193, 157, 121, 255]
+
+[[objects]]
+id = "generated_0503"
+catalog_id = "core:lounge_design_chair"
+story = 0
+position = [[44.400, 33.000]]
+elevation = 0.000
+rotation = 29
+tint = [230, 224, 218, 255]
+
+[[objects]]
+id = "generated_0504"
+catalog_id = "core:lounge_design_sofa"
+story = 0
+position = [[46.350, 33.000]]
+elevation = 0.000
+rotation = 76
+tint = [81, 105, 129, 255]
+
+[[objects]]
+id = "generated_0505"
+catalog_id = "core:lounge_sofa_corner"
+story = 0
+position = [[48.300, 33.000]]
+elevation = 0.000
+rotation = 123
+tint = [118, 172, 226, 255]
+
+[[objects]]
+id = "generated_0506"
+catalog_id = "core:lounge_sofa_ottoman"
+story = 0
+position = [[50.250, 33.000]]
+elevation = 0.000
+rotation = 170
+tint = [155, 239, 137, 255]
+
+[[objects]]
+id = "generated_0507"
+catalog_id = "core:table"
+story = 0
+position = [[52.200, 33.000]]
+elevation = 0.350
+rotation = 217
+tint = [192, 120, 234, 255]
+
+[[objects]]
+id = "generated_0508"
+catalog_id = "core:table_round"
+story = 0
+position = [[54.150, 33.000]]
+elevation = 0.000
+rotation = 264
+tint = [229, 187, 145, 255]
+
+[[objects]]
+id = "generated_0509"
+catalog_id = "core:table_cross"
+story = 0
+position = [[56.100, 33.000]]
+elevation = 0.000
+rotation = 311
+tint = [80, 254, 242, 255]
+
+[[objects]]
+id = "generated_0510"
+catalog_id = "core:table_glass"
+story = 0
+position = [[58.050, 33.000]]
+elevation = 0.000
+rotation = 358
+tint = [117, 135, 153, 255]
+
+[[objects]]
+id = "generated_0511"
+catalog_id = "core:rug_rectangle"
+story = 0
+position = [[60.000, 33.000]]
+elevation = 0.000
+rotation = 45
+tint = [154, 202, 250, 255]
+
+[[objects]]
+id = "generated_0512"
+catalog_id = "core:rug_round"
+story = 0
+position = [[61.950, 33.000]]
+elevation = 0.000
+rotation = 92
+tint = [191, 83, 161, 255]
+
+[[objects]]
+id = "generated_0513"
+catalog_id = "core:rug_square"
+story = 0
+position = [[1.500, 35.100]]
+elevation = 0.000
+rotation = 152
+tint = [228, 150, 72, 255]
+
+[[objects]]
+id = "generated_0514"
+catalog_id = "core:bathtub"
+story = 0
+position = [[3.450, 35.100]]
+elevation = 0.000
+rotation = 199
+tint = [79, 217, 169, 176]
+
+[[objects]]
+id = "generated_0515"
+catalog_id = "core:kenney_toilet"
+story = 0
+position = [[5.400, 35.100]]
+elevation = 0.000
+rotation = 246
+tint = [116, 98, 80, 255]
+
+[[objects]]
+id = "generated_0516"
+catalog_id = "core:kenney_bathroom_sink"
+story = 0
+position = [[7.350, 35.100]]
+elevation = 0.000
+rotation = 293
+tint = [153, 165, 177, 255]
+
+[[objects]]
+id = "generated_0517"
+catalog_id = "core:shower_round"
+story = 0
+position = [[9.300, 35.100]]
+elevation = 0.000
+rotation = 340
+tint = [190, 232, 88, 255]
+
+[[objects]]
+id = "generated_0518"
+catalog_id = "core:washer"
+story = 0
+position = [[11.250, 35.100]]
+elevation = 0.000
+rotation = 27
+tint = [227, 113, 185, 255]
+
+[[objects]]
+id = "generated_0519"
+catalog_id = "core:dryer"
+story = 0
+position = [[13.200, 35.100]]
+elevation = 0.000
+rotation = 74
+tint = [78, 180, 96, 255]
+
+[[objects]]
+id = "generated_0520"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[15.150, 35.100]]
+elevation = 0.000
+rotation = 121
+tint = [115, 247, 193, 255]
+
+[[objects]]
+id = "generated_0521"
+catalog_id = "core:cardboard_box_open"
+story = 0
+position = [[17.100, 35.100]]
+elevation = 0.000
+rotation = 168
+tint = [152, 128, 104, 255]
+
+[[objects]]
+id = "generated_0522"
+catalog_id = "core:trashcan"
+story = 0
+position = [[19.050, 35.100]]
+elevation = 0.000
+rotation = 215
+tint = [189, 195, 201, 255]
+
+[[objects]]
+id = "generated_0523"
+catalog_id = "core:radio"
+story = 0
+position = [[21.000, 35.100]]
+elevation = 0.000
+rotation = 262
+tint = [226, 76, 112, 255]
+
+[[objects]]
+id = "generated_0524"
+catalog_id = "core:speaker"
+story = 0
+position = [[22.950, 35.100]]
+elevation = 0.000
+rotation = 309
+tint = [77, 143, 209, 255]
+
+[[objects]]
+id = "generated_0525"
+catalog_id = "core:speaker_small"
+story = 0
+position = [[24.900, 35.100]]
+elevation = 0.000
+rotation = 356
+tint = [114, 210, 120, 255]
+
+[[objects]]
+id = "generated_0526"
+catalog_id = "core:plant_small1"
+story = 0
+position = [[26.850, 35.100]]
+elevation = 0.000
+rotation = 43
+tint = [151, 91, 217, 255]
+
+[[objects]]
+id = "generated_0527"
+catalog_id = "core:nature_bush"
+story = 0
+position = [[28.800, 35.100]]
+elevation = 0.000
+rotation = 90
+tint = [188, 158, 128, 255]
+
+[[objects]]
+id = "generated_0528"
+catalog_id = "core:nature_grass"
+story = 0
+position = [[30.750, 35.100]]
+elevation = 0.000
+rotation = 137
+tint = [225, 225, 225, 255]
+
+[[objects]]
+id = "generated_0529"
+catalog_id = "core:chair"
+story = 0
+position = [[32.700, 35.100]]
+elevation = 0.000
+rotation = 184
+tint = [76, 106, 136, 255]
+
+[[objects]]
+id = "generated_0530"
+catalog_id = "core:chair_modern_cushion"
+story = 0
+position = [[34.650, 35.100]]
+elevation = 0.350
+rotation = 231
+tint = [113, 173, 233, 255]
+
+[[objects]]
+id = "generated_0531"
+catalog_id = "core:sofa"
+story = 0
+position = [[36.600, 35.100]]
+elevation = 0.000
+rotation = 278
+tint = [150, 240, 144, 255]
+
+[[objects]]
+id = "generated_0532"
+catalog_id = "core:coffee_table"
+story = 0
+position = [[38.550, 35.100]]
+elevation = 0.000
+rotation = 325
+tint = [187, 121, 241, 255]
+
+[[objects]]
+id = "generated_0533"
+catalog_id = "core:bookcase"
+story = 0
+position = [[40.500, 35.100]]
+elevation = 0.000
+rotation = 12
+tint = [224, 188, 152, 176]
+
+[[objects]]
+id = "generated_0534"
+catalog_id = "core:desk"
+story = 0
+position = [[42.450, 35.100]]
+elevation = 0.000
+rotation = 59
+tint = [75, 255, 249, 255]
+
+[[objects]]
+id = "generated_0535"
+catalog_id = "core:bed"
+story = 0
+position = [[44.400, 35.100]]
+elevation = 0.000
+rotation = 106
+tint = [112, 136, 160, 255]
+
+[[objects]]
+id = "generated_0536"
+catalog_id = "core:side_table"
+story = 0
+position = [[46.350, 35.100]]
+elevation = 0.000
+rotation = 153
+tint = [149, 203, 71, 255]
+
+[[objects]]
+id = "generated_0537"
+catalog_id = "core:floor_lamp"
+story = 0
+position = [[48.300, 35.100]]
+elevation = 0.000
+rotation = 200
+tint = [186, 84, 168, 255]
+
+[[objects]]
+id = "generated_0538"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[50.250, 35.100]]
+elevation = 0.000
+rotation = 247
+tint = [223, 151, 79, 255]
+
+[[objects]]
+id = "generated_0539"
+catalog_id = "core:table_lamp_square"
+story = 0
+position = [[52.200, 35.100]]
+elevation = 0.000
+rotation = 294
+tint = [74, 218, 176, 255]
+
+[[objects]]
+id = "generated_0540"
+catalog_id = "core:table_lamp_round"
+story = 0
+position = [[54.150, 35.100]]
+elevation = 0.000
+rotation = 341
+tint = [111, 99, 87, 255]
+
+[[objects]]
+id = "generated_0541"
+catalog_id = "core:ceiling_fan"
+story = 0
+position = [[56.100, 35.100]]
+elevation = 0.000
+rotation = 28
+tint = [148, 166, 184, 255]
+
+[[objects]]
+id = "generated_0542"
+catalog_id = "core:kitchen_island"
+story = 0
+position = [[58.050, 35.100]]
+elevation = 0.000
+rotation = 75
+tint = [185, 233, 95, 255]
+
+[[objects]]
+id = "generated_0543"
+catalog_id = "core:bar_stool"
+story = 0
+position = [[60.000, 35.100]]
+elevation = 0.000
+rotation = 122
+tint = [222, 114, 192, 255]
+
+[[objects]]
+id = "generated_0544"
+catalog_id = "core:kitchen_fridge"
+story = 0
+position = [[61.950, 35.100]]
+elevation = 0.000
+rotation = 169
+tint = [73, 181, 103, 255]
+
+[[objects]]
+id = "generated_0545"
+catalog_id = "core:kitchen_stove"
+story = 0
+position = [[1.500, 37.200]]
+elevation = 0.000
+rotation = 229
+tint = [110, 248, 200, 255]
+
+[[objects]]
+id = "generated_0546"
+catalog_id = "core:kitchen_sink"
+story = 0
+position = [[3.450, 37.200]]
+elevation = 0.000
+rotation = 276
+tint = [147, 129, 111, 255]
+
+[[objects]]
+id = "generated_0547"
+catalog_id = "core:kenney_kitchen_cabinet"
+story = 0
+position = [[5.400, 37.200]]
+elevation = 0.000
+rotation = 323
+tint = [184, 196, 208, 255]
+
+[[objects]]
+id = "generated_0548"
+catalog_id = "core:kitchen_blender"
+story = 0
+position = [[7.350, 37.200]]
+elevation = 0.000
+rotation = 10
+tint = [221, 77, 119, 255]
+
+[[objects]]
+id = "generated_0549"
+catalog_id = "core:toaster"
+story = 0
+position = [[9.300, 37.200]]
+elevation = 0.000
+rotation = 57
+tint = [72, 144, 216, 255]
+
+[[objects]]
+id = "generated_0550"
+catalog_id = "core:lounge_chair"
+story = 0
+position = [[11.250, 37.200]]
+elevation = 0.000
+rotation = 104
+tint = [109, 211, 127, 255]
+
+[[objects]]
+id = "generated_0551"
+catalog_id = "core:lounge_design_chair"
+story = 0
+position = [[13.200, 37.200]]
+elevation = 0.000
+rotation = 151
+tint = [146, 92, 224, 255]
+
+[[objects]]
+id = "generated_0552"
+catalog_id = "core:lounge_design_sofa"
+story = 0
+position = [[15.150, 37.200]]
+elevation = 0.000
+rotation = 198
+tint = [183, 159, 135, 176]
+
+[[objects]]
+id = "generated_0553"
+catalog_id = "core:lounge_sofa_corner"
+story = 0
+position = [[17.100, 37.200]]
+elevation = 0.350
+rotation = 245
+tint = [220, 226, 232, 255]
+
+[[objects]]
+id = "generated_0554"
+catalog_id = "core:lounge_sofa_ottoman"
+story = 0
+position = [[19.050, 37.200]]
+elevation = 0.000
+rotation = 292
+tint = [71, 107, 143, 255]
+
+[[objects]]
+id = "generated_0555"
+catalog_id = "core:table"
+story = 0
+position = [[21.000, 37.200]]
+elevation = 0.000
+rotation = 339
+tint = [108, 174, 240, 255]
+
+[[objects]]
+id = "generated_0556"
+catalog_id = "core:table_round"
+story = 0
+position = [[22.950, 37.200]]
+elevation = 0.000
+rotation = 26
+tint = [145, 241, 151, 255]
+
+[[objects]]
+id = "generated_0557"
+catalog_id = "core:table_cross"
+story = 0
+position = [[24.900, 37.200]]
+elevation = 0.000
+rotation = 73
+tint = [182, 122, 248, 255]
+
+[[objects]]
+id = "generated_0558"
+catalog_id = "core:table_glass"
+story = 0
+position = [[26.850, 37.200]]
+elevation = 0.000
+rotation = 120
+tint = [219, 189, 159, 255]
+
+[[objects]]
+id = "generated_0559"
+catalog_id = "core:rug_rectangle"
+story = 0
+position = [[28.800, 37.200]]
+elevation = 0.000
+rotation = 167
+tint = [70, 70, 70, 255]
+
+[[objects]]
+id = "generated_0560"
+catalog_id = "core:rug_round"
+story = 0
+position = [[30.750, 37.200]]
+elevation = 0.000
+rotation = 214
+tint = [107, 137, 167, 255]
+
+[[objects]]
+id = "generated_0561"
+catalog_id = "core:rug_square"
+story = 0
+position = [[32.700, 37.200]]
+elevation = 0.000
+rotation = 261
+tint = [144, 204, 78, 255]
+
+[[objects]]
+id = "generated_0562"
+catalog_id = "core:bathtub"
+story = 0
+position = [[34.650, 37.200]]
+elevation = 0.000
+rotation = 308
+tint = [181, 85, 175, 255]
+
+[[objects]]
+id = "generated_0563"
+catalog_id = "core:kenney_toilet"
+story = 0
+position = [[36.600, 37.200]]
+elevation = 0.000
+rotation = 355
+tint = [218, 152, 86, 255]
+
+[[objects]]
+id = "generated_0564"
+catalog_id = "core:kenney_bathroom_sink"
+story = 0
+position = [[38.550, 37.200]]
+elevation = 0.000
+rotation = 42
+tint = [255, 219, 183, 255]
+
+[[objects]]
+id = "generated_0565"
+catalog_id = "core:shower_round"
+story = 0
+position = [[40.500, 37.200]]
+elevation = 0.000
+rotation = 89
+tint = [106, 100, 94, 255]
+
+[[objects]]
+id = "generated_0566"
+catalog_id = "core:washer"
+story = 0
+position = [[42.450, 37.200]]
+elevation = 0.000
+rotation = 136
+tint = [143, 167, 191, 255]
+
+[[objects]]
+id = "generated_0567"
+catalog_id = "core:dryer"
+story = 0
+position = [[44.400, 37.200]]
+elevation = 0.000
+rotation = 183
+tint = [180, 234, 102, 255]
+
+[[objects]]
+id = "generated_0568"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[46.350, 37.200]]
+elevation = 0.000
+rotation = 230
+tint = [217, 115, 199, 255]
+
+[[objects]]
+id = "generated_0569"
+catalog_id = "core:cardboard_box_open"
+story = 0
+position = [[48.300, 37.200]]
+elevation = 0.000
+rotation = 277
+tint = [254, 182, 110, 255]
+
+[[objects]]
+id = "generated_0570"
+catalog_id = "core:trashcan"
+story = 0
+position = [[50.250, 37.200]]
+elevation = 0.000
+rotation = 324
+tint = [105, 249, 207, 255]
+
+[[objects]]
+id = "generated_0571"
+catalog_id = "core:radio"
+story = 0
+position = [[52.200, 37.200]]
+elevation = 0.000
+rotation = 11
+tint = [142, 130, 118, 176]
+
+[[objects]]
+id = "generated_0572"
+catalog_id = "core:speaker"
+story = 0
+position = [[54.150, 37.200]]
+elevation = 0.000
+rotation = 58
+tint = [179, 197, 215, 255]
+
+[[objects]]
+id = "generated_0573"
+catalog_id = "core:speaker_small"
+story = 0
+position = [[56.100, 37.200]]
+elevation = 0.000
+rotation = 105
+tint = [216, 78, 126, 255]
+
+[[objects]]
+id = "generated_0574"
+catalog_id = "core:plant_small1"
+story = 0
+position = [[58.050, 37.200]]
+elevation = 0.000
+rotation = 152
+tint = [253, 145, 223, 255]
+
+[[objects]]
+id = "generated_0575"
+catalog_id = "core:nature_bush"
+story = 0
+position = [[60.000, 37.200]]
+elevation = 0.000
+rotation = 199
+tint = [104, 212, 134, 255]
+
+[[objects]]
+id = "generated_0576"
+catalog_id = "core:nature_grass"
+story = 0
+position = [[61.950, 37.200]]
+elevation = 0.350
+rotation = 246
+tint = [141, 93, 231, 255]
+
+[[objects]]
+id = "generated_0577"
+catalog_id = "core:chair"
+story = 0
+position = [[1.500, 39.300]]
+elevation = 0.000
+rotation = 306
+tint = [178, 160, 142, 255]
+
+[[objects]]
+id = "generated_0578"
+catalog_id = "core:chair_modern_cushion"
+story = 0
+position = [[3.450, 39.300]]
+elevation = 0.000
+rotation = 353
+tint = [215, 227, 239, 255]
+
+[[objects]]
+id = "generated_0579"
+catalog_id = "core:sofa"
+story = 0
+position = [[5.400, 39.300]]
+elevation = 0.000
+rotation = 40
+tint = [252, 108, 150, 255]
+
+[[objects]]
+id = "generated_0580"
+catalog_id = "core:coffee_table"
+story = 0
+position = [[7.350, 39.300]]
+elevation = 0.000
+rotation = 87
+tint = [103, 175, 247, 255]
+
+[[objects]]
+id = "generated_0581"
+catalog_id = "core:bookcase"
+story = 0
+position = [[9.300, 39.300]]
+elevation = 0.000
+rotation = 134
+tint = [140, 242, 158, 255]
+
+[[objects]]
+id = "generated_0582"
+catalog_id = "core:desk"
+story = 0
+position = [[11.250, 39.300]]
+elevation = 0.000
+rotation = 181
+tint = [177, 123, 255, 255]
+
+[[objects]]
+id = "generated_0583"
+catalog_id = "core:bed"
+story = 0
+position = [[13.200, 39.300]]
+elevation = 0.000
+rotation = 228
+tint = [214, 190, 166, 255]
+
+[[objects]]
+id = "generated_0584"
+catalog_id = "core:side_table"
+story = 0
+position = [[15.150, 39.300]]
+elevation = 0.000
+rotation = 275
+tint = [251, 71, 77, 255]
+
+[[objects]]
+id = "generated_0585"
+catalog_id = "core:floor_lamp"
+story = 0
+position = [[17.100, 39.300]]
+elevation = 0.000
+rotation = 322
+tint = [102, 138, 174, 255]
+
+[[objects]]
+id = "generated_0586"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[19.050, 39.300]]
+elevation = 0.000
+rotation = 9
+tint = [139, 205, 85, 255]
+
+[[objects]]
+id = "generated_0587"
+catalog_id = "core:table_lamp_square"
+story = 0
+position = [[21.000, 39.300]]
+elevation = 0.000
+rotation = 56
+tint = [176, 86, 182, 255]
+
+[[objects]]
+id = "generated_0588"
+catalog_id = "core:table_lamp_round"
+story = 0
+position = [[22.950, 39.300]]
+elevation = 0.000
+rotation = 103
+tint = [213, 153, 93, 255]
+
+[[objects]]
+id = "generated_0589"
+catalog_id = "core:ceiling_fan"
+story = 0
+position = [[24.900, 39.300]]
+elevation = 0.000
+rotation = 150
+tint = [250, 220, 190, 255]
+
+[[objects]]
+id = "generated_0590"
+catalog_id = "core:kitchen_island"
+story = 0
+position = [[26.850, 39.300]]
+elevation = 0.000
+rotation = 197
+tint = [101, 101, 101, 176]
+
+[[objects]]
+id = "generated_0591"
+catalog_id = "core:bar_stool"
+story = 0
+position = [[28.800, 39.300]]
+elevation = 0.000
+rotation = 244
+tint = [138, 168, 198, 255]
+
+[[objects]]
+id = "generated_0592"
+catalog_id = "core:kitchen_fridge"
+story = 0
+position = [[30.750, 39.300]]
+elevation = 0.000
+rotation = 291
+tint = [175, 235, 109, 255]
+
+[[objects]]
+id = "generated_0593"
+catalog_id = "core:kitchen_stove"
+story = 0
+position = [[32.700, 39.300]]
+elevation = 0.000
+rotation = 338
+tint = [212, 116, 206, 255]
+
+[[objects]]
+id = "generated_0594"
+catalog_id = "core:kitchen_sink"
+story = 0
+position = [[34.650, 39.300]]
+elevation = 0.000
+rotation = 25
+tint = [249, 183, 117, 255]
+
+[[objects]]
+id = "generated_0595"
+catalog_id = "core:kenney_kitchen_cabinet"
+story = 0
+position = [[36.600, 39.300]]
+elevation = 0.000
+rotation = 72
+tint = [100, 250, 214, 255]
+
+[[objects]]
+id = "generated_0596"
+catalog_id = "core:kitchen_blender"
+story = 0
+position = [[38.550, 39.300]]
+elevation = 0.000
+rotation = 119
+tint = [137, 131, 125, 255]
+
+[[objects]]
+id = "generated_0597"
+catalog_id = "core:toaster"
+story = 0
+position = [[40.500, 39.300]]
+elevation = 0.000
+rotation = 166
+tint = [174, 198, 222, 255]
+
+[[objects]]
+id = "generated_0598"
+catalog_id = "core:lounge_chair"
+story = 0
+position = [[42.450, 39.300]]
+elevation = 0.000
+rotation = 213
+tint = [211, 79, 133, 255]
+
+[[objects]]
+id = "generated_0599"
+catalog_id = "core:lounge_design_chair"
+story = 0
+position = [[44.400, 39.300]]
+elevation = 0.350
+rotation = 260
+tint = [248, 146, 230, 255]
+
+[[objects]]
+id = "generated_0600"
+catalog_id = "core:lounge_design_sofa"
+story = 0
+position = [[46.350, 39.300]]
+elevation = 0.000
+rotation = 307
+tint = [99, 213, 141, 255]
+
+[[objects]]
+id = "generated_0601"
+catalog_id = "core:lounge_sofa_corner"
+story = 0
+position = [[48.300, 39.300]]
+elevation = 0.000
+rotation = 354
+tint = [136, 94, 238, 255]
+
+[[objects]]
+id = "generated_0602"
+catalog_id = "core:lounge_sofa_ottoman"
+story = 0
+position = [[50.250, 39.300]]
+elevation = 0.000
+rotation = 41
+tint = [173, 161, 149, 255]
+
+[[objects]]
+id = "generated_0603"
+catalog_id = "core:table"
+story = 0
+position = [[52.200, 39.300]]
+elevation = 0.000
+rotation = 88
+tint = [210, 228, 246, 255]
+
+[[objects]]
+id = "generated_0604"
+catalog_id = "core:table_round"
+story = 0
+position = [[54.150, 39.300]]
+elevation = 0.000
+rotation = 135
+tint = [247, 109, 157, 255]
+
+[[objects]]
+id = "generated_0605"
+catalog_id = "core:table_cross"
+story = 0
+position = [[56.100, 39.300]]
+elevation = 0.000
+rotation = 182
+tint = [98, 176, 254, 255]
+
+[[objects]]
+id = "generated_0606"
+catalog_id = "core:table_glass"
+story = 0
+position = [[58.050, 39.300]]
+elevation = 0.000
+rotation = 229
+tint = [135, 243, 165, 255]
+
+[[objects]]
+id = "generated_0607"
+catalog_id = "core:rug_rectangle"
+story = 0
+position = [[60.000, 39.300]]
+elevation = 0.000
+rotation = 276
+tint = [172, 124, 76, 255]
+
+[[objects]]
+id = "generated_0608"
+catalog_id = "core:rug_round"
+story = 0
+position = [[61.950, 39.300]]
+elevation = 0.000
+rotation = 323
+tint = [209, 191, 173, 255]
+
+[[objects]]
+id = "generated_0609"
+catalog_id = "core:rug_square"
+story = 0
+position = [[1.500, 41.400]]
+elevation = 0.000
+rotation = 23
+tint = [246, 72, 84, 176]
+
+[[objects]]
+id = "generated_0610"
+catalog_id = "core:bathtub"
+story = 0
+position = [[3.450, 41.400]]
+elevation = 0.000
+rotation = 70
+tint = [97, 139, 181, 255]
+
+[[objects]]
+id = "generated_0611"
+catalog_id = "core:kenney_toilet"
+story = 0
+position = [[5.400, 41.400]]
+elevation = 0.000
+rotation = 117
+tint = [134, 206, 92, 255]
+
+[[objects]]
+id = "generated_0612"
+catalog_id = "core:kenney_bathroom_sink"
+story = 0
+position = [[7.350, 41.400]]
+elevation = 0.000
+rotation = 164
+tint = [171, 87, 189, 255]
+
+[[objects]]
+id = "generated_0613"
+catalog_id = "core:shower_round"
+story = 0
+position = [[9.300, 41.400]]
+elevation = 0.000
+rotation = 211
+tint = [208, 154, 100, 255]
+
+[[objects]]
+id = "generated_0614"
+catalog_id = "core:washer"
+story = 0
+position = [[11.250, 41.400]]
+elevation = 0.000
+rotation = 258
+tint = [245, 221, 197, 255]
+
+[[objects]]
+id = "generated_0615"
+catalog_id = "core:dryer"
+story = 0
+position = [[13.200, 41.400]]
+elevation = 0.000
+rotation = 305
+tint = [96, 102, 108, 255]
+
+[[objects]]
+id = "generated_0616"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[15.150, 41.400]]
+elevation = 0.000
+rotation = 352
+tint = [133, 169, 205, 255]
+
+[[objects]]
+id = "generated_0617"
+catalog_id = "core:cardboard_box_open"
+story = 0
+position = [[17.100, 41.400]]
+elevation = 0.000
+rotation = 39
+tint = [170, 236, 116, 255]
+
+[[objects]]
+id = "generated_0618"
+catalog_id = "core:trashcan"
+story = 0
+position = [[19.050, 41.400]]
+elevation = 0.000
+rotation = 86
+tint = [207, 117, 213, 255]
+
+[[objects]]
+id = "generated_0619"
+catalog_id = "core:radio"
+story = 0
+position = [[21.000, 41.400]]
+elevation = 0.000
+rotation = 133
+tint = [244, 184, 124, 255]
+
+[[objects]]
+id = "generated_0620"
+catalog_id = "core:speaker"
+story = 0
+position = [[22.950, 41.400]]
+elevation = 0.000
+rotation = 180
+tint = [95, 251, 221, 255]
+
+[[objects]]
+id = "generated_0621"
+catalog_id = "core:speaker_small"
+story = 0
+position = [[24.900, 41.400]]
+elevation = 0.000
+rotation = 227
+tint = [132, 132, 132, 255]
+
+[[objects]]
+id = "generated_0622"
+catalog_id = "core:plant_small1"
+story = 0
+position = [[26.850, 41.400]]
+elevation = 0.350
+rotation = 274
+tint = [169, 199, 229, 255]
+
+[[objects]]
+id = "generated_0623"
+catalog_id = "core:nature_bush"
+story = 0
+position = [[28.800, 41.400]]
+elevation = 0.000
+rotation = 321
+tint = [206, 80, 140, 255]
+
+[[objects]]
+id = "generated_0624"
+catalog_id = "core:nature_grass"
+story = 0
+position = [[30.750, 41.400]]
+elevation = 0.000
+rotation = 8
+tint = [243, 147, 237, 255]
+
+[[objects]]
+id = "generated_0625"
+catalog_id = "core:chair"
+story = 0
+position = [[32.700, 41.400]]
+elevation = 0.000
+rotation = 55
+tint = [94, 214, 148, 255]
+
+[[objects]]
+id = "generated_0626"
+catalog_id = "core:chair_modern_cushion"
+story = 0
+position = [[34.650, 41.400]]
+elevation = 0.000
+rotation = 102
+tint = [131, 95, 245, 255]
+
+[[objects]]
+id = "generated_0627"
+catalog_id = "core:sofa"
+story = 0
+position = [[36.600, 41.400]]
+elevation = 0.000
+rotation = 149
+tint = [168, 162, 156, 255]
+
+[[objects]]
+id = "generated_0628"
+catalog_id = "core:coffee_table"
+story = 0
+position = [[38.550, 41.400]]
+elevation = 0.000
+rotation = 196
+tint = [205, 229, 253, 176]
+
+[[objects]]
+id = "generated_0629"
+catalog_id = "core:bookcase"
+story = 0
+position = [[40.500, 41.400]]
+elevation = 0.000
+rotation = 243
+tint = [242, 110, 164, 255]
+
+[[objects]]
+id = "generated_0630"
+catalog_id = "core:desk"
+story = 0
+position = [[42.450, 41.400]]
+elevation = 0.000
+rotation = 290
+tint = [93, 177, 75, 255]
+
+[[objects]]
+id = "generated_0631"
+catalog_id = "core:bed"
+story = 0
+position = [[44.400, 41.400]]
+elevation = 0.000
+rotation = 337
+tint = [130, 244, 172, 255]
+
+[[objects]]
+id = "generated_0632"
+catalog_id = "core:side_table"
+story = 0
+position = [[46.350, 41.400]]
+elevation = 0.000
+rotation = 24
+tint = [167, 125, 83, 255]
+
+[[objects]]
+id = "generated_0633"
+catalog_id = "core:floor_lamp"
+story = 0
+position = [[48.300, 41.400]]
+elevation = 0.000
+rotation = 71
+tint = [204, 192, 180, 255]
+
+[[objects]]
+id = "generated_0634"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[50.250, 41.400]]
+elevation = 0.000
+rotation = 118
+tint = [241, 73, 91, 255]
+
+[[objects]]
+id = "generated_0635"
+catalog_id = "core:table_lamp_square"
+story = 0
+position = [[52.200, 41.400]]
+elevation = 0.000
+rotation = 165
+tint = [92, 140, 188, 255]
+
+[[objects]]
+id = "generated_0636"
+catalog_id = "core:table_lamp_round"
+story = 0
+position = [[54.150, 41.400]]
+elevation = 0.000
+rotation = 212
+tint = [129, 207, 99, 255]
+
+[[objects]]
+id = "generated_0637"
+catalog_id = "core:ceiling_fan"
+story = 0
+position = [[56.100, 41.400]]
+elevation = 0.000
+rotation = 259
+tint = [166, 88, 196, 255]
+
+[[objects]]
+id = "generated_0638"
+catalog_id = "core:kitchen_island"
+story = 0
+position = [[58.050, 41.400]]
+elevation = 0.000
+rotation = 306
+tint = [203, 155, 107, 255]
+
+[[objects]]
+id = "generated_0639"
+catalog_id = "core:bar_stool"
+story = 0
+position = [[60.000, 41.400]]
+elevation = 0.000
+rotation = 353
+tint = [240, 222, 204, 255]
+
+[[objects]]
+id = "generated_0640"
+catalog_id = "core:kitchen_fridge"
+story = 0
+position = [[61.950, 41.400]]
+elevation = 0.000
+rotation = 40
+tint = [91, 103, 115, 255]
+
+[[objects]]
+id = "generated_0641"
+catalog_id = "core:kitchen_stove"
+story = 0
+position = [[1.500, 43.500]]
+elevation = 0.000
+rotation = 100
+tint = [128, 170, 212, 255]
+
+[[objects]]
+id = "generated_0642"
+catalog_id = "core:kitchen_sink"
+story = 0
+position = [[3.450, 43.500]]
+elevation = 0.000
+rotation = 147
+tint = [165, 237, 123, 255]
+
+[[objects]]
+id = "generated_0643"
+catalog_id = "core:kenney_kitchen_cabinet"
+story = 0
+position = [[5.400, 43.500]]
+elevation = 0.000
+rotation = 194
+tint = [202, 118, 220, 255]
+
+[[objects]]
+id = "generated_0644"
+catalog_id = "core:kitchen_blender"
+story = 0
+position = [[7.350, 43.500]]
+elevation = 0.000
+rotation = 241
+tint = [239, 185, 131, 255]
+
+[[objects]]
+id = "generated_0645"
+catalog_id = "core:toaster"
+story = 0
+position = [[9.300, 43.500]]
+elevation = 0.350
+rotation = 288
+tint = [90, 252, 228, 255]
+
+[[objects]]
+id = "generated_0646"
+catalog_id = "core:lounge_chair"
+story = 0
+position = [[11.250, 43.500]]
+elevation = 0.000
+rotation = 335
+tint = [127, 133, 139, 255]
+
+[[objects]]
+id = "generated_0647"
+catalog_id = "core:lounge_design_chair"
+story = 0
+position = [[13.200, 43.500]]
+elevation = 0.000
+rotation = 22
+tint = [164, 200, 236, 176]
+
+[[objects]]
+id = "generated_0648"
+catalog_id = "core:lounge_design_sofa"
+story = 0
+position = [[15.150, 43.500]]
+elevation = 0.000
+rotation = 69
+tint = [201, 81, 147, 255]
+
+[[objects]]
+id = "generated_0649"
+catalog_id = "core:lounge_sofa_corner"
+story = 0
+position = [[17.100, 43.500]]
+elevation = 0.000
+rotation = 116
+tint = [238, 148, 244, 255]
+
+[[objects]]
+id = "generated_0650"
+catalog_id = "core:lounge_sofa_ottoman"
+story = 0
+position = [[19.050, 43.500]]
+elevation = 0.000
+rotation = 163
+tint = [89, 215, 155, 255]
+
+[[objects]]
+id = "generated_0651"
+catalog_id = "core:table"
+story = 0
+position = [[21.000, 43.500]]
+elevation = 0.000
+rotation = 210
+tint = [126, 96, 252, 255]
+
+[[objects]]
+id = "generated_0652"
+catalog_id = "core:table_round"
+story = 0
+position = [[22.950, 43.500]]
+elevation = 0.000
+rotation = 257
+tint = [163, 163, 163, 255]
+
+[[objects]]
+id = "generated_0653"
+catalog_id = "core:table_cross"
+story = 0
+position = [[24.900, 43.500]]
+elevation = 0.000
+rotation = 304
+tint = [200, 230, 74, 255]
+
+[[objects]]
+id = "generated_0654"
+catalog_id = "core:table_glass"
+story = 0
+position = [[26.850, 43.500]]
+elevation = 0.000
+rotation = 351
+tint = [237, 111, 171, 255]
+
+[[objects]]
+id = "generated_0655"
+catalog_id = "core:rug_rectangle"
+story = 0
+position = [[28.800, 43.500]]
+elevation = 0.000
+rotation = 38
+tint = [88, 178, 82, 255]
+
+[[objects]]
+id = "generated_0656"
+catalog_id = "core:rug_round"
+story = 0
+position = [[30.750, 43.500]]
+elevation = 0.000
+rotation = 85
+tint = [125, 245, 179, 255]
+
+[[objects]]
+id = "generated_0657"
+catalog_id = "core:rug_square"
+story = 0
+position = [[32.700, 43.500]]
+elevation = 0.000
+rotation = 132
+tint = [162, 126, 90, 255]
+
+[[objects]]
+id = "generated_0658"
+catalog_id = "core:bathtub"
+story = 0
+position = [[34.650, 43.500]]
+elevation = 0.000
+rotation = 179
+tint = [199, 193, 187, 255]
+
+[[objects]]
+id = "generated_0659"
+catalog_id = "core:kenney_toilet"
+story = 0
+position = [[36.600, 43.500]]
+elevation = 0.000
+rotation = 226
+tint = [236, 74, 98, 255]
+
+[[objects]]
+id = "generated_0660"
+catalog_id = "core:kenney_bathroom_sink"
+story = 0
+position = [[38.550, 43.500]]
+elevation = 0.000
+rotation = 273
+tint = [87, 141, 195, 255]
+
+[[objects]]
+id = "generated_0661"
+catalog_id = "core:shower_round"
+story = 0
+position = [[40.500, 43.500]]
+elevation = 0.000
+rotation = 320
+tint = [124, 208, 106, 255]
+
+[[objects]]
+id = "generated_0662"
+catalog_id = "core:washer"
+story = 0
+position = [[42.450, 43.500]]
+elevation = 0.000
+rotation = 7
+tint = [161, 89, 203, 255]
+
+[[objects]]
+id = "generated_0663"
+catalog_id = "core:dryer"
+story = 0
+position = [[44.400, 43.500]]
+elevation = 0.000
+rotation = 54
+tint = [198, 156, 114, 255]
+
+[[objects]]
+id = "generated_0664"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[46.350, 43.500]]
+elevation = 0.000
+rotation = 101
+tint = [235, 223, 211, 255]
+
+[[objects]]
+id = "generated_0665"
+catalog_id = "core:cardboard_box_open"
+story = 0
+position = [[48.300, 43.500]]
+elevation = 0.000
+rotation = 148
+tint = [86, 104, 122, 255]
+
+[[objects]]
+id = "generated_0666"
+catalog_id = "core:trashcan"
+story = 0
+position = [[50.250, 43.500]]
+elevation = 0.000
+rotation = 195
+tint = [123, 171, 219, 176]
+
+[[objects]]
+id = "generated_0667"
+catalog_id = "core:radio"
+story = 0
+position = [[52.200, 43.500]]
+elevation = 0.000
+rotation = 242
+tint = [160, 238, 130, 255]
+
+[[objects]]
+id = "generated_0668"
+catalog_id = "core:speaker"
+story = 0
+position = [[54.150, 43.500]]
+elevation = 0.350
+rotation = 289
+tint = [197, 119, 227, 255]
+
+[[objects]]
+id = "generated_0669"
+catalog_id = "core:speaker_small"
+story = 0
+position = [[56.100, 43.500]]
+elevation = 0.000
+rotation = 336
+tint = [234, 186, 138, 255]
+
+[[objects]]
+id = "generated_0670"
+catalog_id = "core:plant_small1"
+story = 0
+position = [[58.050, 43.500]]
+elevation = 0.000
+rotation = 23
+tint = [85, 253, 235, 255]
+
+[[objects]]
+id = "generated_0671"
+catalog_id = "core:nature_bush"
+story = 0
+position = [[60.000, 43.500]]
+elevation = 0.000
+rotation = 70
+tint = [122, 134, 146, 255]
+
+[[objects]]
+id = "generated_0672"
+catalog_id = "core:nature_grass"
+story = 0
+position = [[61.950, 43.500]]
+elevation = 0.000
+rotation = 117
+tint = [159, 201, 243, 255]
+
+[[objects]]
+id = "generated_0673"
+catalog_id = "core:chair"
+story = 0
+position = [[1.500, 45.600]]
+elevation = 0.000
+rotation = 177
+tint = [196, 82, 154, 255]
+
+[[objects]]
+id = "generated_0674"
+catalog_id = "core:chair_modern_cushion"
+story = 0
+position = [[3.450, 45.600]]
+elevation = 0.000
+rotation = 224
+tint = [233, 149, 251, 255]
+
+[[objects]]
+id = "generated_0675"
+catalog_id = "core:sofa"
+story = 0
+position = [[5.400, 45.600]]
+elevation = 0.000
+rotation = 271
+tint = [84, 216, 162, 255]
+
+[[objects]]
+id = "generated_0676"
+catalog_id = "core:coffee_table"
+story = 0
+position = [[7.350, 45.600]]
+elevation = 0.000
+rotation = 318
+tint = [121, 97, 73, 255]
+
+[[objects]]
+id = "generated_0677"
+catalog_id = "core:bookcase"
+story = 0
+position = [[9.300, 45.600]]
+elevation = 0.000
+rotation = 5
+tint = [158, 164, 170, 255]
+
+[[objects]]
+id = "generated_0678"
+catalog_id = "core:desk"
+story = 0
+position = [[11.250, 45.600]]
+elevation = 0.000
+rotation = 52
+tint = [195, 231, 81, 255]
+
+[[objects]]
+id = "generated_0679"
+catalog_id = "core:bed"
+story = 0
+position = [[13.200, 45.600]]
+elevation = 0.000
+rotation = 99
+tint = [232, 112, 178, 255]
+
+[[objects]]
+id = "generated_0680"
+catalog_id = "core:side_table"
+story = 0
+position = [[15.150, 45.600]]
+elevation = 0.000
+rotation = 146
+tint = [83, 179, 89, 255]
+
+[[objects]]
+id = "generated_0681"
+catalog_id = "core:floor_lamp"
+story = 0
+position = [[17.100, 45.600]]
+elevation = 0.000
+rotation = 193
+tint = [120, 246, 186, 255]
+
+[[objects]]
+id = "generated_0682"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[19.050, 45.600]]
+elevation = 0.000
+rotation = 240
+tint = [157, 127, 97, 255]
+
+[[objects]]
+id = "generated_0683"
+catalog_id = "core:table_lamp_square"
+story = 0
+position = [[21.000, 45.600]]
+elevation = 0.000
+rotation = 287
+tint = [194, 194, 194, 255]
+
+[[objects]]
+id = "generated_0684"
+catalog_id = "core:table_lamp_round"
+story = 0
+position = [[22.950, 45.600]]
+elevation = 0.000
+rotation = 334
+tint = [231, 75, 105, 255]
+
+[[objects]]
+id = "generated_0685"
+catalog_id = "core:ceiling_fan"
+story = 0
+position = [[24.900, 45.600]]
+elevation = 0.000
+rotation = 21
+tint = [82, 142, 202, 176]
+
+[[objects]]
+id = "generated_0686"
+catalog_id = "core:kitchen_island"
+story = 0
+position = [[26.850, 45.600]]
+elevation = 0.000
+rotation = 68
+tint = [119, 209, 113, 255]
+
+[[objects]]
+id = "generated_0687"
+catalog_id = "core:bar_stool"
+story = 0
+position = [[28.800, 45.600]]
+elevation = 0.000
+rotation = 115
+tint = [156, 90, 210, 255]
+
+[[objects]]
+id = "generated_0688"
+catalog_id = "core:kitchen_fridge"
+story = 0
+position = [[30.750, 45.600]]
+elevation = 0.000
+rotation = 162
+tint = [193, 157, 121, 255]
+
+[[objects]]
+id = "generated_0689"
+catalog_id = "core:kitchen_stove"
+story = 0
+position = [[32.700, 45.600]]
+elevation = 0.000
+rotation = 209
+tint = [230, 224, 218, 255]
+
+[[objects]]
+id = "generated_0690"
+catalog_id = "core:kitchen_sink"
+story = 0
+position = [[34.650, 45.600]]
+elevation = 0.000
+rotation = 256
+tint = [81, 105, 129, 255]
+
+[[objects]]
+id = "generated_0691"
+catalog_id = "core:kenney_kitchen_cabinet"
+story = 0
+position = [[36.600, 45.600]]
+elevation = 0.350
+rotation = 303
+tint = [118, 172, 226, 255]
+
+[[objects]]
+id = "generated_0692"
+catalog_id = "core:kitchen_blender"
+story = 0
+position = [[38.550, 45.600]]
+elevation = 0.000
+rotation = 350
+tint = [155, 239, 137, 255]
+
+[[objects]]
+id = "generated_0693"
+catalog_id = "core:toaster"
+story = 0
+position = [[40.500, 45.600]]
+elevation = 0.000
+rotation = 37
+tint = [192, 120, 234, 255]
+
+[[objects]]
+id = "generated_0694"
+catalog_id = "core:lounge_chair"
+story = 0
+position = [[42.450, 45.600]]
+elevation = 0.000
+rotation = 84
+tint = [229, 187, 145, 255]
+
+[[objects]]
+id = "generated_0695"
+catalog_id = "core:lounge_design_chair"
+story = 0
+position = [[44.400, 45.600]]
+elevation = 0.000
+rotation = 131
+tint = [80, 254, 242, 255]
+
+[[objects]]
+id = "generated_0696"
+catalog_id = "core:lounge_design_sofa"
+story = 0
+position = [[46.350, 45.600]]
+elevation = 0.000
+rotation = 178
+tint = [117, 135, 153, 255]
+
+[[objects]]
+id = "generated_0697"
+catalog_id = "core:lounge_sofa_corner"
+story = 0
+position = [[48.300, 45.600]]
+elevation = 0.000
+rotation = 225
+tint = [154, 202, 250, 255]
+
+[[objects]]
+id = "generated_0698"
+catalog_id = "core:lounge_sofa_ottoman"
+story = 0
+position = [[50.250, 45.600]]
+elevation = 0.000
+rotation = 272
+tint = [191, 83, 161, 255]
+
+[[objects]]
+id = "generated_0699"
+catalog_id = "core:table"
+story = 0
+position = [[52.200, 45.600]]
+elevation = 0.000
+rotation = 319
+tint = [228, 150, 72, 255]
+
+[[objects]]
+id = "generated_0700"
+catalog_id = "core:table_round"
+story = 0
+position = [[54.150, 45.600]]
+elevation = 0.000
+rotation = 6
+tint = [79, 217, 169, 255]
+
+[[objects]]
+id = "generated_0701"
+catalog_id = "core:table_cross"
+story = 0
+position = [[56.100, 45.600]]
+elevation = 0.000
+rotation = 53
+tint = [116, 98, 80, 255]
+
+[[objects]]
+id = "generated_0702"
+catalog_id = "core:table_glass"
+story = 0
+position = [[58.050, 45.600]]
+elevation = 0.000
+rotation = 100
+tint = [153, 165, 177, 255]
+
+[[objects]]
+id = "generated_0703"
+catalog_id = "core:rug_rectangle"
+story = 0
+position = [[60.000, 45.600]]
+elevation = 0.000
+rotation = 147
+tint = [190, 232, 88, 255]
+
+[[objects]]
+id = "generated_0704"
+catalog_id = "core:rug_round"
+story = 0
+position = [[61.950, 45.600]]
+elevation = 0.000
+rotation = 194
+tint = [227, 113, 185, 176]
+
+[[objects]]
+id = "generated_0705"
+catalog_id = "core:rug_square"
+story = 0
+position = [[1.500, 47.700]]
+elevation = 0.000
+rotation = 254
+tint = [78, 180, 96, 255]
+
+[[objects]]
+id = "generated_0706"
+catalog_id = "core:bathtub"
+story = 0
+position = [[3.450, 47.700]]
+elevation = 0.000
+rotation = 301
+tint = [115, 247, 193, 255]
+
+[[objects]]
+id = "generated_0707"
+catalog_id = "core:kenney_toilet"
+story = 0
+position = [[5.400, 47.700]]
+elevation = 0.000
+rotation = 348
+tint = [152, 128, 104, 255]
+
+[[objects]]
+id = "generated_0708"
+catalog_id = "core:kenney_bathroom_sink"
+story = 0
+position = [[7.350, 47.700]]
+elevation = 0.000
+rotation = 35
+tint = [189, 195, 201, 255]
+
+[[objects]]
+id = "generated_0709"
+catalog_id = "core:shower_round"
+story = 0
+position = [[9.300, 47.700]]
+elevation = 0.000
+rotation = 82
+tint = [226, 76, 112, 255]
+
+[[objects]]
+id = "generated_0710"
+catalog_id = "core:washer"
+story = 0
+position = [[11.250, 47.700]]
+elevation = 0.000
+rotation = 129
+tint = [77, 143, 209, 255]
+
+[[objects]]
+id = "generated_0711"
+catalog_id = "core:dryer"
+story = 0
+position = [[13.200, 47.700]]
+elevation = 0.000
+rotation = 176
+tint = [114, 210, 120, 255]
+
+[[objects]]
+id = "generated_0712"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[15.150, 47.700]]
+elevation = 0.000
+rotation = 223
+tint = [151, 91, 217, 255]
+
+[[objects]]
+id = "generated_0713"
+catalog_id = "core:cardboard_box_open"
+story = 0
+position = [[17.100, 47.700]]
+elevation = 0.000
+rotation = 270
+tint = [188, 158, 128, 255]
+
+[[objects]]
+id = "generated_0714"
+catalog_id = "core:trashcan"
+story = 0
+position = [[19.050, 47.700]]
+elevation = 0.350
+rotation = 317
+tint = [225, 225, 225, 255]
+
+[[objects]]
+id = "generated_0715"
+catalog_id = "core:radio"
+story = 0
+position = [[21.000, 47.700]]
+elevation = 0.000
+rotation = 4
+tint = [76, 106, 136, 255]
+
+[[objects]]
+id = "generated_0716"
+catalog_id = "core:speaker"
+story = 0
+position = [[22.950, 47.700]]
+elevation = 0.000
+rotation = 51
+tint = [113, 173, 233, 255]
+
+[[objects]]
+id = "generated_0717"
+catalog_id = "core:speaker_small"
+story = 0
+position = [[24.900, 47.700]]
+elevation = 0.000
+rotation = 98
+tint = [150, 240, 144, 255]
+
+[[objects]]
+id = "generated_0718"
+catalog_id = "core:plant_small1"
+story = 0
+position = [[26.850, 47.700]]
+elevation = 0.000
+rotation = 145
+tint = [187, 121, 241, 255]
+
+[[objects]]
+id = "generated_0719"
+catalog_id = "core:nature_bush"
+story = 0
+position = [[28.800, 47.700]]
+elevation = 0.000
+rotation = 192
+tint = [224, 188, 152, 255]
+
+[[objects]]
+id = "generated_0720"
+catalog_id = "core:nature_grass"
+story = 0
+position = [[30.750, 47.700]]
+elevation = 0.000
+rotation = 239
+tint = [75, 255, 249, 255]
+
+[[objects]]
+id = "generated_0721"
+catalog_id = "core:chair"
+story = 0
+position = [[32.700, 47.700]]
+elevation = 0.000
+rotation = 286
+tint = [112, 136, 160, 255]
+
+[[objects]]
+id = "generated_0722"
+catalog_id = "core:chair_modern_cushion"
+story = 0
+position = [[34.650, 47.700]]
+elevation = 0.000
+rotation = 333
+tint = [149, 203, 71, 255]
+
+[[objects]]
+id = "generated_0723"
+catalog_id = "core:sofa"
+story = 0
+position = [[36.600, 47.700]]
+elevation = 0.000
+rotation = 20
+tint = [186, 84, 168, 176]
+
+[[objects]]
+id = "generated_0724"
+catalog_id = "core:coffee_table"
+story = 0
+position = [[38.550, 47.700]]
+elevation = 0.000
+rotation = 67
+tint = [223, 151, 79, 255]
+
+[[objects]]
+id = "generated_0725"
+catalog_id = "core:bookcase"
+story = 0
+position = [[40.500, 47.700]]
+elevation = 0.000
+rotation = 114
+tint = [74, 218, 176, 255]
+
+[[objects]]
+id = "generated_0726"
+catalog_id = "core:desk"
+story = 0
+position = [[42.450, 47.700]]
+elevation = 0.000
+rotation = 161
+tint = [111, 99, 87, 255]
+
+[[objects]]
+id = "generated_0727"
+catalog_id = "core:bed"
+story = 0
+position = [[44.400, 47.700]]
+elevation = 0.000
+rotation = 208
+tint = [148, 166, 184, 255]
+
+[[objects]]
+id = "generated_0728"
+catalog_id = "core:side_table"
+story = 0
+position = [[46.350, 47.700]]
+elevation = 0.000
+rotation = 255
+tint = [185, 233, 95, 255]
+
+[[objects]]
+id = "generated_0729"
+catalog_id = "core:floor_lamp"
+story = 0
+position = [[48.300, 47.700]]
+elevation = 0.000
+rotation = 302
+tint = [222, 114, 192, 255]
+
+[[objects]]
+id = "generated_0730"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[50.250, 47.700]]
+elevation = 0.000
+rotation = 349
+tint = [73, 181, 103, 255]
+
+[[objects]]
+id = "generated_0731"
+catalog_id = "core:table_lamp_square"
+story = 0
+position = [[52.200, 47.700]]
+elevation = 0.000
+rotation = 36
+tint = [110, 248, 200, 255]
+
+[[objects]]
+id = "generated_0732"
+catalog_id = "core:table_lamp_round"
+story = 0
+position = [[54.150, 47.700]]
+elevation = 0.000
+rotation = 83
+tint = [147, 129, 111, 255]
+
+[[objects]]
+id = "generated_0733"
+catalog_id = "core:ceiling_fan"
+story = 0
+position = [[56.100, 47.700]]
+elevation = 0.000
+rotation = 130
+tint = [184, 196, 208, 255]
+
+[[objects]]
+id = "generated_0734"
+catalog_id = "core:kitchen_island"
+story = 0
+position = [[58.050, 47.700]]
+elevation = 0.000
+rotation = 177
+tint = [221, 77, 119, 255]
+
+[[objects]]
+id = "generated_0735"
+catalog_id = "core:bar_stool"
+story = 0
+position = [[60.000, 47.700]]
+elevation = 0.000
+rotation = 224
+tint = [72, 144, 216, 255]
+
+[[objects]]
+id = "generated_0736"
+catalog_id = "core:kitchen_fridge"
+story = 0
+position = [[61.950, 47.700]]
+elevation = 0.000
+rotation = 271
+tint = [109, 211, 127, 255]
+
+[[objects]]
+id = "generated_0737"
+catalog_id = "core:kitchen_stove"
+story = 0
+position = [[1.500, 49.800]]
+elevation = 0.350
+rotation = 331
+tint = [146, 92, 224, 255]
+
+[[objects]]
+id = "generated_0738"
+catalog_id = "core:kitchen_sink"
+story = 0
+position = [[3.450, 49.800]]
+elevation = 0.000
+rotation = 18
+tint = [183, 159, 135, 255]
+
+[[objects]]
+id = "generated_0739"
+catalog_id = "core:kenney_kitchen_cabinet"
+story = 0
+position = [[5.400, 49.800]]
+elevation = 0.000
+rotation = 65
+tint = [220, 226, 232, 255]
+
+[[objects]]
+id = "generated_0740"
+catalog_id = "core:kitchen_blender"
+story = 0
+position = [[7.350, 49.800]]
+elevation = 0.000
+rotation = 112
+tint = [71, 107, 143, 255]
+
+[[objects]]
+id = "generated_0741"
+catalog_id = "core:toaster"
+story = 0
+position = [[9.300, 49.800]]
+elevation = 0.000
+rotation = 159
+tint = [108, 174, 240, 255]
+
+[[objects]]
+id = "generated_0742"
+catalog_id = "core:lounge_chair"
+story = 0
+position = [[11.250, 49.800]]
+elevation = 0.000
+rotation = 206
+tint = [145, 241, 151, 176]
+
+[[objects]]
+id = "generated_0743"
+catalog_id = "core:lounge_design_chair"
+story = 0
+position = [[13.200, 49.800]]
+elevation = 0.000
+rotation = 253
+tint = [182, 122, 248, 255]
+
+[[objects]]
+id = "generated_0744"
+catalog_id = "core:lounge_design_sofa"
+story = 0
+position = [[15.150, 49.800]]
+elevation = 0.000
+rotation = 300
+tint = [219, 189, 159, 255]
+
+[[objects]]
+id = "generated_0745"
+catalog_id = "core:lounge_sofa_corner"
+story = 0
+position = [[17.100, 49.800]]
+elevation = 0.000
+rotation = 347
+tint = [70, 70, 70, 255]
+
+[[objects]]
+id = "generated_0746"
+catalog_id = "core:lounge_sofa_ottoman"
+story = 0
+position = [[19.050, 49.800]]
+elevation = 0.000
+rotation = 34
+tint = [107, 137, 167, 255]
+
+[[objects]]
+id = "generated_0747"
+catalog_id = "core:table"
+story = 0
+position = [[21.000, 49.800]]
+elevation = 0.000
+rotation = 81
+tint = [144, 204, 78, 255]
+
+[[objects]]
+id = "generated_0748"
+catalog_id = "core:table_round"
+story = 0
+position = [[22.950, 49.800]]
+elevation = 0.000
+rotation = 128
+tint = [181, 85, 175, 255]
+
+[[objects]]
+id = "generated_0749"
+catalog_id = "core:table_cross"
+story = 0
+position = [[24.900, 49.800]]
+elevation = 0.000
+rotation = 175
+tint = [218, 152, 86, 255]
+
+[[objects]]
+id = "generated_0750"
+catalog_id = "core:table_glass"
+story = 0
+position = [[26.850, 49.800]]
+elevation = 0.000
+rotation = 222
+tint = [255, 219, 183, 255]
+
+[[objects]]
+id = "generated_0751"
+catalog_id = "core:rug_rectangle"
+story = 0
+position = [[28.800, 49.800]]
+elevation = 0.000
+rotation = 269
+tint = [106, 100, 94, 255]
+
+[[objects]]
+id = "generated_0752"
+catalog_id = "core:rug_round"
+story = 0
+position = [[30.750, 49.800]]
+elevation = 0.000
+rotation = 316
+tint = [143, 167, 191, 255]
+
+[[objects]]
+id = "generated_0753"
+catalog_id = "core:rug_square"
+story = 0
+position = [[32.700, 49.800]]
+elevation = 0.000
+rotation = 3
+tint = [180, 234, 102, 255]
+
+[[objects]]
+id = "generated_0754"
+catalog_id = "core:bathtub"
+story = 0
+position = [[34.650, 49.800]]
+elevation = 0.000
+rotation = 50
+tint = [217, 115, 199, 255]
+
+[[objects]]
+id = "generated_0755"
+catalog_id = "core:kenney_toilet"
+story = 0
+position = [[36.600, 49.800]]
+elevation = 0.000
+rotation = 97
+tint = [254, 182, 110, 255]
+
+[[objects]]
+id = "generated_0756"
+catalog_id = "core:kenney_bathroom_sink"
+story = 0
+position = [[38.550, 49.800]]
+elevation = 0.000
+rotation = 144
+tint = [105, 249, 207, 255]
+
+[[objects]]
+id = "generated_0757"
+catalog_id = "core:shower_round"
+story = 0
+position = [[40.500, 49.800]]
+elevation = 0.000
+rotation = 191
+tint = [142, 130, 118, 255]
+
+[[objects]]
+id = "generated_0758"
+catalog_id = "core:washer"
+story = 0
+position = [[42.450, 49.800]]
+elevation = 0.000
+rotation = 238
+tint = [179, 197, 215, 255]
+
+[[objects]]
+id = "generated_0759"
+catalog_id = "core:dryer"
+story = 0
+position = [[44.400, 49.800]]
+elevation = 0.000
+rotation = 285
+tint = [216, 78, 126, 255]
+
+[[objects]]
+id = "generated_0760"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[46.350, 49.800]]
+elevation = 0.350
+rotation = 332
+tint = [253, 145, 223, 255]
+
+[[objects]]
+id = "generated_0761"
+catalog_id = "core:cardboard_box_open"
+story = 0
+position = [[48.300, 49.800]]
+elevation = 0.000
+rotation = 19
+tint = [104, 212, 134, 176]
+
+[[objects]]
+id = "generated_0762"
+catalog_id = "core:trashcan"
+story = 0
+position = [[50.250, 49.800]]
+elevation = 0.000
+rotation = 66
+tint = [141, 93, 231, 255]
+
+[[objects]]
+id = "generated_0763"
+catalog_id = "core:radio"
+story = 0
+position = [[52.200, 49.800]]
+elevation = 0.000
+rotation = 113
+tint = [178, 160, 142, 255]
+
+[[objects]]
+id = "generated_0764"
+catalog_id = "core:speaker"
+story = 0
+position = [[54.150, 49.800]]
+elevation = 0.000
+rotation = 160
+tint = [215, 227, 239, 255]
+
+[[objects]]
+id = "generated_0765"
+catalog_id = "core:speaker_small"
+story = 0
+position = [[56.100, 49.800]]
+elevation = 0.000
+rotation = 207
+tint = [252, 108, 150, 255]
+
+[[objects]]
+id = "generated_0766"
+catalog_id = "core:plant_small1"
+story = 0
+position = [[58.050, 49.800]]
+elevation = 0.000
+rotation = 254
+tint = [103, 175, 247, 255]
+
+[[objects]]
+id = "generated_0767"
+catalog_id = "core:nature_bush"
+story = 0
+position = [[60.000, 49.800]]
+elevation = 0.000
+rotation = 301
+tint = [140, 242, 158, 255]
+
+[[objects]]
+id = "generated_0768"
+catalog_id = "core:nature_grass"
+story = 0
+position = [[61.950, 49.800]]
+elevation = 0.000
+rotation = 348
+tint = [177, 123, 255, 255]
+
+[[objects]]
+id = "generated_0769"
+catalog_id = "core:chair"
+story = 0
+position = [[1.500, 51.900]]
+elevation = 0.000
+rotation = 48
+tint = [214, 190, 166, 255]
+
+[[objects]]
+id = "generated_0770"
+catalog_id = "core:chair_modern_cushion"
+story = 0
+position = [[3.450, 51.900]]
+elevation = 0.000
+rotation = 95
+tint = [251, 71, 77, 255]
+
+[[objects]]
+id = "generated_0771"
+catalog_id = "core:sofa"
+story = 0
+position = [[5.400, 51.900]]
+elevation = 0.000
+rotation = 142
+tint = [102, 138, 174, 255]
+
+[[objects]]
+id = "generated_0772"
+catalog_id = "core:coffee_table"
+story = 0
+position = [[7.350, 51.900]]
+elevation = 0.000
+rotation = 189
+tint = [139, 205, 85, 255]
+
+[[objects]]
+id = "generated_0773"
+catalog_id = "core:bookcase"
+story = 0
+position = [[9.300, 51.900]]
+elevation = 0.000
+rotation = 236
+tint = [176, 86, 182, 255]
+
+[[objects]]
+id = "generated_0774"
+catalog_id = "core:desk"
+story = 0
+position = [[11.250, 51.900]]
+elevation = 0.000
+rotation = 283
+tint = [213, 153, 93, 255]
+
+[[objects]]
+id = "generated_0775"
+catalog_id = "core:bed"
+story = 0
+position = [[13.200, 51.900]]
+elevation = 0.000
+rotation = 330
+tint = [250, 220, 190, 255]
+
+[[objects]]
+id = "generated_0776"
+catalog_id = "core:side_table"
+story = 0
+position = [[15.150, 51.900]]
+elevation = 0.000
+rotation = 17
+tint = [101, 101, 101, 255]
+
+[[objects]]
+id = "generated_0777"
+catalog_id = "core:floor_lamp"
+story = 0
+position = [[17.100, 51.900]]
+elevation = 0.000
+rotation = 64
+tint = [138, 168, 198, 255]
+
+[[objects]]
+id = "generated_0778"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[19.050, 51.900]]
+elevation = 0.000
+rotation = 111
+tint = [175, 235, 109, 255]
+
+[[objects]]
+id = "generated_0779"
+catalog_id = "core:table_lamp_square"
+story = 0
+position = [[21.000, 51.900]]
+elevation = 0.000
+rotation = 158
+tint = [212, 116, 206, 255]
+
+[[objects]]
+id = "generated_0780"
+catalog_id = "core:table_lamp_round"
+story = 0
+position = [[22.950, 51.900]]
+elevation = 0.000
+rotation = 205
+tint = [249, 183, 117, 176]
+
+[[objects]]
+id = "generated_0781"
+catalog_id = "core:ceiling_fan"
+story = 0
+position = [[24.900, 51.900]]
+elevation = 0.000
+rotation = 252
+tint = [100, 250, 214, 255]
+
+[[objects]]
+id = "generated_0782"
+catalog_id = "core:kitchen_island"
+story = 0
+position = [[26.850, 51.900]]
+elevation = 0.000
+rotation = 299
+tint = [137, 131, 125, 255]
+
+[[objects]]
+id = "generated_0783"
+catalog_id = "core:bar_stool"
+story = 0
+position = [[28.800, 51.900]]
+elevation = 0.350
+rotation = 346
+tint = [174, 198, 222, 255]
+
+[[objects]]
+id = "generated_0784"
+catalog_id = "core:kitchen_fridge"
+story = 0
+position = [[30.750, 51.900]]
+elevation = 0.000
+rotation = 33
+tint = [211, 79, 133, 255]
+
+[[objects]]
+id = "generated_0785"
+catalog_id = "core:kitchen_stove"
+story = 0
+position = [[32.700, 51.900]]
+elevation = 0.000
+rotation = 80
+tint = [248, 146, 230, 255]
+
+[[objects]]
+id = "generated_0786"
+catalog_id = "core:kitchen_sink"
+story = 0
+position = [[34.650, 51.900]]
+elevation = 0.000
+rotation = 127
+tint = [99, 213, 141, 255]
+
+[[objects]]
+id = "generated_0787"
+catalog_id = "core:kenney_kitchen_cabinet"
+story = 0
+position = [[36.600, 51.900]]
+elevation = 0.000
+rotation = 174
+tint = [136, 94, 238, 255]
+
+[[objects]]
+id = "generated_0788"
+catalog_id = "core:kitchen_blender"
+story = 0
+position = [[38.550, 51.900]]
+elevation = 0.000
+rotation = 221
+tint = [173, 161, 149, 255]
+
+[[objects]]
+id = "generated_0789"
+catalog_id = "core:toaster"
+story = 0
+position = [[40.500, 51.900]]
+elevation = 0.000
+rotation = 268
+tint = [210, 228, 246, 255]
+
+[[objects]]
+id = "generated_0790"
+catalog_id = "core:lounge_chair"
+story = 0
+position = [[42.450, 51.900]]
+elevation = 0.000
+rotation = 315
+tint = [247, 109, 157, 255]
+
+[[objects]]
+id = "generated_0791"
+catalog_id = "core:lounge_design_chair"
+story = 0
+position = [[44.400, 51.900]]
+elevation = 0.000
+rotation = 2
+tint = [98, 176, 254, 255]
+
+[[objects]]
+id = "generated_0792"
+catalog_id = "core:lounge_design_sofa"
+story = 0
+position = [[46.350, 51.900]]
+elevation = 0.000
+rotation = 49
+tint = [135, 243, 165, 255]
+
+[[objects]]
+id = "generated_0793"
+catalog_id = "core:lounge_sofa_corner"
+story = 0
+position = [[48.300, 51.900]]
+elevation = 0.000
+rotation = 96
+tint = [172, 124, 76, 255]
+
+[[objects]]
+id = "generated_0794"
+catalog_id = "core:lounge_sofa_ottoman"
+story = 0
+position = [[50.250, 51.900]]
+elevation = 0.000
+rotation = 143
+tint = [209, 191, 173, 255]
+
+[[objects]]
+id = "generated_0795"
+catalog_id = "core:table"
+story = 0
+position = [[52.200, 51.900]]
+elevation = 0.000
+rotation = 190
+tint = [246, 72, 84, 255]
+
+[[objects]]
+id = "generated_0796"
+catalog_id = "core:table_round"
+story = 0
+position = [[54.150, 51.900]]
+elevation = 0.000
+rotation = 237
+tint = [97, 139, 181, 255]
+
+[[objects]]
+id = "generated_0797"
+catalog_id = "core:table_cross"
+story = 0
+position = [[56.100, 51.900]]
+elevation = 0.000
+rotation = 284
+tint = [134, 206, 92, 255]
+
+[[objects]]
+id = "generated_0798"
+catalog_id = "core:table_glass"
+story = 0
+position = [[58.050, 51.900]]
+elevation = 0.000
+rotation = 331
+tint = [171, 87, 189, 255]
+
+[[objects]]
+id = "generated_0799"
+catalog_id = "core:rug_rectangle"
+story = 0
+position = [[60.000, 51.900]]
+elevation = 0.000
+rotation = 18
+tint = [208, 154, 100, 176]
+
+[[objects]]
+id = "generated_0800"
+catalog_id = "core:rug_round"
+story = 0
+position = [[61.950, 51.900]]
+elevation = 0.000
+rotation = 65
+tint = [245, 221, 197, 255]
+
+[[objects]]
+id = "generated_0801"
+catalog_id = "core:rug_square"
+story = 0
+position = [[1.500, 54.000]]
+elevation = 0.000
+rotation = 125
+tint = [96, 102, 108, 255]
+
+[[objects]]
+id = "generated_0802"
+catalog_id = "core:bathtub"
+story = 0
+position = [[3.450, 54.000]]
+elevation = 0.000
+rotation = 172
+tint = [133, 169, 205, 255]
+
+[[objects]]
+id = "generated_0803"
+catalog_id = "core:kenney_toilet"
+story = 0
+position = [[5.400, 54.000]]
+elevation = 0.000
+rotation = 219
+tint = [170, 236, 116, 255]
+
+[[objects]]
+id = "generated_0804"
+catalog_id = "core:kenney_bathroom_sink"
+story = 0
+position = [[7.350, 54.000]]
+elevation = 0.000
+rotation = 266
+tint = [207, 117, 213, 255]
+
+[[objects]]
+id = "generated_0805"
+catalog_id = "core:shower_round"
+story = 0
+position = [[9.300, 54.000]]
+elevation = 0.000
+rotation = 313
+tint = [244, 184, 124, 255]
+
+[[objects]]
+id = "generated_0806"
+catalog_id = "core:washer"
+story = 0
+position = [[11.250, 54.000]]
+elevation = 0.350
+rotation = 0
+tint = [95, 251, 221, 255]
+
+[[objects]]
+id = "generated_0807"
+catalog_id = "core:dryer"
+story = 0
+position = [[13.200, 54.000]]
+elevation = 0.000
+rotation = 47
+tint = [132, 132, 132, 255]
+
+[[objects]]
+id = "generated_0808"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[15.150, 54.000]]
+elevation = 0.000
+rotation = 94
+tint = [169, 199, 229, 255]
+
+[[objects]]
+id = "generated_0809"
+catalog_id = "core:cardboard_box_open"
+story = 0
+position = [[17.100, 54.000]]
+elevation = 0.000
+rotation = 141
+tint = [206, 80, 140, 255]
+
+[[objects]]
+id = "generated_0810"
+catalog_id = "core:trashcan"
+story = 0
+position = [[19.050, 54.000]]
+elevation = 0.000
+rotation = 188
+tint = [243, 147, 237, 255]
+
+[[objects]]
+id = "generated_0811"
+catalog_id = "core:radio"
+story = 0
+position = [[21.000, 54.000]]
+elevation = 0.000
+rotation = 235
+tint = [94, 214, 148, 255]
+
+[[objects]]
+id = "generated_0812"
+catalog_id = "core:speaker"
+story = 0
+position = [[22.950, 54.000]]
+elevation = 0.000
+rotation = 282
+tint = [131, 95, 245, 255]
+
+[[objects]]
+id = "generated_0813"
+catalog_id = "core:speaker_small"
+story = 0
+position = [[24.900, 54.000]]
+elevation = 0.000
+rotation = 329
+tint = [168, 162, 156, 255]
+
+[[objects]]
+id = "generated_0814"
+catalog_id = "core:plant_small1"
+story = 0
+position = [[26.850, 54.000]]
+elevation = 0.000
+rotation = 16
+tint = [205, 229, 253, 255]
+
+[[objects]]
+id = "generated_0815"
+catalog_id = "core:nature_bush"
+story = 0
+position = [[28.800, 54.000]]
+elevation = 0.000
+rotation = 63
+tint = [242, 110, 164, 255]
+
+[[objects]]
+id = "generated_0816"
+catalog_id = "core:nature_grass"
+story = 0
+position = [[30.750, 54.000]]
+elevation = 0.000
+rotation = 110
+tint = [93, 177, 75, 255]
+
+[[objects]]
+id = "generated_0817"
+catalog_id = "core:chair"
+story = 0
+position = [[32.700, 54.000]]
+elevation = 0.000
+rotation = 157
+tint = [130, 244, 172, 255]
+
+[[objects]]
+id = "generated_0818"
+catalog_id = "core:chair_modern_cushion"
+story = 0
+position = [[34.650, 54.000]]
+elevation = 0.000
+rotation = 204
+tint = [167, 125, 83, 176]
+
+[[objects]]
+id = "generated_0819"
+catalog_id = "core:sofa"
+story = 0
+position = [[36.600, 54.000]]
+elevation = 0.000
+rotation = 251
+tint = [204, 192, 180, 255]
+
+[[objects]]
+id = "generated_0820"
+catalog_id = "core:coffee_table"
+story = 0
+position = [[38.550, 54.000]]
+elevation = 0.000
+rotation = 298
+tint = [241, 73, 91, 255]
+
+[[objects]]
+id = "generated_0821"
+catalog_id = "core:bookcase"
+story = 0
+position = [[40.500, 54.000]]
+elevation = 0.000
+rotation = 345
+tint = [92, 140, 188, 255]
+
+[[objects]]
+id = "generated_0822"
+catalog_id = "core:desk"
+story = 0
+position = [[42.450, 54.000]]
+elevation = 0.000
+rotation = 32
+tint = [129, 207, 99, 255]
+
+[[objects]]
+id = "generated_0823"
+catalog_id = "core:bed"
+story = 0
+position = [[44.400, 54.000]]
+elevation = 0.000
+rotation = 79
+tint = [166, 88, 196, 255]
+
+[[objects]]
+id = "generated_0824"
+catalog_id = "core:side_table"
+story = 0
+position = [[46.350, 54.000]]
+elevation = 0.000
+rotation = 126
+tint = [203, 155, 107, 255]
+
+[[objects]]
+id = "generated_0825"
+catalog_id = "core:floor_lamp"
+story = 0
+position = [[48.300, 54.000]]
+elevation = 0.000
+rotation = 173
+tint = [240, 222, 204, 255]
+
+[[objects]]
+id = "generated_0826"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[50.250, 54.000]]
+elevation = 0.000
+rotation = 220
+tint = [91, 103, 115, 255]
+
+[[objects]]
+id = "generated_0827"
+catalog_id = "core:table_lamp_square"
+story = 0
+position = [[52.200, 54.000]]
+elevation = 0.000
+rotation = 267
+tint = [128, 170, 212, 255]
+
+[[objects]]
+id = "generated_0828"
+catalog_id = "core:table_lamp_round"
+story = 0
+position = [[54.150, 54.000]]
+elevation = 0.000
+rotation = 314
+tint = [165, 237, 123, 255]
+
+[[objects]]
+id = "generated_0829"
+catalog_id = "core:ceiling_fan"
+story = 0
+position = [[56.100, 54.000]]
+elevation = 0.350
+rotation = 1
+tint = [202, 118, 220, 255]
+
+[[objects]]
+id = "generated_0830"
+catalog_id = "core:kitchen_island"
+story = 0
+position = [[58.050, 54.000]]
+elevation = 0.000
+rotation = 48
+tint = [239, 185, 131, 255]
+
+[[objects]]
+id = "generated_0831"
+catalog_id = "core:bar_stool"
+story = 0
+position = [[60.000, 54.000]]
+elevation = 0.000
+rotation = 95
+tint = [90, 252, 228, 255]
+
+[[objects]]
+id = "generated_0832"
+catalog_id = "core:kitchen_fridge"
+story = 0
+position = [[61.950, 54.000]]
+elevation = 0.000
+rotation = 142
+tint = [127, 133, 139, 255]
+
+[[objects]]
+id = "generated_0833"
+catalog_id = "core:kitchen_stove"
+story = 0
+position = [[1.500, 56.100]]
+elevation = 0.000
+rotation = 202
+tint = [164, 200, 236, 255]
+
+[[objects]]
+id = "generated_0834"
+catalog_id = "core:kitchen_sink"
+story = 0
+position = [[3.450, 56.100]]
+elevation = 0.000
+rotation = 249
+tint = [201, 81, 147, 255]
+
+[[objects]]
+id = "generated_0835"
+catalog_id = "core:kenney_kitchen_cabinet"
+story = 0
+position = [[5.400, 56.100]]
+elevation = 0.000
+rotation = 296
+tint = [238, 148, 244, 255]
+
+[[objects]]
+id = "generated_0836"
+catalog_id = "core:kitchen_blender"
+story = 0
+position = [[7.350, 56.100]]
+elevation = 0.000
+rotation = 343
+tint = [89, 215, 155, 255]
+
+[[objects]]
+id = "generated_0837"
+catalog_id = "core:toaster"
+story = 0
+position = [[9.300, 56.100]]
+elevation = 0.000
+rotation = 30
+tint = [126, 96, 252, 176]
+
+[[objects]]
+id = "generated_0838"
+catalog_id = "core:lounge_chair"
+story = 0
+position = [[11.250, 56.100]]
+elevation = 0.000
+rotation = 77
+tint = [163, 163, 163, 255]
+
+[[objects]]
+id = "generated_0839"
+catalog_id = "core:lounge_design_chair"
+story = 0
+position = [[13.200, 56.100]]
+elevation = 0.000
+rotation = 124
+tint = [200, 230, 74, 255]
+
+[[objects]]
+id = "generated_0840"
+catalog_id = "core:lounge_design_sofa"
+story = 0
+position = [[15.150, 56.100]]
+elevation = 0.000
+rotation = 171
+tint = [237, 111, 171, 255]
+
+[[objects]]
+id = "generated_0841"
+catalog_id = "core:lounge_sofa_corner"
+story = 0
+position = [[17.100, 56.100]]
+elevation = 0.000
+rotation = 218
+tint = [88, 178, 82, 255]
+
+[[objects]]
+id = "generated_0842"
+catalog_id = "core:lounge_sofa_ottoman"
+story = 0
+position = [[19.050, 56.100]]
+elevation = 0.000
+rotation = 265
+tint = [125, 245, 179, 255]
+
+[[objects]]
+id = "generated_0843"
+catalog_id = "core:table"
+story = 0
+position = [[21.000, 56.100]]
+elevation = 0.000
+rotation = 312
+tint = [162, 126, 90, 255]
+
+[[objects]]
+id = "generated_0844"
+catalog_id = "core:table_round"
+story = 0
+position = [[22.950, 56.100]]
+elevation = 0.000
+rotation = 359
+tint = [199, 193, 187, 255]
+
+[[objects]]
+id = "generated_0845"
+catalog_id = "core:table_cross"
+story = 0
+position = [[24.900, 56.100]]
+elevation = 0.000
+rotation = 46
+tint = [236, 74, 98, 255]
+
+[[objects]]
+id = "generated_0846"
+catalog_id = "core:table_glass"
+story = 0
+position = [[26.850, 56.100]]
+elevation = 0.000
+rotation = 93
+tint = [87, 141, 195, 255]
+
+[[objects]]
+id = "generated_0847"
+catalog_id = "core:rug_rectangle"
+story = 0
+position = [[28.800, 56.100]]
+elevation = 0.000
+rotation = 140
+tint = [124, 208, 106, 255]
+
+[[objects]]
+id = "generated_0848"
+catalog_id = "core:rug_round"
+story = 0
+position = [[30.750, 56.100]]
+elevation = 0.000
+rotation = 187
+tint = [161, 89, 203, 255]
+
+[[objects]]
+id = "generated_0849"
+catalog_id = "core:rug_square"
+story = 0
+position = [[32.700, 56.100]]
+elevation = 0.000
+rotation = 234
+tint = [198, 156, 114, 255]
+
+[[objects]]
+id = "generated_0850"
+catalog_id = "core:bathtub"
+story = 0
+position = [[34.650, 56.100]]
+elevation = 0.000
+rotation = 281
+tint = [235, 223, 211, 255]
+
+[[objects]]
+id = "generated_0851"
+catalog_id = "core:kenney_toilet"
+story = 0
+position = [[36.600, 56.100]]
+elevation = 0.000
+rotation = 328
+tint = [86, 104, 122, 255]
+
+[[objects]]
+id = "generated_0852"
+catalog_id = "core:kenney_bathroom_sink"
+story = 0
+position = [[38.550, 56.100]]
+elevation = 0.350
+rotation = 15
+tint = [123, 171, 219, 255]
+
+[[objects]]
+id = "generated_0853"
+catalog_id = "core:shower_round"
+story = 0
+position = [[40.500, 56.100]]
+elevation = 0.000
+rotation = 62
+tint = [160, 238, 130, 255]
+
+[[objects]]
+id = "generated_0854"
+catalog_id = "core:washer"
+story = 0
+position = [[42.450, 56.100]]
+elevation = 0.000
+rotation = 109
+tint = [197, 119, 227, 255]
+
+[[objects]]
+id = "generated_0855"
+catalog_id = "core:dryer"
+story = 0
+position = [[44.400, 56.100]]
+elevation = 0.000
+rotation = 156
+tint = [234, 186, 138, 255]
+
+[[objects]]
+id = "generated_0856"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[46.350, 56.100]]
+elevation = 0.000
+rotation = 203
+tint = [85, 253, 235, 176]
+
+[[objects]]
+id = "generated_0857"
+catalog_id = "core:cardboard_box_open"
+story = 0
+position = [[48.300, 56.100]]
+elevation = 0.000
+rotation = 250
+tint = [122, 134, 146, 255]
+
+[[objects]]
+id = "generated_0858"
+catalog_id = "core:trashcan"
+story = 0
+position = [[50.250, 56.100]]
+elevation = 0.000
+rotation = 297
+tint = [159, 201, 243, 255]
+
+[[objects]]
+id = "generated_0859"
+catalog_id = "core:radio"
+story = 0
+position = [[52.200, 56.100]]
+elevation = 0.000
+rotation = 344
+tint = [196, 82, 154, 255]
+
+[[objects]]
+id = "generated_0860"
+catalog_id = "core:speaker"
+story = 0
+position = [[54.150, 56.100]]
+elevation = 0.000
+rotation = 31
+tint = [233, 149, 251, 255]
+
+[[objects]]
+id = "generated_0861"
+catalog_id = "core:speaker_small"
+story = 0
+position = [[56.100, 56.100]]
+elevation = 0.000
+rotation = 78
+tint = [84, 216, 162, 255]
+
+[[objects]]
+id = "generated_0862"
+catalog_id = "core:plant_small1"
+story = 0
+position = [[58.050, 56.100]]
+elevation = 0.000
+rotation = 125
+tint = [121, 97, 73, 255]
+
+[[objects]]
+id = "generated_0863"
+catalog_id = "core:nature_bush"
+story = 0
+position = [[60.000, 56.100]]
+elevation = 0.000
+rotation = 172
+tint = [158, 164, 170, 255]
+
+[[objects]]
+id = "generated_0864"
+catalog_id = "core:nature_grass"
+story = 0
+position = [[61.950, 56.100]]
+elevation = 0.000
+rotation = 219
+tint = [195, 231, 81, 255]
+
+[[objects]]
+id = "generated_0865"
+catalog_id = "core:chair"
+story = 0
+position = [[1.500, 58.200]]
+elevation = 0.000
+rotation = 279
+tint = [232, 112, 178, 255]
+
+[[objects]]
+id = "generated_0866"
+catalog_id = "core:chair_modern_cushion"
+story = 0
+position = [[3.450, 58.200]]
+elevation = 0.000
+rotation = 326
+tint = [83, 179, 89, 255]
+
+[[objects]]
+id = "generated_0867"
+catalog_id = "core:sofa"
+story = 0
+position = [[5.400, 58.200]]
+elevation = 0.000
+rotation = 13
+tint = [120, 246, 186, 255]
+
+[[objects]]
+id = "generated_0868"
+catalog_id = "core:coffee_table"
+story = 0
+position = [[7.350, 58.200]]
+elevation = 0.000
+rotation = 60
+tint = [157, 127, 97, 255]
+
+[[objects]]
+id = "generated_0869"
+catalog_id = "core:bookcase"
+story = 0
+position = [[9.300, 58.200]]
+elevation = 0.000
+rotation = 107
+tint = [194, 194, 194, 255]
+
+[[objects]]
+id = "generated_0870"
+catalog_id = "core:desk"
+story = 0
+position = [[11.250, 58.200]]
+elevation = 0.000
+rotation = 154
+tint = [231, 75, 105, 255]
+
+[[objects]]
+id = "generated_0871"
+catalog_id = "core:bed"
+story = 0
+position = [[13.200, 58.200]]
+elevation = 0.000
+rotation = 201
+tint = [82, 142, 202, 255]
+
+[[objects]]
+id = "generated_0872"
+catalog_id = "core:side_table"
+story = 0
+position = [[15.150, 58.200]]
+elevation = 0.000
+rotation = 248
+tint = [119, 209, 113, 255]
+
+[[objects]]
+id = "generated_0873"
+catalog_id = "core:floor_lamp"
+story = 0
+position = [[17.100, 58.200]]
+elevation = 0.000
+rotation = 295
+tint = [156, 90, 210, 255]
+
+[[objects]]
+id = "generated_0874"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[19.050, 58.200]]
+elevation = 0.000
+rotation = 342
+tint = [193, 157, 121, 255]
+
+[[objects]]
+id = "generated_0875"
+catalog_id = "core:table_lamp_square"
+story = 0
+position = [[21.000, 58.200]]
+elevation = 0.350
+rotation = 29
+tint = [230, 224, 218, 176]
+
+[[objects]]
+id = "generated_0876"
+catalog_id = "core:table_lamp_round"
+story = 0
+position = [[22.950, 58.200]]
+elevation = 0.000
+rotation = 76
+tint = [81, 105, 129, 255]
+
+[[objects]]
+id = "generated_0877"
+catalog_id = "core:ceiling_fan"
+story = 0
+position = [[24.900, 58.200]]
+elevation = 0.000
+rotation = 123
+tint = [118, 172, 226, 255]
+
+[[objects]]
+id = "generated_0878"
+catalog_id = "core:kitchen_island"
+story = 0
+position = [[26.850, 58.200]]
+elevation = 0.000
+rotation = 170
+tint = [155, 239, 137, 255]
+
+[[objects]]
+id = "generated_0879"
+catalog_id = "core:bar_stool"
+story = 0
+position = [[28.800, 58.200]]
+elevation = 0.000
+rotation = 217
+tint = [192, 120, 234, 255]
+
+[[objects]]
+id = "generated_0880"
+catalog_id = "core:kitchen_fridge"
+story = 0
+position = [[30.750, 58.200]]
+elevation = 0.000
+rotation = 264
+tint = [229, 187, 145, 255]
+
+[[objects]]
+id = "generated_0881"
+catalog_id = "core:kitchen_stove"
+story = 0
+position = [[32.700, 58.200]]
+elevation = 0.000
+rotation = 311
+tint = [80, 254, 242, 255]
+
+[[objects]]
+id = "generated_0882"
+catalog_id = "core:kitchen_sink"
+story = 0
+position = [[34.650, 58.200]]
+elevation = 0.000
+rotation = 358
+tint = [117, 135, 153, 255]
+
+[[objects]]
+id = "generated_0883"
+catalog_id = "core:kenney_kitchen_cabinet"
+story = 0
+position = [[36.600, 58.200]]
+elevation = 0.000
+rotation = 45
+tint = [154, 202, 250, 255]
+
+[[objects]]
+id = "generated_0884"
+catalog_id = "core:kitchen_blender"
+story = 0
+position = [[38.550, 58.200]]
+elevation = 0.000
+rotation = 92
+tint = [191, 83, 161, 255]
+
+[[objects]]
+id = "generated_0885"
+catalog_id = "core:toaster"
+story = 0
+position = [[40.500, 58.200]]
+elevation = 0.000
+rotation = 139
+tint = [228, 150, 72, 255]
+
+[[objects]]
+id = "generated_0886"
+catalog_id = "core:lounge_chair"
+story = 0
+position = [[42.450, 58.200]]
+elevation = 0.000
+rotation = 186
+tint = [79, 217, 169, 255]
+
+[[objects]]
+id = "generated_0887"
+catalog_id = "core:lounge_design_chair"
+story = 0
+position = [[44.400, 58.200]]
+elevation = 0.000
+rotation = 233
+tint = [116, 98, 80, 255]
+
+[[objects]]
+id = "generated_0888"
+catalog_id = "core:lounge_design_sofa"
+story = 0
+position = [[46.350, 58.200]]
+elevation = 0.000
+rotation = 280
+tint = [153, 165, 177, 255]
+
+[[objects]]
+id = "generated_0889"
+catalog_id = "core:lounge_sofa_corner"
+story = 0
+position = [[48.300, 58.200]]
+elevation = 0.000
+rotation = 327
+tint = [190, 232, 88, 255]
+
+[[objects]]
+id = "generated_0890"
+catalog_id = "core:lounge_sofa_ottoman"
+story = 0
+position = [[50.250, 58.200]]
+elevation = 0.000
+rotation = 14
+tint = [227, 113, 185, 255]
+
+[[objects]]
+id = "generated_0891"
+catalog_id = "core:table"
+story = 0
+position = [[52.200, 58.200]]
+elevation = 0.000
+rotation = 61
+tint = [78, 180, 96, 255]
+
+[[objects]]
+id = "generated_0892"
+catalog_id = "core:table_round"
+story = 0
+position = [[54.150, 58.200]]
+elevation = 0.000
+rotation = 108
+tint = [115, 247, 193, 255]
+
+[[objects]]
+id = "generated_0893"
+catalog_id = "core:table_cross"
+story = 0
+position = [[56.100, 58.200]]
+elevation = 0.000
+rotation = 155
+tint = [152, 128, 104, 255]
+
+[[objects]]
+id = "generated_0894"
+catalog_id = "core:table_glass"
+story = 0
+position = [[58.050, 58.200]]
+elevation = 0.000
+rotation = 202
+tint = [189, 195, 201, 176]
+
+[[objects]]
+id = "generated_0895"
+catalog_id = "core:rug_rectangle"
+story = 0
+position = [[60.000, 58.200]]
+elevation = 0.000
+rotation = 249
+tint = [226, 76, 112, 255]
+
+[[objects]]
+id = "generated_0896"
+catalog_id = "core:rug_round"
+story = 0
+position = [[61.950, 58.200]]
+elevation = 0.000
+rotation = 296
+tint = [77, 143, 209, 255]
+
+[[objects]]
+id = "generated_0897"
+catalog_id = "core:rug_square"
+story = 0
+position = [[1.500, 60.300]]
+elevation = 0.000
+rotation = 356
+tint = [114, 210, 120, 255]
+
+[[objects]]
+id = "generated_0898"
+catalog_id = "core:bathtub"
+story = 0
+position = [[3.450, 60.300]]
+elevation = 0.350
+rotation = 43
+tint = [151, 91, 217, 255]
+
+[[objects]]
+id = "generated_0899"
+catalog_id = "core:kenney_toilet"
+story = 0
+position = [[5.400, 60.300]]
+elevation = 0.000
+rotation = 90
+tint = [188, 158, 128, 255]
+
+[[objects]]
+id = "generated_0900"
+catalog_id = "core:kenney_bathroom_sink"
+story = 0
+position = [[7.350, 60.300]]
+elevation = 0.000
+rotation = 137
+tint = [225, 225, 225, 255]
+
+[[objects]]
+id = "generated_0901"
+catalog_id = "core:shower_round"
+story = 0
+position = [[9.300, 60.300]]
+elevation = 0.000
+rotation = 184
+tint = [76, 106, 136, 255]
+
+[[objects]]
+id = "generated_0902"
+catalog_id = "core:washer"
+story = 0
+position = [[11.250, 60.300]]
+elevation = 0.000
+rotation = 231
+tint = [113, 173, 233, 255]
+
+[[objects]]
+id = "generated_0903"
+catalog_id = "core:dryer"
+story = 0
+position = [[13.200, 60.300]]
+elevation = 0.000
+rotation = 278
+tint = [150, 240, 144, 255]
+
+[[objects]]
+id = "generated_0904"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[15.150, 60.300]]
+elevation = 0.000
+rotation = 325
+tint = [187, 121, 241, 255]
+
+[[objects]]
+id = "generated_0905"
+catalog_id = "core:cardboard_box_open"
+story = 0
+position = [[17.100, 60.300]]
+elevation = 0.000
+rotation = 12
+tint = [224, 188, 152, 255]
+
+[[objects]]
+id = "generated_0906"
+catalog_id = "core:trashcan"
+story = 0
+position = [[19.050, 60.300]]
+elevation = 0.000
+rotation = 59
+tint = [75, 255, 249, 255]
+
+[[objects]]
+id = "generated_0907"
+catalog_id = "core:radio"
+story = 0
+position = [[21.000, 60.300]]
+elevation = 0.000
+rotation = 106
+tint = [112, 136, 160, 255]
+
+[[objects]]
+id = "generated_0908"
+catalog_id = "core:speaker"
+story = 0
+position = [[22.950, 60.300]]
+elevation = 0.000
+rotation = 153
+tint = [149, 203, 71, 255]
+
+[[objects]]
+id = "generated_0909"
+catalog_id = "core:speaker_small"
+story = 0
+position = [[24.900, 60.300]]
+elevation = 0.000
+rotation = 200
+tint = [186, 84, 168, 255]
+
+[[objects]]
+id = "generated_0910"
+catalog_id = "core:plant_small1"
+story = 0
+position = [[26.850, 60.300]]
+elevation = 0.000
+rotation = 247
+tint = [223, 151, 79, 255]
+
+[[objects]]
+id = "generated_0911"
+catalog_id = "core:nature_bush"
+story = 0
+position = [[28.800, 60.300]]
+elevation = 0.000
+rotation = 294
+tint = [74, 218, 176, 255]
+
+[[objects]]
+id = "generated_0912"
+catalog_id = "core:nature_grass"
+story = 0
+position = [[30.750, 60.300]]
+elevation = 0.000
+rotation = 341
+tint = [111, 99, 87, 255]
+
+[[objects]]
+id = "generated_0913"
+catalog_id = "core:chair"
+story = 0
+position = [[32.700, 60.300]]
+elevation = 0.000
+rotation = 28
+tint = [148, 166, 184, 176]
+
+[[objects]]
+id = "generated_0914"
+catalog_id = "core:chair_modern_cushion"
+story = 0
+position = [[34.650, 60.300]]
+elevation = 0.000
+rotation = 75
+tint = [185, 233, 95, 255]
+
+[[objects]]
+id = "generated_0915"
+catalog_id = "core:sofa"
+story = 0
+position = [[36.600, 60.300]]
+elevation = 0.000
+rotation = 122
+tint = [222, 114, 192, 255]
+
+[[objects]]
+id = "generated_0916"
+catalog_id = "core:coffee_table"
+story = 0
+position = [[38.550, 60.300]]
+elevation = 0.000
+rotation = 169
+tint = [73, 181, 103, 255]
+
+[[objects]]
+id = "generated_0917"
+catalog_id = "core:bookcase"
+story = 0
+position = [[40.500, 60.300]]
+elevation = 0.000
+rotation = 216
+tint = [110, 248, 200, 255]
+
+[[objects]]
+id = "generated_0918"
+catalog_id = "core:desk"
+story = 0
+position = [[42.450, 60.300]]
+elevation = 0.000
+rotation = 263
+tint = [147, 129, 111, 255]
+
+[[objects]]
+id = "generated_0919"
+catalog_id = "core:bed"
+story = 0
+position = [[44.400, 60.300]]
+elevation = 0.000
+rotation = 310
+tint = [184, 196, 208, 255]
+
+[[objects]]
+id = "generated_0920"
+catalog_id = "core:side_table"
+story = 0
+position = [[46.350, 60.300]]
+elevation = 0.000
+rotation = 357
+tint = [221, 77, 119, 255]
+
+[[objects]]
+id = "generated_0921"
+catalog_id = "core:floor_lamp"
+story = 0
+position = [[48.300, 60.300]]
+elevation = 0.350
+rotation = 44
+tint = [72, 144, 216, 255]
+
+[[objects]]
+id = "generated_0922"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[50.250, 60.300]]
+elevation = 0.000
+rotation = 91
+tint = [109, 211, 127, 255]
+
+[[objects]]
+id = "generated_0923"
+catalog_id = "core:table_lamp_square"
+story = 0
+position = [[52.200, 60.300]]
+elevation = 0.000
+rotation = 138
+tint = [146, 92, 224, 255]
+
+[[objects]]
+id = "generated_0924"
+catalog_id = "core:table_lamp_round"
+story = 0
+position = [[54.150, 60.300]]
+elevation = 0.000
+rotation = 185
+tint = [183, 159, 135, 255]
+
+[[objects]]
+id = "generated_0925"
+catalog_id = "core:ceiling_fan"
+story = 0
+position = [[56.100, 60.300]]
+elevation = 0.000
+rotation = 232
+tint = [220, 226, 232, 255]
+
+[[objects]]
+id = "generated_0926"
+catalog_id = "core:kitchen_island"
+story = 0
+position = [[58.050, 60.300]]
+elevation = 0.000
+rotation = 279
+tint = [71, 107, 143, 255]
+
+[[objects]]
+id = "generated_0927"
+catalog_id = "core:bar_stool"
+story = 0
+position = [[60.000, 60.300]]
+elevation = 0.000
+rotation = 326
+tint = [108, 174, 240, 255]
+
+[[objects]]
+id = "generated_0928"
+catalog_id = "core:kitchen_fridge"
+story = 0
+position = [[61.950, 60.300]]
+elevation = 0.000
+rotation = 13
+tint = [145, 241, 151, 255]
+# END GENERATED CHAOS PROPS
+
+[[lights]]
+id="light_01"
+kind="point"
+story=0
+position=[[10,10]]
+elevation=1.5
+range=9
+intensity=2.0
+color=[255,80,80,255]
+[[lights]]
+id="light_02"
+kind="spot"
+story=0
+position=[[20,20]]
+elevation=2.8
+range=12
+intensity=2.5
+facing=225
+cone_angle=25
+color=[80,120,255,255]
+[[lights]]
+id="light_03"
+kind="area"
+story=0
+position=[[47,10]]
+elevation=2.5
+range=8
+intensity=1.8
+color=[255,220,160,255]
+[[lights]]
+id="light_04"
+kind="spot"
+story=0
+position=[[53,20]]
+elevation=2.2
+range=10
+intensity=2.2
+facing=135
+cone_angle=55
+color=[100,255,160,255]
+[[lights]]
+id="light_05"
+kind="point"
+story=0
+position=[[10,47]]
+elevation=0.5
+range=7
+intensity=2.0
+color=[180,80,255,255]
+[[lights]]
+id="light_06"
+kind="area"
+story=0
+position=[[20,52]]
+elevation=2.9
+range=11
+intensity=1.6
+color=[255,180,100,255]
+[[lights]]
+id="light_07"
+kind="spot"
+story=0
+position=[[42,43]]
+elevation=2.7
+range=13
+intensity=3.0
+facing=45
+cone_angle=18
+color=[80,220,255,255]
+[[lights]]
+id="light_08"
+kind="point"
+story=0
+position=[[52,52]]
+elevation=1.2
+range=9
+intensity=2.4
+color=[255,100,180,255]
+[[lights]]
+id="light_09"
+kind="spot"
+story=0
+position=[[32,27]]
+elevation=3.5
+range=15
+intensity=3.5
+facing=90
+cone_angle=70
+color=[255,245,210,255]
+[[lights]]
+id="light_10"
+kind="point"
+story=0
+position=[[32,37]]
+elevation=0.2
+range=12
+intensity=2.8
+color=[80,140,255,255]
+
+[[markers]]
+id = "spawn_front_gate"
+kind = "player_spawn"
+story = 0
+position = [[32, 31]]
+radius = 0.75
+facing = 0
+camera_height = 2.0
+
+[[markers]]
+id = "camera_overview"
+kind = "camera"
+story = 0
+position = [[32, 32]]
+radius = 1.0
+facing = 45
+camera_height = 18.0

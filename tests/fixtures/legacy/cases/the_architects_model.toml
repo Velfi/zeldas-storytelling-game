@@ -1,0 +1,616 @@
+version = "MurderScript v1"
+id = "the_architects_model"
+title = "The Architect's Model"
+introduction = "Amara Holt's construction-floor fall was staged. Julian Crest altered the model to invent a barrier."
+action_point_limit = 14
+reveal_location = "design_studio"
+city_destination = "crest_tower_site"
+seed = 20322760
+
+[[city_locations]]
+id = "crest_tower_site"
+display_name = "THE ARCHITECT'S MODEL"
+level_spawn = "spawn_player"
+city_site = "east_bank_venue"
+
+[[characters]]
+id = "amara"
+display_name = "Amara Holt"
+role = "victim"
+description = "Amara Holt arrived to stop occupancy of Crest Tower until the unfinished edge was made safe. She marked discrepancies directly on models, then photographed the real site before anyone could revise the miniature."
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = []
+
+[[characters]]
+id = "julian"
+display_name = "Julian Crest"
+role = "suspect"
+description = "Architect who narrates the model as though it were already the building."
+private_secret = "murder and staging"
+motive = "Exposure would destroy a celebrated career."
+initial_disposition = -1
+initial_claims = ["claim_culprit_account"]
+
+[[characters]]
+id = "nell"
+display_name = "Nell Avery"
+role = "suspect"
+description = "Safety officer who distinguishes professional negligence from physical impossibility."
+private_secret = "a separate professional offense"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_nell_secret"]
+
+[[characters]]
+id = "rafi"
+display_name = "Rafi Cole"
+role = "suspect"
+description = "Digital modeler who remembers chronology through versions, access records, and checksums."
+private_secret = "a separate professional offense"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_rafi_secret"]
+
+[[locations]]
+id = "design_studio"
+display_name = "DESIGN STUDIO"
+description = "Design Studio preserves physical evidence in the staged chronology."
+connections = ["model_room"]
+characters = []
+pois = ["site_photos"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "model_room"
+display_name = "MODEL ROOM"
+description = "Model Room preserves physical evidence in the staged chronology."
+connections = ["design_studio", "show_apartment"]
+characters = ["julian"]
+pois = ["model_barrier"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "show_apartment"
+display_name = "SHOW APARTMENT"
+description = "Show Apartment preserves physical evidence in the staged chronology."
+connections = ["model_room", "construction_floor"]
+characters = ["nell"]
+pois = ["plaster", "stone_sample"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "construction_floor"
+display_name = "CONSTRUCTION FLOOR"
+description = "Construction Floor preserves physical evidence in the staged chronology."
+connections = ["show_apartment", "service_lift"]
+characters = ["rafi"]
+pois = ["fall_edge", "safety_report"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[locations]]
+id = "service_lift"
+display_name = "SERVICE LIFT"
+description = "Service Lift preserves physical evidence in the staged chronology."
+connections = ["construction_floor"]
+characters = []
+pois = ["lift_padding"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[pois]]
+id = "plaster"
+display_name = "Plaster Finish Sample"
+kind = "object"
+location = "show_apartment"
+owner = ""
+description = "Plaster Finish Sample is preserved as an inspectable part of the crime scene."
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[pois]]
+id = "stone_sample"
+display_name = "Porous Stone Sample"
+kind = "object"
+location = "show_apartment"
+owner = ""
+description = "Porous Stone Sample is preserved as an inspectable part of the crime scene."
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[pois]]
+id = "lift_padding"
+display_name = "Service-lift Padding"
+kind = "object"
+location = "service_lift"
+owner = ""
+description = "Service-lift Padding is preserved as an inspectable part of the crime scene."
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[pois]]
+id = "fall_edge"
+display_name = "Unfinished Edge"
+kind = "object"
+location = "construction_floor"
+owner = ""
+description = "Unfinished Edge is preserved as an inspectable part of the crime scene."
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[pois]]
+id = "model_barrier"
+display_name = "Added Scale-model Barrier"
+kind = "object"
+location = "model_room"
+owner = ""
+description = "Added Scale-model Barrier is preserved as an inspectable part of the crime scene."
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[pois]]
+id = "site_photos"
+display_name = "Current Site Photographs"
+kind = "object"
+location = "design_studio"
+owner = ""
+description = "Current Site Photographs is preserved as an inspectable part of the crime scene."
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[pois]]
+id = "safety_report"
+display_name = "Hidden Safety Report"
+kind = "object"
+location = "construction_floor"
+owner = ""
+description = "Hidden Safety Report is preserved as an inspectable part of the crime scene."
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[events]]
+id = "crime"
+time = "20:10"
+actor = "julian"
+action = "kill"
+target = "amara"
+source = "design_studio"
+destination = "design_studio"
+tool = "stone_sample"
+effects = ["victim_dead"]
+witnesses = []
+
+[[events]]
+id = "staging"
+time = "20:25"
+actor = "julian"
+action = "alter"
+target = "amara"
+source = "design_studio"
+destination = "service_lift"
+tool = ""
+effects = ["false_scene"]
+witnesses = []
+
+[[claims]]
+id = "claim_culprit_account"
+speaker = "julian"
+proposition = "Julian says Amara crossed an installed barrier before falling."
+true = false
+protects = "murder"
+response = "Julian says Amara crossed an installed barrier before falling."
+
+[[claims]]
+id = "claim_nell_secret"
+speaker = "nell"
+proposition = "Nell Avery conceals unrelated misconduct."
+true = false
+protects = "nell_secret"
+response = "I hid something, but it was not murder."
+
+[[claims]]
+id = "claim_rafi_secret"
+speaker = "rafi"
+proposition = "Rafi Cole conceals unrelated misconduct."
+true = false
+protects = "rafi_secret"
+response = "I hid something, but it was not murder."
+
+[[clues]]
+id = "clue_1"
+source = "plaster"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Plaster on Amara belongs to the finished apartment."
+proposition = "Plaster on Amara belongs to the finished apartment."
+blocks = ["weapon"]
+topics = ["case_evidence", "weapon"]
+essential = true
+
+[[clues]]
+id = "clue_2"
+source = "stone_sample"
+discovery_action = "examine"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Blood remains in the porous stone sample."
+proposition = "Blood remains in the porous stone sample."
+blocks = ["murder_place"]
+topics = ["case_evidence", "murder_place"]
+essential = true
+
+[[clues]]
+id = "clue_3"
+source = "lift_padding"
+discovery_action = "examine"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Service-lift padding carries her coat fibers."
+proposition = "Service-lift padding carries her coat fibers."
+blocks = ["death_time"]
+topics = ["case_evidence", "death_time"]
+essential = true
+
+[[clues]]
+id = "clue_4"
+source = "fall_edge"
+discovery_action = "examine"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Fall geometry does not match the landing point."
+proposition = "Fall geometry does not match the landing point."
+blocks = ["body_movement"]
+topics = ["case_evidence", "body_movement"]
+essential = true
+
+[[clues]]
+id = "clue_5"
+source = "model_barrier"
+discovery_action = "examine"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "The model's added barrier uses newer adhesive."
+proposition = "The model's added barrier uses newer adhesive."
+blocks = ["staging"]
+topics = ["case_evidence", "staging"]
+essential = true
+
+[[clues]]
+id = "clue_6"
+source = "site_photos"
+discovery_action = "examine"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Current site photographs show no barrier."
+proposition = "Current site photographs show no barrier."
+blocks = ["cleaning"]
+topics = ["case_evidence", "cleaning"]
+essential = true
+
+[[clues]]
+id = "clue_7"
+source = "nell"
+discovery_action = "dialogue"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Nell's report explains her lie and narrows the window."
+proposition = "Nell's report explains her lie and narrows the window."
+blocks = ["alibi"]
+topics = ["case_evidence", "alibi"]
+essential = true
+
+[[clues]]
+id = "clue_8"
+source = "rafi"
+discovery_action = "dialogue"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Rafi's copied files place him away from the body route."
+proposition = "Rafi's copied files place him away from the body route."
+blocks = ["culprit_knowledge"]
+topics = ["case_evidence", "culprit_knowledge"]
+essential = true
+
+[[clues]]
+id = "clue_9"
+source = "julian"
+discovery_action = "dialogue"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 2
+cost = 1
+prerequisites = []
+description = "Julian refers to the nonexistent barrier as personally observed."
+proposition = "Julian refers to the nonexistent barrier as personally observed."
+blocks = ["motive", "claim_culprit_account"]
+topics = ["case_evidence", "motive"]
+essential = true
+
+[[dialogue_approaches]]
+id = "opening_julian"
+character = "julian"
+prompt = "Tell me about Amara Holt. What did they want tonight?"
+response = "Julian surveys the model. 'Amara arrived to stop occupancy. She saw danger in unfinished work and insult in anyone asking for another week.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_culprit_account"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_julian"]
+
+[[dialogue_approaches]]
+id = "account_julian"
+character = "julian"
+prompt = "Show me where the installed barrier stood."
+response = "Julian traces it across the model without hesitation. 'Here, across the north edge. Amara climbed it despite the warning.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_culprit_account"]
+requires_topics = ["account_ready_julian"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_julian"]
+
+[[dialogue_approaches]]
+id = "approach_julian"
+character = "julian"
+prompt = "Then account for the plaster finish sample."
+response = "Julian taps the miniature barrier twice. In the current site photographs behind him, the north edge is open concrete."
+clue = "clue_9"
+requires_clues = ["clue_1"]
+requires_claims = ["claim_culprit_account"]
+requires_topics = ["followup_julian"]
+unlock_clues = ["clue_9"]
+unlock_claims = []
+unlock_topics = ["case_evidence"]
+
+[[dialogue_approaches]]
+id = "opening_nell"
+character = "nell"
+prompt = "Tell me about Amara Holt. What did they want tonight?"
+response = "Nell separates two report copies. 'Amara wanted the edge closed before morning. She asked me for the unsigned inspection because she already knew the official file was incomplete.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_nell_secret"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_nell"]
+
+[[dialogue_approaches]]
+id = "account_nell"
+character = "nell"
+prompt = "Why did you hide the safety report?"
+response = "Nell separates design failure from criminal act. 'No guardrail, no signed inspection, no authority to occupy the floor.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_nell_secret"]
+requires_topics = ["account_ready_nell"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_nell"]
+
+[[dialogue_approaches]]
+id = "approach_nell"
+character = "nell"
+prompt = "Then account for the service-lift padding."
+response = "'Helena's recording taught you to distrust a corrected sequence. Read the inspection revisions: Julian added his barrier after my report.'"
+clue = "clue_7"
+requires_clues = ["clue_3"]
+requires_claims = ["claim_nell_secret"]
+requires_topics = ["followup_nell"]
+unlock_clues = ["clue_7"]
+unlock_claims = []
+unlock_topics = ["case_evidence"]
+
+[[dialogue_approaches]]
+id = "opening_rafi"
+character = "rafi"
+prompt = "Tell me about Amara Holt. What did they want tonight?"
+response = "Rafi gives the model version. 'She photographed the floor, then asked for yesterday's digital model. Amara never trusted a miniature without the site beside it.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_rafi_secret"]
+requires_topics = []
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["account_ready_rafi"]
+
+[[dialogue_approaches]]
+id = "account_rafi"
+character = "rafi"
+prompt = "Why did you copy the project files?"
+response = "Rafi answers in version numbers. 'I mirrored the model before Julian revoked access. Theft of work, not alteration of site.'"
+clue = ""
+requires_clues = []
+requires_claims = ["claim_rafi_secret"]
+requires_topics = ["account_ready_rafi"]
+unlock_clues = []
+unlock_claims = []
+unlock_topics = ["followup_rafi"]
+
+[[dialogue_approaches]]
+id = "approach_rafi"
+character = "rafi"
+prompt = "Then account for the added scale-model barrier."
+response = "'Conrad's bottle was a material clock. Here the adhesive is yours: newer cure, newer file, same attempt to date the scene falsely.'"
+clue = "clue_8"
+requires_clues = ["clue_5"]
+requires_claims = ["claim_rafi_secret"]
+requires_topics = ["followup_rafi"]
+unlock_clues = ["clue_8"]
+unlock_claims = []
+unlock_topics = ["case_evidence"]
+
+[[contradictions]]
+id = "decisive_contradiction"
+claim = "claim_culprit_account"
+fact = "clue_9"
+conclusion = "Julian refers to the nonexistent barrier as though he saw it full-size."
+explanation = "The culprit commits to knowledge available only to the person who staged the scene."
+
+[[deductions]]
+id = "ded_1"
+proposition = "The show apartment was the murder room."
+category = "where_when"
+unlock_questions = []
+unlock_topics = ["finding_1"]
+unlock_investigations = []
+
+[[questions]]
+id = "question_1"
+prompt = "Where did the murder occur?"
+hypothesis = "The show apartment was the murder room."
+category = "where_when"
+requires_clues = ["clue_1", "clue_2"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_1"
+question = "question_1"
+mode = "physical"
+resolution = "substantiated"
+prompt = "Place the two established pieces together."
+result = "The show apartment was the murder room."
+slot_labels = ["FIRST FACT", "SECOND FACT"]
+slot_types = ["observation", "observation"]
+accepted_pieces = ["clue_1", "clue_2"]
+result_deductions = ["ded_1"]
+
+[[deductions]]
+id = "ded_2"
+proposition = "The service lift transferred Amara."
+category = "what"
+unlock_questions = []
+unlock_topics = ["finding_2"]
+unlock_investigations = []
+
+[[questions]]
+id = "question_2"
+prompt = "How was the false scene constructed?"
+hypothesis = "The service lift transferred Amara."
+category = "what"
+requires_clues = ["clue_3", "clue_4"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_2"
+question = "question_2"
+mode = "comparison"
+resolution = "substantiated"
+prompt = "Place the two established pieces together."
+result = "The service lift transferred Amara."
+slot_labels = ["FIRST FACT", "SECOND FACT"]
+slot_types = ["observation", "observation"]
+accepted_pieces = ["clue_3", "clue_4"]
+result_deductions = ["ded_2"]
+
+[[deductions]]
+id = "ded_3"
+proposition = "Julian altered the model after the crime."
+category = "concealment"
+unlock_questions = []
+unlock_topics = ["finding_3"]
+unlock_investigations = []
+
+[[questions]]
+id = "question_3"
+prompt = "What created the false chronology?"
+hypothesis = "Julian altered the model after the crime."
+category = "concealment"
+requires_clues = ["clue_5", "clue_6"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_3"
+question = "question_3"
+mode = "timeline"
+resolution = "substantiated"
+prompt = "Place the two established pieces together."
+result = "Julian altered the model after the crime."
+slot_labels = ["FIRST FACT", "SECOND FACT"]
+slot_types = ["observation", "observation"]
+accepted_pieces = ["clue_5", "clue_6"]
+result_deductions = ["ded_3"]
+
+[[deductions]]
+id = "ded_4"
+proposition = "Julian's barrier knowledge proves the staging."
+category = "contradiction"
+unlock_questions = []
+unlock_topics = ["finding_4"]
+unlock_investigations = []
+
+[[questions]]
+id = "question_4"
+prompt = "What unique knowledge proves the culprit staged it?"
+hypothesis = "Julian's barrier knowledge proves the staging."
+category = "contradiction"
+requires_clues = ["clue_8", "clue_9"]
+requires_claims = []
+requires_deductions = []
+requires_questions = []
+required_for_final = true
+
+[[demonstrations]]
+id = "demonstration_4"
+question = "question_4"
+mode = "confrontation"
+resolution = "substantiated"
+prompt = "Place the two established pieces together."
+result = "Julian's barrier knowledge proves the staging."
+slot_labels = ["FIRST FACT", "SECOND FACT"]
+slot_types = ["testimony", "testimony"]
+accepted_pieces = ["clue_8", "clue_9"]
+result_deductions = ["ded_4"]
+
+[solution]
+culprit = "julian"
+motive = "clue_9"
+decisive_contradiction = "decisive_contradiction"
+weapon_block = "weapon"
+murder_place_block = "murder_place"
+death_time_block = "death_time"
+body_movement_block = "body_movement"
+staging_block = "staging"
+cleaning_block = "cleaning"
+alibi_block = "alibi"
+murder_events = ["crime"]
+cover_up_events = ["staging"]
+false_alibi = ["claim_culprit_account"]
+exclusions = ["nell", "rafi"]

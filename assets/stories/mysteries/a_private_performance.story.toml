@@ -1,0 +1,1481 @@
+version = "InteractiveStory v1"
+id = "a_private_performance"
+title = "A Private Performance"
+creator = "Chicago conversion tool"
+description = "Simon Rusk is found after Helena March's public rehearsal. A recorded interruption supplied his false alibi."
+content_version = "1.0.0"
+default_space = "a_private_performance_lot"
+revision = 0
+
+[[capabilities]]
+id = "mystery"
+version = "1"
+
+[[entities]]
+id = "simon"
+kind = "character"
+display_name = "Simon Rusk"
+description = "Simon Rusk planned to end Helena's residency after the public rehearsal. He interrupted performances only from the aisle and always waited for a phrase to finish before speaking."
+space_id = ""
+target_kind = "entity"
+target_id = ""
+tags = ["victim"]
+roles = []
+
+[[entities]]
+id = "helena"
+kind = "character"
+display_name = "Helena March"
+description = "Conductor who controls accounts through cues and bar numbers until an out-of-sequence memory escapes."
+space_id = "a_private_performance_lot"
+target_kind = "marker"
+target_id = "spawn_helena"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "oren"
+kind = "character"
+display_name = "Oren Bell"
+description = "Orchestra manager who treats silence and timing as negotiated obligations."
+space_id = "a_private_performance_lot"
+target_kind = "marker"
+target_id = "spawn_oren"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "mina"
+kind = "character"
+display_name = "Mina Shah"
+description = "Recording engineer who sees lies as discontinuities in room tone and waveform."
+space_id = "a_private_performance_lot"
+target_kind = "marker"
+target_id = "spawn_mina"
+tags = ["suspect"]
+roles = []
+
+[[entities]]
+id = "concert_hall"
+kind = "location"
+display_name = "CONCERT HALL"
+description = "Concert Hall preserves physical evidence in the staged chronology."
+space_id = "a_private_performance_lot"
+target_kind = "room"
+target_id = "concert_hall"
+tags = []
+roles = []
+
+[[entities]]
+id = "rehearsal_studio"
+kind = "location"
+display_name = "REHEARSAL STUDIO"
+description = "Rehearsal Studio preserves physical evidence in the staged chronology."
+space_id = "a_private_performance_lot"
+target_kind = "room"
+target_id = "rehearsal_studio"
+tags = []
+roles = []
+
+[[entities]]
+id = "control_room"
+kind = "location"
+display_name = "CONTROL ROOM"
+description = "Control Room preserves physical evidence in the staged chronology."
+space_id = "a_private_performance_lot"
+target_kind = "room"
+target_id = "control_room"
+tags = []
+roles = []
+
+[[entities]]
+id = "conductors_office"
+kind = "location"
+display_name = "CONDUCTOR'S OFFICE"
+description = "Conductor's Office preserves physical evidence in the staged chronology."
+space_id = "a_private_performance_lot"
+target_kind = "room"
+target_id = "conductors_office"
+tags = []
+roles = []
+
+[[entities]]
+id = "instrument_store"
+kind = "location"
+display_name = "INSTRUMENT STORE"
+description = "Instrument Store preserves physical evidence in the staged chronology."
+space_id = "a_private_performance_lot"
+target_kind = "room"
+target_id = "instrument_store"
+tags = []
+roles = []
+
+[[entities]]
+id = "metronome"
+kind = "object"
+display_name = "Heavy Mechanical Metronome"
+description = "Heavy Mechanical Metronome is preserved as an inspectable part of the crime scene."
+space_id = "a_private_performance_lot"
+target_kind = "marker"
+target_id = "marker_metronome"
+tags = []
+roles = []
+
+[[entities]]
+id = "rosin"
+kind = "object"
+display_name = "Rosin Trace"
+description = "Rosin Trace is preserved as an inspectable part of the crime scene."
+space_id = "a_private_performance_lot"
+target_kind = "marker"
+target_id = "marker_rosin"
+tags = []
+roles = []
+
+[[entities]]
+id = "bass_case"
+kind = "object"
+display_name = "Wheeled Double-bass Case"
+description = "Wheeled Double-bass Case is preserved as an inspectable part of the crime scene."
+space_id = "a_private_performance_lot"
+target_kind = "marker"
+target_id = "marker_bass_case"
+tags = []
+roles = []
+
+[[entities]]
+id = "waveform"
+kind = "object"
+display_name = "Edited Waveform Display"
+description = "Edited Waveform Display is preserved as an inspectable part of the crime scene."
+space_id = "a_private_performance_lot"
+target_kind = "marker"
+target_id = "marker_waveform"
+tags = []
+roles = []
+
+[[entities]]
+id = "marked_score"
+kind = "object"
+display_name = "Marked Conducting Score"
+description = "Marked Conducting Score is preserved as an inspectable part of the crime scene."
+space_id = "a_private_performance_lot"
+target_kind = "marker"
+target_id = "marker_marked_score"
+tags = []
+roles = []
+
+[[entities]]
+id = "mute"
+kind = "object"
+display_name = "Dropped Orchestral Mute"
+description = "Dropped Orchestral Mute is preserved as an inspectable part of the crime scene."
+space_id = "a_private_performance_lot"
+target_kind = "marker"
+target_id = "marker_mute"
+tags = []
+roles = []
+
+[[entities]]
+id = "recorder"
+kind = "object"
+display_name = "Playback Recorder"
+description = "Playback Recorder is preserved as an inspectable part of the crime scene."
+space_id = "a_private_performance_lot"
+target_kind = "marker"
+target_id = "marker_recorder"
+tags = []
+roles = []
+
+[[propositions]]
+id = "claim_culprit_account"
+text = "Helena says Simon interrupted the public rehearsal live."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "claim_oren_secret"
+text = "Oren Bell conceals unrelated misconduct."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "claim_mina_secret"
+text = "Mina Shah conceals unrelated misconduct."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_1"
+text = "Simon's wound matches the office metronome."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_2"
+text = "Rosin on his coat comes from the instrument-store floor."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_3"
+text = "A wheel track shows the bass case moved him."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_4"
+text = "The interruption lacks the hall's live ventilation hum."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_5"
+text = "The waveform contains an edit Mina can explain but did not make."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_6"
+text = "Helena's marked score contains the false interruption cue."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_7"
+text = "Oren's contract meeting explains his secret absence."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_8"
+text = "Mina's piracy explains her deleted log."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "clue_9"
+text = "Helena recalls a dropped mute from after the source recording."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "ded_1"
+text = "Simon's voice was recorded, not live."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "ded_2"
+text = "The bass case carried Simon through the instrument store."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "ded_3"
+text = "The interruption was inserted after the source rehearsal."
+canonical_truth = "undetermined"
+
+[[propositions]]
+id = "ded_4"
+text = "Helena's sequence correction proves unique knowledge."
+canonical_truth = "undetermined"
+
+[[events]]
+id = "crime"
+subject = "helena"
+action = "kill"
+object = "simon"
+location = "concert_hall"
+fictional_time = "20:10"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[events]]
+id = "staging"
+subject = "helena"
+action = "alter"
+object = "simon"
+location = "concert_hall"
+fictional_time = "20:25"
+provenance = "legacy_conversion"
+witnesses = []
+
+[[conditions]]
+id = "condition.always"
+kind = "always"
+children = []
+variable = ""
+entity = ""
+other_entity = ""
+proposition = ""
+objective = ""
+event = ""
+content = ""
+text = ""
+space_a = ""
+target_a = ""
+space_b = ""
+target_b = ""
+distance = 0
+value_kind = "boolean"
+boolean_value = false
+integer_value = 0
+text_value = ""
+comparison = 0
+objective_status = 0
+stance = "uncertain"
+
+[[scenes]]
+id = "scene_opening_helena"
+display_name = "Helena marks an absent downbeat. 'Simon intended to end my residency after rehearsal. He promised to let the orchestra finish before he said it publicly.'"
+entry_node = "opening_helena_line"
+bound_entity = "helena"
+summary = "Helena marks an absent downbeat. 'Simon intended to end my residency after rehearsal. He promised to let the orchestra finish before he said it publicly.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_helena"
+display_name = "Helena supplies the cue before the question ends. 'Bar sixty-two. Simon objected, and I stopped the orchestra.'"
+entry_node = "account_helena_line"
+bound_entity = "helena"
+summary = "Helena supplies the cue before the question ends. 'Bar sixty-two. Simon objected, and I stopped the orchestra.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_helena"
+display_name = "'Then Oren dropped his mute—' She corrects herself too late; the mute fell after the source recording."
+entry_node = "approach_helena_line"
+bound_entity = "helena"
+summary = "'Then Oren dropped his mute—' She corrects herself too late; the mute fell after the source recording."
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_opening_oren"
+display_name = "Oren raises one finger for a rest. 'Simon asked for the revised contracts in private. He expected an argument, so he scheduled it between movements.'"
+entry_node = "opening_oren_line"
+bound_entity = "oren"
+summary = "Oren raises one finger for a rest. 'Simon asked for the revised contracts in private. He expected an argument, so he scheduled it between movements.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_oren"
+display_name = "Oren marks the rest with one raised finger. 'Not on stage. I was renegotiating Simon's contract in the instrument store.'"
+entry_node = "account_oren_line"
+bound_entity = "oren"
+summary = "Oren marks the rest with one raised finger. 'Not on stage. I was renegotiating Simon's contract in the instrument store.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_oren"
+display_name = "'I hid the meeting because it was disloyal. The playback kept perfect time while we argued.'"
+entry_node = "approach_oren_line"
+bound_entity = "oren"
+summary = "'I hid the meeting because it was disloyal. The playback kept perfect time while we argued.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_opening_mina"
+display_name = "Mina studies the room tone. 'Simon asked me to preserve a clean recording. He thought somebody would later dispute what was said in the hall.'"
+entry_node = "opening_mina_line"
+bound_entity = "mina"
+summary = "Mina studies the room tone. 'Simon asked me to preserve a clean recording. He thought somebody would later dispute what was said in the hall.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_account_mina"
+display_name = "Mina enlarges the waveform until the room tone becomes visible. 'A clean voice pasted over dirty hall air. Amateur join, excellent source.'"
+entry_node = "account_mina_line"
+bound_entity = "mina"
+summary = "Mina enlarges the waveform until the room tone becomes visible. 'A clean voice pasted over dirty hall air. Amateur join, excellent source.'"
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_approach_mina"
+display_name = "'I deleted my piracy log. I did not place the false interruption cue in Helena's score.'"
+entry_node = "approach_mina_line"
+bound_entity = "mina"
+summary = "'I deleted my piracy log. I did not place the false interruption cue in Helena's score.'"
+return_to = "investigation"
+
+[[nodes]]
+id = "opening_helena_line"
+scene = "scene_opening_helena"
+kind = "line"
+line_id = "opening_helena_line"
+speaker = "helena"
+text = "Helena marks an absent downbeat. 'Simon intended to end my residency after rehearsal. He promised to let the orchestra finish before he said it publicly.'"
+next = "opening_helena_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_helena_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_helena_end"
+scene = "scene_opening_helena"
+kind = "end"
+line_id = "opening_helena_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_helena_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_helena_line"
+scene = "scene_account_helena"
+kind = "line"
+line_id = "account_helena_line"
+speaker = "helena"
+text = "Helena supplies the cue before the question ends. 'Bar sixty-two. Simon objected, and I stopped the orchestra.'"
+next = "account_helena_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_helena_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_helena_end"
+scene = "scene_account_helena"
+kind = "end"
+line_id = "account_helena_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_helena_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_helena_line"
+scene = "scene_approach_helena"
+kind = "line"
+line_id = "approach_helena_line"
+speaker = "helena"
+text = "'Then Oren dropped his mute—' She corrects herself too late; the mute fell after the source recording."
+next = "approach_helena_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_helena_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_helena_end"
+scene = "scene_approach_helena"
+kind = "end"
+line_id = "approach_helena_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_helena_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_oren_line"
+scene = "scene_opening_oren"
+kind = "line"
+line_id = "opening_oren_line"
+speaker = "oren"
+text = "Oren raises one finger for a rest. 'Simon asked for the revised contracts in private. He expected an argument, so he scheduled it between movements.'"
+next = "opening_oren_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_oren_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_oren_end"
+scene = "scene_opening_oren"
+kind = "end"
+line_id = "opening_oren_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_oren_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_oren_line"
+scene = "scene_account_oren"
+kind = "line"
+line_id = "account_oren_line"
+speaker = "oren"
+text = "Oren marks the rest with one raised finger. 'Not on stage. I was renegotiating Simon's contract in the instrument store.'"
+next = "account_oren_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_oren_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_oren_end"
+scene = "scene_account_oren"
+kind = "end"
+line_id = "account_oren_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_oren_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_oren_line"
+scene = "scene_approach_oren"
+kind = "line"
+line_id = "approach_oren_line"
+speaker = "oren"
+text = "'I hid the meeting because it was disloyal. The playback kept perfect time while we argued.'"
+next = "approach_oren_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_oren_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_oren_end"
+scene = "scene_approach_oren"
+kind = "end"
+line_id = "approach_oren_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_oren_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_mina_line"
+scene = "scene_opening_mina"
+kind = "line"
+line_id = "opening_mina_line"
+speaker = "mina"
+text = "Mina studies the room tone. 'Simon asked me to preserve a clean recording. He thought somebody would later dispute what was said in the hall.'"
+next = "opening_mina_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_mina_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "opening_mina_end"
+scene = "scene_opening_mina"
+kind = "end"
+line_id = "opening_mina_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "opening_mina_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_mina_line"
+scene = "scene_account_mina"
+kind = "line"
+line_id = "account_mina_line"
+speaker = "mina"
+text = "Mina enlarges the waveform until the room tone becomes visible. 'A clean voice pasted over dirty hall air. Amateur join, excellent source.'"
+next = "account_mina_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_mina_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "account_mina_end"
+scene = "scene_account_mina"
+kind = "end"
+line_id = "account_mina_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "account_mina_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_mina_line"
+scene = "scene_approach_mina"
+kind = "line"
+line_id = "approach_mina_line"
+speaker = "mina"
+text = "'I deleted my piracy log. I did not place the false interruption cue in Helena's score.'"
+next = "approach_mina_end"
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "dialogue"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_mina_line"
+event_id = ""
+duration = 0
+transition = 0.18
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[[nodes]]
+id = "approach_mina_end"
+scene = "scene_approach_mina"
+kind = "end"
+line_id = "approach_mina_end"
+speaker = ""
+text = ""
+next = ""
+success = ""
+failure = ""
+cancel = ""
+subscene = ""
+condition_id = ""
+effect_ids = []
+ui = "unchanged"
+camera = ""
+actor = ""
+actor_mark = ""
+animation = ""
+summary = ""
+ending = ""
+domain_ref = "approach_mina_end"
+event_id = ""
+duration = 0
+transition = 0
+blocking = false
+choice_ids = []
+choice_labels = []
+choice_targets = []
+choice_conditions = []
+
+[mystery]
+action_budget = 14
+seed = 20299528
+tutorial = ""
+city_start = ""
+city_destination = "march_concert_hall"
+reveal_location = "concert_hall"
+
+[[mystery.characters]]
+entity = "simon"
+private_secret = ""
+motive = ""
+initial_disposition = 0
+initial_claims = []
+
+[[mystery.characters]]
+entity = "helena"
+private_secret = "murder and staging"
+motive = "Exposure would destroy a celebrated career."
+initial_disposition = -1
+initial_claims = ["claim_culprit_account"]
+
+[[mystery.characters]]
+entity = "oren"
+private_secret = "a separate professional offense"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_oren_secret"]
+
+[[mystery.characters]]
+entity = "mina"
+private_secret = "a separate professional offense"
+motive = ""
+initial_disposition = 0
+initial_claims = ["claim_mina_secret"]
+
+[[mystery.locations]]
+entity = "concert_hall"
+connections = ["rehearsal_studio"]
+characters = []
+pois = []
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "rehearsal_studio"
+connections = ["concert_hall", "control_room"]
+characters = ["helena"]
+pois = ["mute"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "control_room"
+connections = ["rehearsal_studio", "conductors_office"]
+characters = ["oren"]
+pois = ["waveform", "recorder"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "conductors_office"
+connections = ["control_room", "instrument_store"]
+characters = ["mina"]
+pois = ["metronome", "marked_score"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.locations]]
+entity = "instrument_store"
+connections = ["conductors_office"]
+characters = []
+pois = ["rosin", "bass_case"]
+search_actions = ["observe", "examine", "dialogue"]
+
+[[mystery.pois]]
+entity = "metronome"
+location = "conductors_office"
+owner = ""
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "rosin"
+location = "instrument_store"
+owner = ""
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "bass_case"
+location = "instrument_store"
+owner = ""
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "waveform"
+location = "control_room"
+owner = ""
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "marked_score"
+location = "conductors_office"
+owner = ""
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "mute"
+location = "rehearsal_studio"
+owner = ""
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[mystery.pois]]
+entity = "recorder"
+location = "control_room"
+owner = ""
+relevant_state = "state differs from the culprit's account"
+examination_action = "examine"
+
+[[mystery.events]]
+event = "crime"
+destination = "concert_hall"
+tool = "metronome"
+effects = ["victim_dead"]
+
+[[mystery.events]]
+event = "staging"
+destination = "instrument_store"
+tool = ""
+effects = ["false_scene"]
+
+[[mystery.clues]]
+id = "clue_1"
+source = "metronome"
+description = "Simon's wound matches the office metronome."
+proposition = "clue_1"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["weapon"]
+topics = ["case_evidence", "weapon"]
+
+[[mystery.clues]]
+id = "clue_2"
+source = "rosin"
+description = "Rosin on his coat comes from the instrument-store floor."
+proposition = "clue_2"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["murder_place"]
+topics = ["case_evidence", "murder_place"]
+
+[[mystery.clues]]
+id = "clue_3"
+source = "bass_case"
+description = "A wheel track shows the bass case moved him."
+proposition = "clue_3"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["death_time"]
+topics = ["case_evidence", "death_time"]
+
+[[mystery.clues]]
+id = "clue_4"
+source = "waveform"
+description = "The interruption lacks the hall's live ventilation hum."
+proposition = "clue_4"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["body_movement"]
+topics = ["case_evidence", "body_movement"]
+
+[[mystery.clues]]
+id = "clue_5"
+source = "marked_score"
+description = "The waveform contains an edit Mina can explain but did not make."
+proposition = "clue_5"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["staging"]
+topics = ["case_evidence", "staging"]
+
+[[mystery.clues]]
+id = "clue_6"
+source = "mute"
+description = "Helena's marked score contains the false interruption cue."
+proposition = "clue_6"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["cleaning"]
+topics = ["case_evidence", "cleaning"]
+
+[[mystery.clues]]
+id = "clue_7"
+source = "oren"
+description = "Oren's contract meeting explains his secret absence."
+proposition = "clue_7"
+skill = "Observation"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["alibi"]
+topics = ["case_evidence", "alibi"]
+
+[[mystery.clues]]
+id = "clue_8"
+source = "mina"
+description = "Mina's piracy explains her deleted log."
+proposition = "clue_8"
+skill = "Analysis"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["culprit_knowledge"]
+topics = ["case_evidence", "culprit_knowledge"]
+
+[[mystery.clues]]
+id = "clue_9"
+source = "helena"
+description = "Helena recalls a dropped mute from after the source recording."
+proposition = "clue_9"
+skill = "Empathy"
+check_kind = "white"
+difficulty = 2
+cost = 1
+essential = true
+prerequisites = []
+blocks = ["motive", "claim_culprit_account"]
+topics = ["case_evidence", "motive"]
+
+[[mystery.claims]]
+id = "claim_culprit_account"
+speaker = "helena"
+proposition = "claim_culprit_account"
+protects = "murder"
+response = "Helena says Simon interrupted the public rehearsal live."
+canonical_truth = false
+
+[[mystery.claims]]
+id = "claim_oren_secret"
+speaker = "oren"
+proposition = "claim_oren_secret"
+protects = "oren_secret"
+response = "I hid something, but it was not murder."
+canonical_truth = false
+
+[[mystery.claims]]
+id = "claim_mina_secret"
+speaker = "mina"
+proposition = "claim_mina_secret"
+protects = "mina_secret"
+response = "I hid something, but it was not murder."
+canonical_truth = false
+
+[[mystery.contradictions]]
+id = "decisive_contradiction"
+claim = "claim_culprit_account"
+fact = "clue_9"
+conclusion = ""
+explanation = "The culprit commits to knowledge available only to the person who staged the scene."
+
+[[mystery.deductions]]
+id = "ded_1"
+proposition = "ded_1"
+category = "where_when"
+supports = []
+unlock_questions = []
+unlock_topics = ["finding_1"]
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "ded_2"
+proposition = "ded_2"
+category = "what"
+supports = []
+unlock_questions = []
+unlock_topics = ["finding_2"]
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "ded_3"
+proposition = "ded_3"
+category = "concealment"
+supports = []
+unlock_questions = []
+unlock_topics = ["finding_3"]
+unlock_investigations = []
+
+[[mystery.deductions]]
+id = "ded_4"
+proposition = "ded_4"
+category = "contradiction"
+supports = []
+unlock_questions = []
+unlock_topics = ["finding_4"]
+unlock_investigations = []
+
+[[mystery.questions]]
+id = "question_1"
+prompt = "Where did the murder occur?"
+hypothesis = "Simon's voice was recorded, not live."
+category = "where_when"
+requires_clues = ["clue_1", "clue_2"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_2"
+prompt = "How was the false scene constructed?"
+hypothesis = "The bass case carried Simon through the instrument store."
+category = "what"
+requires_clues = ["clue_3", "clue_4"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_3"
+prompt = "What created the false chronology?"
+hypothesis = "The interruption was inserted after the source rehearsal."
+category = "concealment"
+requires_clues = ["clue_5", "clue_6"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.questions]]
+id = "question_4"
+prompt = "What unique knowledge proves the culprit staged it?"
+hypothesis = "Helena's sequence correction proves unique knowledge."
+category = "contradiction"
+requires_clues = ["clue_8", "clue_9"]
+requires_claims = []
+requires_deductions = []
+dependencies = []
+required_for_final = true
+
+[[mystery.demonstrations]]
+id = "demonstration_1"
+question = "question_1"
+mode = "physical"
+resolution = "substantiated"
+result = "Simon's voice was recorded, not live."
+prompt = "Place the two established pieces together."
+slot_labels = ["FIRST FACT", "SECOND FACT"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_1", "clue_2"]
+route_firsts = []
+route_counts = []
+result_deductions = ["ded_1"]
+
+[[mystery.demonstrations]]
+id = "demonstration_2"
+question = "question_2"
+mode = "comparison"
+resolution = "substantiated"
+result = "The bass case carried Simon through the instrument store."
+prompt = "Place the two established pieces together."
+slot_labels = ["FIRST FACT", "SECOND FACT"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_3", "clue_4"]
+route_firsts = []
+route_counts = []
+result_deductions = ["ded_2"]
+
+[[mystery.demonstrations]]
+id = "demonstration_3"
+question = "question_3"
+mode = "timeline"
+resolution = "substantiated"
+result = "The interruption was inserted after the source rehearsal."
+prompt = "Place the two established pieces together."
+slot_labels = ["FIRST FACT", "SECOND FACT"]
+slot_types = ["observation", "observation"]
+accepted = ["clue_5", "clue_6"]
+route_firsts = []
+route_counts = []
+result_deductions = ["ded_3"]
+
+[[mystery.demonstrations]]
+id = "demonstration_4"
+question = "question_4"
+mode = "confrontation"
+resolution = "substantiated"
+result = "Helena's sequence correction proves unique knowledge."
+prompt = "Place the two established pieces together."
+slot_labels = ["FIRST FACT", "SECOND FACT"]
+slot_types = ["testimony", "testimony"]
+accepted = ["clue_8", "clue_9"]
+route_firsts = []
+route_counts = []
+result_deductions = ["ded_4"]
+
+[[mystery.dialogue]]
+node = "opening_helena"
+character = "helena"
+prompt = "Tell me about Simon Rusk. What did they want tonight?"
+response = "Helena marks an absent downbeat. 'Simon intended to end my residency after rehearsal. He promised to let the orchestra finish before he said it publicly.'"
+clue = ""
+interaction = ""
+requires = ["claim_culprit_account"]
+unlocks = ["account_ready_helena"]
+
+[[mystery.dialogue]]
+node = "account_helena"
+character = "helena"
+prompt = "How did Simon interrupt a rehearsal recorded earlier?"
+response = "Helena supplies the cue before the question ends. 'Bar sixty-two. Simon objected, and I stopped the orchestra.'"
+clue = ""
+interaction = ""
+requires = ["claim_culprit_account", "account_ready_helena"]
+unlocks = ["followup_helena"]
+
+[[mystery.dialogue]]
+node = "approach_helena"
+character = "helena"
+prompt = "Then account for the heavy mechanical metronome."
+response = "'Then Oren dropped his mute—' She corrects herself too late; the mute fell after the source recording."
+clue = "clue_9"
+interaction = ""
+requires = ["clue_1", "claim_culprit_account", "followup_helena"]
+unlocks = ["clue_9", "case_evidence"]
+
+[[mystery.dialogue]]
+node = "opening_oren"
+character = "oren"
+prompt = "Tell me about Simon Rusk. What did they want tonight?"
+response = "Oren raises one finger for a rest. 'Simon asked for the revised contracts in private. He expected an argument, so he scheduled it between movements.'"
+clue = ""
+interaction = ""
+requires = ["claim_oren_secret"]
+unlocks = ["account_ready_oren"]
+
+[[mystery.dialogue]]
+node = "account_oren"
+character = "oren"
+prompt = "Where were you during the interruption?"
+response = "Oren marks the rest with one raised finger. 'Not on stage. I was renegotiating Simon's contract in the instrument store.'"
+clue = ""
+interaction = ""
+requires = ["claim_oren_secret", "account_ready_oren"]
+unlocks = ["followup_oren"]
+
+[[mystery.dialogue]]
+node = "approach_oren"
+character = "oren"
+prompt = "Then account for the wheeled double-bass case."
+response = "'I hid the meeting because it was disloyal. The playback kept perfect time while we argued.'"
+clue = "clue_7"
+interaction = ""
+requires = ["clue_3", "claim_oren_secret", "followup_oren"]
+unlocks = ["clue_7", "case_evidence"]
+
+[[mystery.dialogue]]
+node = "opening_mina"
+character = "mina"
+prompt = "Tell me about Simon Rusk. What did they want tonight?"
+response = "Mina studies the room tone. 'Simon asked me to preserve a clean recording. He thought somebody would later dispute what was said in the hall.'"
+clue = ""
+interaction = ""
+requires = ["claim_mina_secret"]
+unlocks = ["account_ready_mina"]
+
+[[mystery.dialogue]]
+node = "account_mina"
+character = "mina"
+prompt = "What was edited in the control-room recording?"
+response = "Mina enlarges the waveform until the room tone becomes visible. 'A clean voice pasted over dirty hall air. Amateur join, excellent source.'"
+clue = ""
+interaction = ""
+requires = ["claim_mina_secret", "account_ready_mina"]
+unlocks = ["followup_mina"]
+
+[[mystery.dialogue]]
+node = "approach_mina"
+character = "mina"
+prompt = "Then account for the marked conducting score."
+response = "'I deleted my piracy log. I did not place the false interruption cue in Helena's score.'"
+clue = "clue_8"
+interaction = ""
+requires = ["clue_5", "claim_mina_secret", "followup_mina"]
+unlocks = ["clue_8", "case_evidence"]
+
+[[mystery.city_labels]]
+id = "march_concert_hall"
+display_name = "A PRIVATE PERFORMANCE"
+level_spawn = "spawn_player"
+city_site = "civic_loop_venue"
+
+[mystery.solution]
+culprit = "helena"
+motive = "clue_9"
+decisive_contradiction = "decisive_contradiction"
+weapon_block = "weapon"
+murder_place_block = "murder_place"
+death_time_block = "death_time"
+body_movement_block = "body_movement"
+staging_block = "staging"
+cleaning_block = "cleaning"
+alibi_block = "alibi"
+requirements = ["weapon", "murder_place", "death_time", "body_movement", "staging", "cleaning", "alibi"]
+murder_events = ["crime"]
+cover_up_events = ["staging"]
+false_alibis = ["claim_culprit_account"]
+exclusions = ["oren", "mina"]

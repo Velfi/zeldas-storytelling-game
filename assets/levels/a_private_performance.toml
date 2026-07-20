@@ -1,0 +1,488 @@
+version = "LevelFormat v1"
+id = "a_private_performance_lot"
+name = "A Private Performance Investigation Lot"
+width = 42
+height = 26
+content_offset = [[5, 5]]
+story_limit = 2
+default_snap = 0.5
+fine_snap = 0.25
+angle_snap = 15.0
+
+[[stories]]
+id = "ground"
+name = "Ground Floor"
+base_elevation = 0.0
+floor_height = 3.5
+
+[[foundations]]
+id = "foundation_concert_hall"
+kind = "slab"
+points = [[0, 0], [7, 0], [7, 8], [0, 8]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "concert_hall"
+name = "Concert Hall"
+story = 0
+points = [[0, 0], [7, 0], [7, 8], [0, 8]]
+platform_height = 0.0
+floor_material = "core:dining"
+wall_material = "core:dining"
+ceiling_style = "flat"
+exterior = false
+
+[[foundations]]
+id = "foundation_rehearsal_studio"
+kind = "slab"
+points = [[7, 0], [14, 0], [14, 8], [7, 8]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "rehearsal_studio"
+name = "Rehearsal Studio"
+story = 0
+points = [[7, 0], [14, 0], [14, 8], [7, 8]]
+platform_height = 0.0
+floor_material = "core:study"
+wall_material = "core:study"
+ceiling_style = "flat"
+exterior = false
+
+[[foundations]]
+id = "foundation_control_room"
+kind = "slab"
+points = [[14, 0], [21, 0], [21, 8], [14, 8]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "control_room"
+name = "Control Room"
+story = 0
+points = [[14, 0], [21, 0], [21, 8], [14, 8]]
+platform_height = 0.0
+floor_material = "core:gallery"
+wall_material = "core:gallery"
+ceiling_style = "flat"
+exterior = false
+
+[[foundations]]
+id = "foundation_conductors_office"
+kind = "slab"
+points = [[21, 0], [28, 0], [28, 8], [21, 8]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "conductors_office"
+name = "Conductor's Office"
+story = 0
+points = [[21, 0], [28, 0], [28, 8], [21, 8]]
+platform_height = 0.0
+floor_material = "core:pantry"
+wall_material = "core:pantry"
+ceiling_style = "flat"
+exterior = false
+
+[[foundations]]
+id = "foundation_instrument_store"
+kind = "slab"
+points = [[28, 0], [35, 0], [35, 8], [28, 8]]
+elevation = 0.0
+depth = 0.25
+
+[[rooms]]
+id = "instrument_store"
+name = "Instrument Store"
+story = 0
+points = [[28, 0], [35, 0], [35, 8], [28, 8]]
+platform_height = 0.0
+floor_material = "core:structure"
+wall_material = "core:structure"
+ceiling_style = "flat"
+exterior = false
+
+[[paths]]
+id = "outer_shell"
+story = 0
+kind = "wall"
+points = [[0, 0], [35, 0], [35, 8], [0, 8], [0, 0]]
+material = "structure"
+width = 0.35
+
+[[paths]]
+id = "partition_1"
+story = 0
+kind = "wall"
+points = [[7, 0], [7, 8]]
+material = "structure"
+width = 0.25
+
+[[paths]]
+id = "partition_2"
+story = 0
+kind = "wall"
+points = [[14, 0], [14, 8]]
+material = "structure"
+width = 0.25
+
+[[paths]]
+id = "partition_3"
+story = 0
+kind = "wall"
+points = [[21, 0], [21, 8]]
+material = "structure"
+width = 0.25
+
+[[paths]]
+id = "partition_4"
+story = 0
+kind = "wall"
+points = [[28, 0], [28, 8]]
+material = "structure"
+width = 0.25
+
+[[markers]]
+id = "spawn_player"
+kind = "player_spawn"
+story = 0
+position = [[2.0, 4.0]]
+radius = 0.4
+facing = 0.0
+reference = ""
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "marker_metronome"
+kind = "clue"
+story = 0
+position = [[22.5, 2.0]]
+radius = 0.55
+facing = 0.0
+reference = "metronome"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "marker_rosin"
+kind = "clue"
+story = 0
+position = [[31.5, 3.5]]
+radius = 0.55
+facing = 0.0
+reference = "rosin"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "marker_bass_case"
+kind = "clue"
+story = 0
+position = [[29.5, 5.0]]
+radius = 0.55
+facing = 0.0
+reference = "bass_case"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "marker_waveform"
+kind = "clue"
+story = 0
+position = [[17.5, 2.0]]
+radius = 0.55
+facing = 0.0
+reference = "waveform"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "marker_marked_score"
+kind = "clue"
+story = 0
+position = [[22.5, 3.5]]
+radius = 0.55
+facing = 0.0
+reference = "marked_score"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "marker_mute"
+kind = "clue"
+story = 0
+position = [[10.5, 5.0]]
+radius = 0.55
+facing = 0.0
+reference = "mute"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "marker_recorder"
+kind = "clue"
+story = 0
+position = [[15.5, 2.0]]
+radius = 0.55
+facing = 0.0
+reference = "recorder"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "spawn_helena"
+kind = "character_spawn"
+story = 0
+position = [[8, 5.5]]
+radius = 0.6
+facing = 180.0
+reference = "helena"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "spawn_oren"
+kind = "character_spawn"
+story = 0
+position = [[15, 5.5]]
+radius = 0.6
+facing = 180.0
+reference = "oren"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "spawn_mina"
+kind = "character_spawn"
+story = 0
+position = [[22, 5.5]]
+radius = 0.6
+facing = 180.0
+reference = "mina"
+destination = ""
+camera_height = 1.6
+
+[[markers]]
+id = "return_to_city"
+kind = "transition"
+story = 0
+position = [[1.0, 1.0]]
+radius = 0.8
+facing = 180.0
+reference = ""
+destination = "city:police_station"
+camera_height = 1.6
+
+# BEGIN GENERATED ROOM FURNISHINGS
+
+[[objects]]
+id = "furnish_concert_hall_1_table_round"
+catalog_id = "core:table_round"
+story = 0
+position = [[3.50, 3.84]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_concert_hall_2_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[3.50, 2.00]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_concert_hall_3_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[3.50, 5.76]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_concert_hall_4_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[1.75, 3.84]]
+rotation = 270.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_concert_hall_5_chair_rounded"
+catalog_id = "core:chair_rounded"
+story = 0
+position = [[5.25, 3.84]]
+rotation = 90.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_rehearsal_studio_1_desk"
+catalog_id = "core:desk"
+story = 0
+position = [[8.96, 2.24]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_rehearsal_studio_2_chair_desk"
+catalog_id = "core:chair_desk"
+story = 0
+position = [[8.96, 3.84]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_rehearsal_studio_3_computer_screen"
+catalog_id = "core:computer_screen"
+support_id = "furnish_rehearsal_studio_1_desk"
+elevation = 0.74
+story = 0
+position = [[8.96, 2.24]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_rehearsal_studio_4_bookcase_closed"
+catalog_id = "core:bookcase_closed"
+story = 0
+position = [[12.74, 1.92]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_rehearsal_studio_5_floor_lamp_round"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[12.74, 6.24]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_control_room_1_desk"
+catalog_id = "core:desk"
+story = 0
+position = [[15.96, 2.24]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_control_room_2_chair_desk"
+catalog_id = "core:chair_desk"
+story = 0
+position = [[15.96, 3.84]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_control_room_3_computer_screen"
+catalog_id = "core:computer_screen"
+support_id = "furnish_control_room_1_desk"
+elevation = 0.74
+story = 0
+position = [[15.96, 2.24]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_control_room_4_bookcase_closed"
+catalog_id = "core:bookcase_closed"
+story = 0
+position = [[19.74, 1.92]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_control_room_5_floor_lamp_round"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[19.74, 6.24]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_conductors_office_1_desk"
+catalog_id = "core:desk"
+story = 0
+position = [[22.96, 2.24]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_conductors_office_2_chair_desk"
+catalog_id = "core:chair_desk"
+story = 0
+position = [[22.96, 3.84]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_conductors_office_3_computer_screen"
+catalog_id = "core:computer_screen"
+support_id = "furnish_conductors_office_1_desk"
+elevation = 0.74
+story = 0
+position = [[22.96, 2.24]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_conductors_office_4_bookcase_closed"
+catalog_id = "core:bookcase_closed"
+story = 0
+position = [[26.74, 1.92]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_conductors_office_5_floor_lamp_round"
+catalog_id = "core:floor_lamp_round"
+story = 0
+position = [[26.74, 6.24]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_instrument_store_1_bookcase_closed_wide"
+catalog_id = "core:bookcase_closed_wide"
+story = 0
+position = [[29.26, 1.92]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_instrument_store_2_bookcase_open_low"
+catalog_id = "core:bookcase_open_low"
+story = 0
+position = [[31.50, 1.44]]
+rotation = 180.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_instrument_store_3_cardboard_box_closed"
+catalog_id = "core:cardboard_box_closed"
+story = 0
+position = [[33.46, 1.92]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_instrument_store_4_cardboard_box_open"
+catalog_id = "core:cardboard_box_open"
+story = 0
+position = [[33.46, 5.76]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+[[objects]]
+id = "furnish_instrument_store_5_trashcan"
+catalog_id = "core:trashcan"
+story = 0
+position = [[29.26, 6.00]]
+rotation = 0.0
+tint = [255, 255, 255, 255]
+
+# END GENERATED ROOM FURNISHINGS

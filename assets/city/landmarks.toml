@@ -1,0 +1,119 @@
+version = "CityFormat v1"
+
+[[landmarks]]
+id = "police_station"
+name = "WESTHAVEN POLICE STATION"
+x = 51.5
+y = 58.5
+arrival_x = 49.5
+arrival_y = 58.5
+arrival_facing = 0.0
+
+[[landmarks]]
+id = "old_market"
+name = "OLD MARKET"
+x = 82.5
+y = 34.5
+arrival_x = 82.5
+arrival_y = 34.5
+arrival_facing = -90.0
+
+[[landmarks]]
+id = "civic_center"
+name = "CIVIC CENTER"
+x = 130.5
+y = 34.5
+arrival_x = 130.5
+arrival_y = 37.5
+arrival_facing = -90.0
+
+[[landmarks]]
+id = "union_depot"
+name = "UNION DEPOT"
+x = 34.5
+y = 98.5
+arrival_x = 34.5
+arrival_y = 101.5
+arrival_facing = -90.0
+
+[[landmarks]]
+id = "steelworks"
+name = "STEELWORKS"
+x = 98.5
+y = 114.5
+arrival_x = 98.5
+arrival_y = 117.5
+arrival_facing = -90.0
+
+[[landmarks]]
+id = "lake_marina"
+name = "LAKE MARINA"
+x = 162.5
+y = 130.5
+arrival_x = 162.5
+arrival_y = 133.5
+arrival_facing = -90.0
+
+[[case_sites]]
+id = "westhaven_heights"
+x = 18.5
+y = 18.5
+arrival_x = 18.5
+arrival_y = 21.5
+arrival_facing = -90.0
+
+[[case_sites]]
+id = "blackthorn_lane"
+x = 50.5
+y = 18.5
+arrival_x = 50.5
+arrival_y = 21.5
+arrival_facing = -90.0
+
+[[case_sites]]
+id = "old_market_venue"
+x = 98.5
+y = 18.5
+arrival_x = 98.5
+arrival_y = 21.5
+arrival_facing = -90.0
+
+[[case_sites]]
+id = "east_bank_venue"
+x = 146.5
+y = 18.5
+arrival_x = 146.5
+arrival_y = 21.5
+arrival_facing = -90.0
+
+[[case_sites]]
+id = "depot_ward_venue"
+x = 50.5
+y = 82.5
+arrival_x = 50.5
+arrival_y = 85.5
+arrival_facing = -90.0
+
+[[case_sites]]
+id = "civic_loop_venue"
+x = 114.5
+y = 82.5
+arrival_x = 114.5
+arrival_y = 85.5
+arrival_facing = -90.0
+
+[[case_sites]]
+id = "south_quay_venue"
+x = 146.5
+y = 114.5
+arrival_x = 146.5
+arrival_y = 117.5
+arrival_facing = -90.0
+
+[[case_sites]]
+id = "foundry_ward_venue"
+x = 66.5
+y = 130.5
+arrival_x = 66.5
+arrival_y = 133.5
+arrival_facing = -90.0

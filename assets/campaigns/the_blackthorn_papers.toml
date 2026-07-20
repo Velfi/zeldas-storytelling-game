@@ -1,0 +1,153 @@
+version = "MysteryCampaign v2"
+id = "the_blackthorn_papers"
+title = "THE BLACKTHORN PAPERS"
+creator = "Zelda H."
+description = "A nested forensic casebook in which material experiments from earlier papers resolve a suspended master case."
+content_version = "1.0.0"
+thumbnail = "assets/campaigns/heroes/the-blackthorn-papers.png"
+
+[[variables]]
+id = "precedents_completed"
+display_name = "Precedents completed"
+description = "General forensic principles returned to the active carriage investigation."
+kind = 1
+default_integer = 0
+
+[[variables]]
+id = "precedent_transfer"
+display_name = "Transfer precedent"
+description = "Blackthorn Lane established that repeated traces can be mechanically transferred rather than walked."
+kind = 0
+default_boolean = false
+
+[[variables]]
+id = "precedent_playback"
+display_name = "Playback precedent"
+description = "The violinist paper established that repeated sound and reflected movement can preserve a false sighting."
+kind = 0
+default_boolean = false
+
+[[variables]]
+id = "precedent_distraction"
+display_name = "Distraction precedent"
+description = "South Quay established that spectacular visible evidence may be harmless cover for an unseen mechanism."
+kind = 0
+default_boolean = false
+
+[[conditions]]
+kind = 0
+
+[[conditions]]
+kind = 2
+first_child = 2
+child_count = 3
+
+[[conditions]]
+kind = 5
+variable_id = "precedent_transfer"
+boolean_value = true
+
+[[conditions]]
+kind = 5
+variable_id = "precedent_playback"
+boolean_value = true
+
+[[conditions]]
+kind = 5
+variable_id = "precedent_distraction"
+boolean_value = true
+
+[[effects]]
+kind = 2
+variable_id = "precedents_completed"
+integer_value = 1
+
+[[effects]]
+kind = 0
+variable_id = "precedent_transfer"
+boolean_value = true
+
+[[effects]]
+kind = 2
+variable_id = "precedents_completed"
+integer_value = 1
+
+[[effects]]
+kind = 0
+variable_id = "precedent_playback"
+boolean_value = true
+
+[[effects]]
+kind = 2
+variable_id = "precedents_completed"
+integer_value = 1
+
+[[effects]]
+kind = 0
+variable_id = "precedent_distraction"
+boolean_value = true
+
+[[cases]]
+id = "the_empty_carriage"
+title = "The Empty Carriage"
+story_path = "assets/stories/mysteries/the_empty_carriage.story.toml"
+level_path = "assets/levels/the_empty_carriage.toml"
+content_version = "1.0.0"
+condition_root = 1
+required = true
+optional = false
+presentation = 2
+locked_message = "Prove all three precedent papers to open the suspended carriage reconstruction."
+replay_mode = 1
+invalid_policy = 0
+
+[[cases]]
+id = "the_ashes_of_blackthorn_lane"
+title = "The Ashes of Blackthorn Lane"
+story_path = "assets/stories/mysteries/the_ashes_of_blackthorn_lane.story.toml"
+level_path = "assets/levels/the_ashes_of_blackthorn_lane.toml"
+content_version = "1.0.0"
+condition_root = 0
+required = false
+optional = true
+presentation = 2
+locked_message = ""
+replay_mode = 0
+invalid_policy = 0
+effect_outcomes = [0, 1]
+effect_firsts = [0, 0]
+effect_counts = [2, 2]
+
+[[cases]]
+id = "the_violinist_without_a_shadow"
+title = "The Violinist Without a Shadow"
+story_path = "assets/stories/mysteries/the_violinist_without_a_shadow.story.toml"
+level_path = "assets/levels/the_violinist_without_a_shadow.toml"
+content_version = "1.0.0"
+condition_root = 0
+required = false
+optional = true
+presentation = 2
+locked_message = ""
+replay_mode = 0
+invalid_policy = 0
+effect_outcomes = [0, 1]
+effect_firsts = [2, 2]
+effect_counts = [2, 2]
+
+[[cases]]
+id = "the_red_fog_of_south_quay"
+title = "The Red Fog of South Quay"
+story_path = "assets/stories/mysteries/the_red_fog_of_south_quay.story.toml"
+level_path = "assets/levels/the_red_fog_of_south_quay.toml"
+content_version = "1.0.0"
+condition_root = 0
+required = false
+optional = true
+presentation = 2
+locked_message = ""
+replay_mode = 0
+invalid_policy = 0
+effect_outcomes = [0, 1]
+effect_firsts = [4, 4]
+effect_counts = [2, 2]
