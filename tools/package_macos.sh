@@ -33,6 +33,7 @@ mkdir -p "$MACOS_DIR" "$RESOURCES_DIR/build" "$FRAMEWORKS_DIR"
 cp "$EXECUTABLE" "$MACOS_DIR/zeldas-storytelling-game-bin"
 cp -R "$ROOT_DIR/assets" "$RESOURCES_DIR/assets"
 cp -R "$BUILD_DIR/shaders" "$RESOURCES_DIR/build/shaders"
+cp "$ROOT_DIR/assets/ui/app-icon.icns" "$RESOURCES_DIR/app-icon.icns"
 
 cat > "$APP_PATH/Contents/Info.plist" <<PLIST
 <?xml version="1.0" encoding="UTF-8"?>
@@ -41,6 +42,7 @@ cat > "$APP_PATH/Contents/Info.plist" <<PLIST
   <key>CFBundleDevelopmentRegion</key><string>en</string>
   <key>CFBundleDisplayName</key><string>$APP_NAME</string>
   <key>CFBundleExecutable</key><string>zeldas-storytelling-game</string>
+  <key>CFBundleIconFile</key><string>app-icon</string>
   <key>CFBundleIdentifier</key><string>$BUNDLE_ID</string>
   <key>CFBundleInfoDictionaryVersion</key><string>6.0</string>
   <key>CFBundleName</key><string>$APP_NAME</string>

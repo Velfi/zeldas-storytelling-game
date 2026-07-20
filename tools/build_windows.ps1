@@ -51,7 +51,9 @@ try {
     Invoke-Native { cl /nologo /O2 /EHsc /std:c++17 "/I$clipper\include" /c third_party\wall_geom.cpp "$clipper\src\clipper.engine.cpp" "$clipper\src\clipper.offset.cpp" "$clipper\src\clipper.rectclip.cpp" /Fothird_party\ }
     Invoke-Native { lib /nologo /OUT:third_party\wall_geom.lib third_party\wall_geom.obj third_party\clipper.engine.obj third_party\clipper.offset.obj third_party\clipper.rectclip.obj }
 
-    $linkFlags = "/LIBPATH:`"$installed\lib`" harfbuzz.lib freetype.lib brotlicommon.lib brotlidec.lib bz2.lib png.lib zlib.lib"
+    $iconResource = Join-Path $build "app-icon.res"
+    Invoke-Native { rc /nologo "/fo$iconResource" tools\windows_app.rc }
+    $linkFlags = "/LIBPATH:`"$installed\lib`" harfbuzz.lib freetype.lib brotlicommon.lib brotlidec.lib bz2.lib png.lib zlib.lib `"$iconResource`""
     Invoke-Native { odin build src "-collection:zelda_engine=$engine\packages" "-out:$build\zeldas-storytelling-game.exe" "-extra-linker-flags:$linkFlags" }
     Get-ChildItem "$installed\bin\*.dll" | Copy-Item -Destination $build -Force
 } finally {
