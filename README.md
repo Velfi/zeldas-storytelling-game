@@ -47,3 +47,17 @@ For an existing clone, initialize both with:
 git lfs pull
 git submodule update --init --recursive
 ```
+
+## Releases
+
+Tags matching `v*` build macOS arm64 and Windows x86-64 archives and publish
+them to a GitHub Release. Start a release from a clean, up-to-date `main`:
+
+```sh
+tools/release.sh 1.0.0
+```
+
+The workflows expect the reusable engine in `Velfi/zelda-engine`. Override
+that with the `ZELDA_ENGINE_REPOSITORY` and `ZELDA_ENGINE_REF` repository
+variables. If the engine repository is private, add a `ZELDA_ENGINE_TOKEN`
+secret with read access.

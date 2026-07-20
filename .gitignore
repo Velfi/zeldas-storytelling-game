@@ -45,3 +45,6 @@ Thumbs.db
 *.log
 *.dmp
 *.crash
+
+# Local release staging
+/build/windows-release/

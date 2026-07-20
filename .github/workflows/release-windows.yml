@@ -1,0 +1,62 @@
+name: Release build (Windows)
+
+on:
+  workflow_call:
+    inputs:
+      release_tag:
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-2022
+    env:
+      RELEASE_TAG: ${{ inputs.release_tag }}
+      ZELDA_ENGINE_REPOSITORY: ${{ vars.ZELDA_ENGINE_REPOSITORY || 'Velfi/zelda-engine' }}
+      ZELDA_ENGINE_REF: ${{ vars.ZELDA_ENGINE_REF || 'main' }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.release_tag }}
+          lfs: true
+          submodules: recursive
+
+      - name: Check out Zelda Engine
+        uses: actions/checkout@v6
+        with:
+          repository: ${{ env.ZELDA_ENGINE_REPOSITORY }}
+          ref: ${{ env.ZELDA_ENGINE_REF }}
+          path: zelda-engine
+          submodules: recursive
+          token: ${{ secrets.ZELDA_ENGINE_TOKEN || github.token }}
+
+      - uses: laytan/setup-odin@v2
+        with:
+          release: dev-2026-05
+
+      - name: Install native dependencies
+        shell: pwsh
+        run: |
+          vcpkg install harfbuzz:x64-windows freetype:x64-windows
+          choco install vulkan-sdk -y --no-progress
+
+      - name: Build native libraries and game
+        shell: pwsh
+        run: tools/build_windows.ps1 -EngineRoot "$PWD/zelda-engine"
+
+      - name: Run tests
+        shell: pwsh
+        run: build/zeldas-storytelling-game.exe --self-test
+
+      - name: Package Windows archive
+        shell: pwsh
+        run: tools/package_windows.ps1 -Version ($env:RELEASE_TAG -replace '^v', '') -SkipBuild
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: zeldas-storytelling-game-${{ inputs.release_tag }}-windows-x86_64
+          path: build/zeldas-storytelling-game-${{ inputs.release_tag }}-windows-x86_64.zip
+          if-no-files-found: error

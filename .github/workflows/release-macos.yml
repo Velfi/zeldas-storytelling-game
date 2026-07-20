@@ -1,0 +1,71 @@
+name: Release build (macOS)
+
+on:
+  workflow_call:
+    inputs:
+      release_tag:
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: macos-14
+    env:
+      RELEASE_TAG: ${{ inputs.release_tag }}
+      ZELDA_ENGINE_REPOSITORY: ${{ vars.ZELDA_ENGINE_REPOSITORY || 'Velfi/zelda-engine' }}
+      ZELDA_ENGINE_REF: ${{ vars.ZELDA_ENGINE_REF || 'main' }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.release_tag }}
+          lfs: true
+          submodules: recursive
+
+      - name: Check out Zelda Engine
+        uses: actions/checkout@v6
+        with:
+          repository: ${{ env.ZELDA_ENGINE_REPOSITORY }}
+          ref: ${{ env.ZELDA_ENGINE_REF }}
+          path: zelda-engine
+          submodules: recursive
+          token: ${{ secrets.ZELDA_ENGINE_TOKEN || github.token }}
+
+      - name: Install build dependencies
+        run: brew install odin cmake pkg-config harfbuzz freetype molten-vk vulkan-loader
+
+      - name: Build Zelda Engine native libraries
+        shell: bash
+        run: |
+          make -C zelda-engine physics-build
+          cc -O2 -c zelda-engine/third_party/textshape/textshape.c \
+            $(pkg-config --cflags harfbuzz freetype2) \
+            -o zelda-engine/third_party/textshape/textshape.o
+          ar rcs zelda-engine/third_party/textshape/libtextshape.a \
+            zelda-engine/third_party/textshape/textshape.o
+
+      - name: Build and test
+        shell: bash
+        run: |
+          make ZELDA_ENGINE_ROOT="$PWD/zelda-engine" build
+          build/chicago --self-test
+
+      - name: Package application
+        shell: bash
+        run: |
+          VERSION="${RELEASE_TAG#v}" \
+          BUILD_NUMBER="${GITHUB_RUN_NUMBER}" \
+          SKIP_BUILD=1 \
+          ZELDA_ENGINE_ROOT="$PWD/zelda-engine" \
+          tools/package_macos.sh
+          ditto -c -k --sequesterRsrc --keepParent \
+            "build/Zelda's Storytelling Game.app" \
+            "zeldas-storytelling-game-${RELEASE_TAG}-macos-arm64.zip"
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: zeldas-storytelling-game-${{ inputs.release_tag }}-macos-arm64
+          path: zeldas-storytelling-game-${{ inputs.release_tag }}-macos-arm64.zip
+          if-no-files-found: error
