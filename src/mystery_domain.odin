@@ -8,378 +8,1388 @@ MYSTERY_DOMAIN_VERSION :: "1"
 MYSTERY_MAX_REFS :: 64
 
 Mystery_Clue :: struct {
-	id, source_id, description, proposition_id, skill, check_kind:string,
-	difficulty, cost:int,
-	prerequisites, blocks, topics:[MYSTERY_MAX_REFS]string,
-	prerequisite_count, block_count, topic_count:int,
-	essential:bool,
+	id, source_id, description, proposition_id, skill, check_kind: string,
+	difficulty, cost:                                              int,
+	prerequisites, blocks, topics:                                 [MYSTERY_MAX_REFS]string,
+	prerequisite_count, block_count, topic_count:                  int,
+	essential:                                                     bool,
 }
 
-Mystery_Character_Metadata :: struct {entity_id, private_secret, motive:string, initial_disposition:int, initial_claims:[MYSTERY_MAX_REFS]string, initial_claim_count:int}
-Mystery_Location_Metadata :: struct {entity_id:string, connections, characters, pois, search_actions:[MYSTERY_MAX_REFS]string, connection_count, character_count, poi_count, search_action_count:int}
-Mystery_POI_Metadata :: struct {entity_id, location_id, owner_id, relevant_state, examination_action:string}
-Mystery_Event_Metadata :: struct {event_id, destination_id, tool_id:string, effects:[MYSTERY_MAX_REFS]string, effect_count:int}
-Mystery_Claim :: struct {id, speaker_id, proposition_id, protects, response:string, canonical_truth:bool}
-Mystery_Contradiction :: struct {id, claim_id, fact_id, conclusion_id, explanation:string}
-Mystery_Deduction :: struct {id, proposition_id, category:string, supports, unlock_questions, unlock_topics, unlock_investigations:[MYSTERY_MAX_REFS]string, support_count, unlock_question_count, unlock_topic_count, unlock_investigation_count:int}
-Mystery_Question :: struct {id, prompt, hypothesis_id, category:string, requires_clues, requires_claims, requires_deductions, dependencies:[MYSTERY_MAX_REFS]string, require_clue_count, require_claim_count, require_deduction_count, dependency_count:int, required_for_final:bool}
-Mystery_Demonstration :: struct {
-	id, question_id, mode, presentation, gesture, subject, art, completion_cue, resolution, result, prompt:string,
-	gesture_steps:[3]string,
-	gesture_step_count, candidate_limit:int,
-	gesture_step_overflow:bool,
-	slot_labels, slot_types, accepted:[MYSTERY_MAX_REFS]string,
-	slot_count, accepted_count:int,
-	route_firsts, route_counts:[MYSTERY_MAX_REFS]int,
-	route_count:int,
-	result_deductions:[MYSTERY_MAX_REFS]string,
-	result_count:int,
+Mystery_Character_Metadata :: struct {
+	entity_id, private_secret, motive: string,
+	initial_disposition:               int,
+	initial_claims:                    [MYSTERY_MAX_REFS]string,
+	initial_claim_count:               int,
 }
-Mystery_Dialogue_Metadata :: struct {node_id, character_id, prompt, response, clue_id, interaction:string, requires, unlocks:[MYSTERY_MAX_REFS]string, require_count, unlock_count:int}
-Mystery_Ending_Metadata :: struct {ending_id, trigger, outcome, subtitle, epilogue, canonical_timeline, tone, primary_label, primary_action, secondary_label, secondary_action:string}
-Mystery_City_Label :: struct {id, display_name, level_spawn, city_site:string}
-Mystery_Tutorial_Lesson :: struct {id, capability, prompt:string}
-Mystery_Solution :: struct {culprit_id, motive_id, decisive_contradiction_id, weapon_block, murder_place_block, death_time_block, body_movement_block, staging_block, cleaning_block, alibi_block:string, requirements, murder_events, cover_up_events, false_alibis, exclusions:[MYSTERY_MAX_REFS]string, requirement_count, murder_event_count, cover_up_event_count, false_alibi_count, exclusion_count:int}
+Mystery_Location_Metadata :: struct {
+	entity_id:                                                         string,
+	connections, characters, pois, search_actions:                     [MYSTERY_MAX_REFS]string,
+	connection_count, character_count, poi_count, search_action_count: int,
+}
+Mystery_POI_Metadata :: struct {
+	entity_id, location_id, owner_id, relevant_state, examination_action: string,
+}
+Mystery_Event_Metadata :: struct {
+	event_id, destination_id, tool_id: string,
+	effects:                           [MYSTERY_MAX_REFS]string,
+	effect_count:                      int,
+}
+Mystery_Claim :: struct {
+	id, speaker_id, proposition_id, protects, response: string,
+	canonical_truth:                                    bool,
+}
+Mystery_Contradiction :: struct {
+	id, claim_id, fact_id, conclusion_id, explanation: string,
+}
+Mystery_Deduction :: struct {
+	id, proposition_id, category:                                                         string,
+	supports, unlock_questions, unlock_topics, unlock_investigations:                     [MYSTERY_MAX_REFS]string,
+	support_count, unlock_question_count, unlock_topic_count, unlock_investigation_count: int,
+}
+Mystery_Question :: struct {
+	id, prompt, hypothesis_id, category:                                                string,
+	requires_clues, requires_claims, requires_deductions, dependencies:                 [MYSTERY_MAX_REFS]string,
+	require_clue_count, require_claim_count, require_deduction_count, dependency_count: int,
+	required_for_final:                                                                 bool,
+}
+Mystery_Demonstration :: struct {
+	id,
+	question_id,
+	mode,
+	presentation,
+	gesture,
+	subject,
+	art,
+	completion_cue,
+	resolution,
+	result,
+	prompt: string,
+	gesture_steps:                                                                                          [3]string,
+	gesture_step_count,
+	candidate_limit:                                                                    int,
+	gesture_step_overflow:                                                                                  bool,
+	slot_labels,
+	slot_types,
+	accepted:                                                                      [MYSTERY_MAX_REFS]string,
+	slot_count,
+	accepted_count:                                                                             int,
+	route_firsts,
+	route_counts:                                                                             [MYSTERY_MAX_REFS]int,
+	route_count:                                                                                            int,
+	result_deductions:                                                                                      [MYSTERY_MAX_REFS]string,
+	result_count:                                                                                           int,
+}
+Mystery_Dialogue_Metadata :: struct {
+	node_id, character_id, prompt, response, clue_id, interaction: string,
+	requires, unlocks:                                             [MYSTERY_MAX_REFS]string,
+	require_count, unlock_count:                                   int,
+}
+Mystery_Ending_Metadata :: struct {
+	ending_id,
+	trigger,
+	outcome,
+	subtitle,
+	epilogue,
+	canonical_timeline,
+	tone,
+	primary_label,
+	primary_action,
+	secondary_label,
+	secondary_action: string,
+}
+Mystery_City_Label :: struct {
+	id, display_name, level_spawn, city_site: string,
+}
+Mystery_Tutorial_Lesson :: struct {
+	id, capability, prompt: string,
+}
+Mystery_Solution :: struct {
+	culprit_id,
+	motive_id,
+	decisive_contradiction_id,
+	weapon_block,
+	murder_place_block,
+	death_time_block,
+	body_movement_block,
+	staging_block,
+	cleaning_block,
+	alibi_block: string,
+	requirements,
+	murder_events,
+	cover_up_events,
+	false_alibis,
+	exclusions:                                                                                                [MYSTERY_MAX_REFS]string,
+	requirement_count,
+	murder_event_count,
+	cover_up_event_count,
+	false_alibi_count,
+	exclusion_count:                                                                       int,
+}
 
 Mystery_Project :: struct {
-	arena:mem.Dynamic_Arena,
-	action_budget:int,
-	seed:u64,
-	tutorial_id, city_start, city_destination, reveal_location:string,
-	characters:[]Mystery_Character_Metadata,
-	locations:[]Mystery_Location_Metadata,
-	pois:[]Mystery_POI_Metadata,
-	events:[]Mystery_Event_Metadata,
-	clues:[]Mystery_Clue,
-	claims:[]Mystery_Claim,
-	contradictions:[]Mystery_Contradiction,
-	deductions:[]Mystery_Deduction,
-	questions:[]Mystery_Question,
-	demonstrations:[]Mystery_Demonstration,
-	dialogue:[]Mystery_Dialogue_Metadata,
-	endings:[]Mystery_Ending_Metadata,
-	city_labels:[]Mystery_City_Label,
-	tutorial_lessons:[]Mystery_Tutorial_Lesson,
-	solution:Mystery_Solution,
+	arena:                                                      mem.Dynamic_Arena,
+	action_budget:                                              int,
+	seed:                                                       u64,
+	tutorial_id, city_start, city_destination, reveal_location: string,
+	characters:                                                 []Mystery_Character_Metadata,
+	locations:                                                  []Mystery_Location_Metadata,
+	pois:                                                       []Mystery_POI_Metadata,
+	events:                                                     []Mystery_Event_Metadata,
+	clues:                                                      []Mystery_Clue,
+	claims:                                                     []Mystery_Claim,
+	contradictions:                                             []Mystery_Contradiction,
+	deductions:                                                 []Mystery_Deduction,
+	questions:                                                  []Mystery_Question,
+	demonstrations:                                             []Mystery_Demonstration,
+	dialogue:                                                   []Mystery_Dialogue_Metadata,
+	endings:                                                    []Mystery_Ending_Metadata,
+	city_labels:                                                []Mystery_City_Label,
+	tutorial_lessons:                                           []Mystery_Tutorial_Lesson,
+	solution:                                                   Mystery_Solution,
 }
 
-Mystery_Question_Progress :: struct {question_id:string,state:int,slots:[3]string}
-Mystery_Clue_Attempt :: struct {clue_id:string, known_score:int, attempted, overtime_free:bool}
-Mystery_Disposition :: struct {entity_id:string,value:int}
+Mystery_Question_Progress :: struct {
+	question_id: string,
+	state:       int,
+	slots:       [3]string,
+}
+Mystery_Clue_Attempt :: struct {
+	clue_id:                  string,
+	known_score:              int,
+	attempted, overtime_free: bool,
+}
+Mystery_Disposition :: struct {
+	entity_id: string,
+	value:     int,
+}
 Mystery_State :: struct {
-	acquired_evidence, established_claims, unlocked_topics, completed_investigations, revealed_pois, earned_deductions:[dynamic]string,
-	question_progress:[dynamic]Mystery_Question_Progress,
-	clue_attempts:[dynamic]Mystery_Clue_Attempt,
-	dispositions:[dynamic]Mystery_Disposition,
-	theory_selections, reconstruction_order:[dynamic]string,
-	accusation_id:string,
-	reveal_progress, action_budget_remaining:int,
+	acquired_evidence,
+	established_claims,
+	unlocked_topics,
+	completed_investigations,
+	revealed_pois,
+	earned_deductions: [dynamic]string,
+	question_progress:                                                                                                  [dynamic]Mystery_Question_Progress,
+	clue_attempts:                                                                                                      [dynamic]Mystery_Clue_Attempt,
+	dispositions:                                                                                                       [dynamic]Mystery_Disposition,
+	theory_selections,
+	reconstruction_order:                                                                            [dynamic]string,
+	accusation_id:                                                                                                      string,
+	reveal_progress,
+	action_budget_remaining:                                                                           int,
 }
 
-Mystery_Player_Clue :: struct {id, description, proposition_id:string, cost:int, acquired:bool}
-Mystery_Player_View :: struct {action_budget_remaining:int, clues:[dynamic]Mystery_Player_Clue, claims, topics, deductions:[dynamic]string}
-Mystery_Creator_View :: struct {payload:^Mystery_Project}
-Mystery_Diagnosis :: struct {complete, evidence_supported, exclusive:bool, missing_requirement_count:int}
+Mystery_Player_Clue :: struct {
+	id, description, proposition_id: string,
+	cost:                            int,
+	acquired:                        bool,
+}
+Mystery_Player_View :: struct {
+	action_budget_remaining:    int,
+	clues:                      [dynamic]Mystery_Player_Clue,
+	claims, topics, deductions: [dynamic]string,
+}
+Mystery_Creator_View :: struct {
+	payload: ^Mystery_Project,
+}
+Mystery_Diagnosis :: struct {
+	complete, evidence_supported, exclusive: bool,
+	missing_requirement_count:               int,
+}
 
-mystery_string_set_has :: proc(values:[]string,id:string)->bool {for value in values do if value==id do return true;return false}
-mystery_string_set_add :: proc(values:^[dynamic]string,id:string)->bool {if id==""||mystery_string_set_has(values^[:],id) do return false;append(values,id);return true}
-mystery_string_set_remove :: proc(values:^[dynamic]string,id:string)->bool {for value,i in values^ do if value==id {ordered_remove(values,i);return true};return false}
-mystery_state_init :: proc(project:^Story_Project)->Mystery_State {payload:=mystery_payload(project);result:Mystery_State;if payload!=nil {result.action_budget_remaining=payload.action_budget;for character in payload.characters do append(&result.dispositions,Mystery_Disposition{character.entity_id,character.initial_disposition})};return result}
-mystery_state_destroy :: proc(state:^Mystery_State) {delete(state.acquired_evidence);delete(state.established_claims);delete(state.unlocked_topics);delete(state.completed_investigations);delete(state.revealed_pois);delete(state.earned_deductions);delete(state.question_progress);delete(state.clue_attempts);delete(state.dispositions);delete(state.theory_selections);delete(state.reconstruction_order);state^={}}
-mystery_state_clone :: proc(source:^Mystery_State)->Mystery_State {result:=source^;result.acquired_evidence=nil;result.established_claims=nil;result.unlocked_topics=nil;result.completed_investigations=nil;result.revealed_pois=nil;result.earned_deductions=nil;result.question_progress=nil;result.clue_attempts=nil;result.dispositions=nil;result.theory_selections=nil;result.reconstruction_order=nil;append(&result.acquired_evidence,..source.acquired_evidence[:]);append(&result.established_claims,..source.established_claims[:]);append(&result.unlocked_topics,..source.unlocked_topics[:]);append(&result.completed_investigations,..source.completed_investigations[:]);append(&result.revealed_pois,..source.revealed_pois[:]);append(&result.earned_deductions,..source.earned_deductions[:]);append(&result.question_progress,..source.question_progress[:]);append(&result.clue_attempts,..source.clue_attempts[:]);append(&result.dispositions,..source.dispositions[:]);append(&result.theory_selections,..source.theory_selections[:]);append(&result.reconstruction_order,..source.reconstruction_order[:]);return result}
-mystery_runtime_state_create :: proc(project:^Story_Project)->rawptr {state:=new(Mystery_State);state^=mystery_state_init(project);return state}
-mystery_runtime_state_clone :: proc(value:rawptr)->rawptr {if value==nil do return nil;state:=new(Mystery_State);state^=mystery_state_clone(cast(^Mystery_State)value);return state}
-mystery_runtime_state_destroy :: proc(value:rawptr) {if value==nil do return;state:=cast(^Mystery_State)value;mystery_state_destroy(state);free(state)}
-mystery_acquire_evidence :: proc(project:^Story_Project,state:^Mystery_State,id:string)->bool {payload:=mystery_payload(project);if payload==nil do return false;for &clue in payload.clues do if clue.id==id {if mystery_string_set_has(state.acquired_evidence[:],id) do return true;for prerequisite in clue.prerequisites[:clue.prerequisite_count] do if !mystery_string_set_has(state.acquired_evidence[:],prerequisite) do return false;if clue.cost>state.action_budget_remaining do return false;state.action_budget_remaining-=clue.cost;return mystery_string_set_add(&state.acquired_evidence,id)};return false}
-mystery_acquire_evidence_free :: proc(project:^Story_Project,state:^Mystery_State,id:string)->bool {payload:=mystery_payload(project);if payload==nil do return false;for clue in payload.clues do if clue.id==id do return mystery_string_set_add(&state.acquired_evidence,id)||mystery_string_set_has(state.acquired_evidence[:],id);return false}
-mystery_establish_claim :: proc(project:^Story_Project,state:^Mystery_State,id:string)->bool {payload:=mystery_payload(project);if payload==nil do return false;for claim in payload.claims do if claim.id==id do return mystery_string_set_add(&state.established_claims,id);return false}
-mystery_node_requirements_met :: proc(project:^Story_Project,state:^Mystery_State,node_id:string)->bool {payload:=mystery_payload(project);if payload==nil do return true;for &metadata in payload.dialogue do if metadata.node_id==node_id {for id in metadata.requires[:metadata.require_count] do if !mystery_state_knows(state,id) do return false};return true}
-mystery_apply_node_metadata :: proc(project:^Story_Project,state:^Mystery_State,node_id:string)->bool {
-	payload:=mystery_payload(project);if payload==nil do return false
-	matched:=false
-	for &metadata in payload.dialogue do if metadata.node_id==node_id {
-		matched=true
-		if metadata.clue_id!="" do _=mystery_acquire_evidence(project,state,metadata.clue_id)
+mystery_string_set_has :: proc(values: []string, id: string) -> bool {for value in values do if value == id do return true
+	return false}
+mystery_string_set_add :: proc(values: ^[dynamic]string, id: string) -> bool {if id == "" || mystery_string_set_has(values^[:], id) do return false
+	append(values, id)
+	return true}
+mystery_string_set_remove :: proc(values: ^[dynamic]string, id: string) -> bool {for value, i in values^ do if value == id {ordered_remove(values, i); return true}
+	return false}
+mystery_state_init :: proc(project: ^Story_Project) -> Mystery_State {payload := mystery_payload(
+		project,
+	)
+	result: Mystery_State
+	if payload != nil {result.action_budget_remaining = payload.action_budget; for character in payload.characters do append(&result.dispositions, Mystery_Disposition{character.entity_id, character.initial_disposition})}
+	return result}
+mystery_state_destroy :: proc(state: ^Mystery_State) {delete(state.acquired_evidence); delete(
+		state.established_claims,
+	)
+	delete(state.unlocked_topics)
+	delete(state.completed_investigations)
+	delete(state.revealed_pois)
+	delete(state.earned_deductions)
+	delete(state.question_progress)
+	delete(state.clue_attempts)
+	delete(state.dispositions)
+	delete(state.theory_selections)
+	delete(state.reconstruction_order)
+	state^ = {}}
+mystery_state_clone :: proc(source: ^Mystery_State) -> Mystery_State {result := source^
+	result.acquired_evidence = nil
+	result.established_claims = nil
+	result.unlocked_topics = nil
+	result.completed_investigations = nil
+	result.revealed_pois = nil
+	result.earned_deductions = nil
+	result.question_progress = nil
+	result.clue_attempts = nil
+	result.dispositions = nil
+	result.theory_selections = nil
+	result.reconstruction_order = nil
+	append(&result.acquired_evidence, ..source.acquired_evidence[:])
+	append(&result.established_claims, ..source.established_claims[:])
+	append(&result.unlocked_topics, ..source.unlocked_topics[:])
+	append(&result.completed_investigations, ..source.completed_investigations[:])
+	append(&result.revealed_pois, ..source.revealed_pois[:])
+	append(&result.earned_deductions, ..source.earned_deductions[:])
+	append(&result.question_progress, ..source.question_progress[:])
+	append(&result.clue_attempts, ..source.clue_attempts[:])
+	append(&result.dispositions, ..source.dispositions[:])
+	append(&result.theory_selections, ..source.theory_selections[:])
+	append(&result.reconstruction_order, ..source.reconstruction_order[:])
+	return result}
+mystery_runtime_state_create :: proc(project: ^Story_Project) -> rawptr {state := new(
+		Mystery_State,
+	)
+	state^ = mystery_state_init(project)
+	return state}
+mystery_runtime_state_clone :: proc(value: rawptr) -> rawptr {if value == nil do return nil
+	state := new(Mystery_State)
+	state^ = mystery_state_clone(cast(^Mystery_State)value)
+	return state}
+mystery_runtime_state_destroy :: proc(value: rawptr) {if value == nil do return
+	state := cast(^Mystery_State)value
+	mystery_state_destroy(state)
+	free(state)}
+mystery_acquire_evidence :: proc(
+	project: ^Story_Project,
+	state: ^Mystery_State,
+	id: string,
+) -> bool {payload := mystery_payload(project); if payload == nil do return false; for &clue in payload.clues do if clue.id == id {if mystery_string_set_has(state.acquired_evidence[:], id) do return true; for prerequisite in clue.prerequisites[:clue.prerequisite_count] do if !mystery_string_set_has(state.acquired_evidence[:], prerequisite) do return false; if clue.cost > state.action_budget_remaining do return false; state.action_budget_remaining -= clue.cost; return mystery_string_set_add(&state.acquired_evidence, id)}
+	return false}
+mystery_acquire_evidence_free :: proc(
+	project: ^Story_Project,
+	state: ^Mystery_State,
+	id: string,
+) -> bool {payload := mystery_payload(project); if payload == nil do return false; for clue in payload.clues do if clue.id == id do return mystery_string_set_add(&state.acquired_evidence, id) || mystery_string_set_has(state.acquired_evidence[:], id)
+	return false}
+mystery_establish_claim :: proc(
+	project: ^Story_Project,
+	state: ^Mystery_State,
+	id: string,
+) -> bool {payload := mystery_payload(project); if payload == nil do return false; for claim in payload.claims do if claim.id == id do return mystery_string_set_add(&state.established_claims, id)
+	return false}
+mystery_node_requirements_met :: proc(
+	project: ^Story_Project,
+	state: ^Mystery_State,
+	node_id: string,
+) -> bool {payload := mystery_payload(project); if payload == nil do return true; for &metadata in payload.dialogue do if metadata.node_id == node_id {for id in metadata.requires[:metadata.require_count] do if !mystery_state_knows(state, id) do return false}
+	return true}
+mystery_apply_node_metadata :: proc(
+	project: ^Story_Project,
+	state: ^Mystery_State,
+	node_id: string,
+) -> bool {
+	payload := mystery_payload(project); if payload == nil do return false
+	matched := false
+	for &metadata in payload.dialogue do if metadata.node_id == node_id {
+		matched = true
+		if metadata.clue_id != "" do _ = mystery_acquire_evidence(project, state, metadata.clue_id)
 		for id in metadata.unlocks[:metadata.unlock_count] {
-			if mystery_clue_index(payload,id)>=0 {_=mystery_acquire_evidence(project,state,id)} else if mystery_claim_index(payload,id)>=0 {_=mystery_establish_claim(project,state,id)} else if mystery_deduction_index(payload,id)>=0 {_=mystery_string_set_add(&state.earned_deductions,id)} else {_=mystery_string_set_add(&state.unlocked_topics,id)}
+			if mystery_clue_index(payload, id) >= 0 {_ = mystery_acquire_evidence(project, state, id)} else if mystery_claim_index(payload, id) >= 0 {_ = mystery_establish_claim(project, state, id)} else if mystery_deduction_index(payload, id) >= 0 {_ = mystery_string_set_add(&state.earned_deductions, id)} else {_ = mystery_string_set_add(&state.unlocked_topics, id)}
 		}
 	}
 	return matched
 }
-mystery_complete_demonstration :: proc(project:^Story_Project,state:^Mystery_State,question_id:string)->bool {
-	payload:=mystery_payload(project);if payload==nil do return false
-	for &demo in payload.demonstrations do if demo.question_id==question_id {
-		accepted:=demo.route_count==0
-		if demo.route_count==0 {accepted=true;for id in demo.accepted[:demo.accepted_count] do if !mystery_state_knows(state,id) {accepted=false;break}}
-		for route in 0..<demo.route_count {route_ok:=true;first:=demo.route_firsts[route];count:=demo.route_counts[route];if first<0||count<=0||first+count>demo.accepted_count do route_ok=false;if route_ok {for id in demo.accepted[first:first+count] do if !mystery_state_knows(state,id) {route_ok=false;break}};if route_ok {accepted=true;break}}
+mystery_complete_demonstration :: proc(
+	project: ^Story_Project,
+	state: ^Mystery_State,
+	question_id: string,
+) -> bool {
+	payload := mystery_payload(project); if payload == nil do return false
+	for &demo in payload.demonstrations do if demo.question_id == question_id {
+		accepted := demo.route_count == 0
+		if demo.route_count == 0 {accepted = true; for id in demo.accepted[:demo.accepted_count] do if !mystery_state_knows(state, id) {accepted = false; break}}
+		for route in 0 ..< demo.route_count {route_ok := true; first := demo.route_firsts[route]; count := demo.route_counts[route]; if first < 0 || count <= 0 || first + count > demo.accepted_count do route_ok = false; if route_ok {for id in demo.accepted[first:first + count] do if !mystery_state_knows(state, id) {route_ok = false; break}}; if route_ok {accepted = true; break}}
 		if !accepted do return false
-		for id in demo.result_deductions[:demo.result_count] {_=mystery_string_set_add(&state.earned_deductions,id);index:=mystery_deduction_index(payload,id);if index>=0 {deduction:=&payload.deductions[index];for topic in deduction.unlock_topics[:deduction.unlock_topic_count] do _=mystery_string_set_add(&state.unlocked_topics,topic);for investigation in deduction.unlock_investigations[:deduction.unlock_investigation_count] do _=mystery_string_set_add(&state.completed_investigations,investigation)}}
-		_=mystery_string_set_add(&state.completed_investigations,question_id)
+		for id in demo.result_deductions[:demo.result_count] {_ = mystery_string_set_add(&state.earned_deductions, id); index := mystery_deduction_index(payload, id); if index >= 0 {deduction := &payload.deductions[index]; for topic in deduction.unlock_topics[:deduction.unlock_topic_count] do _ = mystery_string_set_add(&state.unlocked_topics, topic); for investigation in deduction.unlock_investigations[:deduction.unlock_investigation_count] do _ = mystery_string_set_add(&state.completed_investigations, investigation)}}
+		_ = mystery_string_set_add(&state.completed_investigations, question_id)
 		return true
 	}
 	return false
 }
-mystery_select_theory_support :: proc(project:^Story_Project,state:^Mystery_State,pillar,deduction_id:string)->bool {
-	payload:=mystery_payload(project);if payload==nil||state.accusation_id==""||!mystery_string_set_has(state.earned_deductions[:],deduction_id) do return false
-	valid:=pillar=="motive"||pillar=="means"||pillar=="opportunity";if !valid do return false
-	for &deduction in payload.deductions do if deduction.id==deduction_id {
+mystery_select_theory_support :: proc(
+	project: ^Story_Project,
+	state: ^Mystery_State,
+	pillar, deduction_id: string,
+) -> bool {
+	payload := mystery_payload(
+		project,
+	); if payload == nil || state.accusation_id == "" || !mystery_string_set_has(state.earned_deductions[:], deduction_id) do return false
+	valid :=
+		pillar == "motive" ||
+		pillar == "means" ||
+		pillar == "opportunity"; if !valid do return false
+	for &deduction in payload.deductions do if deduction.id == deduction_id {
 		// Legacy categories are richer than the three presentation pillars; the
 		// stable selection is domain-owned and final evaluation validates support.
-		prefix:=fmt.tprintf("%s:",pillar);selection:=fmt.tprintf("%s:%s",pillar,deduction_id)
-		for i in 0..<len(state.theory_selections) do if strings.has_prefix(state.theory_selections[i],prefix) {state.theory_selections[i]=selection;return true}
-		append(&state.theory_selections,selection);return true
+		prefix := fmt.tprintf("%s:", pillar); selection := fmt.tprintf("%s:%s", pillar, deduction_id)
+		for i in 0 ..< len(state.theory_selections) do if strings.has_prefix(state.theory_selections[i], prefix) {state.theory_selections[i] = selection; return true}
+		append(&state.theory_selections, selection); return true
 	}
 	return false
 }
-mystery_evaluate_outcome :: proc(project:^Story_Project,state:^Mystery_State)->Outcome {
-	payload:=mystery_payload(project);if payload==nil||state.accusation_id=="" do return .Unresolved
-	if state.accusation_id!=payload.solution.culprit_id do return .Wrong_Accusation
-	if len(state.theory_selections)==0 do return .Plausible_Incomplete
-	if len(state.theory_selections)<3 do return .Correct_But_Unproven
+mystery_evaluate_outcome :: proc(project: ^Story_Project, state: ^Mystery_State) -> Outcome {
+	payload := mystery_payload(
+		project,
+	); if payload == nil || state.accusation_id == "" do return .Unresolved
+	if state.accusation_id != payload.solution.culprit_id do return .Wrong_Accusation
+	if len(state.theory_selections) == 0 do return .Plausible_Incomplete
+	if len(state.theory_selections) < 3 do return .Correct_But_Unproven
 	return .Airtight
 }
-mystery_player_query :: proc(project:^Story_Project,state:^Mystery_State)->Mystery_Player_View {result:=Mystery_Player_View{action_budget_remaining=state.action_budget_remaining};payload:=mystery_payload(project);if payload==nil do return result;for clue in payload.clues do append(&result.clues,Mystery_Player_Clue{clue.id,clue.description,clue.proposition_id,clue.cost,mystery_string_set_has(state.acquired_evidence[:],clue.id)});for id in state.established_claims do append(&result.claims,id);for id in state.unlocked_topics do append(&result.topics,id);for id in state.earned_deductions do append(&result.deductions,id);return result}
-mystery_player_view_destroy :: proc(view:^Mystery_Player_View) {delete(view.clues);delete(view.claims);delete(view.topics);delete(view.deductions);view^={}}
-mystery_creator_query :: proc(project:^Story_Project)->Mystery_Creator_View {return {mystery_payload(project)}}
-mystery_state_knows :: proc(state:^Mystery_State,id:string)->bool {return mystery_string_set_has(state.acquired_evidence[:],id)||mystery_string_set_has(state.established_claims[:],id)||mystery_string_set_has(state.earned_deductions[:],id)}
-mystery_diagnose_player :: proc(project:^Story_Project,state:^Mystery_State)->Mystery_Diagnosis {payload:=mystery_payload(project);result:Mystery_Diagnosis;if payload==nil do return result;for requirement in payload.solution.requirements[:payload.solution.requirement_count] do if !mystery_state_knows(state,requirement) {supported:=false;for &clue in payload.clues do if mystery_string_set_has(state.acquired_evidence[:],clue.id) {for block in clue.blocks[:clue.block_count] do if block==requirement do supported=true};if !supported do result.missing_requirement_count+=1};result.evidence_supported=result.missing_requirement_count==0;result.complete=state.accusation_id!=""&&result.evidence_supported;result.exclusive=result.complete;return result}
-mystery_accuse :: proc(project:^Story_Project,state:^Mystery_State,entity_id:string)->Outcome {payload:=mystery_payload(project);if payload==nil||story_entity_index(project,entity_id)<0 do return .Unresolved;state.accusation_id=entity_id;if entity_id!=payload.solution.culprit_id do return .Wrong_Accusation;diagnosis:=mystery_diagnose_player(project,state);if diagnosis.evidence_supported do return .Airtight;return .Correct_But_Unproven}
-mystery_ending_for_outcome :: proc(project:^Story_Project,outcome:Outcome)->string {payload:=mystery_payload(project);if payload==nil do return "";label:="unresolved";switch outcome {case .Airtight:label="airtight";case .Correct_But_Unproven:label="correct_but_unproven";case .Plausible_Incomplete:label="plausible_incomplete";case .Wrong_Accusation:label="wrong_accusation";case .Unresolved:};for ending in payload.endings do if ending.outcome==label do return ending.ending_id;return ""}
-mystery_ending_index :: proc(project:^Story_Project,id_or_trigger:string)->int {payload:=mystery_payload(project);if payload==nil do return -1;for ending,i in payload.endings do if ending.ending_id==id_or_trigger||ending.trigger==id_or_trigger do return i;return -1}
-mystery_core_ending :: proc(project:^Story_Project,metadata:^Mystery_Ending_Metadata)->^Story_Ending {if project==nil||metadata==nil do return nil;for &ending in project.endings do if ending.id==metadata.ending_id do return &ending;return nil}
+mystery_player_query :: proc(
+	project: ^Story_Project,
+	state: ^Mystery_State,
+) -> Mystery_Player_View {result := Mystery_Player_View {
+		action_budget_remaining = state.action_budget_remaining,
+	}; payload := mystery_payload(
+		project,
+	); if payload == nil do return result; for clue in payload.clues do append(&result.clues, Mystery_Player_Clue{clue.id, clue.description, clue.proposition_id, clue.cost, mystery_string_set_has(state.acquired_evidence[:], clue.id)}); for id in state.established_claims do append(&result.claims, id); for id in state.unlocked_topics do append(&result.topics, id); for id in state.earned_deductions do append(&result.deductions, id); return result}
+mystery_player_view_destroy :: proc(view: ^Mystery_Player_View) {delete(view.clues); delete(
+		view.claims,
+	)
+	delete(view.topics)
+	delete(view.deductions)
+	view^ = {}}
+mystery_creator_query :: proc(project: ^Story_Project) -> Mystery_Creator_View {return{
+		mystery_payload(project),
+	}}
+mystery_state_knows :: proc(state: ^Mystery_State, id: string) -> bool {return(
+		mystery_string_set_has(state.acquired_evidence[:], id) ||
+		mystery_string_set_has(state.established_claims[:], id) ||
+		mystery_string_set_has(state.earned_deductions[:], id) \
+	)}
+mystery_condition_eval :: proc(
+	raw: rawptr,
+	query: string,
+) -> Story_Condition_Trace {state := cast(^Mystery_State)raw; if state == nil do return {false, "mystery state is unavailable"}
+	prefix := "known:"
+	if strings.has_prefix(query, prefix) {id := query[len(prefix):]; value := mystery_state_knows(
+			state,
+			id,
+		)
+		return{value, fmt.tprintf("mystery knowledge %s checked", id)}}
+	return{false, fmt.tprintf("unknown mystery condition query %s", query)}}
+mystery_diagnose_player :: proc(
+	project: ^Story_Project,
+	state: ^Mystery_State,
+) -> Mystery_Diagnosis {payload := mystery_payload(project); result: Mystery_Diagnosis
+	if payload == nil do return result
+	for requirement in payload.solution.requirements[:payload.solution.requirement_count] do if !mystery_state_knows(state, requirement) {supported := false; for &clue in payload.clues do if mystery_string_set_has(state.acquired_evidence[:], clue.id) {for block in clue.blocks[:clue.block_count] do if block == requirement do supported = true}; if !supported do result.missing_requirement_count += 1}
+	result.evidence_supported = result.missing_requirement_count == 0
+	result.complete = state.accusation_id != "" && result.evidence_supported
+	result.exclusive = result.complete
+	return result}
+mystery_accuse :: proc(
+	project: ^Story_Project,
+	state: ^Mystery_State,
+	entity_id: string,
+) -> Outcome {payload := mystery_payload(project); if payload == nil || story_entity_index(project, entity_id) < 0 do return .Unresolved
+	state.accusation_id = entity_id
+	if entity_id != payload.solution.culprit_id do return .Wrong_Accusation
+	diagnosis := mystery_diagnose_player(project, state)
+	if diagnosis.evidence_supported do return .Airtight
+	return .Correct_But_Unproven}
+mystery_ending_for_outcome :: proc(
+	project: ^Story_Project,
+	outcome: Outcome,
+) -> string {payload := mystery_payload(project); if payload == nil do return ""
+	label := "unresolved"
+	switch outcome {case .Airtight:
+		label = "airtight"; case .Correct_But_Unproven:
+		label = "correct_but_unproven"; case .Plausible_Incomplete:
+		label = "plausible_incomplete"; case .Wrong_Accusation:
+		label = "wrong_accusation"; case .Unresolved:}
+	for ending in payload.endings do if ending.outcome == label do return ending.ending_id
+	return ""}
+mystery_ending_index :: proc(project: ^Story_Project, id_or_trigger: string) -> int {payload :=
+		mystery_payload(project)
+	if payload == nil do return -1
+	for ending, i in payload.endings do if ending.ending_id == id_or_trigger || ending.trigger == id_or_trigger do return i
+	return -1}
+mystery_core_ending :: proc(
+	project: ^Story_Project,
+	metadata: ^Mystery_Ending_Metadata,
+) -> ^Story_Ending {if project == nil || metadata == nil do return nil; for &ending in project.endings do if ending.id == metadata.ending_id do return &ending
+	return nil}
 
-mystery_payload :: proc(project:^Story_Project)->^Mystery_Project {return cast(^Mystery_Project)story_capability_payload(project,"mystery",MYSTERY_DOMAIN_VERSION)}
-mystery_game_payload :: proc(g:^Game)->^Mystery_Project {if g==nil do return nil;return mystery_payload(g.story_project)}
-mystery_game_clue_discovered :: proc(g:^Game,index:int)->bool {payload:=mystery_game_payload(g);return payload!=nil&&g.mystery_state!=nil&&index>=0&&index<len(payload.clues)&&mystery_string_set_has(g.mystery_state.acquired_evidence[:],payload.clues[index].id)}
-mystery_game_mark_clue :: proc(g:^Game,index:int)->bool {payload:=mystery_game_payload(g);return payload!=nil&&g.mystery_state!=nil&&index>=0&&index<len(payload.clues)&&mystery_acquire_evidence_free(g.story_project,g.mystery_state,payload.clues[index].id)}
-mystery_game_mark_all_clues :: proc(g:^Game) {payload:=mystery_game_payload(g);if payload==nil||g.mystery_state==nil do return;for clue in payload.clues do _=mystery_acquire_evidence_free(g.story_project,g.mystery_state,clue.id)}
-mystery_game_clue_attempt :: proc(g:^Game,index:int,create:=false)->^Mystery_Clue_Attempt {payload:=mystery_game_payload(g);if payload==nil||g.mystery_state==nil||index<0||index>=len(payload.clues) do return nil;id:=payload.clues[index].id;for &attempt in g.mystery_state.clue_attempts do if attempt.clue_id==id do return &attempt;if !create do return nil;append(&g.mystery_state.clue_attempts,Mystery_Clue_Attempt{clue_id=id});return &g.mystery_state.clue_attempts[len(g.mystery_state.clue_attempts)-1]}
-mystery_game_clue_attempted :: proc(g:^Game,index:int)->bool {attempt:=mystery_game_clue_attempt(g,index);return attempt!=nil&&attempt.attempted}
-mystery_game_mark_clue_attempted :: proc(g:^Game,index:int) {attempt:=mystery_game_clue_attempt(g,index,true);if attempt!=nil do attempt.attempted=true}
-mystery_game_clue_attempt_score :: proc(g:^Game,index:int)->int {attempt:=mystery_game_clue_attempt(g,index);return attempt==nil?0:attempt.known_score}
-mystery_game_set_clue_attempt_score :: proc(g:^Game,index,score:int) {attempt:=mystery_game_clue_attempt(g,index,true);if attempt!=nil {attempt.attempted=true;attempt.known_score=score}}
-mystery_game_clue_overtime_free :: proc(g:^Game,index:int)->bool {attempt:=mystery_game_clue_attempt(g,index);return attempt!=nil&&attempt.overtime_free}
-mystery_game_set_clue_overtime_free :: proc(g:^Game,index:int,value:bool) {attempt:=mystery_game_clue_attempt(g,index,value);if attempt!=nil do attempt.overtime_free=value}
-mystery_game_clear_overtime_free :: proc(g:^Game) {if g==nil||g.mystery_state==nil do return;for &attempt in g.mystery_state.clue_attempts do attempt.overtime_free=false}
-mystery_game_disposition :: proc(g:^Game,entity_id:string)->int {if g==nil||g.mystery_state==nil do return 0;for disposition in g.mystery_state.dispositions do if disposition.entity_id==entity_id do return disposition.value;return 0}
-mystery_game_set_disposition :: proc(g:^Game,entity_id:string,value:int) {if g==nil||g.mystery_state==nil||entity_id=="" do return;for &disposition in g.mystery_state.dispositions do if disposition.entity_id==entity_id {disposition.value=clamp(value,-3,3);return};append(&g.mystery_state.dispositions,Mystery_Disposition{entity_id,clamp(value,-3,3)})}
-mystery_game_toggle_clue :: proc(g:^Game,index:int) {payload:=mystery_game_payload(g);if payload==nil||g.mystery_state==nil||index<0||index>=len(payload.clues) do return;id:=payload.clues[index].id;if mystery_game_clue_discovered(g,index) {_ = mystery_string_set_remove(&g.mystery_state.acquired_evidence,id)} else {_ = mystery_game_mark_clue(g,index)}}
-mystery_game_toggle_claim :: proc(g:^Game,index:int) {payload:=mystery_game_payload(g);if payload==nil||g.mystery_state==nil||index<0||index>=len(payload.claims) do return;id:=payload.claims[index].id;if mystery_string_set_has(g.mystery_state.established_claims[:],id) {_ = mystery_string_set_remove(&g.mystery_state.established_claims,id)} else {_ = mystery_establish_claim(g.story_project,g.mystery_state,id)}}
-mystery_game_accusation :: proc(g:^Game)->string {return g==nil||g.mystery_state==nil?"":g.mystery_state.accusation_id}
-mystery_game_set_accusation :: proc(g:^Game,id:string) {if g==nil||g.mystery_state==nil do return;g.mystery_state.accusation_id=id;clear(&g.mystery_state.theory_selections)}
-mystery_game_theory_pillar :: proc(g:^Game,pillar:int)->string {if g==nil||g.mystery_state==nil||pillar<0||pillar>=3 do return "";prefix:=fmt.tprintf("%s:",proof_pillar_name(pillar));for selection in g.mystery_state.theory_selections do if strings.has_prefix(selection,prefix) do return selection[len(prefix):];return ""}
-mystery_game_set_theory_pillar :: proc(g:^Game,pillar:int,id:string) {if g==nil||g.mystery_state==nil||pillar<0||pillar>=3 do return;prefix:=fmt.tprintf("%s:",proof_pillar_name(pillar));for selection,i in g.mystery_state.theory_selections do if strings.has_prefix(selection,prefix) {if id=="" do ordered_remove(&g.mystery_state.theory_selections,i);else do g.mystery_state.theory_selections[i]=fmt.tprintf("%s%s",prefix,id);return};if id!="" do append(&g.mystery_state.theory_selections,fmt.tprintf("%s%s",prefix,id))}
-mystery_game_location_searched :: proc(g:^Game,index:int)->bool {payload:=mystery_game_payload(g);return payload!=nil&&g.mystery_state!=nil&&index>=0&&index<len(payload.locations)&&mystery_string_set_has(g.mystery_state.completed_investigations[:],payload.locations[index].entity_id)}
-mystery_game_mark_location_searched :: proc(g:^Game,index:int)->bool {payload:=mystery_game_payload(g);return payload!=nil&&g.mystery_state!=nil&&index>=0&&index<len(payload.locations)&&mystery_string_set_add(&g.mystery_state.completed_investigations,payload.locations[index].entity_id)}
-mystery_game_poi_revealed :: proc(g:^Game,index:int)->bool {payload:=mystery_game_payload(g);return payload!=nil&&g.mystery_state!=nil&&index>=0&&index<len(payload.pois)&&mystery_string_set_has(g.mystery_state.revealed_pois[:],payload.pois[index].entity_id)}
-mystery_game_mark_poi_revealed :: proc(g:^Game,index:int)->bool {payload:=mystery_game_payload(g);return payload!=nil&&g.mystery_state!=nil&&index>=0&&index<len(payload.pois)&&mystery_string_set_add(&g.mystery_state.revealed_pois,payload.pois[index].entity_id)}
-mystery_game_reveal_all_pois :: proc(g:^Game) {payload:=mystery_game_payload(g);if payload==nil||g.mystery_state==nil do return;for poi in payload.pois do _=mystery_string_set_add(&g.mystery_state.revealed_pois,poi.entity_id)}
-mystery_game_evidence_presented :: proc(g:^Game,index:int)->bool {payload:=mystery_game_payload(g);if payload==nil||g.mystery_state==nil||index<0||index>=len(payload.clues) do return false;return mystery_string_set_has(g.mystery_state.completed_investigations[:],fmt.tprintf("presented:%s",payload.clues[index].id))}
-mystery_game_mark_evidence_presented :: proc(g:^Game,index:int)->bool {payload:=mystery_game_payload(g);if payload==nil||g.mystery_state==nil||index<0||index>=len(payload.clues) do return false;return mystery_string_set_add(&g.mystery_state.completed_investigations,fmt.tprintf("presented:%s",payload.clues[index].id))}
-mystery_game_dialogue_completed :: proc(g:^Game,index:int)->bool {node:=mystery_dialogue_approach_at(mystery_game_payload(g),index);return node!=nil&&g.mystery_state!=nil&&mystery_string_set_has(g.mystery_state.completed_investigations[:],fmt.tprintf("dialogue:%s",node.node_id))}
-mystery_game_dialogue_failed :: proc(g:^Game,index:int)->bool {node:=mystery_dialogue_approach_at(mystery_game_payload(g),index);return node!=nil&&g.mystery_state!=nil&&mystery_string_set_has(g.mystery_state.completed_investigations[:],fmt.tprintf("dialogue_failed:%s",node.node_id))}
-mystery_game_mark_dialogue :: proc(g:^Game,index:int,failed:bool)->bool {node:=mystery_dialogue_approach_at(mystery_game_payload(g),index);if node==nil||g.mystery_state==nil do return false;completed_key:=fmt.tprintf("dialogue:%s",node.node_id);failed_key:=fmt.tprintf("dialogue_failed:%s",node.node_id);_=mystery_string_set_add(&g.mystery_state.completed_investigations,completed_key);if failed do _=mystery_string_set_add(&g.mystery_state.completed_investigations,failed_key);else do _=mystery_string_set_remove(&g.mystery_state.completed_investigations,failed_key);return true}
-mystery_game_observation_known :: proc(g:^Game,index:int)->bool {return g!=nil&&g.mystery_state!=nil&&mystery_string_set_has(g.mystery_state.completed_investigations[:],fmt.tprintf("observation:%d",index))}
-mystery_game_mark_observation :: proc(g:^Game,index:int)->bool {return g!=nil&&g.mystery_state!=nil&&mystery_string_set_add(&g.mystery_state.completed_investigations,fmt.tprintf("observation:%d",index))}
-mystery_game_reveal_presented :: proc(g:^Game,act:int)->bool {return g!=nil&&g.mystery_state!=nil&&mystery_string_set_has(g.mystery_state.completed_investigations[:],fmt.tprintf("reveal:act_%d",act))}
-mystery_game_mark_reveal_presented :: proc(g:^Game,act:int)->bool {if g==nil||g.mystery_state==nil do return false;g.mystery_state.reveal_progress=max(g.mystery_state.reveal_progress,act+1);return mystery_string_set_add(&g.mystery_state.completed_investigations,fmt.tprintf("reveal:act_%d",act))}
-mystery_clue_proposition_text :: proc(project:^Story_Project,clue:^Mystery_Clue)->string {if project==nil||clue==nil do return "";index:=story_proposition_index(project,clue.proposition_id);if index>=0 do return project.propositions[index].text;return clue.description}
-mystery_story_proposition_text :: proc(project:^Story_Project,id:string)->string {if project==nil do return "";index:=story_proposition_index(project,id);if index>=0 do return project.propositions[index].text;return ""}
-mystery_character_metadata :: proc(payload:^Mystery_Project,entity_id:string)->^Mystery_Character_Metadata {if payload==nil do return nil;for &item in payload.characters do if item.entity_id==entity_id do return &item;return nil}
-mystery_dialogue_metadata :: proc(payload:^Mystery_Project,node_id:string)->^Mystery_Dialogue_Metadata {if payload==nil do return nil;for &item in payload.dialogue do if item.node_id==node_id do return &item;return nil}
-mystery_dialogue_approach_count :: proc(payload:^Mystery_Project)->int {if payload==nil do return 0;count:=0;for item in payload.dialogue do if item.character_id!=""&&item.prompt!="" do count+=1;return count}
-mystery_dialogue_approach_at :: proc(payload:^Mystery_Project,index:int)->^Mystery_Dialogue_Metadata {if payload==nil||index<0 do return nil;seen:=0;for &item in payload.dialogue do if item.character_id!=""&&item.prompt!="" {if seen==index do return &item;seen+=1};return nil}
-mystery_ref_exists :: proc(values:[]string,id:string)->bool {for value in values do if value==id do return true;return false}
-mystery_copy_refs :: proc(target:^[MYSTERY_MAX_REFS]string,values:[]string)->int {count:=min(len(values),len(target^));for value,i in values do if i<count do target[i]=value;return count}
-mystery_clone_text :: proc(value:string)->string {return fmt.aprintf("%s",value)}
-mystery_clone_refs :: proc(target:^[MYSTERY_MAX_REFS]string,source:^[MYSTERY_MAX_REFS]string,count:int) {for i in 0..<count do target[i]=mystery_clone_text(source[i])}
+mystery_payload :: proc(project: ^Story_Project) -> ^Mystery_Project {return(
+		cast(^Mystery_Project)story_capability_payload(
+			project,
+			"mystery",
+			MYSTERY_DOMAIN_VERSION,
+		) \
+	)}
+mystery_game_payload :: proc(g: ^Game) -> ^Mystery_Project {if g == nil do return nil
+	return mystery_payload(g.story_project)}
+mystery_game_clue_discovered :: proc(g: ^Game, index: int) -> bool {payload :=
+		mystery_game_payload(g)
+	return(
+		payload != nil &&
+		g.mystery_state != nil &&
+		index >= 0 &&
+		index < len(payload.clues) &&
+		mystery_string_set_has(g.mystery_state.acquired_evidence[:], payload.clues[index].id) \
+	)}
+mystery_game_mark_clue :: proc(g: ^Game, index: int) -> bool {payload := mystery_game_payload(g)
+	return(
+		payload != nil &&
+		g.mystery_state != nil &&
+		index >= 0 &&
+		index < len(payload.clues) &&
+		mystery_acquire_evidence_free(g.story_project, g.mystery_state, payload.clues[index].id) \
+	)}
+mystery_game_mark_all_clues :: proc(g: ^Game) {payload := mystery_game_payload(g); if payload == nil || g.mystery_state == nil do return
+	for clue in payload.clues do _ = mystery_acquire_evidence_free(g.story_project, g.mystery_state, clue.id)}
+mystery_game_clue_attempt :: proc(
+	g: ^Game,
+	index: int,
+	create := false,
+) -> ^Mystery_Clue_Attempt {payload := mystery_game_payload(g); if payload == nil || g.mystery_state == nil || index < 0 || index >= len(payload.clues) do return nil
+	id := payload.clues[index].id
+	for &attempt in g.mystery_state.clue_attempts do if attempt.clue_id == id do return &attempt
+	if !create do return nil
+	append(&g.mystery_state.clue_attempts, Mystery_Clue_Attempt{clue_id = id})
+	return &g.mystery_state.clue_attempts[len(g.mystery_state.clue_attempts) - 1]}
+mystery_game_clue_attempted :: proc(g: ^Game, index: int) -> bool {attempt :=
+		mystery_game_clue_attempt(g, index)
+	return attempt != nil && attempt.attempted}
+mystery_game_mark_clue_attempted :: proc(g: ^Game, index: int) {attempt :=
+		mystery_game_clue_attempt(g, index, true)
+	if attempt != nil do attempt.attempted = true}
+mystery_game_clue_attempt_score :: proc(g: ^Game, index: int) -> int {attempt :=
+		mystery_game_clue_attempt(g, index)
+	return attempt == nil ? 0 : attempt.known_score}
+mystery_game_set_clue_attempt_score :: proc(g: ^Game, index, score: int) {attempt :=
+		mystery_game_clue_attempt(g, index, true)
+	if attempt != nil {attempt.attempted = true; attempt.known_score = score}}
+mystery_game_clue_overtime_free :: proc(g: ^Game, index: int) -> bool {attempt :=
+		mystery_game_clue_attempt(g, index)
+	return attempt != nil && attempt.overtime_free}
+mystery_game_set_clue_overtime_free :: proc(g: ^Game, index: int, value: bool) {attempt :=
+		mystery_game_clue_attempt(g, index, value)
+	if attempt != nil do attempt.overtime_free = value}
+mystery_game_clear_overtime_free :: proc(g: ^Game) {if g == nil || g.mystery_state == nil do return
+	for &attempt in g.mystery_state.clue_attempts do attempt.overtime_free = false}
+mystery_game_disposition :: proc(g: ^Game, entity_id: string) -> int {if g == nil || g.mystery_state == nil do return 0
+	for disposition in g.mystery_state.dispositions do if disposition.entity_id == entity_id do return disposition.value
+	return 0}
+mystery_game_set_disposition :: proc(g: ^Game, entity_id: string, value: int) {if g == nil || g.mystery_state == nil || entity_id == "" do return
+	for &disposition in g.mystery_state.dispositions do if disposition.entity_id == entity_id {disposition.value = clamp(value, -3, 3); return}
+	append(&g.mystery_state.dispositions, Mystery_Disposition{entity_id, clamp(value, -3, 3)})}
+mystery_game_toggle_clue :: proc(g: ^Game, index: int) {payload := mystery_game_payload(g)
+	if payload == nil || g.mystery_state == nil || index < 0 || index >= len(payload.clues) do return
+	id := payload.clues[index].id
+	if mystery_game_clue_discovered(
+		g,
+		index,
+	) {_ = mystery_string_set_remove(&g.mystery_state.acquired_evidence, id)} else {_ = mystery_game_mark_clue(g, index)}}
+mystery_game_toggle_claim :: proc(g: ^Game, index: int) {payload := mystery_game_payload(g)
+	if payload == nil || g.mystery_state == nil || index < 0 || index >= len(payload.claims) do return
+	id := payload.claims[index].id
+	if mystery_string_set_has(
+		g.mystery_state.established_claims[:],
+		id,
+	) {_ = mystery_string_set_remove(&g.mystery_state.established_claims, id)} else {_ = mystery_establish_claim(g.story_project, g.mystery_state, id)}}
+mystery_game_accusation :: proc(g: ^Game) -> string {return(
+		g == nil || g.mystery_state == nil ? "" : g.mystery_state.accusation_id \
+	)}
+mystery_game_set_accusation :: proc(g: ^Game, id: string) {if g == nil || g.mystery_state == nil do return
+	g.mystery_state.accusation_id = id
+	clear(&g.mystery_state.theory_selections)}
+mystery_game_theory_pillar :: proc(g: ^Game, pillar: int) -> string {if g == nil || g.mystery_state == nil || pillar < 0 || pillar >= 3 do return ""
+	prefix := fmt.tprintf("%s:", proof_pillar_name(pillar))
+	for selection in g.mystery_state.theory_selections do if strings.has_prefix(selection, prefix) do return selection[len(prefix):]
+	return ""}
+mystery_game_set_theory_pillar :: proc(g: ^Game, pillar: int, id: string) {if g == nil || g.mystery_state == nil || pillar < 0 || pillar >= 3 do return
+	prefix := fmt.tprintf("%s:", proof_pillar_name(pillar))
+	for selection, i in g.mystery_state.theory_selections do if strings.has_prefix(selection, prefix) {if id == "" do ordered_remove(&g.mystery_state.theory_selections, i)
+		else do g.mystery_state.theory_selections[i] = fmt.tprintf("%s%s", prefix, id); return}
+	if id != "" do append(&g.mystery_state.theory_selections, fmt.tprintf("%s%s", prefix, id))}
+mystery_game_location_searched :: proc(g: ^Game, index: int) -> bool {payload :=
+		mystery_game_payload(g)
+	return(
+		payload != nil &&
+		g.mystery_state != nil &&
+		index >= 0 &&
+		index < len(payload.locations) &&
+		mystery_string_set_has(
+			g.mystery_state.completed_investigations[:],
+			payload.locations[index].entity_id,
+		) \
+	)}
+mystery_game_mark_location_searched :: proc(g: ^Game, index: int) -> bool {payload :=
+		mystery_game_payload(g)
+	return(
+		payload != nil &&
+		g.mystery_state != nil &&
+		index >= 0 &&
+		index < len(payload.locations) &&
+		mystery_string_set_add(
+			&g.mystery_state.completed_investigations,
+			payload.locations[index].entity_id,
+		) \
+	)}
+mystery_game_poi_revealed :: proc(g: ^Game, index: int) -> bool {payload := mystery_game_payload(g)
+	return(
+		payload != nil &&
+		g.mystery_state != nil &&
+		index >= 0 &&
+		index < len(payload.pois) &&
+		mystery_string_set_has(g.mystery_state.revealed_pois[:], payload.pois[index].entity_id) \
+	)}
+mystery_game_mark_poi_revealed :: proc(g: ^Game, index: int) -> bool {payload :=
+		mystery_game_payload(g)
+	return(
+		payload != nil &&
+		g.mystery_state != nil &&
+		index >= 0 &&
+		index < len(payload.pois) &&
+		mystery_string_set_add(&g.mystery_state.revealed_pois, payload.pois[index].entity_id) \
+	)}
+mystery_game_reveal_all_pois :: proc(g: ^Game) {payload := mystery_game_payload(g); if payload == nil || g.mystery_state == nil do return
+	for poi in payload.pois do _ = mystery_string_set_add(&g.mystery_state.revealed_pois, poi.entity_id)}
+mystery_game_evidence_presented :: proc(g: ^Game, index: int) -> bool {payload :=
+		mystery_game_payload(g)
+	if payload == nil || g.mystery_state == nil || index < 0 || index >= len(payload.clues) do return false
+	return mystery_string_set_has(
+		g.mystery_state.completed_investigations[:],
+		fmt.tprintf("presented:%s", payload.clues[index].id),
+	)}
+mystery_game_mark_evidence_presented :: proc(g: ^Game, index: int) -> bool {payload :=
+		mystery_game_payload(g)
+	if payload == nil || g.mystery_state == nil || index < 0 || index >= len(payload.clues) do return false
+	return mystery_string_set_add(
+		&g.mystery_state.completed_investigations,
+		fmt.tprintf("presented:%s", payload.clues[index].id),
+	)}
+mystery_game_dialogue_completed :: proc(g: ^Game, index: int) -> bool {node :=
+		mystery_dialogue_approach_at(mystery_game_payload(g), index)
+	return(
+		node != nil &&
+		g.mystery_state != nil &&
+		mystery_string_set_has(
+			g.mystery_state.completed_investigations[:],
+			fmt.tprintf("dialogue:%s", node.node_id),
+		) \
+	)}
+mystery_game_dialogue_failed :: proc(g: ^Game, index: int) -> bool {node :=
+		mystery_dialogue_approach_at(mystery_game_payload(g), index)
+	return(
+		node != nil &&
+		g.mystery_state != nil &&
+		mystery_string_set_has(
+			g.mystery_state.completed_investigations[:],
+			fmt.tprintf("dialogue_failed:%s", node.node_id),
+		) \
+	)}
+mystery_game_mark_dialogue :: proc(g: ^Game, index: int, failed: bool) -> bool {node :=
+		mystery_dialogue_approach_at(mystery_game_payload(g), index)
+	if node == nil || g.mystery_state == nil do return false
+	completed_key := fmt.tprintf("dialogue:%s", node.node_id)
+	failed_key := fmt.tprintf("dialogue_failed:%s", node.node_id)
+	_ = mystery_string_set_add(&g.mystery_state.completed_investigations, completed_key)
+	if failed do _ = mystery_string_set_add(&g.mystery_state.completed_investigations, failed_key)
+	else do _ = mystery_string_set_remove(&g.mystery_state.completed_investigations, failed_key)
+	return true}
+mystery_game_observation_known :: proc(g: ^Game, index: int) -> bool {return(
+		g != nil &&
+		g.mystery_state != nil &&
+		mystery_string_set_has(
+			g.mystery_state.completed_investigations[:],
+			fmt.tprintf("observation:%d", index),
+		) \
+	)}
+mystery_game_mark_observation :: proc(g: ^Game, index: int) -> bool {return(
+		g != nil &&
+		g.mystery_state != nil &&
+		mystery_string_set_add(
+			&g.mystery_state.completed_investigations,
+			fmt.tprintf("observation:%d", index),
+		) \
+	)}
+mystery_game_reveal_presented :: proc(g: ^Game, act: int) -> bool {return(
+		g != nil &&
+		g.mystery_state != nil &&
+		mystery_string_set_has(
+			g.mystery_state.completed_investigations[:],
+			fmt.tprintf("reveal:act_%d", act),
+		) \
+	)}
+mystery_game_mark_reveal_presented :: proc(g: ^Game, act: int) -> bool {if g == nil || g.mystery_state == nil do return false
+	g.mystery_state.reveal_progress = max(g.mystery_state.reveal_progress, act + 1)
+	return mystery_string_set_add(
+		&g.mystery_state.completed_investigations,
+		fmt.tprintf("reveal:act_%d", act),
+	)}
+mystery_clue_proposition_text :: proc(
+	project: ^Story_Project,
+	clue: ^Mystery_Clue,
+) -> string {if project == nil || clue == nil do return ""; index := story_proposition_index(
+		project,
+		clue.proposition_id,
+	)
+	if index >= 0 do return project.propositions[index].text
+	return clue.description}
+mystery_story_proposition_text :: proc(
+	project: ^Story_Project,
+	id: string,
+) -> string {if project == nil do return ""; index := story_proposition_index(project, id)
+	if index >= 0 do return project.propositions[index].text
+	return ""}
+mystery_character_metadata :: proc(
+	payload: ^Mystery_Project,
+	entity_id: string,
+) -> ^Mystery_Character_Metadata {if payload == nil do return nil; for &item in payload.characters do if item.entity_id == entity_id do return &item
+	return nil}
+mystery_dialogue_metadata :: proc(
+	payload: ^Mystery_Project,
+	node_id: string,
+) -> ^Mystery_Dialogue_Metadata {if payload == nil do return nil; for &item in payload.dialogue do if item.node_id == node_id do return &item
+	return nil}
+mystery_dialogue_approach_count :: proc(payload: ^Mystery_Project) -> int {if payload == nil do return 0
+	count := 0
+	for item in payload.dialogue do if item.character_id != "" && item.prompt != "" do count += 1
+	return count}
+mystery_dialogue_approach_at :: proc(
+	payload: ^Mystery_Project,
+	index: int,
+) -> ^Mystery_Dialogue_Metadata {if payload == nil || index < 0 do return nil; seen := 0; for &item in payload.dialogue do if item.character_id != "" && item.prompt != "" {if seen == index do return &item; seen += 1}
+	return nil}
+mystery_ref_exists :: proc(values: []string, id: string) -> bool {for value in values do if value == id do return true
+	return false}
+mystery_copy_refs :: proc(target: ^[MYSTERY_MAX_REFS]string, values: []string) -> int {count :=
+		min(len(values), len(target^))
+	for value, i in values do if i < count do target[i] = value
+	return count}
+mystery_clone_text :: proc(value: string) -> string {return fmt.aprintf("%s", value)}
+mystery_clone_refs :: proc(
+	target: ^[MYSTERY_MAX_REFS]string,
+	source: ^[MYSTERY_MAX_REFS]string,
+	count: int,
+) {for i in 0 ..< count do target[i] = mystery_clone_text(source[i])}
 
-mystery_parse :: proc(source:rawptr,project:^Story_Project)->bool {
-	if source==nil||project==nil do return false
-	payload:=new(Mystery_Project);mem.dynamic_arena_init(&payload.arena);allocator:=mem.dynamic_arena_allocator(&payload.arena)
-	context.allocator=allocator
-	top:=cast(^Toml_Datum)source;domain:=toml_seek_key(top^,"mystery");if domain.type!=.TABLE {mystery_destroy(payload);return false}
-	payload.action_budget=toml_case_int(domain,"action_budget");payload.seed=u64(max(0,toml_case_int(domain,"seed")));payload.tutorial_id=toml_case_string(domain,"tutorial");payload.city_start=toml_case_string(domain,"city_start");payload.city_destination=toml_case_string(domain,"city_destination");payload.reveal_location=toml_case_string(domain,"reveal_location")
-	character_tables:=toml_tables(domain,"characters");payload.characters=make([]Mystery_Character_Metadata,len(character_tables));for table,i in character_tables {item:=&payload.characters[i];item.entity_id=toml_case_string(table,"entity");item.private_secret=toml_case_string(table,"private_secret");item.motive=toml_case_string(table,"motive");item.initial_disposition=toml_case_int(table,"initial_disposition");item.initial_claim_count=mystery_copy_refs(&item.initial_claims,toml_case_strings(table,"initial_claims"))}
-	location_tables:=toml_tables(domain,"locations");payload.locations=make([]Mystery_Location_Metadata,len(location_tables));for table,i in location_tables {item:=&payload.locations[i];item.entity_id=toml_case_string(table,"entity");item.connection_count=mystery_copy_refs(&item.connections,toml_case_strings(table,"connections"));item.character_count=mystery_copy_refs(&item.characters,toml_case_strings(table,"characters"));item.poi_count=mystery_copy_refs(&item.pois,toml_case_strings(table,"pois"));item.search_action_count=mystery_copy_refs(&item.search_actions,toml_case_strings(table,"search_actions"))}
-	poi_tables:=toml_tables(domain,"pois");payload.pois=make([]Mystery_POI_Metadata,len(poi_tables));for table,i in poi_tables do payload.pois[i]={toml_case_string(table,"entity"),toml_case_string(table,"location"),toml_case_string(table,"owner"),toml_case_string(table,"relevant_state"),toml_case_string(table,"examination_action")}
-	event_tables:=toml_tables(domain,"events");payload.events=make([]Mystery_Event_Metadata,len(event_tables));for table,i in event_tables {item:=&payload.events[i];item.event_id=toml_case_string(table,"event");item.destination_id=toml_case_string(table,"destination");item.tool_id=toml_case_string(table,"tool");item.effect_count=mystery_copy_refs(&item.effects,toml_case_strings(table,"effects"))}
-	clue_tables:=toml_tables(domain,"clues");payload.clues=make([]Mystery_Clue,len(clue_tables));for table,i in clue_tables {item:=&payload.clues[i];item.id=toml_case_string(table,"id");item.source_id=toml_case_string(table,"source");item.description=toml_case_string(table,"description");item.proposition_id=toml_case_string(table,"proposition");item.skill=toml_case_string(table,"skill");item.check_kind=toml_case_string(table,"check_kind");item.difficulty=toml_case_int(table,"difficulty");item.cost=toml_case_int(table,"cost");item.essential=toml_case_bool(table,"essential");item.prerequisite_count=mystery_copy_refs(&item.prerequisites,toml_case_strings(table,"prerequisites"));item.block_count=mystery_copy_refs(&item.blocks,toml_case_strings(table,"blocks"));item.topic_count=mystery_copy_refs(&item.topics,toml_case_strings(table,"topics"))}
-	claim_tables:=toml_tables(domain,"claims");payload.claims=make([]Mystery_Claim,len(claim_tables));for table,i in claim_tables do payload.claims[i]={toml_case_string(table,"id"),toml_case_string(table,"speaker"),toml_case_string(table,"proposition"),toml_case_string(table,"protects"),toml_case_string(table,"response"),toml_case_bool(table,"canonical_truth")}
-	contradiction_tables:=toml_tables(domain,"contradictions");payload.contradictions=make([]Mystery_Contradiction,len(contradiction_tables));for table,i in contradiction_tables do payload.contradictions[i]={toml_case_string(table,"id"),toml_case_string(table,"claim"),toml_case_string(table,"fact"),toml_case_string(table,"conclusion"),toml_case_string(table,"explanation")}
-	deduction_tables:=toml_tables(domain,"deductions");payload.deductions=make([]Mystery_Deduction,len(deduction_tables));for table,i in deduction_tables {item:=&payload.deductions[i];item.id=toml_case_string(table,"id");item.proposition_id=toml_case_string(table,"proposition");item.category=toml_case_string(table,"category");item.support_count=mystery_copy_refs(&item.supports,toml_case_strings(table,"supports"));item.unlock_question_count=mystery_copy_refs(&item.unlock_questions,toml_case_strings(table,"unlock_questions"));item.unlock_topic_count=mystery_copy_refs(&item.unlock_topics,toml_case_strings(table,"unlock_topics"));item.unlock_investigation_count=mystery_copy_refs(&item.unlock_investigations,toml_case_strings(table,"unlock_investigations"))}
-	question_tables:=toml_tables(domain,"questions");payload.questions=make([]Mystery_Question,len(question_tables));for table,i in question_tables {item:=&payload.questions[i];item.id=toml_case_string(table,"id");item.prompt=toml_case_string(table,"prompt");item.hypothesis_id=toml_case_string(table,"hypothesis");item.category=toml_case_string(table,"category");item.required_for_final=toml_case_bool(table,"required_for_final");item.require_clue_count=mystery_copy_refs(&item.requires_clues,toml_case_strings(table,"requires_clues"));item.require_claim_count=mystery_copy_refs(&item.requires_claims,toml_case_strings(table,"requires_claims"));item.require_deduction_count=mystery_copy_refs(&item.requires_deductions,toml_case_strings(table,"requires_deductions"));item.dependency_count=mystery_copy_refs(&item.dependencies,toml_case_strings(table,"dependencies"))}
-	demonstration_tables:=toml_tables(domain,"demonstrations");payload.demonstrations=make([]Mystery_Demonstration,len(demonstration_tables));for table,i in demonstration_tables {item:=&payload.demonstrations[i];item.id=toml_case_string(table,"id");item.question_id=toml_case_string(table,"question");item.mode=toml_case_string(table,"mode");item.presentation=toml_case_string(table,"presentation");if item.presentation=="" do item.presentation="slots";item.gesture=toml_case_string(table,"gesture");item.subject=toml_case_string(table,"subject");item.art=toml_case_string(table,"art");item.completion_cue=toml_case_string(table,"completion_cue");item.candidate_limit=toml_case_int(table,"candidate_limit");if item.candidate_limit==0 do item.candidate_limit=5;steps:=toml_case_strings(table,"gesture_steps");item.gesture_step_overflow=len(steps)>len(item.gesture_steps);item.gesture_step_count=min(len(steps),len(item.gesture_steps));for step in 0..<item.gesture_step_count do item.gesture_steps[step]=steps[step];if item.gesture_step_count==0&&item.gesture!="" {item.gesture_steps[0]=item.gesture;item.gesture_step_count=1};item.resolution=toml_case_string(table,"resolution");item.result=toml_case_string(table,"result");item.prompt=toml_case_string(table,"prompt");item.slot_count=mystery_copy_refs(&item.slot_labels,toml_case_strings(table,"slot_labels"));_=mystery_copy_refs(&item.slot_types,toml_case_strings(table,"slot_types"));item.accepted_count=mystery_copy_refs(&item.accepted,toml_case_strings(table,"accepted"));firsts:=toml_case_ints(table,"route_firsts");counts:=toml_case_ints(table,"route_counts");item.route_count=min(min(len(firsts),len(counts)),MYSTERY_MAX_REFS);for route in 0..<item.route_count {item.route_firsts[route]=firsts[route];item.route_counts[route]=counts[route]};item.result_count=mystery_copy_refs(&item.result_deductions,toml_case_strings(table,"result_deductions"))}
-	dialogue_tables:=toml_tables(domain,"dialogue");payload.dialogue=make([]Mystery_Dialogue_Metadata,len(dialogue_tables));for table,i in dialogue_tables {item:=&payload.dialogue[i];item.node_id=toml_case_string(table,"node");item.character_id=toml_case_string(table,"character");item.prompt=toml_case_string(table,"prompt");item.response=toml_case_string(table,"response");item.clue_id=toml_case_string(table,"clue");item.interaction=toml_case_string(table,"interaction");item.require_count=mystery_copy_refs(&item.requires,toml_case_strings(table,"requires"));item.unlock_count=mystery_copy_refs(&item.unlocks,toml_case_strings(table,"unlocks"))}
-	ending_tables:=toml_tables(domain,"endings");payload.endings=make([]Mystery_Ending_Metadata,len(ending_tables));for table,i in ending_tables do payload.endings[i]={ending_id=toml_case_string(table,"ending"),trigger=toml_case_string(table,"trigger"),outcome=toml_case_string(table,"outcome"),subtitle=toml_case_string(table,"subtitle"),epilogue=toml_case_string(table,"epilogue"),canonical_timeline=toml_case_string(table,"canonical_timeline"),tone=toml_case_string(table,"tone"),primary_label=toml_case_string(table,"primary_label"),primary_action=toml_case_string(table,"primary_action"),secondary_label=toml_case_string(table,"secondary_label"),secondary_action=toml_case_string(table,"secondary_action")}
-	city_tables:=toml_tables(domain,"city_labels");payload.city_labels=make([]Mystery_City_Label,len(city_tables));for table,i in city_tables do payload.city_labels[i]={toml_case_string(table,"id"),toml_case_string(table,"display_name"),toml_case_string(table,"level_spawn"),toml_case_string(table,"city_site")}
-	tutorial_tables:=toml_tables(domain,"tutorial_lessons");payload.tutorial_lessons=make([]Mystery_Tutorial_Lesson,len(tutorial_tables));for table,i in tutorial_tables do payload.tutorial_lessons[i]={toml_case_string(table,"id"),toml_case_string(table,"capability"),toml_case_string(table,"prompt")}
-	solution_table:=toml_seek_key(domain,"solution");if solution_table.type==.TABLE {s:=&payload.solution;s.culprit_id=toml_case_string(solution_table,"culprit");s.motive_id=toml_case_string(solution_table,"motive");s.decisive_contradiction_id=toml_case_string(solution_table,"decisive_contradiction");s.weapon_block=toml_case_string(solution_table,"weapon_block");s.murder_place_block=toml_case_string(solution_table,"murder_place_block");s.death_time_block=toml_case_string(solution_table,"death_time_block");s.body_movement_block=toml_case_string(solution_table,"body_movement_block");s.staging_block=toml_case_string(solution_table,"staging_block");s.cleaning_block=toml_case_string(solution_table,"cleaning_block");s.alibi_block=toml_case_string(solution_table,"alibi_block");s.requirement_count=mystery_copy_refs(&s.requirements,toml_case_strings(solution_table,"requirements"));s.murder_event_count=mystery_copy_refs(&s.murder_events,toml_case_strings(solution_table,"murder_events"));s.cover_up_event_count=mystery_copy_refs(&s.cover_up_events,toml_case_strings(solution_table,"cover_up_events"));s.false_alibi_count=mystery_copy_refs(&s.false_alibis,toml_case_strings(solution_table,"false_alibis"));s.exclusion_count=mystery_copy_refs(&s.exclusions,toml_case_strings(solution_table,"exclusions"))}
-	i:=story_capability_index(project,"mystery",MYSTERY_DOMAIN_VERSION);if i<0 do append(&project.capabilities,Story_Capability_Requirement{id="mystery",version=MYSTERY_DOMAIN_VERSION,payload=payload});else do project.capabilities[i].payload=payload
+mystery_parse :: proc(source: rawptr, project: ^Story_Project) -> bool {
+	if source == nil || project == nil do return false
+	payload := new(
+		Mystery_Project,
+	); mem.dynamic_arena_init(&payload.arena); allocator := mem.dynamic_arena_allocator(&payload.arena)
+	context.allocator = allocator
+	top := cast(^Toml_Datum)source; domain := toml_seek_key(top^, "mystery"); if domain.type != .TABLE {mystery_destroy(payload); return false}
+	payload.action_budget = toml_case_int(
+		domain,
+		"action_budget",
+	); payload.seed = u64(max(0, toml_case_int(domain, "seed"))); payload.tutorial_id = toml_case_string(domain, "tutorial"); payload.city_start = toml_case_string(domain, "city_start"); payload.city_destination = toml_case_string(domain, "city_destination"); payload.reveal_location = toml_case_string(domain, "reveal_location")
+	character_tables := toml_tables(
+		domain,
+		"characters",
+	); payload.characters = make([]Mystery_Character_Metadata, len(character_tables)); for table, i in character_tables {item := &payload.characters[i]; item.entity_id = toml_case_string(table, "entity"); item.private_secret = toml_case_string(table, "private_secret"); item.motive = toml_case_string(table, "motive"); item.initial_disposition = toml_case_int(table, "initial_disposition"); item.initial_claim_count = mystery_copy_refs(&item.initial_claims, toml_case_strings(table, "initial_claims"))}
+	location_tables := toml_tables(
+		domain,
+		"locations",
+	); payload.locations = make([]Mystery_Location_Metadata, len(location_tables)); for table, i in location_tables {item := &payload.locations[i]; item.entity_id = toml_case_string(table, "entity"); item.connection_count = mystery_copy_refs(&item.connections, toml_case_strings(table, "connections")); item.character_count = mystery_copy_refs(&item.characters, toml_case_strings(table, "characters")); item.poi_count = mystery_copy_refs(&item.pois, toml_case_strings(table, "pois")); item.search_action_count = mystery_copy_refs(&item.search_actions, toml_case_strings(table, "search_actions"))}
+	poi_tables := toml_tables(
+		domain,
+		"pois",
+	); payload.pois = make([]Mystery_POI_Metadata, len(poi_tables)); for table, i in poi_tables do payload.pois[i] = {toml_case_string(table, "entity"), toml_case_string(table, "location"), toml_case_string(table, "owner"), toml_case_string(table, "relevant_state"), toml_case_string(table, "examination_action")}
+	event_tables := toml_tables(
+		domain,
+		"events",
+	); payload.events = make([]Mystery_Event_Metadata, len(event_tables)); for table, i in event_tables {item := &payload.events[i]; item.event_id = toml_case_string(table, "event"); item.destination_id = toml_case_string(table, "destination"); item.tool_id = toml_case_string(table, "tool"); item.effect_count = mystery_copy_refs(&item.effects, toml_case_strings(table, "effects"))}
+	clue_tables := toml_tables(
+		domain,
+		"clues",
+	); payload.clues = make([]Mystery_Clue, len(clue_tables)); for table, i in clue_tables {item := &payload.clues[i]; item.id = toml_case_string(table, "id"); item.source_id = toml_case_string(table, "source"); item.description = toml_case_string(table, "description"); item.proposition_id = toml_case_string(table, "proposition"); item.skill = toml_case_string(table, "skill"); item.check_kind = toml_case_string(table, "check_kind"); item.difficulty = toml_case_int(table, "difficulty"); item.cost = toml_case_int(table, "cost"); item.essential = toml_case_bool(table, "essential"); item.prerequisite_count = mystery_copy_refs(&item.prerequisites, toml_case_strings(table, "prerequisites")); item.block_count = mystery_copy_refs(&item.blocks, toml_case_strings(table, "blocks")); item.topic_count = mystery_copy_refs(&item.topics, toml_case_strings(table, "topics"))}
+	claim_tables := toml_tables(
+		domain,
+		"claims",
+	); payload.claims = make([]Mystery_Claim, len(claim_tables)); for table, i in claim_tables do payload.claims[i] = {toml_case_string(table, "id"), toml_case_string(table, "speaker"), toml_case_string(table, "proposition"), toml_case_string(table, "protects"), toml_case_string(table, "response"), toml_case_bool(table, "canonical_truth")}
+	contradiction_tables := toml_tables(
+		domain,
+		"contradictions",
+	); payload.contradictions = make([]Mystery_Contradiction, len(contradiction_tables)); for table, i in contradiction_tables do payload.contradictions[i] = {toml_case_string(table, "id"), toml_case_string(table, "claim"), toml_case_string(table, "fact"), toml_case_string(table, "conclusion"), toml_case_string(table, "explanation")}
+	deduction_tables := toml_tables(
+		domain,
+		"deductions",
+	); payload.deductions = make([]Mystery_Deduction, len(deduction_tables)); for table, i in deduction_tables {item := &payload.deductions[i]; item.id = toml_case_string(table, "id"); item.proposition_id = toml_case_string(table, "proposition"); item.category = toml_case_string(table, "category"); item.support_count = mystery_copy_refs(&item.supports, toml_case_strings(table, "supports")); item.unlock_question_count = mystery_copy_refs(&item.unlock_questions, toml_case_strings(table, "unlock_questions")); item.unlock_topic_count = mystery_copy_refs(&item.unlock_topics, toml_case_strings(table, "unlock_topics")); item.unlock_investigation_count = mystery_copy_refs(&item.unlock_investigations, toml_case_strings(table, "unlock_investigations"))}
+	question_tables := toml_tables(
+		domain,
+		"questions",
+	); payload.questions = make([]Mystery_Question, len(question_tables)); for table, i in question_tables {item := &payload.questions[i]; item.id = toml_case_string(table, "id"); item.prompt = toml_case_string(table, "prompt"); item.hypothesis_id = toml_case_string(table, "hypothesis"); item.category = toml_case_string(table, "category"); item.required_for_final = toml_case_bool(table, "required_for_final"); item.require_clue_count = mystery_copy_refs(&item.requires_clues, toml_case_strings(table, "requires_clues")); item.require_claim_count = mystery_copy_refs(&item.requires_claims, toml_case_strings(table, "requires_claims")); item.require_deduction_count = mystery_copy_refs(&item.requires_deductions, toml_case_strings(table, "requires_deductions")); item.dependency_count = mystery_copy_refs(&item.dependencies, toml_case_strings(table, "dependencies"))}
+	demonstration_tables := toml_tables(
+		domain,
+		"demonstrations",
+	); payload.demonstrations = make([]Mystery_Demonstration, len(demonstration_tables)); for table, i in demonstration_tables {item := &payload.demonstrations[i]; item.id = toml_case_string(table, "id"); item.question_id = toml_case_string(table, "question"); item.mode = toml_case_string(table, "mode"); item.presentation = toml_case_string(table, "presentation"); if item.presentation == "" do item.presentation = "slots"; item.gesture = toml_case_string(table, "gesture"); item.subject = toml_case_string(table, "subject"); item.art = toml_case_string(table, "art"); item.completion_cue = toml_case_string(table, "completion_cue"); item.candidate_limit = toml_case_int(table, "candidate_limit"); if item.candidate_limit == 0 do item.candidate_limit = 5; steps := toml_case_strings(table, "gesture_steps"); item.gesture_step_overflow = len(steps) > len(item.gesture_steps); item.gesture_step_count = min(len(steps), len(item.gesture_steps)); for step in 0 ..< item.gesture_step_count do item.gesture_steps[step] = steps[step]; if item.gesture_step_count == 0 && item.gesture != "" {item.gesture_steps[0] = item.gesture; item.gesture_step_count = 1}; item.resolution = toml_case_string(table, "resolution"); item.result = toml_case_string(table, "result"); item.prompt = toml_case_string(table, "prompt"); item.slot_count = mystery_copy_refs(&item.slot_labels, toml_case_strings(table, "slot_labels")); _ = mystery_copy_refs(&item.slot_types, toml_case_strings(table, "slot_types")); item.accepted_count = mystery_copy_refs(&item.accepted, toml_case_strings(table, "accepted")); firsts := toml_case_ints(table, "route_firsts"); counts := toml_case_ints(table, "route_counts"); item.route_count = min(min(len(firsts), len(counts)), MYSTERY_MAX_REFS); for route in 0 ..< item.route_count {item.route_firsts[route] = firsts[route]; item.route_counts[route] = counts[route]}; item.result_count = mystery_copy_refs(&item.result_deductions, toml_case_strings(table, "result_deductions"))}
+	dialogue_tables := toml_tables(
+		domain,
+		"dialogue",
+	); payload.dialogue = make([]Mystery_Dialogue_Metadata, len(dialogue_tables)); for table, i in dialogue_tables {item := &payload.dialogue[i]; item.node_id = toml_case_string(table, "node"); item.character_id = toml_case_string(table, "character"); item.prompt = toml_case_string(table, "prompt"); item.response = toml_case_string(table, "response"); item.clue_id = toml_case_string(table, "clue"); item.interaction = toml_case_string(table, "interaction"); item.require_count = mystery_copy_refs(&item.requires, toml_case_strings(table, "requires")); item.unlock_count = mystery_copy_refs(&item.unlocks, toml_case_strings(table, "unlocks"))}
+	ending_tables := toml_tables(
+		domain,
+		"endings",
+	); payload.endings = make([]Mystery_Ending_Metadata, len(ending_tables)); for table, i in ending_tables do payload.endings[i] = {
+		ending_id          = toml_case_string(table, "ending"),
+		trigger            = toml_case_string(table, "trigger"),
+		outcome            = toml_case_string(table, "outcome"),
+		subtitle           = toml_case_string(table, "subtitle"),
+		epilogue           = toml_case_string(table, "epilogue"),
+		canonical_timeline = toml_case_string(table, "canonical_timeline"),
+		tone               = toml_case_string(table, "tone"),
+		primary_label      = toml_case_string(table, "primary_label"),
+		primary_action     = toml_case_string(table, "primary_action"),
+		secondary_label    = toml_case_string(table, "secondary_label"),
+		secondary_action   = toml_case_string(table, "secondary_action"),
+	}
+	city_tables := toml_tables(
+		domain,
+		"city_labels",
+	); payload.city_labels = make([]Mystery_City_Label, len(city_tables)); for table, i in city_tables do payload.city_labels[i] = {toml_case_string(table, "id"), toml_case_string(table, "display_name"), toml_case_string(table, "level_spawn"), toml_case_string(table, "city_site")}
+	tutorial_tables := toml_tables(
+		domain,
+		"tutorial_lessons",
+	); payload.tutorial_lessons = make([]Mystery_Tutorial_Lesson, len(tutorial_tables)); for table, i in tutorial_tables do payload.tutorial_lessons[i] = {toml_case_string(table, "id"), toml_case_string(table, "capability"), toml_case_string(table, "prompt")}
+	solution_table := toml_seek_key(
+		domain,
+		"solution",
+	); if solution_table.type == .TABLE {s := &payload.solution; s.culprit_id = toml_case_string(solution_table, "culprit"); s.motive_id = toml_case_string(solution_table, "motive"); s.decisive_contradiction_id = toml_case_string(solution_table, "decisive_contradiction"); s.weapon_block = toml_case_string(solution_table, "weapon_block"); s.murder_place_block = toml_case_string(solution_table, "murder_place_block"); s.death_time_block = toml_case_string(solution_table, "death_time_block"); s.body_movement_block = toml_case_string(solution_table, "body_movement_block"); s.staging_block = toml_case_string(solution_table, "staging_block"); s.cleaning_block = toml_case_string(solution_table, "cleaning_block"); s.alibi_block = toml_case_string(solution_table, "alibi_block"); s.requirement_count = mystery_copy_refs(&s.requirements, toml_case_strings(solution_table, "requirements")); s.murder_event_count = mystery_copy_refs(&s.murder_events, toml_case_strings(solution_table, "murder_events")); s.cover_up_event_count = mystery_copy_refs(&s.cover_up_events, toml_case_strings(solution_table, "cover_up_events")); s.false_alibi_count = mystery_copy_refs(&s.false_alibis, toml_case_strings(solution_table, "false_alibis")); s.exclusion_count = mystery_copy_refs(&s.exclusions, toml_case_strings(solution_table, "exclusions"))}
+	i := story_capability_index(
+		project,
+		"mystery",
+		MYSTERY_DOMAIN_VERSION,
+	); if i < 0 do append(&project.capabilities, Story_Capability_Requirement{id = "mystery", version = MYSTERY_DOMAIN_VERSION, payload = payload})
+	else do project.capabilities[i].payload = payload
 	return true
 }
 
-mystery_clone :: proc(source:rawptr)->rawptr {
-	if source==nil do return nil
-	original:=cast(^Mystery_Project)source;copy_payload:=new(Mystery_Project);mem.dynamic_arena_init(&copy_payload.arena);allocator:=mem.dynamic_arena_allocator(&copy_payload.arena);context.allocator=allocator
-	copy_payload.action_budget=original.action_budget;copy_payload.seed=original.seed;copy_payload.tutorial_id=fmt.aprintf("%s",original.tutorial_id);copy_payload.city_start=fmt.aprintf("%s",original.city_start);copy_payload.city_destination=fmt.aprintf("%s",original.city_destination);copy_payload.reveal_location=fmt.aprintf("%s",original.reveal_location)
-	copy_payload.characters=make([]Mystery_Character_Metadata,len(original.characters));for &item,i in original.characters {target:=&copy_payload.characters[i];target^=item;target.entity_id=mystery_clone_text(item.entity_id);target.private_secret=mystery_clone_text(item.private_secret);target.motive=mystery_clone_text(item.motive);mystery_clone_refs(&target.initial_claims,&item.initial_claims,item.initial_claim_count)}
-	copy_payload.locations=make([]Mystery_Location_Metadata,len(original.locations));for &item,i in original.locations {target:=&copy_payload.locations[i];target^=item;target.entity_id=mystery_clone_text(item.entity_id);mystery_clone_refs(&target.connections,&item.connections,item.connection_count);mystery_clone_refs(&target.characters,&item.characters,item.character_count);mystery_clone_refs(&target.pois,&item.pois,item.poi_count);mystery_clone_refs(&target.search_actions,&item.search_actions,item.search_action_count)}
-	copy_payload.pois=make([]Mystery_POI_Metadata,len(original.pois));for item,i in original.pois do copy_payload.pois[i]={mystery_clone_text(item.entity_id),mystery_clone_text(item.location_id),mystery_clone_text(item.owner_id),mystery_clone_text(item.relevant_state),mystery_clone_text(item.examination_action)}
-	copy_payload.events=make([]Mystery_Event_Metadata,len(original.events));for &item,i in original.events {target:=&copy_payload.events[i];target^=item;target.event_id=mystery_clone_text(item.event_id);target.destination_id=mystery_clone_text(item.destination_id);target.tool_id=mystery_clone_text(item.tool_id);mystery_clone_refs(&target.effects,&item.effects,item.effect_count)}
-	copy_payload.clues=make([]Mystery_Clue,len(original.clues));for &clue,i in original.clues {target:=&copy_payload.clues[i];target^=clue;target.id=fmt.aprintf("%s",clue.id);target.source_id=fmt.aprintf("%s",clue.source_id);target.description=fmt.aprintf("%s",clue.description);target.proposition_id=fmt.aprintf("%s",clue.proposition_id);target.skill=fmt.aprintf("%s",clue.skill);target.check_kind=fmt.aprintf("%s",clue.check_kind);for j in 0..<clue.prerequisite_count do target.prerequisites[j]=fmt.aprintf("%s",clue.prerequisites[j]);for j in 0..<clue.block_count do target.blocks[j]=fmt.aprintf("%s",clue.blocks[j]);for j in 0..<clue.topic_count do target.topics[j]=fmt.aprintf("%s",clue.topics[j])}
-	copy_payload.claims=make([]Mystery_Claim,len(original.claims));for claim,i in original.claims do copy_payload.claims[i]={fmt.aprintf("%s",claim.id),fmt.aprintf("%s",claim.speaker_id),fmt.aprintf("%s",claim.proposition_id),fmt.aprintf("%s",claim.protects),fmt.aprintf("%s",claim.response),claim.canonical_truth}
-	copy_payload.contradictions=make([]Mystery_Contradiction,len(original.contradictions));for item,i in original.contradictions do copy_payload.contradictions[i]={mystery_clone_text(item.id),mystery_clone_text(item.claim_id),mystery_clone_text(item.fact_id),mystery_clone_text(item.conclusion_id),mystery_clone_text(item.explanation)}
-	copy_payload.deductions=make([]Mystery_Deduction,len(original.deductions));for &item,i in original.deductions {target:=&copy_payload.deductions[i];target^=item;target.id=mystery_clone_text(item.id);target.proposition_id=mystery_clone_text(item.proposition_id);target.category=mystery_clone_text(item.category);mystery_clone_refs(&target.supports,&item.supports,item.support_count);mystery_clone_refs(&target.unlock_questions,&item.unlock_questions,item.unlock_question_count);mystery_clone_refs(&target.unlock_topics,&item.unlock_topics,item.unlock_topic_count);mystery_clone_refs(&target.unlock_investigations,&item.unlock_investigations,item.unlock_investigation_count)}
-	copy_payload.questions=make([]Mystery_Question,len(original.questions));for &item,i in original.questions {target:=&copy_payload.questions[i];target^=item;target.id=mystery_clone_text(item.id);target.prompt=mystery_clone_text(item.prompt);target.hypothesis_id=mystery_clone_text(item.hypothesis_id);target.category=mystery_clone_text(item.category);mystery_clone_refs(&target.requires_clues,&item.requires_clues,item.require_clue_count);mystery_clone_refs(&target.requires_claims,&item.requires_claims,item.require_claim_count);mystery_clone_refs(&target.requires_deductions,&item.requires_deductions,item.require_deduction_count);mystery_clone_refs(&target.dependencies,&item.dependencies,item.dependency_count)}
-	copy_payload.demonstrations=make([]Mystery_Demonstration,len(original.demonstrations));for &item,i in original.demonstrations {target:=&copy_payload.demonstrations[i];target^=item;target.id=mystery_clone_text(item.id);target.question_id=mystery_clone_text(item.question_id);target.mode=mystery_clone_text(item.mode);target.presentation=mystery_clone_text(item.presentation);target.gesture=mystery_clone_text(item.gesture);target.subject=mystery_clone_text(item.subject);target.art=mystery_clone_text(item.art);target.completion_cue=mystery_clone_text(item.completion_cue);target.resolution=mystery_clone_text(item.resolution);target.result=mystery_clone_text(item.result);target.prompt=mystery_clone_text(item.prompt);for step in 0..<item.gesture_step_count do target.gesture_steps[step]=mystery_clone_text(item.gesture_steps[step]);mystery_clone_refs(&target.slot_labels,&item.slot_labels,item.slot_count);mystery_clone_refs(&target.slot_types,&item.slot_types,item.slot_count);mystery_clone_refs(&target.accepted,&item.accepted,item.accepted_count);mystery_clone_refs(&target.result_deductions,&item.result_deductions,item.result_count)}
-	copy_payload.dialogue=make([]Mystery_Dialogue_Metadata,len(original.dialogue));for &item,i in original.dialogue {target:=&copy_payload.dialogue[i];target^=item;target.node_id=mystery_clone_text(item.node_id);target.character_id=mystery_clone_text(item.character_id);target.prompt=mystery_clone_text(item.prompt);target.response=mystery_clone_text(item.response);target.clue_id=mystery_clone_text(item.clue_id);target.interaction=mystery_clone_text(item.interaction);mystery_clone_refs(&target.requires,&item.requires,item.require_count);mystery_clone_refs(&target.unlocks,&item.unlocks,item.unlock_count)}
-	copy_payload.endings=make([]Mystery_Ending_Metadata,len(original.endings));for item,i in original.endings do copy_payload.endings[i]={mystery_clone_text(item.ending_id),mystery_clone_text(item.trigger),mystery_clone_text(item.outcome),mystery_clone_text(item.subtitle),mystery_clone_text(item.epilogue),mystery_clone_text(item.canonical_timeline),mystery_clone_text(item.tone),mystery_clone_text(item.primary_label),mystery_clone_text(item.primary_action),mystery_clone_text(item.secondary_label),mystery_clone_text(item.secondary_action)}
-	copy_payload.city_labels=make([]Mystery_City_Label,len(original.city_labels));for item,i in original.city_labels do copy_payload.city_labels[i]={mystery_clone_text(item.id),mystery_clone_text(item.display_name),mystery_clone_text(item.level_spawn),mystery_clone_text(item.city_site)}
-	copy_payload.tutorial_lessons=make([]Mystery_Tutorial_Lesson,len(original.tutorial_lessons));for item,i in original.tutorial_lessons do copy_payload.tutorial_lessons[i]={mystery_clone_text(item.id),mystery_clone_text(item.capability),mystery_clone_text(item.prompt)}
-	copy_payload.solution=original.solution;s:=&copy_payload.solution;o:=&original.solution;s.culprit_id=mystery_clone_text(o.culprit_id);s.motive_id=mystery_clone_text(o.motive_id);s.decisive_contradiction_id=mystery_clone_text(o.decisive_contradiction_id);s.weapon_block=mystery_clone_text(o.weapon_block);s.murder_place_block=mystery_clone_text(o.murder_place_block);s.death_time_block=mystery_clone_text(o.death_time_block);s.body_movement_block=mystery_clone_text(o.body_movement_block);s.staging_block=mystery_clone_text(o.staging_block);s.cleaning_block=mystery_clone_text(o.cleaning_block);s.alibi_block=mystery_clone_text(o.alibi_block);mystery_clone_refs(&s.requirements,&o.requirements,o.requirement_count);mystery_clone_refs(&s.murder_events,&o.murder_events,o.murder_event_count);mystery_clone_refs(&s.cover_up_events,&o.cover_up_events,o.cover_up_event_count);mystery_clone_refs(&s.false_alibis,&o.false_alibis,o.false_alibi_count);mystery_clone_refs(&s.exclusions,&o.exclusions,o.exclusion_count)
+mystery_clone :: proc(source: rawptr) -> rawptr {
+	if source == nil do return nil
+	original := cast(^Mystery_Project)source; copy_payload := new(Mystery_Project); mem.dynamic_arena_init(&copy_payload.arena); allocator := mem.dynamic_arena_allocator(&copy_payload.arena); context.allocator = allocator
+	copy_payload.action_budget =
+		original.action_budget; copy_payload.seed = original.seed; copy_payload.tutorial_id = fmt.aprintf("%s", original.tutorial_id); copy_payload.city_start = fmt.aprintf("%s", original.city_start); copy_payload.city_destination = fmt.aprintf("%s", original.city_destination); copy_payload.reveal_location = fmt.aprintf("%s", original.reveal_location)
+	copy_payload.characters = make(
+		[]Mystery_Character_Metadata,
+		len(original.characters),
+	); for &item, i in original.characters {target := &copy_payload.characters[i]; target^ = item; target.entity_id = mystery_clone_text(item.entity_id); target.private_secret = mystery_clone_text(item.private_secret); target.motive = mystery_clone_text(item.motive); mystery_clone_refs(&target.initial_claims, &item.initial_claims, item.initial_claim_count)}
+	copy_payload.locations = make(
+		[]Mystery_Location_Metadata,
+		len(original.locations),
+	); for &item, i in original.locations {target := &copy_payload.locations[i]; target^ = item; target.entity_id = mystery_clone_text(item.entity_id); mystery_clone_refs(&target.connections, &item.connections, item.connection_count); mystery_clone_refs(&target.characters, &item.characters, item.character_count); mystery_clone_refs(&target.pois, &item.pois, item.poi_count); mystery_clone_refs(&target.search_actions, &item.search_actions, item.search_action_count)}
+	copy_payload.pois = make(
+		[]Mystery_POI_Metadata,
+		len(original.pois),
+	); for item, i in original.pois do copy_payload.pois[i] = {mystery_clone_text(item.entity_id), mystery_clone_text(item.location_id), mystery_clone_text(item.owner_id), mystery_clone_text(item.relevant_state), mystery_clone_text(item.examination_action)}
+	copy_payload.events = make(
+		[]Mystery_Event_Metadata,
+		len(original.events),
+	); for &item, i in original.events {target := &copy_payload.events[i]; target^ = item; target.event_id = mystery_clone_text(item.event_id); target.destination_id = mystery_clone_text(item.destination_id); target.tool_id = mystery_clone_text(item.tool_id); mystery_clone_refs(&target.effects, &item.effects, item.effect_count)}
+	copy_payload.clues = make(
+		[]Mystery_Clue,
+		len(original.clues),
+	); for &clue, i in original.clues {target := &copy_payload.clues[i]; target^ = clue; target.id = fmt.aprintf("%s", clue.id); target.source_id = fmt.aprintf("%s", clue.source_id); target.description = fmt.aprintf("%s", clue.description); target.proposition_id = fmt.aprintf("%s", clue.proposition_id); target.skill = fmt.aprintf("%s", clue.skill); target.check_kind = fmt.aprintf("%s", clue.check_kind); for j in 0 ..< clue.prerequisite_count do target.prerequisites[j] = fmt.aprintf("%s", clue.prerequisites[j]); for j in 0 ..< clue.block_count do target.blocks[j] = fmt.aprintf("%s", clue.blocks[j]); for j in 0 ..< clue.topic_count do target.topics[j] = fmt.aprintf("%s", clue.topics[j])}
+	copy_payload.claims = make(
+		[]Mystery_Claim,
+		len(original.claims),
+	); for claim, i in original.claims do copy_payload.claims[i] = {fmt.aprintf("%s", claim.id), fmt.aprintf("%s", claim.speaker_id), fmt.aprintf("%s", claim.proposition_id), fmt.aprintf("%s", claim.protects), fmt.aprintf("%s", claim.response), claim.canonical_truth}
+	copy_payload.contradictions = make(
+		[]Mystery_Contradiction,
+		len(original.contradictions),
+	); for item, i in original.contradictions do copy_payload.contradictions[i] = {mystery_clone_text(item.id), mystery_clone_text(item.claim_id), mystery_clone_text(item.fact_id), mystery_clone_text(item.conclusion_id), mystery_clone_text(item.explanation)}
+	copy_payload.deductions = make(
+		[]Mystery_Deduction,
+		len(original.deductions),
+	); for &item, i in original.deductions {target := &copy_payload.deductions[i]; target^ = item; target.id = mystery_clone_text(item.id); target.proposition_id = mystery_clone_text(item.proposition_id); target.category = mystery_clone_text(item.category); mystery_clone_refs(&target.supports, &item.supports, item.support_count); mystery_clone_refs(&target.unlock_questions, &item.unlock_questions, item.unlock_question_count); mystery_clone_refs(&target.unlock_topics, &item.unlock_topics, item.unlock_topic_count); mystery_clone_refs(&target.unlock_investigations, &item.unlock_investigations, item.unlock_investigation_count)}
+	copy_payload.questions = make(
+		[]Mystery_Question,
+		len(original.questions),
+	); for &item, i in original.questions {target := &copy_payload.questions[i]; target^ = item; target.id = mystery_clone_text(item.id); target.prompt = mystery_clone_text(item.prompt); target.hypothesis_id = mystery_clone_text(item.hypothesis_id); target.category = mystery_clone_text(item.category); mystery_clone_refs(&target.requires_clues, &item.requires_clues, item.require_clue_count); mystery_clone_refs(&target.requires_claims, &item.requires_claims, item.require_claim_count); mystery_clone_refs(&target.requires_deductions, &item.requires_deductions, item.require_deduction_count); mystery_clone_refs(&target.dependencies, &item.dependencies, item.dependency_count)}
+	copy_payload.demonstrations = make(
+		[]Mystery_Demonstration,
+		len(original.demonstrations),
+	); for &item, i in original.demonstrations {target := &copy_payload.demonstrations[i]; target^ = item; target.id = mystery_clone_text(item.id); target.question_id = mystery_clone_text(item.question_id); target.mode = mystery_clone_text(item.mode); target.presentation = mystery_clone_text(item.presentation); target.gesture = mystery_clone_text(item.gesture); target.subject = mystery_clone_text(item.subject); target.art = mystery_clone_text(item.art); target.completion_cue = mystery_clone_text(item.completion_cue); target.resolution = mystery_clone_text(item.resolution); target.result = mystery_clone_text(item.result); target.prompt = mystery_clone_text(item.prompt); for step in 0 ..< item.gesture_step_count do target.gesture_steps[step] = mystery_clone_text(item.gesture_steps[step]); mystery_clone_refs(&target.slot_labels, &item.slot_labels, item.slot_count); mystery_clone_refs(&target.slot_types, &item.slot_types, item.slot_count); mystery_clone_refs(&target.accepted, &item.accepted, item.accepted_count); mystery_clone_refs(&target.result_deductions, &item.result_deductions, item.result_count)}
+	copy_payload.dialogue = make(
+		[]Mystery_Dialogue_Metadata,
+		len(original.dialogue),
+	); for &item, i in original.dialogue {target := &copy_payload.dialogue[i]; target^ = item; target.node_id = mystery_clone_text(item.node_id); target.character_id = mystery_clone_text(item.character_id); target.prompt = mystery_clone_text(item.prompt); target.response = mystery_clone_text(item.response); target.clue_id = mystery_clone_text(item.clue_id); target.interaction = mystery_clone_text(item.interaction); mystery_clone_refs(&target.requires, &item.requires, item.require_count); mystery_clone_refs(&target.unlocks, &item.unlocks, item.unlock_count)}
+	copy_payload.endings = make(
+		[]Mystery_Ending_Metadata,
+		len(original.endings),
+	); for item, i in original.endings do copy_payload.endings[i] = {mystery_clone_text(item.ending_id), mystery_clone_text(item.trigger), mystery_clone_text(item.outcome), mystery_clone_text(item.subtitle), mystery_clone_text(item.epilogue), mystery_clone_text(item.canonical_timeline), mystery_clone_text(item.tone), mystery_clone_text(item.primary_label), mystery_clone_text(item.primary_action), mystery_clone_text(item.secondary_label), mystery_clone_text(item.secondary_action)}
+	copy_payload.city_labels = make(
+		[]Mystery_City_Label,
+		len(original.city_labels),
+	); for item, i in original.city_labels do copy_payload.city_labels[i] = {mystery_clone_text(item.id), mystery_clone_text(item.display_name), mystery_clone_text(item.level_spawn), mystery_clone_text(item.city_site)}
+	copy_payload.tutorial_lessons = make(
+		[]Mystery_Tutorial_Lesson,
+		len(original.tutorial_lessons),
+	); for item, i in original.tutorial_lessons do copy_payload.tutorial_lessons[i] = {mystery_clone_text(item.id), mystery_clone_text(item.capability), mystery_clone_text(item.prompt)}
+	copy_payload.solution =
+		original.solution; s := &copy_payload.solution; o := &original.solution; s.culprit_id = mystery_clone_text(o.culprit_id); s.motive_id = mystery_clone_text(o.motive_id); s.decisive_contradiction_id = mystery_clone_text(o.decisive_contradiction_id); s.weapon_block = mystery_clone_text(o.weapon_block); s.murder_place_block = mystery_clone_text(o.murder_place_block); s.death_time_block = mystery_clone_text(o.death_time_block); s.body_movement_block = mystery_clone_text(o.body_movement_block); s.staging_block = mystery_clone_text(o.staging_block); s.cleaning_block = mystery_clone_text(o.cleaning_block); s.alibi_block = mystery_clone_text(o.alibi_block); mystery_clone_refs(&s.requirements, &o.requirements, o.requirement_count); mystery_clone_refs(&s.murder_events, &o.murder_events, o.murder_event_count); mystery_clone_refs(&s.cover_up_events, &o.cover_up_events, o.cover_up_event_count); mystery_clone_refs(&s.false_alibis, &o.false_alibis, o.false_alibi_count); mystery_clone_refs(&s.exclusions, &o.exclusions, o.exclusion_count)
 	return copy_payload
 }
 
-mystery_destroy :: proc(value:rawptr) {if value==nil do return;payload:=cast(^Mystery_Project)value;mem.dynamic_arena_destroy(&payload.arena);free(payload)}
+mystery_destroy :: proc(value: rawptr) {if value == nil do return
+	payload := cast(^Mystery_Project)value
+	mem.dynamic_arena_destroy(&payload.arena)
+	free(payload)}
 
-mystery_clue_index :: proc(payload:^Mystery_Project,id:string)->int {for item,i in payload.clues do if item.id==id do return i;return -1}
-mystery_claim_index :: proc(payload:^Mystery_Project,id:string)->int {for item,i in payload.claims do if item.id==id do return i;return -1}
-mystery_contradiction_index :: proc(payload:^Mystery_Project,id:string)->int {for item,i in payload.contradictions do if item.id==id do return i;return -1}
-mystery_deduction_index :: proc(payload:^Mystery_Project,id:string)->int {for item,i in payload.deductions do if item.id==id do return i;return -1}
-mystery_question_index :: proc(payload:^Mystery_Project,id:string)->int {for item,i in payload.questions do if item.id==id do return i;return -1}
-mystery_core_node_exists :: proc(project:^Story_Project,id:string)->bool {for node in project.nodes do if node.id==id do return true;return false}
-mystery_core_ending_exists :: proc(project:^Story_Project,id:string)->bool {for ending in project.endings do if ending.id==id do return true;return false}
-mystery_block_exists :: proc(payload:^Mystery_Project,id:string)->bool {for &clue in payload.clues do for block in clue.blocks[:clue.block_count] do if block==id do return true;return false}
-mystery_knowledge_id_exists :: proc(project:^Story_Project,payload:^Mystery_Project,id:string)->bool {return mystery_clue_index(payload,id)>=0||mystery_claim_index(payload,id)>=0||mystery_deduction_index(payload,id)>=0||story_proposition_index(project,id)>=0||mystery_block_exists(payload,id)||strings.contains(id,":")}
-mystery_question_cycle_visit :: proc(payload:^Mystery_Project,index:int,visiting,visited:[]bool)->bool {if visiting[index] do return true;if visited[index] do return false;visiting[index]=true;for dependency in payload.questions[index].dependencies[:payload.questions[index].dependency_count] {child:=mystery_question_index(payload,dependency);if child>=0&&mystery_question_cycle_visit(payload,child,visiting,visited) do return true};visiting[index]=false;visited[index]=true;return false}
-mystery_clue_cycle_visit :: proc(payload:^Mystery_Project,index:int,visiting,visited:[]bool)->bool {if visiting[index] do return true;if visited[index] do return false;visiting[index]=true;for prerequisite in payload.clues[index].prerequisites[:payload.clues[index].prerequisite_count] {child:=mystery_clue_index(payload,prerequisite);if child>=0&&mystery_clue_cycle_visit(payload,child,visiting,visited) do return true};visiting[index]=false;visited[index]=true;return false}
-mystery_required_clue_route_visit :: proc(payload:^Mystery_Project,index:int,required:[]bool) {if index<0||index>=len(payload.clues)||required[index] do return;required[index]=true;for prerequisite in payload.clues[index].prerequisites[:payload.clues[index].prerequisite_count] do mystery_required_clue_route_visit(payload,mystery_clue_index(payload,prerequisite),required)}
-mystery_deduction_cycle_visit :: proc(payload:^Mystery_Project,index:int,visiting,visited:[]bool)->bool {if visiting[index] do return true;if visited[index] do return false;visiting[index]=true;for support in payload.deductions[index].supports[:payload.deductions[index].support_count] {child:=mystery_deduction_index(payload,support);if child>=0&&mystery_deduction_cycle_visit(payload,child,visiting,visited) do return true};visiting[index]=false;visited[index]=true;return false}
+mystery_clue_index :: proc(payload: ^Mystery_Project, id: string) -> int {for item, i in payload.clues do if item.id == id do return i
+	return -1}
+mystery_claim_index :: proc(payload: ^Mystery_Project, id: string) -> int {for item, i in payload.claims do if item.id == id do return i
+	return -1}
+mystery_contradiction_index :: proc(payload: ^Mystery_Project, id: string) -> int {for item, i in payload.contradictions do if item.id == id do return i
+	return -1}
+mystery_deduction_index :: proc(payload: ^Mystery_Project, id: string) -> int {for item, i in payload.deductions do if item.id == id do return i
+	return -1}
+mystery_question_index :: proc(payload: ^Mystery_Project, id: string) -> int {for item, i in payload.questions do if item.id == id do return i
+	return -1}
+mystery_core_node_exists :: proc(project: ^Story_Project, id: string) -> bool {for node in project.nodes do if node.id == id do return true
+	return false}
+mystery_core_ending_exists :: proc(project: ^Story_Project, id: string) -> bool {for ending in project.endings do if ending.id == id do return true
+	return false}
+mystery_block_exists :: proc(payload: ^Mystery_Project, id: string) -> bool {for &clue in payload.clues do for block in clue.blocks[:clue.block_count] do if block == id do return true
+	return false}
+mystery_knowledge_id_exists :: proc(
+	project: ^Story_Project,
+	payload: ^Mystery_Project,
+	id: string,
+) -> bool {return(
+		mystery_clue_index(payload, id) >= 0 ||
+		mystery_claim_index(payload, id) >= 0 ||
+		mystery_deduction_index(payload, id) >= 0 ||
+		story_proposition_index(project, id) >= 0 ||
+		mystery_block_exists(payload, id) ||
+		strings.contains(id, ":") \
+	)}
+mystery_question_cycle_visit :: proc(
+	payload: ^Mystery_Project,
+	index: int,
+	visiting, visited: []bool,
+) -> bool {if visiting[index] do return true; if visited[index] do return false; visiting[index] =
+		true
+	for 	dependency in payload.questions[index].dependencies[:payload.questions[index].dependency_count] {child :=
+			mystery_question_index(payload, dependency)
+		if child >= 0 && mystery_question_cycle_visit(payload, child, visiting, visited) do return true}
+	visiting[index] = false
+	visited[index] = true
+	return false}
+mystery_clue_cycle_visit :: proc(
+	payload: ^Mystery_Project,
+	index: int,
+	visiting, visited: []bool,
+) -> bool {if visiting[index] do return true; if visited[index] do return false; visiting[index] =
+		true
+	for 	prerequisite in payload.clues[index].prerequisites[:payload.clues[index].prerequisite_count] {child :=
+			mystery_clue_index(payload, prerequisite)
+		if child >= 0 && mystery_clue_cycle_visit(payload, child, visiting, visited) do return true}
+	visiting[index] = false
+	visited[index] = true
+	return false}
+mystery_required_clue_route_visit :: proc(
+	payload: ^Mystery_Project,
+	index: int,
+	required: []bool,
+) {if index < 0 || index >= len(payload.clues) || required[index] do return; required[index] = true
+	for prerequisite in payload.clues[index].prerequisites[:payload.clues[index].prerequisite_count] do mystery_required_clue_route_visit(payload, mystery_clue_index(payload, prerequisite), required)}
+mystery_deduction_cycle_visit :: proc(
+	payload: ^Mystery_Project,
+	index: int,
+	visiting, visited: []bool,
+) -> bool {if visiting[index] do return true; if visited[index] do return false; visiting[index] =
+		true
+	for 	support in payload.deductions[index].supports[:payload.deductions[index].support_count] {child :=
+			mystery_deduction_index(payload, support)
+		if child >= 0 && mystery_deduction_cycle_visit(payload, child, visiting, visited) do return true}
+	visiting[index] = false
+	visited[index] = true
+	return false}
 
-mystery_validate :: proc(project:^Story_Project,result:^Story_Validation) {
-	payload:=mystery_payload(project);if payload==nil {story_validation_add(result,.Error,project.id,"mystery domain payload is missing");return}
-	if payload.action_budget<=0 do story_validation_add(result,.Error,project.id,"mystery action budget must be positive")
+mystery_validate :: proc(project: ^Story_Project, result: ^Story_Validation) {
+	payload := mystery_payload(
+		project,
+	); if payload == nil {story_validation_add(result, .Error, project.id, "mystery domain payload is missing"); return}
+	if payload.action_budget <= 0 do story_validation_add(result, .Error, project.id, "mystery action budget must be positive")
 	// [structure] Domain records retain their own stable namespaces.
-	for clue,i in payload.clues do for prior in 0..<i do if payload.clues[prior].id==clue.id do story_validation_add(result,.Error,clue.id,"[structure] duplicate clue ID")
-	for claim,i in payload.claims do for prior in 0..<i do if payload.claims[prior].id==claim.id do story_validation_add(result,.Error,claim.id,"[structure] duplicate claim ID")
-	for deduction,i in payload.deductions do for prior in 0..<i do if payload.deductions[prior].id==deduction.id do story_validation_add(result,.Error,deduction.id,"[structure] duplicate deduction ID")
-	for question,i in payload.questions do for prior in 0..<i do if payload.questions[prior].id==question.id do story_validation_add(result,.Error,question.id,"[structure] duplicate question ID")
-	for clue in payload.clues {if clue.id=="" do story_validation_add(result,.Error,project.id,"mystery clue requires an ID");if story_entity_index(project,clue.source_id)<0 do story_validation_add(result,.Error,clue.id,"mystery clue references unknown source entity");if clue.proposition_id!=""&&story_proposition_index(project,clue.proposition_id)<0 do story_validation_add(result,.Error,clue.id,"mystery clue references unknown proposition");if clue.cost<0||clue.cost>payload.action_budget do story_validation_add(result,.Error,clue.id,"mystery clue has invalid action cost")}
-	required_route:=make([]bool,len(payload.clues));defer delete(required_route)
-	for &clue,i in payload.clues {for prerequisite in clue.prerequisites[:clue.prerequisite_count] do if mystery_clue_index(payload,prerequisite)<0 do story_validation_add(result,.Error,clue.id,"[routes] clue prerequisite is missing");if clue.essential {mystery_required_clue_route_visit(payload,i,required_route);entity:=story_entity_index(project,clue.source_id);if entity>=0&&!story_spatial_id_valid({project.entities[entity].spatial.space_id,project.entities[entity].spatial.target_id}) do story_validation_add(result,.Error,clue.id,"[spatial] essential evidence source requires a qualified binding")}}
-	essential_cost:=0;for clue,i in payload.clues do if required_route[i] {essential_cost+=clue.cost;if clue.check_kind=="red" do story_validation_add(result,.Error,clue.id,"[routes] essential evidence route cannot depend on a one-shot check")}
-	if essential_cost>payload.action_budget do story_validation_add(result,.Error,project.id,"[affordability] essential evidence route exceeds the action budget")
-	clue_visiting:=make([]bool,len(payload.clues));clue_visited:=make([]bool,len(payload.clues));defer delete(clue_visiting);defer delete(clue_visited);for _,i in payload.clues do if mystery_clue_cycle_visit(payload,i,clue_visiting,clue_visited) {story_validation_add(result,.Error,payload.clues[i].id,"[dependencies] clue prerequisite cycle");break}
-	for claim in payload.claims {if claim.id==""||story_entity_index(project,claim.speaker_id)<0 do story_validation_add(result,.Error,claim.id,"mystery claim has invalid speaker");if claim.proposition_id!=""&&story_proposition_index(project,claim.proposition_id)<0 do story_validation_add(result,.Error,claim.id,"mystery claim references unknown proposition");if claim.protects!=""&&claim.response=="" do story_validation_add(result,.Error,claim.id,"[routes] protected claim requires an authored response")}
-	for contradiction in payload.contradictions {if mystery_claim_index(payload,contradiction.claim_id)<0 do story_validation_add(result,.Error,contradiction.id,"contradiction references unknown claim");if contradiction.conclusion_id!=""&&story_proposition_index(project,contradiction.conclusion_id)<0 do story_validation_add(result,.Error,contradiction.id,"contradiction references unknown conclusion proposition")}
-	for &deduction in payload.deductions {if deduction.proposition_id!=""&&story_proposition_index(project,deduction.proposition_id)<0 do story_validation_add(result,.Error,deduction.id,"deduction references unknown proposition");for support in deduction.supports[:deduction.support_count] do if !mystery_knowledge_id_exists(project,payload,support) do story_validation_add(result,.Error,deduction.id,"deduction references unknown support")}
-	for &question in payload.questions {for clue in question.requires_clues[:question.require_clue_count] do if mystery_clue_index(payload,clue)<0 do story_validation_add(result,.Error,question.id,"question references unknown clue");for claim in question.requires_claims[:question.require_claim_count] do if mystery_claim_index(payload,claim)<0 do story_validation_add(result,.Error,question.id,"question references unknown claim");for deduction in question.requires_deductions[:question.require_deduction_count] do if mystery_deduction_index(payload,deduction)<0 do story_validation_add(result,.Error,question.id,"question references unknown deduction");for dependency in question.dependencies[:question.dependency_count] do if mystery_question_index(payload,dependency)<0 do story_validation_add(result,.Error,question.id,"question references unknown dependency")}
-	visiting:=make([]bool,len(payload.questions));visited:=make([]bool,len(payload.questions));defer delete(visiting);defer delete(visited);for _,i in payload.questions do if mystery_question_cycle_visit(payload,i,visiting,visited) {story_validation_add(result,.Error,payload.questions[i].id,"mystery question dependency cycle");break}
-	deduction_visiting:=make([]bool,len(payload.deductions));deduction_visited:=make([]bool,len(payload.deductions));defer delete(deduction_visiting);defer delete(deduction_visited);for _,i in payload.deductions do if mystery_deduction_cycle_visit(payload,i,deduction_visiting,deduction_visited) {story_validation_add(result,.Error,payload.deductions[i].id,"[dependencies] deduction support cycle");break}
+	for clue, i in payload.clues do for prior in 0 ..< i do if payload.clues[prior].id == clue.id do story_validation_add(result, .Error, clue.id, "[structure] duplicate clue ID")
+	for claim, i in payload.claims do for prior in 0 ..< i do if payload.claims[prior].id == claim.id do story_validation_add(result, .Error, claim.id, "[structure] duplicate claim ID")
+	for deduction, i in payload.deductions do for prior in 0 ..< i do if payload.deductions[prior].id == deduction.id do story_validation_add(result, .Error, deduction.id, "[structure] duplicate deduction ID")
+	for question, i in payload.questions do for prior in 0 ..< i do if payload.questions[prior].id == question.id do story_validation_add(result, .Error, question.id, "[structure] duplicate question ID")
+	for clue in payload.clues {if clue.id == "" do story_validation_add(result, .Error, project.id, "mystery clue requires an ID"); if story_entity_index(project, clue.source_id) < 0 do story_validation_add(result, .Error, clue.id, "mystery clue references unknown source entity"); if clue.proposition_id != "" && story_proposition_index(project, clue.proposition_id) < 0 do story_validation_add(result, .Error, clue.id, "mystery clue references unknown proposition"); if clue.cost < 0 || clue.cost > payload.action_budget do story_validation_add(result, .Error, clue.id, "mystery clue has invalid action cost")}
+	required_route := make([]bool, len(payload.clues)); defer delete(required_route)
+	for &clue, i in payload.clues {for prerequisite in clue.prerequisites[:clue.prerequisite_count] do if mystery_clue_index(payload, prerequisite) < 0 do story_validation_add(result, .Error, clue.id, "[routes] clue prerequisite is missing"); if clue.essential {mystery_required_clue_route_visit(payload, i, required_route); entity := story_entity_index(project, clue.source_id); if entity >= 0 && !story_spatial_id_valid({project.entities[entity].spatial.space_id, project.entities[entity].spatial.target_id}) do story_validation_add(result, .Error, clue.id, "[spatial] essential evidence source requires a qualified binding")}}
+	essential_cost := 0; for clue, i in payload.clues do if required_route[i] {essential_cost += clue.cost; if clue.check_kind == "red" do story_validation_add(result, .Error, clue.id, "[routes] essential evidence route cannot depend on a one-shot check")}
+	if essential_cost > payload.action_budget do story_validation_add(result, .Error, project.id, "[affordability] essential evidence route exceeds the action budget")
+	clue_visiting := make(
+		[]bool,
+		len(payload.clues),
+	); clue_visited := make([]bool, len(payload.clues)); defer delete(clue_visiting); defer delete(clue_visited); for _, i in payload.clues do if mystery_clue_cycle_visit(payload, i, clue_visiting, clue_visited) {story_validation_add(result, .Error, payload.clues[i].id, "[dependencies] clue prerequisite cycle"); break}
+	for claim in payload.claims {if claim.id == "" || story_entity_index(project, claim.speaker_id) < 0 do story_validation_add(result, .Error, claim.id, "mystery claim has invalid speaker"); if claim.proposition_id != "" && story_proposition_index(project, claim.proposition_id) < 0 do story_validation_add(result, .Error, claim.id, "mystery claim references unknown proposition"); if claim.protects != "" && claim.response == "" do story_validation_add(result, .Error, claim.id, "[routes] protected claim requires an authored response")}
+	for contradiction in payload.contradictions {if mystery_claim_index(payload, contradiction.claim_id) < 0 do story_validation_add(result, .Error, contradiction.id, "contradiction references unknown claim"); if contradiction.conclusion_id != "" && story_proposition_index(project, contradiction.conclusion_id) < 0 do story_validation_add(result, .Error, contradiction.id, "contradiction references unknown conclusion proposition")}
+	for &deduction in payload.deductions {if deduction.proposition_id != "" && story_proposition_index(project, deduction.proposition_id) < 0 do story_validation_add(result, .Error, deduction.id, "deduction references unknown proposition"); for support in deduction.supports[:deduction.support_count] do if !mystery_knowledge_id_exists(project, payload, support) do story_validation_add(result, .Error, deduction.id, "deduction references unknown support")}
+	for &question in payload.questions {for clue in question.requires_clues[:question.require_clue_count] do if mystery_clue_index(payload, clue) < 0 do story_validation_add(result, .Error, question.id, "question references unknown clue"); for claim in question.requires_claims[:question.require_claim_count] do if mystery_claim_index(payload, claim) < 0 do story_validation_add(result, .Error, question.id, "question references unknown claim"); for deduction in question.requires_deductions[:question.require_deduction_count] do if mystery_deduction_index(payload, deduction) < 0 do story_validation_add(result, .Error, question.id, "question references unknown deduction"); for dependency in question.dependencies[:question.dependency_count] do if mystery_question_index(payload, dependency) < 0 do story_validation_add(result, .Error, question.id, "question references unknown dependency")}
+	visiting := make(
+		[]bool,
+		len(payload.questions),
+	); visited := make([]bool, len(payload.questions)); defer delete(visiting); defer delete(visited); for _, i in payload.questions do if mystery_question_cycle_visit(payload, i, visiting, visited) {story_validation_add(result, .Error, payload.questions[i].id, "mystery question dependency cycle"); break}
+	deduction_visiting := make(
+		[]bool,
+		len(payload.deductions),
+	); deduction_visited := make([]bool, len(payload.deductions)); defer delete(deduction_visiting); defer delete(deduction_visited); for _, i in payload.deductions do if mystery_deduction_cycle_visit(payload, i, deduction_visiting, deduction_visited) {story_validation_add(result, .Error, payload.deductions[i].id, "[dependencies] deduction support cycle"); break}
 	for &demonstration in payload.demonstrations {
-		if mystery_question_index(payload,demonstration.question_id)<0 do story_validation_add(result,.Error,demonstration.id,"demonstration references unknown question")
-		if !mystery_demonstration_presentation_valid(demonstration.presentation) do story_validation_add(result,.Error,demonstration.id,"[interaction] unsupported demonstration presentation")
-		if !mystery_demonstration_gesture_valid(demonstration.presentation,demonstration.gesture) do story_validation_add(result,.Error,demonstration.id,"[interaction] gesture is incompatible with its presentation")
-		if demonstration.candidate_limit<3||demonstration.candidate_limit>5 do story_validation_add(result,.Error,demonstration.id,"[interaction] candidate limit must be between 3 and 5")
-		if demonstration.gesture_step_overflow||demonstration.gesture_step_count>3 do story_validation_add(result,.Error,demonstration.id,"[interaction] demonstration supports at most three gesture steps")
-		if demonstration.gesture_step_count>1 do story_validation_add(result,.Warning,demonstration.id,"[interaction] multi-step demonstration should remain under one minute")
-		for step in demonstration.gesture_steps[:demonstration.gesture_step_count] do if !mystery_demonstration_gesture_valid(demonstration.presentation,step) do story_validation_add(result,.Error,demonstration.id,"[interaction] gesture step is incompatible with its presentation")
-		if demonstration.presentation!="slots"&&demonstration.subject!=""&&!mystery_knowledge_id_exists(project,payload,demonstration.subject)&&story_entity_index(project,demonstration.subject)<0 do story_validation_add(result,.Error,demonstration.id,"[interaction] subject references unknown evidence or entity")
-		if demonstration.presentation=="reconstruct"&&demonstration.route_count==0 do story_validation_add(result,.Error,demonstration.id,"[interaction] reconstruction requires a testable accepted route")
-		for piece in demonstration.accepted[:demonstration.accepted_count] do if !mystery_knowledge_id_exists(project,payload,piece) do story_validation_add(result,.Error,demonstration.id,"demonstration references unknown accepted piece")
-		for route in 0..<demonstration.route_count {first,count:=demonstration.route_firsts[route],demonstration.route_counts[route];if first<0||count<=0||first+count>demonstration.accepted_count {story_validation_add(result,.Error,demonstration.id,"demonstration route range is invalid");continue};if count!=demonstration.slot_count do story_validation_add(result,.Warning,demonstration.id,"[interaction] accepted route must fill every evidence slot");for slot in 0..<min(count,demonstration.slot_count) {actual:=mystery_knowledge_kind(project,payload,demonstration.accepted[first+slot]);expected:=strings.to_lower(demonstration.slot_types[slot]);compatible:=actual==expected||(expected=="clue"&&(actual=="observation"||actual=="testimony"));if actual!=""&&!compatible do story_validation_add(result,.Warning,demonstration.id,"[interaction] accepted route is incompatible with its slot knowledge type")}}
-		for deduction in demonstration.result_deductions[:demonstration.result_count] do if mystery_deduction_index(payload,deduction)<0 do story_validation_add(result,.Error,demonstration.id,"demonstration references unknown result deduction")
+		if mystery_question_index(payload, demonstration.question_id) < 0 do story_validation_add(result, .Error, demonstration.id, "demonstration references unknown question")
+		if !mystery_demonstration_presentation_valid(demonstration.presentation) do story_validation_add(result, .Error, demonstration.id, "[interaction] unsupported demonstration presentation")
+		if !mystery_demonstration_gesture_valid(demonstration.presentation, demonstration.gesture) do story_validation_add(result, .Error, demonstration.id, "[interaction] gesture is incompatible with its presentation")
+		if demonstration.candidate_limit < 3 || demonstration.candidate_limit > 5 do story_validation_add(result, .Error, demonstration.id, "[interaction] candidate limit must be between 3 and 5")
+		if demonstration.gesture_step_overflow || demonstration.gesture_step_count > 3 do story_validation_add(result, .Error, demonstration.id, "[interaction] demonstration supports at most three gesture steps")
+		if demonstration.gesture_step_count > 1 do story_validation_add(result, .Warning, demonstration.id, "[interaction] multi-step demonstration should remain under one minute")
+		for step in demonstration.gesture_steps[:demonstration.gesture_step_count] do if !mystery_demonstration_gesture_valid(demonstration.presentation, step) do story_validation_add(result, .Error, demonstration.id, "[interaction] gesture step is incompatible with its presentation")
+		if demonstration.presentation != "slots" && demonstration.subject != "" && !mystery_knowledge_id_exists(project, payload, demonstration.subject) && story_entity_index(project, demonstration.subject) < 0 do story_validation_add(result, .Error, demonstration.id, "[interaction] subject references unknown evidence or entity")
+		if demonstration.presentation == "reconstruct" && demonstration.route_count == 0 do story_validation_add(result, .Error, demonstration.id, "[interaction] reconstruction requires a testable accepted route")
+		for piece in demonstration.accepted[:demonstration.accepted_count] do if !mystery_knowledge_id_exists(project, payload, piece) do story_validation_add(result, .Error, demonstration.id, "demonstration references unknown accepted piece")
+		for route in 0 ..< demonstration.route_count {first, count := demonstration.route_firsts[route], demonstration.route_counts[route]; if first < 0 || count <= 0 || first + count > demonstration.accepted_count {story_validation_add(result, .Error, demonstration.id, "demonstration route range is invalid"); continue}; if count != demonstration.slot_count do story_validation_add(result, .Warning, demonstration.id, "[interaction] accepted route must fill every evidence slot"); for slot in 0 ..< min(count, demonstration.slot_count) {actual := mystery_knowledge_kind(project, payload, demonstration.accepted[first + slot]); expected := strings.to_lower(demonstration.slot_types[slot]); compatible := actual == expected || (expected == "clue" && (actual == "observation" || actual == "testimony")); if actual != "" && !compatible do story_validation_add(result, .Warning, demonstration.id, "[interaction] accepted route is incompatible with its slot knowledge type")}}
+		for deduction in demonstration.result_deductions[:demonstration.result_count] do if mystery_deduction_index(payload, deduction) < 0 do story_validation_add(result, .Error, demonstration.id, "demonstration references unknown result deduction")
 	}
-	for &metadata in payload.dialogue {if story_scene_index(project,fmt.tprintf("scene_%s",metadata.node_id))<0&&!mystery_core_node_exists(project,metadata.node_id) do story_validation_add(result,.Error,metadata.node_id,"[dialogue] mystery dialogue metadata is unreachable from core scenes");if metadata.character_id!=""&&story_entity_index(project,metadata.character_id)<0 do story_validation_add(result,.Error,metadata.node_id,"mystery dialogue metadata references unknown character");if metadata.clue_id!=""&&mystery_clue_index(payload,metadata.clue_id)<0 do story_validation_add(result,.Error,metadata.node_id,"mystery dialogue metadata references unknown clue")}
-	for ending in payload.endings do if !mystery_core_ending_exists(project,ending.ending_id) do story_validation_add(result,.Error,ending.ending_id,"mystery ending metadata references unknown core ending")
-	for label,i in payload.city_labels {if label.id==""||label.display_name==""||label.level_spawn==""||label.city_site=="" do story_validation_add(result,.Error,label.id,"mystery city label is incomplete");for prior in 0..<i do if payload.city_labels[prior].id==label.id do story_validation_add(result,.Error,label.id,"duplicate mystery city label")}
-	for lesson,i in payload.tutorial_lessons {if lesson.id==""||lesson.capability==""||lesson.prompt=="" do story_validation_add(result,.Error,lesson.id,"mystery tutorial lesson is incomplete");for prior in 0..<i do if payload.tutorial_lessons[prior].id==lesson.id||payload.tutorial_lessons[prior].capability==lesson.capability do story_validation_add(result,.Error,lesson.id,"duplicate mystery tutorial lesson")}
-	if payload.solution.culprit_id!=""&&story_entity_index(project,payload.solution.culprit_id)<0 do story_validation_add(result,.Error,project.id,"mystery solution references unknown culprit")
-	if payload.solution.decisive_contradiction_id!=""&&mystery_contradiction_index(payload,payload.solution.decisive_contradiction_id)<0 do story_validation_add(result,.Error,project.id,"mystery solution references unknown decisive contradiction")
-	for requirement in payload.solution.requirements[:payload.solution.requirement_count] do if !mystery_knowledge_id_exists(project,payload,requirement)&&mystery_contradiction_index(payload,requirement)<0 do story_validation_add(result,.Error,project.id,"mystery solution references unknown requirement")
-	if payload.solution.requirement_count==0 do story_validation_add(result,.Error,project.id,"[solution] mystery requires an authored support contract")
-	if payload.solution.exclusion_count<2 do story_validation_add(result,.Error,project.id,"[exclusion] solution must exclude at least two alternatives")
-	for exclusion in payload.solution.exclusions[:payload.solution.exclusion_count] {if story_entity_index(project,exclusion)<0 do story_validation_add(result,.Error,exclusion,"[exclusion] excluded suspect is not a core entity");if exclusion==payload.solution.culprit_id do story_validation_add(result,.Error,exclusion,"[exclusion] culprit cannot be listed as an innocent exclusion")}
+	for &metadata in payload.dialogue {if story_scene_index(project, fmt.tprintf("scene_%s", metadata.node_id)) < 0 && !mystery_core_node_exists(project, metadata.node_id) do story_validation_add(result, .Error, metadata.node_id, "[dialogue] mystery dialogue metadata is unreachable from core scenes"); if metadata.character_id != "" && story_entity_index(project, metadata.character_id) < 0 do story_validation_add(result, .Error, metadata.node_id, "mystery dialogue metadata references unknown character"); if metadata.clue_id != "" && mystery_clue_index(payload, metadata.clue_id) < 0 do story_validation_add(result, .Error, metadata.node_id, "mystery dialogue metadata references unknown clue")}
+	for ending in payload.endings do if !mystery_core_ending_exists(project, ending.ending_id) do story_validation_add(result, .Error, ending.ending_id, "mystery ending metadata references unknown core ending")
+	for label, i in payload.city_labels {if label.id == "" || label.display_name == "" || label.level_spawn == "" || label.city_site == "" do story_validation_add(result, .Error, label.id, "mystery city label is incomplete"); for prior in 0 ..< i do if payload.city_labels[prior].id == label.id do story_validation_add(result, .Error, label.id, "duplicate mystery city label")}
+	for lesson, i in payload.tutorial_lessons {if lesson.id == "" || lesson.capability == "" || lesson.prompt == "" do story_validation_add(result, .Error, lesson.id, "mystery tutorial lesson is incomplete"); for prior in 0 ..< i do if payload.tutorial_lessons[prior].id == lesson.id || payload.tutorial_lessons[prior].capability == lesson.capability do story_validation_add(result, .Error, lesson.id, "duplicate mystery tutorial lesson")}
+	if payload.solution.culprit_id != "" && story_entity_index(project, payload.solution.culprit_id) < 0 do story_validation_add(result, .Error, project.id, "mystery solution references unknown culprit")
+	if payload.solution.decisive_contradiction_id != "" && mystery_contradiction_index(payload, payload.solution.decisive_contradiction_id) < 0 do story_validation_add(result, .Error, project.id, "mystery solution references unknown decisive contradiction")
+	for requirement in payload.solution.requirements[:payload.solution.requirement_count] do if !mystery_knowledge_id_exists(project, payload, requirement) && mystery_contradiction_index(payload, requirement) < 0 do story_validation_add(result, .Error, project.id, "mystery solution references unknown requirement")
+	if payload.solution.requirement_count == 0 do story_validation_add(result, .Error, project.id, "[solution] mystery requires an authored support contract")
+	if payload.solution.exclusion_count < 2 do story_validation_add(result, .Error, project.id, "[exclusion] solution must exclude at least two alternatives")
+	for exclusion in payload.solution.exclusions[:payload.solution.exclusion_count] {if story_entity_index(project, exclusion) < 0 do story_validation_add(result, .Error, exclusion, "[exclusion] excluded suspect is not a core entity"); if exclusion == payload.solution.culprit_id do story_validation_add(result, .Error, exclusion, "[exclusion] culprit cannot be listed as an innocent exclusion")}
 }
 
-mystery_compile :: proc(project:^Story_Project)->bool {return mystery_payload(project)!=nil}
-mystery_hash_text :: proc(hash:u64,value:string)->u64 {result:=hash;for ch in value do result=(result~u64(ch))*1099511628211;return result}
-mystery_hash_refs :: proc(hash:u64,values:^[MYSTERY_MAX_REFS]string,count:int)->u64 {result:=hash;for i in 0..<count do result=mystery_hash_text(result,values[i]);return result}
-mystery_hash_routes :: proc(hash:u64,item:^Mystery_Demonstration)->u64 {result:=hash;for i in 0..<item.route_count do result=mystery_hash_text(result,fmt.tprintf("%d:%d",item.route_firsts[i],item.route_counts[i]));return result}
-mystery_demonstration_presentation_valid :: proc(value:string)->bool {return value==""||value=="slots"||value=="inspect"||value=="connect"||value=="reconstruct"}
-mystery_demonstration_gesture_valid :: proc(presentation,gesture:string)->bool {
-	if presentation==""||presentation=="slots" do return gesture==""
+mystery_compile :: proc(project: ^Story_Project) -> bool {return mystery_payload(project) != nil}
+mystery_hash_text :: proc(hash: u64, value: string) -> u64 {result := hash; for ch in value do result = (result ~ u64(ch)) * 1099511628211
+	return result}
+mystery_hash_refs :: proc(
+	hash: u64,
+	values: ^[MYSTERY_MAX_REFS]string,
+	count: int,
+) -> u64 {result := hash; for i in 0 ..< count do result = mystery_hash_text(result, values[i])
+	return result}
+mystery_hash_routes :: proc(hash: u64, item: ^Mystery_Demonstration) -> u64 {result := hash; for i in 0 ..< item.route_count do result = mystery_hash_text(result, fmt.tprintf("%d:%d", item.route_firsts[i], item.route_counts[i]))
+	return result}
+mystery_demonstration_presentation_valid :: proc(value: string) -> bool {return(
+		value == "" ||
+		value == "slots" ||
+		value == "inspect" ||
+		value == "connect" ||
+		value == "reconstruct" \
+	)}
+mystery_demonstration_gesture_valid :: proc(presentation, gesture: string) -> bool {
+	if presentation == "" || presentation == "slots" do return gesture == ""
 	switch presentation {
-	case "inspect":return gesture=="reveal"||gesture=="rotate"||gesture=="unfold"||gesture=="operate"
-	case "connect":return gesture=="join"||gesture=="overlay"||gesture=="contrast"||gesture=="align"
-	case "reconstruct":return gesture=="order"||gesture=="resolve_conflict"
+	case "inspect":
+		return(
+			gesture == "reveal" ||
+			gesture == "rotate" ||
+			gesture == "unfold" ||
+			gesture == "operate" \
+		)
+	case "connect":
+		return(
+			gesture == "join" ||
+			gesture == "overlay" ||
+			gesture == "contrast" ||
+			gesture == "align" \
+		)
+	case "reconstruct":
+		return gesture == "order" || gesture == "resolve_conflict"
 	}
 	return false
 }
-mystery_knowledge_kind :: proc(project:^Story_Project,payload:^Mystery_Project,id:string)->string {clue:=mystery_clue_index(payload,id);if clue>=0 {entity:=story_entity_index(project,payload.clues[clue].source_id);return entity>=0&&project.entities[entity].kind=="character"?"testimony":"observation"};if mystery_claim_index(payload,id)>=0 do return "statement";if mystery_deduction_index(payload,id)>=0 do return "deduction";return ""}
-mystery_hash_extended_authoring :: proc(payload:^Mystery_Project)->u64 {hash:u64;for &item in payload.deductions {record:=mystery_hash_refs(1469598103934665603,&item.unlock_questions,item.unlock_question_count);record=mystery_hash_refs(record,&item.unlock_topics,item.unlock_topic_count);record=mystery_hash_refs(record,&item.unlock_investigations,item.unlock_investigation_count);hash~=record};for &item in payload.questions {record:=mystery_hash_refs(1469598103934665603,&item.requires_clues,item.require_clue_count);record=mystery_hash_refs(record,&item.requires_claims,item.require_claim_count);record=mystery_hash_refs(record,&item.requires_deductions,item.require_deduction_count);hash~=record};for &item in payload.demonstrations {record:=mystery_hash_refs(1469598103934665603,&item.slot_labels,item.slot_count);hash~=mystery_hash_refs(record,&item.slot_types,item.slot_count)};return hash}
-mystery_int_array :: proc(values:^[MYSTERY_MAX_REFS]int,count:int)->string {text:="[";for i in 0..<count {if i>0 do text=fmt.tprintf("%s, ",text);text=fmt.tprintf("%s%d",text,values[i])};return fmt.tprintf("%s]",text)}
-mystery_hash :: proc(project:^Story_Project,seed:u64)->u64 {payload:=mystery_payload(project);if payload==nil do return seed;hash:=mystery_hash_text(seed,fmt.tprintf("%d:%s:%s:%s:%s",payload.action_budget,payload.tutorial_id,payload.city_start,payload.city_destination,payload.reveal_location));for &clue in payload.clues {record:=mystery_hash_text(1469598103934665603,fmt.tprintf("%s:%s:%s:%s:%s:%s:%d:%d:%t",clue.id,clue.source_id,clue.description,clue.proposition_id,clue.skill,clue.check_kind,clue.difficulty,clue.cost,clue.essential));record=mystery_hash_refs(record,&clue.prerequisites,clue.prerequisite_count);record=mystery_hash_refs(record,&clue.blocks,clue.block_count);record=mystery_hash_refs(record,&clue.topics,clue.topic_count);hash~=record};for claim in payload.claims do hash~=mystery_hash_text(1469598103934665603,fmt.tprintf("%s:%s:%s:%s:%s",claim.id,claim.speaker_id,claim.proposition_id,claim.protects,claim.response));for item in payload.contradictions do hash~=mystery_hash_text(1469598103934665603,fmt.tprintf("%s:%s:%s:%s:%s",item.id,item.claim_id,item.fact_id,item.conclusion_id,item.explanation));for &item in payload.deductions {record:=mystery_hash_text(1469598103934665603,fmt.tprintf("%s:%s:%s",item.id,item.proposition_id,item.category));hash~=mystery_hash_refs(record,&item.supports,item.support_count)};for &item in payload.questions {record:=mystery_hash_text(1469598103934665603,fmt.tprintf("%s:%s:%s:%s:%t",item.id,item.prompt,item.hypothesis_id,item.category,item.required_for_final));hash~=mystery_hash_refs(record,&item.dependencies,item.dependency_count)};for &item in payload.demonstrations {record:=mystery_hash_text(1469598103934665603,fmt.tprintf("%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%d",item.id,item.question_id,item.mode,item.presentation,item.gesture,item.subject,item.art,item.completion_cue,item.resolution,item.result,item.candidate_limit));for step in 0..<item.gesture_step_count do record=mystery_hash_text(record,item.gesture_steps[step]);record=mystery_hash_text(record,item.prompt);record=mystery_hash_refs(record,&item.accepted,item.accepted_count);hash~=mystery_hash_refs(record,&item.result_deductions,item.result_count)};for &item in payload.dialogue {record:=mystery_hash_text(1469598103934665603,fmt.tprintf("%s:%s:%s:%s:%s:%s",item.node_id,item.character_id,item.prompt,item.response,item.clue_id,item.interaction));record=mystery_hash_refs(record,&item.requires,item.require_count);hash~=mystery_hash_refs(record,&item.unlocks,item.unlock_count)};solution:=mystery_hash_text(1469598103934665603,fmt.tprintf("%s:%s:%s",payload.solution.culprit_id,payload.solution.motive_id,payload.solution.decisive_contradiction_id));solution=mystery_hash_refs(solution,&payload.solution.requirements,payload.solution.requirement_count);solution=mystery_hash_refs(solution,&payload.solution.exclusions,payload.solution.exclusion_count);return hash~solution}
-mystery_hash_complete :: proc(project:^Story_Project,seed:u64)->u64 {hash:=mystery_hash(project,seed);payload:=mystery_payload(project);if payload==nil do return hash;hash~=mystery_hash_extended_authoring(payload);for &item in payload.characters {record:=mystery_hash_text(1469598103934665603,fmt.tprintf("%s:%s:%s:%d",item.entity_id,item.private_secret,item.motive,item.initial_disposition));hash~=mystery_hash_refs(record,&item.initial_claims,item.initial_claim_count)};for &item in payload.locations {record:=mystery_hash_text(1469598103934665603,item.entity_id);record=mystery_hash_refs(record,&item.connections,item.connection_count);record=mystery_hash_refs(record,&item.characters,item.character_count);record=mystery_hash_refs(record,&item.pois,item.poi_count);hash~=mystery_hash_refs(record,&item.search_actions,item.search_action_count)};for item in payload.pois do hash~=mystery_hash_text(1469598103934665603,fmt.tprintf("%s:%s:%s:%s:%s",item.entity_id,item.location_id,item.owner_id,item.relevant_state,item.examination_action));for &item in payload.events {record:=mystery_hash_text(1469598103934665603,fmt.tprintf("%s:%s:%s",item.event_id,item.destination_id,item.tool_id));hash~=mystery_hash_refs(record,&item.effects,item.effect_count)};for &item in payload.demonstrations do hash~=mystery_hash_routes(1469598103934665603,&item);for item in payload.endings do hash~=mystery_hash_text(1469598103934665603,fmt.tprintf("%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s",item.ending_id,item.trigger,item.outcome,item.subtitle,item.epilogue,item.canonical_timeline,item.tone,item.primary_label,item.primary_action,item.secondary_label,item.secondary_action));for item in payload.city_labels do hash~=mystery_hash_text(1469598103934665603,fmt.tprintf("%s:%s:%s:%s",item.id,item.display_name,item.level_spawn,item.city_site));for item in payload.tutorial_lessons do hash~=mystery_hash_text(1469598103934665603,fmt.tprintf("%s:%s:%s",item.id,item.capability,item.prompt));s:=&payload.solution;hash~=mystery_hash_text(1469598103934665603,fmt.tprintf("%s:%s:%s:%s:%s:%s:%s",s.weapon_block,s.murder_place_block,s.death_time_block,s.body_movement_block,s.staging_block,s.cleaning_block,s.alibi_block));hash~=mystery_hash_refs(1469598103934665603,&s.murder_events,s.murder_event_count);hash~=mystery_hash_refs(1469598103934665603,&s.cover_up_events,s.cover_up_event_count);hash~=mystery_hash_refs(1469598103934665603,&s.false_alibis,s.false_alibi_count);return hash}
-mystery_serialize :: proc(value:rawptr)->string {payload:=cast(^Mystery_Project)value;if payload==nil do return "";text:=fmt.tprintf("[mystery]\naction_budget = %d\ntutorial = \"%s\"\ncity_start = \"%s\"\ncity_destination = \"%s\"\nreveal_location = \"%s\"\n",payload.action_budget,story_toml_escape(payload.tutorial_id),story_toml_escape(payload.city_start),story_toml_escape(payload.city_destination),story_toml_escape(payload.reveal_location));for &clue in payload.clues do text=fmt.tprintf("%s\n[[mystery.clues]]\nid = \"%s\"\nsource = \"%s\"\ndescription = \"%s\"\nproposition = \"%s\"\nskill = \"%s\"\ncheck_kind = \"%s\"\ndifficulty = %d\ncost = %d\nessential = %t\nprerequisites = %s\nblocks = %s\ntopics = %s\n",text,story_toml_escape(clue.id),story_toml_escape(clue.source_id),story_toml_escape(clue.description),story_toml_escape(clue.proposition_id),story_toml_escape(clue.skill),story_toml_escape(clue.check_kind),clue.difficulty,clue.cost,clue.essential,story_toml_string_array(clue.prerequisites[:clue.prerequisite_count]),story_toml_string_array(clue.blocks[:clue.block_count]),story_toml_string_array(clue.topics[:clue.topic_count]));return text}
+mystery_knowledge_kind :: proc(
+	project: ^Story_Project,
+	payload: ^Mystery_Project,
+	id: string,
+) -> string {clue := mystery_clue_index(payload, id); if clue >= 0 {entity := story_entity_index(
+			project,
+			payload.clues[clue].source_id,
+		)
+		return(
+			entity >= 0 && project.entities[entity].kind == "character" ? "testimony" : "observation" \
+		)}
+	if mystery_claim_index(payload, id) >= 0 do return "statement"
+	if mystery_deduction_index(payload, id) >= 0 do return "deduction"
+	return ""}
+mystery_hash_extended_authoring :: proc(payload: ^Mystery_Project) -> u64 {hash: u64; for 	&item in payload.deductions {record := mystery_hash_refs(
+			1469598103934665603,
+			&item.unlock_questions,
+			item.unlock_question_count,
+		)
+		record = mystery_hash_refs(record, &item.unlock_topics, item.unlock_topic_count)
+		record = mystery_hash_refs(
+			record,
+			&item.unlock_investigations,
+			item.unlock_investigation_count,
+		)
+		hash ~= record}
+	for 	&item in payload.questions {record := mystery_hash_refs(
+			1469598103934665603,
+			&item.requires_clues,
+			item.require_clue_count,
+		)
+		record = mystery_hash_refs(record, &item.requires_claims, item.require_claim_count)
+		record = mystery_hash_refs(record, &item.requires_deductions, item.require_deduction_count)
+		hash ~= record}
+	for 	&item in payload.demonstrations {record := mystery_hash_refs(
+			1469598103934665603,
+			&item.slot_labels,
+			item.slot_count,
+		)
+		hash ~= mystery_hash_refs(record, &item.slot_types, item.slot_count)}
+	return hash}
+mystery_int_array :: proc(values: ^[MYSTERY_MAX_REFS]int, count: int) -> string {text := "["; for 	i in 0 ..< count {if i > 0 do text = fmt.tprintf("%s, ", text); text = fmt.tprintf(
+			"%s%d",
+			text,
+			values[i],
+		)}
+	return fmt.tprintf("%s]", text)}
+mystery_hash :: proc(project: ^Story_Project, seed: u64) -> u64 {payload := mystery_payload(
+		project,
+	)
+	if payload == nil do return seed
+	hash := mystery_hash_text(
+		seed,
+		fmt.tprintf(
+			"%d:%s:%s:%s:%s",
+			payload.action_budget,
+			payload.tutorial_id,
+			payload.city_start,
+			payload.city_destination,
+			payload.reveal_location,
+		),
+	)
+	for 	&clue in payload.clues {record := mystery_hash_text(
+			1469598103934665603,
+			fmt.tprintf(
+				"%s:%s:%s:%s:%s:%s:%d:%d:%t",
+				clue.id,
+				clue.source_id,
+				clue.description,
+				clue.proposition_id,
+				clue.skill,
+				clue.check_kind,
+				clue.difficulty,
+				clue.cost,
+				clue.essential,
+			),
+		)
+		record = mystery_hash_refs(record, &clue.prerequisites, clue.prerequisite_count)
+		record = mystery_hash_refs(record, &clue.blocks, clue.block_count)
+		record = mystery_hash_refs(record, &clue.topics, clue.topic_count)
+		hash ~= record}
+	for claim in payload.claims do hash ~= mystery_hash_text(1469598103934665603, fmt.tprintf("%s:%s:%s:%s:%s", claim.id, claim.speaker_id, claim.proposition_id, claim.protects, claim.response))
+	for item in payload.contradictions do hash ~= mystery_hash_text(1469598103934665603, fmt.tprintf("%s:%s:%s:%s:%s", item.id, item.claim_id, item.fact_id, item.conclusion_id, item.explanation))
+	for 	&item in payload.deductions {record := mystery_hash_text(
+			1469598103934665603,
+			fmt.tprintf("%s:%s:%s", item.id, item.proposition_id, item.category),
+		)
+		hash ~= mystery_hash_refs(record, &item.supports, item.support_count)}
+	for 	&item in payload.questions {record := mystery_hash_text(
+			1469598103934665603,
+			fmt.tprintf(
+				"%s:%s:%s:%s:%t",
+				item.id,
+				item.prompt,
+				item.hypothesis_id,
+				item.category,
+				item.required_for_final,
+			),
+		)
+		hash ~= mystery_hash_refs(record, &item.dependencies, item.dependency_count)}
+	for 	&item in payload.demonstrations {record := mystery_hash_text(
+			1469598103934665603,
+			fmt.tprintf(
+				"%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%d",
+				item.id,
+				item.question_id,
+				item.mode,
+				item.presentation,
+				item.gesture,
+				item.subject,
+				item.art,
+				item.completion_cue,
+				item.resolution,
+				item.result,
+				item.candidate_limit,
+			),
+		)
+		for step in 0 ..< item.gesture_step_count do record = mystery_hash_text(record, item.gesture_steps[step])
+		record = mystery_hash_text(record, item.prompt)
+		record = mystery_hash_refs(record, &item.accepted, item.accepted_count)
+		hash ~= mystery_hash_refs(record, &item.result_deductions, item.result_count)}
+	for 	&item in payload.dialogue {record := mystery_hash_text(
+			1469598103934665603,
+			fmt.tprintf(
+				"%s:%s:%s:%s:%s:%s",
+				item.node_id,
+				item.character_id,
+				item.prompt,
+				item.response,
+				item.clue_id,
+				item.interaction,
+			),
+		)
+		record = mystery_hash_refs(record, &item.requires, item.require_count)
+		hash ~= mystery_hash_refs(record, &item.unlocks, item.unlock_count)}
+	solution := mystery_hash_text(
+		1469598103934665603,
+		fmt.tprintf(
+			"%s:%s:%s",
+			payload.solution.culprit_id,
+			payload.solution.motive_id,
+			payload.solution.decisive_contradiction_id,
+		),
+	)
+	solution = mystery_hash_refs(
+		solution,
+		&payload.solution.requirements,
+		payload.solution.requirement_count,
+	)
+	solution = mystery_hash_refs(
+		solution,
+		&payload.solution.exclusions,
+		payload.solution.exclusion_count,
+	)
+	return hash ~ solution}
+mystery_hash_complete :: proc(project: ^Story_Project, seed: u64) -> u64 {hash := mystery_hash(
+		project,
+		seed,
+	)
+	payload := mystery_payload(project)
+	if payload == nil do return hash
+	hash ~= mystery_hash_extended_authoring(payload)
+	for 	&item in payload.characters {record := mystery_hash_text(
+			1469598103934665603,
+			fmt.tprintf(
+				"%s:%s:%s:%d",
+				item.entity_id,
+				item.private_secret,
+				item.motive,
+				item.initial_disposition,
+			),
+		)
+		hash ~= mystery_hash_refs(record, &item.initial_claims, item.initial_claim_count)}
+	for 	&item in payload.locations {record := mystery_hash_text(1469598103934665603, item.entity_id); record =
+			mystery_hash_refs(record, &item.connections, item.connection_count)
+		record = mystery_hash_refs(record, &item.characters, item.character_count)
+		record = mystery_hash_refs(record, &item.pois, item.poi_count)
+		hash ~= mystery_hash_refs(record, &item.search_actions, item.search_action_count)}
+	for item in payload.pois do hash ~= mystery_hash_text(1469598103934665603, fmt.tprintf("%s:%s:%s:%s:%s", item.entity_id, item.location_id, item.owner_id, item.relevant_state, item.examination_action))
+	for 	&item in payload.events {record := mystery_hash_text(
+			1469598103934665603,
+			fmt.tprintf("%s:%s:%s", item.event_id, item.destination_id, item.tool_id),
+		)
+		hash ~= mystery_hash_refs(record, &item.effects, item.effect_count)}
+	for &item in payload.demonstrations do hash ~= mystery_hash_routes(1469598103934665603, &item)
+	for item in payload.endings do hash ~= mystery_hash_text(1469598103934665603, fmt.tprintf("%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s", item.ending_id, item.trigger, item.outcome, item.subtitle, item.epilogue, item.canonical_timeline, item.tone, item.primary_label, item.primary_action, item.secondary_label, item.secondary_action))
+	for item in payload.city_labels do hash ~= mystery_hash_text(1469598103934665603, fmt.tprintf("%s:%s:%s:%s", item.id, item.display_name, item.level_spawn, item.city_site))
+	for item in payload.tutorial_lessons do hash ~= mystery_hash_text(1469598103934665603, fmt.tprintf("%s:%s:%s", item.id, item.capability, item.prompt))
+	s := &payload.solution
+	hash ~= mystery_hash_text(
+		1469598103934665603,
+		fmt.tprintf(
+			"%s:%s:%s:%s:%s:%s:%s",
+			s.weapon_block,
+			s.murder_place_block,
+			s.death_time_block,
+			s.body_movement_block,
+			s.staging_block,
+			s.cleaning_block,
+			s.alibi_block,
+		),
+	)
+	hash ~= mystery_hash_refs(1469598103934665603, &s.murder_events, s.murder_event_count)
+	hash ~= mystery_hash_refs(1469598103934665603, &s.cover_up_events, s.cover_up_event_count)
+	hash ~= mystery_hash_refs(1469598103934665603, &s.false_alibis, s.false_alibi_count)
+	return hash}
+mystery_serialize :: proc(value: rawptr) -> string {payload := cast(^Mystery_Project)value
+	if payload == nil do return ""
+	text := fmt.tprintf(
+		"[mystery]\naction_budget = %d\ntutorial = \"%s\"\ncity_start = \"%s\"\ncity_destination = \"%s\"\nreveal_location = \"%s\"\n",
+		payload.action_budget,
+		story_toml_escape(payload.tutorial_id),
+		story_toml_escape(payload.city_start),
+		story_toml_escape(payload.city_destination),
+		story_toml_escape(payload.reveal_location),
+	)
+	for &clue in payload.clues do text = fmt.tprintf("%s\n[[mystery.clues]]\nid = \"%s\"\nsource = \"%s\"\ndescription = \"%s\"\nproposition = \"%s\"\nskill = \"%s\"\ncheck_kind = \"%s\"\ndifficulty = %d\ncost = %d\nessential = %t\nprerequisites = %s\nblocks = %s\ntopics = %s\n", text, story_toml_escape(clue.id), story_toml_escape(clue.source_id), story_toml_escape(clue.description), story_toml_escape(clue.proposition_id), story_toml_escape(clue.skill), story_toml_escape(clue.check_kind), clue.difficulty, clue.cost, clue.essential, story_toml_string_array(clue.prerequisites[:clue.prerequisite_count]), story_toml_string_array(clue.blocks[:clue.block_count]), story_toml_string_array(clue.topics[:clue.topic_count]))
+	return text}
 
-mystery_serialize_complete :: proc(value:rawptr)->string {
-	payload:=cast(^Mystery_Project)value;if payload==nil do return ""
-	text:=mystery_serialize(value)
-	for &item in payload.characters do text=fmt.tprintf("%s\n[[mystery.characters]]\nentity = \"%s\"\nprivate_secret = \"%s\"\nmotive = \"%s\"\ninitial_disposition = %d\ninitial_claims = %s\n",text,story_toml_escape(item.entity_id),story_toml_escape(item.private_secret),story_toml_escape(item.motive),item.initial_disposition,story_toml_string_array(item.initial_claims[:item.initial_claim_count]))
-	for &item in payload.locations do text=fmt.tprintf("%s\n[[mystery.locations]]\nentity = \"%s\"\nconnections = %s\ncharacters = %s\npois = %s\nsearch_actions = %s\n",text,story_toml_escape(item.entity_id),story_toml_string_array(item.connections[:item.connection_count]),story_toml_string_array(item.characters[:item.character_count]),story_toml_string_array(item.pois[:item.poi_count]),story_toml_string_array(item.search_actions[:item.search_action_count]))
-	for item in payload.pois do text=fmt.tprintf("%s\n[[mystery.pois]]\nentity = \"%s\"\nlocation = \"%s\"\nowner = \"%s\"\nrelevant_state = \"%s\"\nexamination_action = \"%s\"\n",text,story_toml_escape(item.entity_id),story_toml_escape(item.location_id),story_toml_escape(item.owner_id),story_toml_escape(item.relevant_state),story_toml_escape(item.examination_action))
-	for &item in payload.events do text=fmt.tprintf("%s\n[[mystery.events]]\nevent = \"%s\"\ndestination = \"%s\"\ntool = \"%s\"\neffects = %s\n",text,story_toml_escape(item.event_id),story_toml_escape(item.destination_id),story_toml_escape(item.tool_id),story_toml_string_array(item.effects[:item.effect_count]))
-	for item in payload.claims do text=fmt.tprintf("%s\n[[mystery.claims]]\nid = \"%s\"\nspeaker = \"%s\"\nproposition = \"%s\"\nprotects = \"%s\"\nresponse = \"%s\"\ncanonical_truth = %t\n",text,story_toml_escape(item.id),story_toml_escape(item.speaker_id),story_toml_escape(item.proposition_id),story_toml_escape(item.protects),story_toml_escape(item.response),item.canonical_truth)
-	for item in payload.contradictions do text=fmt.tprintf("%s\n[[mystery.contradictions]]\nid = \"%s\"\nclaim = \"%s\"\nfact = \"%s\"\nconclusion = \"%s\"\nexplanation = \"%s\"\n",text,story_toml_escape(item.id),story_toml_escape(item.claim_id),story_toml_escape(item.fact_id),story_toml_escape(item.conclusion_id),story_toml_escape(item.explanation))
-	for &item in payload.deductions do text=fmt.tprintf("%s\n[[mystery.deductions]]\nid = \"%s\"\nproposition = \"%s\"\ncategory = \"%s\"\nsupports = %s\nunlock_questions = %s\nunlock_topics = %s\nunlock_investigations = %s\n",text,story_toml_escape(item.id),story_toml_escape(item.proposition_id),story_toml_escape(item.category),story_toml_string_array(item.supports[:item.support_count]),story_toml_string_array(item.unlock_questions[:item.unlock_question_count]),story_toml_string_array(item.unlock_topics[:item.unlock_topic_count]),story_toml_string_array(item.unlock_investigations[:item.unlock_investigation_count]))
-	for &item in payload.questions do text=fmt.tprintf("%s\n[[mystery.questions]]\nid = \"%s\"\nprompt = \"%s\"\nhypothesis = \"%s\"\ncategory = \"%s\"\nrequires_clues = %s\nrequires_claims = %s\nrequires_deductions = %s\ndependencies = %s\nrequired_for_final = %t\n",text,story_toml_escape(item.id),story_toml_escape(item.prompt),story_toml_escape(item.hypothesis_id),story_toml_escape(item.category),story_toml_string_array(item.requires_clues[:item.require_clue_count]),story_toml_string_array(item.requires_claims[:item.require_claim_count]),story_toml_string_array(item.requires_deductions[:item.require_deduction_count]),story_toml_string_array(item.dependencies[:item.dependency_count]),item.required_for_final)
-	for &item in payload.demonstrations do text=fmt.tprintf("%s\n[[mystery.demonstrations]]\nid = \"%s\"\nquestion = \"%s\"\nmode = \"%s\"\npresentation = \"%s\"\ngesture = \"%s\"\ngesture_steps = %s\nsubject = \"%s\"\ncandidate_limit = %d\nart = \"%s\"\ncompletion_cue = \"%s\"\nresolution = \"%s\"\nresult = \"%s\"\nprompt = \"%s\"\nslot_labels = %s\nslot_types = %s\naccepted = %s\nroute_firsts = %s\nroute_counts = %s\nresult_deductions = %s\n",text,story_toml_escape(item.id),story_toml_escape(item.question_id),story_toml_escape(item.mode),story_toml_escape(item.presentation),story_toml_escape(item.gesture),story_toml_string_array(item.gesture_steps[:item.gesture_step_count]),story_toml_escape(item.subject),item.candidate_limit,story_toml_escape(item.art),story_toml_escape(item.completion_cue),story_toml_escape(item.resolution),story_toml_escape(item.result),story_toml_escape(item.prompt),story_toml_string_array(item.slot_labels[:item.slot_count]),story_toml_string_array(item.slot_types[:item.slot_count]),story_toml_string_array(item.accepted[:item.accepted_count]),mystery_int_array(&item.route_firsts,item.route_count),mystery_int_array(&item.route_counts,item.route_count),story_toml_string_array(item.result_deductions[:item.result_count]))
-	for &item in payload.dialogue do text=fmt.tprintf("%s\n[[mystery.dialogue]]\nnode = \"%s\"\ncharacter = \"%s\"\nprompt = \"%s\"\nresponse = \"%s\"\nclue = \"%s\"\ninteraction = \"%s\"\nrequires = %s\nunlocks = %s\n",text,story_toml_escape(item.node_id),story_toml_escape(item.character_id),story_toml_escape(item.prompt),story_toml_escape(item.response),story_toml_escape(item.clue_id),story_toml_escape(item.interaction),story_toml_string_array(item.requires[:item.require_count]),story_toml_string_array(item.unlocks[:item.unlock_count]))
-	for item in payload.endings do text=fmt.tprintf("%s\n[[mystery.endings]]\nending = \"%s\"\ntrigger = \"%s\"\noutcome = \"%s\"\nsubtitle = \"%s\"\nepilogue = \"%s\"\ncanonical_timeline = \"%s\"\ntone = \"%s\"\nprimary_label = \"%s\"\nprimary_action = \"%s\"\nsecondary_label = \"%s\"\nsecondary_action = \"%s\"\n",text,story_toml_escape(item.ending_id),story_toml_escape(item.trigger),story_toml_escape(item.outcome),story_toml_escape(item.subtitle),story_toml_escape(item.epilogue),story_toml_escape(item.canonical_timeline),story_toml_escape(item.tone),story_toml_escape(item.primary_label),story_toml_escape(item.primary_action),story_toml_escape(item.secondary_label),story_toml_escape(item.secondary_action))
-	for item in payload.city_labels do text=fmt.tprintf("%s\n[[mystery.city_labels]]\nid = \"%s\"\ndisplay_name = \"%s\"\nlevel_spawn = \"%s\"\ncity_site = \"%s\"\n",text,story_toml_escape(item.id),story_toml_escape(item.display_name),story_toml_escape(item.level_spawn),story_toml_escape(item.city_site))
-	for item in payload.tutorial_lessons do text=fmt.tprintf("%s\n[[mystery.tutorial_lessons]]\nid = \"%s\"\ncapability = \"%s\"\nprompt = \"%s\"\n",text,story_toml_escape(item.id),story_toml_escape(item.capability),story_toml_escape(item.prompt))
-	s:=&payload.solution;text=fmt.tprintf("%s\n[mystery.solution]\nculprit = \"%s\"\nmotive = \"%s\"\ndecisive_contradiction = \"%s\"\nweapon_block = \"%s\"\nmurder_place_block = \"%s\"\ndeath_time_block = \"%s\"\nbody_movement_block = \"%s\"\nstaging_block = \"%s\"\ncleaning_block = \"%s\"\nalibi_block = \"%s\"\nrequirements = %s\nmurder_events = %s\ncover_up_events = %s\nfalse_alibis = %s\nexclusions = %s\n",text,story_toml_escape(s.culprit_id),story_toml_escape(s.motive_id),story_toml_escape(s.decisive_contradiction_id),story_toml_escape(s.weapon_block),story_toml_escape(s.murder_place_block),story_toml_escape(s.death_time_block),story_toml_escape(s.body_movement_block),story_toml_escape(s.staging_block),story_toml_escape(s.cleaning_block),story_toml_escape(s.alibi_block),story_toml_string_array(s.requirements[:s.requirement_count]),story_toml_string_array(s.murder_events[:s.murder_event_count]),story_toml_string_array(s.cover_up_events[:s.cover_up_event_count]),story_toml_string_array(s.false_alibis[:s.false_alibi_count]),story_toml_string_array(s.exclusions[:s.exclusion_count]))
+mystery_serialize_complete :: proc(value: rawptr) -> string {
+	payload := cast(^Mystery_Project)value; if payload == nil do return ""
+	text := mystery_serialize(value)
+	for &item in payload.characters do text = fmt.tprintf("%s\n[[mystery.characters]]\nentity = \"%s\"\nprivate_secret = \"%s\"\nmotive = \"%s\"\ninitial_disposition = %d\ninitial_claims = %s\n", text, story_toml_escape(item.entity_id), story_toml_escape(item.private_secret), story_toml_escape(item.motive), item.initial_disposition, story_toml_string_array(item.initial_claims[:item.initial_claim_count]))
+	for &item in payload.locations do text = fmt.tprintf("%s\n[[mystery.locations]]\nentity = \"%s\"\nconnections = %s\ncharacters = %s\npois = %s\nsearch_actions = %s\n", text, story_toml_escape(item.entity_id), story_toml_string_array(item.connections[:item.connection_count]), story_toml_string_array(item.characters[:item.character_count]), story_toml_string_array(item.pois[:item.poi_count]), story_toml_string_array(item.search_actions[:item.search_action_count]))
+	for item in payload.pois do text = fmt.tprintf("%s\n[[mystery.pois]]\nentity = \"%s\"\nlocation = \"%s\"\nowner = \"%s\"\nrelevant_state = \"%s\"\nexamination_action = \"%s\"\n", text, story_toml_escape(item.entity_id), story_toml_escape(item.location_id), story_toml_escape(item.owner_id), story_toml_escape(item.relevant_state), story_toml_escape(item.examination_action))
+	for &item in payload.events do text = fmt.tprintf("%s\n[[mystery.events]]\nevent = \"%s\"\ndestination = \"%s\"\ntool = \"%s\"\neffects = %s\n", text, story_toml_escape(item.event_id), story_toml_escape(item.destination_id), story_toml_escape(item.tool_id), story_toml_string_array(item.effects[:item.effect_count]))
+	for item in payload.claims do text = fmt.tprintf("%s\n[[mystery.claims]]\nid = \"%s\"\nspeaker = \"%s\"\nproposition = \"%s\"\nprotects = \"%s\"\nresponse = \"%s\"\ncanonical_truth = %t\n", text, story_toml_escape(item.id), story_toml_escape(item.speaker_id), story_toml_escape(item.proposition_id), story_toml_escape(item.protects), story_toml_escape(item.response), item.canonical_truth)
+	for item in payload.contradictions do text = fmt.tprintf("%s\n[[mystery.contradictions]]\nid = \"%s\"\nclaim = \"%s\"\nfact = \"%s\"\nconclusion = \"%s\"\nexplanation = \"%s\"\n", text, story_toml_escape(item.id), story_toml_escape(item.claim_id), story_toml_escape(item.fact_id), story_toml_escape(item.conclusion_id), story_toml_escape(item.explanation))
+	for &item in payload.deductions do text = fmt.tprintf("%s\n[[mystery.deductions]]\nid = \"%s\"\nproposition = \"%s\"\ncategory = \"%s\"\nsupports = %s\nunlock_questions = %s\nunlock_topics = %s\nunlock_investigations = %s\n", text, story_toml_escape(item.id), story_toml_escape(item.proposition_id), story_toml_escape(item.category), story_toml_string_array(item.supports[:item.support_count]), story_toml_string_array(item.unlock_questions[:item.unlock_question_count]), story_toml_string_array(item.unlock_topics[:item.unlock_topic_count]), story_toml_string_array(item.unlock_investigations[:item.unlock_investigation_count]))
+	for &item in payload.questions do text = fmt.tprintf("%s\n[[mystery.questions]]\nid = \"%s\"\nprompt = \"%s\"\nhypothesis = \"%s\"\ncategory = \"%s\"\nrequires_clues = %s\nrequires_claims = %s\nrequires_deductions = %s\ndependencies = %s\nrequired_for_final = %t\n", text, story_toml_escape(item.id), story_toml_escape(item.prompt), story_toml_escape(item.hypothesis_id), story_toml_escape(item.category), story_toml_string_array(item.requires_clues[:item.require_clue_count]), story_toml_string_array(item.requires_claims[:item.require_claim_count]), story_toml_string_array(item.requires_deductions[:item.require_deduction_count]), story_toml_string_array(item.dependencies[:item.dependency_count]), item.required_for_final)
+	for &item in payload.demonstrations do text = fmt.tprintf("%s\n[[mystery.demonstrations]]\nid = \"%s\"\nquestion = \"%s\"\nmode = \"%s\"\npresentation = \"%s\"\ngesture = \"%s\"\ngesture_steps = %s\nsubject = \"%s\"\ncandidate_limit = %d\nart = \"%s\"\ncompletion_cue = \"%s\"\nresolution = \"%s\"\nresult = \"%s\"\nprompt = \"%s\"\nslot_labels = %s\nslot_types = %s\naccepted = %s\nroute_firsts = %s\nroute_counts = %s\nresult_deductions = %s\n", text, story_toml_escape(item.id), story_toml_escape(item.question_id), story_toml_escape(item.mode), story_toml_escape(item.presentation), story_toml_escape(item.gesture), story_toml_string_array(item.gesture_steps[:item.gesture_step_count]), story_toml_escape(item.subject), item.candidate_limit, story_toml_escape(item.art), story_toml_escape(item.completion_cue), story_toml_escape(item.resolution), story_toml_escape(item.result), story_toml_escape(item.prompt), story_toml_string_array(item.slot_labels[:item.slot_count]), story_toml_string_array(item.slot_types[:item.slot_count]), story_toml_string_array(item.accepted[:item.accepted_count]), mystery_int_array(&item.route_firsts, item.route_count), mystery_int_array(&item.route_counts, item.route_count), story_toml_string_array(item.result_deductions[:item.result_count]))
+	for &item in payload.dialogue do text = fmt.tprintf("%s\n[[mystery.dialogue]]\nnode = \"%s\"\ncharacter = \"%s\"\nprompt = \"%s\"\nresponse = \"%s\"\nclue = \"%s\"\ninteraction = \"%s\"\nrequires = %s\nunlocks = %s\n", text, story_toml_escape(item.node_id), story_toml_escape(item.character_id), story_toml_escape(item.prompt), story_toml_escape(item.response), story_toml_escape(item.clue_id), story_toml_escape(item.interaction), story_toml_string_array(item.requires[:item.require_count]), story_toml_string_array(item.unlocks[:item.unlock_count]))
+	for item in payload.endings do text = fmt.tprintf("%s\n[[mystery.endings]]\nending = \"%s\"\ntrigger = \"%s\"\noutcome = \"%s\"\nsubtitle = \"%s\"\nepilogue = \"%s\"\ncanonical_timeline = \"%s\"\ntone = \"%s\"\nprimary_label = \"%s\"\nprimary_action = \"%s\"\nsecondary_label = \"%s\"\nsecondary_action = \"%s\"\n", text, story_toml_escape(item.ending_id), story_toml_escape(item.trigger), story_toml_escape(item.outcome), story_toml_escape(item.subtitle), story_toml_escape(item.epilogue), story_toml_escape(item.canonical_timeline), story_toml_escape(item.tone), story_toml_escape(item.primary_label), story_toml_escape(item.primary_action), story_toml_escape(item.secondary_label), story_toml_escape(item.secondary_action))
+	for item in payload.city_labels do text = fmt.tprintf("%s\n[[mystery.city_labels]]\nid = \"%s\"\ndisplay_name = \"%s\"\nlevel_spawn = \"%s\"\ncity_site = \"%s\"\n", text, story_toml_escape(item.id), story_toml_escape(item.display_name), story_toml_escape(item.level_spawn), story_toml_escape(item.city_site))
+	for item in payload.tutorial_lessons do text = fmt.tprintf("%s\n[[mystery.tutorial_lessons]]\nid = \"%s\"\ncapability = \"%s\"\nprompt = \"%s\"\n", text, story_toml_escape(item.id), story_toml_escape(item.capability), story_toml_escape(item.prompt))
+	s := &payload.solution; text = fmt.tprintf("%s\n[mystery.solution]\nculprit = \"%s\"\nmotive = \"%s\"\ndecisive_contradiction = \"%s\"\nweapon_block = \"%s\"\nmurder_place_block = \"%s\"\ndeath_time_block = \"%s\"\nbody_movement_block = \"%s\"\nstaging_block = \"%s\"\ncleaning_block = \"%s\"\nalibi_block = \"%s\"\nrequirements = %s\nmurder_events = %s\ncover_up_events = %s\nfalse_alibis = %s\nexclusions = %s\n", text, story_toml_escape(s.culprit_id), story_toml_escape(s.motive_id), story_toml_escape(s.decisive_contradiction_id), story_toml_escape(s.weapon_block), story_toml_escape(s.murder_place_block), story_toml_escape(s.death_time_block), story_toml_escape(s.body_movement_block), story_toml_escape(s.staging_block), story_toml_escape(s.cleaning_block), story_toml_escape(s.alibi_block), story_toml_string_array(s.requirements[:s.requirement_count]), story_toml_string_array(s.murder_events[:s.murder_event_count]), story_toml_string_array(s.cover_up_events[:s.cover_up_event_count]), story_toml_string_array(s.false_alibis[:s.false_alibi_count]), story_toml_string_array(s.exclusions[:s.exclusion_count]))
 	return text
 }
 
-mystery_hash_canonical :: proc(project:^Story_Project,seed:u64)->u64 {payload:=mystery_payload(project);result:=mystery_hash_complete(project,seed);if payload!=nil do result~=mystery_hash_text(1469598103934665603,fmt.tprintf("seed:%d",payload.seed));return result}
-mystery_player_view_serialize :: proc(view:^Mystery_Player_View)->string {
-	if view==nil do return "{\"action_budget_remaining\":0,\"clues\":[],\"claims\":[],\"topics\":[],\"deductions\":[]}"
-	text:=fmt.tprintf("{\"action_budget_remaining\":%d,\"clues\":[",view.action_budget_remaining)
-	for clue,i in view.clues {if i>0 do text=fmt.tprintf("%s,",text);text=fmt.tprintf("%s{\"id\":\"%s\",\"description\":\"%s\",\"proposition_id\":\"%s\",\"cost\":%d,\"acquired\":%t}",text,story_toml_escape(clue.id),story_toml_escape(clue.description),story_toml_escape(clue.proposition_id),clue.cost,clue.acquired)}
-	text=fmt.tprintf("%s],\"claims\":%s,\"topics\":%s,\"deductions\":%s}",text,story_toml_string_array(view.claims[:]),story_toml_string_array(view.topics[:]),story_toml_string_array(view.deductions[:]))
+mystery_hash_canonical :: proc(project: ^Story_Project, seed: u64) -> u64 {payload :=
+		mystery_payload(project)
+	result := mystery_hash_complete(project, seed)
+	if payload != nil do result ~= mystery_hash_text(1469598103934665603, fmt.tprintf("seed:%d", payload.seed))
+	return result}
+mystery_player_view_serialize :: proc(view: ^Mystery_Player_View) -> string {
+	if view == nil do return "{\"action_budget_remaining\":0,\"clues\":[],\"claims\":[],\"topics\":[],\"deductions\":[]}"
+	text := fmt.tprintf(
+		"{\"action_budget_remaining\":%d,\"clues\":[",
+		view.action_budget_remaining,
+	)
+	for clue, i in view.clues {if i > 0 do text = fmt.tprintf("%s,", text); text = fmt.tprintf("%s{\"id\":\"%s\",\"description\":\"%s\",\"proposition_id\":\"%s\",\"cost\":%d,\"acquired\":%t}", text, story_toml_escape(clue.id), story_toml_escape(clue.description), story_toml_escape(clue.proposition_id), clue.cost, clue.acquired)}
+	text = fmt.tprintf(
+		"%s],\"claims\":%s,\"topics\":%s,\"deductions\":%s}",
+		text,
+		story_toml_string_array(view.claims[:]),
+		story_toml_string_array(view.topics[:]),
+		story_toml_string_array(view.deductions[:]),
+	)
 	return text
 }
-mystery_serialize_canonical :: proc(value:rawptr)->string {payload:=cast(^Mystery_Project)value;text:=mystery_serialize_complete(value);if payload==nil do return text;needle:=fmt.tprintf("[mystery]\naction_budget = %d\n",payload.action_budget);replacement:=fmt.tprintf("%sseed = %d\n",needle,payload.seed);result,_:=strings.replace_all(text,needle,replacement);return result}
+mystery_serialize_canonical :: proc(
+	value: rawptr,
+) -> string {payload := cast(^Mystery_Project)value; text := mystery_serialize_complete(value)
+	if payload == nil do return text
+	needle := fmt.tprintf("[mystery]\naction_budget = %d\n", payload.action_budget)
+	replacement := fmt.tprintf("%sseed = %d\n", needle, payload.seed)
+	result, _ := strings.replace_all(text, needle, replacement)
+	return result}
 
-mystery_domain_register :: proc() {if story_domain_find("mystery",MYSTERY_DOMAIN_VERSION)!=nil do return;_=story_domain_register({id="mystery",version=MYSTERY_DOMAIN_VERSION,parse=mystery_parse,clone=mystery_clone,destroy=mystery_destroy,validate=mystery_validate,compile=mystery_compile,hash=mystery_hash_canonical,serialize=mystery_serialize_canonical,state_create=mystery_runtime_state_create,state_clone=mystery_runtime_state_clone,state_destroy=mystery_runtime_state_destroy})}
+mystery_domain_register :: proc() {if story_domain_find("mystery", MYSTERY_DOMAIN_VERSION) != nil do return
+	_ = story_domain_register(
+		{
+			id = "mystery",
+			version = MYSTERY_DOMAIN_VERSION,
+			parse = mystery_parse,
+			clone = mystery_clone,
+			destroy = mystery_destroy,
+			validate = mystery_validate,
+			compile = mystery_compile,
+			hash = mystery_hash_canonical,
+			serialize = mystery_serialize_canonical,
+			state_create = mystery_runtime_state_create,
+			state_clone = mystery_runtime_state_clone,
+			state_destroy = mystery_runtime_state_destroy,
+			condition_eval = mystery_condition_eval,
+		},
+	)}
 
-mystery_validation_has :: proc(validation:^Story_Validation,category:string)->bool {
-	for diagnostic in validation.diagnostics do if strings.contains(diagnostic.message,category) do return true
+mystery_validation_has :: proc(validation: ^Story_Validation, category: string) -> bool {
+	for diagnostic in validation.diagnostics do if strings.contains(diagnostic.message, category) do return true
 	return false
 }
 
 run_mystery_domain_tests :: proc() {
 	story_domains_initialize()
-	project:=Story_Project{version=STORY_PROJECT_VERSION,id="mystery_test",title="Mystery Test",content_version="1",default_space_id="level"};append(&project.capabilities,Story_Capability_Requirement{id="mystery",version=MYSTERY_DOMAIN_VERSION})
-	append(&project.entities,Story_Entity{id="detective",kind="character",display_name="Detective"},Story_Entity{id="suspect_a",kind="character",display_name="Suspect A"},Story_Entity{id="suspect_b",kind="character",display_name="Suspect B"},Story_Entity{id="desk",kind="object",display_name="Desk",spatial={"level",.Entity,"desk"}})
-	append(&project.propositions,Story_Proposition{id="prop_note",text="A note exists",canonical_truth=.True})
-	payload:=new(Mystery_Project);mem.dynamic_arena_init(&payload.arena);allocator:=mem.dynamic_arena_allocator(&payload.arena)
-	payload.action_budget=3;payload.characters=make([]Mystery_Character_Metadata,1,allocator);payload.characters[0]={entity_id="detective",private_secret="A hidden test secret",motive="Testing",initial_disposition=-1,initial_claim_count=1};payload.characters[0].initial_claims[0]="claim_note";payload.pois=make([]Mystery_POI_Metadata,1,allocator);payload.pois[0]={"desk","study","detective","The drawer is open","examine"};payload.events=make([]Mystery_Event_Metadata,1,allocator);payload.events[0]={event_id="event_note",destination_id="study",tool_id="key",effect_count=1};payload.events[0].effects[0]="drawer_open";payload.clues=make([]Mystery_Clue,1,allocator);payload.clues[0]={id="clue_note",source_id="desk",description="A folded note",proposition_id="prop_note",skill="Observation",check_kind="white",cost=1,essential=true};payload.solution.culprit_id="detective";payload.solution.weapon_block="weapon";payload.solution.murder_events[0]="event_note";payload.solution.murder_event_count=1;payload.solution.requirements[0]="clue_note";payload.solution.requirement_count=1;payload.solution.exclusions[0]="suspect_a";payload.solution.exclusions[1]="suspect_b";payload.solution.exclusion_count=2;project.capabilities[0].payload=payload
-	validation:=story_project_validate(&project);assert(validation.ok);story_validation_destroy(&validation)
-	invalid:=story_project_clone(&project);invalid_payload:=mystery_payload(&invalid);invalid_payload.action_budget=0;invalid_validation:=story_project_validate(&invalid);assert(!invalid_validation.ok&&mystery_validation_has(&invalid_validation,"[affordability]"));story_validation_destroy(&invalid_validation);story_project_destroy(&invalid)
-	invalid=story_project_clone(&project);invalid_payload=mystery_payload(&invalid);invalid_payload.clues[0].check_kind="red";invalid_validation=story_project_validate(&invalid);assert(!invalid_validation.ok&&mystery_validation_has(&invalid_validation,"[routes]"));story_validation_destroy(&invalid_validation);story_project_destroy(&invalid)
-	invalid=story_project_clone(&project);invalid_payload=mystery_payload(&invalid);invalid_payload.clues[0].prerequisites[0]="clue_note";invalid_payload.clues[0].prerequisite_count=1;invalid_validation=story_project_validate(&invalid);assert(!invalid_validation.ok&&mystery_validation_has(&invalid_validation,"[dependencies]"));story_validation_destroy(&invalid_validation);story_project_destroy(&invalid)
-	invalid=story_project_clone(&project);invalid.entities[3].spatial={};invalid_validation=story_project_validate(&invalid);assert(!invalid_validation.ok&&mystery_validation_has(&invalid_validation,"[spatial]"));story_validation_destroy(&invalid_validation);story_project_destroy(&invalid)
-	invalid=story_project_clone(&project);invalid_payload=mystery_payload(&invalid);invalid_payload.solution.exclusion_count=1;invalid_validation=story_project_validate(&invalid);assert(!invalid_validation.ok&&mystery_validation_has(&invalid_validation,"[exclusion]"));story_validation_destroy(&invalid_validation);story_project_destroy(&invalid)
-	state:=mystery_state_init(&project);assert(state.action_budget_remaining==3&&mystery_acquire_evidence(&project,&state,"clue_note")&&state.action_budget_remaining==2)
-	view:=mystery_player_query(&project,&state);assert(len(view.clues)==1&&view.clues[0].acquired);mystery_player_view_destroy(&view);mystery_state_destroy(&state)
-	clone:=story_project_clone(&project);assert(mystery_payload(&clone)!=nil&&mystery_payload(&clone).clues[0].id=="clue_note");serialized:=story_project_serialize(&clone);assert(strings.contains(serialized,"[[mystery.clues]]")&&strings.contains(serialized,"[mystery.solution]"))
-	path:="/private/tmp/chicago-mystery-domain-roundtrip.story.toml";assert(save_story_project(path,&clone).ok);roundtrip:Story_Project;assert(load_story_project(path,&roundtrip).ok);roundtrip_payload:=mystery_payload(&roundtrip);assert(roundtrip_payload!=nil&&roundtrip_payload.clues[0].id=="clue_note"&&roundtrip_payload.characters[0].private_secret=="A hidden test secret"&&roundtrip_payload.pois[0].owner_id=="detective"&&roundtrip_payload.events[0].effects[0]=="drawer_open"&&roundtrip_payload.solution.weapon_block=="weapon"&&roundtrip_payload.solution.murder_events[0]=="event_note");story_project_destroy(&roundtrip);story_project_destroy(&clone);story_project_destroy(&project)
-	authored:Story_Project;assert(load_story_project("assets/stories/mysteries/the_torn_appointment.story.toml",&authored).ok);authored_validation:=story_project_validate(&authored);if !authored_validation.ok {for diagnostic in authored_validation.diagnostics do fmt.println("unified mystery validation: ",diagnostic.message)};assert(authored_validation.ok&&mystery_payload(&authored)!=nil&&mystery_payload(&authored).seed!=0);story_validation_destroy(&authored_validation)
-	invalid=story_project_clone(&authored);invalid_payload=mystery_payload(&invalid);assert(len(invalid_payload.dialogue)>0);invalid_payload.dialogue[0].node_id="missing_dialogue_node";invalid_validation=story_project_validate(&invalid);assert(!invalid_validation.ok&&mystery_validation_has(&invalid_validation,"[dialogue]"));story_validation_destroy(&invalid_validation);story_project_destroy(&invalid)
-	invalid=story_project_clone(&authored);invalid_payload=mystery_payload(&invalid);protected_claim:=-1;for claim,i in invalid_payload.claims do if claim.protects!="" {protected_claim=i;break};assert(protected_claim>=0);invalid_payload.claims[protected_claim].response="";invalid_validation=story_project_validate(&invalid);assert(!invalid_validation.ok&&mystery_validation_has(&invalid_validation,"[routes]"));story_validation_destroy(&invalid_validation);story_project_destroy(&invalid)
+	project := Story_Project {
+		version          = STORY_PROJECT_VERSION,
+		id               = "mystery_test",
+		title            = "Mystery Test",
+		content_version  = "1",
+		default_space_id = "level",
+	}; append(
+		&project.capabilities,
+		Story_Capability_Requirement{id = "mystery", version = MYSTERY_DOMAIN_VERSION},
+	)
+	append(
+		&project.entities,
+		Story_Entity{id = "detective", kind = "character", display_name = "Detective"},
+		Story_Entity{id = "suspect_a", kind = "character", display_name = "Suspect A"},
+		Story_Entity{id = "suspect_b", kind = "character", display_name = "Suspect B"},
+		Story_Entity {
+			id = "desk",
+			kind = "object",
+			display_name = "Desk",
+			spatial = {"level", .Entity, "desk"},
+		},
+	)
+	append(
+		&project.propositions,
+		Story_Proposition{id = "prop_note", text = "A note exists", canonical_truth = .True},
+	)
+	payload := new(
+		Mystery_Project,
+	); mem.dynamic_arena_init(&payload.arena); allocator := mem.dynamic_arena_allocator(&payload.arena)
+	payload.action_budget = 3; payload.characters = make([]Mystery_Character_Metadata, 1, allocator); payload.characters[0] = {
+		entity_id           = "detective",
+		private_secret      = "A hidden test secret",
+		motive              = "Testing",
+		initial_disposition = -1,
+		initial_claim_count = 1,
+	}; payload.characters[0].initial_claims[0] = "claim_note"; payload.pois = make([]Mystery_POI_Metadata, 1, allocator); payload.pois[0] = {"desk", "study", "detective", "The drawer is open", "examine"}; payload.events = make([]Mystery_Event_Metadata, 1, allocator); payload.events[0] = {
+		event_id       = "event_note",
+		destination_id = "study",
+		tool_id        = "key",
+		effect_count   = 1,
+	}; payload.events[0].effects[0] = "drawer_open"; payload.clues = make([]Mystery_Clue, 1, allocator); payload.clues[0] = {
+		id             = "clue_note",
+		source_id      = "desk",
+		description    = "A folded note",
+		proposition_id = "prop_note",
+		skill          = "Observation",
+		check_kind     = "white",
+		cost           = 1,
+		essential      = true,
+	}; payload.solution.culprit_id = "detective"; payload.solution.weapon_block = "weapon"; payload.solution.murder_events[0] = "event_note"; payload.solution.murder_event_count = 1; payload.solution.requirements[0] = "clue_note"; payload.solution.requirement_count = 1; payload.solution.exclusions[0] = "suspect_a"; payload.solution.exclusions[1] = "suspect_b"; payload.solution.exclusion_count = 2; project.capabilities[0].payload = payload
+	validation := story_project_validate(
+		&project,
+	); assert(validation.ok); story_validation_destroy(&validation)
+	invalid := story_project_clone(
+		&project,
+	); invalid_payload := mystery_payload(&invalid); invalid_payload.action_budget = 0; invalid_validation := story_project_validate(&invalid); assert(!invalid_validation.ok && mystery_validation_has(&invalid_validation, "[affordability]")); story_validation_destroy(&invalid_validation); story_project_destroy(&invalid)
+	invalid = story_project_clone(
+		&project,
+	); invalid_payload = mystery_payload(&invalid); invalid_payload.clues[0].check_kind = "red"; invalid_validation = story_project_validate(&invalid); assert(!invalid_validation.ok && mystery_validation_has(&invalid_validation, "[routes]")); story_validation_destroy(&invalid_validation); story_project_destroy(&invalid)
+	invalid = story_project_clone(
+		&project,
+	); invalid_payload = mystery_payload(&invalid); invalid_payload.clues[0].prerequisites[0] = "clue_note"; invalid_payload.clues[0].prerequisite_count = 1; invalid_validation = story_project_validate(&invalid); assert(!invalid_validation.ok && mystery_validation_has(&invalid_validation, "[dependencies]")); story_validation_destroy(&invalid_validation); story_project_destroy(&invalid)
+	invalid = story_project_clone(
+		&project,
+	); invalid.entities[3].spatial = {}; invalid_validation = story_project_validate(&invalid); assert(!invalid_validation.ok && mystery_validation_has(&invalid_validation, "[spatial]")); story_validation_destroy(&invalid_validation); story_project_destroy(&invalid)
+	invalid = story_project_clone(
+		&project,
+	); invalid_payload = mystery_payload(&invalid); invalid_payload.solution.exclusion_count = 1; invalid_validation = story_project_validate(&invalid); assert(!invalid_validation.ok && mystery_validation_has(&invalid_validation, "[exclusion]")); story_validation_destroy(&invalid_validation); story_project_destroy(&invalid)
+	state := mystery_state_init(
+		&project,
+	); assert(state.action_budget_remaining == 3 && mystery_acquire_evidence(&project, &state, "clue_note") && state.action_budget_remaining == 2)
+	view := mystery_player_query(
+		&project,
+		&state,
+	); assert(len(view.clues) == 1 && view.clues[0].acquired); mystery_player_view_destroy(&view); mystery_state_destroy(&state)
+	clone := story_project_clone(
+		&project,
+	); assert(mystery_payload(&clone) != nil && mystery_payload(&clone).clues[0].id == "clue_note"); serialized := story_project_serialize(&clone); assert(strings.contains(serialized, "[[mystery.clues]]") && strings.contains(serialized, "[mystery.solution]"))
+	path := "/private/tmp/chicago-mystery-domain-roundtrip.story.toml"; assert(save_story_project(path, &clone).ok); roundtrip: Story_Project; assert(load_story_project(path, &roundtrip).ok); roundtrip_payload := mystery_payload(&roundtrip); assert(roundtrip_payload != nil && roundtrip_payload.clues[0].id == "clue_note" && roundtrip_payload.characters[0].private_secret == "A hidden test secret" && roundtrip_payload.pois[0].owner_id == "detective" && roundtrip_payload.events[0].effects[0] == "drawer_open" && roundtrip_payload.solution.weapon_block == "weapon" && roundtrip_payload.solution.murder_events[0] == "event_note"); story_project_destroy(&roundtrip); story_project_destroy(&clone); story_project_destroy(&project)
+	authored: Story_Project; assert(load_story_project("assets/stories/mysteries/the_torn_appointment.story.toml", &authored).ok); authored_validation := story_project_validate(&authored); if !authored_validation.ok {for diagnostic in authored_validation.diagnostics do fmt.println("unified mystery validation: ", diagnostic.message)}; assert(authored_validation.ok && mystery_payload(&authored) != nil && mystery_payload(&authored).seed != 0); story_validation_destroy(&authored_validation)
+	invalid = story_project_clone(
+		&authored,
+	); invalid_payload = mystery_payload(&invalid); assert(len(invalid_payload.dialogue) > 0); invalid_payload.dialogue[0].node_id = "missing_dialogue_node"; invalid_validation = story_project_validate(&invalid); assert(!invalid_validation.ok && mystery_validation_has(&invalid_validation, "[dialogue]")); story_validation_destroy(&invalid_validation); story_project_destroy(&invalid)
+	invalid = story_project_clone(
+		&authored,
+	); invalid_payload = mystery_payload(&invalid); protected_claim := -1; for claim, i in invalid_payload.claims do if claim.protects != "" {protected_claim = i; break}; assert(protected_claim >= 0); invalid_payload.claims[protected_claim].response = ""; invalid_validation = story_project_validate(&invalid); assert(!invalid_validation.ok && mystery_validation_has(&invalid_validation, "[routes]")); story_validation_destroy(&invalid_validation); story_project_destroy(&invalid)
 	story_project_destroy(&authored)
 }

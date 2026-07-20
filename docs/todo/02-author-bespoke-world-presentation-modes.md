@@ -1,5 +1,7 @@
 # Author bespoke world presentation modes
 
+Status: Complete (2026-07-20)
+
 ## Goal
 
 Make the shutter mechanism, body tableau, blood, and drag trace regular authored presentations instead of renderer branches selected by entity identity.
@@ -27,4 +29,3 @@ Make the shutter mechanism, body tableau, blood, and drag trace regular authored
 - No renderer branch names a Vale House entity or marker.
 - Targeted open/closed shutter and crime-scene screenshots pass visual review.
 - `make check` and all self-tests pass.
-

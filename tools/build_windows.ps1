@@ -32,7 +32,9 @@ try {
     if (-not (Test-Path (Join-Path $joltSource "Build\CMakeLists.txt"))) {
         Invoke-Native { git clone --depth 1 --branch v5.4.0 https://github.com/jrouwe/JoltPhysics.git $joltSource }
     }
-    Invoke-Native { cmake -S "$engine\third_party\jolt" -B "$engine\third_party\jolt\build-windows" -A x64 -DCMAKE_BUILD_TYPE=Release }
+    # The wrapper DLL uses MSVC's dynamic CRT (/MD). Jolt defaults to the static
+    # CRT (/MT), which makes the two targets impossible to link together.
+    Invoke-Native { cmake -S "$engine\third_party\jolt" -B "$engine\third_party\jolt\build-windows" -A x64 -DUSE_STATIC_MSVC_RUNTIME_LIBRARY=OFF }
     Invoke-Native { cmake --build "$engine\third_party\jolt\build-windows" --config Release --target zelda_physics }
     $physics = Get-ChildItem "$engine\third_party\jolt\build-windows" -Recurse -Filter zelda_physics.lib | Select-Object -First 1
     if (-not $physics) { throw "zelda_physics.lib was not produced" }
@@ -43,6 +45,7 @@ try {
 
     Invoke-Native { cl /nologo /O2 /c "$engine\third_party\textshape\textshape.c" "/I$installed\include" "/Fo$engine\third_party\textshape\textshape.obj" }
     Invoke-Native { lib /nologo "/OUT:$engine\third_party\textshape\textshape.lib" "$engine\third_party\textshape\textshape.obj" }
+    Copy-Item "$engine\third_party\textshape\textshape.lib" "third_party\textshape.lib" -Force
 
     Invoke-Native { cl /nologo /O2 /c third_party\tomlc17\tomlc17.c /Fothird_party\tomlc17\tomlc17.obj }
     Invoke-Native { lib /nologo /OUT:third_party\tomlc17\tomlc17.lib third_party\tomlc17\tomlc17.obj }

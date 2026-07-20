@@ -31,50 +31,50 @@ Authoring_Validation_Domain :: enum {
 }
 
 Authoring_Diagnostic_Location :: struct {
-	present: bool,
+	present:  bool,
 	space_id: string,
-	story: int,
+	story:    int,
 	position: Vec2,
 }
 
 Authoring_Diagnostic_Related_Record :: struct {
-	document: string,
-	entity_id: string,
+	document:   string,
+	entity_id:  string,
 	field_path: string,
 }
 
 Authoring_Diagnostic :: struct {
-	domain: Authoring_Validation_Domain,
-	document: string,
-	entity_id: string,
-	field_path: string,
-	severity: Authoring_Diagnostic_Severity,
-	message: string,
-	related: [AUTHORING_DIAGNOSTIC_MAX_RELATED]Authoring_Diagnostic_Related_Record,
+	domain:        Authoring_Validation_Domain,
+	document:      string,
+	entity_id:     string,
+	field_path:    string,
+	severity:      Authoring_Diagnostic_Severity,
+	message:       string,
+	related:       [AUTHORING_DIAGNOSTIC_MAX_RELATED]Authoring_Diagnostic_Related_Record,
 	related_count: int,
-	location: Authoring_Diagnostic_Location,
-	fix_id: string,
+	location:      Authoring_Diagnostic_Location,
+	fix_id:        string,
 }
 
 Authoring_Domain_Freshness :: struct {
-	domain: Authoring_Validation_Domain,
-	source_revision: u64,
+	domain:             Authoring_Validation_Domain,
+	source_revision:    u64,
 	validated_revision: u64,
-	valid: bool,
+	valid:              bool,
 }
 
 Authoring_Validation_Snapshot :: struct {
-	revision: u64,
-	profile: Authoring_Validation_Profile,
-	diagnostics: [dynamic]Authoring_Diagnostic,
-	domains: [AUTHORING_VALIDATION_MAX_DOMAINS]Authoring_Domain_Freshness,
+	revision:     u64,
+	profile:      Authoring_Validation_Profile,
+	diagnostics:  [dynamic]Authoring_Diagnostic,
+	domains:      [AUTHORING_VALIDATION_MAX_DOMAINS]Authoring_Domain_Freshness,
 	domain_count: int,
 }
 
 Authoring_Diagnostic_Filter :: struct {
 	minimum_severity: Authoring_Diagnostic_Severity,
-	domain_enabled: [len(Authoring_Validation_Domain)]bool,
-	search: string,
+	domain_enabled:   [len(Authoring_Validation_Domain)]bool,
+	search:           string,
 }
 
 authoring_diagnostic_init :: proc(
@@ -109,7 +109,12 @@ authoring_diagnostic_set_location :: proc(
 	story: int,
 	position: Vec2,
 ) {
-	diagnostic.location = {present = true, space_id = space_id, story = story, position = position}
+	diagnostic.location = {
+		present  = true,
+		space_id = space_id,
+		story    = story,
+		position = position,
+	}
 }
 
 authoring_validation_snapshot_init :: proc(
@@ -213,7 +218,7 @@ authoring_diagnostic_less :: proc(a, b: Authoring_Diagnostic) -> bool {
 }
 
 authoring_validation_sort :: proc(snapshot: ^Authoring_Validation_Snapshot) {
-	for index in 1..<len(snapshot.diagnostics) {
+	for index in 1 ..< len(snapshot.diagnostics) {
 		item := snapshot.diagnostics[index]
 		position := index
 		for position > 0 && authoring_diagnostic_less(item, snapshot.diagnostics[position - 1]) {
@@ -246,7 +251,9 @@ authoring_validation_is_blocked :: proc(snapshot: ^Authoring_Validation_Snapshot
 }
 
 authoring_diagnostic_filter_all :: proc() -> Authoring_Diagnostic_Filter {
-	result := Authoring_Diagnostic_Filter{minimum_severity = .Info}
+	result := Authoring_Diagnostic_Filter {
+		minimum_severity = .Info,
+	}
 	for &enabled in result.domain_enabled do enabled = true
 	return result
 }
@@ -258,10 +265,12 @@ authoring_diagnostic_matches :: proc(
 	if diagnostic.severity < filter.minimum_severity || !filter.domain_enabled[diagnostic.domain] do return false
 	if filter.search == "" do return true
 	needle := strings.to_lower(filter.search)
-	return strings.contains(strings.to_lower(diagnostic.document), needle) ||
+	return(
+		strings.contains(strings.to_lower(diagnostic.document), needle) ||
 		strings.contains(strings.to_lower(diagnostic.entity_id), needle) ||
 		strings.contains(strings.to_lower(diagnostic.field_path), needle) ||
-		strings.contains(strings.to_lower(diagnostic.message), needle)
+		strings.contains(strings.to_lower(diagnostic.message), needle) \
+	)
 }
 
 authoring_validation_filtered_indices :: proc(

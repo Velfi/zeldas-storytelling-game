@@ -42,6 +42,10 @@ kind = "character"
 display_name = "Miriam Vale"
 description = "Edgar's composed spouse, immaculate even beside a cold dinner."
 appearance_model_asset_ref = ""
+default_animation = "Idle_A"
+animation_phase = 0.0
+presentation_tint = [255, 255, 255, 255]
+presentation_facing = 0.0
 space_id = "vale_house"
 target_kind = "marker"
 target_id = "marker_miriam"
@@ -50,7 +54,7 @@ container_capacity = 0
 locked = false
 owner = ""
 contained_by = ""
-tags = ["suspect"]
+tags = ["suspect", "face_on_appointment_contradiction"]
 roles = ["world_entity"]
 
 [[entities]]
@@ -59,6 +63,10 @@ kind = "character"
 display_name = "Daniel Cross"
 description = "The family solicitor, polished and watchful."
 appearance_model_asset_ref = ""
+default_animation = "Idle_B"
+animation_phase = 2.1
+presentation_tint = [255, 255, 255, 255]
+presentation_facing = 0.0
 space_id = "vale_house"
 target_kind = "marker"
 target_id = "marker_daniel"
@@ -67,7 +75,7 @@ container_capacity = 0
 locked = false
 owner = ""
 contained_by = ""
-tags = ["suspect"]
+tags = ["suspect", "turn_on_alibi_claim"]
 roles = ["world_entity"]
 
 [[entities]]
@@ -76,6 +84,10 @@ kind = "character"
 display_name = "Elsie Ward"
 description = "Vale House's housekeeper, brisk in manner and wary of questions."
 appearance_model_asset_ref = ""
+default_animation = "Idle_A"
+animation_phase = 4.2
+presentation_tint = [255, 255, 255, 255]
+presentation_facing = 0.0
 space_id = "vale_house"
 target_kind = "marker"
 target_id = "marker_elsie"
@@ -84,7 +96,7 @@ container_capacity = 0
 locked = false
 owner = ""
 contained_by = ""
-tags = ["suspect"]
+tags = ["suspect", "turn_on_threshold_eight"]
 roles = ["world_entity"]
 
 [[entities]]
@@ -101,7 +113,7 @@ container_capacity = 0
 locked = false
 owner = ""
 contained_by = ""
-tags = []
+tags = ["dining_walkthrough"]
 roles = ["world_entity"]
 
 [[entities]]
@@ -178,6 +190,8 @@ kind = "object"
 display_name = "Bronze Statuette"
 description = "A heavy bronze figure, polished recently enough to leave oil in its recesses."
 appearance_model_asset_ref = "core:evidence_statuette"
+interaction_scene_id = "scene_inspect_statuette"
+interaction_prompt = "INSPECT"
 space_id = "vale_house"
 target_kind = "marker"
 target_id = "evidence_statuette"
@@ -186,7 +200,7 @@ container_capacity = 0
 locked = false
 owner = ""
 contained_by = ""
-tags = []
+tags = ["statuette_examination"]
 roles = ["world_entity"]
 
 [[entities]]
@@ -195,6 +209,9 @@ kind = "object"
 display_name = "Edgar's Locked Desk"
 description = "A private writing desk with a locked center drawer. Through the narrow gap, the spine of a ledger and a torn memo pad are just visible."
 appearance_model_asset_ref = ""
+interaction_scene_id = "scene_inspect_desk"
+interaction_prompt = "UNLOCK"
+completion_prompt = "OPEN"
 space_id = "vale_house"
 target_kind = "marker"
 target_id = "evidence_study_desk"
@@ -212,6 +229,9 @@ kind = "object"
 display_name = "Torn Memo Stub"
 description = "A ragged stub remains in Edgar's memo pad: 'Miriam—study, 8:20—'"
 appearance_model_asset_ref = ""
+interaction_scene_id = "scene_recover_memo_stub"
+interaction_prompt = "RECOVER STUB"
+completion_prompt = "STUB RECOVERED"
 space_id = "vale_house"
 target_kind = "marker"
 target_id = "evidence_memo_stub"
@@ -220,7 +240,7 @@ container_capacity = 0
 locked = false
 owner = ""
 contained_by = ""
-tags = []
+tags = ["visible_when_desk_open", "appointment_fragment", "appointment_memo_fragment"]
 roles = ["world_entity"]
 
 [[entities]]
@@ -229,6 +249,9 @@ kind = "object"
 display_name = "Burned Note Fragment"
 description = "A partly burned fragment curls against the metal wastebin: '—bring the account books. We settle this tonight. —E.'"
 appearance_model_asset_ref = "core:evidence_wastebin"
+interaction_scene_id = "scene_search_wastebin"
+interaction_prompt = "SEARCH ASH"
+completion_prompt = "FRAGMENT RECOVERED"
 space_id = "vale_house"
 target_kind = "marker"
 target_id = "evidence_burned_note"
@@ -237,7 +260,7 @@ container_capacity = 0
 locked = false
 owner = ""
 contained_by = ""
-tags = []
+tags = ["appointment_fragment", "appointment_burned_fragment"]
 roles = ["world_entity"]
 
 [[entities]]
@@ -254,7 +277,7 @@ container_capacity = 0
 locked = false
 owner = ""
 contained_by = ""
-tags = []
+tags = ["visible_when_desk_open"]
 roles = ["world_entity"]
 
 [[entities]]
@@ -297,6 +320,8 @@ kind = "object"
 display_name = "Polishing Cloth"
 description = "The damp cloth smells sharply of lamp oil. Rust-colored moisture stains its folds."
 appearance_model_asset_ref = "core:evidence_cloth"
+interaction_scene_id = "scene_inspect_cloth"
+interaction_prompt = "INSPECT"
 space_id = "vale_house"
 target_kind = "marker"
 target_id = "evidence_cloth"
@@ -322,7 +347,7 @@ container_capacity = 0
 locked = false
 owner = ""
 contained_by = ""
-tags = ["shutter_mechanism"]
+tags = ["shutter_mechanism", "shutter_sightline_dialogue"]
 roles = ["world_entity"]
 
 [[entities]]
@@ -331,6 +356,8 @@ kind = "character"
 display_name = "Sergeant Bell"
 description = "The lead uniformed officer securing Vale House."
 appearance_model_asset_ref = ""
+interaction_scene_id = "scene_officer_lead"
+interaction_prompt = "REQUEST REPORT"
 space_id = "vale_house"
 target_kind = "marker"
 target_id = "marker_officer_lead"
@@ -339,7 +366,7 @@ container_capacity = 0
 locked = false
 owner = ""
 contained_by = ""
-tags = ["officer"]
+tags = ["officer", "lead_officer"]
 roles = ["world_entity"]
 
 [[entities]]
@@ -348,6 +375,8 @@ kind = "character"
 display_name = "Constable Reed"
 description = "A constable holding the gallery and its doors."
 appearance_model_asset_ref = ""
+interaction_scene_id = "scene_officer_hall"
+interaction_prompt = "REQUEST REPORT"
 space_id = "vale_house"
 target_kind = "marker"
 target_id = "marker_officer_hall"
@@ -356,7 +385,7 @@ container_capacity = 0
 locked = false
 owner = ""
 contained_by = ""
-tags = ["officer"]
+tags = ["officer", "hall_officer"]
 roles = ["world_entity"]
 
 [[entities]]
@@ -365,6 +394,8 @@ kind = "character"
 display_name = "Constable Shaw"
 description = "A constable protecting the rain-softened garden scene."
 appearance_model_asset_ref = ""
+interaction_scene_id = "scene_officer_garden"
+interaction_prompt = "REQUEST REPORT"
 space_id = "vale_house"
 target_kind = "marker"
 target_id = "marker_officer_garden"
@@ -373,7 +404,7 @@ container_capacity = 0
 locked = false
 owner = ""
 contained_by = ""
-tags = ["officer"]
+tags = ["officer", "garden_officer"]
 roles = ["world_entity"]
 
 [[entities]]
@@ -382,6 +413,9 @@ kind = "object"
 display_name = "Edgar Vale"
 description = "Edgar lies beneath the shuttered study window."
 appearance_model_asset_ref = ""
+interaction_scene_id = "scene_recover_desk_key"
+interaction_prompt = "INSPECT"
+completion_prompt = "INSPECTED"
 space_id = "vale_house"
 target_kind = "marker"
 target_id = "crime_scene_body"
@@ -390,7 +424,7 @@ container_capacity = 0
 locked = false
 owner = ""
 contained_by = ""
-tags = ["crime_scene_body"]
+tags = ["crime_scene_body", "evidence_dialogue_after_scene", "body_examination_dialogue", "desk_key_source"]
 roles = ["world_entity"]
 
 [[entities]]
@@ -407,7 +441,7 @@ container_capacity = 0
 locked = false
 owner = ""
 contained_by = ""
-tags = []
+tags = ["liftable_rug"]
 roles = ["world_entity"]
 
 [[entities]]
@@ -424,7 +458,7 @@ container_capacity = 0
 locked = false
 owner = ""
 contained_by = ""
-tags = []
+tags = ["initially_hidden", "clue_source=shutter_crank"]
 roles = ["world_entity"]
 
 [[entities]]
@@ -441,7 +475,7 @@ container_capacity = 0
 locked = false
 owner = ""
 contained_by = ""
-tags = []
+tags = ["reflection_dialogue"]
 roles = ["world_entity"]
 
 [[propositions]]
@@ -689,12 +723,64 @@ comparison = 0
 objective_status = 0
 stance = "uncertain"
 
+[[conditions]]
+id = "condition.knows_miriam_denial_disproved"
+kind = "capability_state"
+entity = "mystery"
+content = "known:ded_miriam_denial_disproved"
+
+[[conditions]]
+id = "condition.knows_daniel_affair"
+kind = "capability_state"
+entity = "mystery"
+content = "known:ded_daniel_affair"
+
+[[conditions]]
+id = "condition.knows_elsie_theft"
+kind = "capability_state"
+entity = "mystery"
+content = "known:ded_elsie_theft"
+
+[[conditions]]
+id = "condition.knows_both_smaller_lies"
+kind = "all"
+children = ["condition.knows_daniel_affair", "condition.knows_elsie_theft"]
+
+[[conditions]]
+id = "condition.knows_either_smaller_lie"
+kind = "any"
+children = ["condition.knows_daniel_affair", "condition.knows_elsie_theft"]
+
+[[conditions]]
+id = "condition.knows_dinner_settings"
+kind = "capability_state"
+entity = "mystery"
+content = "known:clue_dinner_settings"
+
+[[conditions]]
+id = "condition.knows_scene_staged"
+kind = "capability_state"
+entity = "mystery"
+content = "known:ded_scene_staged"
+
+[[conditions]]
+id = "condition.knows_body_moved"
+kind = "capability_state"
+entity = "mystery"
+content = "known:ded_body_moved"
+
+[[conditions]]
+id = "condition.knows_drag"
+kind = "capability_state"
+entity = "mystery"
+content = "known:clue_drag"
+
 [[scenes]]
 id = "scene_arrival"
-display_name = "At Vale House, Miriam tries to define the evening before the detective crosses the threshold; Daniel frames himself as witness before ally, while Elsie separates who found the open doors from who found Edgar."
+display_name = "At Vale House, the detective separates the witnesses, seals the exits, and protects the garden before taking three accounts."
 entry_node = "arrival_constable"
 bound_entity = ""
-summary = "At Vale House, Miriam tries to define the evening before the detective crosses the threshold; Daniel frames himself as witness before ally, while Elsie separates who found the open doors from who found Edgar."
+summary = "The detective orders Bell to separate the witnesses, Reed to seal the exits, and Shaw to protect the garden before taking three accounts."
 return_to = "investigation"
 
 [[scenes]]
@@ -993,6 +1079,280 @@ bound_entity = ""
 summary = "A dispatch calls Edgar Vale's death a garden fall, then undermines itself with a closed storm shutter, an open door, and three explanations already waiting."
 return_to = "exterior"
 
+[[scenes]]
+id = "scene_officer_lead"
+display_name = "Sergeant Bell's report"
+entry_node = "officer_lead_open"
+bound_entity = "officer_lead"
+summary = "Bell keeps Vale House secured while the detective decides whether the reconstruction is ready."
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_officer_hall"
+display_name = "Constable Reed's report"
+entry_node = "officer_hall_open"
+bound_entity = "officer_hall"
+summary = "Reed reports on movement through the gallery and the secured house."
+return_to = "investigation"
+
+[[scenes]]
+id = "scene_officer_garden"
+display_name = "Constable Shaw's report"
+entry_node = "officer_garden_open"
+bound_entity = "officer_garden"
+summary = "Shaw reports on the rain-softened marks around the garden scene."
+return_to = "investigation"
+
+[[nodes]]
+id = "officer_lead_open"
+scene = "scene_officer_lead"
+kind = "line"
+line_id = "officer_lead_open"
+speaker = "officer_lead"
+text = "Bell closes his notebook. 'We can hold the room until you are ready to put the night together.'"
+next = "officer_lead_choices"
+condition_id = "condition.always"
+effect_ids = []
+ui = "dialogue"
+blocking = false
+
+[[nodes]]
+id = "officer_lead_choices"
+scene = "scene_officer_lead"
+kind = "choice"
+line_id = "officer_lead_choices"
+speaker = "detective"
+text = "Bell waits for the detective's instruction."
+next = ""
+condition_id = "condition.always"
+effect_ids = []
+ui = "dialogue"
+blocking = false
+choice_ids = ["request_report", "begin_reconstruction"]
+choice_labels = ["Bell, give me the gaps in the record.", "I'm ready to reconstruct what happened."]
+choice_targets = ["officer_lead_report", "officer_lead_confirm"]
+choice_conditions = ["condition.always", "condition.always"]
+
+[[nodes]]
+id = "officer_lead_report"
+scene = "scene_officer_lead"
+kind = "line"
+line_id = "officer_lead_report"
+speaker = "officer_lead"
+text = "'The house stays held until you call for everyone. The accounts still separate where the physical record ought to join them.'"
+next = "officer_lead_end"
+condition_id = "condition.always"
+effect_ids = []
+ui = "dialogue"
+blocking = false
+
+[[nodes]]
+id = "officer_lead_confirm"
+scene = "scene_officer_lead"
+kind = "choice"
+line_id = "officer_lead_confirm"
+speaker = "detective"
+text = "End the investigation and gather everyone for the reconstruction?"
+next = ""
+condition_id = "condition.always"
+effect_ids = []
+ui = "dialogue"
+blocking = true
+choice_ids = ["keep_investigating", "gather_everyone"]
+choice_labels = ["Keep investigating.", "Gather everyone."]
+choice_targets = ["officer_lead_end", "officer_lead_conclusion"]
+choice_conditions = ["condition.always", "condition.always"]
+
+[[nodes]]
+id = "officer_lead_conclusion"
+scene = "scene_officer_lead"
+kind = "end"
+line_id = "officer_lead_conclusion"
+speaker = "officer_lead"
+text = "Bell gathers the household for the reconstruction."
+next = ""
+condition_id = "condition.always"
+effect_ids = []
+ui = "dialogue"
+domain_ref = "investigation.conclusion_presented"
+blocking = true
+
+[[nodes]]
+id = "officer_lead_end"
+scene = "scene_officer_lead"
+kind = "end"
+line_id = "officer_lead_end"
+speaker = "officer_lead"
+text = ""
+next = ""
+condition_id = "condition.always"
+effect_ids = []
+ui = "dialogue"
+blocking = false
+
+[[nodes]]
+id = "officer_hall_open"
+scene = "scene_officer_hall"
+kind = "line"
+line_id = "officer_hall_open"
+speaker = "officer_hall"
+text = "'No one has left through the gallery, Lieutenant. I have kept it clear.'"
+next = "officer_hall_selector"
+condition_id = "condition.always"
+effect_ids = []
+ui = "dialogue"
+blocking = false
+
+[[nodes]]
+id = "officer_hall_selector"
+scene = "scene_officer_hall"
+kind = "selector"
+line_id = "officer_hall_selector"
+condition_id = "condition.always"
+choice_ids = ["miriam", "both", "either", "dinner", "baseline"]
+choice_labels = ["", "", "", "", ""]
+choice_targets = ["officer_hall_miriam", "officer_hall_both", "officer_hall_either", "officer_hall_dinner", "officer_hall_report"]
+choice_conditions = ["condition.knows_miriam_denial_disproved", "condition.knows_both_smaller_lies", "condition.knows_either_smaller_lie", "condition.knows_dinner_settings", "condition.always"]
+
+[[nodes]]
+id = "officer_hall_miriam"
+scene = "scene_officer_hall"
+kind = "line"
+speaker = "officer_hall"
+text = "Reed lowers his voice. 'The burned scrap changed the house. Ward stopped pacing. Cross stopped watching the doors. Mrs. Vale has not looked toward the study once.'"
+next = "officer_hall_end"
+condition_id = "condition.always"
+
+[[nodes]]
+id = "officer_hall_both"
+scene = "scene_officer_hall"
+kind = "line"
+speaker = "officer_hall"
+text = "Reed glances along the gallery. 'Ward and Cross have both amended their stories. Odd how quickly a crowded hall empties once the innocent lies have names.'"
+next = "officer_hall_end"
+condition_id = "condition.always"
+
+[[nodes]]
+id = "officer_hall_either"
+scene = "scene_officer_hall"
+kind = "line"
+speaker = "officer_hall"
+text = "Reed keeps his eyes on the gallery. 'One of them is telling a smaller truth now. The others heard it. They have been choosing their silences more carefully since.'"
+next = "officer_hall_end"
+condition_id = "condition.always"
+
+[[nodes]]
+id = "officer_hall_dinner"
+scene = "scene_officer_hall"
+kind = "line"
+speaker = "officer_hall"
+text = "Reed checks the gallery doors. 'Your dining-room record accounts for the two empty places. No one else has crossed this gallery since we secured it.'"
+next = "officer_hall_end"
+condition_id = "condition.always"
+
+[[nodes]]
+id = "officer_hall_report"
+scene = "scene_officer_hall"
+kind = "line"
+line_id = "officer_hall_report"
+speaker = "officer_hall"
+text = "Reed checks both gallery doors. 'The household is inside and no one has crossed my post. The dining room remains as we found it: two settings disturbed, the others cleared.'"
+next = "officer_hall_end"
+condition_id = "condition.always"
+effect_ids = []
+ui = "dialogue"
+blocking = false
+
+[[nodes]]
+id = "officer_hall_end"
+scene = "scene_officer_hall"
+kind = "end"
+line_id = "officer_hall_end"
+speaker = "officer_hall"
+text = ""
+next = ""
+condition_id = "condition.always"
+effect_ids = []
+ui = "dialogue"
+blocking = false
+
+[[nodes]]
+id = "officer_garden_open"
+scene = "scene_officer_garden"
+kind = "line"
+line_id = "officer_garden_open"
+speaker = "officer_garden"
+text = "'Body has not been moved since we arrived. Rain is starting to soften the marks.'"
+next = "officer_garden_selector"
+condition_id = "condition.always"
+effect_ids = []
+ui = "dialogue"
+blocking = false
+
+[[nodes]]
+id = "officer_garden_selector"
+scene = "scene_officer_garden"
+kind = "selector"
+line_id = "officer_garden_selector"
+condition_id = "condition.always"
+choice_ids = ["staged", "moved", "drag", "baseline"]
+choice_labels = ["", "", "", ""]
+choice_targets = ["officer_garden_staged", "officer_garden_moved", "officer_garden_drag", "officer_garden_report"]
+choice_conditions = ["condition.knows_scene_staged", "condition.knows_body_moved", "condition.knows_drag", "condition.always"]
+
+[[nodes]]
+id = "officer_garden_staged"
+scene = "scene_officer_garden"
+kind = "line"
+speaker = "officer_garden"
+text = "Shaw looks from the flattened thyme to the terrace. 'This garden was arranged to answer the first question anyone would ask. Trouble is, it answers too neatly.'"
+next = "officer_garden_end"
+condition_id = "condition.always"
+
+[[nodes]]
+id = "officer_garden_moved"
+scene = "scene_officer_garden"
+kind = "line"
+speaker = "officer_garden"
+text = "Shaw studies the trail without stepping closer. 'The rain can blur a route, Lieutenant. It cannot persuade me a dead man walked it.'"
+next = "officer_garden_end"
+condition_id = "condition.always"
+
+[[nodes]]
+id = "officer_garden_drag"
+scene = "scene_officer_garden"
+kind = "line"
+speaker = "officer_garden"
+text = "Shaw steps clear of the thyme. 'I have marked the trail you found between the terrace and the body. No one will disturb it before the rain.'"
+next = "officer_garden_end"
+condition_id = "condition.always"
+
+[[nodes]]
+id = "officer_garden_report"
+scene = "scene_officer_garden"
+kind = "line"
+line_id = "officer_garden_report"
+speaker = "officer_garden"
+text = "Shaw keeps one boot outside the bed. 'Rain is taking the edges off the crushed thyme. The broad mark runs from the study terrace toward the body. I will keep everyone clear.'"
+next = "officer_garden_end"
+condition_id = "condition.always"
+effect_ids = []
+ui = "dialogue"
+blocking = false
+
+[[nodes]]
+id = "officer_garden_end"
+scene = "scene_officer_garden"
+kind = "end"
+line_id = "officer_garden_end"
+speaker = "officer_garden"
+text = ""
+next = ""
+condition_id = "condition.always"
+effect_ids = []
+ui = "dialogue"
+blocking = false
+
 [[nodes]]
 id = "arrival_constable"
 scene = "scene_arrival"
@@ -1203,7 +1563,7 @@ scene = "scene_arrival"
 kind = "line"
 line_id = "arrival_detective_space"
 speaker = "detective"
-text = "'Important enough to separate. I want three accounts before this house has time to improve a single one.'"
+text = "'Important enough to separate. Bell, keep them apart. Reed, nobody leaves. Shaw, keep the garden clear. I want three accounts before this house has time to improve one.'"
 next = "arrival_end"
 success = ""
 failure = ""

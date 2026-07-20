@@ -1,5 +1,7 @@
 # Remove the legacy sample-house seed
 
+Status: Complete (2026-07-20)
+
 ## Goal
 
 Delete the compiled sample-house architecture so LevelFormat is the only source of rooms, walls, openings, surfaces, and furniture.
@@ -27,4 +29,3 @@ Delete the compiled sample-house architecture so LevelFormat is the only source 
 - Missing level content produces a clear validation failure rather than fallback geometry.
 - Editor, navigation, collision, cutaway, roof, and opening tests use authored fixtures.
 - `make check` and all self-tests pass.
-

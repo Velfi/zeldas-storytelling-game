@@ -1,5 +1,7 @@
 # Enforce no hardcoded author-facing entities
 
+Status: Complete (2026-07-20)
+
 ## Goal
 
 Add automated badness checks that prevent author-facing entity identity, transforms, presentation, behavior, and copy from returning to compiled source.

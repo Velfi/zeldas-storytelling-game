@@ -1,0 +1,7 @@
+version = "1"
+Story_base = 0
+Story_draft = 0
+Level_base = 0
+Level_draft = 1
+Graph_Layout_base = 0
+Graph_Layout_draft = 0

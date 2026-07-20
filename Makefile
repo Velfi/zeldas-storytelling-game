@@ -11,9 +11,13 @@ TOMLC17_DIR := third_party/tomlc17
 TOMLC17_LIB := $(TOMLC17_DIR)/libtomlc17.a
 STB_VORBIS_LIB := third_party/libstb_vorbis.a
 WALL_GEOM_LIB := third_party/libwall_geom.a
+TEXTSHAPE_LIB := third_party/libtextshape.a
+ENGINE_TEXTSHAPE_LIB := $(abspath $(ZELDA_ENGINE_ROOT))/third_party/textshape/libtextshape.a
 CLIPPER2_DIR := third_party/clipper2/CPP/Clipper2Lib
+ODINFMT ?= odinfmt
+ODIN_SOURCE_DIRS := src tools/gltf-viewer
 
-.PHONY: run build macos-app check check-3d check-blender-y-up check-mystery-prop-scale test story-core-test story-validate story-export story-inspect story-install expansion-export expansion-inspect expansion-install expansion-enable expansion-disable expansion-uninstall scenario-test conversion-test vehicle-test package-test agent-tools-test clean gltf-viewer shaders catalog-thumbnails theme-knoll-screenshot campaign-export campaign-import campaign-inspect
+.PHONY: run build macos-app check check-3d check-blender-y-up check-mystery-prop-scale format format-check test story-core-test story-validate story-export story-inspect story-install expansion-export expansion-inspect expansion-install expansion-enable expansion-disable expansion-uninstall scenario-test conversion-test vehicle-test package-test agent-tools-test clean gltf-viewer shaders catalog-thumbnails theme-knoll-screenshot campaign-export campaign-import campaign-inspect
 
 PYTHON ?= python3
 OUT ?= build/the-torn-appointment-1.0.0.zip
@@ -42,7 +46,7 @@ FXAA_FRAG_SPV := $(SHADER_DIR)/fxaa.frag.spv
 run: build
 	$(BUILD_DIR)/$(APP)
 
-build: shaders $(TOMLC17_LIB) $(STB_VORBIS_LIB) $(WALL_GEOM_LIB) $(EDITOR_MENU_LIB)
+build: shaders $(TOMLC17_LIB) $(STB_VORBIS_LIB) $(WALL_GEOM_LIB) $(TEXTSHAPE_LIB) $(EDITOR_MENU_LIB)
 	mkdir -p $(BUILD_DIR)
 	odin build src $(ZELDA_ENGINE_COLLECTION) -out:$(BUILD_DIR)/$(APP) -extra-linker-flags:"$(TEXTSHAPE_LIBS) -lc++ $(LINKER_WARNING_FLAGS)"
 
@@ -50,6 +54,8 @@ macos-app: build
 	SKIP_BUILD=1 BUILD_DIR="$(abspath $(BUILD_DIR))" tools/package_macos.sh
 
 check: $(TOMLC17_LIB) $(WALL_GEOM_LIB) $(EDITOR_MENU_LIB)
+	$(PYTHON) tools/check_authoring_boundary.py
+	$(PYTHON) tools/check_capture_fixtures.py
 	odin check src $(ZELDA_ENGINE_COLLECTION)
 
 third_party/libchicago_editor_menu.a: third_party/chicago_editor_menu.m
@@ -65,8 +71,17 @@ check-blender-y-up:
 check-mystery-prop-scale:
 	$(PYTHON) tools/check_mystery_prop_scale.py
 
+format:
+	@command -v $(ODINFMT) >/dev/null || { echo "odinfmt is required; see README.md" >&2; exit 1; }
+	@$(PYTHON) tools/format_odin.py --formatter $(ODINFMT) --config odinfmt.json $(ODIN_SOURCE_DIRS)
+
+format-check:
+	@command -v $(ODINFMT) >/dev/null || { echo "odinfmt is required; see README.md" >&2; exit 1; }
+	@$(PYTHON) tools/format_odin.py --check --formatter $(ODINFMT) --config odinfmt.json $(ODIN_SOURCE_DIRS)
+
 test: build
 	$(BUILD_DIR)/$(APP) --self-test
+	$(PYTHON) -m unittest tests/test_campaign_package.py tests/test_interactive_story_package.py tests/test_expansion_package.py tests/test_mystery_conversion.py
 
 story-core-test: build
 	$(BUILD_DIR)/$(APP) --story-core-test
@@ -208,6 +223,9 @@ $(STB_VORBIS_LIB): third_party/stb_vorbis.c third_party/stb_vorbis_wrapper.c
 	$(CC) -O2 -c third_party/stb_vorbis.c -o third_party/stb_vorbis.o
 	$(CC) -O2 -c third_party/stb_vorbis_wrapper.c -o third_party/stb_vorbis_wrapper.o
 	ar rcs $(STB_VORBIS_LIB) third_party/stb_vorbis.o third_party/stb_vorbis_wrapper.o
+
+$(TEXTSHAPE_LIB): $(ENGINE_TEXTSHAPE_LIB)
+	cp $< $@
 
 $(WALL_GEOM_LIB): third_party/wall_geom.cpp third_party/wall_geom.h $(CLIPPER2_DIR)/src/clipper.engine.cpp $(CLIPPER2_DIR)/src/clipper.offset.cpp $(CLIPPER2_DIR)/src/clipper.rectclip.cpp
 	$(CXX) -std=c++17 -O2 -I$(CLIPPER2_DIR)/include -c third_party/wall_geom.cpp -o third_party/wall_geom.o

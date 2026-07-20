@@ -23,26 +23,26 @@ glb_quat_slerp :: gltf.glb_quat_slerp
 glb_sample_pose :: gltf.glb_sample_pose
 
 character_meshes: [4]Glb_Mesh
-CHARACTER_MESH_PATHS :: [4]string{
+CHARACTER_MESH_PATHS :: [4]string {
 	"assets/quaternius_animated_people/investigator.glb",
 	"assets/quaternius_animated_people/miriam.glb",
 	"assets/quaternius_animated_people/daniel.glb",
 	"assets/quaternius_animated_people/elsie.glb",
 }
 
-glb_foliage_material_role :: proc(name:string)->int {
-	lower:=strings.to_lower(name)
-	if strings.contains(lower,"bark")||strings.contains(lower,"wood")||strings.contains(lower,"trunk")||strings.contains(lower,"branch") do return 1
-	if strings.contains(lower,"leaf")||strings.contains(lower,"leaves")||strings.contains(lower,"green")||strings.contains(lower,"foliage")||strings.contains(lower,"grass")||strings.contains(lower,"flower")||strings.contains(lower,"cactus") do return 2
+glb_foliage_material_role :: proc(name: string) -> int {
+	lower := strings.to_lower(name)
+	if strings.contains(lower, "bark") || strings.contains(lower, "wood") || strings.contains(lower, "trunk") || strings.contains(lower, "branch") do return 1
+	if strings.contains(lower, "leaf") || strings.contains(lower, "leaves") || strings.contains(lower, "green") || strings.contains(lower, "foliage") || strings.contains(lower, "grass") || strings.contains(lower, "flower") || strings.contains(lower, "cactus") do return 2
 	return 0
 }
 
-glb_thin_wall_material_role :: proc(name:string)->int {
-	lower:=strings.to_lower(strings.trim_space(name))
-	if lower=="lamp"||strings.contains(lower,"lampshade")||strings.contains(lower,"lamp_shade") do return 1
+glb_thin_wall_material_role :: proc(name: string) -> int {
+	lower := strings.to_lower(strings.trim_space(name))
+	if lower == "lamp" || strings.contains(lower, "lampshade") || strings.contains(lower, "lamp_shade") do return 1
 	return 0
 }
 
-glb_load :: proc(path:string, allocator:=context.allocator)->(Glb_Mesh,bool) {
-	return gltf.glb_load(path,allocator)
+glb_load :: proc(path: string, allocator := context.allocator) -> (Glb_Mesh, bool) {
+	return gltf.glb_load(path, allocator)
 }

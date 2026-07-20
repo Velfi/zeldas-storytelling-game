@@ -1,5 +1,7 @@
 # Author character reactions and officer dialogue
 
+Status: Complete (2026-07-20)
+
 ## Goal
 
 Move character-specific presentation changes and officer conversations into StoryCore-authored character and dialogue data.
@@ -27,4 +29,3 @@ Move character-specific presentation changes and officer conversations into Stor
 - Renaming a character through authored references requires no Odin edits.
 - Generic character rendering and dialogue contain no Vale House character IDs.
 - Dialogue, screenshot, and self-tests pass.
-

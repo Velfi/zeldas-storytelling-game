@@ -1,5 +1,7 @@
 # Author story-state visibility and interactions
 
+Status: Complete (2026-07-20)
+
 ## Goal
 
 Move entity visibility, availability, prompts, and interaction outcomes out of source-ID branches and into the regular StoryCore and LevelFormat authoring pipeline.
@@ -26,4 +28,3 @@ Move entity visibility, availability, prompts, and interaction outcomes out of s
 - Missing or incompatible conditions/effects fail authoring validation.
 - A repository check rejects source-ID comparisons in generic visibility and interaction dispatch.
 - `make check`, story validation, and all self-tests pass.
-

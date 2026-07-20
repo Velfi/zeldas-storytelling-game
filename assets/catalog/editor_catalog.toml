@@ -1,5 +1,127 @@
 version = "EditorCatalog v1"
 
+# Reusable authored presentation assemblies. Their visible parts, local
+# transforms, layering, pose, tint, and state response live in catalog data.
+[[objects]]
+id = "core:articulated_shutter_crank"
+category = "mechanisms"
+model = "assets/kenney_furniture-kit/Models/GLTF format/chairCushion.glb"
+thumbnail = "assets/ui/catalog/chair.png"
+placement = "indoor"
+dimensions = [0.6, 1.3, 0.6]
+footprint_radius = 0.35
+affordances = ["articulated", "state_driven"]
+
+[[objects]]
+id = "core:posed_body_tableau"
+category = "characters"
+model = "assets/kenney_furniture-kit/Models/GLTF format/chairCushion.glb"
+thumbnail = "assets/ui/catalog/chair.png"
+placement = "outdoor"
+dimensions = [1.8, 0.4, 0.8]
+footprint_radius = 0.9
+affordances = ["posed_character"]
+
+[[objects]]
+id = "core:blood_pool_decal"
+category = "decals"
+model = "assets/kenney_furniture-kit/Models/GLTF format/chairCushion.glb"
+thumbnail = "assets/ui/catalog/chair.png"
+placement = "outdoor"
+dimensions = [1.35, 0.02, 1.35]
+footprint_radius = 0.7
+affordances = ["decal"]
+
+[[objects]]
+id = "core:drag_trace_decal"
+category = "decals"
+model = "assets/kenney_furniture-kit/Models/GLTF format/chairCushion.glb"
+thumbnail = "assets/ui/catalog/chair.png"
+placement = "outdoor"
+dimensions = [5.6, 0.02, 5.6]
+footprint_radius = 2.8
+affordances = ["decal", "multi_part"]
+
+[[presentation_components]]
+owner = "core:articulated_shutter_crank"
+mesh = "housing"
+offset = [0.0, 0.66, 0.0]
+scale = [0.18, 0.18, 0.18]
+rotation = 90.0
+tint = [76, 57, 39, 255]
+layer = 15
+
+[[presentation_components]]
+owner = "core:articulated_shutter_crank"
+mesh = "link"
+offset = [-0.13, 0.94, 0.0]
+scale = [0.08, 0.08, 0.08]
+state = "interaction_output"
+state_rotation = 900.0
+tint = [235, 184, 77, 255]
+layer = 16
+
+[[presentation_components]]
+owner = "core:articulated_shutter_crank"
+mesh = "arm"
+offset = [-0.145, 0.94, 0.0]
+scale = [0.04, 0.13, 0.04]
+rotation = -37.0
+state = "interaction_output"
+state_rotation = 900.0
+tint = [210, 157, 63, 255]
+layer = 16
+
+[[presentation_components]]
+owner = "core:articulated_shutter_crank"
+mesh = "grip"
+offset = [-0.27, 1.10, 0.21]
+state_offset = [0.0, -0.32, -0.42]
+scale = [0.08, 0.08, 0.08]
+state = "interaction_output"
+tint = [235, 184, 77, 255]
+layer = 17
+
+[[presentation_components]]
+owner = "core:articulated_shutter_crank"
+mesh = "arm"
+offset = [-0.125, 1.145, 0.0]
+scale = [0.025, 0.08, 0.025]
+rotation = -60.0
+state = "interaction_output"
+state_rotation = 120.0
+tint = [225, 180, 83, 255]
+layer = 17
+
+[[presentation_components]]
+owner = "core:posed_body_tableau"
+mesh = "character"
+pose = "Idle_A"
+animated = true
+offset = [0.0, 0.08, 0.0]
+scale = [1.65, 1.65, 1.65]
+rotation = 90.0
+tint = [112, 105, 98, 255]
+layer = 9
+
+[[presentation_components]]
+owner = "core:blood_pool_decal"
+mesh = "blood_decal"
+offset = [0.0, 0.045, 0.0]
+scale = [1.35, 1.35, 1.35]
+decal = true
+tint = [255, 255, 255, 255]
+layer = 2
+
+[[presentation_components]]
+owner = "core:drag_trace_decal"
+mesh = "drag_decal"
+offset = [0.0, 0.025, 0.0]
+scale = [5.6, 5.6, 5.6]
+decal = true
+tint = [255, 255, 255, 255]
+layer = 1
+
 [[materials]]
 id = "core:dining"
 category = "interior"
@@ -1272,22 +1394,6 @@ clearance_right = 0.05
 surfaces = ["floor"]
 styles = ["stylized", "contemporary", "textile", "narrative"]
 affordances = ["define_zone", "soften_floor", "decorate", "stage_evidence"]
-
-[[objects]]
-id = "core:vale_wall_art"
-category = "wall_art"
-model = "assets/models/mysteries/shared-interactive-prop-families/shared-interactive-prop-families/display-frame.glb"
-footprint_radius = 0.55
-placement = "wall"
-front_direction = "+z"
-dimensions = [1.000, 1.200, 0.100]
-clearance_front = 0.05
-clearance_back = 0.05
-clearance_left = 0.05
-clearance_right = 0.05
-surfaces = ["wall"]
-styles = ["period", "narrative"]
-affordances = ["decorate"]
 
 [[objects]]
 id = "core:evidence_statuette"

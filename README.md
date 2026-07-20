@@ -48,6 +48,20 @@ git lfs pull
 git submodule update --init --recursive
 ```
 
+## Formatting Odin
+
+This project uses
+[`odinfmt`](https://github.com/DanielGavin/ols/tree/master/tools/odinfmt), the
+formatter shipped with OLS. Install OLS and its formatter using the upstream
+`odinfmt.sh` (macOS/Linux) or `odinfmt.bat` (Windows), and ensure `odinfmt` is
+on your `PATH`.
+
+Run `make format` to format the Odin sources in `src` and
+`tools/gltf-viewer`. Run `make format-check` to check formatting without
+changing files. The project wrapper also repairs a known `odinfmt` multiline
+loop-header issue and repeats formatting until the output is stable. Formatter
+settings live in `odinfmt.json`.
+
 ## Releases
 
 Tags matching `v*` build macOS arm64 and Windows x86-64 archives and publish

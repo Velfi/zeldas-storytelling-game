@@ -15,133 +15,579 @@ GRAPH_HISTORY_CAPACITY :: 64
 GRAPH_SELECTION_CAPACITY :: 64
 GRAPH_CLIPBOARD_CAPACITY :: 64
 GRAPH_MAX_DEFINITIONS :: 512
+GRAPH_MAX_LOCALIZATIONS :: 512
 
-Graph_View :: enum {Graph, Script, Localization, Conditions, Effects}
-Graph_Confirm :: enum {None, Delete_Scene}
-Graph_Diagnostic_Severity :: enum {Warning, Error}
-	Graph_Field :: enum {None, Scene_Id, Scene_Display_Name, Scene_Bound_Entity, Scene_Summary, Scene_Return, Node_Id, Node_Scene, Node_Kind, Line_Id, Text, Summary, Speaker, Camera, Actor, Actor_Mark, Animation, UI_Image_Asset, Sound_Cue_Asset, Animation_Asset, Interaction, Event, Subscene, Domain_Ref, Condition, Effects, Condition_Root, First_Effect, Effect_Count, Clue, Ending, UI, Next, Success, Failure, Cancel, Blocking, Requires_Clues, Requires_Claims, Requires_Topics, Unlock_Clues, Unlock_Claims, Unlock_Topics, Duration, Transition, Choice_Id, Choice_Label, Choice_Target, Choice_Condition, Localization_Language, Localization_Text, Localization_Status, Localization_Note, Localization_Voice, Localization_Filter_Language, Localization_Filter_Status, Condition_Id, Condition_Kind, Condition_Value, Condition_Value_2, Condition_Value_3, Condition_Value_4, Condition_Value_5, Effect_Id, Effect_Kind, Effect_Value, Effect_Value_2, Effect_Value_3, Effect_Value_4, Effect_Value_5, Search}
-Graph_Port_Kind :: enum {None, Next, Success, Failure, Cancel, Choice}
-Graph_Field_Edit :: struct {active,multiline,picker:bool,field:Graph_Field,node,choice_index,picker_selected,picker_offset:int,buffer:[2048]u8,count:int,error:string}
-Graph_Edge_Selection :: struct {active:bool,node:int,port:Graph_Port_Kind,choice_index:int}
-Graph_Edge_Drag :: struct {active:bool,node:int,port:Graph_Port_Kind,choice_index:int,start:Vec2}
-Graph_Clipboard :: struct {nodes:[GRAPH_CLIPBOARD_CAPACITY]Graph_Node,node_count:int,localizations:[256]Graph_Localization,localization_count:int,anchor:Vec2}
-Graph_Debugger :: struct {paused,step_requested,completed:bool,page:int,last_node:string,recent:[16]string,recent_count:int}
-Graph_Topic_List :: struct {values:[64]string,count:int}
-Graph_Marquee :: struct {active:bool,start,current:Vec2}
-Graph_Minimap_Layout :: struct {valid:bool,world,content:Rect,scale:f32}
-Graph_Beat :: struct {
-	id, scene, kind, line_id, speaker, text, next, success, failure, cancel, subscene_id:string,
-	ui, camera, actor, actor_mark, animation, interaction, event_id, domain_ref, condition_id, clue, summary, ending:string,
-	ui_image_asset_ref, sound_cue_asset_ref, animation_asset_ref:string,
-	duration, transition:f32,
-	condition_root, first_effect, effect_count:int,
-	blocking:bool,
-	choice_ids, choice_labels, choice_targets, choice_conditions:[]string,
-	effect_ids:[]string,
-	requires_clues, requires_claims, requires_topics:[]string,
-	unlock_clues, unlock_claims, unlock_topics:[]string,
-	metadata_requires,metadata_unlocks:[]string,metadata_refs_dirty:bool,
+Graph_View :: enum {
+	Graph,
+	Script,
+	Localization,
+	Conditions,
+	Effects,
 }
-Graph_Scene_Data :: struct {id, display_name, source, entry, summary, return_to:string}
-Graph_Node :: struct {beat:Graph_Beat, position:Vec2, collapsed:bool}
-Graph_Scene :: struct {scene:Graph_Scene_Data, pan:Vec2, zoom:f32}
-Graph_Localization :: struct {node_id, language, text, status, note, voice:string}
-Graph_Diagnostic :: struct {severity:Graph_Diagnostic_Severity, scene_id,node_id,message:string}
-Graph_Reference :: struct {kind,scene_id,node_id,field:string,choice_index:int}
-Graph_Reference_List :: struct {items:[256]Graph_Reference,count:int,truncated:bool}
-Graph_Picker_Create_Callback :: #type proc "odin" (field:Graph_Field,suggested_id:string,userdata:rawptr)->(string,bool)
+Graph_Confirm :: enum {
+	None,
+	Delete_Scene,
+}
+Graph_Diagnostic_Severity :: enum {
+	Warning,
+	Error,
+}
+Graph_Field :: enum {
+	None,
+	Scene_Id,
+	Scene_Display_Name,
+	Scene_Bound_Entity,
+	Scene_Summary,
+	Scene_Return,
+	Node_Id,
+	Node_Scene,
+	Node_Kind,
+	Line_Id,
+	Text,
+	Summary,
+	Speaker,
+	Camera,
+	Actor,
+	Actor_Mark,
+	Animation,
+	UI_Image_Asset,
+	Sound_Cue_Asset,
+	Animation_Asset,
+	Interaction,
+	Event,
+	Subscene,
+	Domain_Ref,
+	Condition,
+	Effects,
+	Condition_Root,
+	First_Effect,
+	Effect_Count,
+	Clue,
+	Ending,
+	UI,
+	Next,
+	Success,
+	Failure,
+	Cancel,
+	Blocking,
+	Requires_Clues,
+	Requires_Claims,
+	Requires_Topics,
+	Unlock_Clues,
+	Unlock_Claims,
+	Unlock_Topics,
+	Duration,
+	Transition,
+	Choice_Id,
+	Choice_Label,
+	Choice_Target,
+	Choice_Condition,
+	Localization_Language,
+	Localization_Text,
+	Localization_Status,
+	Localization_Note,
+	Localization_Voice,
+	Localization_Filter_Language,
+	Localization_Filter_Status,
+	Condition_Id,
+	Condition_Kind,
+	Condition_Value,
+	Condition_Value_2,
+	Condition_Value_3,
+	Condition_Value_4,
+	Condition_Value_5,
+	Effect_Id,
+	Effect_Kind,
+	Effect_Value,
+	Effect_Value_2,
+	Effect_Value_3,
+	Effect_Value_4,
+	Effect_Value_5,
+	Search,
+}
+Graph_Port_Kind :: enum {
+	None,
+	Next,
+	Success,
+	Failure,
+	Cancel,
+	Choice,
+}
+Graph_Field_Edit :: struct {
+	active, multiline, picker:                          bool,
+	field:                                              Graph_Field,
+	node, choice_index, picker_selected, picker_offset: int,
+	buffer:                                             [2048]u8,
+	count:                                              int,
+	error:                                              string,
+}
+Graph_Edge_Selection :: struct {
+	active:       bool,
+	node:         int,
+	port:         Graph_Port_Kind,
+	choice_index: int,
+}
+Graph_Edge_Drag :: struct {
+	active:       bool,
+	node:         int,
+	port:         Graph_Port_Kind,
+	choice_index: int,
+	start:        Vec2,
+}
+Graph_Clipboard :: struct {
+	nodes:              [GRAPH_CLIPBOARD_CAPACITY]Graph_Node,
+	node_count:         int,
+	localizations:      [256]Graph_Localization,
+	localization_count: int,
+	anchor:             Vec2,
+}
+Graph_Debugger :: struct {
+	paused, step_requested, completed: bool,
+	page:                              int,
+	last_node:                         string,
+	recent:                            [16]string,
+	recent_count:                      int,
+}
+Graph_Topic_List :: struct {
+	values: [64]string,
+	count:  int,
+}
+Graph_Marquee :: struct {
+	active:         bool,
+	start, current: Vec2,
+}
+Graph_Minimap_Layout :: struct {
+	valid:          bool,
+	world, content: Rect,
+	scale:          f32,
+}
+Graph_Beat :: struct {
+	id,
+	scene,
+	kind,
+	line_id,
+	speaker,
+	text,
+	next,
+	success,
+	failure,
+	cancel,
+	subscene_id:                             string,
+	ui,
+	camera,
+	actor,
+	actor_mark,
+	animation,
+	interaction,
+	event_id,
+	domain_ref,
+	condition_id,
+	clue,
+	summary,
+	ending: string,
+	ui_image_asset_ref,
+	sound_cue_asset_ref,
+	animation_asset_ref:                                                     string,
+	duration,
+	transition:                                                                                             f32,
+	condition_root,
+	first_effect,
+	effect_count:                                                                       int,
+	blocking:                                                                                                         bool,
+	choice_ids,
+	choice_labels,
+	choice_targets,
+	choice_conditions:                                                     []string,
+	effect_ids:                                                                                                       []string,
+	requires_clues,
+	requires_claims,
+	requires_topics:                                                                 []string,
+	unlock_clues,
+	unlock_claims,
+	unlock_topics:                                                                       []string,
+	metadata_requires,
+	metadata_unlocks:                                                                              []string,
+	metadata_refs_dirty:                                                                                              bool,
+}
+Graph_Scene_Data :: struct {
+	id, display_name, source, entry, summary, return_to: string,
+}
+Graph_Node :: struct {
+	beat:      Graph_Beat,
+	position:  Vec2,
+	collapsed: bool,
+}
+Graph_Scene :: struct {
+	scene: Graph_Scene_Data,
+	pan:   Vec2,
+	zoom:  f32,
+}
+Graph_Localization :: struct {
+	node_id, language, text, status, note, voice: string,
+}
+Graph_Diagnostic :: struct {
+	severity:                   Graph_Diagnostic_Severity,
+	scene_id, node_id, message: string,
+}
+Graph_Reference :: struct {
+	kind, scene_id, node_id, field: string,
+	choice_index:                   int,
+}
+Graph_Reference_List :: struct {
+	items:     [256]Graph_Reference,
+	count:     int,
+	truncated: bool,
+}
+Graph_Picker_Create_Callback :: #type proc "odin" (
+	field: Graph_Field,
+	suggested_id: string,
+	userdata: rawptr,
+) -> (
+	string,
+	bool,
+)
 Graph_Document :: struct {
-	case_id:string,
-	revision:u64,dirty:bool,
-	scenes:[GRAPH_MAX_SCENES]Graph_Scene,scene_count:int,
-	nodes:[GRAPH_MAX_NODES]Graph_Node,node_count:int,
-	conditions:[dynamic]Story_Condition,condition_count:int,
-	effects:[dynamic]Story_Effect,effect_count:int,
-	localizations:[512]Graph_Localization,localization_count:int,
-	diagnostics:[512]Graph_Diagnostic,diagnostic_count,error_count:int,
+	case_id:                       string,
+	revision:                      u64,
+	dirty:                         bool,
+	scenes:                        [GRAPH_MAX_SCENES]Graph_Scene,
+	scene_count:                   int,
+	nodes:                         [GRAPH_MAX_NODES]Graph_Node,
+	node_count:                    int,
+	conditions:                    [dynamic]Story_Condition,
+	condition_count:               int,
+	effects:                       [dynamic]Story_Effect,
+	effect_count:                  int,
+	localizations:                 [512]Graph_Localization,
+	localization_count:            int,
+	diagnostics:                   [512]Graph_Diagnostic,
+	diagnostic_count, error_count: int,
 }
 Graph_State :: struct {
-	active_scene,selected_node,hover_node:int,
-	selection:[GRAPH_SELECTION_CAPACITY]int,selection_count:int,
-	view:Graph_View,
-	pan:Vec2,zoom:f32,panning:bool,pan_origin,pan_start:Vec2,
-	search_active,diagnostics_visible,help_visible:bool,search_query:string,search_result:int,
-	localization_scene_only,localization_missing_text,localization_missing_voice:bool,localization_language,localization_status:string,
-	autosave_status:string,
-	confirm:Graph_Confirm,selected_condition,selected_effect,selected_localization:int,
-	quick_add,quick_add_latch:bool,quick_add_at:Vec2,quick_add_selected:int,
-	dragging:bool,drag_origin,drag_node_origin:Vec2,
-	drag_node_origins:[GRAPH_SELECTION_CAPACITY]Vec2,
-	choice_reorder:Graph_Choice_Reorder,
-	field_edit:Graph_Field_Edit,edge_selection,edge_hover:Graph_Edge_Selection,edge_drag:Graph_Edge_Drag,
-	marquee:Graph_Marquee,
-	feedback:string,feedback_error:bool,feedback_frames:int,
-	inspector_scroll,inspector_scroll_max:f32,
-	inspector_field_index,choice_page:int,
-	playtesting:bool,play_scene,play_node:int,
-	debugger:Graph_Debugger,
+	active_scene, selected_node, hover_node:                                        int,
+	selection:                                                                      [GRAPH_SELECTION_CAPACITY]int,
+	selection_count:                                                                int,
+	view:                                                                           Graph_View,
+	pan:                                                                            Vec2,
+	zoom:                                                                           f32,
+	panning:                                                                        bool,
+	pan_origin, pan_start:                                                          Vec2,
+	search_active, diagnostics_visible, help_visible:                               bool,
+	search_query:                                                                   string,
+	search_result:                                                                  int,
+	localization_scene_only, localization_missing_text, localization_missing_voice: bool,
+	localization_language, localization_status:                                     string,
+	autosave_status:                                                                string,
+	confirm:                                                                        Graph_Confirm,
+	selected_condition, selected_effect, selected_localization:                     int,
+	quick_add, quick_add_latch:                                                     bool,
+	quick_add_at:                                                                   Vec2,
+	quick_add_selected:                                                             int,
+	dragging:                                                                       bool,
+	drag_origin, drag_node_origin:                                                  Vec2,
+	drag_node_origins:                                                              [GRAPH_SELECTION_CAPACITY]Vec2,
+	choice_reorder:                                                                 Graph_Choice_Reorder,
+	field_edit:                                                                     Graph_Field_Edit,
+	edge_selection, edge_hover:                                                     Graph_Edge_Selection,
+	edge_drag:                                                                      Graph_Edge_Drag,
+	marquee:                                                                        Graph_Marquee,
+	feedback:                                                                       string,
+	feedback_error:                                                                 bool,
+	feedback_frames:                                                                int,
+	inspector_scroll, inspector_scroll_max:                                         f32,
+	inspector_field_index, choice_page:                                             int,
+	playtesting:                                                                    bool,
+	play_scene, play_node:                                                          int,
+	debugger:                                                                       Graph_Debugger,
 }
-Graph_Choice_Reorder :: struct {active,history_started:bool,node,index:int}
-Graph_Snapshot :: struct {document:Graph_Document,label:string}
-Graph_History :: struct {undo,redo:[GRAPH_HISTORY_CAPACITY]Graph_Snapshot,undo_count,redo_count:int}
-Graph_Playtest_Snapshot :: struct {active:bool,game:Game,scene,node:int,pan:Vec2,zoom:f32,view:Graph_View,search_query:string,search_result,selected_condition,selected_effect,selected_localization:int,diagnostics_visible,help_visible:bool}
+Graph_Choice_Reorder :: struct {
+	active, history_started: bool,
+	node, index:             int,
+}
+Graph_Snapshot :: struct {
+	document: Graph_Document,
+	label:    string,
+}
+Graph_History :: struct {
+	undo, redo:             [GRAPH_HISTORY_CAPACITY]Graph_Snapshot,
+	undo_count, redo_count: int,
+}
+Graph_Playtest_Snapshot :: struct {
+	active:                                                                    bool,
+	game:                                                                      Game,
+	scene, node:                                                               int,
+	pan:                                                                       Vec2,
+	zoom:                                                                      f32,
+	view:                                                                      Graph_View,
+	search_query:                                                              string,
+	search_result, selected_condition, selected_effect, selected_localization: int,
+	diagnostics_visible, help_visible:                                         bool,
+}
 
-graph_document:Graph_Document
-graph_state:Graph_State
-graph_history:Graph_History
-graph_playtest_snapshot:Graph_Playtest_Snapshot
-graph_clipboard:Graph_Clipboard
-graph_autosave_enabled:bool
-graph_active_source_path:=GRAPH_LEGACY_DEFAULT_PATH
-graph_active_autosave_path:=GRAPH_LEGACY_AUTOSAVE_PATH
-graph_playtest_project:Story_Project
-graph_playtest_compiled:Compiled_Story
-graph_playtest_runtime:Story_Runtime
-graph_source_project:^Story_Project
-graph_picker_create_callback:Graph_Picker_Create_Callback
-graph_picker_create_userdata:rawptr
-graph_active_layout_path:string
+graph_document: Graph_Document
+graph_state: Graph_State
+graph_history: Graph_History
+graph_playtest_snapshot: Graph_Playtest_Snapshot
+graph_clipboard: Graph_Clipboard
+graph_autosave_enabled: bool
+graph_active_source_path := GRAPH_LEGACY_DEFAULT_PATH
+graph_active_autosave_path := GRAPH_LEGACY_AUTOSAVE_PATH
+graph_playtest_project: Story_Project
+graph_playtest_compiled: Compiled_Story
+graph_playtest_runtime: Story_Runtime
+graph_source_project: ^Story_Project
+graph_picker_create_callback: Graph_Picker_Create_Callback
+graph_picker_create_userdata: rawptr
+graph_active_layout_path: string
+graph_import_error: string
 
-graph_set_picker_create_callback :: proc(callback:Graph_Picker_Create_Callback,userdata:rawptr) {graph_picker_create_callback=callback;graph_picker_create_userdata=userdata}
-graph_picker_create :: proc(field:Graph_Field,suggested_id:string)->bool {if graph_picker_create_callback==nil do return false;id,ok:=graph_picker_create_callback(field,suggested_id,graph_picker_create_userdata);if !ok||id=="" do return false;graph_state.field_edit.count=0;graph_edit_append(id);return graph_commit_edit()}
+graph_set_picker_create_callback :: proc(
+	callback: Graph_Picker_Create_Callback,
+	userdata: rawptr,
+) {graph_picker_create_callback = callback; graph_picker_create_userdata = userdata}
+graph_picker_create :: proc(
+	field: Graph_Field,
+	suggested_id: string,
+) -> bool {if graph_picker_create_callback == nil do return false; id, ok :=
+		graph_picker_create_callback(field, suggested_id, graph_picker_create_userdata)
+	if !ok || id == "" do return false
+	graph_state.field_edit.count = 0
+	graph_edit_append(id)
+	return graph_commit_edit()}
 
-graph_inspector_viewport :: proc()->Rect {return {950,76,250,354}}
-graph_inspector_scrolled_rect :: proc(box:Rect)->Rect {result:=box;result.y-=graph_state.inspector_scroll;return result}
+graph_inspector_viewport :: proc() -> Rect {return {950, 76, 250, 354}}
+graph_inspector_scrolled_rect :: proc(box: Rect) -> Rect {result := box; result.y -=
+		graph_state.inspector_scroll
+	return result}
 
-GRAPH_NODE_INSPECTOR_FIELDS :: [39]Graph_Field{.Node_Id,.Node_Scene,.Node_Kind,.Line_Id,.Speaker,.Text,.Next,.Success,.Failure,.Cancel,.Subscene,.UI,.Camera,.Actor,.Actor_Mark,.Animation,.UI_Image_Asset,.Sound_Cue_Asset,.Animation_Asset,.Summary,.Ending,.Domain_Ref,.Event,.Duration,.Transition,.Blocking,.Condition,.Effects,.Condition_Root,.First_Effect,.Effect_Count,.Interaction,.Clue,.Requires_Clues,.Requires_Claims,.Requires_Topics,.Unlock_Clues,.Unlock_Claims,.Unlock_Topics}
-GRAPH_SCENE_INSPECTOR_FIELDS :: [5]Graph_Field{.Scene_Id,.Scene_Display_Name,.Scene_Bound_Entity,.Scene_Summary,.Scene_Return}
+GRAPH_NODE_INSPECTOR_FIELDS :: [39]Graph_Field {
+	.Node_Id,
+	.Node_Scene,
+	.Node_Kind,
+	.Line_Id,
+	.Speaker,
+	.Text,
+	.Next,
+	.Success,
+	.Failure,
+	.Cancel,
+	.Subscene,
+	.UI,
+	.Camera,
+	.Actor,
+	.Actor_Mark,
+	.Animation,
+	.UI_Image_Asset,
+	.Sound_Cue_Asset,
+	.Animation_Asset,
+	.Summary,
+	.Ending,
+	.Domain_Ref,
+	.Event,
+	.Duration,
+	.Transition,
+	.Blocking,
+	.Condition,
+	.Effects,
+	.Condition_Root,
+	.First_Effect,
+	.Effect_Count,
+	.Interaction,
+	.Clue,
+	.Requires_Clues,
+	.Requires_Claims,
+	.Requires_Topics,
+	.Unlock_Clues,
+	.Unlock_Claims,
+	.Unlock_Topics,
+}
+GRAPH_SCENE_INSPECTOR_FIELDS :: [5]Graph_Field {
+	.Scene_Id,
+	.Scene_Display_Name,
+	.Scene_Bound_Entity,
+	.Scene_Summary,
+	.Scene_Return,
+}
 
-graph_inspector_field :: proc()->Graph_Field {fields:=GRAPH_NODE_INSPECTOR_FIELDS;return fields[clamp(graph_state.inspector_field_index,0,len(fields)-1)]}
-graph_inspector_field_label :: proc(field:Graph_Field)->string {#partial switch field {case .Node_Id:return "NODE ID";case .Node_Scene:return "SCENE";case .Node_Kind:return "KIND";case .Line_Id:return "LINE ID";case .Speaker:return "SPEAKER";case .Text:return "TEXT";case .Next:return "NEXT";case .Success:return "SUCCESS";case .Failure:return "FAILURE";case .Cancel:return "CANCEL";case .Subscene:return "SUBSCENE";case .UI:return "UI";case .Camera:return "CAMERA";case .Actor:return "ACTOR";case .Actor_Mark:return "ACTOR MARK";case .Animation:return "ANIMATION";case .UI_Image_Asset:return "UI IMAGE ASSET";case .Sound_Cue_Asset:return "SOUND CUE ASSET";case .Animation_Asset:return "ANIMATION ASSET";case .Summary:return "SUMMARY";case .Ending:return "ENDING";case .Domain_Ref:return "DOMAIN REF";case .Event:return "EVENT";case .Duration:return "DURATION";case .Transition:return "TRANSITION";case .Blocking:return "BLOCKING";case .Condition:return "CONDITION";case .Effects:return "EFFECTS";case .Condition_Root:return "CONDITION ROOT";case .First_Effect:return "FIRST EFFECT";case .Effect_Count:return "EFFECT COUNT";case .Interaction:return "INTERACTION";case .Clue:return "CLUE";case .Requires_Clues:return "REQUIRES CLUES";case .Requires_Claims:return "REQUIRES CLAIMS";case .Requires_Topics:return "REQUIRES TOPICS";case .Unlock_Clues:return "UNLOCK CLUES";case .Unlock_Claims:return "UNLOCK CLAIMS";case .Unlock_Topics:return "UNLOCK TOPICS"};return "FIELD"}
-graph_inspector_field_value :: proc(beat:^Graph_Beat,field:Graph_Field)->string {#partial switch field {case .Node_Id:return beat.id;case .Node_Scene:return beat.scene;case .Node_Kind:return beat.kind;case .Line_Id:return beat.line_id;case .Speaker:return beat.speaker;case .Text:return beat.text;case .Next:return beat.next;case .Success:return beat.success;case .Failure:return beat.failure;case .Cancel:return beat.cancel;case .Subscene:return beat.subscene_id;case .UI:return beat.ui;case .Camera:return beat.camera;case .Actor:return beat.actor;case .Actor_Mark:return beat.actor_mark;case .Animation:return beat.animation;case .UI_Image_Asset:return beat.ui_image_asset_ref;case .Sound_Cue_Asset:return beat.sound_cue_asset_ref;case .Animation_Asset:return beat.animation_asset_ref;case .Summary:return beat.summary;case .Ending:return beat.ending;case .Domain_Ref:return beat.domain_ref;case .Event:return beat.event_id;case .Duration:return fmt.tprintf("%.3f",beat.duration);case .Transition:return fmt.tprintf("%.3f",beat.transition);case .Blocking:return beat.blocking?"true":"false";case .Condition:return beat.condition_id;case .Effects:return graph_join_strings(beat.effect_ids);case .Condition_Root:return fmt.tprintf("%d",beat.condition_root);case .First_Effect:return fmt.tprintf("%d",beat.first_effect);case .Effect_Count:return fmt.tprintf("%d",beat.effect_count);case .Interaction:return beat.interaction;case .Clue:return beat.clue;case .Requires_Clues:return graph_join_strings(beat.requires_clues);case .Requires_Claims:return graph_join_strings(beat.requires_claims);case .Requires_Topics:return graph_join_strings(beat.requires_topics);case .Unlock_Clues:return graph_join_strings(beat.unlock_clues);case .Unlock_Claims:return graph_join_strings(beat.unlock_claims);case .Unlock_Topics:return graph_join_strings(beat.unlock_topics)};return ""}
-graph_inspector_field_multiline :: proc(field:Graph_Field)->bool {return field==.Text||field==.Summary||field==.Effects||(field>=.Requires_Clues&&field<=.Unlock_Topics)}
-graph_scene_inspector_field :: proc()->Graph_Field {fields:=GRAPH_SCENE_INSPECTOR_FIELDS;return fields[clamp(graph_state.inspector_field_index,0,len(fields)-1)]}
-graph_scene_inspector_label :: proc(field:Graph_Field)->string {#partial switch field {case .Scene_Id:return "SCENE ID";case .Scene_Display_Name:return "DISPLAY NAME";case .Scene_Bound_Entity:return "BOUND ENTITY";case .Scene_Summary:return "SUMMARY";case .Scene_Return:return "RETURN TARGET"};return "SCENE FIELD"}
-graph_scene_inspector_value :: proc(scene:^Graph_Scene_Data,field:Graph_Field)->string {#partial switch field {case .Scene_Id:return scene.id;case .Scene_Display_Name:return scene.display_name;case .Scene_Bound_Entity:return scene.source;case .Scene_Summary:return scene.summary;case .Scene_Return:return scene.return_to};return ""}
+graph_inspector_field :: proc() -> Graph_Field {fields := GRAPH_NODE_INSPECTOR_FIELDS; return(
+		fields[clamp(graph_state.inspector_field_index, 0, len(fields) - 1)] \
+	)}
+graph_inspector_field_label :: proc(field: Graph_Field) -> string {#partial switch
+	field {case .Node_Id:
+		return "NODE ID"; case .Node_Scene:
+		return "SCENE"; case .Node_Kind:
+		return "KIND"; case .Line_Id:
+		return "LINE ID"; case .Speaker:
+		return "SPEAKER"; case .Text:
+		return "TEXT"; case .Next:
+		return "NEXT"; case .Success:
+		return "SUCCESS"; case .Failure:
+		return "FAILURE"; case .Cancel:
+		return "CANCEL"; case .Subscene:
+		return "SUBSCENE"; case .UI:
+		return "UI"; case .Camera:
+		return "CAMERA"; case .Actor:
+		return "ACTOR"; case .Actor_Mark:
+		return "ACTOR MARK"; case .Animation:
+		return "ANIMATION"; case .UI_Image_Asset:
+		return "UI IMAGE ASSET"; case .Sound_Cue_Asset:
+		return "SOUND CUE ASSET"; case .Animation_Asset:
+		return "ANIMATION ASSET"; case .Summary:
+		return "SUMMARY"; case .Ending:
+		return "ENDING"; case .Domain_Ref:
+		return "DOMAIN REF"; case .Event:
+		return "EVENT"; case .Duration:
+		return "DURATION"; case .Transition:
+		return "TRANSITION"; case .Blocking:
+		return "BLOCKING"; case .Condition:
+		return "CONDITION"; case .Effects:
+		return "EFFECTS"; case .Condition_Root:
+		return "CONDITION ROOT"; case .First_Effect:
+		return "FIRST EFFECT"; case .Effect_Count:
+		return "EFFECT COUNT"; case .Interaction:
+		return "INTERACTION"; case .Clue:
+		return "CLUE"; case .Requires_Clues:
+		return "REQUIRES CLUES"; case .Requires_Claims:
+		return "REQUIRES CLAIMS"; case .Requires_Topics:
+		return "REQUIRES TOPICS"; case .Unlock_Clues:
+		return "UNLOCK CLUES"; case .Unlock_Claims:
+		return "UNLOCK CLAIMS"; case .Unlock_Topics:
+		return "UNLOCK TOPICS"}
+	return "FIELD"}
+graph_inspector_field_value :: proc(
+	beat: ^Graph_Beat,
+	field: Graph_Field,
+) -> string {#partial switch field {case .Node_Id:
+		return beat.id; case .Node_Scene:
+		return beat.scene; case .Node_Kind:
+		return beat.kind; case .Line_Id:
+		return beat.line_id; case .Speaker:
+		return beat.speaker; case .Text:
+		return beat.text; case .Next:
+		return beat.next; case .Success:
+		return beat.success; case .Failure:
+		return beat.failure; case .Cancel:
+		return beat.cancel; case .Subscene:
+		return beat.subscene_id; case .UI:
+		return beat.ui; case .Camera:
+		return beat.camera; case .Actor:
+		return beat.actor; case .Actor_Mark:
+		return beat.actor_mark; case .Animation:
+		return beat.animation; case .UI_Image_Asset:
+		return beat.ui_image_asset_ref; case .Sound_Cue_Asset:
+		return beat.sound_cue_asset_ref; case .Animation_Asset:
+		return beat.animation_asset_ref; case .Summary:
+		return beat.summary; case .Ending:
+		return beat.ending; case .Domain_Ref:
+		return beat.domain_ref; case .Event:
+		return beat.event_id; case .Duration:
+		return fmt.tprintf("%.3f", beat.duration); case .Transition:
+		return fmt.tprintf("%.3f", beat.transition); case .Blocking:
+		return beat.blocking ? "true" : "false"; case .Condition:
+		return beat.condition_id; case .Effects:
+		return graph_join_strings(beat.effect_ids); case .Condition_Root:
+		return fmt.tprintf("%d", beat.condition_root); case .First_Effect:
+		return fmt.tprintf("%d", beat.first_effect); case .Effect_Count:
+		return fmt.tprintf("%d", beat.effect_count); case .Interaction:
+		return beat.interaction; case .Clue:
+		return beat.clue; case .Requires_Clues:
+		return graph_join_strings(beat.requires_clues); case .Requires_Claims:
+		return graph_join_strings(beat.requires_claims); case .Requires_Topics:
+		return graph_join_strings(beat.requires_topics); case .Unlock_Clues:
+		return graph_join_strings(beat.unlock_clues); case .Unlock_Claims:
+		return graph_join_strings(beat.unlock_claims); case .Unlock_Topics:
+		return graph_join_strings(beat.unlock_topics)}; return ""}
+graph_inspector_field_multiline :: proc(field: Graph_Field) -> bool {return(
+		field == .Text ||
+		field == .Summary ||
+		field == .Effects ||
+		(field >= .Requires_Clues && field <= .Unlock_Topics) \
+	)}
+graph_scene_inspector_field :: proc() -> Graph_Field {fields := GRAPH_SCENE_INSPECTOR_FIELDS
+	return fields[clamp(graph_state.inspector_field_index, 0, len(fields) - 1)]}
+graph_scene_inspector_label :: proc(field: Graph_Field) -> string {#partial switch
+	field {case .Scene_Id:
+		return "SCENE ID"; case .Scene_Display_Name:
+		return "DISPLAY NAME"; case .Scene_Bound_Entity:
+		return "BOUND ENTITY"; case .Scene_Summary:
+		return "SUMMARY"; case .Scene_Return:
+		return "RETURN TARGET"}
+	return "SCENE FIELD"}
+graph_scene_inspector_value :: proc(
+	scene: ^Graph_Scene_Data,
+	field: Graph_Field,
+) -> string {#partial switch field {case .Scene_Id:
+		return scene.id; case .Scene_Display_Name:
+		return scene.display_name; case .Scene_Bound_Entity:
+		return scene.source; case .Scene_Summary:
+		return scene.summary; case .Scene_Return:
+		return scene.return_to}; return ""}
 
-graph_set_document_paths :: proc(source_path,autosave_path:string)->bool {
-	source:=strings.trim_space(source_path)
-	autosave:=strings.trim_space(autosave_path)
-	if source==""||autosave==""||source==autosave do return false
-	graph_active_source_path=source
-	graph_active_autosave_path=autosave
-	graph_active_layout_path=fmt.tprintf("%s.layout",source)
+graph_set_document_paths :: proc(source_path, autosave_path: string) -> bool {
+	source := strings.trim_space(source_path)
+	autosave := strings.trim_space(autosave_path)
+	if source == "" || autosave == "" || source == autosave do return false
+	graph_active_source_path = source
+	graph_active_autosave_path = autosave
+	graph_active_layout_path = fmt.tprintf("%s.layout", source)
 	return true
 }
 
-graph_set_layout_path :: proc(path:string)->bool {value:=strings.trim_space(path);if value=="" do return false;graph_active_layout_path=value;return true}
-graph_layout_serialize :: proc()->string {text:=fmt.tprintf("case\t%s\n",graph_document.case_id);for scene in graph_document.scenes[:graph_document.scene_count] do text=fmt.tprintf("%sscene\t%s\t%.3f\t%.3f\t%.3f\n",text,scene.scene.id,scene.pan.x,scene.pan.y,scene.zoom);for node in graph_document.nodes[:graph_document.node_count] do text=fmt.tprintf("%snode\t%s\t%s\t%.3f\t%.3f\t%d\n",text,node.beat.scene,node.beat.id,node.position.x,node.position.y,node.collapsed?1:0);return text}
-graph_layout_save :: proc()->Validation {if graph_active_layout_path=="" do return {false,"graph layout path is not configured"};if os.write_entire_file(graph_active_layout_path,transmute([]u8)graph_layout_serialize())!=nil do return {false,"could not write graph layout"};return {true,"GRAPH LAYOUT SAVED"}}
-graph_layout_load :: proc()->Validation {if graph_active_layout_path=="" do return {false,"graph layout path is not configured"};data,error:=os.read_entire_file_from_path(graph_active_layout_path,context.temp_allocator);if error!=nil do return {false,"graph layout is unavailable"};for line in strings.split(string(data),"\n") {parts:=strings.split(line,"\t");if len(parts)==0 do continue;if parts[0]=="case"&&len(parts)>=2&&parts[1]!=graph_document.case_id do return {false,"graph layout belongs to another case"};if parts[0]=="scene"&&len(parts)>=5 {index:=graph_scene_index(parts[1]);x,x_ok:=strconv.parse_f32(parts[2]);y,y_ok:=strconv.parse_f32(parts[3]);zoom,z_ok:=strconv.parse_f32(parts[4]);if index>=0&&x_ok&&y_ok&&z_ok {graph_document.scenes[index].pan={x,y};graph_document.scenes[index].zoom=zoom}};if parts[0]=="node"&&len(parts)>=6 {index:=graph_node_index(parts[1],parts[2]);x,x_ok:=strconv.parse_f32(parts[3]);y,y_ok:=strconv.parse_f32(parts[4]);if index>=0&&x_ok&&y_ok {graph_document.nodes[index].position={x,y};graph_document.nodes[index].collapsed=parts[5]=="1"}}};return {true,"GRAPH LAYOUT LOADED"}}
+graph_set_layout_path :: proc(path: string) -> bool {value := strings.trim_space(path); if value == "" do return false
+	graph_active_layout_path = value
+	return true}
+graph_layout_serialize :: proc() -> string {text := fmt.tprintf(
+		"case\t%s\n",
+		graph_document.case_id,
+	)
+	for scene in graph_document.scenes[:graph_document.scene_count] do text = fmt.tprintf("%sscene\t%s\t%.3f\t%.3f\t%.3f\n", text, scene.scene.id, scene.pan.x, scene.pan.y, scene.zoom)
+	for node in graph_document.nodes[:graph_document.node_count] do text = fmt.tprintf("%snode\t%s\t%s\t%.3f\t%.3f\t%d\n", text, node.beat.scene, node.beat.id, node.position.x, node.position.y, node.collapsed ? 1 : 0)
+	return text}
+graph_layout_save :: proc() -> Validation {if graph_active_layout_path == "" do return {false, "graph layout path is not configured"}
+	if os.write_entire_file(graph_active_layout_path, transmute([]u8)graph_layout_serialize()) != nil do return {false, "could not write graph layout"}
+	return{true, "GRAPH LAYOUT SAVED"}}
+graph_layout_load :: proc() -> Validation {if graph_active_layout_path == "" do return {false, "graph layout path is not configured"}
+	data, error := os.read_entire_file_from_path(graph_active_layout_path, context.temp_allocator)
+	if error != nil do return {false, "graph layout is unavailable"}
+	for 	line in strings.split(string(data), "\n") {parts := strings.split(line, "\t"); if len(parts) == 0 do continue
+		if parts[0] == "case" && len(parts) >= 2 && parts[1] != graph_document.case_id do return {false, "graph layout belongs to another case"}
+		if parts[0] == "scene" && len(parts) >= 5 {index := graph_scene_index(parts[1]); x, x_ok :=
+				strconv.parse_f32(parts[2])
+			y, y_ok := strconv.parse_f32(parts[3])
+			zoom, z_ok := strconv.parse_f32(parts[4])
+			if index >= 0 && x_ok && y_ok && z_ok {graph_document.scenes[index].pan = {x, y}
+				graph_document.scenes[index].zoom = zoom}}
+		if parts[0] == "node" && len(parts) >= 6 {index := graph_node_index(parts[1], parts[2])
+			x, x_ok := strconv.parse_f32(parts[3])
+			y, y_ok := strconv.parse_f32(parts[4])
+			if index >= 0 && x_ok && y_ok {graph_document.nodes[index].position = {x, y}
+				graph_document.nodes[index].collapsed = parts[5] == "1"}}}
+	return{true, "GRAPH LAYOUT LOADED"}}
 
-graph_document_paths :: proc()->(source_path,autosave_path:string) {
-	return graph_active_source_path,graph_active_autosave_path
+graph_document_paths :: proc() -> (source_path, autosave_path: string) {
+	return graph_active_source_path, graph_active_autosave_path
 }
 
-graph_kind_color :: proc(kind:string)->[4]u8 {switch kind {case "line":return {82,158,220,255};case "choice":return {226,173,64,255};case "check":return {174,116,215,255};case "stage":return {65,194,210,255};case "interaction":return {80,181,119,255};case "end":return {198,91,91,255}};return {135,142,151,255}}
-graph_kind_label :: proc(kind:string)->string {return strings.to_upper(kind)}
-graph_world_to_screen :: proc(point:Vec2)->Vec2 {canvas:=graph_canvas_rect();return {canvas.x+(point.x+graph_state.pan.x-canvas.x)*graph_state.zoom,canvas.y+(point.y+graph_state.pan.y-canvas.y)*graph_state.zoom}}
-graph_screen_to_world :: proc(point:Vec2)->Vec2 {canvas:=graph_canvas_rect();zoom:=max(graph_state.zoom,.01);return {canvas.x+(point.x-canvas.x)/zoom-graph_state.pan.x,canvas.y+(point.y-canvas.y)/zoom-graph_state.pan.y}}
+graph_kind_color :: proc(kind: string) -> [4]u8 {switch kind {case "line":
+		return {82, 158, 220, 255}; case "choice":
+		return {226, 173, 64, 255}; case "check":
+		return {174, 116, 215, 255}; case "stage":
+		return {65, 194, 210, 255}; case "interaction":
+		return {80, 181, 119, 255}; case "end":
+		return {198, 91, 91, 255}}; return {135, 142, 151, 255}}
+graph_kind_label :: proc(kind: string) -> string {return strings.to_upper(kind)}
+graph_world_to_screen :: proc(point: Vec2) -> Vec2 {canvas := graph_canvas_rect(); return{
+		canvas.x + (point.x + graph_state.pan.x - canvas.x) * graph_state.zoom,
+		canvas.y + (point.y + graph_state.pan.y - canvas.y) * graph_state.zoom,
+	}}
+graph_screen_to_world :: proc(point: Vec2) -> Vec2 {canvas := graph_canvas_rect(); zoom := max(
+		graph_state.zoom,
+		.01,
+	)
+	return{
+		canvas.x + (point.x - canvas.x) / zoom - graph_state.pan.x,
+		canvas.y + (point.y - canvas.y) / zoom - graph_state.pan.y,
+	}}
 GRAPH_NODE_WIDTH :: f32(190)
 GRAPH_NODE_COLLAPSED_HEIGHT :: f32(36)
 GRAPH_NODE_HEADER_HEIGHT :: f32(24)
@@ -151,413 +597,2228 @@ GRAPH_NODE_OUTPUT_PADDING :: f32(14)
 GRAPH_NODE_LAYOUT_COLUMN_GAP :: f32(30)
 GRAPH_NODE_LAYOUT_ROW_GAP :: f32(33)
 
-graph_node_world_height :: proc(node:Graph_Node)->f32 {
+graph_node_world_height :: proc(node: Graph_Node) -> f32 {
 	if node.collapsed do return GRAPH_NODE_COLLAPSED_HEIGHT
-	beat:=node.beat
-	outputs:=max(1,graph_output_count(&beat))
-	body_height:=max(GRAPH_NODE_BODY_MIN_HEIGHT,GRAPH_NODE_OUTPUT_PADDING+f32(outputs)*GRAPH_NODE_OUTPUT_ROW_HEIGHT)
-	return GRAPH_NODE_HEADER_HEIGHT+body_height
+	beat := node.beat
+	outputs := max(1, graph_output_count(&beat))
+	body_height := max(
+		GRAPH_NODE_BODY_MIN_HEIGHT,
+		GRAPH_NODE_OUTPUT_PADDING + f32(outputs) * GRAPH_NODE_OUTPUT_ROW_HEIGHT,
+	)
+	return GRAPH_NODE_HEADER_HEIGHT + body_height
 }
-graph_node_rect :: proc(node:Graph_Node)->Rect {p:=graph_world_to_screen(node.position);return {p.x,p.y,GRAPH_NODE_WIDTH*graph_state.zoom,graph_node_world_height(node)*graph_state.zoom}}
-graph_canvas_rect :: proc()->Rect {return {220,62,724,612}}
-graph_scene_rect :: proc(index:int)->Rect {return {14,96+f32(index)*34,192,30}}
-graph_scene_window_start :: proc()->int {return clamp(graph_state.active_scene-3,0,max(0,graph_document.scene_count-8))}
-graph_palette_rect :: proc(index:int)->Rect {return {14+f32(index%2)*98,408+f32(index/2)*36,94,30}}
-graph_quick_rect :: proc(index:int)->Rect {return {graph_state.quick_add_at.x,graph_state.quick_add_at.y+34+f32(index)*27,176,25}}
-graph_search_rect :: proc()->Rect {return {748,682,116,28}}
-graph_search_next_rect :: proc()->Rect {return {870,682,68,28}}
-graph_minimap_rect :: proc()->Rect {canvas:=graph_canvas_rect();return {canvas.x+canvas.w-154,canvas.y+canvas.h-112,142,100}}
-graph_minimap_layout :: proc()->Graph_Minimap_Layout {
-	box:=graph_minimap_rect();scene:=graph_active_scene_id();minimum:=Vec2{1e30,1e30};maximum:=Vec2{-1e30,-1e30};count:=0
-	for node in graph_document.nodes[:graph_document.node_count] {if node.beat.scene!=scene do continue;minimum.x=min(minimum.x,node.position.x);minimum.y=min(minimum.y,node.position.y);maximum.x=max(maximum.x,node.position.x+GRAPH_NODE_WIDTH);maximum.y=max(maximum.y,node.position.y+graph_node_world_height(node));count+=1}
-	if count==0 do return {}
-	padding:=f32(36);world:=Rect{minimum.x-padding,minimum.y-padding,max(f32(1),maximum.x-minimum.x+padding*2),max(f32(1),maximum.y-minimum.y+padding*2)};inner:=Rect{box.x+5,box.y+5,box.w-10,box.h-10};scale:=min(inner.w/world.w,inner.h/world.h);content:=Rect{inner.x+(inner.w-world.w*scale)*.5,inner.y+(inner.h-world.h*scale)*.5,world.w*scale,world.h*scale};return {true,world,content,scale}
-}
-graph_minimap_project :: proc(layout:Graph_Minimap_Layout,point:Vec2)->Vec2 {return {layout.content.x+(point.x-layout.world.x)*layout.scale,layout.content.y+(point.y-layout.world.y)*layout.scale}}
-graph_edit_rect :: proc()->Rect {return {958,104,234,38}}
-graph_picker_rect :: proc(index:int)->Rect {return {958,146+f32(index)*30,234,28}}
-graph_tab_bar_rect :: proc()->Rect {return {218,8,576,48}}
-graph_view_tab_rect :: proc(index:int)->Rect {return {226+f32(index)*112,12,112,42}}
-graph_node_index :: proc(scene,id:string)->int {for node,i in graph_document.nodes[:graph_document.node_count] do if node.beat.scene==scene&&node.beat.id==id do return i;return -1}
-graph_document_node_index :: proc(doc:^Graph_Document,scene,id:string)->int {for node,i in doc.nodes[:doc.node_count] do if node.beat.scene==scene&&node.beat.id==id do return i;return -1}
-graph_scene_index :: proc(id:string)->int {for scene,i in graph_document.scenes[:graph_document.scene_count] do if scene.scene.id==id do return i;return -1}
-graph_active_scene_id :: proc()->string {if graph_state.active_scene<0||graph_state.active_scene>=graph_document.scene_count do return "";return graph_document.scenes[graph_state.active_scene].scene.id}
-graph_is_selected :: proc(index:int)->bool {for value in graph_state.selection[:graph_state.selection_count] do if value==index do return true;return false}
-graph_clear_selection :: proc() {graph_state.selection_count=0;graph_state.selected_node=-1;graph_state.edge_selection={};graph_state.inspector_scroll=0;graph_state.inspector_scroll_max=0;graph_state.choice_page=0}
-graph_select_only :: proc(index:int) {graph_clear_selection();if index>=0 {graph_state.selection[0]=index;graph_state.selection_count=1;graph_state.selected_node=index}}
-graph_toggle_selection :: proc(index:int) {for value,i in graph_state.selection[:graph_state.selection_count] do if value==index {for j in i+1..<graph_state.selection_count do graph_state.selection[j-1]=graph_state.selection[j];graph_state.selection_count-=1;graph_state.selected_node=graph_state.selection_count>0?graph_state.selection[graph_state.selection_count-1]:-1;return};if graph_state.selection_count<GRAPH_SELECTION_CAPACITY {graph_state.selection[graph_state.selection_count]=index;graph_state.selection_count+=1;graph_state.selected_node=index}}
-graph_unique_id :: proc(base,scene:string)->string {candidate:=base;if candidate=="" do candidate="node";suffix:=2;for {found:=false;for node in graph_document.nodes[:graph_document.node_count] do if node.beat.id==candidate do found=true;if !found do return candidate;candidate=fmt.tprintf("%s_%d",base,suffix);suffix+=1}}
-graph_port_target :: proc(beat:^Graph_Beat,port:Graph_Port_Kind,choice_index:int)->^string {#partial switch port {case .Next:return &beat.next;case .Success:return &beat.success;case .Failure:return &beat.failure;case .Cancel:return &beat.cancel;case .Choice:if choice_index>=0&&choice_index<len(beat.choice_targets) do return &beat.choice_targets[choice_index]};return nil}
-graph_port_color :: proc(port:Graph_Port_Kind)->[4]u8 {#partial switch port {case .Next:return {82,158,220,255};case .Success:return {80,181,119,255};case .Failure:return {198,91,91,255};case .Cancel:return {135,142,151,255};case .Choice:return {226,173,64,255}};return {220,226,232,255}}
-graph_output_count :: proc(beat:^Graph_Beat)->int {if beat.kind=="choice" do return len(beat.choice_labels);if beat.kind=="check" do return 2;if beat.kind=="interaction" do return beat.cancel!=""?2:1;if beat.kind=="end" do return 0;return 1}
-graph_output_port :: proc(beat:^Graph_Beat,index:int)->(Graph_Port_Kind,int) {if beat.kind=="choice" do return .Choice,index;if beat.kind=="check" do return index==0?.Success:.Failure,-1;if beat.kind=="interaction" do return index==0?.Success:.Cancel,-1;return .Next,-1}
-graph_port_rect :: proc(node:Graph_Node,index:int)->Rect {box:=graph_node_rect(node);beat:=node.beat;count:=max(1,graph_output_count(&beat));header:=min(box.h,f32(24)*graph_state.zoom);body:=box.h-header;y:=header+box.y+(f32(index)+.5)*body/f32(count);size:=f32(10)*graph_state.zoom;return {box.x+box.w-size*.5,y-size*.5,size,size}}
-graph_input_rect :: proc(node:Graph_Node)->Rect {box:=graph_node_rect(node);size:=f32(10)*graph_state.zoom;header:=min(box.h,f32(24)*graph_state.zoom);y:=box.y+header+(box.h-header)*.5;return {box.x-size*.5,y-size*.5,size,size}}
-graph_rect_normalized :: proc(a,b:Vec2)->Rect {return {min(a.x,b.x),min(a.y,b.y),math.abs(b.x-a.x),math.abs(b.y-a.y)}}
-graph_rects_overlap :: proc(a,b:Rect)->bool {return a.x<=b.x+b.w&&a.x+a.w>=b.x&&a.y<=b.y+b.h&&a.y+a.h>=b.y}
-graph_point_segment_distance :: proc(p,a,b:Vec2)->f32 {dx,dy:=b.x-a.x,b.y-a.y;length:=dx*dx+dy*dy;if length<=.001 do return math.sqrt((p.x-a.x)*(p.x-a.x)+(p.y-a.y)*(p.y-a.y));t:=clamp(((p.x-a.x)*dx+(p.y-a.y)*dy)/length,0,1);x,y:=a.x+t*dx,a.y+t*dy;return math.sqrt((p.x-x)*(p.x-x)+(p.y-y)*(p.y-y))}
-graph_edge_hit :: proc(point:Vec2)->Graph_Edge_Selection {scene:=graph_active_scene_id();for &node,i in graph_document.nodes[:graph_document.node_count] {if node.beat.scene!=scene do continue;for port_index in 0..<graph_output_count(&node.beat) {port,choice:=graph_output_port(&node.beat,port_index);target:=graph_port_target(&node.beat,port,choice);if target==nil||target^=="" do continue;to:=graph_node_index(scene,target^);if to>=0&&graph_rendered_edge_hit(point,scene,i,to,port_index) do return {active=true,node=i,port=port,choice_index=choice}}};return {}}
+graph_node_rect :: proc(node: Graph_Node) -> Rect {p := graph_world_to_screen(node.position)
+	return {
+		p.x,
+		p.y,
+		GRAPH_NODE_WIDTH * graph_state.zoom,
+		graph_node_world_height(node) * graph_state.zoom,
+	}}
+graph_canvas_rect :: proc() -> Rect {return {220, 62, 724, 612}}
+graph_scene_rect :: proc(index: int) -> Rect {return {14, 96 + f32(index) * 34, 192, 30}}
+graph_scene_window_start :: proc() -> int {return clamp(
+		graph_state.active_scene - 3,
+		0,
+		max(0, graph_document.scene_count - 8),
+	)}
+graph_palette_rect :: proc(index: int) -> Rect {return{
+		14 + f32(index % 2) * 98,
+		408 + f32(index / 2) * 36,
+		94,
+		30,
+	}}
+graph_quick_rect :: proc(index: int) -> Rect {return{
+		graph_state.quick_add_at.x,
+		graph_state.quick_add_at.y + 34 + f32(index) * 27,
+		176,
+		25,
+	}}
+graph_search_rect :: proc() -> Rect {return {748, 682, 116, 28}}
+graph_search_next_rect :: proc() -> Rect {return {870, 682, 68, 28}}
+graph_minimap_rect :: proc() -> Rect {canvas := graph_canvas_rect(); return{
+		canvas.x + canvas.w - 154,
+		canvas.y + canvas.h - 112,
+		142,
+		100,
+	}}
+graph_minimap_layout :: proc() -> Graph_Minimap_Layout {
+	box := graph_minimap_rect(
 
-graph_field_is_picker :: proc(field:Graph_Field)->bool {#partial switch field {case .Speaker,.Camera,.Actor,.Actor_Mark,.Interaction,.Event,.Subscene,.Condition,.Effects,.Clue,.Ending,.UI,.Scene_Return:return true;case:return false}}
-graph_begin_picker :: proc(field:Graph_Field,value:string,node:=-1) {graph_begin_edit(field,"",node);graph_state.field_edit.picker=true;graph_state.field_edit.picker_selected=0}
-graph_picker_candidate_raw :: proc(g:^Game,field:Graph_Field,index:int)->string {#partial switch field {case .Speaker,.Actor:if index==0 do return "narrator";if index==1 do return "detective";wanted:=index-2;seen:=0;if g.story_project!=nil {for entity in g.story_project.entities do if entity.kind=="character" {if seen==wanted do return entity.id;seen+=1}}
-	case .Clue:payload:=mystery_game_payload(g);if payload!=nil&&index>=0&&index<len(payload.clues) do return payload.clues[index].id
-	case .Ending:if g.story_project!=nil&&index>=0&&index<len(g.story_project.endings) do return g.story_project.endings[index].id
-	case .Camera,.Actor_Mark:seen:=0;wanted:=field==.Camera?Level_Marker_Kind.Camera:Level_Marker_Kind.Staging;for marker in level_document.markers do if marker.story==level_document.active_story&&marker.kind==wanted {if seen==index do return marker.id;seen+=1}
-	case .Interaction:seen:=0;for marker in level_document.markers do if marker.story==level_document.active_story&&marker.kind==.Interaction&&marker.reference!="" {if seen==index do return marker.reference;seen+=1}
-	case .Event:seen:=0;for marker in level_document.markers do if marker.story==level_document.active_story&&marker.kind==.Trigger&&marker.reference!="" {duplicate:=false;for earlier in level_document.markers {if earlier.id==marker.id do break;if earlier.story==marker.story&&earlier.kind==.Trigger&&earlier.reference==marker.reference do duplicate=true};if duplicate do continue;if seen==index do return marker.reference;seen+=1}
-	case .Subscene:if index>=0&&index<graph_document.scene_count do return graph_document.scenes[index].scene.id
-	case .Condition:if graph_source_project!=nil&&index>=0&&index<len(graph_source_project.conditions) do return graph_source_project.conditions[index].id
-	case .Effects:if index>=0&&index<graph_document.effect_count do return graph_document.effects[index].id
-	case .UI:values:=[3]string{"dialogue","hidden","unchanged"};if index>=0&&index<len(values) do return values[index]
-	case .Scene_Return:if index==0 do return "investigation";j:=index-1;if j>=0&&j<graph_document.scene_count do return graph_document.scenes[j].scene.id
-	case:};return ""}
-graph_picker_search_text :: proc(field:Graph_Field,value:string)->string {if field==.Camera||field==.Actor_Mark do return value;if field==.Interaction {for marker in level_document.markers do if marker.story==level_document.active_story&&marker.kind==.Interaction&&marker.reference==value do return fmt.tprintf("%s %s",value,marker.id)};if field==.Event {for marker in level_document.markers do if marker.story==level_document.active_story&&marker.kind==.Trigger&&marker.reference==value do return fmt.tprintf("%s %s",value,marker.id)};return value}
-graph_picker_candidate :: proc(g:^Game,field:Graph_Field,filtered_index:int)->string {query:=strings.to_lower(graph_edit_text());seen:=0;for raw in 0..<512 {value:=graph_picker_candidate_raw(g,field,raw);if value=="" {if raw>64 do break;continue};if query!=""&&!strings.contains(strings.to_lower(graph_picker_search_text(field,value)),query) do continue;if seen==filtered_index do return value;seen+=1};return ""}
-graph_picker_count :: proc(g:^Game,field:Graph_Field)->int {count:=0;for count<512&&graph_picker_candidate(g,field,count)!="" do count+=1;return count}
-graph_picker_navigation_step :: proc(selected,count:int,up,down:bool)->int {result:=selected;if down do result=min(result+1,max(0,count-1));if up do result=max(0,result-1);return result}
-graph_picker_label :: proc(g:^Game,field:Graph_Field,index:int)->string {value:=graph_picker_candidate(g,field,index);if value=="" do return "";wanted:=field==.Camera?Level_Marker_Kind.Camera:field==.Actor_Mark?Level_Marker_Kind.Staging:field==.Interaction?Level_Marker_Kind.Interaction:field==.Event?Level_Marker_Kind.Trigger:Level_Marker_Kind.Player_Spawn;if field==.Camera||field==.Actor_Mark {for marker in level_document.markers do if marker.story==level_document.active_story&&marker.kind==wanted&&marker.id==value do return fmt.tprintf("%s  ·  STORY %d",value,marker.story+1)}else if field==.Interaction||field==.Event {for marker in level_document.markers do if marker.story==level_document.active_story&&marker.kind==wanted&&marker.reference==value do return fmt.tprintf("%s  ·  %s",value,strings.to_upper(marker.id))};return value}
-graph_node_spatial_marker :: proc(node:^Graph_Node)->(string,bool) {
-	if node.beat.camera!="" do return node.beat.camera,true
-	if node.beat.actor_mark!="" do return node.beat.actor_mark,true
-	if node.beat.interaction!="" {for marker in level_document.markers do if marker.kind==.Interaction&&marker.reference==node.beat.interaction do return marker.id,true}
-	if node.beat.event_id!="" {for marker in level_document.markers do if marker.kind==.Trigger&&marker.reference==node.beat.event_id do return marker.id,true}
-	return "",false
+	); scene := graph_active_scene_id(); minimum := Vec2{1e30, 1e30}; maximum := Vec2{-1e30, -1e30}; count := 0
+	for node in graph_document.nodes[:graph_document.node_count] {if node.beat.scene != scene do continue; minimum.x = min(minimum.x, node.position.x); minimum.y = min(minimum.y, node.position.y); maximum.x = max(maximum.x, node.position.x + GRAPH_NODE_WIDTH); maximum.y = max(maximum.y, node.position.y + graph_node_world_height(node)); count += 1}
+	if count == 0 do return {}
+	padding := f32(
+		36,
+	); world := Rect{minimum.x - padding, minimum.y - padding, max(f32(1), maximum.x - minimum.x + padding * 2), max(f32(1), maximum.y - minimum.y + padding * 2)}; inner := Rect{box.x + 5, box.y + 5, box.w - 10, box.h - 10}; scale := min(inner.w / world.w, inner.h / world.h); content := Rect{inner.x + (inner.w - world.w * scale) * .5, inner.y + (inner.h - world.h * scale) * .5, world.w * scale, world.h * scale}; return {true, world, content, scale}
 }
-graph_open_selected_in_build :: proc(g:^Game)->bool {
-	if graph_state.selected_node<0||graph_state.selected_node>=graph_document.node_count {graph_feedback("SELECT A NODE WITH A SPATIAL BINDING",true);return false}
-	id,found:=graph_node_spatial_marker(&graph_document.nodes[graph_state.selected_node]);if !found {graph_feedback("THIS NODE HAS NO SPATIAL BINDING",true);return false}
-	index:=level_marker_index(&level_document,id);if index<0 {graph_feedback(fmt.tprintf("SPATIAL MARKER NOT FOUND  ·  %s",strings.to_upper(id)),true);return false}
-	marker:=level_document.markers[index];level_document.active_story=marker.story;editor_state.view=.Markers;g.top_down_camera=true;g.build_tool=.Marker;editor_state.selection_count=1;editor_state.selection[0]={.Marker,marker.id,-1};g.editor_mode=.Build;g.move_target_active=false;_=editor_frame_selection(g);editor_show_feedback(fmt.tprintf("OPENED FROM GRAPH  ·  %s",strings.to_upper(marker.id)));return true
+graph_minimap_project :: proc(layout: Graph_Minimap_Layout, point: Vec2) -> Vec2 {return{
+		layout.content.x + (point.x - layout.world.x) * layout.scale,
+		layout.content.y + (point.y - layout.world.y) * layout.scale,
+	}}
+graph_edit_rect :: proc() -> Rect {return {958, 104, 234, 38}}
+graph_picker_rect :: proc(index: int) -> Rect {return {958, 146 + f32(index) * 30, 234, 28}}
+graph_tab_bar_rect :: proc() -> Rect {return {218, 8, 576, 48}}
+graph_view_tab_rect :: proc(index: int) -> Rect {return {226 + f32(index) * 112, 12, 112, 42}}
+graph_node_index :: proc(scene, id: string) -> int {for node, i in graph_document.nodes[:graph_document.node_count] do if node.beat.scene == scene && node.beat.id == id do return i
+	return -1}
+graph_document_node_index :: proc(doc: ^Graph_Document, scene, id: string) -> int {for node, i in doc.nodes[:doc.node_count] do if node.beat.scene == scene && node.beat.id == id do return i
+	return -1}
+graph_scene_index :: proc(id: string) -> int {for scene, i in graph_document.scenes[:graph_document.scene_count] do if scene.scene.id == id do return i
+	return -1}
+graph_active_scene_id :: proc() -> string {if graph_state.active_scene < 0 || graph_state.active_scene >= graph_document.scene_count do return ""
+	return graph_document.scenes[graph_state.active_scene].scene.id}
+graph_is_selected :: proc(index: int) -> bool {for value in graph_state.selection[:graph_state.selection_count] do if value == index do return true
+	return false}
+graph_clear_selection :: proc() {graph_state.selection_count = 0; graph_state.selected_node = -1
+	graph_state.edge_selection = {}
+	graph_state.inspector_scroll = 0
+	graph_state.inspector_scroll_max = 0
+	graph_state.choice_page = 0}
+graph_select_only :: proc(index: int) {graph_clear_selection(); if index >=
+	   0 {graph_state.selection[0] = index; graph_state.selection_count = 1
+		graph_state.selected_node = index}}
+graph_toggle_selection :: proc(index: int) {for value, i in graph_state.selection[:graph_state.selection_count] do if value == index {for j in i + 1 ..< graph_state.selection_count do graph_state.selection[j - 1] = graph_state.selection[j]; graph_state.selection_count -= 1; graph_state.selected_node = graph_state.selection_count > 0 ? graph_state.selection[graph_state.selection_count - 1] : -1; return}
+	if graph_state.selection_count < GRAPH_SELECTION_CAPACITY {graph_state.selection[graph_state.selection_count] =
+			index
+		graph_state.selection_count += 1
+		graph_state.selected_node = index}}
+graph_unique_id :: proc(base, scene: string) -> string {candidate := base; if candidate == "" do candidate = "node"
+	suffix := 2
+	for {found := false; for node in graph_document.nodes[:graph_document.node_count] do if node.beat.id == candidate do found = true
+		if !found do return candidate
+		candidate = fmt.tprintf("%s_%d", base, suffix)
+		suffix += 1}}
+graph_port_target :: proc(
+	beat: ^Graph_Beat,
+	port: Graph_Port_Kind,
+	choice_index: int,
+) -> ^string {#partial switch port {case .Next:
+		return &beat.next; case .Success:
+		return &beat.success; case .Failure:
+		return &beat.failure; case .Cancel:
+		return &beat.cancel; case .Choice:
+		if choice_index >= 0 && choice_index < len(beat.choice_targets) do return &beat.choice_targets[choice_index]}; return nil}
+graph_port_color :: proc(port: Graph_Port_Kind) -> [4]u8 {#partial switch port {case .Next:
+		return {82, 158, 220, 255}; case .Success:
+		return {80, 181, 119, 255}; case .Failure:
+		return {198, 91, 91, 255}; case .Cancel:
+		return {135, 142, 151, 255}; case .Choice:
+		return {226, 173, 64, 255}}; return {220, 226, 232, 255}}
+graph_output_count :: proc(beat: ^Graph_Beat) -> int {if beat.kind == "choice" do return len(beat.choice_labels)
+	if beat.kind == "check" do return 2
+	if beat.kind == "interaction" do return beat.cancel != "" ? 2 : 1
+	if beat.kind == "end" do return 0
+	return 1}
+graph_output_port :: proc(
+	beat: ^Graph_Beat,
+	index: int,
+) -> (
+	Graph_Port_Kind,
+	int,
+) {if beat.kind == "choice" do return .Choice, index; if beat.kind == "check" do return index == 0 ? .Success : .Failure, -1
+	if beat.kind == "interaction" do return index == 0 ? .Success : .Cancel, -1
+	return .Next, -1}
+graph_port_rect :: proc(node: Graph_Node, index: int) -> Rect {box := graph_node_rect(node)
+	beat := node.beat
+	count := max(1, graph_output_count(&beat))
+	header := min(box.h, f32(24) * graph_state.zoom)
+	body := box.h - header
+	y := header + box.y + (f32(index) + .5) * body / f32(count)
+	size := f32(10) * graph_state.zoom
+	return {box.x + box.w - size * .5, y - size * .5, size, size}}
+graph_input_rect :: proc(node: Graph_Node) -> Rect {box := graph_node_rect(node); size :=
+		f32(10) * graph_state.zoom
+	header := min(box.h, f32(24) * graph_state.zoom)
+	y := box.y + header + (box.h - header) * .5
+	return{box.x - size * .5, y - size * .5, size, size}}
+graph_rect_normalized :: proc(a, b: Vec2) -> Rect {return{
+		min(a.x, b.x),
+		min(a.y, b.y),
+		math.abs(b.x - a.x),
+		math.abs(b.y - a.y),
+	}}
+graph_rects_overlap :: proc(a, b: Rect) -> bool {return(
+		a.x <= b.x + b.w &&
+		a.x + a.w >= b.x &&
+		a.y <= b.y + b.h &&
+		a.y + a.h >= b.y \
+	)}
+graph_point_segment_distance :: proc(p, a, b: Vec2) -> f32 {dx, dy := b.x - a.x, b.y - a.y
+	length := dx * dx + dy * dy
+	if length <= .001 do return math.sqrt((p.x - a.x) * (p.x - a.x) + (p.y - a.y) * (p.y - a.y))
+	t := clamp(((p.x - a.x) * dx + (p.y - a.y) * dy) / length, 0, 1)
+	x, y := a.x + t * dx, a.y + t * dy
+	return math.sqrt((p.x - x) * (p.x - x) + (p.y - y) * (p.y - y))}
+graph_edge_hit :: proc(point: Vec2) -> Graph_Edge_Selection {scene := graph_active_scene_id(); for 	&node, i in graph_document.nodes[:graph_document.node_count] {if node.beat.scene != scene do continue; for 		port_index in 0 ..< graph_output_count(&node.beat) {port, choice := graph_output_port(&node.beat, port_index)
+			target := graph_port_target(&node.beat, port, choice)
+			if target == nil || target^ == "" do continue
+			to := graph_node_index(scene, target^)
+			if to >= 0 && graph_rendered_edge_hit(point, scene, i, to, port_index) do return {active = true, node = i, port = port, choice_index = choice}}}
+	return{}}
+
+graph_field_is_picker :: proc(field: Graph_Field) -> bool {#partial switch
+	field {case .Speaker,
+	            .Camera,
+	            .Actor,
+	            .Actor_Mark,
+	            .Interaction,
+	            .Event,
+	            .Subscene,
+	            .Condition,
+	            .Effects,
+	            .Clue,
+	            .Ending,
+	            .UI,
+	            .Scene_Return:
+		return true
+	case:
+		return false}}
+graph_begin_picker :: proc(field: Graph_Field, value: string, node := -1) {graph_begin_edit(
+		field,
+		"",
+		node,
+	)
+	graph_state.field_edit.picker = true
+	graph_state.field_edit.picker_selected = 0}
+graph_picker_candidate_raw :: proc(
+	g: ^Game,
+	field: Graph_Field,
+	index: int,
+) -> string {#partial switch field {case .Speaker, .Actor:
+		if index == 0 do return "narrator"; if index == 1 do return "detective"
+		wanted := index - 2
+		seen := 0
+		if g.story_project !=
+		   nil {for entity in g.story_project.entities do if entity.kind == "character" {if seen == wanted do return entity.id; seen += 1}}
+	case .Clue:
+		payload := mystery_game_payload(g)
+		if payload != nil && index >= 0 && index < len(payload.clues) do return payload.clues[index].id
+	case .Ending:
+		if g.story_project != nil && index >= 0 && index < len(g.story_project.endings) do return g.story_project.endings[index].id
+	case .Camera, .Actor_Mark:
+		seen := 0
+		wanted := field == .Camera ? Level_Marker_Kind.Camera : Level_Marker_Kind.Staging
+		for marker in level_document.markers do if marker.story == level_document.active_story && marker.kind == wanted {if seen == index do return marker.id; seen += 1}
+	case .Interaction:
+		seen := 0
+		for marker in level_document.markers do if marker.story == level_document.active_story && marker.kind == .Interaction && marker.reference != "" {if seen == index do return marker.reference; seen += 1}
+	case .Event:
+		seen := 0
+		for marker in level_document.markers do if marker.story == level_document.active_story && marker.kind == .Trigger && marker.reference != "" {duplicate := false; for earlier in level_document.markers {if earlier.id == marker.id do break; if earlier.story == marker.story && earlier.kind == .Trigger && earlier.reference == marker.reference do duplicate = true}; if duplicate do continue; if seen == index do return marker.reference; seen += 1}
+	case .Subscene:
+		if index >= 0 && index < graph_document.scene_count do return graph_document.scenes[index].scene.id
+	case .Condition:
+		if graph_source_project != nil && index >= 0 && index < len(graph_source_project.conditions) do return graph_source_project.conditions[index].id
+	case .Effects:
+		if index >= 0 && index < graph_document.effect_count do return graph_document.effects[index].id
+	case .UI:
+		values := [3]string{"dialogue", "hidden", "unchanged"}
+		if index >= 0 && index < len(values) do return values[index]
+	case .Scene_Return:
+		if index == 0 do return "investigation"; j := index - 1
+		if j >= 0 && j < graph_document.scene_count do return graph_document.scenes[j].scene.id
+	case:}; return ""}
+graph_picker_search_text :: proc(field: Graph_Field, value: string) -> string {if field == .Camera || field == .Actor_Mark do return value
+	if field == .Interaction {for marker in level_document.markers do if marker.story == level_document.active_story && marker.kind == .Interaction && marker.reference == value do return fmt.tprintf("%s %s", value, marker.id)}
+	if field == .Event {for marker in level_document.markers do if marker.story == level_document.active_story && marker.kind == .Trigger && marker.reference == value do return fmt.tprintf("%s %s", value, marker.id)}
+	return value}
+graph_picker_candidate :: proc(
+	g: ^Game,
+	field: Graph_Field,
+	filtered_index: int,
+) -> string {query := strings.to_lower(graph_edit_text()); seen := 0; for 	raw in 0 ..< 512 {value := graph_picker_candidate_raw(g, field, raw); if value == "" {if raw > 64 do break
+			continue}
+		if query != "" && !strings.contains(strings.to_lower(graph_picker_search_text(field, value)), query) do continue
+		if seen == filtered_index do return value
+		seen += 1}
+	return ""}
+graph_picker_count :: proc(g: ^Game, field: Graph_Field) -> int {count := 0; for count < 512 && graph_picker_candidate(g, field, count) != "" do count += 1
+	return count}
+graph_picker_navigation_step :: proc(selected, count: int, up, down: bool) -> int {result :=
+		selected
+	if down do result = min(result + 1, max(0, count - 1))
+	if up do result = max(0, result - 1)
+	return result}
+graph_picker_label :: proc(g: ^Game, field: Graph_Field, index: int) -> string {value :=
+		graph_picker_candidate(g, field, index)
+	if value == "" do return ""
+	wanted :=
+		field == .Camera ? Level_Marker_Kind.Camera : field == .Actor_Mark ? Level_Marker_Kind.Staging : field == .Interaction ? Level_Marker_Kind.Interaction : field == .Event ? Level_Marker_Kind.Trigger : Level_Marker_Kind.Player_Spawn
+	if field == .Camera || field == .Actor_Mark {for marker in level_document.markers do if marker.story == level_document.active_story && marker.kind == wanted && marker.id == value do return fmt.tprintf("%s  ·  STORY %d", value, marker.story + 1)}
+	else if field == .Interaction || field == .Event {for marker in level_document.markers do if marker.story == level_document.active_story && marker.kind == wanted && marker.reference == value do return fmt.tprintf("%s  ·  %s", value, strings.to_upper(marker.id))}
+	return value}
+graph_node_spatial_marker :: proc(node: ^Graph_Node) -> (string, bool) {
+	if node.beat.camera != "" do return node.beat.camera, true
+	if node.beat.actor_mark != "" do return node.beat.actor_mark, true
+	if node.beat.interaction !=
+	   "" {for marker in level_document.markers do if marker.kind == .Interaction && marker.reference == node.beat.interaction do return marker.id, true}
+	if node.beat.event_id !=
+	   "" {for marker in level_document.markers do if marker.kind == .Trigger && marker.reference == node.beat.event_id do return marker.id, true}
+	return "", false
 }
-graph_picker_apply :: proc(g:^Game,index:int)->bool {value:=graph_picker_candidate(g,graph_state.field_edit.field,index);if value=="" do return false;graph_state.field_edit.count=0;graph_edit_append(value);return graph_commit_edit()}
+graph_open_selected_in_build :: proc(g: ^Game) -> bool {
+	if graph_state.selected_node < 0 ||
+	   graph_state.selected_node >=
+		   graph_document.node_count {graph_feedback("SELECT A NODE WITH A SPATIAL BINDING", true); return false}
+	id, found := graph_node_spatial_marker(
+		&graph_document.nodes[graph_state.selected_node],
+	); if !found {graph_feedback("THIS NODE HAS NO SPATIAL BINDING", true); return false}
+	index := level_marker_index(
+		&level_document,
+		id,
+	); if index < 0 {graph_feedback(fmt.tprintf("SPATIAL MARKER NOT FOUND  ·  %s", strings.to_upper(id)), true); return false}
+	marker :=
+		level_document.markers[index]; level_document.active_story = marker.story; editor_state.view = .Markers; g.top_down_camera = true; g.build_tool = .Marker; editor_state.selection_count = 1; editor_state.selection[0] = {.Marker, marker.id, -1}; g.editor_mode = .Build; g.move_target_active = false; _ = editor_frame_selection(g); editor_show_feedback(fmt.tprintf("OPENED FROM GRAPH  ·  %s", strings.to_upper(marker.id))); return true
+}
+graph_picker_apply :: proc(g: ^Game, index: int) -> bool {value := graph_picker_candidate(
+		g,
+		graph_state.field_edit.field,
+		index,
+	)
+	if value == "" do return false
+	graph_state.field_edit.count = 0
+	graph_edit_append(value)
+	return graph_commit_edit()}
 
-graph_script_row_rect :: proc(row:int)->Rect {return {238,92+f32(row)*70,682,64}}
-graph_localization_row_rect :: proc(row:int)->Rect {return {238,158+f32(row)*46,682,42}}
-graph_localization_visible_index :: proc(row:int)->int {visible:=0;scene:=graph_active_scene_id();for item,i in graph_document.localizations[:graph_document.localization_count] {if graph_state.localization_scene_only&&graph_node_index(scene,item.node_id)<0 do continue;if graph_state.localization_language!=""&&item.language!=graph_state.localization_language do continue;if graph_state.localization_status!=""&&item.status!=graph_state.localization_status do continue;if graph_state.localization_missing_text&&strings.trim_space(item.text)!="" do continue;if graph_state.localization_missing_voice&&strings.trim_space(item.voice)!="" do continue;if visible==row do return i;visible+=1};return -1}
-graph_definition_row_rect :: proc(row:int)->Rect {return {238,118+f32(row)*38,390,34}}
-update_graph_script_view :: proc(g:^Game) {scene:=graph_active_scene_id();row:=0;for node,i in graph_document.nodes[:graph_document.node_count] {if node.beat.scene!=scene do continue;box:=graph_script_row_rect(row);if button(g,box) do graph_select_only(i);if graph_state.selected_node==i {if button(g,{box.x+496,box.y+5,54,24}) do _=graph_node_order_move(i,-1);if button(g,{box.x+554,box.y+5,54,24}) do _=graph_node_order_move(i,1);if button(g,{box.x+612,box.y+5,62,24}) do _=graph_delete_selected();if g.input.mouse_pressed&&contains({box.x+86,box.y+30,390,28},g.input.mouse_pos) {if node.beat.kind=="choice"&&len(node.beat.choice_labels)>0 do graph_begin_choice_edit(.Choice_Label,node.beat.choice_labels[0],i,0);else if node.beat.kind=="line" do graph_begin_edit(.Text,node.beat.text,i,true);else do graph_begin_edit(.Summary,node.beat.summary,i,true)};if g.input.mouse_pressed&&contains({box.x+8,box.y+30,74,28},g.input.mouse_pos) do graph_begin_picker(.Speaker,node.beat.speaker,i)};row+=1;if row>=8 do break};if button(g,{790,646,130,28}) do _=graph_add_node("line",{300,120+f32(row)*110})}
-update_graph_localization_view :: proc(g:^Game) {if button(g,{238,104,80,26}) do graph_state.localization_scene_only=!graph_state.localization_scene_only;if button(g,{322,104,96,26}) do graph_begin_edit(.Localization_Filter_Language,graph_state.localization_language);if button(g,{422,104,96,26}) do graph_begin_edit(.Localization_Filter_Status,graph_state.localization_status);if button(g,{522,104,116,26}) do graph_state.localization_missing_text=!graph_state.localization_missing_text;if button(g,{642,104,116,26}) do graph_state.localization_missing_voice=!graph_state.localization_missing_voice;for row in 0..<10 {i:=graph_localization_visible_index(row);if i<0 do break;box:=graph_localization_row_rect(row);if button(g,box) do graph_state.selected_localization=i;if graph_state.selected_localization==i {item:=graph_document.localizations[i];if g.input.mouse_pressed&&contains({box.x+150,box.y,90,box.h},g.input.mouse_pos) do graph_begin_edit(.Localization_Language,item.language);if g.input.mouse_pressed&&contains({box.x+244,box.y,238,box.h},g.input.mouse_pos) do graph_begin_edit(.Localization_Text,item.text,-1,true);if g.input.mouse_pressed&&contains({box.x+486,box.y,78,box.h},g.input.mouse_pos) do graph_begin_edit(.Localization_Status,item.status);if g.input.mouse_pressed&&contains({box.x+568,box.y,106,box.h},g.input.mouse_pos) do graph_begin_edit(.Localization_Voice,item.voice)}};if button(g,{666,646,122,28}) do _=graph_add_localization();if button(g,{794,646,126,28}) do _=graph_delete_localization()}
-update_graph_conditions_view :: proc(g:^Game) {for i in 0..<min(13,graph_document.condition_count) {if button(g,graph_definition_row_rect(i)) do graph_state.selected_condition=i};if graph_state.selected_condition>=0&&graph_state.selected_condition<graph_document.condition_count {item:=&graph_document.conditions[graph_state.selected_condition];if g.input.mouse_pressed&&contains({650,144,270,32},g.input.mouse_pos) do graph_begin_edit(.Condition_Id,item.id);if g.input.mouse_pressed&&contains({650,190,270,32},g.input.mouse_pos) do graph_begin_edit(.Condition_Kind,story_condition_kind_text(item.kind));for slot in 0..<5 {_,value,visible:=graph_condition_slot(item,slot);box:=Rect{650,236+f32(slot)*58,270,52};if visible&&g.input.mouse_pressed&&contains(box,g.input.mouse_pos) do graph_begin_edit(Graph_Field(int(Graph_Field.Condition_Value)+slot),value,-1,true)}};if button(g,{650,646,128,28}) do _=graph_add_condition();if button(g,{786,646,134,28}) do _=graph_delete_condition()}
-update_graph_effects_view :: proc(g:^Game) {for i in 0..<min(13,graph_document.effect_count) {if button(g,graph_definition_row_rect(i)) do graph_state.selected_effect=i};if graph_state.selected_effect>=0&&graph_state.selected_effect<graph_document.effect_count {item:=&graph_document.effects[graph_state.selected_effect];if g.input.mouse_pressed&&contains({650,144,270,32},g.input.mouse_pos) do graph_begin_edit(.Effect_Id,item.id);if g.input.mouse_pressed&&contains({650,190,270,32},g.input.mouse_pos) do graph_begin_edit(.Effect_Kind,story_effect_kind_text(item.kind));for slot in 0..<5 {_,value,visible:=graph_effect_slot(item,slot);box:=Rect{650,236+f32(slot)*58,270,52};if visible&&g.input.mouse_pressed&&contains(box,g.input.mouse_pos) do graph_begin_edit(Graph_Field(int(Graph_Field.Effect_Value)+slot),value,-1,true)}};if button(g,{650,646,128,28}) do _=graph_add_effect();if button(g,{786,646,134,28}) do _=graph_delete_effect()}
+graph_script_row_rect :: proc(row: int) -> Rect {return {238, 92 + f32(row) * 70, 682, 64}}
+graph_localization_row_rect :: proc(row: int) -> Rect {return {238, 158 + f32(row) * 46, 682, 42}}
+graph_localization_visible_index :: proc(row: int) -> int {visible := 0; scene :=
+		graph_active_scene_id()
+	for 	item, i in graph_document.localizations[:graph_document.localization_count] {if graph_state.localization_scene_only && graph_node_index(scene, item.node_id) < 0 do continue
+		if graph_state.localization_language != "" && item.language != graph_state.localization_language do continue
+		if graph_state.localization_status != "" && item.status != graph_state.localization_status do continue
+		if graph_state.localization_missing_text && strings.trim_space(item.text) != "" do continue
+		if graph_state.localization_missing_voice && strings.trim_space(item.voice) != "" do continue
+		if visible == row do return i
+		visible += 1}
+	return -1}
+graph_definition_row_rect :: proc(row: int) -> Rect {return {238, 118 + f32(row) * 38, 390, 34}}
+update_graph_script_view :: proc(g: ^Game) {scene := graph_active_scene_id(); row := 0; for 	node, i in graph_document.nodes[:graph_document.node_count] {if node.beat.scene != scene do continue
+		box := graph_script_row_rect(row)
+		if button(g, box) do graph_select_only(i)
+		if graph_state.selected_node == i {if button(g, {box.x + 496, box.y + 5, 54, 24}) do _ = graph_node_order_move(i, -1)
+			if button(g, {box.x + 554, box.y + 5, 54, 24}) do _ = graph_node_order_move(i, 1)
+			if button(g, {box.x + 612, box.y + 5, 62, 24}) do _ = graph_delete_selected()
+			if g.input.mouse_pressed &&
+			   contains({box.x + 86, box.y + 30, 390, 28}, g.input.mouse_pos) {if node.beat.kind == "choice" && len(node.beat.choice_labels) > 0 do graph_begin_choice_edit(.Choice_Label, node.beat.choice_labels[0], i, 0)
+				else if node.beat.kind == "line" do graph_begin_edit(.Text, node.beat.text, i, true)
+				else do graph_begin_edit(.Summary, node.beat.summary, i, true)}
+			if g.input.mouse_pressed && contains({box.x + 8, box.y + 30, 74, 28}, g.input.mouse_pos) do graph_begin_picker(.Speaker, node.beat.speaker, i)}
+		row += 1
+		if row >= 8 do break}
+	if button(g, {790, 646, 130, 28}) do _ = graph_add_node("line", {300, 120 + f32(row) * 110})}
+update_graph_localization_view :: proc(g: ^Game) {if button(g, {238, 104, 80, 26}) do graph_state.localization_scene_only = !graph_state.localization_scene_only
+	if button(g, {322, 104, 96, 26}) do graph_begin_edit(.Localization_Filter_Language, graph_state.localization_language)
+	if button(g, {422, 104, 96, 26}) do graph_begin_edit(.Localization_Filter_Status, graph_state.localization_status)
+	if button(g, {522, 104, 116, 26}) do graph_state.localization_missing_text = !graph_state.localization_missing_text
+	if button(g, {642, 104, 116, 26}) do graph_state.localization_missing_voice = !graph_state.localization_missing_voice
+	for 	row in 0 ..< 10 {i := graph_localization_visible_index(row); if i < 0 do break; box :=
+			graph_localization_row_rect(row)
+		if button(g, box) do graph_state.selected_localization = i
+		if graph_state.selected_localization == i {item := graph_document.localizations[i]
+			if g.input.mouse_pressed && contains({box.x + 150, box.y, 90, box.h}, g.input.mouse_pos) do graph_begin_edit(.Localization_Language, item.language)
+			if g.input.mouse_pressed && contains({box.x + 244, box.y, 238, box.h}, g.input.mouse_pos) do graph_begin_edit(.Localization_Text, item.text, -1, true)
+			if g.input.mouse_pressed && contains({box.x + 486, box.y, 78, box.h}, g.input.mouse_pos) do graph_begin_edit(.Localization_Status, item.status)
+			if g.input.mouse_pressed && contains({box.x + 568, box.y, 106, box.h}, g.input.mouse_pos) do graph_begin_edit(.Localization_Voice, item.voice)}}
+	if button(g, {666, 646, 122, 28}) do _ = graph_add_localization()
+	if button(g, {794, 646, 126, 28}) do _ = graph_delete_localization()}
+update_graph_conditions_view :: proc(g: ^Game) {for 	i in 0 ..< min(13, graph_document.condition_count) {if button(g, graph_definition_row_rect(i)) do graph_state.selected_condition = i}
+	if graph_state.selected_condition >= 0 &&
+	   graph_state.selected_condition <
+		   graph_document.condition_count {item := &graph_document.conditions[graph_state.selected_condition]
+		if g.input.mouse_pressed && contains({650, 144, 270, 32}, g.input.mouse_pos) do graph_begin_edit(.Condition_Id, item.id)
+		if g.input.mouse_pressed && contains({650, 190, 270, 32}, g.input.mouse_pos) do graph_begin_edit(.Condition_Kind, story_condition_kind_text(item.kind))
+		for 		slot in 0 ..< 5 {_, value, visible := graph_condition_slot(item, slot); box := Rect {
+				650,
+				236 + f32(slot) * 58,
+				270,
+				52,
+			}
+			if visible && g.input.mouse_pressed && contains(box, g.input.mouse_pos) do graph_begin_edit(Graph_Field(int(Graph_Field.Condition_Value) + slot), value, -1, true)}}
+	if button(g, {650, 646, 128, 28}) do _ = graph_add_condition()
+	if button(g, {786, 646, 134, 28}) do _ = graph_delete_condition()}
+update_graph_effects_view :: proc(g: ^Game) {for 	i in 0 ..< min(13, graph_document.effect_count) {if button(g, graph_definition_row_rect(i)) do graph_state.selected_effect = i}
+	if graph_state.selected_effect >= 0 &&
+	   graph_state.selected_effect < graph_document.effect_count {item := &graph_document.effects[graph_state.selected_effect]
+		if g.input.mouse_pressed && contains({650, 144, 270, 32}, g.input.mouse_pos) do graph_begin_edit(.Effect_Id, item.id)
+		if g.input.mouse_pressed && contains({650, 190, 270, 32}, g.input.mouse_pos) do graph_begin_edit(.Effect_Kind, story_effect_kind_text(item.kind))
+		for 		slot in 0 ..< 5 {_, value, visible := graph_effect_slot(item, slot); box := Rect {
+				650,
+				236 + f32(slot) * 58,
+				270,
+				52,
+			}
+			if visible && g.input.mouse_pressed && contains(box, g.input.mouse_pos) do graph_begin_edit(Graph_Field(int(Graph_Field.Effect_Value) + slot), value, -1, true)}}
+	if button(g, {650, 646, 128, 28}) do _ = graph_add_effect()
+	if button(g, {786, 646, 134, 28}) do _ = graph_delete_effect()}
 
-graph_begin_edit :: proc(field:Graph_Field,value:string,node:=-1,multiline:=false) {graph_state.field_edit={active=true,multiline=multiline,field=field,node=node,choice_index=-1};count:=min(len(value),len(graph_state.field_edit.buffer));copy(graph_state.field_edit.buffer[:count],transmute([]u8)value);graph_state.field_edit.count=count}
-graph_begin_choice_edit :: proc(field:Graph_Field,value:string,node,choice_index:int) {graph_begin_edit(field,value,node);graph_state.field_edit.choice_index=choice_index}
-graph_condition_primary_string :: proc(item:^Story_Condition)->^string {#partial switch item.kind {case .Value_Equals,.Integer_Compare:return &item.variable_id;case .Entity_Has_Tag,.Entity_Has_Role,.Aware,.Unaware,.Belief_Equals:return &item.entity_id;case .Communicated:return &item.proposition_id;case .Objective_Equals:return &item.objective_id;case .Event_Occurred:return &item.event_id;case .Scene_Completed,.Storylet_Seen:return &item.content_id;case:return &item.text_value}}
-graph_effect_primary_string :: proc(item:^Story_Effect)->^string {#partial switch item.kind {case .Set_Value,.Add_Integer:return &item.variable_id;case .Make_Aware,.Set_Belief,.Communicate:return &item.actor_id;case .Set_Objective:return &item.objective_id;case .Emit_Event:return &item.event_id;case .Complete_Scene,.Mark_Storylet:return &item.content_id;case:return &item.world_id}}
-graph_definition_join_children :: proc(item:^Story_Condition)->string {return graph_join_strings(item.child_ids[:item.child_id_count])}
-graph_condition_slot :: proc(item:^Story_Condition,slot:int)->(string,string,bool) {#partial switch item.kind {case .Always,.Never:return "","",false;case .All,.Any,.Not:if slot==0 do return "CHILD CONDITIONS",graph_definition_join_children(item),true;case .Value_Equals:if slot==0 do return "VARIABLE",item.variable_id,true;if slot==1 do return "VALUE TYPE",fmt.tprintf("%d",int(item.value.kind)),true;if slot==2 do return "VALUE",story_value_string(item.value),true;case .Integer_Compare:if slot==0 do return "VARIABLE",item.variable_id,true;if slot==1 do return "COMPARISON",fmt.tprintf("%d",int(item.comparison)),true;if slot==2 do return "INTEGER",fmt.tprintf("%d",item.value.integer_value),true;case .Entity_Has_Tag,.Entity_Has_Role:if slot==0 do return "ENTITY",item.entity_id,true;if slot==1 do return item.kind==.Entity_Has_Tag?"TAG":"ROLE",item.text_value,true;case .Aware,.Unaware,.Belief_Equals:if slot==0 do return "ENTITY",item.entity_id,true;if slot==1 do return "PROPOSITION",item.proposition_id,true;if slot==2&&item.kind==.Belief_Equals do return "STANCE",fmt.tprintf("%d",int(item.belief_stance)),true;case .Communicated:if slot==0 do return "ACTOR",item.entity_id,true;if slot==1 do return "OTHER ACTOR",item.other_entity_id,true;if slot==2 do return "PROPOSITION",item.proposition_id,true;case .Objective_Equals:if slot==0 do return "OBJECTIVE",item.objective_id,true;if slot==1 do return "STATUS",fmt.tprintf("%d",int(item.objective_status)),true;case .Event_Occurred:if slot==0 do return "EVENT",item.event_id,true;case .Scene_Completed,.Storylet_Seen:if slot==0 do return item.kind==.Scene_Completed?"SCENE":"STORYLET",item.content_id,true;case .Spatial_Present,.Spatial_Contained_By,.Spatial_Distance,.Spatial_Visible,.Spatial_Reachable,.Spatial_Travel_Time:if slot==0 do return "SPACE A",item.spatial_a.space_id,true;if slot==1 do return "TARGET A",item.spatial_a.target_id,true;if slot==2 do return "SPACE B",item.spatial_b.space_id,true;if slot==3 do return "TARGET B",item.spatial_b.target_id,true;if slot==4&&(item.kind==.Spatial_Distance||item.kind==.Spatial_Travel_Time) do return "DISTANCE / TIME",fmt.tprintf("%.3f",item.distance),true};return "","",false}
-graph_effect_slot :: proc(item:^Story_Effect,slot:int)->(string,string,bool) {#partial switch item.kind {case .Set_Value,.Add_Integer:if slot==0 do return "VARIABLE",item.variable_id,true;if slot==1 do return "VALUE TYPE",fmt.tprintf("%d",int(item.value.kind)),true;if slot==2 do return "VALUE",story_value_string(item.value),true;case .Make_Aware,.Set_Belief,.Communicate:if slot==0 do return "ACTOR",item.actor_id,true;if slot==1 do return "OTHER ACTOR",item.other_actor_id,true;if slot==2 do return "PROPOSITION",item.proposition_id,true;if slot==3&&item.kind==.Set_Belief do return "STANCE",fmt.tprintf("%d",int(item.belief_stance)),true;case .Set_Objective:if slot==0 do return "OBJECTIVE",item.objective_id,true;if slot==1 do return "STATUS",fmt.tprintf("%d",int(item.objective_status)),true;case .Emit_Event:if slot==0 do return "EVENT",item.event_id,true;case .Complete_Scene,.Mark_Storylet:if slot==0 do return item.kind==.Complete_Scene?"SCENE":"STORYLET",item.content_id,true;case .Spatial_Command:if slot==0 do return "COMMAND",fmt.tprintf("%d",int(item.spatial_command)),true;if slot==1 do return "TARGET SPACE",item.spatial_target.space_id,true;if slot==2 do return "TARGET",item.spatial_target.target_id,true;if slot==3 do return "DESTINATION SPACE",item.spatial_destination.space_id,true;if slot==4 do return "DESTINATION",item.spatial_destination.target_id,true};return "","",false}
-graph_set_story_value_text :: proc(value:^Story_Value,text:string)->bool {#partial switch value.kind {case .Boolean:lower:=strings.to_lower(strings.trim_space(text));if lower!="true"&&lower!="false" do return false;value.boolean_value=lower=="true";case .Integer:parsed,ok:=strconv.parse_i64(text);if !ok do return false;value.integer_value=int(parsed);case .Enumeration,.Entity:value.text_value=text};return true}
-graph_condition_set_slot :: proc(item:^Story_Condition,slot:int,text:string)->bool {#partial switch item.kind {case .All,.Any,.Not:if slot==0 {values:=graph_split_references(text);item.child_id_count=min(len(values),len(item.child_ids));for i in 0..<item.child_id_count do item.child_ids[i]=values[i];return true};case .Value_Equals:if slot==0 {item.variable_id=text;return true};if slot==1 {parsed,ok:=strconv.parse_i64(text);if !ok do return false;item.value.kind=Story_Value_Kind(clamp(int(parsed),0,3));return true};if slot==2 do return graph_set_story_value_text(&item.value,text);case .Integer_Compare:if slot==0 {item.variable_id=text;return true};if slot==1 {parsed,ok:=strconv.parse_i64(text);if !ok do return false;item.comparison=Story_Integer_Comparison(clamp(int(parsed),0,5));return true};if slot==2 {parsed,ok:=strconv.parse_i64(text);if !ok do return false;item.value.kind=.Integer;item.value.integer_value=int(parsed);return true};case .Entity_Has_Tag,.Entity_Has_Role:if slot==0 {item.entity_id=text;return true};if slot==1 {item.text_value=text;return true};case .Aware,.Unaware,.Belief_Equals:if slot==0 {item.entity_id=text;return true};if slot==1 {item.proposition_id=text;return true};if slot==2&&item.kind==.Belief_Equals {parsed,ok:=strconv.parse_i64(text);if !ok do return false;item.belief_stance=Story_Belief_Stance(clamp(int(parsed),0,2));return true};case .Communicated:if slot==0 {item.entity_id=text;return true};if slot==1 {item.other_entity_id=text;return true};if slot==2 {item.proposition_id=text;return true};case .Objective_Equals:if slot==0 {item.objective_id=text;return true};if slot==1 {parsed,ok:=strconv.parse_i64(text);if !ok do return false;item.objective_status=Story_Objective_Status(clamp(int(parsed),0,3));return true};case .Event_Occurred:if slot==0 {item.event_id=text;return true};case .Scene_Completed,.Storylet_Seen:if slot==0 {item.content_id=text;return true};case .Spatial_Present,.Spatial_Contained_By,.Spatial_Distance,.Spatial_Visible,.Spatial_Reachable,.Spatial_Travel_Time:if slot==0 {item.spatial_a.space_id=text;return true};if slot==1 {item.spatial_a.target_id=text;return true};if slot==2 {item.spatial_b.space_id=text;return true};if slot==3 {item.spatial_b.target_id=text;return true};if slot==4 {parsed,ok:=strconv.parse_f32(text);if !ok do return false;item.distance=parsed;return true};case:};return false}
-graph_effect_set_slot :: proc(item:^Story_Effect,slot:int,text:string)->bool {#partial switch item.kind {case .Set_Value,.Add_Integer:if slot==0 {item.variable_id=text;return true};if slot==1 {parsed,ok:=strconv.parse_i64(text);if !ok do return false;item.value.kind=Story_Value_Kind(clamp(int(parsed),0,3));return true};if slot==2 do return graph_set_story_value_text(&item.value,text);case .Make_Aware,.Set_Belief,.Communicate:if slot==0 {item.actor_id=text;return true};if slot==1 {item.other_actor_id=text;return true};if slot==2 {item.proposition_id=text;return true};if slot==3&&item.kind==.Set_Belief {parsed,ok:=strconv.parse_i64(text);if !ok do return false;item.belief_stance=Story_Belief_Stance(clamp(int(parsed),0,2));return true};case .Set_Objective:if slot==0 {item.objective_id=text;return true};if slot==1 {parsed,ok:=strconv.parse_i64(text);if !ok do return false;item.objective_status=Story_Objective_Status(clamp(int(parsed),0,3));return true};case .Emit_Event:if slot==0 {item.event_id=text;return true};case .Complete_Scene,.Mark_Storylet:if slot==0 {item.content_id=text;return true};case .Spatial_Command:if slot==0 {parsed,ok:=strconv.parse_i64(text);if !ok do return false;item.spatial_command=Story_Spatial_Command_Kind(clamp(int(parsed),0,5));return true};if slot==1 {item.spatial_target.space_id=text;return true};if slot==2 {item.spatial_target.target_id=text;return true};if slot==3 {item.spatial_destination.space_id=text;return true};if slot==4 {item.spatial_destination.target_id=text;return true};case:};return false}
-graph_edit_text :: proc()->string {return string(graph_state.field_edit.buffer[:graph_state.field_edit.count])}
-graph_join_strings :: proc(values:[]string)->string {result:="";for value,i in values {if i>0 do result=fmt.tprintf("%s, %s",result,value);else do result=value};return result}
-graph_split_references :: proc(value:string)->[]string {result:=make([dynamic]string,0,8);for part in strings.split(value,",") {trimmed:=strings.trim_space(part);if trimmed!="" do append(&result,trimmed)};return result[:]}
-graph_edit_append :: proc(text:string) {edit:=&graph_state.field_edit;if !edit.active do return;available:=len(edit.buffer)-edit.count;count:=min(len(text),available);copy(edit.buffer[edit.count:edit.count+count],transmute([]u8)text);edit.count+=count;edit.error=""}
-graph_edit_backspace :: proc() {edit:=&graph_state.field_edit;if edit.count<=0 do return;edit.count-=1;for edit.count>0&&(edit.buffer[edit.count]&0xc0)==0x80 do edit.count-=1;edit.error=""}
-graph_valid_id :: proc(value:string)->bool {if value=="" do return false;for c in value do if !(c>='a'&&c<='z'||c>='A'&&c<='Z'||c>='0'&&c<='9'||c=='_') do return false;return true}
-graph_commit_edit :: proc()->bool {
-	edit:=&graph_state.field_edit;if !edit.active do return false;value:=graph_edit_text();node_index:=edit.node
-	if edit.field==.Scene_Id {if !graph_valid_id(value) {edit.error="Use letters, numbers, and underscores";return false};for scene,i in graph_document.scenes[:graph_document.scene_count] do if i!=graph_state.active_scene&&scene.scene.id==value {edit.error="Scene ID already exists";return false}}
-	if edit.field==.Node_Id {if !graph_valid_id(value) {edit.error="Use letters, numbers, and underscores";return false};if node_index<0||node_index>=graph_document.node_count do return false;for node,i in graph_document.nodes[:graph_document.node_count] do if i!=node_index&&node.beat.id==value {edit.error="Node ID already exists";return false}}
-	if edit.field==.Node_Scene&&graph_scene_index(value)<0 {edit.error="Scene does not exist";return false}
-	if edit.field==.Node_Kind {_,ok:=story_node_kind_from_text(value);if !ok {edit.error="Unsupported node kind";return false}}
-	if edit.field==.Choice_Id {if !graph_valid_id(value)||node_index<0||node_index>=graph_document.node_count {edit.error="Choice IDs use letters, numbers, and underscores";return false};beat:=&graph_document.nodes[node_index].beat;for id,i in beat.choice_ids do if i!=edit.choice_index&&id==value {edit.error="Choice ID already exists on this node";return false}}
-	if edit.field==.Condition_Id||edit.field==.Effect_Id {if !graph_valid_id(value) {edit.error="Use letters, numbers, and underscores";return false};if edit.field==.Condition_Id {for item,i in graph_document.conditions[:graph_document.condition_count] do if i!=graph_state.selected_condition&&item.id==value {edit.error="Condition ID already exists";return false}}else{for item,i in graph_document.effects[:graph_document.effect_count] do if i!=graph_state.selected_effect&&item.id==value {edit.error="Effect ID already exists";return false}}}
-	if edit.field==.Condition_Kind {_,ok:=story_condition_kind_from_text(value);if !ok {edit.error="Unknown condition kind";return false}}
-	if edit.field==.Effect_Kind {_,ok:=story_effect_kind_from_text(value);if !ok {edit.error="Unknown effect kind";return false}}
-	if edit.field==.Localization_Filter_Language {graph_state.localization_language=value;edit.active=false;return true}
-	if edit.field==.Localization_Filter_Status {graph_state.localization_status=value;edit.active=false;return true}
+graph_begin_edit :: proc(
+	field: Graph_Field,
+	value: string,
+	node := -1,
+	multiline := false,
+) {graph_state.field_edit = {
+		active       = true,
+		multiline    = multiline,
+		field        = field,
+		node         = node,
+		choice_index = -1,
+	}; count := min(
+		len(value),
+		len(graph_state.field_edit.buffer),
+	); copy(graph_state.field_edit.buffer[:count], transmute([]u8)value); graph_state.field_edit.count = count}
+graph_begin_choice_edit :: proc(
+	field: Graph_Field,
+	value: string,
+	node, choice_index: int,
+) {graph_begin_edit(field, value, node); graph_state.field_edit.choice_index = choice_index}
+graph_condition_primary_string :: proc(item: ^Story_Condition) -> ^string {#partial switch
+	item.kind {case .Value_Equals, .Integer_Compare:
+		return(
+			&item.variable_id \
+		); case .Entity_Has_Tag, .Entity_Has_Role, .Aware, .Unaware, .Belief_Equals:
+		return &item.entity_id; case .Communicated:
+		return &item.proposition_id; case .Objective_Equals:
+		return &item.objective_id; case .Event_Occurred:
+		return &item.event_id; case .Scene_Completed, .Storylet_Seen:
+		return &item.content_id; case:
+		return &item.text_value}}
+graph_effect_primary_string :: proc(item: ^Story_Effect) -> ^string {#partial switch
+	item.kind {case .Set_Value, .Add_Integer:
+		return &item.variable_id; case .Make_Aware, .Set_Belief, .Communicate:
+		return &item.actor_id; case .Set_Objective:
+		return &item.objective_id; case .Emit_Event:
+		return &item.event_id; case .Complete_Scene, .Mark_Storylet:
+		return &item.content_id; case:
+		return &item.world_id}}
+graph_definition_join_children :: proc(
+	item: ^Story_Condition,
+) -> string {return graph_join_strings(item.child_ids[:item.child_id_count])}
+graph_condition_slot :: proc(
+	item: ^Story_Condition,
+	slot: int,
+) -> (
+	string,
+	string,
+	bool,
+) {#partial switch item.kind {case .Always, .Never:
+		return "", "", false; case .All, .Any, .Not:
+		if slot == 0 do return "CHILD CONDITIONS", graph_definition_join_children(item), true; case .Value_Equals:
+		if slot == 0 do return "VARIABLE", item.variable_id, true
+		if slot == 1 do return "VALUE TYPE", fmt.tprintf("%d", int(item.value.kind)), true
+		if slot == 2 do return "VALUE", story_value_string(item.value), true; case .Integer_Compare:
+		if slot == 0 do return "VARIABLE", item.variable_id, true
+		if slot == 1 do return "COMPARISON", fmt.tprintf("%d", int(item.comparison)), true
+		if slot == 2 do return "INTEGER", fmt.tprintf("%d", item.value.integer_value), true; case .Entity_Has_Tag, .Entity_Has_Role:
+		if slot == 0 do return "ENTITY", item.entity_id, true
+		if slot == 1 do return item.kind == .Entity_Has_Tag ? "TAG" : "ROLE", item.text_value, true; case .Aware, .Unaware, .Belief_Equals:
+		if slot == 0 do return "ENTITY", item.entity_id, true
+		if slot == 1 do return "PROPOSITION", item.proposition_id, true
+		if slot == 2 && item.kind == .Belief_Equals do return "STANCE", fmt.tprintf("%d", int(item.belief_stance)), true; case .Communicated:
+		if slot == 0 do return "ACTOR", item.entity_id, true
+		if slot == 1 do return "OTHER ACTOR", item.other_entity_id, true
+		if slot == 2 do return "PROPOSITION", item.proposition_id, true; case .Objective_Equals:
+		if slot == 0 do return "OBJECTIVE", item.objective_id, true
+		if slot == 1 do return "STATUS", fmt.tprintf("%d", int(item.objective_status)), true; case .Event_Occurred:
+		if slot == 0 do return "EVENT", item.event_id, true; case .Scene_Completed, .Storylet_Seen:
+		if slot == 0 do return item.kind == .Scene_Completed ? "SCENE" : "STORYLET", item.content_id, true; case .Capability_State:
+		if slot == 0 do return "CAPABILITY", item.entity_id, true
+		if slot == 1 do return "QUERY", item.content_id, true; case .Spatial_Present, .Spatial_Contained_By, .Spatial_Distance, .Spatial_Visible, .Spatial_Reachable, .Spatial_Travel_Time:
+		if slot == 0 do return "SPACE A", item.spatial_a.space_id, true
+		if slot == 1 do return "TARGET A", item.spatial_a.target_id, true
+		if slot == 2 do return "SPACE B", item.spatial_b.space_id, true
+		if slot == 3 do return "TARGET B", item.spatial_b.target_id, true
+		if slot == 4 && (item.kind == .Spatial_Distance || item.kind == .Spatial_Travel_Time) do return "DISTANCE / TIME", fmt.tprintf("%.3f", item.distance), true}; return "", "", false}
+graph_effect_slot :: proc(
+	item: ^Story_Effect,
+	slot: int,
+) -> (
+	string,
+	string,
+	bool,
+) {#partial switch item.kind {case .Set_Value, .Add_Integer:
+		if slot == 0 do return "VARIABLE", item.variable_id, true
+		if slot == 1 do return "VALUE TYPE", fmt.tprintf("%d", int(item.value.kind)), true
+		if slot == 2 do return "VALUE", story_value_string(item.value), true; case .Make_Aware, .Set_Belief, .Communicate:
+		if slot == 0 do return "ACTOR", item.actor_id, true
+		if slot == 1 do return "OTHER ACTOR", item.other_actor_id, true
+		if slot == 2 do return "PROPOSITION", item.proposition_id, true
+		if slot == 3 && item.kind == .Set_Belief do return "STANCE", fmt.tprintf("%d", int(item.belief_stance)), true; case .Set_Objective:
+		if slot == 0 do return "OBJECTIVE", item.objective_id, true
+		if slot == 1 do return "STATUS", fmt.tprintf("%d", int(item.objective_status)), true; case .Emit_Event:
+		if slot == 0 do return "EVENT", item.event_id, true; case .Complete_Scene, .Mark_Storylet:
+		if slot == 0 do return item.kind == .Complete_Scene ? "SCENE" : "STORYLET", item.content_id, true; case .Spatial_Command:
+		if slot == 0 do return "COMMAND", fmt.tprintf("%d", int(item.spatial_command)), true
+		if slot == 1 do return "TARGET SPACE", item.spatial_target.space_id, true
+		if slot == 2 do return "TARGET", item.spatial_target.target_id, true
+		if slot == 3 do return "DESTINATION SPACE", item.spatial_destination.space_id, true
+		if slot == 4 do return "DESTINATION", item.spatial_destination.target_id, true}; return "", "", false}
+graph_set_story_value_text :: proc(value: ^Story_Value, text: string) -> bool {#partial switch
+	value.kind {case .Boolean:
+		lower := strings.to_lower(strings.trim_space(text))
+		if lower != "true" && lower != "false" do return false
+		value.boolean_value = lower == "true"; case .Integer:
+		parsed, ok := strconv.parse_i64(text); if !ok do return false
+		value.integer_value = int(parsed); case .Enumeration, .Entity:
+		value.text_value = text}
+	return true}
+graph_condition_set_slot :: proc(
+	item: ^Story_Condition,
+	slot: int,
+	text: string,
+) -> bool {#partial switch item.kind {case .All, .Any, .Not:
+		if slot ==
+		   0 {values := graph_split_references(text); item.child_id_count = min(len(values), len(item.child_ids)); for i in 0 ..< item.child_id_count do item.child_ids[i] = values[i]; return true}; case .Value_Equals:
+		if slot == 0 {item.variable_id = text; return true}
+		if slot == 1 {parsed, ok := strconv.parse_i64(text)
+			if !ok do return false
+			item.value.kind = Story_Value_Kind(clamp(int(parsed), 0, 3))
+			return true}
+		if slot == 2 do return graph_set_story_value_text(&item.value, text); case .Integer_Compare:
+		if slot == 0 {item.variable_id = text; return true}
+		if slot == 1 {parsed, ok := strconv.parse_i64(text)
+			if !ok do return false
+			item.comparison = Story_Integer_Comparison(clamp(int(parsed), 0, 5))
+			return true}
+		if slot ==
+		   2 {parsed, ok := strconv.parse_i64(text); if !ok do return false; item.value.kind = .Integer; item.value.integer_value = int(parsed); return true}; case .Entity_Has_Tag, .Entity_Has_Role:
+		if slot == 0 {item.entity_id = text; return true}
+		if slot == 1 {item.text_value = text; return true}; case .Aware, .Unaware, .Belief_Equals:
+		if slot == 0 {item.entity_id = text; return true}; if slot == 1 {item.proposition_id = text
+			return true}
+		if slot == 2 &&
+		   item.kind ==
+			   .Belief_Equals {parsed, ok := strconv.parse_i64(text); if !ok do return false; item.belief_stance = Story_Belief_Stance(clamp(int(parsed), 0, 2)); return true}; case .Communicated:
+		if slot == 0 {item.entity_id = text; return true}
+		if slot == 1 {item.other_entity_id = text
+			return true}
+		if slot == 2 {item.proposition_id = text; return true}; case .Objective_Equals:
+		if slot == 0 {item.objective_id = text; return true}
+		if slot ==
+		   1 {parsed, ok := strconv.parse_i64(text); if !ok do return false; item.objective_status = Story_Objective_Status(clamp(int(parsed), 0, 3)); return true}; case .Event_Occurred:
+		if slot == 0 {item.event_id = text; return true}; case .Scene_Completed, .Storylet_Seen:
+		if slot == 0 {item.content_id = text; return true}; case .Capability_State:
+		if slot == 0 {item.entity_id = text; return true}
+		if slot ==
+		   1 {item.content_id = text; return true}; case .Spatial_Present, .Spatial_Contained_By, .Spatial_Distance, .Spatial_Visible, .Spatial_Reachable, .Spatial_Travel_Time:
+		if slot == 0 {item.spatial_a.space_id = text; return true}
+		if slot == 1 {item.spatial_a.target_id = text; return true}
+		if slot == 2 {item.spatial_b.space_id = text; return true}
+		if slot == 3 {item.spatial_b.target_id = text; return true}
+		if slot ==
+		   4 {parsed, ok := strconv.parse_f32(text); if !ok do return false; item.distance = parsed; return true}; case:}; return false}
+graph_effect_set_slot :: proc(
+	item: ^Story_Effect,
+	slot: int,
+	text: string,
+) -> bool {#partial switch item.kind {case .Set_Value, .Add_Integer:
+		if slot == 0 {item.variable_id = text; return true}
+		if slot == 1 {parsed, ok := strconv.parse_i64(text)
+			if !ok do return false
+			item.value.kind = Story_Value_Kind(clamp(int(parsed), 0, 3))
+			return true}
+		if slot == 2 do return graph_set_story_value_text(&item.value, text); case .Make_Aware, .Set_Belief, .Communicate:
+		if slot == 0 {item.actor_id = text; return true}; if slot == 1 {item.other_actor_id = text
+			return true}
+		if slot == 2 {item.proposition_id = text; return true}
+		if slot == 3 &&
+		   item.kind ==
+			   .Set_Belief {parsed, ok := strconv.parse_i64(text); if !ok do return false; item.belief_stance = Story_Belief_Stance(clamp(int(parsed), 0, 2)); return true}; case .Set_Objective:
+		if slot == 0 {item.objective_id = text; return true}
+		if slot ==
+		   1 {parsed, ok := strconv.parse_i64(text); if !ok do return false; item.objective_status = Story_Objective_Status(clamp(int(parsed), 0, 3)); return true}; case .Emit_Event:
+		if slot == 0 {item.event_id = text; return true}; case .Complete_Scene, .Mark_Storylet:
+		if slot == 0 {item.content_id = text; return true}; case .Spatial_Command:
+		if slot == 0 {parsed, ok := strconv.parse_i64(text); if !ok do return false
+			item.spatial_command = Story_Spatial_Command_Kind(clamp(int(parsed), 0, 5))
+			return true}
+		if slot == 1 {item.spatial_target.space_id = text; return true}
+		if slot == 2 {item.spatial_target.target_id = text; return true}
+		if slot == 3 {item.spatial_destination.space_id = text; return true}
+		if slot ==
+		   4 {item.spatial_destination.target_id = text; return true}; case:}; return false}
+graph_edit_text :: proc() -> string {return string(
+		graph_state.field_edit.buffer[:graph_state.field_edit.count],
+	)}
+graph_join_strings :: proc(values: []string) -> string {result := ""; for 	value, i in values {if i > 0 do result = fmt.tprintf("%s, %s", result, value)
+		else do result = value}
+	return result}
+graph_split_references :: proc(value: string) -> []string {result := make([dynamic]string, 0, 8)
+	for part in strings.split(
+		value,
+		",",
+	) {trimmed := strings.trim_space(part); if trimmed != "" do append(&result, trimmed)}
+	return result[:]}
+graph_edit_append :: proc(text: string) {edit := &graph_state.field_edit; if !edit.active do return
+	available := len(edit.buffer) - edit.count
+	count := min(len(text), available)
+	copy(edit.buffer[edit.count:edit.count + count], transmute([]u8)text)
+	edit.count += count
+	edit.error = ""}
+graph_edit_backspace :: proc() {edit := &graph_state.field_edit; if edit.count <= 0 do return
+	edit.count -= 1
+	for edit.count > 0 && (edit.buffer[edit.count] & 0xc0) == 0x80 do edit.count -= 1
+	edit.error = ""}
+graph_valid_id :: proc(value: string) -> bool {if value == "" do return false; for c in value do if !(c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || c >= '0' && c <= '9' || c == '_') do return false
+	return true}
+graph_commit_edit :: proc() -> bool {
+	edit := &graph_state.field_edit; if !edit.active do return false; value := graph_edit_text(); node_index := edit.node
+	if edit.field ==
+	   .Scene_Id {if !graph_valid_id(value) {edit.error = "Use letters, numbers, and underscores"; return false}; for scene, i in graph_document.scenes[:graph_document.scene_count] do if i != graph_state.active_scene && scene.scene.id == value {edit.error = "Scene ID already exists"; return false}}
+	if edit.field ==
+	   .Node_Id {if !graph_valid_id(value) {edit.error = "Use letters, numbers, and underscores"; return false}; if node_index < 0 || node_index >= graph_document.node_count do return false; for node, i in graph_document.nodes[:graph_document.node_count] do if i != node_index && node.beat.id == value {edit.error = "Node ID already exists"; return false}}
+	if edit.field == .Node_Scene &&
+	   graph_scene_index(value) < 0 {edit.error = "Scene does not exist"; return false}
+	if edit.field ==
+	   .Node_Kind {_, ok := story_node_kind_from_text(value); if !ok {edit.error = "Unsupported node kind"; return false}}
+	if edit.field ==
+	   .Choice_Id {if !graph_valid_id(value) || node_index < 0 || node_index >= graph_document.node_count {edit.error = "Choice IDs use letters, numbers, and underscores"; return false}; beat := &graph_document.nodes[node_index].beat; for id, i in beat.choice_ids do if i != edit.choice_index && id == value {edit.error = "Choice ID already exists on this node"; return false}}
+	if edit.field == .Condition_Id ||
+	   edit.field ==
+		   .Effect_Id {if !graph_valid_id(value) {edit.error = "Use letters, numbers, and underscores"; return false}; if edit.field == .Condition_Id {for item, i in graph_document.conditions[:graph_document.condition_count] do if i != graph_state.selected_condition && item.id == value {edit.error = "Condition ID already exists"; return false}} else {for item, i in graph_document.effects[:graph_document.effect_count] do if i != graph_state.selected_effect && item.id == value {edit.error = "Effect ID already exists"; return false}}}
+	if edit.field ==
+	   .Condition_Kind {_, ok := story_condition_kind_from_text(value); if !ok {edit.error = "Unknown condition kind"; return false}}
+	if edit.field ==
+	   .Effect_Kind {_, ok := story_effect_kind_from_text(value); if !ok {edit.error = "Unknown effect kind"; return false}}
+	if edit.field ==
+	   .Localization_Filter_Language {graph_state.localization_language = value; edit.active = false; return true}
+	if edit.field ==
+	   .Localization_Filter_Status {graph_state.localization_status = value; edit.active = false; return true}
 	graph_history_push("Edit graph field")
-	if edit.field==.Scene_Id {scene:=&graph_document.scenes[graph_state.active_scene].scene;old:=scene.id;scene.id=value;for &node in graph_document.nodes[:graph_document.node_count] {if node.beat.scene==old do node.beat.scene=value;if node.beat.subscene_id==old do node.beat.subscene_id=value};for &other in graph_document.scenes[:graph_document.scene_count] do if other.scene.return_to==old do other.scene.return_to=value
-	} else if edit.field==.Scene_Display_Name do graph_document.scenes[graph_state.active_scene].scene.display_name=value
-	else if edit.field==.Scene_Bound_Entity do graph_document.scenes[graph_state.active_scene].scene.source=value
-	else if edit.field==.Scene_Summary do graph_document.scenes[graph_state.active_scene].scene.summary=value
-	else if edit.field==.Scene_Return do graph_document.scenes[graph_state.active_scene].scene.return_to=value
-	else if edit.field==.Localization_Filter_Language do graph_state.localization_language=value
-	else if edit.field==.Localization_Filter_Status do graph_state.localization_status=value
-	else if edit.field>=.Localization_Language&&edit.field<=.Localization_Voice&&graph_state.selected_localization>=0&&graph_state.selected_localization<graph_document.localization_count {item:=&graph_document.localizations[graph_state.selected_localization];#partial switch edit.field {case .Localization_Language:item.language=value;case .Localization_Text:item.text=value;case .Localization_Status:item.status=value;case .Localization_Note:item.note=value;case .Localization_Voice:item.voice=value;case:}}
-	else if edit.field>=.Condition_Id&&edit.field<=.Condition_Value_5&&graph_state.selected_condition>=0&&graph_state.selected_condition<graph_document.condition_count {item:=&graph_document.conditions[graph_state.selected_condition];if edit.field==.Condition_Id {old:=item.id;item.id=value;for &node in graph_document.nodes[:graph_document.node_count] {if node.beat.condition_id==old do node.beat.condition_id=value;for &choice in node.beat.choice_conditions do if choice==old do choice=value};for &condition in graph_document.conditions[:graph_document.condition_count] do for &child in condition.child_ids[:condition.child_id_count] do if child==old do child=value}else if edit.field==.Condition_Kind {kind,_:=story_condition_kind_from_text(value);item.kind=kind}else{slot:=int(edit.field)-int(Graph_Field.Condition_Value);if !graph_condition_set_slot(item,slot,value) {graph_document=graph_history.undo[graph_history.undo_count-1].document;graph_history.undo_count-=1;edit.error="Value does not match this field";return false}}}
-	else if edit.field>=.Effect_Id&&edit.field<=.Effect_Value_5&&graph_state.selected_effect>=0&&graph_state.selected_effect<graph_document.effect_count {item:=&graph_document.effects[graph_state.selected_effect];if edit.field==.Effect_Id {old:=item.id;item.id=value;for &node in graph_document.nodes[:graph_document.node_count] do for &effect in node.beat.effect_ids do if effect==old do effect=value}else if edit.field==.Effect_Kind {kind,_:=story_effect_kind_from_text(value);item.kind=kind}else{slot:=int(edit.field)-int(Graph_Field.Effect_Value);if !graph_effect_set_slot(item,slot,value) {graph_document=graph_history.undo[graph_history.undo_count-1].document;graph_history.undo_count-=1;edit.error="Value does not match this field";return false}}}
-	else if edit.field==.Search {graph_state.search_query=value;graph_state.search_result=-1;edit.active=false;_=graph_focus_search_result(1);return true}
-	else if node_index>=0&&node_index<graph_document.node_count {beat:=&graph_document.nodes[node_index].beat;#partial switch edit.field {
-		case .Node_Id:old:=beat.id;beat.id=value;for &node in graph_document.nodes[:graph_document.node_count] {if node.beat.scene!=beat.scene do continue;if node.beat.next==old do node.beat.next=value;if node.beat.success==old do node.beat.success=value;if node.beat.failure==old do node.beat.failure=value;if node.beat.cancel==old do node.beat.cancel=value;for &target in node.beat.choice_targets do if target==old do target=value};for &scene in graph_document.scenes[:graph_document.scene_count] do if scene.scene.id==beat.scene&&scene.scene.entry==old do scene.scene.entry=value;for &item in graph_document.localizations[:graph_document.localization_count] do if item.node_id==old do item.node_id=value
-		case .Node_Scene:old:=beat.scene;beat.scene=value;for &scene in graph_document.scenes[:graph_document.scene_count] do if scene.scene.id==old&&scene.scene.entry==beat.id do scene.scene.entry="";graph_state.active_scene=graph_scene_index(value)
-		case .Node_Kind:beat.kind=value
-		case .Line_Id:beat.line_id=value;case .Text:beat.text=value;case .Summary:beat.summary=value;case .Speaker:beat.speaker=value;case .Camera:beat.camera=value;case .Actor:beat.actor=value;case .Actor_Mark:beat.actor_mark=value;case .Animation:beat.animation=value;case .UI_Image_Asset:beat.ui_image_asset_ref=value;case .Sound_Cue_Asset:beat.sound_cue_asset_ref=value;case .Animation_Asset:beat.animation_asset_ref=value;case .Interaction:beat.interaction=value;case .Event:beat.event_id=value;case .Subscene:beat.subscene_id=value;case .Domain_Ref:beat.domain_ref=value;case .Condition:beat.condition_id=value;case .Effects:beat.effect_ids=graph_split_references(value);case .Condition_Root:parsed,ok:=strconv.parse_i64(value);if !ok do return false;beat.condition_root=int(parsed);case .First_Effect:parsed,ok:=strconv.parse_i64(value);if !ok do return false;beat.first_effect=int(parsed);case .Effect_Count:parsed,ok:=strconv.parse_i64(value);if !ok do return false;beat.effect_count=int(parsed);case .Clue:beat.clue=value;case .Ending:beat.ending=value;case .UI:beat.ui=value;case .Next:beat.next=value;case .Success:beat.success=value;case .Failure:beat.failure=value;case .Cancel:beat.cancel=value;case .Blocking:beat.blocking=strings.to_lower(value)=="true"||value=="1";case .Requires_Clues:beat.requires_clues=graph_split_references(value);case .Requires_Claims:beat.requires_claims=graph_split_references(value);case .Requires_Topics:beat.requires_topics=graph_split_references(value);case .Unlock_Clues:beat.unlock_clues=graph_split_references(value);case .Unlock_Claims:beat.unlock_claims=graph_split_references(value);case .Unlock_Topics:beat.unlock_topics=graph_split_references(value)
-		case .Choice_Id:if edit.choice_index>=0&&edit.choice_index<len(beat.choice_ids) do beat.choice_ids[edit.choice_index]=value
-		case .Choice_Label:if edit.choice_index>=0&&edit.choice_index<len(beat.choice_labels) do beat.choice_labels[edit.choice_index]=value
-		case .Choice_Target:if edit.choice_index>=0&&edit.choice_index<len(beat.choice_targets) do beat.choice_targets[edit.choice_index]=value
-		case .Choice_Condition:if edit.choice_index>=0&&edit.choice_index<len(beat.choice_conditions) do beat.choice_conditions[edit.choice_index]=value
-		case .Duration:v,ok:=strconv.parse_f32(value);if !ok {graph_document=graph_history.undo[graph_history.undo_count-1].document;graph_history.undo_count-=1;edit.error="Enter a number";return false};beat.duration=v
-		case .Transition:v,ok:=strconv.parse_f32(value);if !ok {graph_document=graph_history.undo[graph_history.undo_count-1].document;graph_history.undo_count-=1;edit.error="Enter a number";return false};beat.transition=v
+	if edit.field ==
+	   .Scene_Id {scene := &graph_document.scenes[graph_state.active_scene].scene; old := scene.id; scene.id = value; for &node in graph_document.nodes[:graph_document.node_count] {if node.beat.scene == old do node.beat.scene = value; if node.beat.subscene_id == old do node.beat.subscene_id = value}; for &other in graph_document.scenes[:graph_document.scene_count] do if other.scene.return_to == old do other.scene.return_to = value
+	} else if edit.field == .Scene_Display_Name do graph_document.scenes[graph_state.active_scene].scene.display_name = value
+	else if edit.field == .Scene_Bound_Entity do graph_document.scenes[graph_state.active_scene].scene.source = value
+	else if edit.field == .Scene_Summary do graph_document.scenes[graph_state.active_scene].scene.summary = value
+	else if edit.field == .Scene_Return do graph_document.scenes[graph_state.active_scene].scene.return_to = value
+	else if edit.field == .Localization_Filter_Language do graph_state.localization_language = value
+	else if edit.field == .Localization_Filter_Status do graph_state.localization_status = value
+	else if edit.field >= .Localization_Language && edit.field <= .Localization_Voice && graph_state.selected_localization >= 0 && graph_state.selected_localization < graph_document.localization_count {item := &graph_document.localizations[graph_state.selected_localization]; #partial switch edit.field {case .Localization_Language:
+			item.language = value; case .Localization_Text:
+			item.text = value; case .Localization_Status:
+			item.status = value; case .Localization_Note:
+			item.note = value; case .Localization_Voice:
+			item.voice = value; case:}} else if edit.field >= .Condition_Id && edit.field <= .Condition_Value_5 && graph_state.selected_condition >= 0 && graph_state.selected_condition < graph_document.condition_count {item := &graph_document.conditions[graph_state.selected_condition]; if edit.field == .Condition_Id {old := item.id; item.id = value; for &node in graph_document.nodes[:graph_document.node_count] {if node.beat.condition_id == old do node.beat.condition_id = value; for &choice in node.beat.choice_conditions do if choice == old do choice = value}; for &condition in graph_document.conditions[:graph_document.condition_count] do for &child in condition.child_ids[:condition.child_id_count] do if child == old do child = value} else if edit.field == .Condition_Kind {kind, _ := story_condition_kind_from_text(value); item.kind = kind} else {slot := int(edit.field) - int(Graph_Field.Condition_Value); if !graph_condition_set_slot(item, slot, value) {graph_document = graph_history.undo[graph_history.undo_count - 1].document; graph_history.undo_count -= 1; edit.error = "Value does not match this field"; return false}}} else if edit.field >= .Effect_Id && edit.field <= .Effect_Value_5 && graph_state.selected_effect >= 0 && graph_state.selected_effect < graph_document.effect_count {item := &graph_document.effects[graph_state.selected_effect]; if edit.field == .Effect_Id {old := item.id; item.id = value; for &node in graph_document.nodes[:graph_document.node_count] do for &effect in node.beat.effect_ids do if effect == old do effect = value} else if edit.field == .Effect_Kind {kind, _ := story_effect_kind_from_text(value); item.kind = kind} else {slot := int(edit.field) - int(Graph_Field.Effect_Value); if !graph_effect_set_slot(item, slot, value) {graph_document = graph_history.undo[graph_history.undo_count - 1].document; graph_history.undo_count -= 1; edit.error = "Value does not match this field"; return false}}} else if edit.field == .Search {graph_state.search_query = value; graph_state.search_result = -1; edit.active = false; _ = graph_focus_search_result(1); return true} else if node_index >= 0 && node_index < graph_document.node_count {beat := &graph_document.nodes[node_index].beat; #partial switch edit.field {
+		case .Node_Id:
+			old := beat.id; beat.id = value; for &node in graph_document.nodes[:graph_document.node_count] {if node.beat.scene != beat.scene do continue; if node.beat.next == old do node.beat.next = value; if node.beat.success == old do node.beat.success = value; if node.beat.failure == old do node.beat.failure = value; if node.beat.cancel == old do node.beat.cancel = value; for &target in node.beat.choice_targets do if target == old do target = value}; for &scene in graph_document.scenes[:graph_document.scene_count] do if scene.scene.id == beat.scene && scene.scene.entry == old do scene.scene.entry = value; for &item in graph_document.localizations[:graph_document.localization_count] do if item.node_id == old do item.node_id = value
+		case .Node_Scene:
+			old := beat.scene; beat.scene = value; for &scene in graph_document.scenes[:graph_document.scene_count] do if scene.scene.id == old && scene.scene.entry == beat.id do scene.scene.entry = ""; graph_state.active_scene = graph_scene_index(value)
+		case .Node_Kind:
+			beat.kind = value
+		case .Line_Id:
+			beat.line_id = value; case .Text:
+			beat.text = value; case .Summary:
+			beat.summary = value; case .Speaker:
+			beat.speaker = value; case .Camera:
+			beat.camera = value; case .Actor:
+			beat.actor = value; case .Actor_Mark:
+			beat.actor_mark = value; case .Animation:
+			beat.animation = value; case .UI_Image_Asset:
+			beat.ui_image_asset_ref = value; case .Sound_Cue_Asset:
+			beat.sound_cue_asset_ref = value; case .Animation_Asset:
+			beat.animation_asset_ref = value; case .Interaction:
+			beat.interaction = value; case .Event:
+			beat.event_id = value; case .Subscene:
+			beat.subscene_id = value; case .Domain_Ref:
+			beat.domain_ref = value; case .Condition:
+			beat.condition_id = value; case .Effects:
+			beat.effect_ids = graph_split_references(value); case .Condition_Root:
+			parsed, ok := strconv.parse_i64(value); if !ok do return false; beat.condition_root = int(parsed); case .First_Effect:
+			parsed, ok := strconv.parse_i64(value); if !ok do return false; beat.first_effect = int(parsed); case .Effect_Count:
+			parsed, ok := strconv.parse_i64(value); if !ok do return false; beat.effect_count = int(parsed); case .Clue:
+			beat.clue = value; case .Ending:
+			beat.ending = value; case .UI:
+			beat.ui = value; case .Next:
+			beat.next = value; case .Success:
+			beat.success = value; case .Failure:
+			beat.failure = value; case .Cancel:
+			beat.cancel = value; case .Blocking:
+			beat.blocking = strings.to_lower(value) == "true" || value == "1"; case .Requires_Clues:
+			beat.requires_clues = graph_split_references(value); case .Requires_Claims:
+			beat.requires_claims = graph_split_references(value); case .Requires_Topics:
+			beat.requires_topics = graph_split_references(value); case .Unlock_Clues:
+			beat.unlock_clues = graph_split_references(value); case .Unlock_Claims:
+			beat.unlock_claims = graph_split_references(value); case .Unlock_Topics:
+			beat.unlock_topics = graph_split_references(value)
+		case .Choice_Id:
+			if edit.choice_index >= 0 && edit.choice_index < len(beat.choice_ids) do beat.choice_ids[edit.choice_index] = value
+		case .Choice_Label:
+			if edit.choice_index >= 0 && edit.choice_index < len(beat.choice_labels) do beat.choice_labels[edit.choice_index] = value
+		case .Choice_Target:
+			if edit.choice_index >= 0 && edit.choice_index < len(beat.choice_targets) do beat.choice_targets[edit.choice_index] = value
+		case .Choice_Condition:
+			if edit.choice_index >= 0 && edit.choice_index < len(beat.choice_conditions) do beat.choice_conditions[edit.choice_index] = value
+		case .Duration:
+			v, ok := strconv.parse_f32(value); if !ok {graph_document = graph_history.undo[graph_history.undo_count - 1].document; graph_history.undo_count -= 1; edit.error = "Enter a number"; return false}; beat.duration = v
+		case .Transition:
+			v, ok := strconv.parse_f32(value); if !ok {graph_document = graph_history.undo[graph_history.undo_count - 1].document; graph_history.undo_count -= 1; edit.error = "Enter a number"; return false}; beat.transition = v
 		case:}}
-	if node_index>=0&&node_index<graph_document.node_count&&edit.field>=.Requires_Clues&&edit.field<=.Unlock_Topics do graph_document.nodes[node_index].beat.metadata_refs_dirty=true
-	edit.active=false;graph_changed();return true
+	if node_index >= 0 && node_index < graph_document.node_count && edit.field >= .Requires_Clues && edit.field <= .Unlock_Topics do graph_document.nodes[node_index].beat.metadata_refs_dirty = true
+	edit.active = false; graph_changed(); return true
 }
-graph_cancel_edit :: proc() {graph_state.field_edit={}}
-graph_advance_edit :: proc(direction:int)->bool {edit:=graph_state.field_edit;if !graph_commit_edit() do return false;if edit.node>=0&&edit.node<graph_document.node_count {beat:=graph_document.nodes[edit.node].beat;fields:=[5]Graph_Field{.Node_Id,.Speaker,.Text,.Summary,.Duration};current:=0;for field,i in fields do if field==edit.field do current=i;next:=(current+direction+len(fields))%len(fields);field:=fields[next];value:="";multiline:=false;#partial switch field {case .Node_Id:value=beat.id;case .Speaker:value=beat.speaker;case .Text:value=beat.text;multiline=true;case .Summary:value=beat.summary;multiline=true;case .Duration:value=fmt.tprintf("%.3f",beat.duration);case:};graph_begin_edit(field,value,edit.node,multiline);return true};return true}
+graph_cancel_edit :: proc() {graph_state.field_edit = {}}
+graph_advance_edit :: proc(direction: int) -> bool {edit := graph_state.field_edit
+	if !graph_commit_edit() do return false
+	if edit.node >= 0 &&
+	   edit.node < graph_document.node_count {beat := graph_document.nodes[edit.node].beat
+		fields := [5]Graph_Field{.Node_Id, .Speaker, .Text, .Summary, .Duration}
+		current := 0
+		for field, i in fields do if field == edit.field do current = i
+		next := (current + direction + len(fields)) % len(fields)
+		field := fields[next]
+		value := ""
+		multiline := false
+		#partial switch field {case .Node_Id:
+			value = beat.id; case .Speaker:
+			value = beat.speaker; case .Text:
+			value = beat.text; multiline = true; case .Summary:
+			value = beat.summary; multiline = true; case .Duration:
+			value = fmt.tprintf("%.3f", beat.duration); case:}
+		graph_begin_edit(field, value, edit.node, multiline)
+		return true}
+	return true}
 
-graph_clone_strings :: proc(source:[]string)->[]string {if source==nil do return nil;result:=make([]string,len(source));copy(result,source);return result}
-graph_beat_clone :: proc(source:Graph_Beat)->Graph_Beat {result:=source;result.choice_ids=graph_clone_strings(source.choice_ids);result.choice_labels=graph_clone_strings(source.choice_labels);result.choice_targets=graph_clone_strings(source.choice_targets);result.choice_conditions=graph_clone_strings(source.choice_conditions);result.effect_ids=graph_clone_strings(source.effect_ids);result.requires_clues=graph_clone_strings(source.requires_clues);result.requires_claims=graph_clone_strings(source.requires_claims);result.requires_topics=graph_clone_strings(source.requires_topics);result.unlock_clues=graph_clone_strings(source.unlock_clues);result.unlock_claims=graph_clone_strings(source.unlock_claims);result.unlock_topics=graph_clone_strings(source.unlock_topics);result.metadata_requires=graph_clone_strings(source.metadata_requires);result.metadata_unlocks=graph_clone_strings(source.metadata_unlocks);return result}
-graph_document_clone :: proc(source:^Graph_Document)->Graph_Document {result:=source^;result.conditions=make([dynamic]Story_Condition,0,source.condition_count);append(&result.conditions,..source.conditions[:source.condition_count]);result.effects=make([dynamic]Story_Effect,0,source.effect_count);append(&result.effects,..source.effects[:source.effect_count]);for i in 0..<source.node_count do result.nodes[i].beat=graph_beat_clone(source.nodes[i].beat);return result}
-graph_history_push :: proc(label:string) {if graph_history.undo_count>=GRAPH_HISTORY_CAPACITY {for i in 1..<GRAPH_HISTORY_CAPACITY do graph_history.undo[i-1]=graph_history.undo[i];graph_history.undo_count=GRAPH_HISTORY_CAPACITY-1};graph_history.undo[graph_history.undo_count]={graph_document_clone(&graph_document),label};graph_history.undo_count+=1;graph_history.redo_count=0}
-graph_undo :: proc()->bool {if graph_history.undo_count<=0 do return false;graph_history.redo[graph_history.redo_count]={graph_document_clone(&graph_document),graph_history.undo[graph_history.undo_count-1].label};graph_history.redo_count+=1;graph_history.undo_count-=1;graph_document=graph_history.undo[graph_history.undo_count].document;graph_state.selected_node=-1;return true}
-graph_redo :: proc()->bool {if graph_history.redo_count<=0 do return false;graph_history.undo[graph_history.undo_count]={graph_document_clone(&graph_document),graph_history.redo[graph_history.redo_count-1].label};graph_history.undo_count+=1;graph_history.redo_count-=1;graph_document=graph_history.redo[graph_history.redo_count].document;graph_state.selected_node=-1;return true}
-graph_changed :: proc() {graph_document.revision+=1;graph_document.dirty=true;_=graph_validate(&graph_document);_=authoring_invalidate_after_edit(.Graph,graph_document.revision);if graph_autosave_enabled&&graph_source_project!=nil {saved:=graph_save_story(graph_active_autosave_path,graph_source_project,false);graph_state.autosave_status=saved.ok?"AUTOSAVED":"AUTOSAVE FAILED"}else do graph_state.autosave_status="AUTOSAVE OFF"}
-graph_feedback :: proc(message:string,error:=false) {graph_state.feedback=message;graph_state.feedback_error=error;graph_state.feedback_frames=240}
+graph_clone_strings :: proc(source: []string) -> []string {if source == nil do return nil
+	result := make([]string, len(source))
+	copy(result, source)
+	return result}
+graph_beat_clone :: proc(source: Graph_Beat) -> Graph_Beat {result := source; result.choice_ids =
+		graph_clone_strings(source.choice_ids)
+	result.choice_labels = graph_clone_strings(source.choice_labels)
+	result.choice_targets = graph_clone_strings(source.choice_targets)
+	result.choice_conditions = graph_clone_strings(source.choice_conditions)
+	result.effect_ids = graph_clone_strings(source.effect_ids)
+	result.requires_clues = graph_clone_strings(source.requires_clues)
+	result.requires_claims = graph_clone_strings(source.requires_claims)
+	result.requires_topics = graph_clone_strings(source.requires_topics)
+	result.unlock_clues = graph_clone_strings(source.unlock_clues)
+	result.unlock_claims = graph_clone_strings(source.unlock_claims)
+	result.unlock_topics = graph_clone_strings(source.unlock_topics)
+	result.metadata_requires = graph_clone_strings(source.metadata_requires)
+	result.metadata_unlocks = graph_clone_strings(source.metadata_unlocks)
+	return result}
+graph_document_clone :: proc(source: ^Graph_Document) -> Graph_Document {result := source^
+	result.conditions = make([dynamic]Story_Condition, 0, source.condition_count)
+	append(&result.conditions, ..source.conditions[:source.condition_count])
+	result.effects = make([dynamic]Story_Effect, 0, source.effect_count)
+	append(&result.effects, ..source.effects[:source.effect_count])
+	for i in 0 ..< source.node_count do result.nodes[i].beat = graph_beat_clone(source.nodes[i].beat)
+	return result}
+graph_history_push :: proc(label: string) {if graph_history.undo_count >=
+	   GRAPH_HISTORY_CAPACITY {for i in 1 ..< GRAPH_HISTORY_CAPACITY do graph_history.undo[i - 1] = graph_history.undo[i]
+		graph_history.undo_count = GRAPH_HISTORY_CAPACITY - 1}
+	graph_history.undo[graph_history.undo_count] = {graph_document_clone(&graph_document), label}
+	graph_history.undo_count += 1
+	graph_history.redo_count = 0}
+graph_undo :: proc() -> bool {if graph_history.undo_count <= 0 do return false; graph_history.redo[graph_history.redo_count] =
+		{
+			graph_document_clone(&graph_document),
+			graph_history.undo[graph_history.undo_count - 1].label,
+		}
+	graph_history.redo_count += 1
+	graph_history.undo_count -= 1
+	graph_document = graph_history.undo[graph_history.undo_count].document
+	graph_state.selected_node = -1
+	return true}
+graph_redo :: proc() -> bool {if graph_history.redo_count <= 0 do return false; graph_history.undo[graph_history.undo_count] =
+		{
+			graph_document_clone(&graph_document),
+			graph_history.redo[graph_history.redo_count - 1].label,
+		}
+	graph_history.undo_count += 1
+	graph_history.redo_count -= 1
+	graph_document = graph_history.redo[graph_history.redo_count].document
+	graph_state.selected_node = -1
+	return true}
+graph_changed :: proc() {graph_document.revision += 1; graph_document.dirty = true; _ =
+		graph_validate(&graph_document)
+	_ = authoring_invalidate_after_edit(.Graph, graph_document.revision)
+	if graph_autosave_enabled && graph_source_project != nil {saved := graph_save_story(
+			graph_active_autosave_path,
+			graph_source_project,
+			false,
+		)
+		graph_state.autosave_status = saved.ok ? "AUTOSAVED" : "AUTOSAVE FAILED"}
+	else do graph_state.autosave_status = "AUTOSAVE OFF"}
+graph_feedback :: proc(message: string, error := false) {graph_state.feedback = message
+	graph_state.feedback_error = error
+	graph_state.feedback_frames = 240}
 
-graph_unique_scene_id :: proc(base:string)->string {candidate:=base;suffix:=2;for graph_scene_index(candidate)>=0 {candidate=fmt.tprintf("%s_%d",base,suffix);suffix+=1};return candidate}
-graph_add_scene :: proc()->bool {if graph_document.scene_count>=GRAPH_MAX_SCENES do return false;graph_history_push("Add scene");id:=graph_unique_scene_id("scene_new");index:=graph_document.scene_count;graph_document.scenes[index]={scene={id=id,summary="New conversation scene"},zoom=1};graph_document.scene_count+=1;graph_state.active_scene=index;graph_clear_selection();graph_changed();graph_feedback("SCENE ADDED");return true}
-graph_duplicate_scene :: proc()->bool {scene_index:=graph_state.active_scene;if scene_index<0||scene_index>=graph_document.scene_count||graph_document.scene_count>=GRAPH_MAX_SCENES do return false;old_scene:=graph_document.scenes[scene_index].scene.id;node_count:=0;for node in graph_document.nodes[:graph_document.node_count] do if node.beat.scene==old_scene do node_count+=1;if graph_document.node_count+node_count>GRAPH_MAX_NODES do return false;graph_history_push("Duplicate scene");new_scene:=graph_unique_scene_id(fmt.tprintf("%s_copy",old_scene));new_scene_index:=graph_document.scene_count;graph_document.scenes[new_scene_index]=graph_document.scenes[scene_index];graph_document.scenes[new_scene_index].scene.id=new_scene;old_ids:[GRAPH_MAX_NODES]string;new_ids:[GRAPH_MAX_NODES]string;old_count:=0;start:=graph_document.node_count;for node in graph_document.nodes[:start] {if node.beat.scene!=old_scene do continue;copy_node:=node;copy_node.beat=graph_beat_clone(node.beat);copy_node.beat.scene=new_scene;copy_node.beat.id=graph_unique_id(fmt.tprintf("%s_copy",node.beat.id),new_scene);old_ids[old_count]=node.beat.id;new_ids[old_count]=copy_node.beat.id;old_count+=1;graph_document.nodes[graph_document.node_count]=copy_node;graph_document.node_count+=1};remap:=proc(value:string,old_ids,new_ids:[]string)->string {for old,i in old_ids do if value==old do return new_ids[i];return value};for i in start..<graph_document.node_count {beat:=&graph_document.nodes[i].beat;beat.next=remap(beat.next,old_ids[:old_count],new_ids[:old_count]);beat.success=remap(beat.success,old_ids[:old_count],new_ids[:old_count]);beat.failure=remap(beat.failure,old_ids[:old_count],new_ids[:old_count]);beat.cancel=remap(beat.cancel,old_ids[:old_count],new_ids[:old_count]);for &target in beat.choice_targets do target=remap(target,old_ids[:old_count],new_ids[:old_count])};graph_document.scenes[new_scene_index].scene.entry=remap(graph_document.scenes[new_scene_index].scene.entry,old_ids[:old_count],new_ids[:old_count]);original_localizations:=graph_document.localization_count;for item in graph_document.localizations[:original_localizations] {for old,i in old_ids[:old_count] do if item.node_id==old&&graph_document.localization_count<len(graph_document.localizations) {copy_item:=item;copy_item.node_id=new_ids[i];graph_document.localizations[graph_document.localization_count]=copy_item;graph_document.localization_count+=1}};graph_document.scene_count+=1;graph_state.active_scene=new_scene_index;graph_clear_selection();graph_changed();graph_feedback("SCENE DUPLICATED");return true}
-graph_delete_scene :: proc()->bool {scene_index:=graph_state.active_scene;if graph_document.scene_count<=1 {graph_feedback("A STORY MUST KEEP AT LEAST ONE SCENE");return false};if scene_index<0||scene_index>=graph_document.scene_count do return false;scene_id:=graph_document.scenes[scene_index].scene.id;graph_history_push("Delete scene");for i:=graph_document.node_count-1;i>=0;i-=1 {if graph_document.nodes[i].beat.scene!=scene_id do continue;node_id:=graph_document.nodes[i].beat.id;for j:=graph_document.localization_count-1;j>=0;j-=1 {if graph_document.localizations[j].node_id==node_id {for k in j+1..<graph_document.localization_count do graph_document.localizations[k-1]=graph_document.localizations[k];graph_document.localization_count-=1}};for j in i+1..<graph_document.node_count do graph_document.nodes[j-1]=graph_document.nodes[j];graph_document.node_count-=1};for &node in graph_document.nodes[:graph_document.node_count] do if node.beat.subscene_id==scene_id do node.beat.subscene_id="";for i in scene_index+1..<graph_document.scene_count do graph_document.scenes[i-1]=graph_document.scenes[i];graph_document.scene_count-=1;graph_state.active_scene=clamp(scene_index,0,max(0,graph_document.scene_count-1));graph_state.confirm=.None;graph_clear_selection();graph_changed();graph_feedback("SCENE DELETED");return true}
-graph_move_scene :: proc(direction:int)->bool {index:=graph_state.active_scene;target:=index+direction;if index<0||target<0||target>=graph_document.scene_count do return false;graph_history_push("Reorder scene");graph_document.scenes[index],graph_document.scenes[target]=graph_document.scenes[target],graph_document.scenes[index];graph_state.active_scene=target;graph_changed();return true}
-graph_choice_add :: proc(node_index:int)->bool {if node_index<0||node_index>=graph_document.node_count do return false;beat:=&graph_document.nodes[node_index].beat;if beat.kind!="choice"||len(beat.choice_labels)>=STORY_MAX_NODE_CHOICES do return false;graph_history_push("Add choice");count:=len(beat.choice_labels);ids:=make([]string,count+1);labels:=make([]string,count+1);targets:=make([]string,count+1);conditions:=make([]string,count+1);copy(ids,beat.choice_ids);copy(labels,beat.choice_labels);copy(targets,beat.choice_targets);copy(conditions,beat.choice_conditions);ids[count]=graph_unique_choice_id(beat,fmt.tprintf("%s_choice_%d",beat.id,count+1));labels[count]="New choice";beat.choice_ids,beat.choice_labels,beat.choice_targets,beat.choice_conditions=ids,labels,targets,conditions;graph_changed();return true}
-graph_choice_delete :: proc(node_index,choice_index:int)->bool {if node_index<0||node_index>=graph_document.node_count do return false;beat:=&graph_document.nodes[node_index].beat;count:=len(beat.choice_labels);if choice_index<0||choice_index>=count do return false;graph_history_push("Delete choice");ids:=make([]string,count-1);labels:=make([]string,count-1);targets:=make([]string,count-1);conditions:=make([]string,count-1);out:=0;for i in 0..<count {if i==choice_index do continue;if i<len(beat.choice_ids) do ids[out]=beat.choice_ids[i];labels[out]=beat.choice_labels[i];if i<len(beat.choice_targets) do targets[out]=beat.choice_targets[i];if i<len(beat.choice_conditions) do conditions[out]=beat.choice_conditions[i];out+=1};beat.choice_ids,beat.choice_labels,beat.choice_targets,beat.choice_conditions=ids,labels,targets,conditions;graph_changed();return true}
-graph_unique_choice_id :: proc(beat:^Graph_Beat,base:string)->string {candidate:=base;suffix:=2;for {found:=false;for id in beat.choice_ids do if id==candidate do found=true;if !found do return candidate;candidate=fmt.tprintf("%s_%d",base,suffix);suffix+=1}}
-graph_choice_duplicate :: proc(node_index,choice_index:int)->bool {if node_index<0||node_index>=graph_document.node_count do return false;beat:=&graph_document.nodes[node_index].beat;if choice_index<0||choice_index>=len(beat.choice_labels)||len(beat.choice_labels)>=STORY_MAX_NODE_CHOICES do return false;graph_history_push("Duplicate choice");count:=len(beat.choice_labels);ids:=make([]string,count+1);labels:=make([]string,count+1);targets:=make([]string,count+1);conditions:=make([]string,count+1);for i in 0..<count {out:=i;if i>choice_index do out+=1;ids[out]=beat.choice_ids[i];labels[out]=beat.choice_labels[i];targets[out]=beat.choice_targets[i];conditions[out]=beat.choice_conditions[i]};out:=choice_index+1;ids[out]=graph_unique_choice_id(beat,fmt.tprintf("%s_copy",beat.choice_ids[choice_index]));labels[out]=beat.choice_labels[choice_index];targets[out]=beat.choice_targets[choice_index];conditions[out]=beat.choice_conditions[choice_index];beat.choice_ids,beat.choice_labels,beat.choice_targets,beat.choice_conditions=ids,labels,targets,conditions;graph_changed();return true}
-graph_choice_swap :: proc(node_index,choice_index,target:int)->bool {if node_index<0||node_index>=graph_document.node_count do return false;beat:=&graph_document.nodes[node_index].beat;if choice_index<0||target<0||choice_index>=len(beat.choice_labels)||target>=len(beat.choice_labels) do return false;beat.choice_ids[choice_index],beat.choice_ids[target]=beat.choice_ids[target],beat.choice_ids[choice_index];beat.choice_labels[choice_index],beat.choice_labels[target]=beat.choice_labels[target],beat.choice_labels[choice_index];beat.choice_targets[choice_index],beat.choice_targets[target]=beat.choice_targets[target],beat.choice_targets[choice_index];beat.choice_conditions[choice_index],beat.choice_conditions[target]=beat.choice_conditions[target],beat.choice_conditions[choice_index];return true}
-graph_choice_move :: proc(node_index,choice_index,direction:int)->bool {target:=choice_index+direction;if node_index<0||node_index>=graph_document.node_count||target<0||target>=len(graph_document.nodes[node_index].beat.choice_labels) do return false;graph_history_push("Reorder choice");if !graph_choice_swap(node_index,choice_index,target) do return false;graph_changed();return true}
+graph_unique_scene_id :: proc(base: string) -> string {candidate := base; suffix := 2
+	for graph_scene_index(candidate) >= 0 {candidate = fmt.tprintf("%s_%d", base, suffix)
+		suffix += 1}
+	return candidate}
+graph_add_scene :: proc() -> bool {if graph_document.scene_count >= GRAPH_MAX_SCENES do return false
+	graph_history_push("Add scene")
+	id := graph_unique_scene_id("scene_new")
+	index := graph_document.scene_count
+	graph_document.scenes[index] = {
+		scene = {id = id, summary = "New conversation scene"},
+		zoom = 1,
+	}
+	graph_document.scene_count += 1
+	graph_state.active_scene = index
+	graph_clear_selection()
+	graph_changed()
+	graph_feedback("SCENE ADDED")
+	return true}
+graph_duplicate_scene :: proc() -> bool {scene_index := graph_state.active_scene; if scene_index < 0 || scene_index >= graph_document.scene_count || graph_document.scene_count >= GRAPH_MAX_SCENES do return false
+	old_scene := graph_document.scenes[scene_index].scene.id
+	node_count := 0
+	for node in graph_document.nodes[:graph_document.node_count] do if node.beat.scene == old_scene do node_count += 1
+	if graph_document.node_count + node_count > GRAPH_MAX_NODES do return false
+	graph_history_push("Duplicate scene")
+	new_scene := graph_unique_scene_id(fmt.tprintf("%s_copy", old_scene))
+	new_scene_index := graph_document.scene_count
+	graph_document.scenes[new_scene_index] = graph_document.scenes[scene_index]
+	graph_document.scenes[new_scene_index].scene.id = new_scene
+	old_ids: [GRAPH_MAX_NODES]string
+	new_ids: [GRAPH_MAX_NODES]string
+	old_count := 0
+	start := graph_document.node_count
+	for 	node in graph_document.nodes[:start] {if node.beat.scene != old_scene do continue; copy_node := node
+		copy_node.beat = graph_beat_clone(node.beat)
+		copy_node.beat.scene = new_scene
+		copy_node.beat.id = graph_unique_id(fmt.tprintf("%s_copy", node.beat.id), new_scene)
+		old_ids[old_count] = node.beat.id
+		new_ids[old_count] = copy_node.beat.id
+		old_count += 1
+		graph_document.nodes[graph_document.node_count] = copy_node
+		graph_document.node_count += 1}
+	remap := proc(value: string, old_ids, new_ids: []string) -> string {for old, i in old_ids do if value == old do return new_ids[i]
+		return value}
+	for 	i in start ..< graph_document.node_count {beat := &graph_document.nodes[i].beat; beat.next = remap(
+			beat.next,
+			old_ids[:old_count],
+			new_ids[:old_count],
+		)
+		beat.success = remap(beat.success, old_ids[:old_count], new_ids[:old_count])
+		beat.failure = remap(beat.failure, old_ids[:old_count], new_ids[:old_count])
+		beat.cancel = remap(beat.cancel, old_ids[:old_count], new_ids[:old_count])
+		for &target in beat.choice_targets do target = remap(target, old_ids[:old_count], new_ids[:old_count])}
+	graph_document.scenes[new_scene_index].scene.entry = remap(
+		graph_document.scenes[new_scene_index].scene.entry,
+		old_ids[:old_count],
+		new_ids[:old_count],
+	)
+	original_localizations := graph_document.localization_count
+	for 	item in graph_document.localizations[:original_localizations] {for old, i in old_ids[:old_count] do if item.node_id == old && graph_document.localization_count < len(graph_document.localizations) {copy_item := item; copy_item.node_id = new_ids[i]; graph_document.localizations[graph_document.localization_count] = copy_item; graph_document.localization_count += 1}}
+	graph_document.scene_count += 1
+	graph_state.active_scene = new_scene_index
+	graph_clear_selection()
+	graph_changed()
+	graph_feedback("SCENE DUPLICATED")
+	return true}
+graph_delete_scene :: proc() -> bool {scene_index := graph_state.active_scene
+	if graph_document.scene_count <= 1 {graph_feedback("A STORY MUST KEEP AT LEAST ONE SCENE")
+		return false}
+	if scene_index < 0 || scene_index >= graph_document.scene_count do return false
+	scene_id := graph_document.scenes[scene_index].scene.id
+	graph_history_push("Delete scene")
+	for i := graph_document.node_count - 1;
+	    i >= 0;
+	    i -= 1 {if graph_document.nodes[i].beat.scene != scene_id do continue
+		node_id := graph_document.nodes[i].beat.id
+		for j := graph_document.localization_count - 1;
+		    j >= 0;
+		    j -= 1 {if graph_document.localizations[j].node_id == node_id {for k in j + 1 ..< graph_document.localization_count do graph_document.localizations[k - 1] = graph_document.localizations[k]
+				graph_document.localization_count -= 1}}
+		for j in i + 1 ..< graph_document.node_count do graph_document.nodes[j - 1] = graph_document.nodes[j]
+		graph_document.node_count -= 1}
+	for &node in graph_document.nodes[:graph_document.node_count] do if node.beat.subscene_id == scene_id do node.beat.subscene_id = ""
+	for i in scene_index + 1 ..< graph_document.scene_count do graph_document.scenes[i - 1] = graph_document.scenes[i]
+	graph_document.scene_count -= 1
+	graph_state.active_scene = clamp(scene_index, 0, max(0, graph_document.scene_count - 1))
+	graph_state.confirm = .None
+	graph_clear_selection()
+	graph_changed()
+	graph_feedback("SCENE DELETED")
+	return true}
+graph_move_scene :: proc(direction: int) -> bool {index := graph_state.active_scene; target :=
+		index + direction
+	if index < 0 || target < 0 || target >= graph_document.scene_count do return false
+	graph_history_push("Reorder scene")
+	graph_document.scenes[index], graph_document.scenes[target] =
+		graph_document.scenes[target], graph_document.scenes[index]
+	graph_state.active_scene = target
+	graph_changed()
+	return true}
+graph_choice_add :: proc(node_index: int) -> bool {if node_index < 0 || node_index >= graph_document.node_count do return false
+	beat := &graph_document.nodes[node_index].beat
+	if beat.kind != "choice" || len(beat.choice_labels) >= STORY_MAX_NODE_CHOICES do return false
+	graph_history_push("Add choice")
+	count := len(beat.choice_labels)
+	ids := make([]string, count + 1)
+	labels := make([]string, count + 1)
+	targets := make([]string, count + 1)
+	conditions := make([]string, count + 1)
+	copy(ids, beat.choice_ids)
+	copy(labels, beat.choice_labels)
+	copy(targets, beat.choice_targets)
+	copy(conditions, beat.choice_conditions)
+	ids[count] = graph_unique_choice_id(beat, fmt.tprintf("%s_choice_%d", beat.id, count + 1))
+	labels[count] = "New choice"
+	beat.choice_ids, beat.choice_labels, beat.choice_targets, beat.choice_conditions =
+		ids, labels, targets, conditions
+	graph_changed()
+	return true}
+graph_choice_delete :: proc(node_index, choice_index: int) -> bool {if node_index < 0 || node_index >= graph_document.node_count do return false
+	beat := &graph_document.nodes[node_index].beat
+	count := len(beat.choice_labels)
+	if choice_index < 0 || choice_index >= count do return false
+	graph_history_push("Delete choice")
+	ids := make([]string, count - 1)
+	labels := make([]string, count - 1)
+	targets := make([]string, count - 1)
+	conditions := make([]string, count - 1)
+	out := 0
+	for 	i in 0 ..< count {if i == choice_index do continue; if i < len(beat.choice_ids) do ids[out] = beat.choice_ids[i]
+		labels[out] = beat.choice_labels[i]
+		if i < len(beat.choice_targets) do targets[out] = beat.choice_targets[i]
+		if i < len(beat.choice_conditions) do conditions[out] = beat.choice_conditions[i]
+		out += 1}
+	beat.choice_ids, beat.choice_labels, beat.choice_targets, beat.choice_conditions =
+		ids, labels, targets, conditions
+	graph_changed()
+	return true}
+graph_unique_choice_id :: proc(beat: ^Graph_Beat, base: string) -> string {candidate := base
+	suffix := 2
+	for {found := false; for id in beat.choice_ids do if id == candidate do found = true
+		if !found do return candidate
+		candidate = fmt.tprintf("%s_%d", base, suffix)
+		suffix += 1}}
+graph_choice_duplicate :: proc(node_index, choice_index: int) -> bool {if node_index < 0 || node_index >= graph_document.node_count do return false
+	beat := &graph_document.nodes[node_index].beat
+	if choice_index < 0 || choice_index >= len(beat.choice_labels) || len(beat.choice_labels) >= STORY_MAX_NODE_CHOICES do return false
+	graph_history_push("Duplicate choice")
+	count := len(beat.choice_labels)
+	ids := make([]string, count + 1)
+	labels := make([]string, count + 1)
+	targets := make([]string, count + 1)
+	conditions := make([]string, count + 1)
+	for 	i in 0 ..< count {out := i; if i > choice_index do out += 1; ids[out] = beat.choice_ids[i]; labels[out] =
+			beat.choice_labels[i]
+		targets[out] = beat.choice_targets[i]
+		conditions[out] = beat.choice_conditions[i]}
+	out := choice_index + 1
+	ids[out] = graph_unique_choice_id(beat, fmt.tprintf("%s_copy", beat.choice_ids[choice_index]))
+	labels[out] = beat.choice_labels[choice_index]
+	targets[out] = beat.choice_targets[choice_index]
+	conditions[out] = beat.choice_conditions[choice_index]
+	beat.choice_ids, beat.choice_labels, beat.choice_targets, beat.choice_conditions =
+		ids, labels, targets, conditions
+	graph_changed()
+	return true}
+graph_choice_swap :: proc(node_index, choice_index, target: int) -> bool {if node_index < 0 || node_index >= graph_document.node_count do return false
+	beat := &graph_document.nodes[node_index].beat
+	if choice_index < 0 || target < 0 || choice_index >= len(beat.choice_labels) || target >= len(beat.choice_labels) do return false
+	beat.choice_ids[choice_index], beat.choice_ids[target] =
+		beat.choice_ids[target], beat.choice_ids[choice_index]
+	beat.choice_labels[choice_index], beat.choice_labels[target] =
+		beat.choice_labels[target], beat.choice_labels[choice_index]
+	beat.choice_targets[choice_index], beat.choice_targets[target] =
+		beat.choice_targets[target], beat.choice_targets[choice_index]
+	beat.choice_conditions[choice_index], beat.choice_conditions[target] =
+		beat.choice_conditions[target], beat.choice_conditions[choice_index]
+	return true}
+graph_choice_move :: proc(node_index, choice_index, direction: int) -> bool {target :=
+		choice_index + direction
+	if node_index < 0 || node_index >= graph_document.node_count || target < 0 || target >= len(graph_document.nodes[node_index].beat.choice_labels) do return false
+	graph_history_push("Reorder choice")
+	if !graph_choice_swap(node_index, choice_index, target) do return false
+	graph_changed()
+	return true}
 
-graph_choice_reorder_update :: proc(g:^Game) {
-	drag:=&graph_state.choice_reorder;if !drag.active do return
-	if drag.node<0||drag.node>=graph_document.node_count||graph_state.selected_node!=drag.node {drag^={};return}
-	beat:=&graph_document.nodes[drag.node].beat
+graph_choice_reorder_update :: proc(g: ^Game) {
+	drag := &graph_state.choice_reorder; if !drag.active do return
+	if drag.node < 0 ||
+	   drag.node >= graph_document.node_count ||
+	   graph_state.selected_node != drag.node {drag^ = {}; return}
+	beat := &graph_document.nodes[drag.node].beat
 	if g.input.mouse_down {
-		target:=clamp(int((g.input.mouse_pos.y-184)/48),0,len(beat.choice_labels)-1)
-		if target!=drag.index {
-			if !drag.history_started {graph_history_push("Reorder choice");drag.history_started=true}
-			for drag.index!=target {next:=drag.index+(target>drag.index?1:-1);_=graph_choice_swap(drag.node,drag.index,next);drag.index=next}
+		target := clamp(int((g.input.mouse_pos.y - 184) / 48), 0, len(beat.choice_labels) - 1)
+		if target != drag.index {
+			if !drag.history_started {graph_history_push("Reorder choice"); drag.history_started = true}
+			for drag.index !=
+			    target {next := drag.index + (target > drag.index ? 1 : -1); _ = graph_choice_swap(drag.node, drag.index, next); drag.index = next}
 		}
 	}
-	if g.input.mouse_released {changed:=drag.history_started;drag^={};if changed {graph_changed();graph_feedback("CHOICE ORDER UPDATED  ·  CTRL/CMD Z TO UNDO")}}
+	if g.input.mouse_released {changed := drag.history_started; drag^ = {}; if changed {graph_changed(); graph_feedback("CHOICE ORDER UPDATED  ·  CTRL/CMD Z TO UNDO")}}
 }
-graph_frame_nodes :: proc(selection_only:=false)->bool {scene:=graph_active_scene_id();minimum:=Vec2{1e30,1e30};maximum:=Vec2{-1e30,-1e30};count:=0;for node,i in graph_document.nodes[:graph_document.node_count] {if node.beat.scene!=scene||selection_only&&!graph_is_selected(i) do continue;minimum.x=min(minimum.x,node.position.x);minimum.y=min(minimum.y,node.position.y);maximum.x=max(maximum.x,node.position.x+GRAPH_NODE_WIDTH);maximum.y=max(maximum.y,node.position.y+graph_node_world_height(node));count+=1};if count==0 do return false;canvas:=graph_canvas_rect();span_x:=max(maximum.x-minimum.x,GRAPH_NODE_WIDTH);span_y:=max(maximum.y-minimum.y,GRAPH_NODE_COLLAPSED_HEIGHT);graph_state.zoom=clamp(min((canvas.w-48)/span_x,(canvas.h-48)/span_y),.25,1.75);center:=Vec2{(minimum.x+maximum.x)*.5,(minimum.y+maximum.y)*.5};graph_state.pan={canvas.x+(canvas.w*.5-canvas.x)/graph_state.zoom-center.x,canvas.y+(canvas.h*.5-canvas.y)/graph_state.zoom-center.y};return true}
-graph_auto_layout :: proc()->bool {scene:=graph_active_scene_id();selected_only:=graph_state.selection_count>0;node_count:=0;for node,i in graph_document.nodes[:graph_document.node_count] do if node.beat.scene==scene&&(!selected_only||graph_is_selected(i)) do node_count+=1;if node_count==0 do return false;graph_history_push(selected_only?"Auto layout selection":"Auto layout scene");column:=0;row_y:=f32(100);row_height:=f32(0);for &node,i in graph_document.nodes[:graph_document.node_count] {if node.beat.scene!=scene||selected_only&&!graph_is_selected(i) do continue;node.position={260+f32(column)*(GRAPH_NODE_WIDTH+GRAPH_NODE_LAYOUT_COLUMN_GAP),row_y};row_height=max(row_height,graph_node_world_height(node));column+=1;if column==3 {column=0;row_y+=row_height+GRAPH_NODE_LAYOUT_ROW_GAP;row_height=0}};graph_changed();_=graph_frame_nodes(selected_only);return true}
-
-graph_minimap_focus :: proc(point:Vec2)->bool {layout:=graph_minimap_layout();if !layout.valid||!contains(graph_minimap_rect(),point) do return false;clamped:=Vec2{clamp(point.x,layout.content.x,layout.content.x+layout.content.w),clamp(point.y,layout.content.y,layout.content.y+layout.content.h)};world:=Vec2{layout.world.x+(clamped.x-layout.content.x)/layout.scale,layout.world.y+(clamped.y-layout.content.y)/layout.scale};canvas:=graph_canvas_rect();graph_state.pan={canvas.x+(canvas.w*.5-canvas.x)/graph_state.zoom-world.x,canvas.y+(canvas.h*.5-canvas.y)/graph_state.zoom-world.y};return true}
-graph_focus_search_result :: proc(direction:int)->bool {query:=strings.to_lower(strings.trim_space(graph_state.search_query));if query=="" do return false;matches:[GRAPH_MAX_NODES]int;count:=0;for node,i in graph_document.nodes[:graph_document.node_count] {haystack:=strings.to_lower(fmt.tprintf("%s %s %s %s %s",node.beat.scene,node.beat.id,node.beat.speaker,node.beat.text,node.beat.summary));if strings.contains(haystack,query) {matches[count]=i;count+=1}};if count==0 {graph_feedback("NO MATCHING GRAPH BEATS",true);return false};graph_state.search_result=(graph_state.search_result+direction+count)%count;index:=matches[graph_state.search_result];scene:=graph_scene_index(graph_document.nodes[index].beat.scene);if scene>=0 do graph_state.active_scene=scene;graph_select_only(index);_=graph_frame_nodes(true);graph_feedback(fmt.tprintf("SEARCH %d OF %d",graph_state.search_result+1,count));return true}
-graph_node_order_move :: proc(index,direction:int)->bool {if index<0||index>=graph_document.node_count do return false;scene:=graph_document.nodes[index].beat.scene;target:=index+direction;for target>=0&&target<graph_document.node_count&&graph_document.nodes[target].beat.scene!=scene do target+=direction;if target<0||target>=graph_document.node_count do return false;graph_history_push("Reorder script beat");graph_document.nodes[index],graph_document.nodes[target]=graph_document.nodes[target],graph_document.nodes[index];graph_select_only(target);graph_changed();return true}
-graph_add_condition :: proc()->bool {if graph_document.condition_count>=GRAPH_MAX_DEFINITIONS do return false;graph_history_push("Add condition");index:=graph_document.condition_count;id:=fmt.tprintf("condition_%04d",index);for story_condition_index_in_document(id)>=0 {index+=1;id=fmt.tprintf("condition_%04d",index)};item:=Story_Condition{id=id,kind=.Always};if graph_document.condition_count<len(graph_document.conditions) do graph_document.conditions[graph_document.condition_count]=item;else do append(&graph_document.conditions,item);graph_state.selected_condition=graph_document.condition_count;graph_document.condition_count+=1;graph_changed();return true}
-graph_duplicate_condition :: proc()->bool {index:=graph_state.selected_condition;if index<0||index>=graph_document.condition_count||graph_document.condition_count>=GRAPH_MAX_DEFINITIONS do return false;graph_history_push("Duplicate condition");item:=graph_document.conditions[index];base:=fmt.tprintf("%s_copy",item.id);item.id=base;suffix:=2;for story_condition_index_in_document(item.id)>=0 {item.id=fmt.tprintf("%s_%d",base,suffix);suffix+=1};if graph_document.condition_count<len(graph_document.conditions) do graph_document.conditions[graph_document.condition_count]=item;else do append(&graph_document.conditions,item);graph_state.selected_condition=graph_document.condition_count;graph_document.condition_count+=1;graph_changed();return true}
-graph_duplicate_effect :: proc()->bool {index:=graph_state.selected_effect;if index<0||index>=graph_document.effect_count||graph_document.effect_count>=GRAPH_MAX_DEFINITIONS do return false;graph_history_push("Duplicate effect");item:=graph_document.effects[index];base:=fmt.tprintf("%s_copy",item.id);item.id=base;suffix:=2;for story_effect_index_in_document(item.id)>=0 {item.id=fmt.tprintf("%s_%d",base,suffix);suffix+=1};if graph_document.effect_count<len(graph_document.effects) do graph_document.effects[graph_document.effect_count]=item;else do append(&graph_document.effects,item);graph_state.selected_effect=graph_document.effect_count;graph_document.effect_count+=1;graph_changed();return true}
-story_condition_index_in_document :: proc(id:string)->int {for item,i in graph_document.conditions[:graph_document.condition_count] do if item.id==id do return i;return -1}
-story_effect_index_in_document :: proc(id:string)->int {for item,i in graph_document.effects[:graph_document.effect_count] do if item.id==id do return i;return -1}
-graph_add_effect :: proc()->bool {if graph_document.effect_count>=GRAPH_MAX_DEFINITIONS do return false;graph_history_push("Add effect");suffix:=graph_document.effect_count;id:=fmt.tprintf("effect_%04d",suffix);for story_effect_index_in_document(id)>=0 {suffix+=1;id=fmt.tprintf("effect_%04d",suffix)};item:=Story_Effect{id=id,kind=.Emit_Event};if graph_source_project!=nil&&len(graph_source_project.events)>0 do item.event_id=graph_source_project.events[0].id;if graph_document.effect_count<len(graph_document.effects) do graph_document.effects[graph_document.effect_count]=item;else do append(&graph_document.effects,item);graph_state.selected_effect=graph_document.effect_count;graph_document.effect_count+=1;graph_changed();return true}
-graph_condition_referenced :: proc(id:string)->bool {for node in graph_document.nodes[:graph_document.node_count] {if node.beat.condition_id==id do return true;for choice in node.beat.choice_conditions do if choice==id do return true};for &condition in graph_document.conditions[:graph_document.condition_count] do for child in condition.child_ids[:condition.child_id_count] do if child==id do return true;return false}
-graph_effect_referenced :: proc(id:string)->bool {for node in graph_document.nodes[:graph_document.node_count] do for effect in node.beat.effect_ids do if effect==id do return true;return false}
-graph_delete_condition :: proc()->bool {index:=graph_state.selected_condition;if index<0||index>=graph_document.condition_count do return false;id:=graph_document.conditions[index].id;if graph_condition_referenced(id) {graph_feedback("CONDITION IS STILL REFERENCED",true);return false};graph_history_push("Delete condition");for i in index+1..<graph_document.condition_count do graph_document.conditions[i-1]=graph_document.conditions[i];graph_document.condition_count-=1;graph_state.selected_condition=clamp(index,0,max(0,graph_document.condition_count-1));graph_changed();return true}
-graph_delete_effect :: proc()->bool {index:=graph_state.selected_effect;if index<0||index>=graph_document.effect_count do return false;id:=graph_document.effects[index].id;if graph_effect_referenced(id) {graph_feedback("EFFECT IS STILL REFERENCED",true);return false};graph_history_push("Delete effect");for i in index+1..<graph_document.effect_count do graph_document.effects[i-1]=graph_document.effects[i];graph_document.effect_count-=1;graph_state.selected_effect=clamp(index,0,max(0,graph_document.effect_count-1));graph_changed();return true}
-graph_add_localization :: proc()->bool {node:=graph_state.selected_node;if node<0||node>=graph_document.node_count||graph_document.localization_count>=len(graph_document.localizations) do return false;graph_history_push("Add localization");graph_document.localizations[graph_document.localization_count]={node_id=graph_document.nodes[node].beat.id,language="und",status="draft"};graph_state.selected_localization=graph_document.localization_count;graph_document.localization_count+=1;graph_changed();return true}
-graph_delete_localization :: proc()->bool {index:=graph_state.selected_localization;if index<0||index>=graph_document.localization_count do return false;graph_history_push("Delete localization");for i in index+1..<graph_document.localization_count do graph_document.localizations[i-1]=graph_document.localizations[i];graph_document.localization_count-=1;graph_state.selected_localization=clamp(index,0,max(0,graph_document.localization_count-1));graph_changed();return true}
-
-graph_metadata_read_refs :: proc(payload:^Mystery_Project,refs:[]string,clues,claims,topics:^[]string) {clue_values:=make([dynamic]string,0,len(refs));claim_values:=make([dynamic]string,0,len(refs));topic_values:=make([dynamic]string,0,len(refs));for id in refs {if mystery_clue_index(payload,id)>=0 do append(&clue_values,id);else if mystery_claim_index(payload,id)>=0 do append(&claim_values,id);else do append(&topic_values,id)};clues^=clue_values[:];claims^=claim_values[:];topics^=topic_values[:]}
-
-graph_import_story :: proc(project:^Story_Project) {
-	graph_source_project=project
-	graph_set_picker_create_callback(authoring_graph_picker_create,nil)
-	graph_document={case_id=project.id};graph_state={active_scene=0,selected_node=-1,hover_node=-1,selected_condition=-1,selected_effect=-1,selected_localization=-1,search_result=-1,zoom=1};graph_history={}
-	graph_document.scene_count=min(len(project.scenes),len(graph_document.scenes));for scene,i in project.scenes[:graph_document.scene_count] {graph_document.scenes[i]={scene={id=scene.id,display_name=scene.display_name,source=scene.bound_entity,entry=scene.entry_node,summary=scene.summary,return_to=scene.return_to},zoom=1}}
-	graph_document.condition_count=min(len(project.conditions),GRAPH_MAX_DEFINITIONS);graph_document.conditions=make([dynamic]Story_Condition,0,graph_document.condition_count);append(&graph_document.conditions,..project.conditions[:graph_document.condition_count])
-	graph_document.effect_count=min(len(project.effects),GRAPH_MAX_DEFINITIONS);graph_document.effects=make([dynamic]Story_Effect,0,graph_document.effect_count);append(&graph_document.effects,..project.effects[:graph_document.effect_count])
-	graph_document.localization_count=min(len(project.localizations),len(graph_document.localizations));for item,i in project.localizations[:graph_document.localization_count] do graph_document.localizations[i]={node_id=item.node_id,language=item.language,text=item.text,status=item.status,note=item.note,voice=item.voice}
-	graph_document.node_count=min(len(project.nodes),GRAPH_MAX_NODES);scene_rows:[GRAPH_MAX_SCENES]int
-	for node,i in project.nodes[:graph_document.node_count] {
-		beat:=Graph_Beat{id=node.id,scene=node.scene_id,kind=story_node_kind_text(node.kind),line_id=node.line_id,speaker=node.speaker_id,text=node.text,next=node.next,success=node.success,failure=node.failure,cancel=node.cancel,subscene_id=node.subscene_id,ui=node.ui,camera=node.camera,actor=node.actor,actor_mark=node.actor_mark,animation=node.animation,ui_image_asset_ref=node.ui_image_asset_ref,sound_cue_asset_ref=node.sound_cue_asset_ref,animation_asset_ref=node.animation_asset_ref,event_id=node.event_id,domain_ref=node.domain_ref,condition_id=node.condition_id,summary=node.summary,ending=node.ending,duration=node.duration,transition=node.transition,blocking=node.blocking,condition_root=node.condition_root,first_effect=node.first_effect,effect_count=node.effect_count}
-		if node.effect_id_count>0 {beat.effect_ids=make([]string,node.effect_id_count);for j in 0..<node.effect_id_count do beat.effect_ids[j]=node.effect_ids[j]}
-		if node.choice_count>0 {beat.choice_ids=make([]string,node.choice_count);beat.choice_labels=make([]string,node.choice_count);beat.choice_targets=make([]string,node.choice_count);beat.choice_conditions=make([]string,node.choice_count);for j in 0..<node.choice_count {beat.choice_ids[j]=node.choices[j].id;beat.choice_labels[j]=node.choices[j].label;beat.choice_targets[j]=node.choices[j].target;beat.choice_conditions[j]=node.choices[j].condition_id}}
-		if payload:=mystery_payload(project);payload!=nil {if metadata:=mystery_dialogue_metadata(payload,node.id);metadata!=nil {beat.interaction=metadata.interaction;beat.clue=metadata.clue_id;beat.metadata_requires=graph_clone_strings(metadata.requires[:metadata.require_count]);beat.metadata_unlocks=graph_clone_strings(metadata.unlocks[:metadata.unlock_count]);graph_metadata_read_refs(payload,metadata.requires[:metadata.require_count],&beat.requires_clues,&beat.requires_claims,&beat.requires_topics);graph_metadata_read_refs(payload,metadata.unlocks[:metadata.unlock_count],&beat.unlock_clues,&beat.unlock_claims,&beat.unlock_topics)}}
-		scene_index:=graph_scene_index(node.scene_id);row:=0;if scene_index>=0 {row=scene_rows[scene_index];scene_rows[scene_index]+=1};graph_document.nodes[i]={beat=beat,position={250+f32(row%3)*220,105+f32(row/3)*130}}
+graph_frame_nodes :: proc(selection_only := false) -> bool {scene := graph_active_scene_id()
+	minimum := Vec2{1e30, 1e30}
+	maximum := Vec2{-1e30, -1e30}
+	count := 0
+	for node, i in graph_document.nodes[:graph_document.node_count] {if node.beat.scene != scene || selection_only && !graph_is_selected(i) do continue
+		minimum.x = min(minimum.x, node.position.x)
+		minimum.y = min(minimum.y, node.position.y)
+		maximum.x = max(maximum.x, node.position.x + GRAPH_NODE_WIDTH)
+		maximum.y = max(maximum.y, node.position.y + graph_node_world_height(node))
+		count += 1}
+	if count == 0 do return false
+	canvas := graph_canvas_rect()
+	span_x := max(maximum.x - minimum.x, GRAPH_NODE_WIDTH)
+	span_y := max(maximum.y - minimum.y, GRAPH_NODE_COLLAPSED_HEIGHT)
+	graph_state.zoom = clamp(min((canvas.w - 48) / span_x, (canvas.h - 48) / span_y), .25, 1.75)
+	center := Vec2{(minimum.x + maximum.x) * .5, (minimum.y + maximum.y) * .5}
+	graph_state.pan = {
+		canvas.x + (canvas.w * .5 - canvas.x) / graph_state.zoom - center.x,
+		canvas.y + (canvas.h * .5 - canvas.y) / graph_state.zoom - center.y,
 	}
-	_=graph_validate(&graph_document)
+	return true}
+graph_auto_layout :: proc() -> bool {scene := graph_active_scene_id(); selected_only :=
+		graph_state.selection_count > 0
+	node_count := 0
+	for node, i in graph_document.nodes[:graph_document.node_count] do if node.beat.scene == scene && (!selected_only || graph_is_selected(i)) do node_count += 1
+	if node_count == 0 do return false
+	graph_history_push(selected_only ? "Auto layout selection" : "Auto layout scene")
+	column := 0
+	row_y := f32(100)
+	row_height := f32(0)
+	for 	&node, i in graph_document.nodes[:graph_document.node_count] {if node.beat.scene != scene || selected_only && !graph_is_selected(i) do continue
+		node.position = {
+			260 + f32(column) * (GRAPH_NODE_WIDTH + GRAPH_NODE_LAYOUT_COLUMN_GAP),
+			row_y,
+		}
+		row_height = max(row_height, graph_node_world_height(node))
+		column += 1
+		if column == 3 {column = 0; row_y += row_height + GRAPH_NODE_LAYOUT_ROW_GAP
+			row_height = 0}}
+	graph_changed()
+	_ = graph_frame_nodes(selected_only)
+	return true}
+
+graph_minimap_focus :: proc(point: Vec2) -> bool {layout := graph_minimap_layout()
+	if !layout.valid || !contains(graph_minimap_rect(), point) do return false
+	clamped := Vec2 {
+		clamp(point.x, layout.content.x, layout.content.x + layout.content.w),
+		clamp(point.y, layout.content.y, layout.content.y + layout.content.h),
+	}
+	world := Vec2 {
+		layout.world.x + (clamped.x - layout.content.x) / layout.scale,
+		layout.world.y + (clamped.y - layout.content.y) / layout.scale,
+	}
+	canvas := graph_canvas_rect()
+	graph_state.pan = {
+		canvas.x + (canvas.w * .5 - canvas.x) / graph_state.zoom - world.x,
+		canvas.y + (canvas.h * .5 - canvas.y) / graph_state.zoom - world.y,
+	}
+	return true}
+graph_focus_search_result :: proc(direction: int) -> bool {query := strings.to_lower(
+		strings.trim_space(graph_state.search_query),
+	)
+	if query == "" do return false
+	matches: [GRAPH_MAX_NODES]int
+	count := 0
+	for 	node, i in graph_document.nodes[:graph_document.node_count] {haystack := strings.to_lower(
+			fmt.tprintf(
+				"%s %s %s %s %s",
+				node.beat.scene,
+				node.beat.id,
+				node.beat.speaker,
+				node.beat.text,
+				node.beat.summary,
+			),
+		)
+		if strings.contains(haystack, query) {matches[count] = i; count += 1}}
+	if count == 0 {graph_feedback("NO MATCHING GRAPH BEATS", true); return false}
+	graph_state.search_result = (graph_state.search_result + direction + count) % count
+	index := matches[graph_state.search_result]
+	scene := graph_scene_index(graph_document.nodes[index].beat.scene)
+	if scene >= 0 do graph_state.active_scene = scene
+	graph_select_only(index)
+	_ = graph_frame_nodes(true)
+	graph_feedback(fmt.tprintf("SEARCH %d OF %d", graph_state.search_result + 1, count))
+	return true}
+graph_node_order_move :: proc(index, direction: int) -> bool {if index < 0 || index >= graph_document.node_count do return false
+	scene := graph_document.nodes[index].beat.scene
+	target := index + direction
+	for target >= 0 && target < graph_document.node_count && graph_document.nodes[target].beat.scene != scene do target += direction
+	if target < 0 || target >= graph_document.node_count do return false
+	graph_history_push("Reorder script beat")
+	graph_document.nodes[index], graph_document.nodes[target] =
+		graph_document.nodes[target], graph_document.nodes[index]
+	graph_select_only(target)
+	graph_changed()
+	return true}
+graph_add_condition :: proc() -> bool {if graph_document.condition_count >= GRAPH_MAX_DEFINITIONS do return false
+	graph_history_push("Add condition")
+	index := graph_document.condition_count
+	id := fmt.tprintf("condition_%04d", index)
+	for story_condition_index_in_document(id) >= 0 {index += 1; id = fmt.tprintf(
+			"condition_%04d",
+			index,
+		)}
+	item := Story_Condition {
+		id   = id,
+		kind = .Always,
+	}
+	if graph_document.condition_count < len(graph_document.conditions) do graph_document.conditions[graph_document.condition_count] = item
+	else do append(&graph_document.conditions, item)
+	graph_state.selected_condition = graph_document.condition_count
+	graph_document.condition_count += 1
+	graph_changed()
+	return true}
+graph_duplicate_condition :: proc() -> bool {index := graph_state.selected_condition; if index < 0 || index >= graph_document.condition_count || graph_document.condition_count >= GRAPH_MAX_DEFINITIONS do return false
+	graph_history_push("Duplicate condition")
+	item := graph_document.conditions[index]
+	base := fmt.tprintf("%s_copy", item.id)
+	item.id = base
+	suffix := 2
+	for story_condition_index_in_document(item.id) >= 0 {item.id = fmt.tprintf(
+			"%s_%d",
+			base,
+			suffix,
+		)
+		suffix += 1}
+	if graph_document.condition_count < len(graph_document.conditions) do graph_document.conditions[graph_document.condition_count] = item
+	else do append(&graph_document.conditions, item)
+	graph_state.selected_condition = graph_document.condition_count
+	graph_document.condition_count += 1
+	graph_changed()
+	return true}
+graph_duplicate_effect :: proc() -> bool {index := graph_state.selected_effect; if index < 0 || index >= graph_document.effect_count || graph_document.effect_count >= GRAPH_MAX_DEFINITIONS do return false
+	graph_history_push("Duplicate effect")
+	item := graph_document.effects[index]
+	base := fmt.tprintf("%s_copy", item.id)
+	item.id = base
+	suffix := 2
+	for story_effect_index_in_document(item.id) >= 0 {item.id = fmt.tprintf("%s_%d", base, suffix)
+		suffix += 1}
+	if graph_document.effect_count < len(graph_document.effects) do graph_document.effects[graph_document.effect_count] = item
+	else do append(&graph_document.effects, item)
+	graph_state.selected_effect = graph_document.effect_count
+	graph_document.effect_count += 1
+	graph_changed()
+	return true}
+story_condition_index_in_document :: proc(id: string) -> int {for item, i in graph_document.conditions[:graph_document.condition_count] do if item.id == id do return i
+	return -1}
+story_effect_index_in_document :: proc(id: string) -> int {for item, i in graph_document.effects[:graph_document.effect_count] do if item.id == id do return i
+	return -1}
+graph_add_effect :: proc() -> bool {if graph_document.effect_count >= GRAPH_MAX_DEFINITIONS do return false
+	graph_history_push("Add effect")
+	suffix := graph_document.effect_count
+	id := fmt.tprintf("effect_%04d", suffix)
+	for story_effect_index_in_document(id) >= 0 {suffix += 1; id = fmt.tprintf(
+			"effect_%04d",
+			suffix,
+		)}
+	item := Story_Effect {
+		id   = id,
+		kind = .Emit_Event,
+	}
+	if graph_source_project != nil && len(graph_source_project.events) > 0 do item.event_id = graph_source_project.events[0].id
+	if graph_document.effect_count < len(graph_document.effects) do graph_document.effects[graph_document.effect_count] = item
+	else do append(&graph_document.effects, item)
+	graph_state.selected_effect = graph_document.effect_count
+	graph_document.effect_count += 1
+	graph_changed()
+	return true}
+graph_condition_referenced :: proc(id: string) -> bool {for 	node in graph_document.nodes[:graph_document.node_count] {if node.beat.condition_id == id do return true
+		for choice in node.beat.choice_conditions do if choice == id do return true}
+	for &condition in graph_document.conditions[:graph_document.condition_count] do for child in condition.child_ids[:condition.child_id_count] do if child == id do return true
+	return false}
+graph_effect_referenced :: proc(id: string) -> bool {for node in graph_document.nodes[:graph_document.node_count] do for effect in node.beat.effect_ids do if effect == id do return true
+	return false}
+graph_delete_condition :: proc() -> bool {index := graph_state.selected_condition; if index < 0 || index >= graph_document.condition_count do return false
+	id := graph_document.conditions[index].id
+	if graph_condition_referenced(id) {graph_feedback("CONDITION IS STILL REFERENCED", true)
+		return false}
+	graph_history_push("Delete condition")
+	for i in index + 1 ..< graph_document.condition_count do graph_document.conditions[i - 1] = graph_document.conditions[i]
+	graph_document.condition_count -= 1
+	graph_state.selected_condition = clamp(index, 0, max(0, graph_document.condition_count - 1))
+	graph_changed()
+	return true}
+graph_delete_effect :: proc() -> bool {index := graph_state.selected_effect; if index < 0 || index >= graph_document.effect_count do return false
+	id := graph_document.effects[index].id
+	if graph_effect_referenced(id) {graph_feedback("EFFECT IS STILL REFERENCED", true); return(
+			false \
+		)}
+	graph_history_push("Delete effect")
+	for i in index + 1 ..< graph_document.effect_count do graph_document.effects[i - 1] = graph_document.effects[i]
+	graph_document.effect_count -= 1
+	graph_state.selected_effect = clamp(index, 0, max(0, graph_document.effect_count - 1))
+	graph_changed()
+	return true}
+graph_add_localization :: proc() -> bool {node := graph_state.selected_node; if node < 0 || node >= graph_document.node_count || graph_document.localization_count >= len(graph_document.localizations) do return false
+	graph_history_push("Add localization")
+	graph_document.localizations[graph_document.localization_count] = {
+		node_id  = graph_document.nodes[node].beat.id,
+		language = "und",
+		status   = "draft",
+	}
+	graph_state.selected_localization = graph_document.localization_count
+	graph_document.localization_count += 1
+	graph_changed()
+	return true}
+graph_delete_localization :: proc() -> bool {index := graph_state.selected_localization; if index < 0 || index >= graph_document.localization_count do return false
+	graph_history_push("Delete localization")
+	for i in index + 1 ..< graph_document.localization_count do graph_document.localizations[i - 1] = graph_document.localizations[i]
+	graph_document.localization_count -= 1
+	graph_state.selected_localization = clamp(
+		index,
+		0,
+		max(0, graph_document.localization_count - 1),
+	)
+	graph_changed()
+	return true}
+
+graph_metadata_read_refs :: proc(
+	payload: ^Mystery_Project,
+	refs: []string,
+	clues, claims, topics: ^[]string,
+) {clue_values := make([dynamic]string, 0, len(refs)); claim_values := make(
+		[dynamic]string,
+		0,
+		len(refs),
+	)
+	topic_values := make([dynamic]string, 0, len(refs))
+	for 	id in refs {if mystery_clue_index(payload, id) >= 0 do append(&clue_values, id)
+		else if mystery_claim_index(payload, id) >= 0 do append(&claim_values, id)
+		else do append(&topic_values, id)}
+	clues^ = clue_values[:]
+	claims^ = claim_values[:]
+	topics^ = topic_values[:]}
+
+graph_import_story :: proc(project: ^Story_Project) {
+	if project == nil do return
+	if len(project.scenes) > GRAPH_MAX_SCENES ||
+	   len(project.nodes) > GRAPH_MAX_NODES ||
+	   len(project.conditions) > GRAPH_MAX_DEFINITIONS ||
+	   len(project.effects) > GRAPH_MAX_DEFINITIONS ||
+	   len(project.localizations) > GRAPH_MAX_LOCALIZATIONS {
+		// Never construct a partial semantic document: graph_build_story_project
+		// replaces the source arrays with this document, so clamping here would
+		// turn the next save into silent data loss.
+		graph_source_project = nil
+		graph_import_error = fmt.tprintf(
+			"Story exceeds Graph Mode capacity (scenes %d/%d, nodes %d/%d, conditions %d/%d, effects %d/%d, localizations %d/%d)",
+			len(project.scenes),
+			GRAPH_MAX_SCENES,
+			len(project.nodes),
+			GRAPH_MAX_NODES,
+			len(project.conditions),
+			GRAPH_MAX_DEFINITIONS,
+			len(project.effects),
+			GRAPH_MAX_DEFINITIONS,
+			len(project.localizations),
+			GRAPH_MAX_LOCALIZATIONS,
+		)
+		graph_document = {
+			case_id          = project.id,
+			diagnostic_count = 1,
+			error_count      = 1,
+		}
+		graph_document.diagnostics[0] = {.Error, "", "", graph_import_error}
+		graph_state = {
+			active_scene          = -1,
+			selected_node         = -1,
+			hover_node            = -1,
+			selected_condition    = -1,
+			selected_effect       = -1,
+			selected_localization = -1,
+			search_result         = -1,
+			zoom                  = 1,
+			diagnostics_visible   = true,
+		}
+		graph_history = {}
+		return
+	}
+	graph_import_error = ""
+	graph_source_project = project
+	graph_set_picker_create_callback(authoring_graph_picker_create, nil)
+	graph_document = {
+		case_id = project.id,
+	}; graph_state = {
+		active_scene          = 0,
+		selected_node         = -1,
+		hover_node            = -1,
+		selected_condition    = -1,
+		selected_effect       = -1,
+		selected_localization = -1,
+		search_result         = -1,
+		zoom                  = 1,
+	}; graph_history = {}
+	graph_document.scene_count = len(
+		project.scenes,
+	); for scene, i in project.scenes {graph_document.scenes[i] = {
+			scene = {
+				id = scene.id,
+				display_name = scene.display_name,
+				source = scene.bound_entity,
+				entry = scene.entry_node,
+				summary = scene.summary,
+				return_to = scene.return_to,
+			},
+			zoom = 1,
+		}}
+	graph_document.condition_count = len(
+		project.conditions,
+	); graph_document.conditions = make([dynamic]Story_Condition, 0, graph_document.condition_count); append(&graph_document.conditions, ..project.conditions[:])
+	graph_document.effect_count = len(
+		project.effects,
+	); graph_document.effects = make([dynamic]Story_Effect, 0, graph_document.effect_count); append(&graph_document.effects, ..project.effects[:])
+	graph_document.localization_count = len(
+		project.localizations,
+	); for item, i in project.localizations do graph_document.localizations[i] = {
+		node_id  = item.node_id,
+		language = item.language,
+		text     = item.text,
+		status   = item.status,
+		note     = item.note,
+		voice    = item.voice,
+	}
+	graph_document.node_count = len(project.nodes); scene_rows: [GRAPH_MAX_SCENES]int
+	for node, i in project.nodes {
+		beat := Graph_Beat {
+			id                  = node.id,
+			scene               = node.scene_id,
+			kind                = story_node_kind_text(node.kind),
+			line_id             = node.line_id,
+			speaker             = node.speaker_id,
+			text                = node.text,
+			next                = node.next,
+			success             = node.success,
+			failure             = node.failure,
+			cancel              = node.cancel,
+			subscene_id         = node.subscene_id,
+			ui                  = node.ui,
+			camera              = node.camera,
+			actor               = node.actor,
+			actor_mark          = node.actor_mark,
+			animation           = node.animation,
+			ui_image_asset_ref  = node.ui_image_asset_ref,
+			sound_cue_asset_ref = node.sound_cue_asset_ref,
+			animation_asset_ref = node.animation_asset_ref,
+			event_id            = node.event_id,
+			domain_ref          = node.domain_ref,
+			condition_id        = node.condition_id,
+			summary             = node.summary,
+			ending              = node.ending,
+			duration            = node.duration,
+			transition          = node.transition,
+			blocking            = node.blocking,
+			condition_root      = node.condition_root,
+			first_effect        = node.first_effect,
+			effect_count        = node.effect_count,
+		}
+		if node.effect_id_count >
+		   0 {beat.effect_ids = make([]string, node.effect_id_count); for j in 0 ..< node.effect_id_count do beat.effect_ids[j] = node.effect_ids[j]}
+		if node.choice_count >
+		   0 {beat.choice_ids = make([]string, node.choice_count); beat.choice_labels = make([]string, node.choice_count); beat.choice_targets = make([]string, node.choice_count); beat.choice_conditions = make([]string, node.choice_count); for j in 0 ..< node.choice_count {beat.choice_ids[j] = node.choices[j].id; beat.choice_labels[j] = node.choices[j].label; beat.choice_targets[j] = node.choices[j].target; beat.choice_conditions[j] = node.choices[j].condition_id}}
+		if payload := mystery_payload(project);
+		   payload !=
+		   nil {if metadata := mystery_dialogue_metadata(payload, node.id); metadata != nil {beat.interaction = metadata.interaction; beat.clue = metadata.clue_id; beat.metadata_requires = graph_clone_strings(metadata.requires[:metadata.require_count]); beat.metadata_unlocks = graph_clone_strings(metadata.unlocks[:metadata.unlock_count]); graph_metadata_read_refs(payload, metadata.requires[:metadata.require_count], &beat.requires_clues, &beat.requires_claims, &beat.requires_topics); graph_metadata_read_refs(payload, metadata.unlocks[:metadata.unlock_count], &beat.unlock_clues, &beat.unlock_claims, &beat.unlock_topics)}}
+		scene_index := graph_scene_index(
+			node.scene_id,
+		); row := 0; if scene_index >= 0 {row = scene_rows[scene_index]; scene_rows[scene_index] += 1}; graph_document.nodes[i] = {
+			beat     = beat,
+			position = {250 + f32(row % 3) * 220, 105 + f32(row / 3) * 130},
+		}
+	}
+	_ = graph_validate(&graph_document)
 }
 
 // Builds an editor-only variation board for visually checking connection-wire
 // routing. It deliberately does not retain a source project, so the fixture can
 // never be saved or autosaved over authored story data.
 graph_configure_routing_test_board :: proc() {
-	graph_source_project=nil;graph_autosave_enabled=false;graph_history={};graph_clipboard={}
-	graph_document={case_id="routing_test_board",scene_count=2,node_count=19}
-	graph_document.scenes[0]={scene={id="wire_routing",entry="direct_from",summary="Connection wire routing variations"},zoom=1}
-	graph_document.scenes[1]={scene={id="wire_crossings",entry="cross_a_from",summary="Crossing and parallel wire clarity"},zoom=1}
-	graph_document.nodes[0]={beat={id="direct_from",scene="wire_routing",kind="line",speaker="DIRECT / CLEAR",text="Clear forward route",next="direct_to"},position={232,88}}
-	graph_document.nodes[1]={beat={id="direct_to",scene="wire_routing",kind="end"},position={744,88}}
-	graph_document.nodes[2]={beat={id="blocked_from",scene="wire_routing",kind="line",speaker="FORWARD / BLOCKED",text="Route around the card",next="blocked_to"},position={232,238}}
-	graph_document.nodes[3]={beat={id="obstacle",scene="wire_routing",kind="stage",text="OBSTACLE CARD"},position={488,238}}
-	graph_document.nodes[4]={beat={id="blocked_to",scene="wire_routing",kind="end"},position={744,238}}
-	graph_document.nodes[5]={beat={id="back_from",scene="wire_routing",kind="line",speaker="BACK EDGE",text="Outside bottom lane",next="back_to"},position={744,382}}
-	graph_document.nodes[6]={beat={id="back_to",scene="wire_routing",kind="end"},position={232,382}}
-	choice_ids:=make([]string,3);choice_labels:=make([]string,3);choice_targets:=make([]string,3);choice_conditions:=make([]string,3)
-	choice_ids[0]="fan_upper_choice";choice_ids[1]="fan_middle_choice";choice_ids[2]="fan_lower_choice"
-	choice_labels[0]="UPPER";choice_labels[1]="MIDDLE";choice_labels[2]="LOWER"
-	choice_targets[0]="fan_upper";choice_targets[1]="fan_middle";choice_targets[2]="fan_lower"
-	graph_document.nodes[7]={beat={id="fan_out",scene="wire_routing",kind="choice",text="Bundled output ports",choice_ids=choice_ids,choice_labels=choice_labels,choice_targets=choice_targets,choice_conditions=choice_conditions},position={232,530}}
-	graph_document.nodes[8]={beat={id="fan_upper",scene="wire_routing",kind="end"},position={488,484},collapsed=true}
-	graph_document.nodes[9]={beat={id="fan_middle",scene="wire_routing",kind="end"},position={744,530},collapsed=true}
-	graph_document.nodes[10]={beat={id="fan_lower",scene="wire_routing",kind="end"},position={488,620},collapsed=true}
-	graph_document.nodes[11]={beat={id="cross_a_from",scene="wire_crossings",kind="line",speaker="CROSSING A",text="Descending connection",next="cross_a_to"},position={232,104}}
-	graph_document.nodes[12]={beat={id="cross_a_to",scene="wire_crossings",kind="end"},position={744,350}}
-	graph_document.nodes[13]={beat={id="cross_b_from",scene="wire_crossings",kind="line",speaker="CROSSING B",text="Ascending connection",next="cross_b_to"},position={232,350}}
-	graph_document.nodes[14]={beat={id="cross_b_to",scene="wire_crossings",kind="end"},position={744,104}}
-	parallel_ids:=make([]string,3);parallel_labels:=make([]string,3);parallel_targets:=make([]string,3);parallel_conditions:=make([]string,3)
-	parallel_ids[0]="parallel_top_choice";parallel_ids[1]="parallel_center_choice";parallel_ids[2]="parallel_bottom_choice"
-	parallel_labels[0]="TOP";parallel_labels[1]="CENTER";parallel_labels[2]="BOTTOM"
-	parallel_targets[0]="parallel_top";parallel_targets[1]="parallel_center";parallel_targets[2]="parallel_bottom"
-	graph_document.nodes[15]={beat={id="parallel_from",scene="wire_crossings",kind="choice",text="Tightly spaced parallel wires",choice_ids=parallel_ids,choice_labels=parallel_labels,choice_targets=parallel_targets,choice_conditions=parallel_conditions},position={232,540}}
+	graph_source_project =
+		nil; graph_import_error = ""; graph_autosave_enabled = false; graph_history = {}; graph_clipboard = {}
+	graph_document = {
+		case_id     = "routing_test_board",
+		scene_count = 2,
+		node_count  = 19,
+	}
+	graph_document.scenes[0] = {
+		scene = {
+			id = "wire_routing",
+			entry = "direct_from",
+			summary = "Connection wire routing variations",
+		},
+		zoom = 1,
+	}
+	graph_document.scenes[1] = {
+		scene = {
+			id = "wire_crossings",
+			entry = "cross_a_from",
+			summary = "Crossing and parallel wire clarity",
+		},
+		zoom = 1,
+	}
+	graph_document.nodes[0] = {
+		beat = {
+			id = "direct_from",
+			scene = "wire_routing",
+			kind = "line",
+			speaker = "DIRECT / CLEAR",
+			text = "Clear forward route",
+			next = "direct_to",
+		},
+		position = {232, 88},
+	}
+	graph_document.nodes[1] = {
+		beat = {id = "direct_to", scene = "wire_routing", kind = "end"},
+		position = {744, 88},
+	}
+	graph_document.nodes[2] = {
+		beat = {
+			id = "blocked_from",
+			scene = "wire_routing",
+			kind = "line",
+			speaker = "FORWARD / BLOCKED",
+			text = "Route around the card",
+			next = "blocked_to",
+		},
+		position = {232, 238},
+	}
+	graph_document.nodes[3] = {
+		beat = {id = "obstacle", scene = "wire_routing", kind = "stage", text = "OBSTACLE CARD"},
+		position = {488, 238},
+	}
+	graph_document.nodes[4] = {
+		beat = {id = "blocked_to", scene = "wire_routing", kind = "end"},
+		position = {744, 238},
+	}
+	graph_document.nodes[5] = {
+		beat = {
+			id = "back_from",
+			scene = "wire_routing",
+			kind = "line",
+			speaker = "BACK EDGE",
+			text = "Outside bottom lane",
+			next = "back_to",
+		},
+		position = {744, 382},
+	}
+	graph_document.nodes[6] = {
+		beat = {id = "back_to", scene = "wire_routing", kind = "end"},
+		position = {232, 382},
+	}
+	choice_ids := make(
+		[]string,
+		3,
+	); choice_labels := make([]string, 3); choice_targets := make([]string, 3); choice_conditions := make([]string, 3)
+	choice_ids[0] = "fan_upper_choice"; choice_ids[1] = "fan_middle_choice"; choice_ids[2] = "fan_lower_choice"
+	choice_labels[0] = "UPPER"; choice_labels[1] = "MIDDLE"; choice_labels[2] = "LOWER"
+	choice_targets[0] = "fan_upper"; choice_targets[1] = "fan_middle"; choice_targets[2] = "fan_lower"
+	graph_document.nodes[7] = {
+		beat = {
+			id = "fan_out",
+			scene = "wire_routing",
+			kind = "choice",
+			text = "Bundled output ports",
+			choice_ids = choice_ids,
+			choice_labels = choice_labels,
+			choice_targets = choice_targets,
+			choice_conditions = choice_conditions,
+		},
+		position = {232, 530},
+	}
+	graph_document.nodes[8] = {
+		beat = {id = "fan_upper", scene = "wire_routing", kind = "end"},
+		position = {488, 484},
+		collapsed = true,
+	}
+	graph_document.nodes[9] = {
+		beat = {id = "fan_middle", scene = "wire_routing", kind = "end"},
+		position = {744, 530},
+		collapsed = true,
+	}
+	graph_document.nodes[10] = {
+		beat = {id = "fan_lower", scene = "wire_routing", kind = "end"},
+		position = {488, 620},
+		collapsed = true,
+	}
+	graph_document.nodes[11] = {
+		beat = {
+			id = "cross_a_from",
+			scene = "wire_crossings",
+			kind = "line",
+			speaker = "CROSSING A",
+			text = "Descending connection",
+			next = "cross_a_to",
+		},
+		position = {232, 104},
+	}
+	graph_document.nodes[12] = {
+		beat = {id = "cross_a_to", scene = "wire_crossings", kind = "end"},
+		position = {744, 350},
+	}
+	graph_document.nodes[13] = {
+		beat = {
+			id = "cross_b_from",
+			scene = "wire_crossings",
+			kind = "line",
+			speaker = "CROSSING B",
+			text = "Ascending connection",
+			next = "cross_b_to",
+		},
+		position = {232, 350},
+	}
+	graph_document.nodes[14] = {
+		beat = {id = "cross_b_to", scene = "wire_crossings", kind = "end"},
+		position = {744, 104},
+	}
+	parallel_ids := make(
+		[]string,
+		3,
+	); parallel_labels := make([]string, 3); parallel_targets := make([]string, 3); parallel_conditions := make([]string, 3)
+	parallel_ids[0] = "parallel_top_choice"; parallel_ids[1] = "parallel_center_choice"; parallel_ids[2] = "parallel_bottom_choice"
+	parallel_labels[0] = "TOP"; parallel_labels[1] = "CENTER"; parallel_labels[2] = "BOTTOM"
+	parallel_targets[0] = "parallel_top"; parallel_targets[1] = "parallel_center"; parallel_targets[2] = "parallel_bottom"
+	graph_document.nodes[15] = {
+		beat = {
+			id = "parallel_from",
+			scene = "wire_crossings",
+			kind = "choice",
+			text = "Tightly spaced parallel wires",
+			choice_ids = parallel_ids,
+			choice_labels = parallel_labels,
+			choice_targets = parallel_targets,
+			choice_conditions = parallel_conditions,
+		},
+		position = {232, 540},
+	}
 	// Keep the dense targets clear of the lower-right minimap so the fixture
 	// tests wire separation and endpoint association rather than UI occlusion.
-	graph_document.nodes[16]={beat={id="parallel_top",scene="wire_crossings",kind="end"},position={590,500},collapsed=true}
-	graph_document.nodes[17]={beat={id="parallel_center",scene="wire_crossings",kind="end"},position={590,562},collapsed=true}
-	graph_document.nodes[18]={beat={id="parallel_bottom",scene="wire_crossings",kind="end"},position={590,624},collapsed=true}
-	graph_state={active_scene=0,selected_node=-1,hover_node=-1,view=.Graph,zoom=1}
-	_=graph_validate(&graph_document)
+	graph_document.nodes[16] = {
+		beat = {id = "parallel_top", scene = "wire_crossings", kind = "end"},
+		position = {590, 500},
+		collapsed = true,
+	}
+	graph_document.nodes[17] = {
+		beat = {id = "parallel_center", scene = "wire_crossings", kind = "end"},
+		position = {590, 562},
+		collapsed = true,
+	}
+	graph_document.nodes[18] = {
+		beat = {id = "parallel_bottom", scene = "wire_crossings", kind = "end"},
+		position = {590, 624},
+		collapsed = true,
+	}
+	graph_state = {
+		active_scene  = 0,
+		selected_node = -1,
+		hover_node    = -1,
+		view          = .Graph,
+		zoom          = 1,
+	}
+	_ = graph_validate(&graph_document)
 }
 
 graph_configure_minimap_stress_board :: proc() {
-	graph_source_project=nil;graph_autosave_enabled=false;graph_history={};graph_clipboard={}
-	columns,rows:=32,8;count:=columns*rows;graph_document={case_id="minimap_stress_board",scene_count=1,node_count=count}
-	graph_document.scenes[0]={scene={id="minimap_stress",entry="grid_000",summary="Large graph minimap stress fixture"},zoom=1}
-	for row in 0..<rows {for column in 0..<columns {i:=row*columns+column;id:=fmt.tprintf("grid_%03d",i);last:=column==columns-1;next:="";if !last do next=fmt.tprintf("grid_%03d",i+1);kind:=last?"end":"line";graph_document.nodes[i]={beat={id=id,scene="minimap_stress",kind=kind,speaker="STRESS",text=fmt.tprintf("Large graph node %03d",i),next=next},position={232+f32(column)*250,88+f32(row)*138},collapsed=(i%7==0)}}}
-	graph_state={active_scene=0,selected_node=0,hover_node=-1,view=.Graph,zoom=1};graph_state.selection[0]=0;graph_state.selection_count=1
-}
-
-graph_save_story :: proc(path:string,source:^Story_Project,mark_clean:=true)->Validation {project:Story_Project;if built:=graph_build_story_project(source,&project);!built.ok do return built;defer story_project_destroy(&project);saved:=save_story_project(path,&project);if saved.ok&&mark_clean do graph_document.dirty=false;return saved}
-
-graph_metadata_write_refs :: proc(target:^[MYSTERY_MAX_REFS]string,count:^int,groups:..[]string) {count^=0;for group in groups do for value in group {if count^>=len(target^) do return;duplicate:=false;for i in 0..<count^ do if target^[i]==value do duplicate=true;if !duplicate {target^[count^]=value;count^+=1}}}
-
-graph_build_story_project :: proc(source:^Story_Project,out:^Story_Project)->Validation {
-	if source==nil do return {false,"Graph Mode has no story project"}
-	project:=story_project_clone(source);delete(project.conditions);delete(project.effects);delete(project.localizations);delete(project.scenes);delete(project.nodes);project.conditions=make([dynamic]Story_Condition,0,graph_document.condition_count);project.effects=make([dynamic]Story_Effect,0,graph_document.effect_count);project.localizations=make([dynamic]Story_Localization,0,graph_document.localization_count);project.scenes=make([dynamic]Story_Scene,0,graph_document.scene_count);project.nodes=make([dynamic]Story_Node,0,graph_document.node_count)
-	append(&project.conditions,..graph_document.conditions[:graph_document.condition_count]);append(&project.effects,..graph_document.effects[:graph_document.effect_count]);for item in graph_document.localizations[:graph_document.localization_count] do append(&project.localizations,Story_Localization{item.node_id,item.language,item.text,item.status,item.note,item.voice})
-	for item in graph_document.scenes[:graph_document.scene_count] {append(&project.scenes,Story_Scene{id=item.scene.id,display_name=item.scene.display_name,entry_node=item.scene.entry,bound_entity=item.scene.source,summary=item.scene.summary,return_to=item.scene.return_to})}
-	for item in graph_document.nodes[:graph_document.node_count] {
-		beat:=item.beat;kind,ok:=story_node_kind_from_text(beat.kind);if !ok {story_project_destroy(&project);return {false,fmt.tprintf("Unknown node kind %s",beat.kind)}}
-		node:=Story_Node{id=beat.id,scene_id=beat.scene,kind=kind,line_id=beat.line_id,speaker_id=beat.speaker,text=beat.text,next=beat.next,success=beat.success,failure=beat.failure,cancel=beat.cancel,subscene_id=beat.subscene_id,ui=beat.ui,camera=beat.camera,actor=beat.actor,actor_mark=beat.actor_mark,animation=beat.animation,ui_image_asset_ref=beat.ui_image_asset_ref,sound_cue_asset_ref=beat.sound_cue_asset_ref,animation_asset_ref=beat.animation_asset_ref,event_id=beat.event_id,domain_ref=beat.domain_ref,condition_id=beat.condition_id,summary=beat.summary,ending=beat.ending,duration=beat.duration,transition=beat.transition,blocking=beat.blocking,condition_root=beat.condition_root,first_effect=beat.first_effect,effect_count=beat.effect_count}
-		node.effect_id_count=min(len(beat.effect_ids),len(node.effect_ids));for i in 0..<node.effect_id_count do node.effect_ids[i]=beat.effect_ids[i]
-		node.choice_count=min(len(beat.choice_labels),len(node.choices));for i in 0..<node.choice_count {choice_id:=i<len(beat.choice_ids)?beat.choice_ids[i]:"";if choice_id=="" do choice_id=fmt.tprintf("%s_choice_%d",beat.id,i+1);node.choices[i]={id=choice_id,label=beat.choice_labels[i],target=i<len(beat.choice_targets)?beat.choice_targets[i]:"",condition_id=i<len(beat.choice_conditions)?beat.choice_conditions[i]:""}}
-		append(&project.nodes,node)
-		if payload:=mystery_payload(&project);payload!=nil {metadata:=mystery_dialogue_metadata(payload,beat.id);if metadata!=nil {metadata.interaction=beat.interaction;metadata.clue_id=beat.clue;if !beat.metadata_refs_dirty {graph_metadata_write_refs(&metadata.requires,&metadata.require_count,beat.metadata_requires);graph_metadata_write_refs(&metadata.unlocks,&metadata.unlock_count,beat.metadata_unlocks)}else{graph_metadata_write_refs(&metadata.requires,&metadata.require_count,beat.requires_clues,beat.requires_claims,beat.requires_topics);graph_metadata_write_refs(&metadata.unlocks,&metadata.unlock_count,beat.unlock_clues,beat.unlock_claims,beat.unlock_topics)}}}
+	graph_source_project =
+		nil; graph_import_error = ""; graph_autosave_enabled = false; graph_history = {}; graph_clipboard = {}
+	columns, rows := 32, 8; count := columns * rows; graph_document = {
+		case_id     = "minimap_stress_board",
+		scene_count = 1,
+		node_count  = count,
 	}
-	validation:=story_project_validate(&project);if !validation.ok {message:=len(validation.diagnostics)>0?validation.diagnostics[0].message:"Graph story validation failed";story_validation_destroy(&validation);story_project_destroy(&project);return {false,message}};story_validation_destroy(&validation);out^=project;return {true,"GRAPH STORY READY"}
+	graph_document.scenes[0] = {
+		scene = {
+			id = "minimap_stress",
+			entry = "grid_000",
+			summary = "Large graph minimap stress fixture",
+		},
+		zoom = 1,
+	}
+	for row in 0 ..< rows {for column in 0 ..< columns {i := row * columns + column; id := fmt.tprintf("grid_%03d", i); last := column == columns - 1; next := ""; if !last do next = fmt.tprintf("grid_%03d", i + 1); kind := last ? "end" : "line"; graph_document.nodes[i] = {
+				beat = {
+					id = id,
+					scene = "minimap_stress",
+					kind = kind,
+					speaker = "STRESS",
+					text = fmt.tprintf("Large graph node %03d", i),
+					next = next,
+				},
+				position = {232 + f32(column) * 250, 88 + f32(row) * 138},
+				collapsed = (i % 7 == 0),
+			}}}
+	graph_state = {
+		active_scene  = 0,
+		selected_node = 0,
+		hover_node    = -1,
+		view          = .Graph,
+		zoom          = 1,
+	}; graph_state.selection[0] = 0; graph_state.selection_count = 1
 }
 
-graph_apply_story_runtime :: proc(g:^Game)->Validation {
-	story_runtime_destroy(&graph_playtest_runtime);compiled_story_destroy(&graph_playtest_compiled);story_project_destroy(&graph_playtest_project)
-	if built:=graph_build_story_project(g.story_project,&graph_playtest_project);!built.ok do return built
-	compiled:=compile_story_project(&graph_playtest_project);if !compiled.ok {message:=compiled.message;story_compile_result_destroy(&compiled);story_project_destroy(&graph_playtest_project);return {false,message}}
-	graph_playtest_compiled=compiled.story;compiled.story={};story_validation_destroy(&compiled.validation);graph_playtest_runtime=story_runtime_new(&graph_playtest_compiled,g.spatial_service)
-	g.story_project=&graph_playtest_project;g.compiled_story=&graph_playtest_compiled;g.story_runtime=&graph_playtest_runtime;g.story_state=&graph_playtest_runtime.state;g.mystery_state=cast(^Mystery_State)story_runtime_capability_state(&graph_playtest_runtime,"mystery",MYSTERY_DOMAIN_VERSION)
-	return {true,"GRAPH PLAYTEST READY"}
+graph_save_story :: proc(
+	path: string,
+	source: ^Story_Project,
+	mark_clean := true,
+) -> Validation {project: Story_Project; if built := graph_build_story_project(source, &project); !built.ok do return built
+	defer story_project_destroy(&project)
+	saved := save_story_project(path, &project)
+	if saved.ok && mark_clean do graph_document.dirty = false
+	return saved}
+
+graph_metadata_write_refs :: proc(
+	target: ^[MYSTERY_MAX_REFS]string,
+	count: ^int,
+	groups: ..[]string,
+) {count^ = 0; for group in groups do for value in group {if count^ >= len(target^) do return; duplicate := false; for i in 0 ..< count^ do if target^[i] == value do duplicate = true; if !duplicate {target^[count^] = value; count^ += 1}}}
+
+graph_build_story_project :: proc(source: ^Story_Project, out: ^Story_Project) -> Validation {
+	if graph_import_error != "" do return {false, graph_import_error}
+	if source == nil do return {false, "Graph Mode has no story project"}
+	project := story_project_clone(
+		source,
+	); delete(project.conditions); delete(project.effects); delete(project.localizations); delete(project.scenes); delete(project.nodes); project.conditions = make([dynamic]Story_Condition, 0, graph_document.condition_count); project.effects = make([dynamic]Story_Effect, 0, graph_document.effect_count); project.localizations = make([dynamic]Story_Localization, 0, graph_document.localization_count); project.scenes = make([dynamic]Story_Scene, 0, graph_document.scene_count); project.nodes = make([dynamic]Story_Node, 0, graph_document.node_count)
+	append(
+		&project.conditions,
+		..graph_document.conditions[:graph_document.condition_count],
+	); append(&project.effects, ..graph_document.effects[:graph_document.effect_count]); for item in graph_document.localizations[:graph_document.localization_count] do append(&project.localizations, Story_Localization{item.node_id, item.language, item.text, item.status, item.note, item.voice})
+	for item in graph_document.scenes[:graph_document.scene_count] {append(&project.scenes, Story_Scene{id = item.scene.id, display_name = item.scene.display_name, entry_node = item.scene.entry, bound_entity = item.scene.source, summary = item.scene.summary, return_to = item.scene.return_to})}
+	for item in graph_document.nodes[:graph_document.node_count] {
+		beat :=
+			item.beat; kind, ok := story_node_kind_from_text(beat.kind); if !ok {story_project_destroy(&project); return {false, fmt.tprintf("Unknown node kind %s", beat.kind)}}
+		node := Story_Node {
+			id                  = beat.id,
+			scene_id            = beat.scene,
+			kind                = kind,
+			line_id             = beat.line_id,
+			speaker_id          = beat.speaker,
+			text                = beat.text,
+			next                = beat.next,
+			success             = beat.success,
+			failure             = beat.failure,
+			cancel              = beat.cancel,
+			subscene_id         = beat.subscene_id,
+			ui                  = beat.ui,
+			camera              = beat.camera,
+			actor               = beat.actor,
+			actor_mark          = beat.actor_mark,
+			animation           = beat.animation,
+			ui_image_asset_ref  = beat.ui_image_asset_ref,
+			sound_cue_asset_ref = beat.sound_cue_asset_ref,
+			animation_asset_ref = beat.animation_asset_ref,
+			event_id            = beat.event_id,
+			domain_ref          = beat.domain_ref,
+			condition_id        = beat.condition_id,
+			summary             = beat.summary,
+			ending              = beat.ending,
+			duration            = beat.duration,
+			transition          = beat.transition,
+			blocking            = beat.blocking,
+			condition_root      = beat.condition_root,
+			first_effect        = beat.first_effect,
+			effect_count        = beat.effect_count,
+		}
+		node.effect_id_count = min(
+			len(beat.effect_ids),
+			len(node.effect_ids),
+		); for i in 0 ..< node.effect_id_count do node.effect_ids[i] = beat.effect_ids[i]
+		node.choice_count = min(
+			len(beat.choice_labels),
+			len(node.choices),
+		); for i in 0 ..< node.choice_count {choice_id := i < len(beat.choice_ids) ? beat.choice_ids[i] : ""; if choice_id == "" do choice_id = fmt.tprintf("%s_choice_%d", beat.id, i + 1); node.choices[i] = {
+				id           = choice_id,
+				label        = beat.choice_labels[i],
+				target       = i < len(beat.choice_targets) ? beat.choice_targets[i] : "",
+				condition_id = i < len(beat.choice_conditions) ? beat.choice_conditions[i] : "",
+			}}
+		append(&project.nodes, node)
+		if payload := mystery_payload(&project);
+		   payload !=
+		   nil {metadata := mystery_dialogue_metadata(payload, beat.id); if metadata != nil {metadata.interaction = beat.interaction; metadata.clue_id = beat.clue; if !beat.metadata_refs_dirty {graph_metadata_write_refs(&metadata.requires, &metadata.require_count, beat.metadata_requires); graph_metadata_write_refs(&metadata.unlocks, &metadata.unlock_count, beat.metadata_unlocks)} else {graph_metadata_write_refs(&metadata.requires, &metadata.require_count, beat.requires_clues, beat.requires_claims, beat.requires_topics); graph_metadata_write_refs(&metadata.unlocks, &metadata.unlock_count, beat.unlock_clues, beat.unlock_claims, beat.unlock_topics)}}}
+	}
+	validation := story_project_validate(
+		&project,
+	); if !validation.ok {message := len(validation.diagnostics) > 0 ? validation.diagnostics[0].message : "Graph story validation failed"; story_validation_destroy(&validation); story_project_destroy(&project); return {false, message}}; story_validation_destroy(&validation); out^ = project; return {true, "GRAPH STORY READY"}
 }
-graph_add_diagnostic :: proc(doc:^Graph_Document,severity:Graph_Diagnostic_Severity,scene,node,message:string) {if doc.diagnostic_count>=len(doc.diagnostics) do return;doc.diagnostics[doc.diagnostic_count]=Graph_Diagnostic{severity,scene,node,message};doc.diagnostic_count+=1;if severity==.Error do doc.error_count+=1}
 
-graph_reference_add :: proc(out:^Graph_Reference_List,kind,scene,node,field:string,choice:=-1) {if out.count>=len(out.items) {out.truncated=true;return};out.items[out.count]={kind,scene,node,field,choice};out.count+=1}
-graph_used_by :: proc(kind,id:string)->Graph_Reference_List {result:Graph_Reference_List;for scene in graph_document.scenes[:graph_document.scene_count] {if kind=="scene"&&scene.scene.return_to==id do graph_reference_add(&result,"scene",scene.scene.id,"","return_to");if kind=="node"&&scene.scene.entry==id do graph_reference_add(&result,"scene",scene.scene.id,"","entry")};for node in graph_document.nodes[:graph_document.node_count] {beat:=node.beat;if kind=="scene"&&beat.subscene_id==id do graph_reference_add(&result,"node",beat.scene,beat.id,"subscene_id");if kind=="node" {targets:=[4]string{beat.next,beat.success,beat.failure,beat.cancel};fields:=[4]string{"next","success","failure","cancel"};for target,i in targets do if target==id do graph_reference_add(&result,"node",beat.scene,beat.id,fields[i]);for target,i in beat.choice_targets do if target==id do graph_reference_add(&result,"choice",beat.scene,beat.id,"target",i)};if kind=="condition" {if beat.condition_id==id do graph_reference_add(&result,"node",beat.scene,beat.id,"condition_id");for value,i in beat.choice_conditions do if value==id do graph_reference_add(&result,"choice",beat.scene,beat.id,"condition_id",i)};if kind=="effect" do for value,i in beat.effect_ids do if value==id do graph_reference_add(&result,"node",beat.scene,beat.id,"effect_ids",i)};return result}
-graph_repair_reference :: proc(reference:Graph_Reference,replacement:string)->bool {if reference.kind=="scene" {index:=graph_scene_index(reference.scene_id);if index<0 do return false;if reference.field=="return_to" do graph_document.scenes[index].scene.return_to=replacement;else if reference.field=="entry" do graph_document.scenes[index].scene.entry=replacement;else do return false;graph_changed();return true};index:=graph_node_index(reference.scene_id,reference.node_id);if index<0 do return false;beat:=&graph_document.nodes[index].beat;switch reference.field {case "subscene_id":beat.subscene_id=replacement;case "next":beat.next=replacement;case "success":beat.success=replacement;case "failure":beat.failure=replacement;case "cancel":beat.cancel=replacement;case "condition_id":if reference.kind=="choice"&&reference.choice_index>=0&&reference.choice_index<len(beat.choice_conditions) do beat.choice_conditions[reference.choice_index]=replacement;else do beat.condition_id=replacement;case "target":if reference.choice_index<0||reference.choice_index>=len(beat.choice_targets) do return false;beat.choice_targets[reference.choice_index]=replacement;case "effect_ids":if reference.choice_index<0||reference.choice_index>=len(beat.effect_ids) do return false;beat.effect_ids[reference.choice_index]=replacement;case:return false};graph_changed();return true}
-
-graph_validate :: proc(doc:^Graph_Document)->Validation {
-	doc.diagnostic_count=0;doc.error_count=0
-	for scene in doc.scenes[:doc.scene_count] {if scene.scene.id=="" {graph_add_diagnostic(doc,.Error,"","","Scene ID is required");continue};entry:=graph_document_node_index(doc,scene.scene.id,scene.scene.entry);if entry<0 do graph_add_diagnostic(doc,.Error,scene.scene.id,"","Scene entry is missing");end_found:=false;for node in doc.nodes[:doc.node_count] do if node.beat.scene==scene.scene.id&&node.beat.kind=="end" do end_found=true;if !end_found do graph_add_diagnostic(doc,.Warning,scene.scene.id,"","Scene has no ending")}
-	for node,i in doc.nodes[:doc.node_count] {beat:=node.beat;if beat.id==""||!story_node_kind_valid(beat.kind) {graph_add_diagnostic(doc,.Error,beat.scene,beat.id,"Node has invalid ID or type");continue};for candidate,j in doc.nodes[:doc.node_count] do if i!=j&&candidate.beat.scene==beat.scene&&candidate.beat.id==beat.id {graph_add_diagnostic(doc,.Error,beat.scene,beat.id,"Duplicate node ID");break};if beat.kind=="line"&&beat.text=="" do graph_add_diagnostic(doc,.Error,beat.scene,beat.id,"Line needs dialogue text");if beat.kind=="choice"&&len(beat.choice_labels)!=len(beat.choice_targets) do graph_add_diagnostic(doc,.Error,beat.scene,beat.id,"Choice labels and targets differ");for label in beat.choice_labels do if strings.trim_space(label)=="" do graph_add_diagnostic(doc,.Error,beat.scene,beat.id,"Choice label cannot be empty");if beat.kind=="check"&&(beat.success==""||beat.failure=="") do graph_add_diagnostic(doc,.Error,beat.scene,beat.id,"Check needs success and failure");if beat.kind=="interaction"&&beat.success=="" do graph_add_diagnostic(doc,.Error,beat.scene,beat.id,"Interaction needs success");if beat.kind=="wait_event"&&beat.event_id=="" do graph_add_diagnostic(doc,.Error,beat.scene,beat.id,"Wait Event needs a bound trigger event");if beat.kind=="stage"&&beat.ui=="hidden"&&beat.duration<=0&&beat.camera==""&&beat.actor_mark=="" do graph_add_diagnostic(doc,.Error,beat.scene,beat.id,"Hidden stage needs a completion cue");targets:=[4]string{beat.next,beat.success,beat.failure,beat.cancel};for target in targets do if target!=""&&graph_document_node_index(doc,beat.scene,target)<0 do graph_add_diagnostic(doc,.Error,beat.scene,beat.id,fmt.tprintf("Missing target: %s",target));for target in beat.choice_targets do if target==""||graph_document_node_index(doc,beat.scene,target)<0 do graph_add_diagnostic(doc,.Error,beat.scene,beat.id,fmt.tprintf("Missing choice target: %s",target));camera_index:=level_marker_index(&level_document,beat.camera);if beat.camera!=""&&(camera_index<0||level_document.markers[camera_index].kind!=.Camera||level_document.markers[camera_index].story!=level_document.active_story) do graph_add_diagnostic(doc,.Error,beat.scene,beat.id,"Camera marker is missing, on another story, or has the wrong type");actor_index:=level_marker_index(&level_document,beat.actor_mark);if beat.actor_mark!=""&&(actor_index<0||level_document.markers[actor_index].kind!=.Staging||level_document.markers[actor_index].story!=level_document.active_story) do graph_add_diagnostic(doc,.Error,beat.scene,beat.id,"Actor marker is missing, on another story, or has the wrong type")}
-	for &condition,i in doc.conditions[:doc.condition_count] {if strings.trim_space(condition.id)=="" do graph_add_diagnostic(doc,.Error,"",condition.id,"Condition ID is required");for other,j in doc.conditions[:doc.condition_count] do if i!=j&&condition.id==other.id {graph_add_diagnostic(doc,.Error,"",condition.id,"Duplicate condition ID");break};for child in condition.child_ids[:condition.child_id_count] do if story_condition_index_in_document(child)<0 do graph_add_diagnostic(doc,.Error,"",condition.id,fmt.tprintf("Missing condition child: %s",child))}
-	for effect,i in doc.effects[:doc.effect_count] {if strings.trim_space(effect.id)=="" do graph_add_diagnostic(doc,.Error,"",effect.id,"Effect ID is required");for other,j in doc.effects[:doc.effect_count] do if i!=j&&effect.id==other.id {graph_add_diagnostic(doc,.Error,"",effect.id,"Duplicate effect ID");break}}
-	for node in doc.nodes[:doc.node_count] {beat:=node.beat;if beat.condition_id!=""&&story_condition_index_in_document(beat.condition_id)<0 do graph_add_diagnostic(doc,.Error,beat.scene,beat.id,fmt.tprintf("Missing condition: %s",beat.condition_id));for id in beat.choice_conditions do if id!=""&&story_condition_index_in_document(id)<0 do graph_add_diagnostic(doc,.Error,beat.scene,beat.id,fmt.tprintf("Missing choice condition: %s",id));for id in beat.effect_ids do if id!=""&&story_effect_index_in_document(id)<0 do graph_add_diagnostic(doc,.Error,beat.scene,beat.id,fmt.tprintf("Missing effect: %s",id));if beat.kind=="subscene" {if graph_scene_index(beat.subscene_id)<0 do graph_add_diagnostic(doc,.Error,beat.scene,beat.id,fmt.tprintf("Missing subscene: %s",beat.subscene_id));if beat.subscene_id==beat.scene do graph_add_diagnostic(doc,.Error,beat.scene,beat.id,"Subscene cannot call itself")}}
-	for item,i in doc.localizations[:doc.localization_count] {found:=false;for node in doc.nodes[:doc.node_count] do if node.beat.id==item.node_id {found=true;break};if !found do graph_add_diagnostic(doc,.Error,"",item.node_id,"Localization belongs to a missing node");if strings.trim_space(item.language)=="" do graph_add_diagnostic(doc,.Error,"",item.node_id,"Localization language is required");for other,j in doc.localizations[:doc.localization_count] do if i!=j&&item.node_id==other.node_id&&item.language==other.language {graph_add_diagnostic(doc,.Error,"",item.node_id,"Duplicate localization language for node");break};if item.text=="" do graph_add_diagnostic(doc,.Warning,"",item.node_id,"Translation is missing");if item.voice=="" do graph_add_diagnostic(doc,.Warning,"",item.node_id,"Voice reference is missing")}
-	return {doc.error_count==0,doc.error_count==0?"GRAPH VALID":fmt.tprintf("%d GRAPH ERRORS",doc.error_count)}
+graph_apply_story_runtime :: proc(g: ^Game) -> Validation {
+	story_runtime_destroy(
+		&graph_playtest_runtime,
+	); compiled_story_destroy(&graph_playtest_compiled); story_project_destroy(&graph_playtest_project)
+	if built := graph_build_story_project(g.story_project, &graph_playtest_project); !built.ok do return built
+	compiled := compile_story_project(
+		&graph_playtest_project,
+	); if !compiled.ok {message := compiled.message; story_compile_result_destroy(&compiled); story_project_destroy(&graph_playtest_project); return {false, message}}
+	graph_playtest_compiled =
+		compiled.story; compiled.story = {}; story_validation_destroy(&compiled.validation); graph_playtest_runtime = story_runtime_new(&graph_playtest_compiled, g.spatial_service)
+	g.story_project = &graph_playtest_project; g.compiled_story = &graph_playtest_compiled; g.story_runtime = &graph_playtest_runtime; g.story_state = &graph_playtest_runtime.state; g.mystery_state = cast(^Mystery_State)story_runtime_capability_state(&graph_playtest_runtime, "mystery", MYSTERY_DOMAIN_VERSION)
+	return {true, "GRAPH PLAYTEST READY"}
 }
-graph_validate_complete :: proc(source:^Story_Project)->Validation {light:=graph_validate(&graph_document);if !light.ok do return light;project:Story_Project;built:=graph_build_story_project(source,&project);if !built.ok {graph_add_diagnostic(&graph_document,.Error,graph_active_scene_id(),"",built.message);return built};story_project_destroy(&project);return {true,"GRAPH AND STORYCORE VALID"}}
+graph_add_diagnostic :: proc(
+	doc: ^Graph_Document,
+	severity: Graph_Diagnostic_Severity,
+	scene, node, message: string,
+) {if doc.diagnostic_count >= len(doc.diagnostics) do return; doc.diagnostics[doc.diagnostic_count] =
+		Graph_Diagnostic{severity, scene, node, message}
+	doc.diagnostic_count += 1
+	if severity == .Error do doc.error_count += 1}
 
-graph_add_node :: proc(kind:string,position:Vec2)->bool {if graph_document.node_count>=GRAPH_MAX_NODES||graph_state.active_scene<0 do return false;source:=graph_state.selected_node;graph_history_push("Add node");id:=graph_unique_id(fmt.tprintf("%s_%d",kind,graph_document.revision+1),graph_active_scene_id());scene:=graph_active_scene_id();beat:=Graph_Beat{id=id,scene=scene,kind=kind,ui="dialogue",transition=.18};if kind=="line" {beat.speaker="narrator";beat.text="New dialogue line."}else if kind=="stage" {beat.ui="hidden";beat.duration=.5}else if kind=="end" do beat.ui="unchanged";graph_document.nodes[graph_document.node_count]={beat=beat,position=position};if source>=0&&source<graph_document.node_count&&graph_document.nodes[source].beat.scene==scene {from:=&graph_document.nodes[source].beat;if from.kind=="choice" {ids:=make([]string,len(from.choice_labels)+1);labels:=make([]string,len(from.choice_labels)+1);targets:=make([]string,len(from.choice_labels)+1);conditions:=make([]string,len(from.choice_labels)+1);copy(ids,from.choice_ids);copy(labels,from.choice_labels);copy(targets,from.choice_targets);copy(conditions,from.choice_conditions);ids[len(ids)-1]=fmt.tprintf("%s_choice_%d",from.id,len(ids));labels[len(labels)-1]="New choice";targets[len(targets)-1]=id;from.choice_ids,from.choice_labels,from.choice_targets,from.choice_conditions=ids,labels,targets,conditions}else if from.kind=="check" {if from.success=="" do from.success=id;else if from.failure=="" do from.failure=id}else if from.kind=="interaction" {if from.success=="" do from.success=id;else if from.cancel=="" do from.cancel=id}else if from.kind!="end"&&from.next=="" do from.next=id};graph_select_only(graph_document.node_count);graph_document.node_count+=1;graph_changed();graph_feedback(fmt.tprintf("ADDED %s  ·  CTRL/CMD Z TO UNDO",strings.to_upper(kind)));return true}
-graph_delete_selected :: proc()->bool {if graph_state.edge_selection.active {edge:=graph_state.edge_selection;if edge.node>=0&&edge.node<graph_document.node_count {target:=graph_port_target(&graph_document.nodes[edge.node].beat,edge.port,edge.choice_index);if target!=nil {graph_history_push("Delete edge");target^="";graph_state.edge_selection={};graph_changed();return true}}};if graph_state.selection_count==0&&graph_state.selected_node>=0 do graph_select_only(graph_state.selected_node);if graph_state.selection_count==0 do return false;graph_history_push("Delete nodes");for selected in graph_state.selection[:graph_state.selection_count] {if selected<0||selected>=graph_document.node_count do continue;deleted:=graph_document.nodes[selected].beat.id;scene:=graph_document.nodes[selected].beat.scene;for &node in graph_document.nodes[:graph_document.node_count] {if node.beat.scene!=scene do continue;if node.beat.next==deleted do node.beat.next="";if node.beat.success==deleted do node.beat.success="";if node.beat.failure==deleted do node.beat.failure="";if node.beat.cancel==deleted do node.beat.cancel="";for &target in node.beat.choice_targets do if target==deleted do target=""}}
-	for i:=graph_document.node_count-1;i>=0;i-=1 {if !graph_is_selected(i) do continue;for j in i+1..<graph_document.node_count do graph_document.nodes[j-1]=graph_document.nodes[j];graph_document.node_count-=1};graph_clear_selection();graph_changed();return true}
+graph_reference_add :: proc(
+	out: ^Graph_Reference_List,
+	kind, scene, node, field: string,
+	choice := -1,
+) {if out.count >= len(out.items) {out.truncated = true; return}; out.items[out.count] = {
+		kind,
+		scene,
+		node,
+		field,
+		choice,
+	}
+	out.count += 1}
+graph_used_by :: proc(kind, id: string) -> Graph_Reference_List {result: Graph_Reference_List; for 	scene in graph_document.scenes[:graph_document.scene_count] {if kind == "scene" && scene.scene.return_to == id do graph_reference_add(&result, "scene", scene.scene.id, "", "return_to")
+		if kind == "node" && scene.scene.entry == id do graph_reference_add(&result, "scene", scene.scene.id, "", "entry")}
+	for 	node in graph_document.nodes[:graph_document.node_count] {beat := node.beat; if kind == "scene" && beat.subscene_id == id do graph_reference_add(&result, "node", beat.scene, beat.id, "subscene_id")
+		if kind == "node" {targets := [4]string{beat.next, beat.success, beat.failure, beat.cancel}
+			fields := [4]string{"next", "success", "failure", "cancel"}
+			for target, i in targets do if target == id do graph_reference_add(&result, "node", beat.scene, beat.id, fields[i])
+			for target, i in beat.choice_targets do if target == id do graph_reference_add(&result, "choice", beat.scene, beat.id, "target", i)}
+		if kind == "condition" {if beat.condition_id == id do graph_reference_add(&result, "node", beat.scene, beat.id, "condition_id")
+			for value, i in beat.choice_conditions do if value == id do graph_reference_add(&result, "choice", beat.scene, beat.id, "condition_id", i)}
+		if kind == "effect" do for value, i in beat.effect_ids do if value == id do graph_reference_add(&result, "node", beat.scene, beat.id, "effect_ids", i)}
+	return result}
+graph_repair_reference :: proc(
+	reference: Graph_Reference,
+	replacement: string,
+) -> bool {if reference.kind == "scene" {index := graph_scene_index(reference.scene_id); if index < 0 do return false
+		if reference.field == "return_to" do graph_document.scenes[index].scene.return_to = replacement
+		else if reference.field == "entry" do graph_document.scenes[index].scene.entry = replacement
+		else do return false
+		graph_changed()
+		return true}
+	index := graph_node_index(reference.scene_id, reference.node_id)
+	if index < 0 do return false
+	beat := &graph_document.nodes[index].beat
+	switch
+	reference.field {case "subscene_id":
+		beat.subscene_id = replacement; case "next":
+		beat.next = replacement; case "success":
+		beat.success = replacement; case "failure":
+		beat.failure = replacement; case "cancel":
+		beat.cancel = replacement; case "condition_id":
+		if reference.kind == "choice" && reference.choice_index >= 0 && reference.choice_index < len(beat.choice_conditions) do beat.choice_conditions[reference.choice_index] = replacement
+		else do beat.condition_id = replacement; case "target":
+		if reference.choice_index < 0 || reference.choice_index >= len(beat.choice_targets) do return false
+		beat.choice_targets[reference.choice_index] = replacement; case "effect_ids":
+		if reference.choice_index < 0 || reference.choice_index >= len(beat.effect_ids) do return false
+		beat.effect_ids[reference.choice_index] = replacement; case:
+		return false}
+	graph_changed()
+	return true}
 
-graph_copy_selection :: proc()->bool {if graph_state.selection_count==0&&graph_state.selected_node>=0 do graph_select_only(graph_state.selected_node);if graph_state.selection_count==0 do return false;graph_clipboard={};min_pos:=Vec2{1e9,1e9};for index in graph_state.selection[:graph_state.selection_count] {if index<0||index>=graph_document.node_count||graph_clipboard.node_count>=GRAPH_CLIPBOARD_CAPACITY do continue;node:=graph_document.nodes[index];node.beat=graph_beat_clone(node.beat);graph_clipboard.nodes[graph_clipboard.node_count]=node;graph_clipboard.node_count+=1;min_pos.x=min(min_pos.x,node.position.x);min_pos.y=min(min_pos.y,node.position.y)};graph_clipboard.anchor=min_pos;for item in graph_document.localizations[:graph_document.localization_count] {for node in graph_clipboard.nodes[:graph_clipboard.node_count] do if item.node_id==node.beat.id&&graph_clipboard.localization_count<len(graph_clipboard.localizations) {graph_clipboard.localizations[graph_clipboard.localization_count]=item;graph_clipboard.localization_count+=1}};graph_feedback(fmt.tprintf("COPIED %d NODES",graph_clipboard.node_count));return graph_clipboard.node_count>0}
-graph_clipboard_has_id :: proc(id:string)->bool {for node in graph_clipboard.nodes[:graph_clipboard.node_count] do if node.beat.id==id do return true;return false}
-graph_paste_clipboard :: proc(at:Vec2,duplicate:=false)->bool {if graph_clipboard.node_count<=0||graph_document.node_count+graph_clipboard.node_count>GRAPH_MAX_NODES do return false;graph_history_push(duplicate?"Duplicate subgraph":"Paste subgraph");scene:=graph_active_scene_id();old_ids:[GRAPH_CLIPBOARD_CAPACITY]string;new_ids:[GRAPH_CLIPBOARD_CAPACITY]string;world_at:=graph_screen_to_world(at);offset:=duplicate?Vec2{30,30}:Vec2{world_at.x-graph_clipboard.anchor.x,world_at.y-graph_clipboard.anchor.y};start:=graph_document.node_count
-	for source,i in graph_clipboard.nodes[:graph_clipboard.node_count] {old_ids[i]=source.beat.id;new_ids[i]=graph_unique_id(source.beat.id,scene);node:=source;node.beat=graph_beat_clone(source.beat);node.beat.scene=scene;node.beat.id=new_ids[i];node.position={source.position.x+offset.x,source.position.y+offset.y};graph_document.nodes[graph_document.node_count]=node;graph_document.node_count+=1}
-	remap:=proc(target:string,old_ids,new_ids:[]string)->string {if target=="" do return "";for id,i in old_ids do if id==target do return new_ids[i];return ""}
-	for i in 0..<graph_clipboard.node_count {beat:=&graph_document.nodes[start+i].beat;beat.next=remap(beat.next,old_ids[:graph_clipboard.node_count],new_ids[:graph_clipboard.node_count]);beat.success=remap(beat.success,old_ids[:graph_clipboard.node_count],new_ids[:graph_clipboard.node_count]);beat.failure=remap(beat.failure,old_ids[:graph_clipboard.node_count],new_ids[:graph_clipboard.node_count]);beat.cancel=remap(beat.cancel,old_ids[:graph_clipboard.node_count],new_ids[:graph_clipboard.node_count]);for &target in beat.choice_targets do target=remap(target,old_ids[:graph_clipboard.node_count],new_ids[:graph_clipboard.node_count])}
-	for item in graph_clipboard.localizations[:graph_clipboard.localization_count] {for old,i in old_ids[:graph_clipboard.node_count] do if item.node_id==old&&graph_document.localization_count<len(graph_document.localizations) {copy_item:=item;copy_item.node_id=new_ids[i];graph_document.localizations[graph_document.localization_count]=copy_item;graph_document.localization_count+=1}}
-	graph_clear_selection();for i in 0..<graph_clipboard.node_count {graph_state.selection[i]=start+i;graph_state.selection_count+=1};graph_state.selected_node=start+graph_clipboard.node_count-1;graph_changed();graph_feedback(fmt.tprintf("PASTED %d NODES",graph_clipboard.node_count));return true}
-graph_duplicate_selection :: proc(at:Vec2)->bool {if !graph_copy_selection() do return false;return graph_paste_clipboard(at,true)}
+graph_validate :: proc(doc: ^Graph_Document) -> Validation {
+	doc.diagnostic_count = 0; doc.error_count = 0
+	if graph_import_error !=
+	   "" {graph_add_diagnostic(doc, .Error, "", "", graph_import_error); return {false, graph_import_error}}
+	for scene in doc.scenes[:doc.scene_count] {if scene.scene.id == "" {graph_add_diagnostic(doc, .Error, "", "", "Scene ID is required"); continue}; entry := graph_document_node_index(doc, scene.scene.id, scene.scene.entry); if entry < 0 do graph_add_diagnostic(doc, .Error, scene.scene.id, "", "Scene entry is missing"); end_found := false; for node in doc.nodes[:doc.node_count] do if node.beat.scene == scene.scene.id && node.beat.kind == "end" do end_found = true; if !end_found do graph_add_diagnostic(doc, .Warning, scene.scene.id, "", "Scene has no ending")}
+	for node, i in doc.nodes[:doc.node_count] {beat := node.beat; if beat.id == "" || !story_node_kind_valid(beat.kind) {graph_add_diagnostic(doc, .Error, beat.scene, beat.id, "Node has invalid ID or type"); continue}; for candidate, j in doc.nodes[:doc.node_count] do if i != j && candidate.beat.scene == beat.scene && candidate.beat.id == beat.id {graph_add_diagnostic(doc, .Error, beat.scene, beat.id, "Duplicate node ID"); break}; if beat.kind == "line" && beat.text == "" do graph_add_diagnostic(doc, .Error, beat.scene, beat.id, "Line needs dialogue text"); if beat.kind == "choice" && len(beat.choice_labels) != len(beat.choice_targets) do graph_add_diagnostic(doc, .Error, beat.scene, beat.id, "Choice labels and targets differ"); if beat.kind == "choice" do for label in beat.choice_labels do if strings.trim_space(label) == "" do graph_add_diagnostic(doc, .Error, beat.scene, beat.id, "Choice label cannot be empty"); if beat.kind == "check" && (beat.success == "" || beat.failure == "") do graph_add_diagnostic(doc, .Error, beat.scene, beat.id, "Check needs success and failure"); if beat.kind == "interaction" && beat.success == "" do graph_add_diagnostic(doc, .Error, beat.scene, beat.id, "Interaction needs success"); if beat.kind == "wait_event" && beat.event_id == "" do graph_add_diagnostic(doc, .Error, beat.scene, beat.id, "Wait Event needs a bound trigger event"); if beat.kind == "stage" && beat.ui == "hidden" && beat.duration <= 0 && beat.camera == "" && beat.actor_mark == "" do graph_add_diagnostic(doc, .Error, beat.scene, beat.id, "Hidden stage needs a completion cue"); targets := [4]string{beat.next, beat.success, beat.failure, beat.cancel}; for target in targets do if target != "" && graph_document_node_index(doc, beat.scene, target) < 0 do graph_add_diagnostic(doc, .Error, beat.scene, beat.id, fmt.tprintf("Missing target: %s", target)); for target in beat.choice_targets do if target == "" || graph_document_node_index(doc, beat.scene, target) < 0 do graph_add_diagnostic(doc, .Error, beat.scene, beat.id, fmt.tprintf("Missing choice target: %s", target)); camera_index := level_marker_index(&level_document, beat.camera); if beat.camera != "" && (camera_index < 0 || level_document.markers[camera_index].kind != .Camera || level_document.markers[camera_index].story != level_document.active_story) do graph_add_diagnostic(doc, .Error, beat.scene, beat.id, "Camera marker is missing, on another story, or has the wrong type"); actor_index := level_marker_index(&level_document, beat.actor_mark); if beat.actor_mark != "" && (actor_index < 0 || level_document.markers[actor_index].kind != .Staging || level_document.markers[actor_index].story != level_document.active_story) do graph_add_diagnostic(doc, .Error, beat.scene, beat.id, "Actor marker is missing, on another story, or has the wrong type")}
+	for &condition, i in doc.conditions[:doc.condition_count] {if strings.trim_space(condition.id) == "" do graph_add_diagnostic(doc, .Error, "", condition.id, "Condition ID is required"); for other, j in doc.conditions[:doc.condition_count] do if i != j && condition.id == other.id {graph_add_diagnostic(doc, .Error, "", condition.id, "Duplicate condition ID"); break}; for child in condition.child_ids[:condition.child_id_count] do if story_condition_index_in_document(child) < 0 do graph_add_diagnostic(doc, .Error, "", condition.id, fmt.tprintf("Missing condition child: %s", child))}
+	for effect, i in doc.effects[:doc.effect_count] {if strings.trim_space(effect.id) == "" do graph_add_diagnostic(doc, .Error, "", effect.id, "Effect ID is required"); for other, j in doc.effects[:doc.effect_count] do if i != j && effect.id == other.id {graph_add_diagnostic(doc, .Error, "", effect.id, "Duplicate effect ID"); break}}
+	for node in doc.nodes[:doc.node_count] {beat := node.beat; if beat.condition_id != "" && story_condition_index_in_document(beat.condition_id) < 0 do graph_add_diagnostic(doc, .Error, beat.scene, beat.id, fmt.tprintf("Missing condition: %s", beat.condition_id)); for id in beat.choice_conditions do if id != "" && story_condition_index_in_document(id) < 0 do graph_add_diagnostic(doc, .Error, beat.scene, beat.id, fmt.tprintf("Missing choice condition: %s", id)); for id in beat.effect_ids do if id != "" && story_effect_index_in_document(id) < 0 do graph_add_diagnostic(doc, .Error, beat.scene, beat.id, fmt.tprintf("Missing effect: %s", id)); if beat.kind == "subscene" {if graph_scene_index(beat.subscene_id) < 0 do graph_add_diagnostic(doc, .Error, beat.scene, beat.id, fmt.tprintf("Missing subscene: %s", beat.subscene_id)); if beat.subscene_id == beat.scene do graph_add_diagnostic(doc, .Error, beat.scene, beat.id, "Subscene cannot call itself")}}
+	for item, i in doc.localizations[:doc.localization_count] {found := false; for node in doc.nodes[:doc.node_count] do if node.beat.id == item.node_id {found = true; break}; if !found do graph_add_diagnostic(doc, .Error, "", item.node_id, "Localization belongs to a missing node"); if strings.trim_space(item.language) == "" do graph_add_diagnostic(doc, .Error, "", item.node_id, "Localization language is required"); for other, j in doc.localizations[:doc.localization_count] do if i != j && item.node_id == other.node_id && item.language == other.language {graph_add_diagnostic(doc, .Error, "", item.node_id, "Duplicate localization language for node"); break}; if item.text == "" do graph_add_diagnostic(doc, .Warning, "", item.node_id, "Translation is missing"); if item.voice == "" do graph_add_diagnostic(doc, .Warning, "", item.node_id, "Voice reference is missing")}
+	return {
+		doc.error_count == 0,
+		doc.error_count == 0 ? "GRAPH VALID" : fmt.tprintf("%d GRAPH ERRORS", doc.error_count),
+	}
+}
+graph_validate_complete :: proc(source: ^Story_Project) -> Validation {light := graph_validate(
+		&graph_document,
+	)
+	if !light.ok do return light
+	project: Story_Project
+	built := graph_build_story_project(source, &project)
+	if !built.ok {graph_add_diagnostic(
+			&graph_document,
+			.Error,
+			graph_active_scene_id(),
+			"",
+			built.message,
+		)
+		return built}
+	story_project_destroy(&project)
+	return{true, "GRAPH AND STORYCORE VALID"}}
 
-graph_begin_playtest :: proc(g:^Game)->bool {checked:=graph_validate(&graph_document);if !checked.ok {graph_feedback(checked.message,true);graph_state.diagnostics_visible=true;return false};scene:=graph_state.active_scene;if scene<0||scene>=graph_document.scene_count do return false;graph_playtest_snapshot={active=true,game=g^,scene=scene,node=graph_state.selected_node,pan=graph_state.pan,zoom=graph_state.zoom,view=graph_state.view,search_query=graph_state.search_query,search_result=graph_state.search_result,selected_condition=graph_state.selected_condition,selected_effect=graph_state.selected_effect,selected_localization=graph_state.selected_localization,diagnostics_visible=graph_state.diagnostics_visible,help_visible=graph_state.help_visible};if ready:=graph_apply_story_runtime(g);!ready.ok {graph_feedback(ready.message,true);graph_playtest_snapshot.active=false;return false};g.editor_mode=.None;graph_state.playtesting=true;graph_state.debugger={paused=true};start:=graph_document.scenes[scene].scene.entry;if graph_state.selected_node>=0&&graph_state.selected_node<graph_document.node_count do start=graph_document.nodes[graph_state.selected_node].beat.id;if !dialogue_start_scene(g,scene) {g^=graph_playtest_snapshot.game;graph_playtest_snapshot.active=false;graph_state.playtesting=false;story_runtime_destroy(&graph_playtest_runtime);compiled_story_destroy(&graph_playtest_compiled);story_project_destroy(&graph_playtest_project);return false};if start!=graph_document.scenes[scene].scene.entry do _=dialogue_goto(g,start);graph_state.debugger.last_node=start;return true}
-graph_end_playtest :: proc(g:^Game)->bool {if !graph_playtest_snapshot.active do return false;snapshot:=graph_playtest_snapshot;g^=snapshot.game;story_runtime_destroy(&graph_playtest_runtime);compiled_story_destroy(&graph_playtest_compiled);story_project_destroy(&graph_playtest_project);g.editor_mode=.Graph;graph_state.playtesting=false;graph_state.active_scene=snapshot.scene;graph_select_only(snapshot.node);graph_state.pan=snapshot.pan;graph_state.zoom=snapshot.zoom;graph_state.view=snapshot.view;graph_state.search_query=snapshot.search_query;graph_state.search_result=snapshot.search_result;graph_state.selected_condition=snapshot.selected_condition;graph_state.selected_effect=snapshot.selected_effect;graph_state.selected_localization=snapshot.selected_localization;graph_state.diagnostics_visible=snapshot.diagnostics_visible;graph_state.help_visible=snapshot.help_visible;graph_playtest_snapshot.active=false;return true}
-graph_restart_playtest :: proc(g:^Game)->bool {if !graph_playtest_snapshot.active do return false;snapshot:=graph_playtest_snapshot;g^=snapshot.game;graph_playtest_snapshot=snapshot;if ready:=graph_apply_story_runtime(g);!ready.ok {graph_feedback(ready.message,true);return graph_end_playtest(g)};g.editor_mode=.None;graph_state.playtesting=true;graph_state.debugger={paused=true};if !dialogue_start_scene(g,snapshot.scene) do return graph_end_playtest(g);start:=graph_document.scenes[snapshot.scene].scene.entry;if snapshot.node>=0&&snapshot.node<graph_document.node_count {start=graph_document.nodes[snapshot.node].beat.id;_=dialogue_goto(g,start)};graph_state.debugger.last_node=start;return true}
-graph_debugger_before_update :: proc(g:^Game)->bool {if !graph_state.playtesting do return true;if graph_state.debugger.paused&&!graph_state.debugger.step_requested do return false;if graph_state.debugger.step_requested {beat:=story_presentation_node(g);if beat!=nil&&(beat.kind==.Line||beat.kind==.Stage) do g.input.activate=true};return true}
-graph_debugger_after_update :: proc(g:^Game,before:string) {if !graph_state.playtesting do return;beat:=story_presentation_node(g);after:=beat==nil?"":beat.id;if after!=before||!g.story_presentation.active {debug:=&graph_state.debugger;if before!="" {if debug.recent_count>=len(debug.recent) {for i in 1..<len(debug.recent) do debug.recent[i-1]=debug.recent[i];debug.recent_count-=1};debug.recent[debug.recent_count]=before;debug.recent_count+=1};debug.last_node=after;debug.completed=!g.story_presentation.active;if debug.step_requested {debug.step_requested=false;debug.paused=true}}}
-graph_debugger_button_rect :: proc(index:int)->Rect {return {24+f32(index)*112,654,104,38}}
-graph_debug_toggle_rect :: proc(column,row:int)->Rect {return {20+f32(column)*390,82+f32(row)*27,376,23}}
-graph_debugger_page_rect :: proc()->Rect {return {1062,10,122,34}}
-graph_debugger_editor_rect :: proc()->Rect {return {472,654,104,38}}
-graph_debugger_focus_active :: proc()->bool {id:=graph_state.debugger.last_node;if id=="" do return false;for node,i in graph_document.nodes[:graph_document.node_count] do if node.beat.id==id {scene:=graph_scene_index(node.beat.scene);if scene>=0 do graph_state.active_scene=scene;graph_select_only(i);if graph_state.debugger.recent_count>0 {prior:=graph_state.debugger.recent[graph_state.debugger.recent_count-1];from:=graph_node_index(node.beat.scene,prior);if from>=0 {source:=&graph_document.nodes[from].beat;for output in 0..<graph_output_count(source) {port,choice:=graph_output_port(source,output);target:=graph_port_target(source,port,choice);if target!=nil&&target^==id {graph_state.edge_selection={active=true,node=from,port=port,choice_index=choice};break}}}};_=graph_frame_nodes(true);return true};return false}
-graph_debugger_update_editor_toggle :: proc(g:^Game) {if !graph_state.playtesting do return;if button(g,graph_debugger_editor_rect()) {if g.editor_mode==.Graph do g.editor_mode=.None;else{g.editor_mode=.Graph;_=graph_debugger_focus_active()}}}
-graph_debugger_condition_forced :: proc(runtime:^Story_Runtime,id:string)->(bool,bool) {for override_id,i in runtime.condition_override_ids[:runtime.condition_override_count] do if override_id==id do return runtime.condition_override_values[i],true;return false,false}
-graph_debugger_apply_effect :: proc(runtime:^Story_Runtime,index:int)->bool {if runtime==nil||runtime.compiled==nil||index<0||index>=len(runtime.compiled.runtime.effects) do return false;indices:=[1]int{index};result:=story_apply_transaction(&runtime.compiled.runtime,&runtime.state,indices[:],runtime.spatial);return result.ok}
-graph_debugger_cycle_variable :: proc(runtime:^Story_Runtime,index:int)->bool {if runtime==nil||index<0||index>=len(runtime.state.values) do return false;item:=&runtime.state.values[index];#partial switch item.value.kind {case .Boolean:item.value.boolean_value=!item.value.boolean_value;case .Integer:item.value.integer_value+=1;case .Enumeration,.Entity:item.value.text_value=item.value.text_value==""?"debug":""};return true}
-graph_topics :: proc()->Graph_Topic_List {result:Graph_Topic_List;for node in graph_document.nodes[:graph_document.node_count] {groups:=[2][]string{node.beat.requires_topics,node.beat.unlock_topics};for group in groups do for value in group {exists:=false;for current in result.values[:result.count] do if current==value do exists=true;if !exists&&value!=""&&result.count<len(result.values) {result.values[result.count]=value;result.count+=1}}};return result}
-graph_topic_enabled :: proc(g:^Game,id:string)->bool {return topic_unlocked(g,id)}
-graph_toggle_topic :: proc(g:^Game,id:string) {if g.mystery_state==nil do return;if graph_topic_enabled(g,id) {_ = mystery_string_set_remove(&g.mystery_state.unlocked_topics,id)} else {_ = mystery_string_set_add(&g.mystery_state.unlocked_topics,id)}}
-update_graph_debugger :: proc(g:^Game) {if !graph_state.playtesting do return;if button(g,graph_debugger_page_rect()) do graph_state.debugger.page=(graph_state.debugger.page+1)%2;if button(g,graph_debugger_button_rect(0)) do graph_state.debugger.paused=!graph_state.debugger.paused;if button(g,graph_debugger_button_rect(1)) {graph_state.debugger.paused=false;graph_state.debugger.step_requested=true};if button(g,graph_debugger_button_rect(2)) do _=graph_restart_playtest(g);if button(g,graph_debugger_button_rect(3)) do _=graph_end_playtest(g);if graph_state.debugger.paused {if graph_state.debugger.page==0 {payload:=mystery_game_payload(g);if payload!=nil {for _,i in payload.clues do if button(g,graph_debug_toggle_rect(0,i)) do mystery_game_toggle_clue(g,i);for _,i in payload.claims do if button(g,graph_debug_toggle_rect(1,i)) do mystery_game_toggle_claim(g,i)};topics:=graph_topics();for topic,i in topics.values[:topics.count] do if button(g,graph_debug_toggle_rect(2,i)) do graph_toggle_topic(g,topic)}else if g.story_runtime!=nil {for condition,i in g.story_runtime.compiled.runtime.conditions[:min(15,len(g.story_runtime.compiled.runtime.conditions))] do if button(g,graph_debug_toggle_rect(0,i)) do _=story_runtime_toggle_condition_override(g.story_runtime,condition.id);for _,i in g.story_runtime.compiled.runtime.effects[:min(15,len(g.story_runtime.compiled.runtime.effects))] do if button(g,graph_debug_toggle_rect(1,i)) do _=graph_debugger_apply_effect(g.story_runtime,i);for _,i in g.story_runtime.state.values[:min(15,len(g.story_runtime.state.values))] do if button(g,graph_debug_toggle_rect(2,i)) do _=graph_debugger_cycle_variable(g.story_runtime,i)}};if g.input.back do _=graph_end_playtest(g)}
+graph_add_node :: proc(kind: string, position: Vec2) -> bool {if graph_document.node_count >= GRAPH_MAX_NODES || graph_state.active_scene < 0 do return false
+	source := graph_state.selected_node
+	graph_history_push("Add node")
+	id := graph_unique_id(
+		fmt.tprintf("%s_%d", kind, graph_document.revision + 1),
+		graph_active_scene_id(),
+	)
+	scene := graph_active_scene_id()
+	beat := Graph_Beat {
+		id         = id,
+		scene      = scene,
+		kind       = kind,
+		ui         = "dialogue",
+		transition = .18,
+	}
+	if kind == "line" {beat.speaker = "narrator"; beat.text = "New dialogue line."}
+	else if kind == "stage" {beat.ui = "hidden"; beat.duration = .5}
+	else if kind == "end" do beat.ui = "unchanged"
+	graph_document.nodes[graph_document.node_count] = {
+		beat     = beat,
+		position = position,
+	}
+	if source >= 0 &&
+	   source < graph_document.node_count &&
+	   graph_document.nodes[source].beat.scene == scene {from := &graph_document.nodes[source].beat
+		if from.kind == "choice" {ids := make([]string, len(from.choice_labels) + 1); labels :=
+				make([]string, len(from.choice_labels) + 1)
+			targets := make([]string, len(from.choice_labels) + 1)
+			conditions := make([]string, len(from.choice_labels) + 1)
+			copy(ids, from.choice_ids)
+			copy(labels, from.choice_labels)
+			copy(targets, from.choice_targets)
+			copy(conditions, from.choice_conditions)
+			ids[len(ids) - 1] = fmt.tprintf("%s_choice_%d", from.id, len(ids))
+			labels[len(labels) - 1] = "New choice"
+			targets[len(targets) - 1] = id
+			from.choice_ids, from.choice_labels, from.choice_targets, from.choice_conditions =
+				ids, labels, targets, conditions}
+		else if from.kind == "check" {if from.success == "" do from.success = id
+			else if from.failure == "" do from.failure = id}
+		else if from.kind == "interaction" {if from.success == "" do from.success = id
+			else if from.cancel == "" do from.cancel = id}
+		else if from.kind != "end" && from.next == "" do from.next = id}
+	graph_select_only(graph_document.node_count)
+	graph_document.node_count += 1
+	graph_changed()
+	graph_feedback(fmt.tprintf("ADDED %s  ·  CTRL/CMD Z TO UNDO", strings.to_upper(kind)))
+	return true}
+graph_delete_selected :: proc() -> bool {if graph_state.edge_selection.active {edge :=
+			graph_state.edge_selection
+		if edge.node >= 0 && edge.node < graph_document.node_count {target := graph_port_target(
+				&graph_document.nodes[edge.node].beat,
+				edge.port,
+				edge.choice_index,
+			)
+			if target != nil {graph_history_push("Delete edge"); target^ = ""
+				graph_state.edge_selection = {}
+				graph_changed()
+				return true}}}
+	if graph_state.selection_count == 0 && graph_state.selected_node >= 0 do graph_select_only(graph_state.selected_node)
+	if graph_state.selection_count == 0 do return false
+	graph_history_push("Delete nodes")
+	for 	selected in graph_state.selection[:graph_state.selection_count] {if selected < 0 || selected >= graph_document.node_count do continue
+		deleted := graph_document.nodes[selected].beat.id
+		scene := graph_document.nodes[selected].beat.scene
+		for 		&node in graph_document.nodes[:graph_document.node_count] {if node.beat.scene != scene do continue
+			if node.beat.next == deleted do node.beat.next = ""
+			if node.beat.success == deleted do node.beat.success = ""
+			if node.beat.failure == deleted do node.beat.failure = ""
+			if node.beat.cancel == deleted do node.beat.cancel = ""
+			for &target in node.beat.choice_targets do if target == deleted do target = ""}}
+	for i := graph_document.node_count - 1; i >= 0; i -= 1 {if !graph_is_selected(i) do continue
+		for j in i + 1 ..< graph_document.node_count do graph_document.nodes[j - 1] = graph_document.nodes[j]
+		graph_document.node_count -= 1}
+	graph_clear_selection()
+	graph_changed()
+	return true}
 
-update_graph_mode :: proc(g:^Game) {
-	if graph_state.playtesting {graph_debugger_update_editor_toggle(g);update_graph_debugger(g);return}
-	if graph_state.feedback_frames>0 do graph_state.feedback_frames-=1
+graph_copy_selection :: proc() -> bool {if graph_state.selection_count == 0 && graph_state.selected_node >= 0 do graph_select_only(graph_state.selected_node)
+	if graph_state.selection_count == 0 do return false
+	graph_clipboard = {}
+	min_pos := Vec2{1e9, 1e9}
+	for 	index in graph_state.selection[:graph_state.selection_count] {if index < 0 || index >= graph_document.node_count || graph_clipboard.node_count >= GRAPH_CLIPBOARD_CAPACITY do continue
+		node := graph_document.nodes[index]
+		node.beat = graph_beat_clone(node.beat)
+		graph_clipboard.nodes[graph_clipboard.node_count] = node
+		graph_clipboard.node_count += 1
+		min_pos.x = min(min_pos.x, node.position.x)
+		min_pos.y = min(min_pos.y, node.position.y)}
+	graph_clipboard.anchor = min_pos
+	for 	item in graph_document.localizations[:graph_document.localization_count] {for node in graph_clipboard.nodes[:graph_clipboard.node_count] do if item.node_id == node.beat.id && graph_clipboard.localization_count < len(graph_clipboard.localizations) {graph_clipboard.localizations[graph_clipboard.localization_count] = item; graph_clipboard.localization_count += 1}}
+	graph_feedback(fmt.tprintf("COPIED %d NODES", graph_clipboard.node_count))
+	return graph_clipboard.node_count > 0}
+graph_clipboard_has_id :: proc(id: string) -> bool {for node in graph_clipboard.nodes[:graph_clipboard.node_count] do if node.beat.id == id do return true
+	return false}
+graph_paste_clipboard :: proc(
+	at: Vec2,
+	duplicate := false,
+) -> bool {if graph_clipboard.node_count <= 0 || graph_document.node_count + graph_clipboard.node_count > GRAPH_MAX_NODES do return false
+	graph_history_push(duplicate ? "Duplicate subgraph" : "Paste subgraph")
+	scene := graph_active_scene_id()
+	old_ids: [GRAPH_CLIPBOARD_CAPACITY]string
+	new_ids: [GRAPH_CLIPBOARD_CAPACITY]string
+	world_at := graph_screen_to_world(at)
+	offset :=
+		duplicate ? Vec2{30, 30} : Vec2{world_at.x - graph_clipboard.anchor.x, world_at.y - graph_clipboard.anchor.y}
+	start := graph_document.node_count
+	for 	source, i in graph_clipboard.nodes[:graph_clipboard.node_count] {old_ids[i] = source.beat.id; new_ids[i] =
+			graph_unique_id(source.beat.id, scene)
+		node := source
+		node.beat = graph_beat_clone(source.beat)
+		node.beat.scene = scene
+		node.beat.id = new_ids[i]
+		node.position = {source.position.x + offset.x, source.position.y + offset.y}
+		graph_document.nodes[graph_document.node_count] = node
+		graph_document.node_count += 1}
+	remap := proc(target: string, old_ids, new_ids: []string) -> string {if target == "" do return ""
+		for id, i in old_ids do if id == target do return new_ids[i]
+		return ""}
+	for 	i in 0 ..< graph_clipboard.node_count {beat := &graph_document.nodes[start + i].beat; beat.next = remap(
+			beat.next,
+			old_ids[:graph_clipboard.node_count],
+			new_ids[:graph_clipboard.node_count],
+		)
+		beat.success = remap(
+			beat.success,
+			old_ids[:graph_clipboard.node_count],
+			new_ids[:graph_clipboard.node_count],
+		)
+		beat.failure = remap(
+			beat.failure,
+			old_ids[:graph_clipboard.node_count],
+			new_ids[:graph_clipboard.node_count],
+		)
+		beat.cancel = remap(
+			beat.cancel,
+			old_ids[:graph_clipboard.node_count],
+			new_ids[:graph_clipboard.node_count],
+		)
+		for &target in beat.choice_targets do target = remap(target, old_ids[:graph_clipboard.node_count], new_ids[:graph_clipboard.node_count])}
+	for 	item in graph_clipboard.localizations[:graph_clipboard.localization_count] {for old, i in old_ids[:graph_clipboard.node_count] do if item.node_id == old && graph_document.localization_count < len(graph_document.localizations) {copy_item := item; copy_item.node_id = new_ids[i]; graph_document.localizations[graph_document.localization_count] = copy_item; graph_document.localization_count += 1}}
+	graph_clear_selection()
+	for 	i in 0 ..< graph_clipboard.node_count {graph_state.selection[i] = start + i
+		graph_state.selection_count += 1}
+	graph_state.selected_node = start + graph_clipboard.node_count - 1
+	graph_changed()
+	graph_feedback(fmt.tprintf("PASTED %d NODES", graph_clipboard.node_count))
+	return true}
+graph_duplicate_selection :: proc(at: Vec2) -> bool {if !graph_copy_selection() do return false
+	return graph_paste_clipboard(at, true)}
+
+graph_begin_playtest :: proc(g: ^Game) -> bool {checked := graph_validate(&graph_document)
+	if !checked.ok {graph_feedback(checked.message, true); graph_state.diagnostics_visible = true
+		return false}
+	scene := graph_state.active_scene
+	if scene < 0 || scene >= graph_document.scene_count do return false
+	graph_playtest_snapshot = {
+		active                = true,
+		game                  = g^,
+		scene                 = scene,
+		node                  = graph_state.selected_node,
+		pan                   = graph_state.pan,
+		zoom                  = graph_state.zoom,
+		view                  = graph_state.view,
+		search_query          = graph_state.search_query,
+		search_result         = graph_state.search_result,
+		selected_condition    = graph_state.selected_condition,
+		selected_effect       = graph_state.selected_effect,
+		selected_localization = graph_state.selected_localization,
+		diagnostics_visible   = graph_state.diagnostics_visible,
+		help_visible          = graph_state.help_visible,
+	}
+	if ready := graph_apply_story_runtime(g); !ready.ok {graph_feedback(ready.message, true)
+		graph_playtest_snapshot.active = false
+		return false}
+	g.editor_mode = .None
+	graph_state.playtesting = true
+	graph_state.debugger = {
+		paused = true,
+	}
+	start := graph_document.scenes[scene].scene.entry
+	if graph_state.selected_node >= 0 && graph_state.selected_node < graph_document.node_count do start = graph_document.nodes[graph_state.selected_node].beat.id
+	if !dialogue_start_scene(g, scene) {g^ = graph_playtest_snapshot.game
+		graph_playtest_snapshot.active = false
+		graph_state.playtesting = false
+		story_runtime_destroy(&graph_playtest_runtime)
+		compiled_story_destroy(&graph_playtest_compiled)
+		story_project_destroy(&graph_playtest_project)
+		return false}
+	if start != graph_document.scenes[scene].scene.entry do _ = dialogue_goto(g, start)
+	graph_state.debugger.last_node = start
+	return true}
+graph_end_playtest :: proc(g: ^Game) -> bool {if !graph_playtest_snapshot.active do return false
+	snapshot := graph_playtest_snapshot
+	g^ = snapshot.game
+	story_runtime_destroy(&graph_playtest_runtime)
+	compiled_story_destroy(&graph_playtest_compiled)
+	story_project_destroy(&graph_playtest_project)
+	g.editor_mode = .Graph
+	graph_state.playtesting = false
+	graph_state.active_scene = snapshot.scene
+	graph_select_only(snapshot.node)
+	graph_state.pan = snapshot.pan
+	graph_state.zoom = snapshot.zoom
+	graph_state.view = snapshot.view
+	graph_state.search_query = snapshot.search_query
+	graph_state.search_result = snapshot.search_result
+	graph_state.selected_condition = snapshot.selected_condition
+	graph_state.selected_effect = snapshot.selected_effect
+	graph_state.selected_localization = snapshot.selected_localization
+	graph_state.diagnostics_visible = snapshot.diagnostics_visible
+	graph_state.help_visible = snapshot.help_visible
+	graph_playtest_snapshot.active = false
+	return true}
+graph_restart_playtest :: proc(g: ^Game) -> bool {if !graph_playtest_snapshot.active do return false
+	snapshot := graph_playtest_snapshot
+	g^ = snapshot.game
+	graph_playtest_snapshot = snapshot
+	if ready := graph_apply_story_runtime(g); !ready.ok {graph_feedback(ready.message, true)
+		return graph_end_playtest(g)}
+	g.editor_mode = .None
+	graph_state.playtesting = true
+	graph_state.debugger = {
+		paused = true,
+	}
+	if !dialogue_start_scene(g, snapshot.scene) do return graph_end_playtest(g)
+	start := graph_document.scenes[snapshot.scene].scene.entry
+	if snapshot.node >= 0 && snapshot.node < graph_document.node_count {start =
+			graph_document.nodes[snapshot.node].beat.id
+		_ = dialogue_goto(g, start)}
+	graph_state.debugger.last_node = start
+	return true}
+graph_debugger_before_update :: proc(g: ^Game) -> bool {if !graph_state.playtesting do return true
+	if graph_state.debugger.paused && !graph_state.debugger.step_requested do return false
+	if graph_state.debugger.step_requested {beat := story_presentation_node(g); if beat != nil && (beat.kind == .Line || beat.kind == .Stage) do g.input.activate = true}
+	return true}
+graph_debugger_after_update :: proc(
+	g: ^Game,
+	before: string,
+) {if !graph_state.playtesting do return; beat := story_presentation_node(g); after :=
+		beat == nil ? "" : beat.id
+	if after != before || !g.story_presentation.active {debug := &graph_state.debugger
+		if before != "" {if debug.recent_count >= len(debug.recent) {for i in 1 ..< len(debug.recent) do debug.recent[i - 1] = debug.recent[i]
+				debug.recent_count -= 1}
+			debug.recent[debug.recent_count] = before
+			debug.recent_count += 1}
+		debug.last_node = after
+		debug.completed = !g.story_presentation.active
+		if debug.step_requested {debug.step_requested = false; debug.paused = true}}}
+graph_debugger_button_rect :: proc(index: int) -> Rect {return{
+		24 + f32(index) * 112,
+		654,
+		104,
+		38,
+	}}
+graph_debug_toggle_rect :: proc(column, row: int) -> Rect {return{
+		20 + f32(column) * 390,
+		82 + f32(row) * 27,
+		376,
+		23,
+	}}
+graph_debugger_page_rect :: proc() -> Rect {return {1062, 10, 122, 34}}
+graph_debugger_editor_rect :: proc() -> Rect {return {472, 654, 104, 38}}
+graph_debugger_focus_active :: proc() -> bool {id := graph_state.debugger.last_node; if id == "" do return false
+	for node, i in graph_document.nodes[:graph_document.node_count] do if node.beat.id == id {scene := graph_scene_index(node.beat.scene); if scene >= 0 do graph_state.active_scene = scene; graph_select_only(i); if graph_state.debugger.recent_count > 0 {prior := graph_state.debugger.recent[graph_state.debugger.recent_count - 1]; from := graph_node_index(node.beat.scene, prior); if from >= 0 {source := &graph_document.nodes[from].beat; for output in 0 ..< graph_output_count(source) {port, choice := graph_output_port(source, output); target := graph_port_target(source, port, choice); if target != nil && target^ == id {graph_state.edge_selection = {
+							active       = true,
+							node         = from,
+							port         = port,
+							choice_index = choice,
+						}; break}}}}; _ = graph_frame_nodes(true); return true}
+	return false}
+graph_debugger_update_editor_toggle :: proc(g: ^Game) {if !graph_state.playtesting do return
+	if button(g, graph_debugger_editor_rect()) {if g.editor_mode == .Graph do g.editor_mode = .None
+		else {g.editor_mode = .Graph; _ = graph_debugger_focus_active()}}}
+graph_debugger_condition_forced :: proc(runtime: ^Story_Runtime, id: string) -> (bool, bool) {for override_id, i in runtime.condition_override_ids[:runtime.condition_override_count] do if override_id == id do return runtime.condition_override_values[i], true
+	return false, false}
+graph_debugger_apply_effect :: proc(runtime: ^Story_Runtime, index: int) -> bool {if runtime == nil || runtime.compiled == nil || index < 0 || index >= len(runtime.compiled.runtime.effects) do return false
+	indices := [1]int{index}
+	result := story_apply_transaction(
+		&runtime.compiled.runtime,
+		&runtime.state,
+		indices[:],
+		runtime.spatial,
+	)
+	return result.ok}
+graph_debugger_cycle_variable :: proc(runtime: ^Story_Runtime, index: int) -> bool {if runtime == nil || index < 0 || index >= len(runtime.state.values) do return false
+	item := &runtime.state.values[index]
+	#partial switch
+	item.value.kind {case .Boolean:
+		item.value.boolean_value = !item.value.boolean_value; case .Integer:
+		item.value.integer_value += 1; case .Enumeration, .Entity:
+		item.value.text_value = item.value.text_value == "" ? "debug" : ""}
+	return true}
+graph_topics :: proc() -> Graph_Topic_List {result: Graph_Topic_List; for 	node in graph_document.nodes[:graph_document.node_count] {groups := [2][]string {
+			node.beat.requires_topics,
+			node.beat.unlock_topics,
+		}
+		for group in groups do for value in group {exists := false; for current in result.values[:result.count] do if current == value do exists = true; if !exists && value != "" && result.count < len(result.values) {result.values[result.count] = value; result.count += 1}}}
+	return result}
+graph_topic_enabled :: proc(g: ^Game, id: string) -> bool {return topic_unlocked(g, id)}
+graph_toggle_topic :: proc(g: ^Game, id: string) {if g.mystery_state == nil do return
+	if graph_topic_enabled(
+		g,
+		id,
+	) {_ = mystery_string_set_remove(&g.mystery_state.unlocked_topics, id)} else {_ = mystery_string_set_add(&g.mystery_state.unlocked_topics, id)}}
+update_graph_debugger :: proc(g: ^Game) {if !graph_state.playtesting do return; if button(g, graph_debugger_page_rect()) do graph_state.debugger.page = (graph_state.debugger.page + 1) % 2
+	if button(g, graph_debugger_button_rect(0)) do graph_state.debugger.paused = !graph_state.debugger.paused
+	if button(g, graph_debugger_button_rect(1)) {graph_state.debugger.paused = false
+		graph_state.debugger.step_requested = true}
+	if button(g, graph_debugger_button_rect(2)) do _ = graph_restart_playtest(g)
+	if button(g, graph_debugger_button_rect(3)) do _ = graph_end_playtest(g)
+	if graph_state.debugger.paused {if graph_state.debugger.page == 0 {payload :=
+				mystery_game_payload(g)
+			if payload != nil {for _, i in payload.clues do if button(g, graph_debug_toggle_rect(0, i)) do mystery_game_toggle_clue(g, i)
+				for _, i in payload.claims do if button(g, graph_debug_toggle_rect(1, i)) do mystery_game_toggle_claim(g, i)}
+			topics := graph_topics()
+			for topic, i in topics.values[:topics.count] do if button(g, graph_debug_toggle_rect(2, i)) do graph_toggle_topic(g, topic)}
+		else if g.story_runtime != nil {for condition, i in g.story_runtime.compiled.runtime.conditions[:min(15, len(g.story_runtime.compiled.runtime.conditions))] do if button(g, graph_debug_toggle_rect(0, i)) do _ = story_runtime_toggle_condition_override(g.story_runtime, condition.id)
+			for _, i in g.story_runtime.compiled.runtime.effects[:min(15, len(g.story_runtime.compiled.runtime.effects))] do if button(g, graph_debug_toggle_rect(1, i)) do _ = graph_debugger_apply_effect(g.story_runtime, i)
+			for _, i in g.story_runtime.state.values[:min(15, len(g.story_runtime.state.values))] do if button(g, graph_debug_toggle_rect(2, i)) do _ = graph_debugger_cycle_variable(g.story_runtime, i)}}
+	if g.input.back do _ = graph_end_playtest(g)}
+
+update_graph_mode :: proc(g: ^Game) {
+	if graph_state.playtesting {graph_debugger_update_editor_toggle(g); update_graph_debugger(g); return}
+	if graph_state.feedback_frames > 0 do graph_state.feedback_frames -= 1
 	if graph_state.field_edit.active {
-		edit:=&graph_state.field_edit;edit_box:=graph_edit_rect();id:=button_id(edit_box);g.gui.focused=id;ui.gui_text_edit_begin(&g.gui,id,edit.count);ui.gui_text_edit_handle_mouse(&g.gui,id,edit.buffer[:],edit.count,ui.Rect(edit_box),ui.Vec2{edit_box.x+8,edit_box.y+11});_=ui.gui_text_edit_process(&g.gui,id,edit.buffer[:],&edit.count)
-		if edit.picker {candidate_count:=graph_picker_count(g,edit.field);edit.picker_selected=graph_picker_navigation_step(edit.picker_selected,candidate_count,g.input.up,g.input.down);if g.input.mouse_wheel<0 do edit.picker_selected=min(edit.picker_selected+8,max(0,candidate_count-1));if g.input.mouse_wheel>0 do edit.picker_selected=max(0,edit.picker_selected-8);if edit.picker_selected<edit.picker_offset do edit.picker_offset=edit.picker_selected;if edit.picker_selected>=edit.picker_offset+8 do edit.picker_offset=edit.picker_selected-7;if g.input.key_enter||g.input.activate {_ = graph_picker_apply(g,edit.picker_selected);g.input.activate=false;return};for i in 0..<8 do if button(g,graph_picker_rect(i)) {_ = graph_picker_apply(g,edit.picker_offset+i);return}}
-		if g.input.key_escape {graph_cancel_edit();g.input.back=false;return};if g.input.key_enter&&!edit.multiline {_ = graph_commit_edit();g.input.activate=false;return};if g.input.key_enter&&edit.multiline&&(g.input.key_ctrl||g.input.key_super) {_ = graph_commit_edit();g.input.activate=false;return}
-		if g.input.key_tab {_ = graph_advance_edit(g.input.key_shift?-1:1);return}
-		if g.input.mouse_pressed&&!contains(graph_edit_rect(),g.input.mouse_pos) {_ = graph_commit_edit();return}
+		edit := &graph_state.field_edit; edit_box := graph_edit_rect(); id := button_id(edit_box); g.gui.focused = id; ui.gui_text_edit_begin(&g.gui, id, edit.count); ui.gui_text_edit_handle_mouse(&g.gui, id, edit.buffer[:], edit.count, ui.Rect(edit_box), ui.Vec2{edit_box.x + 8, edit_box.y + 11}); _ = ui.gui_text_edit_process(&g.gui, id, edit.buffer[:], &edit.count)
+		if edit.picker {candidate_count := graph_picker_count(g, edit.field); edit.picker_selected = graph_picker_navigation_step(edit.picker_selected, candidate_count, g.input.up, g.input.down); if g.input.mouse_wheel < 0 do edit.picker_selected = min(edit.picker_selected + 8, max(0, candidate_count - 1)); if g.input.mouse_wheel > 0 do edit.picker_selected = max(0, edit.picker_selected - 8); if edit.picker_selected < edit.picker_offset do edit.picker_offset = edit.picker_selected; if edit.picker_selected >= edit.picker_offset + 8 do edit.picker_offset = edit.picker_selected - 7; if g.input.key_enter || g.input.activate {_ = graph_picker_apply(g, edit.picker_selected); g.input.activate = false; return}; for i in 0 ..< 8 do if button(g, graph_picker_rect(i)) {_ = graph_picker_apply(g, edit.picker_offset + i); return}}
+		if g.input.key_escape {graph_cancel_edit(); g.input.back = false; return}; if g.input.key_enter && !edit.multiline {_ = graph_commit_edit(); g.input.activate = false; return}; if g.input.key_enter && edit.multiline && (g.input.key_ctrl || g.input.key_super) {_ = graph_commit_edit(); g.input.activate = false; return}
+		if g.input.key_tab {_ = graph_advance_edit(g.input.key_shift ? -1 : 1); return}
+		if g.input.mouse_pressed &&
+		   !contains(graph_edit_rect(), g.input.mouse_pos) {_ = graph_commit_edit(); return}
 		return
 	}
-	if g.input.back {if graph_state.quick_add do graph_state.quick_add=false;else do g.editor_mode=.None;g.input.back=false}
-	if g.input.save_document {saved:=graph_save_story(graph_active_source_path,g.story_project);graph_feedback(saved.message,!saved.ok)}
-	if g.input.undo_document&&graph_undo() do graph_feedback("UNDO RESTORED GRAPH")
-	if g.input.redo_document&&graph_redo() do graph_feedback("REDO RESTORED GRAPH")
-	if g.input.delete_selection do _=graph_delete_selected()
-	if g.input.copy_selection do _=graph_copy_selection()
-	if g.input.paste_selection do _=graph_paste_clipboard(g.input.mouse_pos)
-	if g.input.duplicate_selection do _=graph_duplicate_selection(g.input.mouse_pos)
-	if button(g,{1090,14,96,34}) do g.editor_mode=.None
-	if button(g,{854,14,72,34}) {saved:=graph_save_story(graph_active_source_path,g.story_project);graph_feedback(saved.message,!saved.ok)}
-	if button(g,{934,14,72,34}) {checked:=graph_validate_complete(g.story_project);graph_feedback(checked.message,!checked.ok);graph_state.diagnostics_visible=!graph_state.diagnostics_visible}
-	if button(g,{1014,14,68,34}) {if graph_document.error_count>0 {graph_state.diagnostics_visible=true;graph_feedback("FIX BLOCKING GRAPH ERRORS BEFORE PLAY",true)}else do _=graph_begin_playtest(g)}
-	if graph_state.view==.Graph {if button(g,{966,530,222,30}) do _=graph_open_selected_in_build(g);if button(g,{14,356,58,28}) do _=graph_add_scene();if button(g,{76,356,58,28}) do _=graph_frame_nodes();if button(g,{138,356,68,28}) do _=graph_auto_layout();if button(g,{966,492,68,28}) do _=graph_duplicate_scene();if button(g,{1040,492,68,28}) {if graph_state.confirm==.Delete_Scene do _=graph_delete_scene();else{graph_state.confirm=.Delete_Scene;graph_feedback("CLICK DELETE SCENE AGAIN TO CONFIRM",true)}};if button(g,{1114,492,34,28}) do _=graph_move_scene(-1);if button(g,{1152,492,34,28}) do _=graph_move_scene(1)}
-	scene_start:=graph_scene_window_start();for row in 0..<min(8,graph_document.scene_count-scene_start) {i:=scene_start+row;if button(g,graph_scene_rect(row)) {graph_state.active_scene=i;graph_state.selected_node=-1}}
-	if graph_state.diagnostics_visible {for i in 0..<min(8,graph_document.diagnostic_count) {if button(g,{720,92+f32(i)*42,462,38}) {item:=graph_document.diagnostics[i];scene_index:=graph_scene_index(item.scene_id);if scene_index>=0 do graph_state.active_scene=scene_index;node_index:=graph_node_index(item.scene_id,item.node_id);if node_index>=0 {graph_select_only(node_index);_=graph_frame_nodes(true)};graph_state.diagnostics_visible=false}}}
-	views:=[5]Graph_View{.Graph,.Script,.Localization,.Conditions,.Effects};for view,i in views do if button(g,graph_view_tab_rect(i)) do graph_state.view=view
-	if button(g,graph_search_rect()) do graph_begin_edit(.Search,graph_state.search_query)
-	if button(g,graph_search_next_rect()) do _=graph_focus_search_result(1)
-	if graph_state.view==.Script {update_graph_script_view(g);return};if graph_state.view==.Localization {if graph_state.selected_localization>=0&&graph_state.selected_localization<graph_document.localization_count&&g.input.mouse_pressed&&contains({238,618,400,24},g.input.mouse_pos) do graph_begin_edit(.Localization_Note,graph_document.localizations[graph_state.selected_localization].note,-1,true);update_graph_localization_view(g);return};if graph_state.view==.Conditions {if button(g,{786,610,134,28}) do _=graph_duplicate_condition();update_graph_conditions_view(g);return};if graph_state.view==.Effects {if button(g,{786,610,134,28}) do _=graph_duplicate_effect();update_graph_effects_view(g);return};if graph_state.view!=.Graph do return
-	if graph_state.selected_node>=0&&graph_state.selected_node<graph_document.node_count {selected:=graph_document.nodes[graph_state.selected_node].beat;graph_state.inspector_scroll_max=selected.kind=="choice"?max(0,f32(len(selected.choice_labels))*50-250):f32(180)}else do graph_state.inspector_scroll_max=0
-	inspector_view:=graph_inspector_viewport();if contains(inspector_view,g.input.mouse_pos)&&g.input.mouse_wheel!=0 do graph_state.inspector_scroll=clamp(graph_state.inspector_scroll-g.input.mouse_wheel*48,0,graph_state.inspector_scroll_max)
-	kinds:=[11]string{"line","choice","check","stage","interaction","effect","selector","objective","wait_event","subscene","end"};for kind,i in kinds do if button(g,graph_palette_rect(i)) do _=graph_add_node(kind,graph_screen_to_world({420+f32(i%2)*210,160+f32(i/2)*100}))
-	canvas:=graph_canvas_rect();if graph_state.quick_add {for kind,i in kinds {if button(g,graph_quick_rect(i)) {_=graph_add_node(kind,graph_screen_to_world(graph_state.quick_add_at));graph_state.quick_add=false}}}
-	if g.input.mouse_pressed&&contains(graph_minimap_rect(),g.input.mouse_pos) {_=graph_minimap_focus(g.input.mouse_pos);g.input.mouse_pressed=false}
-	graph_state.edge_hover={};if contains(canvas,g.input.mouse_pos)&&!graph_state.edge_drag.active&&!graph_state.dragging&&!graph_state.marquee.active {over_node:=false;scene:=graph_active_scene_id();for node in graph_document.nodes[:graph_document.node_count] do if node.beat.scene==scene&&contains(graph_node_rect(node),g.input.mouse_pos) {over_node=true;break};if !over_node do graph_state.edge_hover=graph_edge_hit(g.input.mouse_pos)}
-	if graph_state.quick_add {if g.input.down do graph_state.quick_add_selected=(graph_state.quick_add_selected+1)%len(kinds);if g.input.up do graph_state.quick_add_selected=(graph_state.quick_add_selected+len(kinds)-1)%len(kinds);if g.input.activate {_=graph_add_node(kinds[graph_state.quick_add_selected],graph_screen_to_world(graph_state.quick_add_at));graph_state.quick_add=false;g.input.activate=false}}
-	if contains(canvas,g.input.mouse_pos)&&g.input.mouse_wheel!=0 {before:=graph_screen_to_world(g.input.mouse_pos);graph_state.zoom=clamp(graph_state.zoom+g.input.mouse_wheel*.10,.25,1.75);after:=graph_screen_to_world(g.input.mouse_pos);graph_state.pan.x+=after.x-before.x;graph_state.pan.y+=after.y-before.y}
-	if contains(canvas,g.input.mouse_pos)&&g.input.mouse_middle_pressed {graph_state.panning=true;graph_state.pan_origin=g.input.mouse_pos;graph_state.pan_start=graph_state.pan}
-	if graph_state.panning&&g.input.mouse_middle_down {graph_state.pan={graph_state.pan_start.x+(g.input.mouse_pos.x-graph_state.pan_origin.x)/graph_state.zoom,graph_state.pan_start.y+(g.input.mouse_pos.y-graph_state.pan_origin.y)/graph_state.zoom}}
-	if graph_state.panning&&g.input.mouse_middle_released do graph_state.panning=false
-	if graph_state.selected_node>=0&&graph_state.selected_node<graph_document.node_count&&graph_document.nodes[graph_state.selected_node].beat.kind=="choice" {beat:=&graph_document.nodes[graph_state.selected_node].beat;page_count:=max(1,(len(beat.choice_labels)+4)/5);graph_state.choice_page=clamp(graph_state.choice_page,0,page_count-1);choice_start:=graph_state.choice_page*5;choice_end:=min(choice_start+5,len(beat.choice_labels));for i in choice_start..<choice_end {row:=i-choice_start;y:=f32(184+row*48);if g.input.mouse_pressed&&contains({958,y,122,24},g.input.mouse_pos) do graph_begin_choice_edit(.Choice_Label,beat.choice_labels[i],graph_state.selected_node,i);if g.input.mouse_pressed&&contains({1082,y,38,24},g.input.mouse_pos) do graph_begin_choice_edit(.Choice_Id,beat.choice_ids[i],graph_state.selected_node,i);if button(g,{1122,y,26,24}) do _=graph_choice_duplicate(graph_state.selected_node,i);if button(g,{1152,y,36,24}) do _=graph_choice_delete(graph_state.selected_node,i);if g.input.mouse_pressed&&contains({968,y+25,150,20},g.input.mouse_pos) do graph_begin_choice_edit(.Choice_Condition,beat.choice_conditions[i],graph_state.selected_node,i);if g.input.mouse_pressed&&contains({1122,y+25,66,20},g.input.mouse_pos) {graph_state.choice_reorder={active=true,node=graph_state.selected_node,index=i};g.input.mouse_pressed=false}};if button(g,{1076,460,52,24}) do graph_state.choice_page=max(0,graph_state.choice_page-1);if button(g,{1132,460,52,24}) do graph_state.choice_page=min(page_count-1,graph_state.choice_page+1);graph_choice_reorder_update(g)}
-	if graph_state.selected_node>=0&&graph_state.selected_node<graph_document.node_count&&button(g,{966,532,104,28}) {graph_history_push("Toggle node collapse");graph_document.nodes[graph_state.selected_node].collapsed=!graph_document.nodes[graph_state.selected_node].collapsed;graph_changed()}
-	if graph_state.selected_node>=0&&graph_state.selected_node<graph_document.node_count {
-		if button(g,{958,660,38,28}) do graph_state.inspector_field_index=(graph_state.inspector_field_index+len(GRAPH_NODE_INSPECTOR_FIELDS)-1)%len(GRAPH_NODE_INSPECTOR_FIELDS)
-		if button(g,{1154,660,38,28}) do graph_state.inspector_field_index=(graph_state.inspector_field_index+1)%len(GRAPH_NODE_INSPECTOR_FIELDS)
-		if button(g,{1000,660,150,28}) {beat:=&graph_document.nodes[graph_state.selected_node].beat;field:=graph_inspector_field();graph_begin_edit(field,graph_inspector_field_value(beat,field),graph_state.selected_node,graph_inspector_field_multiline(field))}
-	} else if graph_state.active_scene>=0&&graph_state.active_scene<graph_document.scene_count {
-		if button(g,{958,660,38,28}) do graph_state.inspector_field_index=(graph_state.inspector_field_index+len(GRAPH_SCENE_INSPECTOR_FIELDS)-1)%len(GRAPH_SCENE_INSPECTOR_FIELDS)
-		if button(g,{1154,660,38,28}) do graph_state.inspector_field_index=(graph_state.inspector_field_index+1)%len(GRAPH_SCENE_INSPECTOR_FIELDS)
-		if button(g,{1000,660,150,28}) {scene:=&graph_document.scenes[graph_state.active_scene].scene;field:=graph_scene_inspector_field();graph_begin_edit(field,graph_scene_inspector_value(scene,field),-1,field==.Scene_Summary)}
+	if g.input.back {if graph_state.quick_add do graph_state.quick_add = false
+		else do g.editor_mode = .None; g.input.back = false}
+	if g.input.save_document {saved := graph_save_story(graph_active_source_path, g.story_project); graph_feedback(saved.message, !saved.ok)}
+	if g.input.undo_document && graph_undo() do graph_feedback("UNDO RESTORED GRAPH")
+	if g.input.redo_document && graph_redo() do graph_feedback("REDO RESTORED GRAPH")
+	if g.input.delete_selection do _ = graph_delete_selected()
+	if g.input.copy_selection do _ = graph_copy_selection()
+	if g.input.paste_selection do _ = graph_paste_clipboard(g.input.mouse_pos)
+	if g.input.duplicate_selection do _ = graph_duplicate_selection(g.input.mouse_pos)
+	if button(g, {1090, 14, 96, 34}) do g.editor_mode = .None
+	if button(
+		g,
+		{854, 14, 72, 34},
+	) {saved := graph_save_story(graph_active_source_path, g.story_project); graph_feedback(saved.message, !saved.ok)}
+	if button(
+		g,
+		{934, 14, 72, 34},
+	) {checked := graph_validate_complete(g.story_project); graph_feedback(checked.message, !checked.ok); graph_state.diagnostics_visible = !graph_state.diagnostics_visible}
+	if button(
+		g,
+		{1014, 14, 68, 34},
+	) {if graph_document.error_count > 0 {graph_state.diagnostics_visible = true; graph_feedback("FIX BLOCKING GRAPH ERRORS BEFORE PLAY", true)} else do _ = graph_begin_playtest(g)}
+	if graph_state.view ==
+	   .Graph {if button(g, {966, 530, 222, 30}) do _ = graph_open_selected_in_build(g); if button(g, {14, 356, 58, 28}) do _ = graph_add_scene(); if button(g, {76, 356, 58, 28}) do _ = graph_frame_nodes(); if button(g, {138, 356, 68, 28}) do _ = graph_auto_layout(); if button(g, {966, 492, 68, 28}) do _ = graph_duplicate_scene(); if button(g, {1040, 492, 68, 28}) {if graph_state.confirm == .Delete_Scene do _ = graph_delete_scene()
+			else {graph_state.confirm = .Delete_Scene; graph_feedback("CLICK DELETE SCENE AGAIN TO CONFIRM", true)}}; if button(g, {1114, 492, 34, 28}) do _ = graph_move_scene(-1); if button(g, {1152, 492, 34, 28}) do _ = graph_move_scene(1)}
+	scene_start := graph_scene_window_start(
+
+	); for row in 0 ..< min(8, graph_document.scene_count - scene_start) {i := scene_start + row; if button(g, graph_scene_rect(row)) {graph_state.active_scene = i; graph_state.selected_node = -1}}
+	if graph_state.diagnostics_visible {for i in 0 ..< min(8, graph_document.diagnostic_count) {if button(g, {720, 92 + f32(i) * 42, 462, 38}) {item := graph_document.diagnostics[i]; scene_index := graph_scene_index(item.scene_id); if scene_index >= 0 do graph_state.active_scene = scene_index; node_index := graph_node_index(item.scene_id, item.node_id); if node_index >= 0 {graph_select_only(node_index); _ = graph_frame_nodes(true)}; graph_state.diagnostics_visible = false}}}
+	views := [5]Graph_View {
+		.Graph,
+		.Script,
+		.Localization,
+		.Conditions,
+		.Effects,
+	}; for view, i in views do if button(g, graph_view_tab_rect(i)) do graph_state.view = view
+	if button(g, graph_search_rect()) do graph_begin_edit(.Search, graph_state.search_query)
+	if button(g, graph_search_next_rect()) do _ = graph_focus_search_result(1)
+	if graph_state.view ==
+	   .Script {update_graph_script_view(g); return}; if graph_state.view == .Localization {if graph_state.selected_localization >= 0 && graph_state.selected_localization < graph_document.localization_count && g.input.mouse_pressed && contains({238, 618, 400, 24}, g.input.mouse_pos) do graph_begin_edit(.Localization_Note, graph_document.localizations[graph_state.selected_localization].note, -1, true); update_graph_localization_view(g); return}; if graph_state.view == .Conditions {if button(g, {786, 610, 134, 28}) do _ = graph_duplicate_condition(); update_graph_conditions_view(g); return}; if graph_state.view == .Effects {if button(g, {786, 610, 134, 28}) do _ = graph_duplicate_effect(); update_graph_effects_view(g); return}; if graph_state.view != .Graph do return
+	if graph_state.selected_node >= 0 &&
+	   graph_state.selected_node <
+		   graph_document.node_count {selected := graph_document.nodes[graph_state.selected_node].beat; graph_state.inspector_scroll_max = selected.kind == "choice" ? max(0, f32(len(selected.choice_labels)) * 50 - 250) : f32(180)} else do graph_state.inspector_scroll_max = 0
+	inspector_view := graph_inspector_viewport(
+
+	); if contains(inspector_view, g.input.mouse_pos) && g.input.mouse_wheel != 0 do graph_state.inspector_scroll = clamp(graph_state.inspector_scroll - g.input.mouse_wheel * 48, 0, graph_state.inspector_scroll_max)
+	kinds := [11]string {
+		"line",
+		"choice",
+		"check",
+		"stage",
+		"interaction",
+		"effect",
+		"selector",
+		"objective",
+		"wait_event",
+		"subscene",
+		"end",
+	}; for kind, i in kinds do if button(g, graph_palette_rect(i)) do _ = graph_add_node(kind, graph_screen_to_world({420 + f32(i % 2) * 210, 160 + f32(i / 2) * 100}))
+	canvas := graph_canvas_rect(
+
+	); if graph_state.quick_add {for kind, i in kinds {if button(g, graph_quick_rect(i)) {_ = graph_add_node(kind, graph_screen_to_world(graph_state.quick_add_at)); graph_state.quick_add = false}}}
+	if g.input.mouse_pressed &&
+	   contains(
+		   graph_minimap_rect(),
+		   g.input.mouse_pos,
+	   ) {_ = graph_minimap_focus(g.input.mouse_pos); g.input.mouse_pressed = false}
+	graph_state.edge_hover =
+		{}; if contains(canvas, g.input.mouse_pos) && !graph_state.edge_drag.active && !graph_state.dragging && !graph_state.marquee.active {over_node := false; scene := graph_active_scene_id(); for node in graph_document.nodes[:graph_document.node_count] do if node.beat.scene == scene && contains(graph_node_rect(node), g.input.mouse_pos) {over_node = true; break}; if !over_node do graph_state.edge_hover = graph_edge_hit(g.input.mouse_pos)}
+	if graph_state.quick_add {if g.input.down do graph_state.quick_add_selected = (graph_state.quick_add_selected + 1) % len(kinds); if g.input.up do graph_state.quick_add_selected = (graph_state.quick_add_selected + len(kinds) - 1) % len(kinds); if g.input.activate {_ = graph_add_node(kinds[graph_state.quick_add_selected], graph_screen_to_world(graph_state.quick_add_at)); graph_state.quick_add = false; g.input.activate = false}}
+	if contains(canvas, g.input.mouse_pos) &&
+	   g.input.mouse_wheel !=
+		   0 {before := graph_screen_to_world(g.input.mouse_pos); graph_state.zoom = clamp(graph_state.zoom + g.input.mouse_wheel * .10, .25, 1.75); after := graph_screen_to_world(g.input.mouse_pos); graph_state.pan.x += after.x - before.x; graph_state.pan.y += after.y - before.y}
+	if contains(canvas, g.input.mouse_pos) &&
+	   g.input.mouse_middle_pressed {graph_state.panning = true; graph_state.pan_origin = g.input.mouse_pos; graph_state.pan_start = graph_state.pan}
+	if graph_state.panning &&
+	   g.input.mouse_middle_down {graph_state.pan = {graph_state.pan_start.x + (g.input.mouse_pos.x - graph_state.pan_origin.x) / graph_state.zoom, graph_state.pan_start.y + (g.input.mouse_pos.y - graph_state.pan_origin.y) / graph_state.zoom}}
+	if graph_state.panning && g.input.mouse_middle_released do graph_state.panning = false
+	if graph_state.selected_node >= 0 &&
+	   graph_state.selected_node < graph_document.node_count &&
+	   graph_document.nodes[graph_state.selected_node].beat.kind ==
+		   "choice" {beat := &graph_document.nodes[graph_state.selected_node].beat; page_count := max(1, (len(beat.choice_labels) + 4) / 5); graph_state.choice_page = clamp(graph_state.choice_page, 0, page_count - 1); choice_start := graph_state.choice_page * 5; choice_end := min(choice_start + 5, len(beat.choice_labels)); for i in choice_start ..< choice_end {row := i - choice_start; y := f32(184 + row * 48); if g.input.mouse_pressed && contains({958, y, 122, 24}, g.input.mouse_pos) do graph_begin_choice_edit(.Choice_Label, beat.choice_labels[i], graph_state.selected_node, i); if g.input.mouse_pressed && contains({1082, y, 38, 24}, g.input.mouse_pos) do graph_begin_choice_edit(.Choice_Id, beat.choice_ids[i], graph_state.selected_node, i); if button(g, {1122, y, 26, 24}) do _ = graph_choice_duplicate(graph_state.selected_node, i); if button(g, {1152, y, 36, 24}) do _ = graph_choice_delete(graph_state.selected_node, i); if g.input.mouse_pressed && contains({968, y + 25, 150, 20}, g.input.mouse_pos) do graph_begin_choice_edit(.Choice_Condition, beat.choice_conditions[i], graph_state.selected_node, i); if g.input.mouse_pressed && contains({1122, y + 25, 66, 20}, g.input.mouse_pos) {graph_state.choice_reorder = {
+					active = true,
+					node   = graph_state.selected_node,
+					index  = i,
+				}; g.input.mouse_pressed =
+					false}}; if button(g, {1076, 460, 52, 24}) do graph_state.choice_page = max(0, graph_state.choice_page - 1); if button(g, {1132, 460, 52, 24}) do graph_state.choice_page = min(page_count - 1, graph_state.choice_page + 1); graph_choice_reorder_update(g)}
+	if graph_state.selected_node >= 0 &&
+	   graph_state.selected_node < graph_document.node_count &&
+	   button(
+		   g,
+		   {966, 532, 104, 28},
+	   ) {graph_history_push("Toggle node collapse"); graph_document.nodes[graph_state.selected_node].collapsed = !graph_document.nodes[graph_state.selected_node].collapsed; graph_changed()}
+	if graph_state.selected_node >= 0 && graph_state.selected_node < graph_document.node_count {
+		if button(g, {958, 660, 38, 28}) do graph_state.inspector_field_index = (graph_state.inspector_field_index + len(GRAPH_NODE_INSPECTOR_FIELDS) - 1) % len(GRAPH_NODE_INSPECTOR_FIELDS)
+		if button(g, {1154, 660, 38, 28}) do graph_state.inspector_field_index = (graph_state.inspector_field_index + 1) % len(GRAPH_NODE_INSPECTOR_FIELDS)
+		if button(
+			g,
+			{1000, 660, 150, 28},
+		) {beat := &graph_document.nodes[graph_state.selected_node].beat; field := graph_inspector_field(); graph_begin_edit(field, graph_inspector_field_value(beat, field), graph_state.selected_node, graph_inspector_field_multiline(field))}
+	} else if graph_state.active_scene >= 0 &&
+	   graph_state.active_scene < graph_document.scene_count {
+		if button(g, {958, 660, 38, 28}) do graph_state.inspector_field_index = (graph_state.inspector_field_index + len(GRAPH_SCENE_INSPECTOR_FIELDS) - 1) % len(GRAPH_SCENE_INSPECTOR_FIELDS)
+		if button(g, {1154, 660, 38, 28}) do graph_state.inspector_field_index = (graph_state.inspector_field_index + 1) % len(GRAPH_SCENE_INSPECTOR_FIELDS)
+		if button(
+			g,
+			{1000, 660, 150, 28},
+		) {scene := &graph_document.scenes[graph_state.active_scene].scene; field := graph_scene_inspector_field(); graph_begin_edit(field, graph_scene_inspector_value(scene, field), -1, field == .Scene_Summary)}
 	}
-	if graph_state.selected_node>=0&&graph_state.selected_node<graph_document.node_count {beat:=&graph_document.nodes[graph_state.selected_node].beat;if beat.kind=="stage" {if g.input.mouse_pressed&&contains({966,568,220,26},g.input.mouse_pos) do graph_begin_picker(.Actor,beat.actor,graph_state.selected_node);if g.input.mouse_pressed&&contains({966,598,220,26},g.input.mouse_pos) do graph_begin_edit(.Animation,beat.animation,graph_state.selected_node);if g.input.mouse_pressed&&contains({966,628,220,26},g.input.mouse_pos) do graph_begin_picker(.UI,beat.ui,graph_state.selected_node)}else{if g.input.mouse_pressed&&contains({966,568,220,26},g.input.mouse_pos) do graph_begin_picker(.Condition,beat.condition_id,graph_state.selected_node);if g.input.mouse_pressed&&contains({966,598,220,26},g.input.mouse_pos) do graph_begin_picker(.Effects,graph_join_strings(beat.effect_ids),graph_state.selected_node);if (beat.kind=="selector"||beat.kind=="objective"||beat.kind=="effect"||beat.kind=="interaction")&&g.input.mouse_pressed&&contains({966,628,220,26},g.input.mouse_pos) do graph_begin_edit(.Domain_Ref,beat.domain_ref,graph_state.selected_node)}}
-	if graph_state.selected_node>=0&&graph_state.selected_node<graph_document.node_count {node:=&graph_document.nodes[graph_state.selected_node];if g.input.mouse_pressed&&contains(graph_inspector_scrolled_rect({958,100,234,34}),g.input.mouse_pos) {graph_begin_edit(.Node_Id,node.beat.id,graph_state.selected_node)} else if node.beat.kind=="choice" {if button(g,{966,430,104,28}) do _=graph_choice_add(graph_state.selected_node)} else if g.input.mouse_pressed&&contains(graph_inspector_scrolled_rect({958,162,234,28}),g.input.mouse_pos) {graph_begin_picker(.Speaker,node.beat.speaker,graph_state.selected_node)} else if g.input.mouse_pressed&&contains(graph_inspector_scrolled_rect({958,190,234,60}),g.input.mouse_pos) {graph_begin_edit(.Text,node.beat.text,graph_state.selected_node,true)} else if g.input.mouse_pressed&&contains(graph_inspector_scrolled_rect({958,260,234,52}),g.input.mouse_pos) {graph_begin_edit(.Summary,node.beat.summary,graph_state.selected_node,true)} else if g.input.mouse_pressed&&contains(graph_inspector_scrolled_rect({958,320,112,30}),g.input.mouse_pos) {graph_begin_edit(.Duration,fmt.tprintf("%.3f",node.beat.duration),graph_state.selected_node)} else if g.input.mouse_pressed&&contains(graph_inspector_scrolled_rect({1080,320,112,30}),g.input.mouse_pos) {graph_begin_edit(.Transition,fmt.tprintf("%.3f",node.beat.transition),graph_state.selected_node)} else if g.input.mouse_pressed&&contains(graph_inspector_scrolled_rect({958,360,234,28}),g.input.mouse_pos) {field:=Graph_Field.Interaction;if node.beat.kind=="stage" do field=.Camera;else if node.beat.kind=="wait_event" do field=.Event;else if node.beat.kind=="subscene" do field=.Subscene;else if node.beat.kind=="check" do field=.Clue;else if node.beat.kind=="end" do field=.Ending;value:=node.beat.interaction;if field==.Camera do value=node.beat.camera;else if field==.Event do value=node.beat.event_id;else if field==.Subscene do value=node.beat.subscene_id;else if field==.Clue do value=node.beat.clue;else if field==.Ending do value=node.beat.ending;graph_begin_picker(field,value,graph_state.selected_node)} else if g.input.mouse_pressed&&contains(graph_inspector_scrolled_rect({958,390,234,28}),g.input.mouse_pos) {field:=Graph_Field.UI;if node.beat.kind=="stage" do field=.Actor_Mark;value:=node.beat.ui;if field==.Actor_Mark do value=node.beat.actor_mark;graph_begin_picker(field,value,graph_state.selected_node)};if node.beat.kind!="choice"&&button(g,{966,440,102,30}) {graph_history_push("Set scene entry");graph_document.scenes[graph_state.active_scene].scene.entry=node.beat.id;graph_changed();graph_feedback("SCENE ENTRY UPDATED")};if node.beat.kind!="choice"&&button(g,{1078,440,110,30}) {graph_history_push("Toggle blocking");node.beat.blocking=!node.beat.blocking;graph_changed();graph_feedback(node.beat.blocking?"CONVERSATION CANNOT BE LEFT AT THIS BEAT":"CONVERSATION MAY BE LEFT AT THIS BEAT")}}
-	else if graph_state.active_scene>=0 {scene:=&graph_document.scenes[graph_state.active_scene].scene;if g.input.mouse_pressed&&contains({958,100,234,34},g.input.mouse_pos) do graph_begin_edit(.Scene_Id,scene.id);else if g.input.mouse_pressed&&contains({958,145,234,70},g.input.mouse_pos) do graph_begin_edit(.Scene_Summary,scene.summary,-1,true);else if g.input.mouse_pressed&&contains({958,225,234,34},g.input.mouse_pos) do graph_begin_edit(.Scene_Return,scene.return_to)}
-	if g.input.mouse_pressed&&contains(canvas,g.input.mouse_pos)&&!graph_state.quick_add {scene:=graph_active_scene_id();port_picked:=false;for &node,i in graph_document.nodes[:graph_document.node_count] {if node.beat.scene!=scene do continue;for port_index in 0..<graph_output_count(&node.beat) {if contains(graph_port_rect(node,port_index),g.input.mouse_pos) {port,choice:=graph_output_port(&node.beat,port_index);graph_state.edge_drag={active=true,node=i,port=port,choice_index=choice,start=g.input.mouse_pos};graph_state.edge_selection={active=true,node=i,port=port,choice_index=choice};port_picked=true;break}};if port_picked do break};if !port_picked {picked:=-1;for node,i in graph_document.nodes[:graph_document.node_count] do if node.beat.scene==scene&&contains(graph_node_rect(node),g.input.mouse_pos) {picked=i;break};if picked>=0 {if g.input.key_shift do graph_toggle_selection(picked);else if !graph_is_selected(picked) do graph_select_only(picked);graph_history_push("Move nodes");graph_state.dragging=true;graph_state.drag_origin=g.input.mouse_pos;for selected,j in graph_state.selection[:graph_state.selection_count] do graph_state.drag_node_origins[j]=graph_document.nodes[selected].position}else{edge:=graph_edge_hit(g.input.mouse_pos);if edge.active {if !g.input.key_shift do graph_clear_selection();graph_state.edge_selection=edge}else{if !g.input.key_shift do graph_clear_selection();graph_state.marquee={active=true,start=g.input.mouse_pos,current=g.input.mouse_pos}}}}}
-	if graph_state.marquee.active {graph_state.marquee.current=g.input.mouse_pos;if g.input.mouse_released {box:=graph_rect_normalized(graph_state.marquee.start,graph_state.marquee.current);if !g.input.key_shift do graph_clear_selection();scene:=graph_active_scene_id();for node,i in graph_document.nodes[:graph_document.node_count] do if node.beat.scene==scene&&graph_rects_overlap(box,graph_node_rect(node))&&!graph_is_selected(i)&&graph_state.selection_count<GRAPH_SELECTION_CAPACITY {graph_state.selection[graph_state.selection_count]=i;graph_state.selection_count+=1;graph_state.selected_node=i};graph_state.marquee.active=false}}
-	if graph_state.edge_drag.active&&g.input.mouse_released {target:=-1;scene:=graph_active_scene_id();for node,i in graph_document.nodes[:graph_document.node_count] do if node.beat.scene==scene&&i!=graph_state.edge_drag.node&&contains(graph_input_rect(node),g.input.mouse_pos) {target=i;break};if target>=0 {edge:=graph_state.edge_drag;pointer:=graph_port_target(&graph_document.nodes[edge.node].beat,edge.port,edge.choice_index);if pointer!=nil {graph_history_push("Reconnect edge");pointer^=graph_document.nodes[target].beat.id;graph_changed()}};graph_state.edge_drag={}}
-	if graph_state.dragging&&graph_state.selected_node>=0 {if g.input.mouse_down {delta:=Vec2{(g.input.mouse_pos.x-graph_state.drag_origin.x)/graph_state.zoom,(g.input.mouse_pos.y-graph_state.drag_origin.y)/graph_state.zoom};for selected,j in graph_state.selection[:graph_state.selection_count] {origin:=graph_state.drag_node_origins[j];graph_document.nodes[selected].position={origin.x+delta.x,origin.y+delta.y}}};if g.input.mouse_released {graph_state.dragging=false;graph_changed()}}
+	if graph_state.selected_node >= 0 &&
+	   graph_state.selected_node <
+		   graph_document.node_count {beat := &graph_document.nodes[graph_state.selected_node].beat; if beat.kind == "stage" {if g.input.mouse_pressed && contains({966, 568, 220, 26}, g.input.mouse_pos) do graph_begin_picker(.Actor, beat.actor, graph_state.selected_node); if g.input.mouse_pressed && contains({966, 598, 220, 26}, g.input.mouse_pos) do graph_begin_edit(.Animation, beat.animation, graph_state.selected_node); if g.input.mouse_pressed && contains({966, 628, 220, 26}, g.input.mouse_pos) do graph_begin_picker(.UI, beat.ui, graph_state.selected_node)} else {if g.input.mouse_pressed && contains({966, 568, 220, 26}, g.input.mouse_pos) do graph_begin_picker(.Condition, beat.condition_id, graph_state.selected_node); if g.input.mouse_pressed && contains({966, 598, 220, 26}, g.input.mouse_pos) do graph_begin_picker(.Effects, graph_join_strings(beat.effect_ids), graph_state.selected_node); if (beat.kind == "selector" || beat.kind == "objective" || beat.kind == "effect" || beat.kind == "interaction") && g.input.mouse_pressed && contains({966, 628, 220, 26}, g.input.mouse_pos) do graph_begin_edit(.Domain_Ref, beat.domain_ref, graph_state.selected_node)}}
+	if graph_state.selected_node >= 0 &&
+	   graph_state.selected_node <
+		   graph_document.node_count {node := &graph_document.nodes[graph_state.selected_node]; if g.input.mouse_pressed && contains(graph_inspector_scrolled_rect({958, 100, 234, 34}), g.input.mouse_pos) {graph_begin_edit(.Node_Id, node.beat.id, graph_state.selected_node)} else if node.beat.kind == "choice" {if button(g, {966, 430, 104, 28}) do _ = graph_choice_add(graph_state.selected_node)} else if g.input.mouse_pressed && contains(graph_inspector_scrolled_rect({958, 162, 234, 28}), g.input.mouse_pos) {graph_begin_picker(.Speaker, node.beat.speaker, graph_state.selected_node)} else if g.input.mouse_pressed && contains(graph_inspector_scrolled_rect({958, 190, 234, 60}), g.input.mouse_pos) {graph_begin_edit(.Text, node.beat.text, graph_state.selected_node, true)} else if g.input.mouse_pressed && contains(graph_inspector_scrolled_rect({958, 260, 234, 52}), g.input.mouse_pos) {graph_begin_edit(.Summary, node.beat.summary, graph_state.selected_node, true)} else if g.input.mouse_pressed && contains(graph_inspector_scrolled_rect({958, 320, 112, 30}), g.input.mouse_pos) {graph_begin_edit(.Duration, fmt.tprintf("%.3f", node.beat.duration), graph_state.selected_node)} else if g.input.mouse_pressed && contains(graph_inspector_scrolled_rect({1080, 320, 112, 30}), g.input.mouse_pos) {graph_begin_edit(.Transition, fmt.tprintf("%.3f", node.beat.transition), graph_state.selected_node)} else if g.input.mouse_pressed && contains(graph_inspector_scrolled_rect({958, 360, 234, 28}), g.input.mouse_pos) {field := Graph_Field.Interaction; if node.beat.kind == "stage" do field = .Camera
+			else if node.beat.kind == "wait_event" do field = .Event
+			else if node.beat.kind == "subscene" do field = .Subscene
+			else if node.beat.kind == "check" do field = .Clue
+			else if node.beat.kind == "end" do field = .Ending; value := node.beat.interaction; if field == .Camera do value = node.beat.camera
+			else if field == .Event do value = node.beat.event_id
+			else if field == .Subscene do value = node.beat.subscene_id
+			else if field == .Clue do value = node.beat.clue
+			else if field == .Ending do value = node.beat.ending; graph_begin_picker(field, value, graph_state.selected_node)} else if g.input.mouse_pressed && contains(graph_inspector_scrolled_rect({958, 390, 234, 28}), g.input.mouse_pos) {field := Graph_Field.UI; if node.beat.kind == "stage" do field = .Actor_Mark; value := node.beat.ui; if field == .Actor_Mark do value = node.beat.actor_mark; graph_begin_picker(field, value, graph_state.selected_node)}; if node.beat.kind != "choice" && button(g, {966, 440, 102, 30}) {graph_history_push("Set scene entry"); graph_document.scenes[graph_state.active_scene].scene.entry = node.beat.id; graph_changed(); graph_feedback("SCENE ENTRY UPDATED")}; if node.beat.kind != "choice" && button(g, {1078, 440, 110, 30}) {graph_history_push("Toggle blocking"); node.beat.blocking = !node.beat.blocking; graph_changed(); graph_feedback(node.beat.blocking ? "CONVERSATION CANNOT BE LEFT AT THIS BEAT" : "CONVERSATION MAY BE LEFT AT THIS BEAT")}} else if graph_state.active_scene >= 0 {scene := &graph_document.scenes[graph_state.active_scene].scene; if g.input.mouse_pressed && contains({958, 100, 234, 34}, g.input.mouse_pos) do graph_begin_edit(.Scene_Id, scene.id)
+		else if g.input.mouse_pressed && contains({958, 145, 234, 70}, g.input.mouse_pos) do graph_begin_edit(.Scene_Summary, scene.summary, -1, true)
+		else if g.input.mouse_pressed && contains({958, 225, 234, 34}, g.input.mouse_pos) do graph_begin_edit(.Scene_Return, scene.return_to)}
+	if g.input.mouse_pressed &&
+	   contains(canvas, g.input.mouse_pos) &&
+	   !graph_state.quick_add {scene := graph_active_scene_id(); port_picked := false; for &node, i in graph_document.nodes[:graph_document.node_count] {if node.beat.scene != scene do continue; for port_index in 0 ..< graph_output_count(&node.beat) {if contains(graph_port_rect(node, port_index), g.input.mouse_pos) {port, choice := graph_output_port(&node.beat, port_index); graph_state.edge_drag = {
+						active       = true,
+						node         = i,
+						port         = port,
+						choice_index = choice,
+						start        = g.input.mouse_pos,
+					}; graph_state.edge_selection = {
+						active       = true,
+						node         = i,
+						port         = port,
+						choice_index = choice,
+					}; port_picked =
+						true; break}}; if port_picked do break}; if !port_picked {picked := -1; for node, i in graph_document.nodes[:graph_document.node_count] do if node.beat.scene == scene && contains(graph_node_rect(node), g.input.mouse_pos) {picked = i; break}; if picked >= 0 {if g.input.key_shift do graph_toggle_selection(picked)
+				else if !graph_is_selected(picked) do graph_select_only(picked); graph_history_push("Move nodes"); graph_state.dragging = true; graph_state.drag_origin = g.input.mouse_pos; for selected, j in graph_state.selection[:graph_state.selection_count] do graph_state.drag_node_origins[j] = graph_document.nodes[selected].position} else {edge := graph_edge_hit(g.input.mouse_pos); if edge.active {if !g.input.key_shift do graph_clear_selection(); graph_state.edge_selection = edge} else {if !g.input.key_shift do graph_clear_selection(); graph_state.marquee = {
+						active  = true,
+						start   = g.input.mouse_pos,
+						current = g.input.mouse_pos,
+					}}}}}
+	if graph_state.marquee.active {graph_state.marquee.current = g.input.mouse_pos; if g.input.mouse_released {box := graph_rect_normalized(graph_state.marquee.start, graph_state.marquee.current); if !g.input.key_shift do graph_clear_selection(); scene := graph_active_scene_id(); for node, i in graph_document.nodes[:graph_document.node_count] do if node.beat.scene == scene && graph_rects_overlap(box, graph_node_rect(node)) && !graph_is_selected(i) && graph_state.selection_count < GRAPH_SELECTION_CAPACITY {graph_state.selection[graph_state.selection_count] = i; graph_state.selection_count += 1; graph_state.selected_node = i}; graph_state.marquee.active = false}}
+	if graph_state.edge_drag.active &&
+	   g.input.mouse_released {target := -1; scene := graph_active_scene_id(); for node, i in graph_document.nodes[:graph_document.node_count] do if node.beat.scene == scene && i != graph_state.edge_drag.node && contains(graph_input_rect(node), g.input.mouse_pos) {target = i; break}; if target >= 0 {edge := graph_state.edge_drag; pointer := graph_port_target(&graph_document.nodes[edge.node].beat, edge.port, edge.choice_index); if pointer != nil {graph_history_push("Reconnect edge"); pointer^ = graph_document.nodes[target].beat.id; graph_changed()}}; graph_state.edge_drag = {}}
+	if graph_state.dragging &&
+	   graph_state.selected_node >=
+		   0 {if g.input.mouse_down {delta := Vec2{(g.input.mouse_pos.x - graph_state.drag_origin.x) / graph_state.zoom, (g.input.mouse_pos.y - graph_state.drag_origin.y) / graph_state.zoom}; for selected, j in graph_state.selection[:graph_state.selection_count] {origin := graph_state.drag_node_origins[j]; graph_document.nodes[selected].position = {origin.x + delta.x, origin.y + delta.y}}}; if g.input.mouse_released {graph_state.dragging = false; graph_changed()}}
 }

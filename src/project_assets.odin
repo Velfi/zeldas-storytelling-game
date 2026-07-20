@@ -14,70 +14,181 @@ Project_Asset_Kind :: enum {
 	Thumbnail,
 }
 
-Project_Asset_Source_Mode :: enum {Copy, Link}
-Project_Asset_Embed_Policy :: enum {Embed, External, Prohibited}
-Project_Asset_Reference_Kind :: enum {Owned, External_Catalog}
-Project_Asset_Semantic_Target :: enum {Catalog_Model, Character_Appearance, Prop_Model, Material, UI_Image, Sound_Cue, Campaign_Thumbnail, Animation, Font}
+Project_Asset_Source_Mode :: enum {
+	Copy,
+	Link,
+}
+Project_Asset_Embed_Policy :: enum {
+	Embed,
+	External,
+	Prohibited,
+}
+Project_Asset_Reference_Kind :: enum {
+	Owned,
+	External_Catalog,
+}
+Project_Asset_Semantic_Target :: enum {
+	Catalog_Model,
+	Character_Appearance,
+	Prop_Model,
+	Material,
+	UI_Image,
+	Sound_Cue,
+	Campaign_Thumbnail,
+	Animation,
+	Font,
+}
 
-project_asset_resolve_owned_path :: proc(registry:^Project_Asset_Registry,id:string)->(string,bool) {if registry==nil||id=="" do return "",false;index:=project_asset_index(registry,id);if index<0 do return "",false;asset:=registry.assets[index];path:=asset.project_path!=""?asset.project_path:asset.source_path;return path,path!=""}
-project_asset_story_node_index :: proc(project:^Story_Project,id:string)->int {if project!=nil do for node,index in project.nodes do if node.id==id do return index;return -1}
+project_asset_resolve_owned_path :: proc(
+	registry: ^Project_Asset_Registry,
+	id: string,
+) -> (
+	string,
+	bool,
+) {if registry == nil || id == "" do return "", false; index := project_asset_index(registry, id)
+	if index < 0 do return "", false
+	asset := registry.assets[index]
+	path := asset.project_path != "" ? asset.project_path : asset.source_path
+	return path, path != ""}
+project_asset_story_node_index :: proc(project: ^Story_Project, id: string) -> int {if project != nil do for node, index in project.nodes do if node.id == id do return index
+	return -1}
 
-story_entity_appearance_path :: proc(project:^Story_Project,registry:^Project_Asset_Registry,entity_id:string)->(string,bool) {if project==nil do return "",false;index:=story_entity_index(project,entity_id);if index<0 do return "",false;return project_asset_resolve_owned_path(registry,project.entities[index].appearance_model_asset_ref)}
-story_node_ui_image_path :: proc(project:^Story_Project,registry:^Project_Asset_Registry,node_id:string)->(string,bool) {index:=project_asset_story_node_index(project,node_id);if index<0 do return "",false;return project_asset_resolve_owned_path(registry,project.nodes[index].ui_image_asset_ref)}
-story_node_sound_path :: proc(project:^Story_Project,registry:^Project_Asset_Registry,node_id:string)->(string,bool) {index:=project_asset_story_node_index(project,node_id);if index<0 do return "",false;return project_asset_resolve_owned_path(registry,project.nodes[index].sound_cue_asset_ref)}
-story_node_animation_path :: proc(project:^Story_Project,registry:^Project_Asset_Registry,node_id:string)->(string,bool) {index:=project_asset_story_node_index(project,node_id);if index<0 do return "",false;return project_asset_resolve_owned_path(registry,project.nodes[index].animation_asset_ref)}
-story_ui_font_path :: proc(project:^Story_Project,registry:^Project_Asset_Registry)->(string,bool) {if project==nil do return "",false;return project_asset_resolve_owned_path(registry,project.ui_font_asset_ref)}
-level_object_model_path :: proc(doc:^Level_Document,registry:^Project_Asset_Registry,object_id:string)->(string,bool) {if doc==nil do return "",false;index:=level_object_index(doc,object_id);if index<0 do return "",false;return project_asset_resolve_owned_path(registry,doc.objects[index].model_asset_ref)}
-level_object_material_path :: proc(doc:^Level_Document,registry:^Project_Asset_Registry,object_id:string)->(string,bool) {if doc==nil do return "",false;index:=level_object_index(doc,object_id);if index<0 do return "",false;return project_asset_resolve_owned_path(registry,doc.objects[index].material_asset_ref)}
-level_object_texture_path :: proc(doc:^Level_Document,registry:^Project_Asset_Registry,object_id:string)->(string,bool) {if doc==nil do return "",false;index:=level_object_index(doc,object_id);if index<0 do return "",false;return project_asset_resolve_owned_path(registry,doc.objects[index].texture_asset_ref)}
+story_entity_appearance_path :: proc(
+	project: ^Story_Project,
+	registry: ^Project_Asset_Registry,
+	entity_id: string,
+) -> (
+	string,
+	bool,
+) {if project == nil do return "", false; index := story_entity_index(project, entity_id)
+	if index < 0 do return "", false
+	return project_asset_resolve_owned_path(
+		registry,
+		project.entities[index].appearance_model_asset_ref,
+	)}
+story_node_ui_image_path :: proc(
+	project: ^Story_Project,
+	registry: ^Project_Asset_Registry,
+	node_id: string,
+) -> (
+	string,
+	bool,
+) {index := project_asset_story_node_index(project, node_id); if index < 0 do return "", false
+	return project_asset_resolve_owned_path(registry, project.nodes[index].ui_image_asset_ref)}
+story_node_sound_path :: proc(
+	project: ^Story_Project,
+	registry: ^Project_Asset_Registry,
+	node_id: string,
+) -> (
+	string,
+	bool,
+) {index := project_asset_story_node_index(project, node_id); if index < 0 do return "", false
+	return project_asset_resolve_owned_path(registry, project.nodes[index].sound_cue_asset_ref)}
+story_node_animation_path :: proc(
+	project: ^Story_Project,
+	registry: ^Project_Asset_Registry,
+	node_id: string,
+) -> (
+	string,
+	bool,
+) {index := project_asset_story_node_index(project, node_id); if index < 0 do return "", false
+	return project_asset_resolve_owned_path(registry, project.nodes[index].animation_asset_ref)}
+story_ui_font_path :: proc(
+	project: ^Story_Project,
+	registry: ^Project_Asset_Registry,
+) -> (
+	string,
+	bool,
+) {if project == nil do return "", false; return project_asset_resolve_owned_path(
+		registry,
+		project.ui_font_asset_ref,
+	)}
+level_object_model_path :: proc(
+	doc: ^Level_Document,
+	registry: ^Project_Asset_Registry,
+	object_id: string,
+) -> (
+	string,
+	bool,
+) {if doc == nil do return "", false; index := level_object_index(doc, object_id); if index < 0 do return "", false
+	return project_asset_resolve_owned_path(registry, doc.objects[index].model_asset_ref)}
+level_object_material_path :: proc(
+	doc: ^Level_Document,
+	registry: ^Project_Asset_Registry,
+	object_id: string,
+) -> (
+	string,
+	bool,
+) {if doc == nil do return "", false; index := level_object_index(doc, object_id); if index < 0 do return "", false
+	return project_asset_resolve_owned_path(registry, doc.objects[index].material_asset_ref)}
+level_object_texture_path :: proc(
+	doc: ^Level_Document,
+	registry: ^Project_Asset_Registry,
+	object_id: string,
+) -> (
+	string,
+	bool,
+) {if doc == nil do return "", false; index := level_object_index(doc, object_id); if index < 0 do return "", false
+	return project_asset_resolve_owned_path(registry, doc.objects[index].texture_asset_ref)}
 
-project_asset_preview_source :: proc(project_root:string,registry:^Project_Asset_Registry,index:int)->(string,Project_Asset_Kind,bool) {if registry==nil||index<0||index>=len(registry.assets) do return "",{},false;asset:=registry.assets[index];path:=project_asset_record_path(project_root,asset);return path,asset.kind,os.is_file(path)}
+project_asset_preview_source :: proc(
+	project_root: string,
+	registry: ^Project_Asset_Registry,
+	index: int,
+) -> (
+	string,
+	Project_Asset_Kind,
+	bool,
+) {if registry == nil || index < 0 || index >= len(registry.assets) do return "", {}, false
+	asset := registry.assets[index]
+	path := project_asset_record_path(project_root, asset)
+	return path, asset.kind, os.is_file(path)}
 
 Project_Asset_Image_Metadata :: struct {
 	width, height: int,
-	color_space: string,
-	has_alpha: bool,
+	color_space:   string,
+	has_alpha:     bool,
 }
 
 Project_Asset_Audio_Metadata :: struct {
-	duration_seconds: f64,
+	duration_seconds:      f64,
 	channels, sample_rate: int,
 }
 
 Project_Asset_Model_Metadata :: struct {
-	bounds_min, bounds_max: [3]f32,
-	meters_per_unit: f32,
-	up_axis, forward_axis: string,
+	bounds_min, bounds_max:     [3]f32,
+	meters_per_unit:            f32,
+	up_axis, forward_axis:      string,
 	mesh_count, material_count: int,
 }
 
 Project_Asset_Animation_Metadata :: struct {
-	clip_count: int,
+	clip_count:       int,
 	duration_seconds: f64,
 }
 
 Project_Asset_Technical_Metadata :: struct {
-	format: string,
+	format:    string,
 	byte_size: u64,
-	image: Project_Asset_Image_Metadata,
-	audio: Project_Asset_Audio_Metadata,
-	model: Project_Asset_Model_Metadata,
+	image:     Project_Asset_Image_Metadata,
+	audio:     Project_Asset_Audio_Metadata,
+	model:     Project_Asset_Model_Metadata,
 	animation: Project_Asset_Animation_Metadata,
 }
 
 Project_Asset_Provenance :: struct {
 	source_uri, source_name, creator, attribution, license_id, license_text: string,
-	redistribution_permitted: bool,
+	redistribution_permitted:                                                bool,
 }
 
 Project_Asset_Record :: struct {
-	id: string,
-	kind: Project_Asset_Kind,
+	id:                                string,
+	kind:                              Project_Asset_Kind,
 	project_path, source_path, sha256: string,
-	source_mode: Project_Asset_Source_Mode,
-	embed_policy: Project_Asset_Embed_Policy,
-	provenance: Project_Asset_Provenance,
-	technical: Project_Asset_Technical_Metadata,
+	source_mode:                       Project_Asset_Source_Mode,
+	embed_policy:                      Project_Asset_Embed_Policy,
+	provenance:                        Project_Asset_Provenance,
+	technical:                         Project_Asset_Technical_Metadata,
 }
 
 Project_External_Asset_Reference :: struct {
@@ -85,13 +196,13 @@ Project_External_Asset_Reference :: struct {
 }
 
 Project_Asset_Reference :: struct {
-	kind: Project_Asset_Reference_Kind,
+	kind:     Project_Asset_Reference_Kind,
 	owned_id: string,
 	external: Project_External_Asset_Reference,
 }
 
 Project_External_Catalog_Usage :: struct {
-	reference: Project_External_Asset_Reference,
+	reference:                       Project_External_Asset_Reference,
 	document, entity_id, field_path: string,
 }
 
@@ -104,11 +215,11 @@ Project_Asset_Dependency :: struct {
 }
 
 Project_Asset_Registry :: struct {
-	assets: [dynamic]Project_Asset_Record,
-	usages: [dynamic]Project_Asset_Usage,
-	dependencies: [dynamic]Project_Asset_Dependency,
+	assets:                  [dynamic]Project_Asset_Record,
+	usages:                  [dynamic]Project_Asset_Usage,
+	dependencies:            [dynamic]Project_Asset_Dependency,
 	external_catalog_usages: [dynamic]Project_External_Catalog_Usage,
-	revision: u64,
+	revision:                u64,
 }
 
 // Asset authoring uses whole-registry snapshots deliberately. Registries are
@@ -119,8 +230,8 @@ Project_Asset_History :: struct {
 }
 
 Project_Asset_Change_Preview :: struct {
-	asset_id: string,
-	usages: [dynamic]Project_Asset_Usage,
+	asset_id:   string,
+	usages:     [dynamic]Project_Asset_Usage,
 	dependents: [dynamic]Project_Asset_Dependency,
 }
 
@@ -135,22 +246,37 @@ project_asset_id_valid :: proc(id: string) -> bool {
 	return true
 }
 
-project_external_asset_reference_valid :: proc(reference: Project_External_Asset_Reference) -> bool {
-	return reference.namespace != "" && reference.catalog_id != "" && reference.version != "" &&
-		!strings.contains(reference.namespace, ":")
+project_external_asset_reference_valid :: proc(
+	reference: Project_External_Asset_Reference,
+) -> bool {
+	return(
+		reference.namespace != "" &&
+		reference.catalog_id != "" &&
+		reference.version != "" &&
+		!strings.contains(reference.namespace, ":") \
+	)
 }
 
 project_owned_asset_reference :: proc(id: string) -> Project_Asset_Reference {
 	return {kind = .Owned, owned_id = id}
 }
 
-project_external_asset_reference :: proc(namespace, catalog_id, version: string) -> Project_Asset_Reference {
+project_external_asset_reference :: proc(
+	namespace, catalog_id, version: string,
+) -> Project_Asset_Reference {
 	return {kind = .External_Catalog, external = {namespace, catalog_id, version}}
 }
 
 // Convert a semantic authoring choice into a canonical, typed usage. This is
 // intentionally stricter than accepting arbitrary document/field strings.
-project_asset_semantic_usage :: proc(asset: Project_Asset_Record, target: Project_Asset_Semantic_Target, entity_id: string) -> (Project_Asset_Usage, Validation) {
+project_asset_semantic_usage :: proc(
+	asset: Project_Asset_Record,
+	target: Project_Asset_Semantic_Target,
+	entity_id: string,
+) -> (
+	Project_Asset_Usage,
+	Validation,
+) {
 	if entity_id == "" do return {}, {false, "semantic asset mapping requires a selected target entity"}
 	document, field := "", ""
 	switch target {
@@ -165,7 +291,8 @@ project_asset_semantic_usage :: proc(asset: Project_Asset_Record, target: Projec
 		document, field = "level", "prop.model_asset_ref"
 	case .Material:
 		if asset.kind != .Material && asset.kind != .Texture do return {}, {false, "material mappings require a material or texture asset"}
-		document, field = "level", asset.kind == .Texture ? "material.texture_asset_ref" : "material_asset_ref"
+		document, field =
+			"level", asset.kind == .Texture ? "material.texture_asset_ref" : "material_asset_ref"
 	case .UI_Image:
 		if asset.kind != .Image do return {}, {false, "UI images require an image asset"}
 		document, field = "graph", "ui.image_asset_ref"
@@ -211,27 +338,24 @@ project_asset_record_clone :: proc(asset: Project_Asset_Record) -> Project_Asset
 	result.provenance.license_id = project_asset_clone_string(asset.provenance.license_id)
 	result.provenance.license_text = project_asset_clone_string(asset.provenance.license_text)
 	result.technical.format = project_asset_clone_string(asset.technical.format)
-	result.technical.image.color_space = project_asset_clone_string(asset.technical.image.color_space)
+	result.technical.image.color_space = project_asset_clone_string(
+		asset.technical.image.color_space,
+	)
 	result.technical.model.up_axis = project_asset_clone_string(asset.technical.model.up_axis)
-	result.technical.model.forward_axis = project_asset_clone_string(asset.technical.model.forward_axis)
+	result.technical.model.forward_axis = project_asset_clone_string(
+		asset.technical.model.forward_axis,
+	)
 	return result
 }
 
 project_asset_registry_clone :: proc(registry: ^Project_Asset_Registry) -> Project_Asset_Registry {
-	result := Project_Asset_Registry{revision = registry.revision}
+	result := Project_Asset_Registry {
+		revision = registry.revision,
+	}
 	for asset in registry.assets do append(&result.assets, project_asset_record_clone(asset))
-	for usage in registry.usages do append(&result.usages, Project_Asset_Usage{
-		project_asset_clone_string(usage.asset_id), project_asset_clone_string(usage.document),
-		project_asset_clone_string(usage.entity_id), project_asset_clone_string(usage.field_path),
-	})
-	for dependency in registry.dependencies do append(&result.dependencies, Project_Asset_Dependency{
-		project_asset_clone_string(dependency.asset_id), project_asset_clone_string(dependency.depends_on_id),
-		project_asset_clone_string(dependency.purpose),
-	})
-	for usage in registry.external_catalog_usages do append(&result.external_catalog_usages, Project_External_Catalog_Usage{
-		{project_asset_clone_string(usage.reference.namespace), project_asset_clone_string(usage.reference.catalog_id), project_asset_clone_string(usage.reference.version)},
-		project_asset_clone_string(usage.document), project_asset_clone_string(usage.entity_id), project_asset_clone_string(usage.field_path),
-	})
+	for usage in registry.usages do append(&result.usages, Project_Asset_Usage{project_asset_clone_string(usage.asset_id), project_asset_clone_string(usage.document), project_asset_clone_string(usage.entity_id), project_asset_clone_string(usage.field_path)})
+	for dependency in registry.dependencies do append(&result.dependencies, Project_Asset_Dependency{project_asset_clone_string(dependency.asset_id), project_asset_clone_string(dependency.depends_on_id), project_asset_clone_string(dependency.purpose)})
+	for usage in registry.external_catalog_usages do append(&result.external_catalog_usages, Project_External_Catalog_Usage{{project_asset_clone_string(usage.reference.namespace), project_asset_clone_string(usage.reference.catalog_id), project_asset_clone_string(usage.reference.version)}, project_asset_clone_string(usage.document), project_asset_clone_string(usage.entity_id), project_asset_clone_string(usage.field_path)})
 	return result
 }
 
@@ -249,37 +373,53 @@ project_asset_history_destroy :: proc(history: ^Project_Asset_History) {
 
 // Begin before a UI mutation. Call cancel if validation or filesystem work
 // fails; otherwise the snapshot becomes one undo step.
-project_asset_history_begin :: proc(history: ^Project_Asset_History, registry: ^Project_Asset_Registry) {
+project_asset_history_begin :: proc(
+	history: ^Project_Asset_History,
+	registry: ^Project_Asset_Registry,
+) {
 	append(&history.undo, project_asset_registry_clone(registry))
 	project_asset_history_clear(&history.redo)
 }
 
-project_asset_history_cancel :: proc(history: ^Project_Asset_History, registry: ^Project_Asset_Registry) -> bool {
+project_asset_history_cancel :: proc(
+	history: ^Project_Asset_History,
+	registry: ^Project_Asset_Registry,
+) -> bool {
 	if len(history.undo) == 0 do return false
 	project_asset_registry_destroy(registry)
-	last := len(history.undo)-1
+	last := len(history.undo) - 1
 	registry^ = history.undo[last]
 	ordered_remove(&history.undo, last)
 	return true
 }
 
-project_asset_history_restore :: proc(history: ^Project_Asset_History, registry: ^Project_Asset_Registry, undo: bool) -> bool {
+project_asset_history_restore :: proc(
+	history: ^Project_Asset_History,
+	registry: ^Project_Asset_Registry,
+	undo: bool,
+) -> bool {
 	source := undo ? &history.undo : &history.redo
 	destination := undo ? &history.redo : &history.undo
 	if len(source^) == 0 do return false
 	append(destination, project_asset_registry_clone(registry))
 	project_asset_registry_destroy(registry)
-	last := len(source^)-1
+	last := len(source^) - 1
 	registry^ = source^[last]
 	ordered_remove(source, last)
 	return true
 }
 
-project_asset_history_undo :: proc(history: ^Project_Asset_History, registry: ^Project_Asset_Registry) -> bool {
+project_asset_history_undo :: proc(
+	history: ^Project_Asset_History,
+	registry: ^Project_Asset_Registry,
+) -> bool {
 	return project_asset_history_restore(history, registry, true)
 }
 
-project_asset_history_redo :: proc(history: ^Project_Asset_History, registry: ^Project_Asset_Registry) -> bool {
+project_asset_history_redo :: proc(
+	history: ^Project_Asset_History,
+	registry: ^Project_Asset_Registry,
+) -> bool {
 	return project_asset_history_restore(history, registry, false)
 }
 
@@ -305,7 +445,10 @@ project_asset_validate_record :: proc(asset: Project_Asset_Record) -> Validation
 	return {true, "ASSET VALID"}
 }
 
-project_asset_registry_add :: proc(registry: ^Project_Asset_Registry, asset: Project_Asset_Record) -> Validation {
+project_asset_registry_add :: proc(
+	registry: ^Project_Asset_Registry,
+	asset: Project_Asset_Record,
+) -> Validation {
 	if valid := project_asset_validate_record(asset); !valid.ok do return valid
 	if project_asset_index(registry, asset.id) >= 0 do return {false, "asset ID already exists"}
 	if duplicate := project_asset_hash_index(registry, asset.sha256); duplicate >= 0 do return {false, "asset content already exists under another stable ID"}
@@ -314,7 +457,10 @@ project_asset_registry_add :: proc(registry: ^Project_Asset_Registry, asset: Pro
 	return {true, "ASSET ADDED"}
 }
 
-project_asset_registry_register_usage :: proc(registry: ^Project_Asset_Registry, usage: Project_Asset_Usage) -> bool {
+project_asset_registry_register_usage :: proc(
+	registry: ^Project_Asset_Registry,
+	usage: Project_Asset_Usage,
+) -> bool {
 	if project_asset_index(registry, usage.asset_id) < 0 || usage.document == "" || usage.field_path == "" do return false
 	for known in registry.usages do if known == usage do return true
 	append(&registry.usages, usage)
@@ -322,7 +468,10 @@ project_asset_registry_register_usage :: proc(registry: ^Project_Asset_Registry,
 	return true
 }
 
-project_asset_registry_register_dependency :: proc(registry: ^Project_Asset_Registry, dependency: Project_Asset_Dependency) -> bool {
+project_asset_registry_register_dependency :: proc(
+	registry: ^Project_Asset_Registry,
+	dependency: Project_Asset_Dependency,
+) -> bool {
 	if dependency.asset_id == dependency.depends_on_id || project_asset_index(registry, dependency.asset_id) < 0 || project_asset_index(registry, dependency.depends_on_id) < 0 do return false
 	for known in registry.dependencies do if known == dependency do return true
 	append(&registry.dependencies, dependency)
@@ -330,7 +479,10 @@ project_asset_registry_register_dependency :: proc(registry: ^Project_Asset_Regi
 	return true
 }
 
-project_asset_registry_register_external_catalog_usage :: proc(registry: ^Project_Asset_Registry, usage: Project_External_Catalog_Usage) -> Validation {
+project_asset_registry_register_external_catalog_usage :: proc(
+	registry: ^Project_Asset_Registry,
+	usage: Project_External_Catalog_Usage,
+) -> Validation {
 	if registry == nil || !project_external_asset_reference_valid(usage.reference) do return {false, "external catalog reference requires a namespace, catalog ID, and pinned version"}
 	if usage.document == "" || usage.entity_id == "" || usage.field_path == "" do return {false, "external catalog reference requires a typed consumer location"}
 	for known in registry.external_catalog_usages do if known == usage do return {true, "EXTERNAL CATALOG REFERENCE ALREADY REGISTERED"}
@@ -339,8 +491,13 @@ project_asset_registry_register_external_catalog_usage :: proc(registry: ^Projec
 	return {true, "EXTERNAL CATALOG REFERENCE REGISTERED"}
 }
 
-project_asset_change_preview :: proc(registry: ^Project_Asset_Registry, id: string) -> Project_Asset_Change_Preview {
-	result := Project_Asset_Change_Preview{asset_id = id}
+project_asset_change_preview :: proc(
+	registry: ^Project_Asset_Registry,
+	id: string,
+) -> Project_Asset_Change_Preview {
+	result := Project_Asset_Change_Preview {
+		asset_id = id,
+	}
 	for usage in registry.usages do if usage.asset_id == id do append(&result.usages, usage)
 	for dependency in registry.dependencies do if dependency.depends_on_id == id do append(&result.dependents, dependency)
 	return result
@@ -352,7 +509,11 @@ project_asset_change_preview_destroy :: proc(preview: ^Project_Asset_Change_Prev
 	preview^ = {}
 }
 
-project_asset_registry_replace :: proc(registry: ^Project_Asset_Registry, id: string, replacement: Project_Asset_Record) -> Validation {
+project_asset_registry_replace :: proc(
+	registry: ^Project_Asset_Registry,
+	id: string,
+	replacement: Project_Asset_Record,
+) -> Validation {
 	index := project_asset_index(registry, id)
 	if index < 0 do return {false, "asset does not exist"}
 	if replacement.id != id do return {false, "replacement must preserve the stable asset ID"}
@@ -364,10 +525,16 @@ project_asset_registry_replace :: proc(registry: ^Project_Asset_Registry, id: st
 	return {true, "ASSET REPLACED"}
 }
 
-project_asset_registry_remove :: proc(registry: ^Project_Asset_Registry, id: string) -> Validation {
+project_asset_registry_remove :: proc(
+	registry: ^Project_Asset_Registry,
+	id: string,
+) -> Validation {
 	index := project_asset_index(registry, id)
 	if index < 0 do return {false, "asset does not exist"}
-	preview := project_asset_change_preview(registry, id); defer project_asset_change_preview_destroy(&preview)
+	preview := project_asset_change_preview(
+		registry,
+		id,
+	); defer project_asset_change_preview_destroy(&preview)
 	if len(preview.usages) > 0 || len(preview.dependents) > 0 do return {false, "asset is still used; inspect the dependency preview before removal"}
 	ordered_remove(&registry.assets, index)
 	for dependency_index := len(registry.dependencies) - 1; dependency_index >= 0; dependency_index -= 1 do if registry.dependencies[dependency_index].asset_id == id do ordered_remove(&registry.dependencies, dependency_index)
@@ -375,19 +542,26 @@ project_asset_registry_remove :: proc(registry: ^Project_Asset_Registry, id: str
 	return {true, "ASSET REMOVED"}
 }
 
-project_asset_package_size_report :: proc(registry: ^Project_Asset_Registry) -> Project_Asset_Package_Size_Report {
+project_asset_package_size_report :: proc(
+	registry: ^Project_Asset_Registry,
+) -> Project_Asset_Package_Size_Report {
 	result: Project_Asset_Package_Size_Report
 	for asset in registry.assets {
 		switch asset.embed_policy {
-		case .Embed: result.embedded_bytes += asset.technical.byte_size; result.embedded_count += 1
-		case .External: result.external_bytes += asset.technical.byte_size; result.external_count += 1
-		case .Prohibited: result.prohibited_bytes += asset.technical.byte_size; result.prohibited_count += 1
+		case .Embed:
+			result.embedded_bytes += asset.technical.byte_size; result.embedded_count += 1
+		case .External:
+			result.external_bytes += asset.technical.byte_size; result.external_count += 1
+		case .Prohibited:
+			result.prohibited_bytes += asset.technical.byte_size; result.prohibited_count += 1
 		}
 	}
 	return result
 }
 
-project_asset_registry_diagnostics :: proc(registry: ^Project_Asset_Registry) -> [dynamic]Authoring_Diagnostic {
+project_asset_registry_diagnostics :: proc(
+	registry: ^Project_Asset_Registry,
+) -> [dynamic]Authoring_Diagnostic {
 	result: [dynamic]Authoring_Diagnostic
 	for asset in registry.assets {
 		valid := project_asset_validate_record(asset)

@@ -1,5 +1,6 @@
 {
   "case_id": "the_torn_appointment",
+  "post_conversion_authored": true,
   "case_path": "tests/fixtures/legacy/cases/the_torn_appointment.toml",
   "generated_ids": {
     "story:condition:always": "condition.always"

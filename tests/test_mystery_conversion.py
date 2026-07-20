@@ -26,8 +26,14 @@ class MysteryConversionTests(unittest.TestCase):
                     check=True,
                 )
                 checked_story = Path(str(checked_report_path).removesuffix(".conversion.json"))
-                self.assertEqual(output.read_bytes(), checked_story.read_bytes())
                 generated = json.loads(report.read_text())
+                # The reference vertical slice is now maintained as authored
+                # InteractiveStory source. Keep exercising its legacy converter
+                # for warnings, but do not overwrite later hand-authored work.
+                if checked_report.get("post_conversion_authored"):
+                    self.assertEqual(generated["warnings"], [])
+                    continue
+                self.assertEqual(output.read_bytes(), checked_story.read_bytes())
                 self.assertEqual(generated["sha256"], checked_report["sha256"])
                 self.assertEqual(generated["preserved_ids"], checked_report["preserved_ids"])
                 self.assertEqual(generated["generated_ids"], checked_report["generated_ids"])

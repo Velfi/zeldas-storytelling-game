@@ -1,5 +1,7 @@
 # Remove numeric and coordinate capture fixtures
 
+Status: Complete (2026-07-20)
+
 ## Goal
 
 Make capture and visual-test setup resolve authored IDs and camera/staging markers rather than entity array indices or world coordinates.
@@ -26,4 +28,3 @@ Make capture and visual-test setup resolve authored IDs and camera/staging marke
 - No capture mode assigns a numeric entity/interactive index or hardcoded world transform.
 - Every capture fails clearly when its authored fixture is missing.
 - Representative dialogue, shutter, officer, context, and character captures render successfully.
-
