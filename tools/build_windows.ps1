@@ -36,12 +36,13 @@ try {
     # CRT (/MT), which makes the two targets impossible to link together.
     Invoke-Native { cmake -S "$engine\third_party\jolt" -B "$engine\third_party\jolt\build-windows" -A x64 -DUSE_STATIC_MSVC_RUNTIME_LIBRARY=OFF }
     Invoke-Native { cmake --build "$engine\third_party\jolt\build-windows" --config Release --target zelda_physics }
-    $physics = Get-ChildItem "$engine\third_party\jolt\build-windows" -Recurse -Filter zelda_physics.lib | Select-Object -First 1
-    if (-not $physics) { throw "zelda_physics.lib was not produced" }
-    Copy-Item $physics.FullName "$engine\third_party\jolt\zelda_physics.lib" -Force
-    $physicsDll = Get-ChildItem "$engine\third_party\jolt\build-windows" -Recurse -Filter zelda_physics.dll | Select-Object -First 1
-    if (-not $physicsDll) { throw "zelda_physics.dll was not produced" }
-    Copy-Item $physicsDll.FullName "$build\zelda_physics.dll" -Force
+    $physicsOutput = Join-Path $engine "third_party\jolt\Release"
+    $physics = Join-Path $physicsOutput "zelda_physics.lib"
+    if (-not (Test-Path $physics)) { throw "zelda_physics.lib was not produced at $physics" }
+    Copy-Item $physics "$engine\third_party\jolt\zelda_physics.lib" -Force
+    $physicsDll = Join-Path $physicsOutput "zelda_physics.dll"
+    if (-not (Test-Path $physicsDll)) { throw "zelda_physics.dll was not produced at $physicsDll" }
+    Copy-Item $physicsDll "$build\zelda_physics.dll" -Force
 
     Invoke-Native { cl /nologo /O2 /c "$engine\third_party\textshape\textshape.c" "/I$installed\include" "/Fo$engine\third_party\textshape\textshape.obj" }
     Invoke-Native { lib /nologo "/OUT:$engine\third_party\textshape\textshape.lib" "$engine\third_party\textshape\textshape.obj" }

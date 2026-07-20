@@ -34,7 +34,7 @@ jobs:
           token: ${{ secrets.ZELDA_ENGINE_TOKEN || github.token }}
 
       - name: Install build dependencies
-        run: brew install odin cmake pkg-config harfbuzz freetype molten-vk vulkan-loader
+        run: brew install odin cmake pkg-config harfbuzz freetype molten-vk vulkan-loader sdl3
 
       - name: Build Zelda Engine native libraries
         shell: bash

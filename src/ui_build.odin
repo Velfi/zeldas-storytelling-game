@@ -83,28 +83,247 @@ vk_editor_measure_badge :: proc(
 	vulkan_ui_outline(r, x, y, width, 24, color, 1)
 	vk_editor_text(r, x + 8, y + 6, label, color, .42)}
 
+vk_draw_box_selection_overlay :: proc(r: ^Vulkan_Backend, g: ^Game) {
+	if !editor_state.box_select_active do return
+	a, a_ok := editor_world_screen(g, editor_state.box_select_start)
+	b, b_ok := editor_world_screen(g, editor_state.box_select_current)
+	if !a_ok || !b_ok do return
+	x, y := min(a.x, b.x), min(a.y, b.y)
+	w, h := math.abs(a.x - b.x), math.abs(a.y - b.y)
+	vulkan_ui_rect(r, x, y, w, h, {82, 190, 224, 32})
+	vulkan_ui_outline(r, x, y, w, h, {102, 205, 235, 255}, 2)
+}
+
+vk_draw_navigation_debug_overlay :: proc(r: ^Vulkan_Backend, g: ^Game) {
+	if editor_state.view != .Collision && editor_state.view != .Navmesh do return
+	for i in 0 ..< HOUSE_NAV_CELLS {
+		walkable := house_nav_walkable[i]
+		if editor_state.view == .Collision && walkable do continue
+		if editor_state.view == .Navmesh && !walkable do continue
+		center := nav_cell_center(i)
+		a, a_ok := editor_world_screen(
+			g,
+			{center.x - HOUSE_NAV_CELL * .45, center.y - HOUSE_NAV_CELL * .45},
+		)
+		b, b_ok := editor_world_screen(
+			g,
+			{center.x + HOUSE_NAV_CELL * .45, center.y + HOUSE_NAV_CELL * .45},
+		)
+		if !a_ok || !b_ok do continue
+		color := editor_state.view == .Navmesh ? [4]u8{70, 224, 140, 72} : [4]u8{244, 91, 91, 92}
+		vulkan_ui_rect(
+			r,
+			min(a.x, b.x),
+			min(a.y, b.y),
+			math.abs(a.x - b.x),
+			math.abs(a.y - b.y),
+			color,
+		)
+	}
+}
+
+vk_draw_light_debug_overlay :: proc(r: ^Vulkan_Backend, g: ^Game) {
+	if editor_state.view != .Lighting && g.build_tool != .Light do return
+	for light in level_document.lights {
+		if light.story != level_document.active_story do continue
+		screen, visible := editor_world_screen(g, light.position)
+		if !visible do continue
+		edge, _ := editor_world_screen(g, {light.position.x + light.range, light.position.y})
+		radius := max(10, math.abs(edge.x - screen.x))
+		selected :=
+			editor_state.selection_count > 0 &&
+			editor_state.selection[0].kind == .Light &&
+			editor_state.selection[0].entity_id == light.id
+		color := light.color
+		color[3] = selected ? u8(230) : u8(78)
+		segments := 48
+		for segment in 0 ..< segments {
+			a := f32(segment) * f32(math.PI * 2) / f32(segments)
+			b := f32(segment + 1) * f32(math.PI * 2) / f32(segments)
+			vk_editor_line(
+				r,
+				{
+					screen.x + f32(math.cos(f64(a))) * radius,
+					screen.y + f32(math.sin(f64(a))) * radius,
+				},
+				{
+					screen.x + f32(math.cos(f64(b))) * radius,
+					screen.y + f32(math.sin(f64(b))) * radius,
+				},
+				color,
+				selected ? 2 : 1,
+			)
+		}
+		vulkan_ui_rect(r, screen.x - 7, screen.y - 7, 14, 14, {255, 244, 190, 235})
+		vulkan_ui_outline(
+			r,
+			screen.x - 7,
+			screen.y - 7,
+			14,
+			14,
+			selected ? [4]u8{102, 205, 235, 255} : [4]u8{144, 112, 54, 255},
+			selected ? 3 : 1,
+		)
+		if light.kind == .Spot {
+			angle := light.facing * f32(math.PI) / 180
+			tip := Vec2 {
+				screen.x + f32(math.cos(f64(angle))) * radius,
+				screen.y + f32(math.sin(f64(angle))) * radius,
+			}
+			vk_editor_line(r, screen, tip, color, 2)
+		}
+	}
+}
+
+vk_draw_stories_below_overlay :: proc(r: ^Vulkan_Backend, g: ^Game) {
+	if editor_state.view != .Stories_Below do return
+	for room in level_document.rooms {
+		if room.story >= level_document.active_story do continue
+		alpha := u8(max(45, 150 - (level_document.active_story - room.story) * 35))
+		for point, i in room.points {
+			next := room.points[(i + 1) % len(room.points)]
+			a, a_ok := editor_world_screen(g, point)
+			b, b_ok := editor_world_screen(g, next)
+			if a_ok && b_ok do vk_editor_line(r, a, b, {119, 190, 213, alpha}, 2)
+		}
+	}
+}
+
+vk_draw_terrain_brush_overlay :: proc(r: ^Vulkan_Backend, g: ^Game) {
+	if g.build_tool != .Terrain do return
+	center := editor_state.terrain_stroke_current
+	if !editor_state.terrain_stroke_active {
+		wx, wy, ok := editor_mouse_ground(g, g.input.mouse_pos)
+		if ok do center = {wx, wy}
+	}
+	effective_mode := editor_effective_terrain_mode(
+		editor_state.terrain_mode,
+		g.keys[.LCTRL] || g.keys[.RCTRL],
+	)
+	brush_color := [4]u8{102, 205, 143, 255}
+	#partial switch effective_mode {
+	case .Lower:
+		brush_color = {255, 144, 119, 255}
+	case .Smooth:
+		brush_color = {119, 190, 213, 255}
+	case .Flatten:
+		brush_color = {255, 211, 92, 255}
+	case .Slope:
+		brush_color = {186, 139, 214, 255}
+	}
+	for segment in 0 ..< 24 {
+		angle := f32(segment) * f32(math.PI * 2) / 24
+		point := Vec2 {
+			center.x + f32(math.cos(f64(angle))) * editor_state.terrain_radius,
+			center.y + f32(math.sin(f64(angle))) * editor_state.terrain_radius,
+		}
+		screen, visible := editor_world_screen(g, point)
+		if visible && editor_viewport_contains(screen, g.build_tool) do vulkan_ui_rect(r, screen.x - 2, screen.y - 2, 4, 4, brush_color)
+	}
+	if editor_state.terrain_stroke_active {
+		for segment in 0 ..= 16 {
+			t := f32(segment) / 16
+			point := Vec2 {
+				editor_state.terrain_stroke_start.x +
+				(editor_state.terrain_stroke_current.x - editor_state.terrain_stroke_start.x) * t,
+				editor_state.terrain_stroke_start.y +
+				(editor_state.terrain_stroke_current.y - editor_state.terrain_stroke_start.y) * t,
+			}
+			screen, visible := editor_world_screen(g, point)
+			if visible && editor_viewport_contains(screen, g.build_tool) do vulkan_ui_rect(r, screen.x - 3, screen.y - 3, 6, 6, brush_color)
+		}
+	}
+}
+
+vk_draw_object_rotation_overlay :: proc(r: ^Vulkan_Backend, g: ^Game) {
+	if editor_state.selection_count != 1 || editor_state.selection[0].kind != .Object || editor_state.drag_active do return
+	index := level_object_index(&level_document, editor_state.selection[0].entity_id)
+	if index < 0 do return
+	object := level_document.objects[index]
+	angle :=
+		editor_state.object_rotate_active ? editor_state.object_rotate_preview : object.rotation
+	handle, visible := editor_object_rotate_handle_rect(g, angle)
+	center, center_visible := editor_world_screen(g, object.position)
+	if !visible || !center_visible do return
+	handle_center := Vec2{handle.x + handle.w * .5, handle.y + handle.h * .5}
+	color :=
+		editor_state.object_rotate_active ? [4]u8{117, 229, 169, 255} : [4]u8{255, 218, 112, 255}
+	vk_editor_line(r, center, handle_center, color, 2)
+	vulkan_ui_rect(r, handle.x, handle.y, handle.w, handle.h, {24, 31, 38, 245})
+	vulkan_ui_outline(r, handle.x, handle.y, handle.w, handle.h, color, 3)
+	if editor_state.object_rotate_active {
+		vk_editor_measure_badge(
+			r,
+			center,
+			handle_center,
+			fmt.tprintf("ANGLE %d°  ·  ALT FREE", int(angle) % 360),
+			color,
+		)
+	} else {
+		vk_editor_action_tooltip(
+			r,
+			handle,
+			"DRAG TO ROTATE · 15° SNAP · ALT FREE",
+			g.input.mouse_pos,
+		)
+	}
+}
+
+vk_draw_multi_selection_overlay :: proc(r: ^Vulkan_Backend, g: ^Game) {
+	if editor_state.selection_count <= 1 do return
+	for selection, i in editor_state.selection[:editor_state.selection_count] {
+		position, ok := level_selection_position(&level_document, selection)
+		if !ok do continue
+		screen, visible := editor_world_screen(g, position)
+		if !visible do continue
+		vulkan_ui_rect(r, screen.x - 8, screen.y - 8, 16, 16, {30, 42, 50, 220})
+		vulkan_ui_outline(r, screen.x - 8, screen.y - 8, 16, 16, {102, 205, 235, 255}, 2)
+		vk_editor_text(
+			r,
+			screen.x - 3,
+			screen.y - 6,
+			fmt.tprintf("%d", i + 1),
+			{255, 255, 255, 255},
+			.25,
+		)
+	}
+}
+
+vk_draw_marker_overlay :: proc(r: ^Vulkan_Backend, g: ^Game) {
+	if g.build_tool != .Marker && editor_state.view != .Markers do return
+	for marker in level_document.markers {
+		if marker.story != level_document.active_story do continue
+		screen, visible := editor_world_screen(g, marker.position)
+		if !visible || !editor_viewport_contains(screen, g.build_tool) do continue
+		selected :=
+			editor_state.selection_count > 0 &&
+			editor_state.selection[0].kind == .Marker &&
+			editor_state.selection[0].entity_id == marker.id
+		icon := MARKER_KIND_ICONS[int(marker.kind)]
+		vk_level_icon_button(r, {screen.x - 14, screen.y - 14, 28, 28}, icon[0], icon[1], selected)
+		if marker.radius > .1 {
+			edge, _ := editor_world_screen(
+				g,
+				{marker.position.x + marker.radius, marker.position.y},
+			)
+			vk_editor_line(
+				r,
+				{screen.x, screen.y + 17},
+				{edge.x, screen.y + 17},
+				selected ? [4]u8{255, 218, 112, 210} : [4]u8{102, 205, 225, 155},
+				1,
+			)
+		}
+	}
+}
+
 vk_draw_build_overlay :: proc(r: ^Vulkan_Backend, g: ^Game) {
 	editor_ui_mouse = g.input.mouse_pos
-	if editor_state.box_select_active {a, a_ok := editor_world_screen(g, editor_state.box_select_start); b, b_ok := editor_world_screen(g, editor_state.box_select_current); if a_ok && b_ok {x, y := min(a.x, b.x), min(a.y, b.y); w, h := math.abs(a.x - b.x), math.abs(a.y - b.y); vulkan_ui_rect(r, x, y, w, h, {82, 190, 224, 32}); vulkan_ui_outline(r, x, y, w, h, {102, 205, 235, 255}, 2)}}
-	if editor_state.view == .Collision ||
-	   editor_state.view ==
-		   .Navmesh {for i in 0 ..< HOUSE_NAV_CELLS {walkable := house_nav_walkable[i]; if editor_state.view == .Collision && walkable do continue; if editor_state.view == .Navmesh && !walkable do continue; center := nav_cell_center(i); a, a_ok := editor_world_screen(g, {center.x - HOUSE_NAV_CELL * .45, center.y - HOUSE_NAV_CELL * .45}); b, b_ok := editor_world_screen(g, {center.x + HOUSE_NAV_CELL * .45, center.y + HOUSE_NAV_CELL * .45}); if a_ok && b_ok {color := editor_state.view == .Navmesh ? [4]u8{70, 224, 140, 72} : [4]u8{244, 91, 91, 92}; vulkan_ui_rect(r, min(a.x, b.x), min(a.y, b.y), math.abs(a.x - b.x), math.abs(a.y - b.y), color)}}}
-	if editor_state.view == .Lighting ||
-	   g.build_tool ==
-		   .Light {for light in level_document.lights {if light.story != level_document.active_story do continue; screen, visible := editor_world_screen(g, light.position); if !visible do continue; edge, _ := editor_world_screen(g, {light.position.x + light.range, light.position.y}); radius := max(10, math.abs(edge.x - screen.x)); selected := editor_state.selection_count > 0 && editor_state.selection[0].kind == .Light && editor_state.selection[0].entity_id == light.id; color := light.color; color[3] = selected ? u8(230) : u8(78); segments := 48; for segment in 0 ..< segments {a := f32(segment) * f32(math.PI * 2) / f32(segments); b := f32(segment + 1) * f32(math.PI * 2) / f32(segments); vk_editor_line(r, {screen.x + f32(math.cos(f64(a))) * radius, screen.y + f32(math.sin(f64(a))) * radius}, {screen.x + f32(math.cos(f64(b))) * radius, screen.y + f32(math.sin(f64(b))) * radius}, color, selected ? 2 : 1)}; vulkan_ui_rect(r, screen.x - 7, screen.y - 7, 14, 14, {255, 244, 190, 235}); vulkan_ui_outline(r, screen.x - 7, screen.y - 7, 14, 14, selected ? [4]u8{102, 205, 235, 255} : [4]u8{144, 112, 54, 255}, selected ? 3 : 1); if light.kind == .Spot {angle := light.facing * f32(math.PI) / 180; tip := Vec2{screen.x + f32(math.cos(f64(angle))) * radius, screen.y + f32(math.sin(f64(angle))) * radius}; vk_editor_line(r, screen, tip, color, 2)}}}
-	if editor_state.view ==
-	   .Stories_Below {for room in level_document.rooms {if room.story >= level_document.active_story do continue; alpha := u8(max(45, 150 - (level_document.active_story - room.story) * 35)); for point, i in room.points {next := room.points[(i + 1) % len(room.points)]; a, a_ok := editor_world_screen(g, point); b, b_ok := editor_world_screen(g, next); if a_ok && b_ok do vk_editor_line(r, a, b, {119, 190, 213, alpha}, 2)}}}
-	if g.build_tool ==
-	   .Terrain {center := editor_state.terrain_stroke_current; if !editor_state.terrain_stroke_active {wx, wy, ok := editor_mouse_ground(g, g.input.mouse_pos); if ok do center = {wx, wy}}; effective_mode := editor_effective_terrain_mode(editor_state.terrain_mode, g.keys[.LCTRL] || g.keys[.RCTRL]); brush_color := [4]u8{102, 205, 143, 255}; #partial switch effective_mode {case .Lower:
-			brush_color = {255, 144, 119, 255}; case .Smooth:
-			brush_color = {119, 190, 213, 255}; case .Flatten:
-			brush_color = {255, 211, 92, 255}; case .Slope:
-			brush_color = {
-				186,
-				139,
-				214,
-				255,
-			}}; for segment in 0 ..< 24 {angle := f32(segment) * f32(math.PI * 2) / 24; point := Vec2{center.x + f32(math.cos(f64(angle))) * editor_state.terrain_radius, center.y + f32(math.sin(f64(angle))) * editor_state.terrain_radius}; screen, visible := editor_world_screen(g, point); if visible && editor_viewport_contains(screen, g.build_tool) do vulkan_ui_rect(r, screen.x - 2, screen.y - 2, 4, 4, brush_color)}; if editor_state.terrain_stroke_active {for segment in 0 ..= 16 {t := f32(segment) / 16; point := Vec2{editor_state.terrain_stroke_start.x + (editor_state.terrain_stroke_current.x - editor_state.terrain_stroke_start.x) * t, editor_state.terrain_stroke_start.y + (editor_state.terrain_stroke_current.y - editor_state.terrain_stroke_start.y) * t}; screen, visible := editor_world_screen(g, point); if visible && editor_viewport_contains(screen, g.build_tool) do vulkan_ui_rect(r, screen.x - 3, screen.y - 3, 6, 6, brush_color)}}}
+	vk_draw_box_selection_overlay(r, g)
+	vk_draw_navigation_debug_overlay(r, g)
+	vk_draw_light_debug_overlay(r, g)
+	vk_draw_stories_below_overlay(r, g)
+	vk_draw_terrain_brush_overlay(r, g)
 	if editor_state.selection_count > 0 && !editor_state.drag_active {
 		selected := editor_state.selection[0]
 		if selected.kind == .Room ||
@@ -126,17 +345,11 @@ vk_draw_build_overlay :: proc(r: ^Vulkan_Backend, g: ^Game) {
 		if selected.kind ==
 		   .Vertical_Link {index := level_vertical_link_index(&level_document, selected.entity_id); if index >= 0 {link := level_document.vertical_links[index]; start, start_visible := editor_world_screen(g, link.start); finish, finish_visible := editor_world_screen(g, link.finish); if start_visible && finish_visible {vk_editor_line(r, start, finish, {186, 139, 235, 255}, 6); points := [2]Vec2{start, finish}; selected_point := editor_control_point_index(selected); for point, i in points {on := selected_point == i; vulkan_ui_rect(r, point.x - (on ? 9 : 7), point.y - (on ? 9 : 7), on ? 18 : 14, on ? 18 : 14, on ? [4]u8{117, 229, 169, 255} : [4]u8{255, 218, 112, 255}); vulkan_ui_outline(r, point.x - (on ? 9 : 7), point.y - (on ? 9 : 7), on ? 18 : 14, on ? 18 : 14, {20, 28, 34, 255}, on ? 2 : 1)}}}}
 	}
-	if editor_state.selection_count == 1 &&
-	   editor_state.selection[0].kind == .Object &&
-	   !editor_state.drag_active {index := level_object_index(&level_document, editor_state.selection[0].entity_id); if index >= 0 {object := level_document.objects[index]; angle := editor_state.object_rotate_active ? editor_state.object_rotate_preview : object.rotation; handle, visible := editor_object_rotate_handle_rect(g, angle); center, center_visible := editor_world_screen(g, object.position); if visible && center_visible {handle_center := Vec2{handle.x + handle.w * .5, handle.y + handle.h * .5}; color := editor_state.object_rotate_active ? [4]u8{117, 229, 169, 255} : [4]u8{255, 218, 112, 255}; vk_editor_line(r, center, handle_center, color, 2); vulkan_ui_rect(r, handle.x, handle.y, handle.w, handle.h, {24, 31, 38, 245}); vulkan_ui_outline(r, handle.x, handle.y, handle.w, handle.h, color, 3); if editor_state.object_rotate_active do vk_editor_measure_badge(r, center, handle_center, fmt.tprintf("ANGLE %d°  ·  ALT FREE", int(angle) % 360), color)
-				else do vk_editor_action_tooltip(r, handle, "DRAG TO ROTATE · 15° SNAP · ALT FREE", g.input.mouse_pos)}}}
-	if editor_state.selection_count >
-	   1 {for selection, i in editor_state.selection[:editor_state.selection_count] {position, ok := level_selection_position(&level_document, selection); if !ok do continue; screen, visible := editor_world_screen(g, position); if visible {vulkan_ui_rect(r, screen.x - 8, screen.y - 8, 16, 16, {30, 42, 50, 220}); vulkan_ui_outline(r, screen.x - 8, screen.y - 8, 16, 16, {102, 205, 235, 255}, 2); vk_editor_text(r, screen.x - 3, screen.y - 6, fmt.tprintf("%d", i + 1), {255, 255, 255, 255}, .25)}}}
+	vk_draw_object_rotation_overlay(r, g)
+	vk_draw_multi_selection_overlay(r, g)
 	// Gameplay bindings stay visible as compact atlas-backed pins instead of
 	// requiring a permanent marker panel over the lot.
-	if g.build_tool == .Marker ||
-	   editor_state.view ==
-		   .Markers {for marker in level_document.markers {if marker.story != level_document.active_story do continue; screen, visible := editor_world_screen(g, marker.position); if !visible || !editor_viewport_contains(screen, g.build_tool) do continue; selected := editor_state.selection_count > 0 && editor_state.selection[0].kind == .Marker && editor_state.selection[0].entity_id == marker.id; icon := MARKER_KIND_ICONS[int(marker.kind)]; vk_level_icon_button(r, {screen.x - 14, screen.y - 14, 28, 28}, icon[0], icon[1], selected); if marker.radius > .1 {edge, _ := editor_world_screen(g, {marker.position.x + marker.radius, marker.position.y}); vk_editor_line(r, {screen.x, screen.y + 17}, {edge.x, screen.y + 17}, selected ? [4]u8{255, 218, 112, 210} : [4]u8{102, 205, 225, 155}, 1)}}}
+	vk_draw_marker_overlay(r, g)
 	if g.build_tool == .Room &&
 	   editor_state.room_rectangle_active {a, b := editor_state.room_rectangle_start, editor_state.room_rectangle_current; corners := [4]Vec2{{a.x, a.y}, {b.x, a.y}, {b.x, b.y}, {a.x, b.y}}; state := editor_state.room_rectangle_preview.state; color := state == .Blocked ? [4]u8{255, 144, 119, 255} : state == .Warning ? [4]u8{255, 210, 112, 255} : [4]u8{102, 225, 143, 255}; for point, i in corners {next := corners[(i + 1) % 4]; screen, visible := editor_world_screen(g, point); next_screen, next_visible := editor_world_screen(g, next); if visible && next_visible do vk_editor_line(r, screen, next_screen, color, 3); if visible do vulkan_ui_rect(r, screen.x - 5, screen.y - 5, 10, 10, color)}; center := Vec2{(a.x + b.x) * .5, (a.y + b.y) * .5}; center_screen, visible := editor_world_screen(g, center); if visible {width, height := math.abs(b.x - a.x), math.abs(b.y - a.y); label := state == .Blocked ? editor_state.room_rectangle_preview.message : fmt.tprintf("%.2fm × %.2fm  ·  %.1f SQM", width, height, width * height); label_width := f32(utf8_glyph_count(label)) * 7 + 18; vulkan_ui_rect(r, center_screen.x - label_width * .5, center_screen.y - 14, label_width, 28, {10, 14, 18, 230}); vulkan_ui_outline(r, center_screen.x - label_width * .5, center_screen.y - 14, label_width, 28, color, 1); vk_editor_text(r, center_screen.x - label_width * .5 + 9, center_screen.y - 6, label, color, .42)}}
 	if g.build_tool == .Foundation &&
@@ -396,9 +609,7 @@ vk_draw_build_overlay :: proc(r: ^Vulkan_Backend, g: ^Game) {
 	   editor_state.selection[0].kind == .Opening &&
 	   !editor_state.drag_active {index := level_opening_index(&level_document, editor_state.selection[0].entity_id); style_action, ok := editor_selection_action_rect(g, 7); flip_action, _ := editor_selection_action_rect(g, 8); hand_action, _ := editor_selection_action_rect(g, 9); if ok && index >= 0 && level_document.openings[index].kind == .Window {opening := level_document.openings[index]; style_name := strings.to_upper(window_style_name(opening.window_style)); action_count := opening.window_style == .Casement ? 3 : 2; vulkan_ui_rect(r, style_action.x - 3, style_action.y - 3, style_action.w + f32(action_count - 1) * EDITOR_SELECTION_ACTION_PITCH + 6, style_action.h + 6, {10, 14, 18, 220}); vk_button(r, style_action, "S"); vk_button(r, flip_action, opening.window_flipped ? "F*" : "F"); vk_editor_action_tooltip(r, style_action, fmt.tprintf("STYLE: %s · CLICK TO CHANGE", style_name), g.input.mouse_pos); vk_editor_action_tooltip(r, flip_action, opening.window_flipped ? "ROOM SIDE FLIPPED · CLICK FOR AUTOMATIC SIDE" : "FLIP WINDOW ROOM SIDE", g.input.mouse_pos); if opening.window_style == .Casement {vk_button(r, hand_action, opening.window_hinge_right ? "HR" : "HL"); vk_editor_action_tooltip(r, hand_action, opening.window_hinge_right ? "RIGHT-HINGED · CLICK FOR LEFT" : "LEFT-HINGED · CLICK FOR RIGHT", g.input.mouse_pos)}}}
 	if editor_state.view_menu_visible {panel := editor_view_menu_panel_rect(); vk_editor_surface(r, panel, true); for view in Editor_View_Mode {box := editor_view_menu_rect(int(view)); vk_editor_pill(r, box, editor_view_name(view), editor_state.view == view); if contains(box, g.input.mouse_pos) do vulkan_ui_outline(r, box.x, box.y, box.w, box.h, {220, 235, 245, 255}, 2)}}
-	help_box := editor_shortcut_help_rect(
-
-	); vk_button(r, help_box, "?"); vk_editor_action_tooltip(r, help_box, "BUILD SHORTCUTS · F1", g.input.mouse_pos); snap_box := editor_snap_rect(); vk_button(r, snap_box, editor_snap_name(), editor_state.snap_mode != .Off && !editor_state.snap_suspended); vk_editor_action_tooltip(r, snap_box, editor_state.snap_suspended ? "RELEASE ALT TO RESTORE SNAP" : "CLICK TO CYCLE SNAP · HOLD ALT FOR NO SNAP", g.input.mouse_pos)
+	help_box := editor_shortcut_help_rect(); vk_button(r, help_box, "?"); vk_editor_action_tooltip(r, help_box, "BUILD SHORTCUTS · F1", g.input.mouse_pos); snap_box := editor_snap_rect(); vk_button(r, snap_box, editor_snap_name(), editor_state.snap_mode != .Off && !editor_state.snap_suspended); vk_editor_action_tooltip(r, snap_box, editor_state.snap_suspended ? "RELEASE ALT TO RESTORE SNAP" : "CLICK TO CYCLE SNAP · HOLD ALT FOR NO SNAP", g.input.mouse_pos)
 	hint :=
 		g.build_has_anchor ? "Step 2 / 2 · Click the wall end · Esc cancels" : editor_state.foundation_rectangle_active ? "Step 2 / 2 · Release to create foundation · Esc cancels" : editor_state.foundation_draw_count > 0 ? fmt.tprintf("Step 2 · Foundation corner %d · click start or Enter to close", editor_state.foundation_draw_count) : editor_state.room_rectangle_active ? "Step 2 / 2 · Release to create room · Esc cancels" : editor_state.room_draw_count > 0 ? fmt.tprintf("Step 2 · Room corner %d · click start or Enter to close", editor_state.room_draw_count) : g.build_tool == .Path && editor_state.path_draw_count > 0 ? fmt.tprintf("Step %d · Path point %d · click to add or Enter to finish", editor_state.path_draw_count < 2 ? 2 : 3, editor_state.path_draw_count) : g.build_tool == .Water && editor_state.water_draw_count > 0 ? fmt.tprintf("Step %d · Shore point %d · add points or Enter to close", editor_state.water_draw_count < 3 ? 2 : 3, editor_state.water_draw_count) : g.build_tool == .Stairs && editor_state.link_anchor_active ? "Step 2 / 2 · Click the upper landing · Esc cancels" : g.build_tool == .Foundation ? (editor_state.foundation_mode == .Rectangle ? "Step 1 · Drag footprint · release continues to rooms · Shift repeats" : "Step 1 · Click the first foundation corner") : g.build_tool == .Room && editor_state.room_mode == .Polygon ? "Step 1 · Click the first room corner" : g.build_tool == .Select && editor_state.selection_count > 0 ? editor_selection_status_hint(editor_state.selection[0], editor_state.selection_count) : editor_build_tool_idle_hint(g.build_tool); width := max(f32(190), f32(utf8_glyph_count(hint)) * 7 + 24); hint_x := editor_status_hint_x(width); vk_panel(r, hint_x, 650, width, 30); vk_editor_text(r, hint_x + 12, 659, hint, {170, 218, 228, 255}, .60)
 	if editor_state.feedback_frames > 0 &&

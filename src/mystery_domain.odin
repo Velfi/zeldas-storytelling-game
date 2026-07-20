@@ -679,6 +679,146 @@ mystery_clone_refs :: proc(
 	count: int,
 ) {for i in 0 ..< count do target[i] = mystery_clone_text(source[i])}
 
+mystery_parse_clue :: proc(table: Toml_Datum) -> Mystery_Clue {
+	item: Mystery_Clue
+	item.id = toml_case_string(table, "id")
+	item.source_id = toml_case_string(table, "source")
+	item.description = toml_case_string(table, "description")
+	item.proposition_id = toml_case_string(table, "proposition")
+	item.skill = toml_case_string(table, "skill")
+	item.check_kind = toml_case_string(table, "check_kind")
+	item.difficulty = toml_case_int(table, "difficulty")
+	item.cost = toml_case_int(table, "cost")
+	item.essential = toml_case_bool(table, "essential")
+	item.prerequisite_count = mystery_copy_refs(
+		&item.prerequisites,
+		toml_case_strings(table, "prerequisites"),
+	)
+	item.block_count = mystery_copy_refs(&item.blocks, toml_case_strings(table, "blocks"))
+	item.topic_count = mystery_copy_refs(&item.topics, toml_case_strings(table, "topics"))
+	return item
+}
+
+mystery_parse_deduction :: proc(table: Toml_Datum) -> Mystery_Deduction {
+	item: Mystery_Deduction
+	item.id = toml_case_string(table, "id")
+	item.proposition_id = toml_case_string(table, "proposition")
+	item.category = toml_case_string(table, "category")
+	item.support_count = mystery_copy_refs(&item.supports, toml_case_strings(table, "supports"))
+	item.unlock_question_count = mystery_copy_refs(
+		&item.unlock_questions,
+		toml_case_strings(table, "unlock_questions"),
+	)
+	item.unlock_topic_count = mystery_copy_refs(
+		&item.unlock_topics,
+		toml_case_strings(table, "unlock_topics"),
+	)
+	item.unlock_investigation_count = mystery_copy_refs(
+		&item.unlock_investigations,
+		toml_case_strings(table, "unlock_investigations"),
+	)
+	return item
+}
+
+mystery_parse_question :: proc(table: Toml_Datum) -> Mystery_Question {
+	item: Mystery_Question
+	item.id = toml_case_string(table, "id")
+	item.prompt = toml_case_string(table, "prompt")
+	item.hypothesis_id = toml_case_string(table, "hypothesis")
+	item.category = toml_case_string(table, "category")
+	item.required_for_final = toml_case_bool(table, "required_for_final")
+	item.require_clue_count = mystery_copy_refs(
+		&item.requires_clues,
+		toml_case_strings(table, "requires_clues"),
+	)
+	item.require_claim_count = mystery_copy_refs(
+		&item.requires_claims,
+		toml_case_strings(table, "requires_claims"),
+	)
+	item.require_deduction_count = mystery_copy_refs(
+		&item.requires_deductions,
+		toml_case_strings(table, "requires_deductions"),
+	)
+	item.dependency_count = mystery_copy_refs(
+		&item.dependencies,
+		toml_case_strings(table, "dependencies"),
+	)
+	return item
+}
+
+mystery_parse_demonstration :: proc(table: Toml_Datum) -> Mystery_Demonstration {
+	item: Mystery_Demonstration
+	item.id = toml_case_string(table, "id")
+	item.question_id = toml_case_string(table, "question")
+	item.mode = toml_case_string(table, "mode")
+	item.presentation = toml_case_string(table, "presentation")
+	if item.presentation == "" do item.presentation = "slots"
+	item.gesture = toml_case_string(table, "gesture")
+	item.subject = toml_case_string(table, "subject")
+	item.art = toml_case_string(table, "art")
+	item.completion_cue = toml_case_string(table, "completion_cue")
+	item.candidate_limit = toml_case_int(table, "candidate_limit")
+	if item.candidate_limit == 0 do item.candidate_limit = 5
+
+	steps := toml_case_strings(table, "gesture_steps")
+	item.gesture_step_overflow = len(steps) > len(item.gesture_steps)
+	item.gesture_step_count = min(len(steps), len(item.gesture_steps))
+	for step in 0 ..< item.gesture_step_count do item.gesture_steps[step] = steps[step]
+	if item.gesture_step_count == 0 && item.gesture != "" {
+		item.gesture_steps[0] = item.gesture
+		item.gesture_step_count = 1
+	}
+
+	item.resolution = toml_case_string(table, "resolution")
+	item.result = toml_case_string(table, "result")
+	item.prompt = toml_case_string(table, "prompt")
+	item.slot_count = mystery_copy_refs(&item.slot_labels, toml_case_strings(table, "slot_labels"))
+	_ = mystery_copy_refs(&item.slot_types, toml_case_strings(table, "slot_types"))
+	item.accepted_count = mystery_copy_refs(&item.accepted, toml_case_strings(table, "accepted"))
+
+	firsts := toml_case_ints(table, "route_firsts")
+	counts := toml_case_ints(table, "route_counts")
+	item.route_count = min(min(len(firsts), len(counts)), MYSTERY_MAX_REFS)
+	for route in 0 ..< item.route_count {
+		item.route_firsts[route] = firsts[route]
+		item.route_counts[route] = counts[route]
+	}
+	item.result_count = mystery_copy_refs(
+		&item.result_deductions,
+		toml_case_strings(table, "result_deductions"),
+	)
+	return item
+}
+
+mystery_parse_dialogue :: proc(table: Toml_Datum) -> Mystery_Dialogue_Metadata {
+	item: Mystery_Dialogue_Metadata
+	item.node_id = toml_case_string(table, "node")
+	item.character_id = toml_case_string(table, "character")
+	item.prompt = toml_case_string(table, "prompt")
+	item.response = toml_case_string(table, "response")
+	item.clue_id = toml_case_string(table, "clue")
+	item.interaction = toml_case_string(table, "interaction")
+	item.require_count = mystery_copy_refs(&item.requires, toml_case_strings(table, "requires"))
+	item.unlock_count = mystery_copy_refs(&item.unlocks, toml_case_strings(table, "unlocks"))
+	return item
+}
+
+mystery_parse_ending :: proc(table: Toml_Datum) -> Mystery_Ending_Metadata {
+	return {
+		ending_id = toml_case_string(table, "ending"),
+		trigger = toml_case_string(table, "trigger"),
+		outcome = toml_case_string(table, "outcome"),
+		subtitle = toml_case_string(table, "subtitle"),
+		epilogue = toml_case_string(table, "epilogue"),
+		canonical_timeline = toml_case_string(table, "canonical_timeline"),
+		tone = toml_case_string(table, "tone"),
+		primary_label = toml_case_string(table, "primary_label"),
+		primary_action = toml_case_string(table, "primary_action"),
+		secondary_label = toml_case_string(table, "secondary_label"),
+		secondary_action = toml_case_string(table, "secondary_action"),
+	}
+}
+
 mystery_parse :: proc(source: rawptr, project: ^Story_Project) -> bool {
 	if source == nil || project == nil do return false
 	payload := new(
@@ -709,7 +849,7 @@ mystery_parse :: proc(source: rawptr, project: ^Story_Project) -> bool {
 	clue_tables := toml_tables(
 		domain,
 		"clues",
-	); payload.clues = make([]Mystery_Clue, len(clue_tables)); for table, i in clue_tables {item := &payload.clues[i]; item.id = toml_case_string(table, "id"); item.source_id = toml_case_string(table, "source"); item.description = toml_case_string(table, "description"); item.proposition_id = toml_case_string(table, "proposition"); item.skill = toml_case_string(table, "skill"); item.check_kind = toml_case_string(table, "check_kind"); item.difficulty = toml_case_int(table, "difficulty"); item.cost = toml_case_int(table, "cost"); item.essential = toml_case_bool(table, "essential"); item.prerequisite_count = mystery_copy_refs(&item.prerequisites, toml_case_strings(table, "prerequisites")); item.block_count = mystery_copy_refs(&item.blocks, toml_case_strings(table, "blocks")); item.topic_count = mystery_copy_refs(&item.topics, toml_case_strings(table, "topics"))}
+	); payload.clues = make([]Mystery_Clue, len(clue_tables)); for table, i in clue_tables do payload.clues[i] = mystery_parse_clue(table)
 	claim_tables := toml_tables(
 		domain,
 		"claims",
@@ -721,35 +861,23 @@ mystery_parse :: proc(source: rawptr, project: ^Story_Project) -> bool {
 	deduction_tables := toml_tables(
 		domain,
 		"deductions",
-	); payload.deductions = make([]Mystery_Deduction, len(deduction_tables)); for table, i in deduction_tables {item := &payload.deductions[i]; item.id = toml_case_string(table, "id"); item.proposition_id = toml_case_string(table, "proposition"); item.category = toml_case_string(table, "category"); item.support_count = mystery_copy_refs(&item.supports, toml_case_strings(table, "supports")); item.unlock_question_count = mystery_copy_refs(&item.unlock_questions, toml_case_strings(table, "unlock_questions")); item.unlock_topic_count = mystery_copy_refs(&item.unlock_topics, toml_case_strings(table, "unlock_topics")); item.unlock_investigation_count = mystery_copy_refs(&item.unlock_investigations, toml_case_strings(table, "unlock_investigations"))}
+	); payload.deductions = make([]Mystery_Deduction, len(deduction_tables)); for table, i in deduction_tables do payload.deductions[i] = mystery_parse_deduction(table)
 	question_tables := toml_tables(
 		domain,
 		"questions",
-	); payload.questions = make([]Mystery_Question, len(question_tables)); for table, i in question_tables {item := &payload.questions[i]; item.id = toml_case_string(table, "id"); item.prompt = toml_case_string(table, "prompt"); item.hypothesis_id = toml_case_string(table, "hypothesis"); item.category = toml_case_string(table, "category"); item.required_for_final = toml_case_bool(table, "required_for_final"); item.require_clue_count = mystery_copy_refs(&item.requires_clues, toml_case_strings(table, "requires_clues")); item.require_claim_count = mystery_copy_refs(&item.requires_claims, toml_case_strings(table, "requires_claims")); item.require_deduction_count = mystery_copy_refs(&item.requires_deductions, toml_case_strings(table, "requires_deductions")); item.dependency_count = mystery_copy_refs(&item.dependencies, toml_case_strings(table, "dependencies"))}
+	); payload.questions = make([]Mystery_Question, len(question_tables)); for table, i in question_tables do payload.questions[i] = mystery_parse_question(table)
 	demonstration_tables := toml_tables(
 		domain,
 		"demonstrations",
-	); payload.demonstrations = make([]Mystery_Demonstration, len(demonstration_tables)); for table, i in demonstration_tables {item := &payload.demonstrations[i]; item.id = toml_case_string(table, "id"); item.question_id = toml_case_string(table, "question"); item.mode = toml_case_string(table, "mode"); item.presentation = toml_case_string(table, "presentation"); if item.presentation == "" do item.presentation = "slots"; item.gesture = toml_case_string(table, "gesture"); item.subject = toml_case_string(table, "subject"); item.art = toml_case_string(table, "art"); item.completion_cue = toml_case_string(table, "completion_cue"); item.candidate_limit = toml_case_int(table, "candidate_limit"); if item.candidate_limit == 0 do item.candidate_limit = 5; steps := toml_case_strings(table, "gesture_steps"); item.gesture_step_overflow = len(steps) > len(item.gesture_steps); item.gesture_step_count = min(len(steps), len(item.gesture_steps)); for step in 0 ..< item.gesture_step_count do item.gesture_steps[step] = steps[step]; if item.gesture_step_count == 0 && item.gesture != "" {item.gesture_steps[0] = item.gesture; item.gesture_step_count = 1}; item.resolution = toml_case_string(table, "resolution"); item.result = toml_case_string(table, "result"); item.prompt = toml_case_string(table, "prompt"); item.slot_count = mystery_copy_refs(&item.slot_labels, toml_case_strings(table, "slot_labels")); _ = mystery_copy_refs(&item.slot_types, toml_case_strings(table, "slot_types")); item.accepted_count = mystery_copy_refs(&item.accepted, toml_case_strings(table, "accepted")); firsts := toml_case_ints(table, "route_firsts"); counts := toml_case_ints(table, "route_counts"); item.route_count = min(min(len(firsts), len(counts)), MYSTERY_MAX_REFS); for route in 0 ..< item.route_count {item.route_firsts[route] = firsts[route]; item.route_counts[route] = counts[route]}; item.result_count = mystery_copy_refs(&item.result_deductions, toml_case_strings(table, "result_deductions"))}
+	); payload.demonstrations = make([]Mystery_Demonstration, len(demonstration_tables)); for table, i in demonstration_tables do payload.demonstrations[i] = mystery_parse_demonstration(table)
 	dialogue_tables := toml_tables(
 		domain,
 		"dialogue",
-	); payload.dialogue = make([]Mystery_Dialogue_Metadata, len(dialogue_tables)); for table, i in dialogue_tables {item := &payload.dialogue[i]; item.node_id = toml_case_string(table, "node"); item.character_id = toml_case_string(table, "character"); item.prompt = toml_case_string(table, "prompt"); item.response = toml_case_string(table, "response"); item.clue_id = toml_case_string(table, "clue"); item.interaction = toml_case_string(table, "interaction"); item.require_count = mystery_copy_refs(&item.requires, toml_case_strings(table, "requires")); item.unlock_count = mystery_copy_refs(&item.unlocks, toml_case_strings(table, "unlocks"))}
+	); payload.dialogue = make([]Mystery_Dialogue_Metadata, len(dialogue_tables)); for table, i in dialogue_tables do payload.dialogue[i] = mystery_parse_dialogue(table)
 	ending_tables := toml_tables(
 		domain,
 		"endings",
-	); payload.endings = make([]Mystery_Ending_Metadata, len(ending_tables)); for table, i in ending_tables do payload.endings[i] = {
-		ending_id          = toml_case_string(table, "ending"),
-		trigger            = toml_case_string(table, "trigger"),
-		outcome            = toml_case_string(table, "outcome"),
-		subtitle           = toml_case_string(table, "subtitle"),
-		epilogue           = toml_case_string(table, "epilogue"),
-		canonical_timeline = toml_case_string(table, "canonical_timeline"),
-		tone               = toml_case_string(table, "tone"),
-		primary_label      = toml_case_string(table, "primary_label"),
-		primary_action     = toml_case_string(table, "primary_action"),
-		secondary_label    = toml_case_string(table, "secondary_label"),
-		secondary_action   = toml_case_string(table, "secondary_action"),
-	}
+	); payload.endings = make([]Mystery_Ending_Metadata, len(ending_tables)); for table, i in ending_tables do payload.endings[i] = mystery_parse_ending(table)
 	city_tables := toml_tables(
 		domain,
 		"city_labels",
@@ -876,7 +1004,7 @@ mystery_question_cycle_visit :: proc(
 	visiting, visited: []bool,
 ) -> bool {if visiting[index] do return true; if visited[index] do return false; visiting[index] =
 		true
-	for 	dependency in payload.questions[index].dependencies[:payload.questions[index].dependency_count] {child :=
+	for dependency in payload.questions[index].dependencies[:payload.questions[index].dependency_count] {child :=
 			mystery_question_index(payload, dependency)
 		if child >= 0 && mystery_question_cycle_visit(payload, child, visiting, visited) do return true}
 	visiting[index] = false
@@ -888,7 +1016,7 @@ mystery_clue_cycle_visit :: proc(
 	visiting, visited: []bool,
 ) -> bool {if visiting[index] do return true; if visited[index] do return false; visiting[index] =
 		true
-	for 	prerequisite in payload.clues[index].prerequisites[:payload.clues[index].prerequisite_count] {child :=
+	for prerequisite in payload.clues[index].prerequisites[:payload.clues[index].prerequisite_count] {child :=
 			mystery_clue_index(payload, prerequisite)
 		if child >= 0 && mystery_clue_cycle_visit(payload, child, visiting, visited) do return true}
 	visiting[index] = false
@@ -906,7 +1034,7 @@ mystery_deduction_cycle_visit :: proc(
 	visiting, visited: []bool,
 ) -> bool {if visiting[index] do return true; if visited[index] do return false; visiting[index] =
 		true
-	for 	support in payload.deductions[index].supports[:payload.deductions[index].support_count] {child :=
+	for support in payload.deductions[index].supports[:payload.deductions[index].support_count] {child :=
 			mystery_deduction_index(payload, support)
 		if child >= 0 && mystery_deduction_cycle_visit(payload, child, visiting, visited) do return true}
 	visiting[index] = false
@@ -1024,7 +1152,7 @@ mystery_knowledge_kind :: proc(
 	if mystery_claim_index(payload, id) >= 0 do return "statement"
 	if mystery_deduction_index(payload, id) >= 0 do return "deduction"
 	return ""}
-mystery_hash_extended_authoring :: proc(payload: ^Mystery_Project) -> u64 {hash: u64; for 	&item in payload.deductions {record := mystery_hash_refs(
+mystery_hash_extended_authoring :: proc(payload: ^Mystery_Project) -> u64 {hash: u64; for &item in payload.deductions {record := mystery_hash_refs(
 			1469598103934665603,
 			&item.unlock_questions,
 			item.unlock_question_count,
@@ -1036,7 +1164,7 @@ mystery_hash_extended_authoring :: proc(payload: ^Mystery_Project) -> u64 {hash:
 			item.unlock_investigation_count,
 		)
 		hash ~= record}
-	for 	&item in payload.questions {record := mystery_hash_refs(
+	for &item in payload.questions {record := mystery_hash_refs(
 			1469598103934665603,
 			&item.requires_clues,
 			item.require_clue_count,
@@ -1044,14 +1172,14 @@ mystery_hash_extended_authoring :: proc(payload: ^Mystery_Project) -> u64 {hash:
 		record = mystery_hash_refs(record, &item.requires_claims, item.require_claim_count)
 		record = mystery_hash_refs(record, &item.requires_deductions, item.require_deduction_count)
 		hash ~= record}
-	for 	&item in payload.demonstrations {record := mystery_hash_refs(
+	for &item in payload.demonstrations {record := mystery_hash_refs(
 			1469598103934665603,
 			&item.slot_labels,
 			item.slot_count,
 		)
 		hash ~= mystery_hash_refs(record, &item.slot_types, item.slot_count)}
 	return hash}
-mystery_int_array :: proc(values: ^[MYSTERY_MAX_REFS]int, count: int) -> string {text := "["; for 	i in 0 ..< count {if i > 0 do text = fmt.tprintf("%s, ", text); text = fmt.tprintf(
+mystery_int_array :: proc(values: ^[MYSTERY_MAX_REFS]int, count: int) -> string {text := "["; for i in 0 ..< count {if i > 0 do text = fmt.tprintf("%s, ", text); text = fmt.tprintf(
 			"%s%d",
 			text,
 			values[i],
@@ -1072,7 +1200,7 @@ mystery_hash :: proc(project: ^Story_Project, seed: u64) -> u64 {payload := myst
 			payload.reveal_location,
 		),
 	)
-	for 	&clue in payload.clues {record := mystery_hash_text(
+	for &clue in payload.clues {record := mystery_hash_text(
 			1469598103934665603,
 			fmt.tprintf(
 				"%s:%s:%s:%s:%s:%s:%d:%d:%t",
@@ -1093,12 +1221,12 @@ mystery_hash :: proc(project: ^Story_Project, seed: u64) -> u64 {payload := myst
 		hash ~= record}
 	for claim in payload.claims do hash ~= mystery_hash_text(1469598103934665603, fmt.tprintf("%s:%s:%s:%s:%s", claim.id, claim.speaker_id, claim.proposition_id, claim.protects, claim.response))
 	for item in payload.contradictions do hash ~= mystery_hash_text(1469598103934665603, fmt.tprintf("%s:%s:%s:%s:%s", item.id, item.claim_id, item.fact_id, item.conclusion_id, item.explanation))
-	for 	&item in payload.deductions {record := mystery_hash_text(
+	for &item in payload.deductions {record := mystery_hash_text(
 			1469598103934665603,
 			fmt.tprintf("%s:%s:%s", item.id, item.proposition_id, item.category),
 		)
 		hash ~= mystery_hash_refs(record, &item.supports, item.support_count)}
-	for 	&item in payload.questions {record := mystery_hash_text(
+	for &item in payload.questions {record := mystery_hash_text(
 			1469598103934665603,
 			fmt.tprintf(
 				"%s:%s:%s:%s:%t",
@@ -1110,7 +1238,7 @@ mystery_hash :: proc(project: ^Story_Project, seed: u64) -> u64 {payload := myst
 			),
 		)
 		hash ~= mystery_hash_refs(record, &item.dependencies, item.dependency_count)}
-	for 	&item in payload.demonstrations {record := mystery_hash_text(
+	for &item in payload.demonstrations {record := mystery_hash_text(
 			1469598103934665603,
 			fmt.tprintf(
 				"%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%d",
@@ -1131,7 +1259,7 @@ mystery_hash :: proc(project: ^Story_Project, seed: u64) -> u64 {payload := myst
 		record = mystery_hash_text(record, item.prompt)
 		record = mystery_hash_refs(record, &item.accepted, item.accepted_count)
 		hash ~= mystery_hash_refs(record, &item.result_deductions, item.result_count)}
-	for 	&item in payload.dialogue {record := mystery_hash_text(
+	for &item in payload.dialogue {record := mystery_hash_text(
 			1469598103934665603,
 			fmt.tprintf(
 				"%s:%s:%s:%s:%s:%s",
@@ -1172,7 +1300,7 @@ mystery_hash_complete :: proc(project: ^Story_Project, seed: u64) -> u64 {hash :
 	payload := mystery_payload(project)
 	if payload == nil do return hash
 	hash ~= mystery_hash_extended_authoring(payload)
-	for 	&item in payload.characters {record := mystery_hash_text(
+	for &item in payload.characters {record := mystery_hash_text(
 			1469598103934665603,
 			fmt.tprintf(
 				"%s:%s:%s:%d",
@@ -1183,13 +1311,13 @@ mystery_hash_complete :: proc(project: ^Story_Project, seed: u64) -> u64 {hash :
 			),
 		)
 		hash ~= mystery_hash_refs(record, &item.initial_claims, item.initial_claim_count)}
-	for 	&item in payload.locations {record := mystery_hash_text(1469598103934665603, item.entity_id); record =
+	for &item in payload.locations {record := mystery_hash_text(1469598103934665603, item.entity_id); record =
 			mystery_hash_refs(record, &item.connections, item.connection_count)
 		record = mystery_hash_refs(record, &item.characters, item.character_count)
 		record = mystery_hash_refs(record, &item.pois, item.poi_count)
 		hash ~= mystery_hash_refs(record, &item.search_actions, item.search_action_count)}
 	for item in payload.pois do hash ~= mystery_hash_text(1469598103934665603, fmt.tprintf("%s:%s:%s:%s:%s", item.entity_id, item.location_id, item.owner_id, item.relevant_state, item.examination_action))
-	for 	&item in payload.events {record := mystery_hash_text(
+	for &item in payload.events {record := mystery_hash_text(
 			1469598103934665603,
 			fmt.tprintf("%s:%s:%s", item.event_id, item.destination_id, item.tool_id),
 		)

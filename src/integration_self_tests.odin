@@ -5,6 +5,106 @@ import "core:math"
 import "core:os"
 import "core:strings"
 
+test_back_action_routing :: proc() {
+	assert(
+		back_opens_pause(.Investigate) &&
+		back_opens_pause(.Check) &&
+		!back_opens_pause(.Dialogue) &&
+		!back_opens_pause(.Pause),
+	)
+
+	back_test := Game {
+		screen = .Campaign,
+		input = {back = true},
+	}
+	assert(back_action_for(&back_test) == .Campaign_To_Title)
+
+	back_test = {
+		screen = .Pause,
+		pause_return = .Investigate,
+		input = {back = true},
+	}
+	assert(back_action_for(&back_test) == .Close_Pause)
+
+	back_test = {
+		screen = .Investigate,
+		editor_mode = .None,
+		input = {back = true},
+	}
+	assert(back_action_for(&back_test) == .Open_Pause)
+
+	saved_box_select := editor_state.box_select_active
+	defer editor_state.box_select_active = saved_box_select
+	editor_state.box_select_active = true
+	back_test.editor_mode = .Build
+	assert(back_action_for(&back_test) == .Cancel_Box_Select)
+
+	editor_state.box_select_active = false
+	back_test = {
+		screen = .Campaign,
+		input = {back = true},
+	}
+	assert(handle_back_action(&back_test) && back_test.screen == .Title && !back_test.input.back)
+}
+
+test_pause_snapshot_ownership :: proc() {
+	snapshot_source := Game{}
+	append(&snapshot_source.quest_transition_ids, "saved-objective")
+	append(&snapshot_source.quest_transition_status, Story_Objective_Status.Active)
+	append(&snapshot_source.vehicles, Vehicle_State{x = 12})
+	defer delete(snapshot_source.quest_transition_ids)
+	defer delete(snapshot_source.quest_transition_status)
+	defer delete(snapshot_source.vehicles)
+
+	snapshot_copy := pause_snapshot_capture(&snapshot_source)
+	defer pause_snapshot_destroy(&snapshot_copy)
+	snapshot_source.quest_transition_ids[0] = "mutated-objective"
+	snapshot_source.vehicles[0].x = 99
+	assert(
+		snapshot_copy.game.quest_transition_ids[0] == "saved-objective" &&
+		snapshot_copy.game.vehicles[0].x == 12,
+	)
+}
+
+test_input_reset_after_disconnect :: proc() {
+	disconnect_input := Game {
+		controller_disconnected = true,
+		active_device           = .Gamepad,
+		pad_left_x              = .8,
+		pad_left_y              = -.4,
+		pad_right_x             = .2,
+		pad_right_y             = -.3,
+		pad_left_trigger        = .5,
+		pad_right_trigger       = .9,
+		axis_nav_x              = 1,
+		axis_nav_y              = -1,
+	}
+	disconnect_input.pad_buttons[.SOUTH] = true
+	clear_gamepad_input(&disconnect_input)
+	assert(
+		disconnect_input.pad_left_x == 0 &&
+		disconnect_input.pad_left_y == 0 &&
+		disconnect_input.pad_right_x == 0 &&
+		disconnect_input.pad_right_y == 0 &&
+		disconnect_input.pad_left_trigger == 0 &&
+		disconnect_input.pad_right_trigger == 0 &&
+		disconnect_input.axis_nav_x == 0 &&
+		disconnect_input.axis_nav_y == 0 &&
+		!disconnect_input.pad_buttons[.SOUTH],
+	)
+
+	activate_keyboard_mouse(&disconnect_input)
+	assert(
+		!disconnect_input.controller_disconnected &&
+		disconnect_input.input_resume_blocked &&
+		disconnect_input.active_device == .Keyboard_Mouse,
+	)
+
+	disconnect_input.input.activate = true
+	prepare_input_poll(&disconnect_input)
+	assert(!disconnect_input.input_resume_blocked && !disconnect_input.input.activate)
+}
+
 run_self_tests :: proc() {
 	assert(
 		vk_world_draw_capacity_available(0) &&
@@ -57,9 +157,7 @@ run_self_tests :: proc() {
 	run_ui_dim_tests()
 	fmt.println("SELF TEST · UI COMPLETE")
 	campaign_storage_override = "/private/tmp/chicago-campaign-self-tests"
-	campaign_initialize(
-
-	); assert(campaign_browser.count > 0 && campaign_manifest_path != "" && campaign_validate(&campaign_document).ok)
+	campaign_initialize(); assert(campaign_browser.count > 0 && campaign_manifest_path != "" && campaign_validate(&campaign_document).ok)
 	run_campaign_authoring_mutation_tests()
 	run_unified_validation_playtest_tests()
 	run_build_validation_closure_tests()
@@ -311,9 +409,7 @@ run_self_tests :: proc() {
 	assert(
 		utf8_glyph_count("A—B◆") == 4,
 	); assert(utf8_next_index("—", 0) == 3); assert(COURIER_PUNCTUATION_FIRST <= int('—') && int('—') < COURIER_PUNCTUATION_FIRST + COURIER_PUNCTUATION_GLYPH_COUNT); assert(COURIER_ARROW_FIRST <= int('↔') && int('↔') < COURIER_ARROW_FIRST + COURIER_ARROW_GLYPH_COUNT); assert(COURIER_SHAPE_FIRST <= int('◆') && int('◆') < COURIER_SHAPE_FIRST + COURIER_SHAPE_GLYPH_COUNT)
-	typewriter := text_effect_default(
-
-	); typewriter.typewriter_characters_per_second = 10; typewriter.typewriter_delay = .5; assert(text_effect_visible_glyphs(typewriter, .25, 20) == 0); assert(text_effect_visible_glyphs(typewriter, 1, 20) == 5); assert(text_effect_visible_glyphs(typewriter, 4, 20) == 20); assert(text_effect_visible_glyphs(text_effect_default(), 0, 7) == 7)
+	typewriter := text_effect_default(); typewriter.typewriter_characters_per_second = 10; typewriter.typewriter_delay = .5; assert(text_effect_visible_glyphs(typewriter, .25, 20) == 0); assert(text_effect_visible_glyphs(typewriter, 1, 20) == 5); assert(text_effect_visible_glyphs(typewriter, 4, 20) == 20); assert(text_effect_visible_glyphs(text_effect_default(), 0, 7) == 7)
 	assert(
 		text_effect_span_visible_glyphs(typewriter, 2, 1.5, 20) == 0,
 	); assert(text_effect_span_visible_glyphs(typewriter, 2.5, 1.5, 20) == 5); assert(text_effect_span_duration(typewriter, 20) == 2.5); assert(text_effect_reveal_glyph_count("one\ntwo") == 6)
@@ -321,9 +417,7 @@ run_self_tests :: proc() {
 		{0, 20, 40, 255},
 		1,
 	); effect_b := text_effect_default({100, 120, 140, 55}, 3); effect_a.offset = {0, 10}; effect_b.offset = {20, 30}; effect_mid := text_effect_lerp(effect_a, effect_b, .5); assert(effect_mid.color == [4]u8{50, 70, 90, 155} && effect_mid.scale == 2 && effect_mid.offset == Vec2{10, 20})
-	plain_style := text_effect_default(
-
-	); styled := text_effect_default(); styled.bold = true; styled.italic = true; styled.underline = true; assert(!plain_style.bold && !plain_style.italic && !plain_style.underline); assert(text_effect_lerp(plain_style, styled, .49) == plain_style && text_effect_lerp(plain_style, styled, .5).bold && text_effect_lerp(plain_style, styled, .5).italic && text_effect_lerp(plain_style, styled, .5).underline)
+	plain_style := text_effect_default(); styled := text_effect_default(); styled.bold = true; styled.italic = true; styled.underline = true; assert(!plain_style.bold && !plain_style.italic && !plain_style.underline); assert(text_effect_lerp(plain_style, styled, .49) == plain_style && text_effect_lerp(plain_style, styled, .5).bold && text_effect_lerp(plain_style, styled, .5).italic && text_effect_lerp(plain_style, styled, .5).underline)
 	line_small := text_effect_default(
 		{},
 		1,
@@ -486,9 +580,7 @@ run_self_tests :: proc() {
 		.Effect_Id,
 		"renamed_effect",
 	); assert(graph_commit_edit() && graph_document.nodes[0].beat.effect_ids[0] == "renamed_effect"); graph_import_story(&test_story_project)
-	graph_configure_routing_test_board(
-
-	); assert(graph_rendered_edge_hit({450, 151}, "wire_crossings", 11, 12, 0)); direct_point := Vec2{580, 134}; blocked_port := graph_port_rect(graph_document.nodes[2], 0); blocked_input := graph_input_rect(graph_document.nodes[4]); blocked_a, blocked_d := Vec2{blocked_port.x + blocked_port.w * .5, blocked_port.y + blocked_port.h * .5}, Vec2{blocked_input.x + blocked_input.w * .5, blocked_input.y + blocked_input.h * .5}; blocked_lane, blocked_lane_ok := graph_edge_local_lane("wire_routing", blocked_a, blocked_d, 2, 4); assert(blocked_lane_ok); blocked_p1, blocked_p2 := Vec2{blocked_a.x + 28, blocked_lane}, Vec2{blocked_d.x - 28, blocked_lane}; blocked_b := Vec2{blocked_p1.x + (blocked_p2.x - blocked_a.x) / 6, blocked_p1.y + (blocked_p2.y - blocked_a.y) / 6}; blocked_c := Vec2{blocked_p2.x - (blocked_d.x - blocked_p1.x) / 6, blocked_p2.y - (blocked_d.y - blocked_p1.y) / 6}; blocked_point := graph_edge_cubic_point(blocked_p1, blocked_b, blocked_c, blocked_p2, .5); back_point := Vec2{580, 360}; assert(graph_rendered_edge_hit(direct_point, "wire_routing", 0, 1, 0)); assert(graph_rendered_edge_hit(blocked_point, "wire_routing", 2, 4, 0) && !graph_rendered_edge_hit({580, 284}, "wire_routing", 2, 4, 0)); assert(graph_rendered_edge_hit(back_point, "wire_routing", 5, 6, 0)); direct_selection := graph_edge_hit(direct_point); blocked_selection := graph_edge_hit(blocked_point); back_selection := graph_edge_hit(back_point); assert(direct_selection.active && direct_selection.node == 0 && blocked_selection.active && blocked_selection.node == 2 && back_selection.active && back_selection.node == 5)
+	graph_configure_routing_test_board(); assert(graph_rendered_edge_hit({450, 151}, "wire_crossings", 11, 12, 0)); direct_point := Vec2{580, 134}; blocked_port := graph_port_rect(graph_document.nodes[2], 0); blocked_input := graph_input_rect(graph_document.nodes[4]); blocked_a, blocked_d := Vec2{blocked_port.x + blocked_port.w * .5, blocked_port.y + blocked_port.h * .5}, Vec2{blocked_input.x + blocked_input.w * .5, blocked_input.y + blocked_input.h * .5}; blocked_lane, blocked_lane_ok := graph_edge_local_lane("wire_routing", blocked_a, blocked_d, 2, 4); assert(blocked_lane_ok); blocked_p1, blocked_p2 := Vec2{blocked_a.x + 28, blocked_lane}, Vec2{blocked_d.x - 28, blocked_lane}; blocked_b := Vec2{blocked_p1.x + (blocked_p2.x - blocked_a.x) / 6, blocked_p1.y + (blocked_p2.y - blocked_a.y) / 6}; blocked_c := Vec2{blocked_p2.x - (blocked_d.x - blocked_p1.x) / 6, blocked_p2.y - (blocked_d.y - blocked_p1.y) / 6}; blocked_point := graph_edge_cubic_point(blocked_p1, blocked_b, blocked_c, blocked_p2, .5); back_point := Vec2{580, 360}; assert(graph_rendered_edge_hit(direct_point, "wire_routing", 0, 1, 0)); assert(graph_rendered_edge_hit(blocked_point, "wire_routing", 2, 4, 0) && !graph_rendered_edge_hit({580, 284}, "wire_routing", 2, 4, 0)); assert(graph_rendered_edge_hit(back_point, "wire_routing", 5, 6, 0)); direct_selection := graph_edge_hit(direct_point); blocked_selection := graph_edge_hit(blocked_point); back_selection := graph_edge_hit(back_point); assert(direct_selection.active && direct_selection.node == 0 && blocked_selection.active && blocked_selection.node == 2 && back_selection.active && back_selection.node == 5)
 	collapsed_card := Graph_Node {
 		collapsed = true,
 	}; ordinary_card := Graph_Node {
@@ -524,25 +616,9 @@ run_self_tests :: proc() {
 		gamepad_disconnect_should_pause(.Check) &&
 		gamepad_disconnect_should_pause(.Reveal),
 	)
-	assert(
-		back_opens_pause(.Investigate) &&
-		back_opens_pause(.Check) &&
-		!back_opens_pause(.Dialogue) &&
-		!back_opens_pause(.Pause),
-	)
-	disconnect_input := Game {
-		controller_disconnected = true,
-		active_device           = .Gamepad,
-		pad_left_x              = .8,
-		pad_left_y              = -.4,
-		pad_right_x             = .2,
-		pad_right_y             = -.3,
-		pad_left_trigger        = .5,
-		pad_right_trigger       = .9,
-		axis_nav_x              = 1,
-		axis_nav_y              = -1,
-	}; disconnect_input.pad_buttons[.SOUTH] =
-		true; clear_gamepad_input(&disconnect_input); assert(disconnect_input.pad_left_x == 0 && disconnect_input.pad_left_y == 0 && disconnect_input.pad_right_x == 0 && disconnect_input.pad_right_y == 0 && disconnect_input.pad_left_trigger == 0 && disconnect_input.pad_right_trigger == 0 && disconnect_input.axis_nav_x == 0 && disconnect_input.axis_nav_y == 0 && !disconnect_input.pad_buttons[.SOUTH]); activate_keyboard_mouse(&disconnect_input); assert(!disconnect_input.controller_disconnected && disconnect_input.input_resume_blocked && disconnect_input.active_device == .Keyboard_Mouse); disconnect_input.input.activate = true; prepare_input_poll(&disconnect_input); assert(!disconnect_input.input_resume_blocked && !disconnect_input.input.activate)
+	test_back_action_routing()
+	test_pause_snapshot_ownership()
+	test_input_reset_after_disconnect()
 	fmt.println("SELF TEST · INPUT RESET COMPLETE")
 	heading_cases := [4]f32 {
 		0,
@@ -886,9 +962,7 @@ run_self_tests :: proc() {
 		HOUSE_WALL_HEIGHT,
 		HOUSE_WALL_THICKNESS,
 	); finalize_wall_cap_batch(&cap_test, HOUSE_WALL_HEIGHT); assert(cap_test.ready && len(cap_test.vertices) == 4 && len(cap_test.indices) == 12 && cap_test.min.y == 0 && cap_test.max.y == HOUSE_WALL_HEIGHT)
-	wall_finish_bands := house_wall_finish_bands(
-
-	); wallpaper_region_test := wallpaper_face_mesh({0, 0}, {2, 0}, HOUSE_CUTAWAY_HEIGHT, .625); assert(math.abs((wallpaper_region_test.max.y - wallpaper_region_test.min.y) - .625) < .0001 && math.abs(wallpaper_region_test.texcoords[0].y - HOUSE_CUTAWAY_HEIGHT * HOUSE_WALL_COVERING_UV_SCALE) < .0001 && math.abs(wallpaper_region_test.texcoords[2].y - (HOUSE_CUTAWAY_HEIGHT + .625) * HOUSE_WALL_COVERING_UV_SCALE) < .0001 && wall_finish_bands[0] == 0 && wall_finish_bands[len(wall_finish_bands) - 1] == HOUSE_WALL_HEIGHT)
+	wall_finish_bands := house_wall_finish_bands(); wallpaper_region_test := wallpaper_face_mesh({0, 0}, {2, 0}, HOUSE_CUTAWAY_HEIGHT, .625); assert(math.abs((wallpaper_region_test.max.y - wallpaper_region_test.min.y) - .625) < .0001 && math.abs(wallpaper_region_test.texcoords[0].y - HOUSE_CUTAWAY_HEIGHT * HOUSE_WALL_COVERING_UV_SCALE) < .0001 && math.abs(wallpaper_region_test.texcoords[2].y - (HOUSE_CUTAWAY_HEIGHT + .625) * HOUSE_WALL_COVERING_UV_SCALE) < .0001 && wall_finish_bands[0] == 0 && wall_finish_bands[len(wall_finish_bands) - 1] == HOUSE_WALL_HEIGHT)
 	core_region_test := procedural_wall_band_mesh(
 		{0, 0},
 		{2, 0},
@@ -1732,9 +1806,7 @@ run_self_tests :: proc() {
 	authored_window_found := false
 	for opening in house_plan.openings {if opening.kind == .Window {authored_window = opening; authored_window_found = true; break}}
 	assert(authored_window_found)
-	house_plan_initialize(
-
-	); build_house_floorplan(); build_house_navmesh(); assert(house_wall_solid.ready && house_wall_solid_cutaway.ready && house_wall_cap_union.ready && house_wall_cap_union_edge.ready && len(house_wall_solid.indices) > 0 && len(house_wall_cap_union.indices) > 0 && (house_wall_cap_union_edge.max.x - house_wall_cap_union_edge.min.x) > (house_wall_cap_union.max.x - house_wall_cap_union.min.x) && house_space_kind_at(24, 23) == .Grounds && house_space_kind_at(12, 20) == .Interior); assert(house_window_room_sign(authored_window.a, authored_window.b) != 0 && house_window_room_sign(authored_window.a, authored_window.b) == -house_window_room_sign(authored_window.b, authored_window.a)); assert(house_window_sill_cap_mesh.ready && house_window_head_return_mesh.ready && house_window_jamb_return_mesh.ready && (house_window_sill_cap_mesh.max.z - house_window_sill_cap_mesh.min.z) > HOUSE_WALL_THICKNESS); assert((house_window_mesh.max.z - house_window_mesh.min.z) < (house_window_frame_h_mesh.max.z - house_window_frame_h_mesh.min.z) && house_window_hardware_offset() < HOUSE_WALL_THICKNESS * .5); window_solids := [20]^Glb_Mesh{&house_window_sill_mesh, &house_window_header_mesh, &house_window_frame_h_mesh, &house_window_frame_v_mesh, &house_window_muntin_h_mesh, &house_window_muntin_v_mesh, &house_window_bead_h_mesh, &house_window_bead_v_mesh, &house_window_hardware_h_mesh, &house_window_hardware_v_mesh, &house_window_sill_cap_mesh, &house_window_exterior_sill_mesh, &house_window_head_return_mesh, &house_window_jamb_return_mesh, &house_shutter_slat_mesh, &shutter_crank_housing_mesh, &shutter_crank_arm_mesh, &shutter_crank_link_mesh, &shutter_crank_grip_mesh, &shutter_silk_mesh}; for mesh in window_solids do assert(mesh_triangles_face_outward(mesh)); assert(glazing_faces_both_outward_directions(&house_window_mesh)); for opening in house_plan.openings {if opening.kind == .Door {mx, mz := (opening.a.x + opening.b.x) * .5, (opening.a.y + opening.b.y) * .5; for wall in house_walls do assert(point_segment_distance_sq(mx, mz, wall.a, wall.b) > .08 * .08)}}; for entity, i in WORLD_ENTITIES {if entity.kind != "person" do continue; assert(nav_point_walkable(entity.x, entity.y)); for furniture in house_plan.furniture do assert((entity.x - furniture.x) * (entity.x - furniture.x) + (entity.y - furniture.y) * (entity.y - furniture.y) > (furniture.radius + .3) * (furniture.radius + .3)); for other, j in WORLD_ENTITIES do if other.kind == "person" && j > i do assert((entity.x - other.x) * (entity.x - other.x) + (entity.y - other.y) * (entity.y - other.y) > 1.2 * 1.2)}; placement_game := Game {
+	house_plan_initialize(); build_house_floorplan(); build_house_navmesh(); assert(house_wall_solid.ready && house_wall_solid_cutaway.ready && house_wall_cap_union.ready && house_wall_cap_union_edge.ready && len(house_wall_solid.indices) > 0 && len(house_wall_cap_union.indices) > 0 && (house_wall_cap_union_edge.max.x - house_wall_cap_union_edge.min.x) > (house_wall_cap_union.max.x - house_wall_cap_union.min.x) && house_space_kind_at(24, 23) == .Grounds && house_space_kind_at(12, 20) == .Interior); assert(house_window_room_sign(authored_window.a, authored_window.b) != 0 && house_window_room_sign(authored_window.a, authored_window.b) == -house_window_room_sign(authored_window.b, authored_window.a)); assert(house_window_sill_cap_mesh.ready && house_window_head_return_mesh.ready && house_window_jamb_return_mesh.ready && (house_window_sill_cap_mesh.max.z - house_window_sill_cap_mesh.min.z) > HOUSE_WALL_THICKNESS); assert((house_window_mesh.max.z - house_window_mesh.min.z) < (house_window_frame_h_mesh.max.z - house_window_frame_h_mesh.min.z) && house_window_hardware_offset() < HOUSE_WALL_THICKNESS * .5); window_solids := [20]^Glb_Mesh{&house_window_sill_mesh, &house_window_header_mesh, &house_window_frame_h_mesh, &house_window_frame_v_mesh, &house_window_muntin_h_mesh, &house_window_muntin_v_mesh, &house_window_bead_h_mesh, &house_window_bead_v_mesh, &house_window_hardware_h_mesh, &house_window_hardware_v_mesh, &house_window_sill_cap_mesh, &house_window_exterior_sill_mesh, &house_window_head_return_mesh, &house_window_jamb_return_mesh, &house_shutter_slat_mesh, &shutter_crank_housing_mesh, &shutter_crank_arm_mesh, &shutter_crank_link_mesh, &shutter_crank_grip_mesh, &shutter_silk_mesh}; for mesh in window_solids do assert(mesh_triangles_face_outward(mesh)); assert(glazing_faces_both_outward_directions(&house_window_mesh)); for opening in house_plan.openings {if opening.kind == .Door {mx, mz := (opening.a.x + opening.b.x) * .5, (opening.a.y + opening.b.y) * .5; for wall in house_walls do assert(point_segment_distance_sq(mx, mz, wall.a, wall.b) > .08 * .08)}}; for entity, i in WORLD_ENTITIES {if entity.kind != "person" do continue; assert(nav_point_walkable(entity.x, entity.y)); for furniture in house_plan.furniture do assert((entity.x - furniture.x) * (entity.x - furniture.x) + (entity.y - furniture.y) * (entity.y - furniture.y) > (furniture.radius + .3) * (furniture.radius + .3)); for other, j in WORLD_ENTITIES do if other.kind == "person" && j > i do assert((entity.x - other.x) * (entity.x - other.x) + (entity.y - other.y) * (entity.y - other.y) > 1.2 * 1.2)}; placement_game := Game {
 		story_project = &test_story_project,
 	}; miriam_entity, daniel_entity, elsie_entity :=
 		world_entity_index("miriam"),
@@ -2111,9 +2183,7 @@ run_self_tests :: proc() {
 	// FPS-style near clipping preserves the visible portion of geometry that
 	// crosses the camera plane instead of dropping the whole triangle.
 	_, missing_mesh_ok := glb_load("assets/does-not-exist.glb"); assert(!missing_mesh_ok)
-	run_vertical_link_tests(
-
-	); run_roof_numeric_tests(); run_light_numeric_tests(); run_marker_numeric_tests(); run_light_direction_numeric_tests(); run_ground_generation_tests(); run_marker_editor_tests(); run_diagnostic_focus_tests(); run_editor_playtest_tests(); run_editor_selection_set_tests(); run_vale_house_editor_acceptance_tests(); run_build_spatial_acceptance_tests()
+	run_vertical_link_tests(); run_roof_numeric_tests(); run_light_numeric_tests(); run_marker_numeric_tests(); run_light_direction_numeric_tests(); run_ground_generation_tests(); run_marker_editor_tests(); run_diagnostic_focus_tests(); run_editor_playtest_tests(); run_editor_selection_set_tests(); run_vale_house_editor_acceptance_tests(); run_build_spatial_acceptance_tests()
 	fmt.println(
 		"359/359 StoryCore, house tool, level editor, city, vehicle, and GLB checks passed",
 	)

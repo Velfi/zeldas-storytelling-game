@@ -635,42 +635,7 @@ main :: proc() {
 	initialize_city_vehicles(
 		&g,
 	); initialize_dispositions(&g); initialize_character_animations(&g); if world_preview {g.screen = .Investigate; _ = apply_player_spawn_marker(&g)}; if city_preview && payload != nil {g.screen = .Exterior; _ = city_place_at_landmark(&g, payload.city_start)}
-	if capture_mode &&
-	   argument ==
-		   "--capture-theme-knoll" {g.screen = .Theme_Knoll; g.gui.focused = button_id({300, 458, 220, 42})}
-	if capture_mode && argument == "--capture-theme-knoll-details" do g.screen = .Theme_Knoll_Details
-	if capture_mode && argument == "--capture-campaign-checkbox" {
-		campaign_workspace_begin(
-
-		); campaign_workspace.tab = .Variables; g.screen = .Campaign_Action
-		boolean_index := -1; for variable, i in campaign_workspace.draft.variables do if variable.kind == .Boolean {boolean_index = i; break}
-		if boolean_index <
-		   0 {append(&campaign_workspace.draft.variables, Campaign_Variable{id = "capture_flag", display_name = "Capture flag", description = "Boolean component capture fixture", kind = .Boolean}); boolean_index = len(campaign_workspace.draft.variables) - 1}
-		campaign_workspace.selected_variable =
-			boolean_index; campaign_workspace.draft.variables[boolean_index].default_boolean = true
-	}
-	if capture_mode && strings.has_prefix(argument, "--capture-campaign-authoring-") {
-		campaign_workspace_begin(); g.screen = .Campaign_Action
-		switch argument {case "--capture-campaign-authoring-overview":
-			campaign_workspace.tab = .Overview; case "--capture-campaign-authoring-cases":
-			campaign_workspace.tab = .Cases; case "--capture-campaign-authoring-variables":
-			campaign_workspace.tab = .Variables; case "--capture-campaign-authoring-conditions":
-			campaign_workspace.tab = .Conditions; case "--capture-campaign-authoring-effects":
-			campaign_workspace.tab = .Effects; case "--capture-campaign-authoring-simulation":
-			campaign_workspace.tab = .Simulation; case "--capture-campaign-authoring-diagnostics":
-			campaign_workspace.tab = .Diagnostics}
-	}
-	if capture_mode && strings.has_prefix(argument, "--capture-story-authoring-") {
-		authoring_workspace_begin(&g)
-		switch argument {case "--capture-story-authoring-project":
-			authoring_workspace.tab = .Project; case "--capture-story-authoring-story-data":
-			authoring_workspace.tab = .Story_Data; case "--capture-story-authoring-mystery":
-			authoring_workspace.tab = .Mystery; case "--capture-story-authoring-diagnostics":
-			authoring_workspace.tab = .Diagnostics; case "--capture-story-authoring-assets":
-			authoring_workspace.tab = .Assets; case "--capture-story-authoring-packages":
-			authoring_workspace.tab = .Packages; case "--capture-story-authoring-library":
-			authoring_workspace.tab = .Library}
-	}
+	if capture_mode do capture_configure_authoring(&g, argument)
 	if capture_mode &&
 	   (argument == "--capture-graph" ||
 			   argument == "--capture-graph-minimap-stress" ||
@@ -1429,50 +1394,7 @@ main :: proc() {
 		level_document.active_story =
 			room.story; level_project_runtime(&level_document); minimum := Vec2{1e30, 1e30}; maximum := Vec2{-1e30, -1e30}; for point in room.points {minimum.x = min(minimum.x, point.x); minimum.y = min(minimum.y, point.y); maximum.x = max(maximum.x, point.x); maximum.y = max(maximum.y, point.y)}; center := Vec2{(minimum.x + maximum.x) * .5, (minimum.y + maximum.y) * .5}; g.screen = .Investigate; g.editor_mode = .Build; g.build_tool = .Select; g.top_down_camera = true; g.player_x = center.x; g.player_y = center.y; g.camera_x = center.x; g.camera_y = center.y; g.camera_zoom = editor_frame_zoom(minimum, maximum, len(room.points)); g.camera_initialized = true; g.camera_orbit_initialized = true; g.cutaway_transition = 1; editor_state.view = .Top_Down; editor_state.selection[0] = {.Room, room.id, -1}; editor_state.selection_count = 1
 	}
-	if capture_mode {
-		for value in os.args do if value == "--hide-roofs" do g.capture_hide_roofs = true
-		camera_position_text := argument_value(
-			"--camera-position=",
-		); camera_look_at_text := argument_value("--camera-look-at=")
-		if camera_position_text != "" || camera_look_at_text != "" {
-			if camera_position_text == "" ||
-			   camera_look_at_text ==
-				   "" {fmt.eprintln("custom capture camera requires both --camera-position=x,y,z and --camera-look-at=x,y,z"); return}
-			camera_position, position_ok := parse_vec3_argument(
-				camera_position_text,
-			); camera_look_at, look_at_ok := parse_vec3_argument(camera_look_at_text)
-			if !position_ok ||
-			   !look_at_ok {fmt.eprintln("capture camera values must be comma-separated x,y,z numbers"); return}
-			dx, dy, dz :=
-				camera_look_at.x -
-				camera_position.x,
-				camera_look_at.y -
-				camera_position.y,
-				camera_look_at.z -
-				camera_position.z
-			if dx * dx + dy * dy + dz * dz <
-			   .0001 {fmt.eprintln("capture camera position and look-at must be different"); return}
-			g.camera_pose_override =
-				true; g.camera_eye_override = camera_position; g.camera_target_override = camera_look_at; g.screen = .Investigate
-		}
-		walls_text := argument_value("--walls="); cutaway_text := argument_value("--cutaway=")
-		if walls_text != "" &&
-		   cutaway_text !=
-			   "" {fmt.eprintln("use either --walls=auto|up|down or --cutaway=0..1, not both"); return}
-		if walls_text != "" {
-			wall_view, wall_view_ok := capture_wall_view_from_text(
-				walls_text,
-			); if !wall_view_ok {fmt.eprintln("capture wall mode must be auto, up, down, or cutaway"); return}; g.wall_view = wall_view
-			if wall_view ==
-			   .Walls_Up {g.cutaway_transition = 0; for &amount in g.wall_cutaways do amount = 0} else if wall_view == .Walls_Down {g.cutaway_transition = 1; for &amount in g.wall_cutaways do amount = 1} else {maximum_cutaway: f32; for &wall, i in house_walls {if i >= len(g.wall_cutaways) do break; amount := house_wall_cutaway_target(&g, &wall); g.wall_cutaways[i] = amount; maximum_cutaway = max(maximum_cutaway, amount)}; g.cutaway_transition = maximum_cutaway}
-		}
-		if cutaway_text != "" {
-			amount, amount_ok := strconv.parse_f32(
-				strings.trim_space(cutaway_text),
-			); if !amount_ok || amount < 0 || amount > 1 {fmt.eprintln("capture cutaway amount must be between 0 and 1"); return}
-			g.wall_view = .Automatic; g.cutaway_transition = amount; g.capture_cutaway_override = true; g.capture_cutaway_amount = amount; for &wall_amount in g.wall_cutaways do wall_amount = amount
-		}
-	}
+	if capture_mode && !capture_apply_cli_overrides(&g) do return
 	capture_name :=
 		capture_mode ? argument[len("--capture-"):] : ""; capture_path := argument == "--capture-catalog-thumbnail" ? fmt.tprintf("/private/tmp/chicago-catalog-%s.png", os.args[2]) : fmt.tprintf("/private/tmp/chicago-vulkan-%s.png", capture_name); custom_capture_path := argument_value("--capture-output="); if custom_capture_path != "" do capture_path = custom_capture_path; capture_mouse := g.input.mouse_pos; capture_device := g.active_device; frames := 0; profile_draw_seconds, profile_frame_seconds, profile_shadow_ms, profile_world_ms, profile_ui_ms, profile_tail_ms, profile_lights_ms, profile_batches_ms, profile_unbatched_ms, profile_draw_setup_ms, profile_draw_refresh_ms, profile_draw_world_build_ms, profile_draw_weather_ms, profile_draw_overlay_ms, profile_house_structure_ms, profile_house_surfaces_ms, profile_house_walls_ms, profile_house_openings_ms, profile_house_objects_ms, profile_house_characters_ms: f64; profile_samples := 0
 	// Rendering produces elapsed wall time; the simulation consumes it only in

@@ -578,11 +578,44 @@ campaign_focus_visible_selection :: proc(g: ^Game) {
 	   .Campaign_Cases {first := campaign_case_page * 4; last := min(first + 4, len(campaign_document.cases)); for i in first ..< last do if campaign_case_unlocked(&campaign_document, &campaign_playthrough, i) && g.gui.focused == button_id(campaign_case_card_rect(i - first)) {campaign_playthrough.active_case = i; return}}
 }
 
-pause_snapshot: Game
+Pause_Snapshot :: struct {
+	game: Game,
+}
+
+pause_snapshot: Pause_Snapshot
 pause_snapshot_available: bool
 pause_story_snapshot: Story_Runtime_Save
 pause_story_snapshot_available: bool
 pause_snapshot_content_identity: u64
+
+pause_snapshot_destroy :: proc(snapshot: ^Pause_Snapshot) {
+	delete(snapshot.game.quest_transition_ids)
+	delete(snapshot.game.quest_transition_status)
+	delete(snapshot.game.vehicles)
+	delete(snapshot.game.city_furniture)
+	snapshot^ = {}
+}
+
+pause_snapshot_capture :: proc(g: ^Game) -> Pause_Snapshot {
+	result := Pause_Snapshot {
+		game = g^,
+	}
+	// Platform handles and audio samples remain live process resources. Clone
+	// every mutable dynamic collection owned by Game so later play cannot mutate
+	// the saved state through a shared backing allocation.
+	result.game.quest_transition_ids = make([dynamic]string, len(g.quest_transition_ids))
+	copy(result.game.quest_transition_ids[:], g.quest_transition_ids[:])
+	result.game.quest_transition_status = make(
+		[dynamic]Story_Objective_Status,
+		len(g.quest_transition_status),
+	)
+	copy(result.game.quest_transition_status[:], g.quest_transition_status[:])
+	result.game.vehicles = make([dynamic]Vehicle_State, len(g.vehicles))
+	copy(result.game.vehicles[:], g.vehicles[:])
+	result.game.city_furniture = make([dynamic]City_Furniture_State, len(g.city_furniture))
+	copy(result.game.city_furniture[:], g.city_furniture[:])
+	return result
+}
 
 pause_screen_available :: proc(screen: Screen) -> bool {
 	#partial switch screen {case .Introduction,
@@ -605,9 +638,166 @@ back_opens_pause :: proc(screen: Screen) -> bool {
 	return screen != .Dialogue && pause_screen_available(screen)
 }
 
+Back_Action :: enum {
+	None,
+	End_Graph_Playtest,
+	Open_Pause,
+	Close_Pause,
+	Cancel_Box_Select,
+	Cancel_Object_Rotation,
+	Dismiss_Game_Over,
+	Dismiss_Exit_Confirm,
+	Dismiss_Shortcut_Help,
+	Dismiss_View_Menu,
+	Request_Build_Exit,
+	Leave_Authoring,
+	Build_Context,
+	Dialogue_Context,
+	Options_Return,
+	Campaign_To_Title,
+	Cases_To_Campaign_Action,
+	Campaign_Action_To_Campaign,
+	Attributes_Return,
+	Notebook_Return,
+	Challenge_To_Board,
+	Board_Return,
+	Recreate_Return,
+	Diagnostics_To_Investigation,
+	Reveal_Prep_To_Board,
+	Check_To_Investigation,
+	Fallback_To_Campaign,
+}
+
+back_action_for :: proc(g: ^Game) -> Back_Action {
+	if !g.input.back do return .None
+	if graph_state.playtesting do return .End_Graph_Playtest
+	if back_opens_pause(g.screen) && g.editor_mode == .None do return .Open_Pause
+	if g.screen == .Pause do return .Close_Pause
+	if editor_state.box_select_active do return .Cancel_Box_Select
+	if g.screen == .Investigate && g.editor_mode == .Build && editor_state.object_rotate_active do return .Cancel_Object_Rotation
+	if g.screen == .Game_Over do return .Dismiss_Game_Over
+	if g.screen == .Investigate && g.editor_mode == .Build {
+		if editor_state.exit_confirm_visible do return .Dismiss_Exit_Confirm
+		if editor_state.shortcut_help_visible do return .Dismiss_Shortcut_Help
+		if editor_state.view_menu_visible do return .Dismiss_View_Menu
+		if g.build_tool == .Select && !editor_state.search_active && !editor_state.paint_eyedropper && !editor_state.drag_active && !editor_state.terrain_stroke_active && !editor_state.foundation_rectangle_active && editor_state.foundation_draw_count == 0 && !editor_state.room_rectangle_active && !editor_state.link_anchor_active && editor_state.path_draw_count == 0 && editor_state.water_draw_count == 0 && editor_state.room_draw_count == 0 && !g.build_has_anchor do return .Request_Build_Exit
+		return .Build_Context
+	}
+	#partial switch g.screen {
+	case .Authoring:
+		return .Leave_Authoring
+	case .Dialogue:
+		return .Dialogue_Context
+	case .Options:
+		return .Options_Return
+	case .Campaign:
+		return .Campaign_To_Title
+	case .Campaign_Cases:
+		return .Cases_To_Campaign_Action
+	case .Campaign_Action:
+		if !campaign_workspace.open do return .Campaign_Action_To_Campaign
+	case .Attributes:
+		return .Attributes_Return
+	case .Notebook:
+		return .Notebook_Return
+	case .Challenge:
+		return .Challenge_To_Board
+	case .Board:
+		return .Board_Return
+	case .Recreate:
+		return .Recreate_Return
+	case .Diagnostics:
+		return .Diagnostics_To_Investigation
+	case .Reveal_Prep:
+		return .Reveal_Prep_To_Board
+	case .Check:
+		return .Check_To_Investigation
+	case .Title, .Investigate, .Exterior:
+		return .None
+	case:
+		return .Fallback_To_Campaign
+	}
+	return .None
+}
+
+transition_screen :: proc(g: ^Game, target: Screen) {
+	if g.screen == target do return
+	g.screen = target
+	if g.drag.kind != .None && g.drag.origin_screen != target do drag_cancel(g)
+	g.focus_screen_initialized = false
+}
+
+handle_build_back :: proc(g: ^Game) {
+	if editor_state.search_active {editor_state.search_active = false} else if editor_state.paint_eyedropper {editor_state.paint_eyedropper = false} else if editor_state.drag_active {editor_cancel_drag()} else if editor_state.terrain_stroke_active {editor_cancel_terrain_stroke()} else if editor_state.foundation_rectangle_active {editor_state.foundation_rectangle_active = false} else if editor_state.foundation_draw_count > 0 {editor_state.foundation_draw_count = 0} else if editor_state.room_rectangle_active {editor_state.room_rectangle_active = false} else if editor_state.link_anchor_active {editor_state.link_anchor_active = false} else if editor_state.path_draw_count > 0 {editor_state.path_draw_count = 0} else if editor_state.water_draw_count > 0 {editor_state.water_draw_count = 0} else if editor_state.room_draw_count > 0 {editor_state.room_draw_count = 0} else if g.build_has_anchor {g.build_has_anchor = false; editor_state.wall_preview_active = false} else if g.build_tool != .Select {g.build_tool = editor_escape_target(g.build_tool); editor_state.placement_active = false; editor_state.opening_active = false; editor_state.roof_hover_active = false} else {g.editor_mode = .None}
+}
+
+handle_back_action :: proc(g: ^Game) -> bool {
+	action := back_action_for(g)
+	if action == .None do return false
+	g.input.back = false
+	#partial switch action {
+	case .End_Graph_Playtest:
+		_ = graph_end_playtest(g); return true
+	case .Open_Pause:
+		g.pause_return = g.screen; g.pause_feedback = ""; transition_screen(g, .Pause)
+	case .Close_Pause:
+		transition_screen(g, g.pause_return)
+	case .Cancel_Box_Select:
+		editor_state.box_select_active = false
+	case .Cancel_Object_Rotation:
+		editor_cancel_object_rotation()
+	case .Dismiss_Game_Over:
+	case .Dismiss_Exit_Confirm:
+		editor_state.exit_confirm_visible = false
+	case .Dismiss_Shortcut_Help:
+		editor_state.shortcut_help_visible = false
+	case .Dismiss_View_Menu:
+		editor_state.view_menu_visible = false
+	case .Request_Build_Exit:
+		authoring_app_request_build_exit(g)
+	case .Leave_Authoring:
+		transition_screen(g, .Campaign_Action)
+	case .Build_Context:
+		handle_build_back(g)
+	case .Dialogue_Context:
+		dialogue_back(g)
+	case .Options_Return:
+		transition_screen(g, g.menu_return)
+	case .Campaign_To_Title:
+		transition_screen(g, .Title)
+	case .Cases_To_Campaign_Action:
+		transition_screen(g, .Campaign_Action)
+	case .Campaign_Action_To_Campaign:
+		transition_screen(g, .Campaign)
+	case .Attributes_Return:
+		return_from_menu_overlay(g, g.menu_detail_return, g.menu_detail_return_focus)
+	case .Notebook_Return:
+		return_from_menu_overlay(g, g.notebook_return, g.notebook_return_focus)
+	case .Challenge_To_Board:
+		transition_screen(g, .Board)
+	case .Board_Return:
+		return_from_board(g)
+	case .Recreate_Return:
+		if g.interaction_active ||
+		   g.interaction_mismatch {g.interaction_active = false; g.interaction_mismatch = false; transition_screen(g, .Challenge)} else {transition_screen(g, .Board)}
+	case .Diagnostics_To_Investigation:
+		transition_screen(g, .Investigate)
+	case .Reveal_Prep_To_Board:
+		transition_screen(g, .Board)
+	case .Check_To_Investigation:
+		transition_screen(g, .Investigate)
+	case .Fallback_To_Campaign:
+		g.menu_return = g.screen; transition_screen(g, .Campaign)
+	case .None:
+	}
+	return true
+}
+
 pause_save_game :: proc(g: ^Game) -> bool {
 	if pause_story_snapshot_available do story_runtime_save_destroy(&pause_story_snapshot)
-	pause_snapshot = g^; pause_snapshot.screen = g.pause_return
+	if pause_snapshot_available do pause_snapshot_destroy(&pause_snapshot)
+	pause_snapshot = pause_snapshot_capture(g)
+	pause_snapshot.game.screen = g.pause_return
 	pause_story_snapshot_available = g.story_runtime != nil
 	if pause_story_snapshot_available {pause_story_snapshot = story_runtime_save(g.story_runtime); pause_snapshot_content_identity = g.story_runtime.compiled.content_identity} else do pause_snapshot_content_identity = 0
 	pause_snapshot_available = true
@@ -619,10 +809,15 @@ pause_load_game :: proc(g: ^Game) -> bool {
 	if !pause_snapshot_available do return false
 	if pause_snapshot_content_identity != 0 && (g.story_runtime == nil || g.story_runtime.compiled.content_identity != pause_snapshot_content_identity) do return false
 	gui :=
-		g.gui; running := g.running; window_resized := g.window_resized; gamepad := g.gamepad; audio_stream := g.audio_stream; vehicle_audio_stream := g.vehicle_audio_stream
-	g^ = pause_snapshot
+		g.gui; running := g.running; window_resized := g.window_resized; gamepad := g.gamepad; audio_stream := g.audio_stream; vehicle_audio_stream := g.vehicle_audio_stream; sounds := g.sounds
+	delete(g.quest_transition_ids)
+	delete(g.quest_transition_status)
+	delete(g.vehicles)
+	delete(g.city_furniture)
+	restored := pause_snapshot_capture(&pause_snapshot.game)
+	g^ = restored.game
 	g.gui =
-		gui; g.running = running; g.window_resized = window_resized; g.gamepad = gamepad; g.audio_stream = audio_stream; g.vehicle_audio_stream = vehicle_audio_stream; g.input = {}; for &down in g.keys do down = false; for &down in g.pad_buttons do down = false
+		gui; g.running = running; g.window_resized = window_resized; g.gamepad = gamepad; g.audio_stream = audio_stream; g.vehicle_audio_stream = vehicle_audio_stream; g.sounds = sounds; g.input = {}; for &down in g.keys do down = false; for &down in g.pad_buttons do down = false
 	if pause_story_snapshot_available &&
 	   g.story_runtime !=
 		   nil {_ = story_runtime_restore(g.story_runtime, &pause_story_snapshot); g.story_state = &g.story_runtime.state; g.mystery_state = cast(^Mystery_State)story_runtime_capability_state(g.story_runtime, "mystery", MYSTERY_DOMAIN_VERSION)}
@@ -685,55 +880,12 @@ update :: proc(g: ^Game) {
 	campaign_focus_visible_selection(g)
 	defer ui.gui_end_frame(&g.gui)
 	defer drag_cancel_if_screen_changed(g)
-	if graph_state.playtesting &&
-	   g.input.back {_ = graph_end_playtest(g); g.input.back = false; return}
-	if g.input.back &&
-	   back_opens_pause(g.screen) &&
-	   g.editor_mode ==
-		   .None {g.pause_return = g.screen; g.pause_feedback = ""; g.screen = .Pause; g.input.back = false}
-	if g.input.back && g.screen == .Pause {g.screen = g.pause_return; g.input.back = false}
-	if g.input.back &&
-	   editor_state.box_select_active {editor_state.box_select_active = false; g.input.back = false}
-	if g.input.back &&
-	   g.screen == .Investigate &&
-	   g.editor_mode == .Build &&
-	   editor_state.object_rotate_active {editor_cancel_object_rotation(); g.input.back = false}
-	if g.input.back && g.screen == .Game_Over do g.input.back = false
-	if g.input.back &&
-	   g.screen == .Investigate &&
-	   g.editor_mode == .Build &&
-	   editor_state.exit_confirm_visible {editor_state.exit_confirm_visible = false; g.input.back = false}
-	if g.input.back &&
-	   g.screen == .Investigate &&
-	   g.editor_mode == .Build &&
-	   editor_state.shortcut_help_visible {editor_state.shortcut_help_visible = false; g.input.back = false}
-	if g.input.back &&
-	   g.screen == .Investigate &&
-	   g.editor_mode == .Build &&
-	   editor_state.view_menu_visible {editor_state.view_menu_visible = false; g.input.back = false}
-	if g.input.back &&
-	   g.screen == .Investigate &&
-	   g.editor_mode == .Build &&
-	   g.build_tool == .Select &&
-	   !editor_state.search_active &&
-	   !editor_state.paint_eyedropper &&
-	   !editor_state.drag_active &&
-	   !editor_state.terrain_stroke_active &&
-	   !editor_state.foundation_rectangle_active &&
-	   editor_state.foundation_draw_count == 0 &&
-	   !editor_state.room_rectangle_active &&
-	   !editor_state.link_anchor_active &&
-	   editor_state.path_draw_count == 0 &&
-	   editor_state.water_draw_count == 0 &&
-	   editor_state.room_draw_count == 0 &&
-	   !g.build_has_anchor {authoring_app_request_build_exit(g); g.input.back = false}
-	if g.input.back && g.screen == .Authoring {g.screen = .Campaign_Action; g.input.back = false}
-	if g.input.back {if g.screen == .Investigate && g.editor_mode == .Build {if editor_state.search_active {editor_state.search_active = false} else if editor_state.paint_eyedropper {editor_state.paint_eyedropper = false} else if editor_state.drag_active {editor_cancel_drag()} else if editor_state.terrain_stroke_active {editor_cancel_terrain_stroke()} else if editor_state.foundation_rectangle_active {editor_state.foundation_rectangle_active = false} else if editor_state.foundation_draw_count > 0 {editor_state.foundation_draw_count = 0} else if editor_state.room_rectangle_active {editor_state.room_rectangle_active = false} else if editor_state.link_anchor_active {editor_state.link_anchor_active = false} else if editor_state.path_draw_count > 0 {editor_state.path_draw_count = 0} else if editor_state.water_draw_count > 0 {editor_state.water_draw_count = 0} else if editor_state.room_draw_count > 0 {editor_state.room_draw_count = 0} else if g.build_has_anchor {g.build_has_anchor = false; editor_state.wall_preview_active = false} else if g.build_tool != .Select {g.build_tool = editor_escape_target(g.build_tool); editor_state.placement_active = false; editor_state.opening_active = false; editor_state.roof_hover_active = false} else {g.editor_mode = .None}} else if g.screen == .Dialogue {dialogue_back(g)} else if g.screen == .Options {g.screen = g.menu_return} else if g.screen == .Campaign {g.screen = .Title} else if g.screen == .Campaign_Cases {g.screen = .Campaign_Action} else if g.screen == .Campaign_Action && !campaign_workspace.open {g.screen = .Campaign} else if g.screen == .Attributes {return_from_menu_overlay(g, g.menu_detail_return, g.menu_detail_return_focus)} else if g.screen == .Notebook {return_from_menu_overlay(g, g.notebook_return, g.notebook_return_focus)} else if g.screen == .Challenge {g.screen = .Board} else if g.screen == .Board {return_from_board(g)} else if g.screen == .Recreate {if g.interaction_active || g.interaction_mismatch {g.interaction_active = false; g.interaction_mismatch = false; g.screen = .Challenge} else {g.screen = .Board}} else if g.screen == .Diagnostics {g.screen = .Investigate} else if g.screen == .Reveal_Prep {g.screen = .Board} else if g.screen == .Check {g.screen = .Investigate} else if g.screen != .Title && g.screen != .Investigate && g.screen != .Exterior {g.menu_return = g.screen; g.screen = .Campaign}}
+	if handle_back_action(g) do return
 	#partial switch g.screen {
 	case .Title:
-		if button(g, {410, 400, 380, 48}) do g.screen = .Campaign
+		if button(g, {410, 400, 380, 48}) do transition_screen(g, .Campaign)
 		if button(g, {410, 456, 380, 48}) do continue_from_title(g)
-		if button(g, {410, 512, 380, 48}) {g.menu_return = .Title; g.screen = .Options}
+		if button(g, {410, 512, 380, 48}) {g.menu_return = .Title; transition_screen(g, .Options)}
 		if button(g, {410, 568, 380, 48}) {g.running = false}
 	case .Campaign:
 		viewport := campaign_browser_viewport()
@@ -743,25 +895,31 @@ update :: proc(g: ^Game) {
 			campaign_browser_content_height(),
 			&campaign_browser.scroll,
 		)
-		for i in 0 ..< campaign_browser.count {if campaign_browser_card_button(g, i) {campaign_browser.selected = i; chosen := campaign_choose(i); campaign_browser.feedback = chosen.message; if chosen.ok do g.screen = .Campaign_Action}}
+		for i in 0 ..< campaign_browser.count {if campaign_browser_card_button(g, i) {campaign_browser.selected = i; chosen := campaign_choose(i); campaign_browser.feedback = chosen.message; if chosen.ok do transition_screen(g, .Campaign_Action)}}
 		ui.gui_scroll_end(&g.gui)
-		if button(g, {120, 610, 180, 52}) {g.menu_return = .Campaign; g.screen = .Options}
+		if button(
+			g,
+			{120, 610, 180, 52},
+		) {g.menu_return = .Campaign; transition_screen(g, .Options)}
 		if button(g, {310, 610, 150, 52}) do g.running = false
 	case .Campaign_Action:
 		if campaign_workspace.open {update_campaign_workspace(g); break}
 		if button(
 			g,
 			{410, 286, 380, 52},
-		) {campaign_playthrough.active_case = campaign_first_unlocked_case(&campaign_document, &campaign_playthrough); campaign_case_page = max(campaign_playthrough.active_case, 0) / 4; g.screen = .Campaign_Cases}
+		) {campaign_playthrough.active_case = campaign_first_unlocked_case(&campaign_document, &campaign_playthrough); campaign_case_page = max(campaign_playthrough.active_case, 0) / 4; transition_screen(g, .Campaign_Cases)}
 		if campaign_can_continue() &&
 		   button(
 			   g,
 			   {410, 354, 380, 52},
 		   ) {continued := campaign_continue_selected(g); campaign_workspace.feedback = continued.message}
 		if !player_package_mode &&
-		   button(g, {410, 438, 380, 42}) {campaign_workspace_begin(); g.screen = .Campaign_Action}
+		   button(
+			   g,
+			   {410, 438, 380, 42},
+		   ) {campaign_workspace_begin(); transition_screen(g, .Campaign_Action)}
 		if button(g, {410, 488, 380, 42}) do authoring_workspace_begin(g)
-		if button(g, {410, 570, 380, 48}) do g.screen = .Campaign
+		if button(g, {410, 570, 380, 48}) do transition_screen(g, .Campaign)
 	case .Authoring:
 		update_authoring_workspace(g)
 	case .Campaign_Cases:
@@ -776,7 +934,7 @@ update :: proc(g: ^Game) {
 			{760, 610, 310, 52},
 		) {selected := campaign_playthrough.active_case; if selected >= 0 {ready := campaign_playthrough_unused(&campaign_playthrough); if !ready do ready = campaign_create_playthrough(fmt.tprintf("Investigation %d", campaign_playthroughs.count + 1)); if ready {campaign_playthrough.active_case = selected; launched := campaign_launch_case(g, selected); campaign_workspace.feedback = launched.message} else if campaign_playthroughs.count >= CAMPAIGN_MAX_PLAYTHROUGHS do campaign_workspace.feedback = "INVESTIGATION SAVE LIMIT REACHED"
 				else do campaign_workspace.feedback = "COULD NOT SAVE A NEW INVESTIGATION"}}
-		if button(g, {130, 610, 220, 52}) do g.screen = .Campaign_Action
+		if button(g, {130, 610, 220, 52}) do transition_screen(g, .Campaign_Action)
 	case .Options:
 		if button(g, {410, 145, 380, 48}) {g.mute = !g.mute; persist_game_options(g)}
 		if button(
@@ -791,9 +949,9 @@ update :: proc(g: ^Game) {
 			g,
 			{410, 445, 380, 48},
 		) {g.guidance_mode = Guidance_Mode((int(g.guidance_mode) + 1) % len(Guidance_Mode)); g.tutorial.guidance = g.guidance_mode; persist_game_options(g)}
-		if button(g, {410, 630, 380, 42}) do g.screen = g.menu_return
+		if button(g, {410, 630, 380, 42}) do transition_screen(g, g.menu_return)
 	case .Pause:
-		if button(g, {410, 210, 380, 48}) do g.screen = g.pause_return
+		if button(g, {410, 210, 380, 48}) do transition_screen(g, g.pause_return)
 		if button(
 			g,
 			{410, 266, 380, 48},
@@ -802,8 +960,11 @@ update :: proc(g: ^Game) {
 			g,
 			{410, 322, 380, 48},
 		) {if !pause_load_game(g) do g.pause_feedback = "NO SAVED GAME"}
-		if button(g, {410, 378, 380, 48}) {g.menu_return = .Pause; g.screen = .Options}
-		if button(g, {410, 434, 380, 48}) {g.menu_return = g.pause_return; g.screen = .Title}
+		if button(g, {410, 378, 380, 48}) {g.menu_return = .Pause; transition_screen(g, .Options)}
+		if button(
+			g,
+			{410, 434, 380, 48},
+		) {g.menu_return = g.pause_return; transition_screen(g, .Title)}
 		if button(g, {410, 490, 380, 48}) do g.running = false
 	case .Introduction:
 		if button(g, {410, 625, 380, 58}) do advance_introduction(g)
@@ -1349,10 +1510,12 @@ update :: proc(g: ^Game) {
 			break
 		}
 		update_world(g)
-		if button(g, gameplay_theory_rect()) || g.keys[.B] || g.input.recreate {g.screen = .Board}
+		if button(g, gameplay_theory_rect()) ||
+		   g.keys[.B] ||
+		   g.input.recreate {transition_screen(g, .Board)}
 		if button(g, gameplay_attributes_rect()) || g.input.attributes {open_attributes(g)}
 		if button(g, gameplay_notebook_rect()) || g.input.notebook {open_notebook(g)}
-		if g.keys[.F12] {g.screen = .Diagnostics}
+		if g.keys[.F12] {transition_screen(g, .Diagnostics)}
 	case .Dialogue:
 		update_dialogue(g)
 	case .Check:
@@ -1370,7 +1533,7 @@ update :: proc(g: ^Game) {
 			   g,
 			   {430, 500, 340, 50},
 		   ) {if g.investigation_locked && !overtime_active(g) do route_locked_investigation(g)
-			else do g.screen = g.check_from_dialogue ? .Dialogue : .Investigate}
+			else do transition_screen(g, g.check_from_dialogue ? .Dialogue : .Investigate)}
 	case .Attributes:
 		for i in 0 ..< 4 do if button(g, {42, 145 + f32(i) * 117, 250, 105}) do g.attribute_selected = i
 		if button(g, menu_overlay_back_rect()) do return_from_menu_overlay(g, g.menu_detail_return, g.menu_detail_return_focus)
@@ -1397,8 +1560,8 @@ update :: proc(g: ^Game) {
 		if button(g, {40, 70, 210, 38}) do g.board_view = 0
 		if button(g, {265, 70, 250, 38}) do g.board_view = 1
 		if g.board_view == 0 {
-			for slot in 0 ..< 3 {i := visible_question_index(g, slot); if i >= 0 && button(g, {120, 145 + f32(slot) * 135, 960, 112}) {g.question_selected = i; g.question_slot = 0; g.knowledge_cursor = 0; g.screen = .Challenge}}
-			if button(g, {400, 610, 400, 58}) do g.screen = .Reveal_Prep
+			for slot in 0 ..< 3 {i := visible_question_index(g, slot); if i >= 0 && button(g, {120, 145 + f32(slot) * 135, 960, 112}) {g.question_selected = i; g.question_slot = 0; g.knowledge_cursor = 0; transition_screen(g, .Challenge)}}
+			if button(g, {400, 610, 400, 58}) do transition_screen(g, .Reveal_Prep)
 		} else {
 			event_chain_from_evidence(g)
 			for i in 0 ..< g.workbench_event_count do if button(g, event_chain_card_rect(i)) do g.workbench_selected = i
@@ -1415,10 +1578,10 @@ update :: proc(g: ^Game) {
 			   len(
 				   payload.questions,
 			   ) {demo_index := demonstration_for_question(g, g.question_selected); if demo_index >= 0 {demo := &payload.demonstrations[demo_index]; for slot in 0 ..< demo.slot_count do if button(g, {70 + f32(slot) * 365, 205, 330, 104}) {g.question_slot = slot; g.knowledge_cursor = 0; if mystery_question_slot(g, g.question_selected, slot) != "" do question_clear_slot(g)}; piece_count := question_slot_piece_count(g); start := clamp(g.knowledge_cursor, 0, max(0, piece_count - 3)); for shown in 0 ..< min(3, piece_count - start) {piece := question_slot_piece_id(g, start + shown); x := 70 + f32(shown) * 365; if button(g, {x, 380, 330, 150}) do question_place_piece(g, piece)}; if button(g, {70, 555, 150, 48}) || g.input.shoulder_left do g.knowledge_cursor = max(0, g.knowledge_cursor - 3); if button(g, {235, 555, 150, 48}) || g.input.shoulder_right do g.knowledge_cursor = min(max(0, piece_count - 3), g.knowledge_cursor + 3); can_demonstrate := question_slots_full(g, g.question_selected); if can_demonstrate && (button(g, {845, 625, 300, 58}) || g.input.recreate) do begin_question_demonstration(g)}}
-		if button(g, {40, 640, 220, 48}) do g.screen = .Board
+		if button(g, {40, 640, 220, 48}) do transition_screen(g, .Board)
 	case .Recreate:
 		if g.input.notebook {open_notebook(g); break}
-		if g.interaction_active {if button(g, {440, 630, 320, 54}) || g.input.recreate do advance_question_interaction(g)} else if g.interaction_mismatch {if button(g, {440, 630, 320, 54}) {g.interaction_mismatch = false; g.screen = .Challenge}} else if button(g, {440, 630, 320, 54}) {g.screen = .Board}
+		if g.interaction_active {if button(g, {440, 630, 320, 54}) || g.input.recreate do advance_question_interaction(g)} else if g.interaction_mismatch {if button(g, {440, 630, 320, 54}) {g.interaction_mismatch = false; transition_screen(g, .Challenge)}} else if button(g, {440, 630, 320, 54}) {transition_screen(g, .Board)}
 	case .Game_Over:
 		if button(
 			g,
@@ -1439,7 +1602,7 @@ update :: proc(g: ^Game) {
 					case_ending_trigger_for_outcome(g.result),
 				) {g.phase = .Case_Result; g.screen = .Result}} else {g.reveal_act = 0; g.finale_demo_step = 0; g.phase = .Final_Reveal
 				g.screen = .Reveal}}
-		if button(g, {40, 640, 200, 48}) {g.screen = .Board}
+		if button(g, {40, 640, 200, 48}) {transition_screen(g, .Board)}
 		if button(g, {930, 640, 220, 48}) {open_notebook(g)}
 	case .Reveal:
 		if button(
@@ -1451,7 +1614,7 @@ update :: proc(g: ^Game) {
 		   ending !=
 		   nil {if !(ending.primary_action == "reveal" && g.show_canonical) && button(g, {300, 630, 280, 54}) do perform_case_ending_action(g, ending.primary_action); if ending.secondary_label != "" && button(g, {620, 630, 280, 54}) do perform_case_ending_action(g, ending.secondary_action)} else {if button(g, {300, 630, 280, 54}) {g.show_canonical = true}; if button(g, {620, 630, 280, 54}) do reset_case_state(g, begin_new_story_seed(), .Campaign)}
 	case .Diagnostics:
-		if button(g, {20, 650, 180, 42}) {g.screen = .Investigate}
+		if button(g, {20, 650, 180, 42}) {transition_screen(g, .Investigate)}
 		if button(g, {550, 505, 300, 42}) do copy_case_pacing_report(g)
 	}
 }
