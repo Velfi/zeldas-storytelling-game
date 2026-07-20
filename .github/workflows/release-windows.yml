@@ -44,8 +44,7 @@ jobs:
       - name: Install native dependencies
         shell: pwsh
         run: |
-          vcpkg install harfbuzz:x64-windows freetype:x64-windows sdl3:x64-windows
-          choco install vulkan-sdk -y --no-progress
+          vcpkg install harfbuzz:x64-windows freetype:x64-windows "sdl3[vulkan]:x64-windows" vulkan-headers:x64-windows vulkan-loader:x64-windows
 
       - name: Build native libraries and game
         shell: pwsh
