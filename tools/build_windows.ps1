@@ -44,7 +44,7 @@ try {
     if (-not (Test-Path $physicsDll)) { throw "zelda_physics.dll was not produced at $physicsDll" }
     Copy-Item $physicsDll "$build\zelda_physics.dll" -Force
 
-    Invoke-Native { cl /nologo /O2 /c "$engine\third_party\textshape\textshape.c" "/I$installed\include" "/Fo$engine\third_party\textshape\textshape.obj" }
+    Invoke-Native { cl /nologo /O2 /c "$engine\third_party\textshape\textshape.c" "/I$installed\include\freetype2" "/I$installed\include\harfbuzz" "/Fo$engine\third_party\textshape\textshape.obj" }
     Invoke-Native { lib /nologo "/OUT:$engine\third_party\textshape\textshape.lib" "$engine\third_party\textshape\textshape.obj" }
     Copy-Item "$engine\third_party\textshape\textshape.lib" "third_party\textshape.lib" -Force
 

@@ -44,7 +44,7 @@ jobs:
       - name: Install native dependencies
         shell: pwsh
         run: |
-          vcpkg install harfbuzz:x64-windows freetype:x64-windows
+          vcpkg install harfbuzz:x64-windows freetype:x64-windows sdl3:x64-windows
           choco install vulkan-sdk -y --no-progress
 
       - name: Build native libraries and game
@@ -53,7 +53,9 @@ jobs:
 
       - name: Run tests
         shell: pwsh
-        run: build/zeldas-storytelling-game.exe --self-test
+        run: |
+          New-Item -ItemType Directory -Force (Join-Path $PWD.Drive.Root "private\tmp") | Out-Null
+          build/zeldas-storytelling-game.exe --self-test
 
       - name: Package Windows archive
         shell: pwsh
